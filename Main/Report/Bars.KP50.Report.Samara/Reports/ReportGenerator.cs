@@ -408,7 +408,7 @@ namespace Bars.KP50.Report.Samara.Reports
 
             SrokDolgS = UserParamValues["SrokDolgS"].GetValue<int?>() ?? 0;
             SrokDolgPo = UserParamValues["SrokDolgPo"].GetValue<int?>() ?? 999;
-            DolgS = UserParamValues["DolgS"].GetValue<decimal?>() ?? 0;
+            DolgS = UserParamValues["DolgS"].GetValue<decimal?>() ?? -100000000;
             DolgPo = UserParamValues["DolgPo"].GetValue<decimal?>() ?? 100000000;
 
 
