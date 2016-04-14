@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="02/13/2014 12:47:24" ReportInfo.Modified="02/19/2014 11:04:20" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void PageFooter1_AfterData(object sender, EventArgs e)
+    {
+      bool is_show = Convert.ToBoolean(Report.GetParameterValue(&quot;invisible_footer&quot;));
+      if (!is_show)
+      {
+        PageFooter1.Visible=false;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_potarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rsum_lgota" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_real" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_chrev" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="money_from" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="money_del" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_nedop" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_nedop_p" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="t_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_sum_potarif" Expression="[Q_master.sum_potarif]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_rsum_lgota" Expression="[Q_master.rsum_lgota]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_sum_nedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_sum_real" Expression="[Q_master.sum_real]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_ch_ned" Expression="[Q_master.sum_chrev]+[Q_master.sum_nedop_p]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_sum_nedop_p" Expression="[Q_master.sum_nedop_p]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_money_from" Expression="[Q_master.money_from]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_money_del" Expression="[Q_master.money_del]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="tt_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_sum_potarif" Expression="[Q_master.sum_potarif]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_rsum_lgota" Expression="[Q_master.rsum_lgota]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_sum_nedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_sum_real" Expression="[Q_master.sum_real]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_ch_ned" Expression="[Q_master.sum_chrev]+[Q_master.sum_nedop_p]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_sum_nedop_p" Expression="[Q_master.sum_nedop_p]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_money_from" Expression="[Q_master.money_from]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_money_del" Expression="[Q_master.money_del]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="tt_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="85.05" CanGrow="true" CanShrink="true">
+      <TextObject Name="Text1" Width="803.25" Height="66.15" Text="10.14.5 Сальдовая оборотная ведомасть начислений и оплат по услугам, арендаторы&#13;&#10;[period]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text4" Left="803.25" Width="160.65" Height="66.15" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Right" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text3" Left="963.9" Width="85.05" Height="66.15" Text="[DATE]&#13;&#10;[TIME]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text56" Top="66.15" Width="803.25" Height="18.9" CanGrow="true" CanShrink="true" Text="[area][supplier]"/>
+      <ChildBand Name="Child1" Top="88.56" Width="1047.06" Height="66.15">
+        <TextObject Name="Text2" Width="151.2" Height="66.15" Border.Lines="All" Text="Поставщик/услуга" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text6" Left="151.2" Width="94.5" Height="66.15" Border.Lines="All" Text="Входящее сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text8" Left="245.7" Width="94.5" Height="66.15" Border.Lines="All" Text="Расчитано по тарифу" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text10" Left="340.2" Width="75.6" Height="66.15" Border.Lines="All" Text="Скидка по льготе" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text12" Left="415.8" Width="75.6" Height="66.15" Border.Lines="All" Text="Сумма недопоставки в расч. месяце" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text14" Left="491.4" Width="75.6" Height="66.15" Border.Lines="All" Text="Расчитано с учетом льгот и недопост." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text15" Left="567" Width="85.05" Height="66.15" Border.Lines="All" Text="Изменения и перерасчет предыдкущего периода без уч. недопоставок" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text13" Left="652.05" Width="75.6" Height="66.15" Border.Lines="All" Text="Сумма перерасч. недопоставки предыдущего периода" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text11" Left="727.65" Width="75.6" Height="66.15" Border.Lines="All" Text="Оплата произведенная [periodvz] " HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text5" Left="963.9" Width="85.05" Height="66.15" Border.Lines="All" Text="Исходящее сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text16" Left="803.25" Width="160.65" Height="18.9" Border.Lines="All" Text="в т.ч." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text9" Left="803.25" Top="18.9" Width="75.6" Height="47.25" Border.Lines="All" Text="Оплата поставщиков" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text7" Left="878.85" Top="18.9" Width="85.05" Height="47.25" Border.Lines="All" Text="Перерасчет между поставщиками" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="158.22" Width="1047.06" Height="18.9" Condition="[Q_master.area]" SortOrder="None">
+      <TextObject Name="Text17" Width="1048.95" Height="18.9" Border.Lines="All" Text="[Trim([Q_master.area])]" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <DataBand Name="Data1" Top="180.63" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+        <TextObject Name="Text18" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.service])]" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text19" Left="151.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_insaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text20" Left="245.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_potarif]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text21" Left="340.2" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.rsum_lgota]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text22" Left="415.8" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_nedop]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text24" Left="567" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[[Q_master.sum_chrev]+[Q_master.sum_nedop_p]]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text26" Left="727.65" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_money]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text27" Left="803.25" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.money_from]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text28" Left="878.85" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.money_del]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text29" Left="963.9" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_outsaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text23" Left="491.4" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_real]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text25" Left="652.05" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_nedop_p]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="203.04" Width="1047.06" Height="18.9" CanGrow="true">
+        <TextObject Name="Text30" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="Итого [Q_master.area]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text31" Left="151.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_insaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text32" Left="245.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_potarif]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text33" Left="340.2" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_rsum_lgota]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text34" Left="415.8" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_nedop]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text35" Left="567" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_ch_ned]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text36" Left="727.65" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_money]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text37" Left="803.25" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_money_from]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text38" Left="878.85" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_money_del]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text39" Left="963.9" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_outsaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text40" Left="491.4" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_real]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text41" Left="652.05" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_nedop_p]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="225.44" Width="1047.06" Height="18.9" CanGrow="true">
+      <TextObject Name="Text42" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="Всего" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text43" Left="151.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_sum_insaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text44" Left="245.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_sum_potarif]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text45" Left="340.2" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_rsum_lgota]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text46" Left="415.8" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_sum_nedop]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text47" Left="567" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_ch_ned]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text48" Left="727.65" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_sum_money]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text49" Left="803.25" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_money_from]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text50" Left="878.85" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_money_del]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text51" Left="963.9" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_sum_outsaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text52" Left="491.4" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_sum_real]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text53" Left="652.05" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[tt_sum_nedop_p]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="247.85" Width="1047.06" Height="18.9" CanShrink="true" AfterDataEvent="PageFooter1_AfterData">
+      <TextObject Name="Text54" Width="878.85" Height="18.9" Text="Наименование отчета: 10.14.5 Сальдовая оборотная ведомасть начислений и оплат по услугам, арендаторы [period]" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text55" Left="878.85" Width="170.1" Height="18.9" Text="Страница[Page]" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

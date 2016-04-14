@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/admin/access/access.aspx" hash="cedb9400c" filehash="9a9fe87e9bc50d30" flags="110000" assembly="App_Web_tyvh54xv" type="ASP.admin_access_access_aspx">
+    <filedeps>
+        <filedep name="/none/admin/access/access.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/History.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

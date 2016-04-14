@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unloader", "Unloader\Unloader.csproj", "{F24EF3F7-C0D9-4BC6-B9B6-C7E0452F3FDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnloaderForm", "FormatForm\UnloaderForm.csproj", "{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2964D6DC-CFC4-475B-A21C-6B5AFE67A43E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F24EF3F7-C0D9-4BC6-B9B6-C7E0452F3FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24EF3F7-C0D9-4BC6-B9B6-C7E0452F3FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24EF3F7-C0D9-4BC6-B9B6-C7E0452F3FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24EF3F7-C0D9-4BC6-B9B6-C7E0452F3FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

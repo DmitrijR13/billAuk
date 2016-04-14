@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3885E9B4-3D9D-4BAF-81F2-300A94EE453D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReportAlone</RootNamespace>
+    <AssemblyName>ReportAlone</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report.Astra\Bars.KP50.Report.Astra.csproj">
+      <Project>{fa06e7ac-51c1-4127-bc12-deb8019a333c}</Project>
+      <Name>Bars.KP50.Report.Astra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report.Handlers\Bars.KP50.Report.Handlers.csproj">
+      <Project>{edb50b07-d0b6-4186-8f3b-6fc42164e206}</Project>
+      <Name>Bars.KP50.Report.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report.Kapr\Bars.KP50.Report.Kapr.csproj">
+      <Project>{4aba6e97-bba1-4ad6-a9ed-b66c8e3e54f3}</Project>
+      <Name>Bars.KP50.Report.Kapr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report.Main\Bars.KP50.Report.Main.csproj">
+      <Project>{e8a9cd44-f53f-4913-9b53-63098a152231}</Project>
+      <Name>Bars.KP50.Report.Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report.RSO\Bars.KP50.Report.RSO.csproj">
+      <Project>{27007a9c-790c-4999-b912-6180e885509a}</Project>
+      <Name>Bars.KP50.Report.RSO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report.RT\Bars.KP50.Report.RT.csproj">
+      <Project>{b46b2c7b-e1c0-4c01-b175-60900986e9e3}</Project>
+      <Name>Bars.KP50.Report.RT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report.Samara\Bars.KP50.Report.Samara.csproj">
+      <Project>{085d4230-7543-4842-a82e-5aac0c5e9f45}</Project>
+      <Name>Bars.KP50.Report.Samara</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report.TatEnergo\Bars.KP50.Report.TatEnergo.csproj">
+      <Project>{1216f2db-b73e-4564-9fd0-c4f7edcb96e2}</Project>
+      <Name>Bars.KP50.Report.TatEnergo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report.Tula\Bars.KP50.Report.Tula.csproj">
+      <Project>{fb9e151a-adda-4981-bb26-a42f85c1da67}</Project>
+      <Name>Bars.KP50.Report.Tula</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bars.KP50.Report\Bars.KP50.Report.csproj">
+      <Project>{9932da32-9b1b-4fb2-bd7f-8d457ade13d7}</Project>
+      <Name>Bars.KP50.Report</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

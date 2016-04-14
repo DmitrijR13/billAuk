@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/none/master/templates/LoadContragents.asmx" hash="635865ff" filehash="3bcde6412f46" flags="130000" assembly="STCLINE.KP50.WebKomplat" type="STCLINE.KP50.WebKomplat.master.templates.LoadContragents">
+    <filedeps>
+        <filedep name="/none/master/templates/LoadContragents.asmx" />
+    </filedeps>
+</preserve>

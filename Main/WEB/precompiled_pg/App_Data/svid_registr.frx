@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/08/2014 11:10:16" ReportInfo.Modified="10/09/2014 18:12:02" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <Parameter Name="DATE" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Guides="523.41,0" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="708.75">
+      <TextObject Name="Text1" Top="18.9" Width="523.41" Height="18.9" Text="СВИДЕТЕЛЬСТВО № __________" HorzAlign="Center" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text2" Left="429.03" Width="94.38" Height="18.9" Text="форма № 8" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Top="37.8" Width="523.41" Height="18.9" Text="о регистрации по месту жительства" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text4" Top="75.6" Width="75.6" Height="28.35" Text="Выдано" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text5" Left="75.74" Top="75.6" Width="447.93" Height="28.35" Border.Lines="Bottom" BreakTo="Text7" Text="[fam] [ima] [otch], [dat_rog], [region_mr] [okrug_mr] [gorod_mr] [npunkt_mr]" VertAlign="Bottom" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text6" Left="75.74" Top="103.95" Width="447.93" Height="18.9" Text="(фамилия, имя, отчество, год и место рождения)" HorzAlign="Center"/>
+      <TextObject Name="Text7" Top="122.85" Width="523.41" Height="47.25" Border.Lines="Bottom" VertAlign="Bottom" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text8" Top="170.1" Width="523.41" Height="28.35" Text="о том, что он(а) зарегистрирован(а) по месту жительства по адресу: " Padding="0, 0, 0, 0" VertAlign="Bottom" Font="Arial, 11.8pt"/>
+      <TextObject Name="Text9" Top="198.45" Width="523.41" Height="28.35" Border.Lines="Bottom" BreakTo="Text41" Text="[adr]" VertAlign="Bottom" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text10" Top="264.6" Width="523.41" Height="28.35" Text="Вместе с ним (ней) зарегистрированы дети до 14 лет:" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text11" Top="292.95" Width="262.71" Height="28.35" Border.Lines="Right, Top, Bottom" Text="Фамилия, имя, отчество" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text12" Top="321.3" Width="262.71" Height="28.35" Border.Lines="Right, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text13" Top="349.65" Width="262.71" Height="28.35" Border.Lines="Right, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text14" Top="378" Width="262.71" Height="28.35" Border.Lines="Right, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text15" Top="406.35" Width="262.71" Height="28.35" Border.Lines="Right, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text16" Top="434.7" Width="262.71" Height="28.35" Border.Lines="Right, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text17" Left="262.85" Top="292.95" Width="260.82" Height="28.35" Border.Lines="Left, Top, Bottom" Text="Год и месяц рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text18" Left="262.85" Top="321.3" Width="260.82" Height="28.35" Border.Lines="Left, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text19" Left="262.85" Top="349.65" Width="260.82" Height="28.35" Border.Lines="Left, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text20" Left="262.85" Top="378" Width="260.82" Height="28.35" Border.Lines="Left, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text21" Left="262.85" Top="406.35" Width="260.82" Height="28.35" Border.Lines="Left, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text22" Left="262.85" Top="434.7" Width="260.82" Height="28.35" Border.Lines="Left, Top, Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text23" Top="481.95" Width="523.41" Height="28.35" Text="Свидетельство выдано к документу, удостоверяющему личность:" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text24" Top="510.3" Width="37.8" Height="28.35" Text="вид" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text25" Left="37.8" Top="510.3" Width="223.02" Height="28.35" Border.Lines="Bottom" Text="[vid_dok]" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text26" Left="260.82" Top="510.3" Width="64.15" Height="28.35" Text=", серия" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text27" Left="325.05" Top="510.3" Width="66.15" Height="28.35" Border.Lines="Bottom" Text="[serij]" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text28" Left="391.23" Top="510.3" Width="37.8" Height="28.35" Text=", №" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text29" Left="429.03" Top="510.3" Width="94.5" Height="28.35" Border.Lines="Bottom" Text="[nomer]" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text30" Top="538.65" Width="113.4" Height="28.35" Text="дата выдачи" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text31" Left="113.4" Top="538.65" Width="147.42" Height="28.35" Border.Lines="Bottom" Text="[dat_vid]" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text32" Left="260.82" Top="538.65" Width="64.11" Height="28.35" Text="года" VertAlign="Bottom" Font="Arial, 11.8pt"/>
+      <TextObject Name="Text33" Left="325.08" Top="538.65" Width="198.33" Height="28.35" Border.Lines="Bottom" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text34" Top="567" Width="523.41" Height="28.35" Border.Lines="Bottom" Text="[vid_mes]" VertAlign="Bottom" Font="Arial, 12pt"/>
+      <TextObject Name="Text35" Top="595.35" Width="523.41" Height="18.9" Text="(наименование органа, учреждения, выдавшего документ)" HorzAlign="Center"/>
+      <TextObject Name="Text36" Top="614.25" Width="523.41" Height="28.35" Text="[param1]" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text37" Top="642.6" Width="287.16" Height="28.35" Border.Lines="Bottom" VertAlign="Center"/>
+      <TextObject Name="Text38" Left="287.16" Top="642.6" Width="137.97" Height="28.35" Text="/" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text39" Left="236.25" Top="680.4" Width="287.16" Height="28.35" Text="«        »   ______________________20     г." HorzAlign="Right" VertAlign="Bottom"/>
+      <TextObject Name="Text41" Top="226.8" Width="523.41" Height="28.35" Border.Lines="Bottom" VertAlign="Bottom" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text42" Left="425.25" Top="642.6" Width="98.16" Height="28.35" Text="/" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="11/16/2013 15:25:02" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string pkod = &quot;&quot;;
+    string vl_fam = &quot;&quot;;
+    string vl_ima = &quot;&quot;;
+    string vl_otch = &quot;&quot;;
+    string town = &quot;&quot;;
+    string rajon = &quot;&quot;;
+    string Adres = &quot;&quot;;
+    string kol_kom  = &quot;&quot;;
+    string pl_gil = &quot;&quot;;
+    string get_date = &quot;&quot;;
+    string dolgnost_pasport = &quot;&quot;;
+    string dolgnost_nach = &quot;&quot;;
+    string fim_pasportist = &quot;&quot;;
+    string fim_nachPus = &quot;&quot;;
+    string Lschet = &quot;&quot;;
+    
+    
+    
+    
+     
+    
+    
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fam" DataType="System.String"/>
+      <Column Name="ima" DataType="System.String"/>
+      <Column Name="otch" DataType="System.String"/>
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="dat_prib" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" Guides="45.36">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="248.13" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="10.72" Top="13.96" Width="696.99" Height="18.9" Text="Финанcовый лицевой счет № [Lschet]" HorzAlign="Center" Font="Arial, 10pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text21" Left="12.44" Top="102.71" Width="221.03" Height="20.4" Text="Квартиросъемщик (собственник)" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="233.08" Top="102.71" Width="456.95" Height="20.4" Border.Lines="Bottom" Text="гр. [vl_fam] [vl_ima] [vl_otch]" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text2" Left="12.08" Top="37.8" Width="55.65" Height="18.9" Text="Адрес"/>
+      <TextObject Name="Text23" Left="68.68" Top="37.8" Width="524.76" Height="18.9" Border.Lines="Bottom" Text="[Adres]"/>
+      <TextObject Name="Text6" Left="12.11" Top="63.26" Width="681.19" Height="18.9" Text="Лицевой счет открыт на основании ______________________________________________________________" WordWrap="false"/>
+      <TextObject Name="Text7" Left="12.1" Top="83.53" Width="573.45" Height="18.9" Text="№ ____________________ от __________________________________________года"/>
+      <TextObject Name="Text8" Left="12.08" Top="128.95" Width="100.94" Height="18.9" Text="Кол-во комнат"/>
+      <TextObject Name="Text25" Left="207.86" Top="128.95" Width="195.44" Height="18.9" Text="Занимаемая жилая площадь" HorzAlign="Center"/>
+      <TextObject Name="Text26" Left="403.7" Top="128.95" Width="61.22" Height="18.9" Text="[pl_gil]" HorzAlign="Center"/>
+      <TextObject Name="Text27" Left="465.27" Top="128.95" Width="102.8" Height="18.9" Text="кв.м."/>
+      <TextObject Name="Text3" Left="12.34" Top="154.95" Width="275.18" Height="18.9" Text="Дом кирпичный, панельный, деревянный"/>
+      <TextObject Name="Text28" Left="287.63" Top="154.95" Width="142.15" Height="18.9" Border.Lines="Bottom"/>
+      <TextObject Name="Text29" Left="432.44" Top="154.95" Width="149.29" Height="18.9" Text="капитальный, ветхий"/>
+      <TextObject Name="Text30" Left="582.15" Top="154.95" Width="106.2" Height="18.9" Border.Lines="Bottom"/>
+      <TextObject Name="Text9" Left="9.83" Top="199.21" Width="46.11" Height="48.92" Border.Lines="All" Text="№ п/п" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text31" Left="55.95" Top="199.18" Width="275.94" Height="48.92" Border.Lines="All" Text="В квартире проживает (ф.и.о.)" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text32" Left="331.88" Top="199.18" Width="143.64" Height="48.92" Border.Lines="All" Text="Степень родства" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text34" Left="475.52" Top="199.18" Width="102.06" Height="48.92" Border.Lines="All" Text="С какого времени проживает" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text35" Left="577.58" Top="199.18" Width="124.97" Height="48.92" Border.Lines="All" Text="На основании каких документов прописан" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="113.4" Top="130.41" Width="85.05" Height="18.9" Border.Lines="Bottom" Text="[kol_kom]" HorzAlign="Center"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="250.89" Width="718.2" Height="18.9" DataSource="Q_master">
+      <TextObject Name="Text12" Left="9.83" Width="45.68" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Row#]" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text13" Left="55.95" Width="275.94" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.fam] [Q_master.ima] [Q_master.otch]" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text17" Left="331.88" Width="143.64" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.rod]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text36" Left="475.52" Width="102.06" Height="18.9" Border.Lines="All" Text="[Q_master.dat_prib]" HorzAlign="Center"/>
+      <TextObject Name="Text37" Left="577.58" Width="124.97" Height="18.9" Border.Lines="All" HorzAlign="Center"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="272.55" Width="718.2" Height="126.25">
+      <TextObject Name="Text4" Left="10.19" Top="105.88" Width="388.7" Height="18.9" Text="Дата формирования [get_date]"/>
+      <TextObject Name="Text5" Left="10.95" Top="27.2" Width="331.63" Height="71.85" Text="[dolgnost_pasport]&#13;&#10;&#13;&#10;&#13;&#10;[dolgnost_nach]"/>
+      <TextObject Name="Text24" Left="363.16" Top="27.91" Width="331.63" Height="71.85" Text="[fim_pasportist]&#13;&#10;&#13;&#10;&#13;&#10;[fim_nachPus]"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

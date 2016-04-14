@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/15/2014 09:20:20" ReportInfo.Modified="06/06/2014 16:27:21" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="num_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rash_norm_one" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+      <Column Name="is_device" DataType="System.String" PropName="Column"/>
+      <Column Name="valm" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="75.6" CanGrow="true" CanBreak="true" Guides="47.25">
+      <TextObject Name="Text13" Width="453.6" Height="47.25" Text="1.8 Анализ потребления коммунальных услуг&#13;&#10;[period]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text14" Left="585.9" Width="132.3" Height="47.25" Text="[date]&#13;&#10;[time]" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="453.6" Width="132.3" Height="47.25" Text="Дата:&#13;&#10;Время:" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text45" Top="47.25" Width="718.58" Height="28.35" CanGrow="true" AfterDataEvent="Text45_AfterData" Text="[headerParam]&#13;&#10; " HorzAlign="Justify" VertAlign="Center" Wysiwyg="true"/>
+      <ChildBand Name="Child1" Top="79.11" Width="718.2" Height="28.35">
+        <TextObject Name="Text1" Width="113.4" Height="28.35" Border.Lines="All" Text="ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text4" Left="340.2" Width="113.4" Height="28.35" Border.Lines="All" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text5" Left="453.6" Width="132.3" Height="28.35" Border.Lines="All" Text="Наличие счетчика" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text6" Left="585.9" Width="132.3" Height="28.35" Border.Lines="All" Text="Расход по ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text2" Left="113.4" Width="113.4" Height="28.35" Border.Lines="All" Text="Тариф" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text3" Left="226.8" Width="113.4" Height="28.35" Border.Lines="All" Text="Норматив" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="110.97" Width="718.2" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text7" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.num_ls]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="113.4" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="226.8" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.rash_norm_one]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="7" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="340.2" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.service]" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="453.6" Width="132.3" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.is_device]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="585.9" Width="132.3" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.valm]" NullValue="-" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="7" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="STCLINE.KP50.BARS">
+</Property><Property Name="Solution File" Value="C:\VSS\KOMPLAT.50\WCF\HOST\BARS\STCLINE.KP50.BARS.sln">
+</Property><Property Name="Date" Value="25 ноября 2013 г.">
+</Property><Property Name="Time" Value="14:26">
+</Property></Properties><Event ErrorLevel="0" Project="STCLINE.KP50.Bars" Source="STCLINE.KP50.Bars.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="STCLINE.KP50.Bars" Source="STCLINE.KP50.Bars.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="STCLINE.KP50.Globals" Source="..\..\..\DATA\CLASS\Globals\STCLINE.KP50.Globals.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="STCLINE.KP50.Globals" Source="..\..\..\DATA\CLASS\Globals\STCLINE.KP50.Globals.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="STCLINE.KP50.SrvBars" Source="..\..\CLIENT\SrvBars\STCLINE.KP50.SrvBars.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="STCLINE.KP50.SrvBars" Source="..\..\CLIENT\SrvBars\STCLINE.KP50.SrvBars.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="2" Project="" Source="STCLINE.KP50.BARS.sln" Description="Solution file 'C:\VSS\KOMPLAT.50\WCF\HOST\BARS\STCLINE.KP50.BARS.sln' cannot be converted because it is read-only on disk. To convert the solution, change the permissions on the solution file to allow modification and re-open it.">
+</Event><Event ErrorLevel="3" Project="" Source="STCLINE.KP50.BARS.sln" Description="Not Converted">
+</Event></UpgradeLog>

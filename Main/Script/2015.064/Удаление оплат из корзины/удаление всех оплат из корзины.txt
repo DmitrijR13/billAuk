@@ -1,0 +1,41 @@
+по каждому банку прогнать надо будет!
+
+
+--копия pack_ls
+select * into fbill_fin_15.pack_ls_case_arch from fbill_fin_15.pack_ls where inbasket = 1;
+create index ind_pack_ls_case_arch1 on fbill_fin_15.pack_ls_case_arch (nzp_pack_ls);
+create index ind_pack_ls_case_arch2 on fbill_fin_15.pack_ls_case_arch (nzp_pack);
+analyze fbill_fin_15.pack_ls_case_arch;
+--копия gil_sums
+select * into fbill_fin_15.gil_sums_case_arch from fbill_fin_15.gil_sums g where exists 
+	(select 1 from fbill_fin_15.pack_ls_case_arch p where p.nzp_pack_ls = g.nzp_pack_ls);
+--копия pu_vals
+select * into fbill_fin_15.pu_vals_case_arch from fbill_fin_15.pu_vals g where exists 
+	(select 1 from fbill_fin_15.pack_ls_case_arch p where p.nzp_pack_ls = g.nzp_pack_ls);
+
+--удаляем  gil_sums
+delete from fbill_fin_15.gil_sums  where exists 
+	(select 1 from fbill_fin_15.pack_ls_case_arch p where p.nzp_pack_ls = fbill_fin_15.gil_sums.nzp_pack_ls);
+--удаляем pu_vals
+delete from fbill_fin_15.pu_vals where exists 
+	(select 1 from fbill_fin_15.pack_ls_case_arch p where p.nzp_pack_ls = fbill_fin_15.pu_vals.nzp_pack_ls);
+--удаляем pack_ls
+delete from fbill_fin_15.pack_ls where inbasket = 1;
+
+
+--копия pack
+select * into fbill_fin_15.pack_case_arch from fbill_fin_15.pack where exists (select 1 from fbill_fin_15.pack_ls_case_arch p where p.nzp_pack = fbill_fin_15.pack.nzp_pack)
+and not exists (select 1 from fbill_fin_15.pack_ls p where p.nzp_pack = fbill_fin_15.pack.nzp_pack);
+
+
+insert into fbill_fin_15.pack_case_arch select * from fbill_fin_15.pack where nzp_pack = par_pack AND not exists 
+(select 1 from fbill_fin_15.pack p where p.par_pack = fbill_fin_15.pack.nzp_pack and p.par_pack <> p.nzp_pack);
+
+
+--удаляем pack, если в пачке больше нет оплат
+delete from fbill_fin_15.pack where exists (select 1 from fbill_fin_15.pack_ls_case_arch p where p.nzp_pack = fbill_fin_15.pack.nzp_pack)
+and not exists (select 1 from fbill_fin_15.pack_ls p where p.nzp_pack = fbill_fin_15.pack.nzp_pack);
+
+--удаляем суперпачку, если в ней больше нет пачек
+delete from fbill_fin_15.pack where nzp_pack = par_pack AND not exists 
+(select 1 from fbill_fin_15.pack p where p.par_pack = fbill_fin_15.pack.nzp_pack and p.par_pack <> p.nzp_pack);

@@ -1,0 +1,307 @@
+﻿/* Grid
+-----------------------------------------------------------------------------*/
+
+.panel_grid
+{
+        /*overflow-x: auto;
+        overflow-y: auto;*/
+}
+
+div.separateHeader, div.separateFooter
+{
+	position: relative;
+}
+
+div.separateBody
+{
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+table td,th
+{
+    vertical-align:middle;
+    }
+
+table.grid 
+{       
+    background:#f8f9f8 url('../images/background.gif') repeat;
+    border: none;
+    margin: 0px 15px 0px 0px;
+    border-collapse: /*separate;*/collapse;
+    padding: 0px;
+    overflow: hidden;
+    border-spacing: 0px;
+    empty-cells: show;
+    font-size:8pt;
+}
+
+table.grid_with_calendar
+{       
+    overflow: visible;
+}
+
+table.nongrid 
+{ 
+   background:#f8f9f8 url('../images/background.gif') repeat;
+ 
+}
+table.nongrid th,
+table.nongrid td,
+table.grid td,
+table.grid th
+{   
+    border: 1px solid #e5e5e5;/*white;/* #EFFAFF;*/
+   /* background-color: #f8f9f8 url('../images/background.gif') repeat;/*#EFFAFF;*/
+	padding: 2px;
+    overflow: visible;
+    vertical-align: middle;
+    word-wrap: break-word;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+table.nongrid tr.thead th,
+table.grid tr.thead th, 
+table.grid tr.thead td,
+table.grid tr.tfoot td
+{
+	border-color: #66c5c8;
+    background-color: #a7e3e6;
+    color:#434444;
+}
+
+table.grid tr.thead th, 
+table.grid tr.thead td
+{
+        text-align: center;
+}
+
+table.grid tr.tfoot td
+{		
+        text-align: right;        
+}
+
+table.grid td.width16,
+table.grid th.width16
+{
+	min-width: 16px;
+	width: 16px;
+	max-width: 16px;
+}
+
+table.grid .width40
+{
+	min-width: 40px;
+	width: 40px;
+	max-width: 40px;
+}
+
+table.grid .width650
+{
+	min-width: 650px;
+	width: 650px;
+	max-width: 650px;
+}
+
+table.grid th.month,
+table.grid td.month
+{
+	width: 50px;
+	min-width: 50px;
+	max-width: 50px;
+}
+
+table.grid th.checkbox,
+table.grid td.checkbox
+{
+	width: 20px;
+	min-width: 20px;
+	max-width: 20px;
+}
+
+table.grid th.shortnumber,
+table.grid td.shortnumber
+{
+	min-width:60px;
+	width:60px;
+	max-width:60px;
+}
+
+table.grid th.xshorttext,
+table.grid td.xshorttext
+{
+	width: 100px;
+	min-width: 100px;
+	max-width: 100px;
+}
+
+table.grid th.shorttext,
+table.grid td.shorttext
+{
+	width: 150px;
+	min-width: 150px;
+	max-width: 150px;
+}
+
+table.grid th.text,
+table.grid td.text
+{
+	width: 200px;
+	min-width: 200px;
+	max-width: 200px;
+}
+
+table.grid th.longtext,
+table.grid td.longtext
+{
+	width: 250px;
+	min-width: 250px;
+	max-width: 250px;
+}
+
+table.grid th.xlongtext,
+table.grid td.xlongtext
+{
+	width: 400px;
+	min-width: 400px;
+	max-width: 400px;
+}
+
+table.grid th.money,
+table.grid td.money
+{
+	width: 70px;
+	min-width: 70px;
+	max-width: 70px;
+}
+
+table.grid th.longmoney,
+table.grid td.longmoney
+{
+	width: 100px;
+	min-width: 100px;
+	max-width: 100px;
+	text-align:right;
+}
+
+table.grid tr.tbody td.money,
+table.grid tr.tfoot td.money,
+table.grid tr.tbody td.longmoney,
+table.grid tr.tfoot td.longmoney
+{
+	text-align: right;
+}
+
+table.grid th.date,
+table.grid td.date
+{
+		width: 80px;
+	min-width: 80px;
+	max-width: 80px;
+}
+
+table.grid th.longdate,
+table.grid td.longdate
+{
+		width: 110px;
+	min-width: 110px;
+	max-width: 110px;
+}
+
+table.grid th.datetime,
+table.grid td.datetime
+{
+		width: 130px;
+	min-width: 130px;
+	max-width: 130px;
+}
+
+
+tr.expandable td.first_cell img, 
+tr.collapsable td.first_cell img
+{
+        cursor: pointer;  
+        cursor: hand;           
+}
+
+tr.past_reval td
+{
+        color: #ee0000;
+}
+
+tr.future_reval td
+{
+	color: Blue;
+}
+
+wbr
+{
+	display: inline-block;
+}
+
+table.grid tr.clear td
+{
+	cursor: pointer;
+}
+
+table.grid tr.selec td
+{
+	background-color: #DFF5FF;
+	/*border-color: #60A3BF;*/
+}
+
+table.grid tr.clear:hover td
+{
+	background-color: #DFF5FF;
+}
+
+.no_dat_open,
+tr.no_dat_open td {
+	color:Red;
+}
+
+.has_pu,
+tr.has_pu td
+{
+	font-weight:bold;
+}
+
+tr.archive_cnt
+{
+	color: Red;
+}
+
+tr.green_text,
+tr.green_text td
+{
+		color: #ff7a00;
+		font-weight: bold;
+}
+
+.cntinfo
+{
+	text-align:left;
+	font-weight:bold;
+	background-color: white !important;
+}
+
+.reval{}
+.saldo{}
+
+table.grid input[type=image].edit, table.grid input[type=image].delete
+{
+	height: 16px;
+	width: 16px;
+}
+
+.gridFooter
+{
+    text-align:left;
+    font-weight:bold;        
+}
+
+
+tr.gridFooter td:nth-child(2)
+{
+    text-align:right;
+}

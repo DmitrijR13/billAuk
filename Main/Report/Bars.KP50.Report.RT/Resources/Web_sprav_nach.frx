@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="12/19/2013 09:24:55" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string nkvar_n = &quot;A&quot;;
+    string nkvar = &quot;1&quot;;    
+    string nkor = &quot;2&quot;;
+    string ndom = &quot;3&quot;;    
+    string ulica = &quot;Ленина&quot;;        
+    string town = &quot;г.Казань&quot;;    
+    string pl_gil = &quot;20.00&quot;;
+    string pl_all = &quot;28.00&quot;;    
+    string sum_real = &quot;100.00&quot;;
+    string privat = &quot;Приватизированная&quot;;    
+    string kolgil = &quot;4&quot;;
+    string fio = &quot;Иванов И.И.&quot;;    
+    string komn = &quot;&quot;;
+    string korp = &quot;&quot;;    
+    string kind_priv = &quot;&quot;;        
+    string Lschet = &quot;1000000&quot;;        
+    
+    
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      
+      if (nkvar_n == &quot;-&quot;)
+         komn = &quot;&quot;;
+      else  
+         komn = &quot;Комната&quot;;
+      
+      if (nkor == &quot;-&quot;) 
+          korp = &quot;&quot;;
+      else
+          korp = &quot;Корпус&quot;;
+      
+      if (nkvar_n == &quot;-&quot;) 
+          kind_priv = &quot;Квартира&quot;;
+      else 
+          kind_priv = &quot;Комната&quot;;
+      }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="month_" DataType="System.Int32"/>
+      <Column Name="year_" DataType="System.Int32"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal"/>
+      <Column Name="sum_tarif" DataType="System.Decimal"/>
+      <Column Name="reval" DataType="System.Decimal"/>
+      <Column Name="real_charge" DataType="System.Decimal"/>
+      <Column Name="sum_money" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal"/>
+      <Column Name="sum_charge" DataType="System.Decimal"/>
+      <Column Name="num_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="Column" DataType="System.Int32" Calculated="true" Expression=""/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="99.8" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="133.57" Top="13.96" Width="470.19" Height="37.8" Text="Справка по начислениям на лицевой счет № [Lschet] &#13;&#10;за период с 01.[m1].[y1] г. по 01.[m2].[y2] г." HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text21" Left="12.08" Top="66.15" Width="611.3" Height="29.88" Text="Квартиросъемщик: [fio]&#13;&#10;Адрес: [Adres]" VertAlign="Center"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="103" Width="718.2" Height="49.14">
+      <TextObject Name="Text3" Left="7.56" Width="68.04" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Месяц /&#13;&#10;Год" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text4" Left="75.6" Width="83.16" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Вх. сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text5" Left="158.76" Width="75.6" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Расчет" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text7" Left="309.96" Width="79.38" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Перерасчет" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text6" Left="234.36" Width="75.6" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Начислено" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text8" Left="389.34" Width="75.6" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Оплата&#13;&#10;Сальдовая&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text9" Left="464.94" Width="75.6" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Изменения" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text10" Left="540.54" Width="83.16" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Исх.Сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text11" Left="623.7" Width="83.16" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="К оплате&#13;&#10;жильцом&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="155.34" Width="718.2" Height="18.9" DataSource="Q_master">
+      <TextObject Name="Text12" Left="7.56" Width="68.04" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.month_].[Q_master.year_]" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text13" Left="75.6" Width="83.16" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_insaldo]" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text14" Left="158.76" Width="75.6" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_tarif]" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text16" Left="309.96" Width="79.38" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.reval]" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text18" Left="464.94" Width="75.6" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.real_charge]" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text20" Left="623.7" Width="83.16" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_charge]" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text15" Left="234.36" Width="75.6" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_real]" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text17" Left="389.34" Width="75.6" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_money]" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+      <TextObject Name="Text19" Left="540.54" Width="83.16" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_outsaldo]" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="177.44" Width="718.2" Height="47.25">
+      <TextObject Name="Text2" Left="557.55" Top="9.45" Width="103.95" Height="28.35" Text="[printDate]&#13;&#10;[printTime]    " Font="Arial, 8pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

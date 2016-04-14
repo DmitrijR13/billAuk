@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/22/2014 17:28:40" ReportInfo.Modified="11/26/2015 16:13:05" ReportInfo.CreatorVersion="2015.4.2.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="month" DataType="System.String" PropName="Column"/>
+      <Column Name="people_count" DataType="System.Int32" PropName="Column"/>
+      <Column Name="area" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="supp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="ud" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_house" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="фио" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_blag" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="build_year" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="floors" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv2" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv6" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv6_1" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv7" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_15" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_8" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_8" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="sum_tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="sum_tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column5"/>
+      <Column Name="tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column6"/>
+      <Column Name="sum_tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column7"/>
+      <Column Name="sum_tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="dat_prih" Enabled="false" DataType="System.String" PropName="Column3"/>
+      <Column Name="tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_500" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum_peni" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money_peni" Enabled="false" DataType="System.Decimal" PropName="Column" Format="Number"/>
+      <Column Name="reval_peni" Enabled="false" DataType="System.Decimal" PropName="Column1" Format="Number"/>
+      <Column Name="serv8" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv10" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv14" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv14_1" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv15" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv17" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv22" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv25" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="serv25_1" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="serv26" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="serv210" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="serv500" DataType="System.Decimal" PropName="Column5"/>
+      <Column Name="serv510" DataType="System.Decimal" PropName="Column6"/>
+      <Column Name="serv513" DataType="System.Decimal" PropName="Column7"/>
+      <Column Name="serv514" DataType="System.Decimal" PropName="Column8"/>
+      <Column Name="serv515" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv516" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv100021" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv100022" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_prih" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="address" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="serv9" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="serv9_1" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="val_prm" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="t_serv2" Expression="[Q_master.serv2]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv6" Expression="[Q_master.serv6]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv6_1" Expression="[Q_master.serv6_1]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv7" Expression="[Q_master.serv7]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv8" Expression="[Q_master.serv8]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv10" Expression="[Q_master.serv10]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv14" Expression="[Q_master.serv14]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv14_1" Expression="[Q_master.serv14_1]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv15" Expression="[Q_master.serv15]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv17" Expression="[Q_master.serv17]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv22" Expression="[Q_master.serv22]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv25" Expression="[Q_master.serv25]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv25_1" Expression="[Q_master.serv25_1]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv26" Expression="[Q_master.serv26]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv210" Expression="[Q_master.serv210]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv500" Expression="[Q_master.serv500]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv510" Expression="[Q_master.serv510]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv513" Expression="[Q_master.serv513]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv514" Expression="[Q_master.serv514]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv515" Expression="[Q_master.serv515]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv516" Expression="[Q_master.serv516]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv100021" Expression="[Q_master.serv100021]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv100022" Expression="[Q_master.serv100022]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_sum_charge" Expression="[Q_master.sum_charge]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_sum_prih" Expression="[Q_master.sum_prih]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t_serv9" Expression="[Q_master.serv9]" Evaluator="Data1"/>
+    <Total Name="t_serv9_1" Expression="[Q_master.serv9_1]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="471">
+    <ReportTitleBand Name="ReportTitle1" Width="1704.78" Height="32.13">
+      <TextObject Name="Text85" Width="1587.6" Height="32.13" Text="Выписка" HorzAlign="Center" Font="Arial, 14pt, style=Bold"/>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader2" Top="36.13" Width="1704.78" Height="164.43" Condition="[Q_master.address]" SortOrder="None">
+      <TextObject Name="Text13" Top="47.25" Width="75.6" Height="117.18" Border.Lines="All" Text="Месяц" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text123" Left="75.6" Top="47.25" Width="75.6" Height="117.18" Border.Lines="All" Text="Состав семьи" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text124" Left="151.2" Top="47.25" Width="75.6" Height="117.18" Border.Lines="All" Text="Сальдо на нач. месяца" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text126" Left="226.8" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Текущий ремонт" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text127" Left="907.2" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Домофон" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text128" Left="340.2" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="ХВС м3" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text129" Left="283.5" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="ХВС" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text130" Left="680.4" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="ХОВ м3" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text131" Left="623.7" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="ХОВ" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text133" Left="396.9" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Водоотведение" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text134" Left="453.6" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Отопление" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text137" Left="737.1" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Содержание жил. помещения" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text139" Left="793.8" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Электроснабжение" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text140" Left="850.5" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Электроснабжение кВт/ч" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text141" Left="963.9" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Электроснабжение ночное" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text142" Left="1020.6" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Пени" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text143" Left="1077.3" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="ОДН-ХВС" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text144" Left="1134" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="ОДН-Горячая вода" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text145" Left="1190.7" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="ОДН-ХОВ" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text146" Left="1247.4" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="ОДН-Электроснабжение день" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text147" Left="1304.1" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="ОДН-Электроснабжение ночное" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text148" Left="1360.8" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Разовое снятие" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text149" Left="1417.5" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Разовая услуга" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text114" Width="1644.3" Height="47.25" Border.Lines="All" Text="Выписка из финансового лицевого счета по адресу: [Q_master.address]&#13;&#10;ФИО:[Q_master.fio]"/>
+      <TextObject Name="Text150" Left="1474.2" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Итого начислено" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text151" Left="1530.9" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Оплата" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text152" Left="1587.6" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Сальдо на конец месяца" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text207" Left="510.3" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Горячая вода" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <TextObject Name="Text211" Left="567" Top="47.25" Width="56.7" Height="117.18" Border.Lines="All" Text="Горячая вода&#13;&#10;гКал" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 9pt"/>
+      <DataBand Name="Data1" Top="204.56" Width="1704.78" Height="28.35" DataSource="Q_master">
+        <TextObject Name="Text6" Width="75.6" Height="28.35" Border.Lines="All" Text="[Q_master.month]"/>
+        <TextObject Name="Text153" Left="75.6" Width="75.6" Height="28.35" Border.Lines="All" Text="[Q_master.people_count]"/>
+        <TextObject Name="Text154" Left="151.2" Width="75.6" Height="28.35" Border.Lines="All" Text="[Q_master.sum_insaldo]"/>
+        <TextObject Name="Text155" Left="226.8" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv2]"/>
+        <TextObject Name="Text156" Left="283.5" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv6]"/>
+        <TextObject Name="Text157" Left="340.2" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv6_1]"/>
+        <TextObject Name="Text158" Left="396.9" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv7]"/>
+        <TextObject Name="Text159" Left="453.6" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv8]"/>
+        <TextObject Name="Text161" Left="623.7" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv14]"/>
+        <TextObject Name="Text162" Left="680.4" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv14_1]"/>
+        <TextObject Name="Text164" Left="737.1" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv17]"/>
+        <TextObject Name="Text166" Left="793.8" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv25]"/>
+        <TextObject Name="Text167" Left="850.5" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv25_1]"/>
+        <TextObject Name="Text168" Left="907.2" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv26]"/>
+        <TextObject Name="Text169" Left="963.9" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv210]"/>
+        <TextObject Name="Text170" Left="1020.6" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv500]"/>
+        <TextObject Name="Text171" Left="1077.3" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv510]"/>
+        <TextObject Name="Text172" Left="1134" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv513]"/>
+        <TextObject Name="Text173" Left="1190.7" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv514]"/>
+        <TextObject Name="Text174" Left="1247.4" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv515]"/>
+        <TextObject Name="Text175" Left="1304.1" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv516]"/>
+        <TextObject Name="Text176" Left="1360.8" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv100021]"/>
+        <TextObject Name="Text177" Left="1417.5" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv100022]"/>
+        <TextObject Name="Text178" Left="1474.2" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.sum_charge]"/>
+        <TextObject Name="Text179" Left="1530.9" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.sum_prih]"/>
+        <TextObject Name="Text180" Left="1587.6" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.sum_outsaldo]"/>
+        <TextObject Name="Text208" Left="510.3" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv9]"/>
+        <TextObject Name="Text212" Left="567" Width="56.7" Height="28.35" Border.Lines="All" Text="[Q_master.serv9_1]"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter2" Top="236.91" Width="1704.78" Height="28.35">
+        <TextObject Name="Text115" Width="226.8" Height="28.35" Border.Lines="All" Text="ИТОГО:" HorzAlign="Right" VertAlign="Center"/>
+        <TextObject Name="Text181" Left="226.8" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv2]"/>
+        <TextObject Name="Text183" Left="283.5" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv6]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text184" Left="340.2" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv6_1]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text185" Left="396.9" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv7]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text186" Left="453.6" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv8]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text188" Left="623.7" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv14]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text189" Left="680.4" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv14_1]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text191" Left="737.1" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv17]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text193" Left="793.8" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv25]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text194" Left="850.5" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv25_1]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text195" Left="907.2" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv26]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text196" Left="963.9" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv210]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text197" Left="1020.6" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv500]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text198" Left="1077.3" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv510]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text199" Left="1134" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv513]" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text200" Left="1190.7" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv514]" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text201" Left="1247.4" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv515]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text182" Left="1587.6" Width="56.7" Height="28.35" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        <TextObject Name="Text202" Left="1304.1" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv516]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text203" Left="1360.8" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv100021]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text204" Left="1417.5" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv100022]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text205" Left="1474.2" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_sum_charge]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text206" Left="1530.9" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_sum_prih]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text209" Left="510.3" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv9]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text213" Left="567" Width="56.7" Height="28.35" Border.Lines="All" Text="[t_serv9_1]" HorzAlign="Center" VertAlign="Center"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="269.26" Width="1704.78" Height="94.5">
+      <TextObject Name="Text210" Left="9.45" Top="18.9" Width="349.65" Height="28.35" Text="Бухгалтер ______________________________"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

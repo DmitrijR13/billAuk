@@ -1,0 +1,288 @@
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Web.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\SevenZipSharp.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Newtonsoft.Json.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Ionic.Zip.Reduced.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Npgsql.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Bars.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Editor.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Mono.Security.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.xml
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.xml
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.xml
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.DB.Faktura.csprojResolveAssemblyReference.cache
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.dll
+H:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Web.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\SevenZipSharp.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Newtonsoft.Json.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Ionic.Zip.Reduced.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Npgsql.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Bars.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Editor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Mono.Security.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.DB.Faktura.csprojResolveAssemblyReference.cache
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Web.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\SevenZipSharp.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Newtonsoft.Json.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Npgsql.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Bars.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Editor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Mono.Security.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.DB.Faktura.csprojResolveAssemblyReference.cache
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Web.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\SevenZipSharp.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Newtonsoft.Json.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Ionic.Zip.Reduced.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Npgsql.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Bars.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Editor.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Mono.Security.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.xml
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.xml
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.xml
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.DB.Faktura.csprojResolveAssemblyReference.cache
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.dll
+D:\billWork\Main\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Web.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\SevenZipSharp.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Newtonsoft.Json.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Npgsql.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Bars.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Editor.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Mono.Security.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.xml
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.xml
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.xml
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.DB.Faktura.csprojResolveAssemblyReference.cache
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Faktura.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Web.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\SevenZipSharp.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Newtonsoft.Json.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Ionic.Zip.Reduced.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Npgsql.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Bars.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\FastReport.Editor.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Mono.Security.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.Utils.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.CliKart.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.Globals.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Client.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\KP50.IFMX.Common.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Core.xml
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Castle.Windsor.xml
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\NLog.xml
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.DB.Faktura.csprojResolveAssemblyReference.cache
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Faktura\obj\Debug PG\Bars.KP50.Faktura.pdb

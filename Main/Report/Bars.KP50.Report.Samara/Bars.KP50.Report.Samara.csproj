@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{085D4230-7543-4842-A82E-5AAC0C5E9F45}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bars.KP50.Report.Samara</RootNamespace>
+    <AssemblyName>Bars.KP50.Report.Samara</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\WCF\HOST\AUTOHOST\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bars.QueueCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Refer\Bars.QueueCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\Packages\Castle.Core.3.3.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\Castle.Windsor.3.3.0\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport, Version=2014.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LIBRARIES\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="KP50.Globals, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Refer\KP50.Globals.dll</HintPath>
+    </Reference>
+    <Reference Include="KP50.IFMX.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Refer\KP50.IFMX.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LIBRARIES\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsInstaller.cs" />
+    <Compile Include="Reports\Report_30_1_10.cs" />
+    <Compile Include="Reports\Report_30_1_11.cs" />
+    <Compile Include="Reports\Report_30_1_12.cs" />
+    <Compile Include="Reports\Report_30_1_14.cs" />
+    <Compile Include="Reports\Report_30_1_13.cs" />
+    <Compile Include="Reports\Report_30_1_15.cs" />
+    <Compile Include="Reports\Report_30_1_17.cs" />
+    <Compile Include="Reports\Report_30_1_16.cs" />
+    <Compile Include="Reports\Report_30_1_18.cs" />
+    <Compile Include="Reports\Report_30_2_2.cs" />
+    <Compile Include="Reports\Report_30_2_3.cs" />
+    <Compile Include="Reports\Report_30_2_7.cs" />
+    <Compile Include="Reports\Report_30_3_1.cs" />
+    <Compile Include="Reports\Report_30_1_5.cs" />
+    <Compile Include="Reports\Report_30_1_6.cs" />
+    <Compile Include="Reports\Report_30_1_4.cs" />
+    <Compile Include="Reports\Report_30_1_1.cs" />
+    <Compile Include="Reports\Report_30_1_2.cs" />
+    <Compile Include="Reports\Report_30_1_3.cs" />
+    <Compile Include="Reports\Report_30_1_7.cs" />
+    <Compile Include="Reports\Report_30_1_8.cs" />
+    <Compile Include="Reports\Report_30_1_9.cs" />
+    <Compile Include="Reports\Report_30_2_1.cs" />
+    <Compile Include="Reports\ReportCounters.cs" />
+    <Compile Include="Reports\Report_group.cs" />
+    <Compile Include="Reports\Report2.cs" />
+    <Compile Include="Reports\ReportJudgment.cs" />
+    <Compile Include="Reports\ReportPeni .cs" />
+    <Compile Include="Reports\ReportSupplier .cs" />
+    <Compile Include="Reports\ReportPeniCheck.cs" />
+    <Compile Include="Reports\ReportGenerator.cs" />
+    <Compile Include="Reports\ReportProtCalc .cs" />
+    <Compile Include="Reports\ReportPeni2 .cs" />
+    <Compile Include="Reports\ReportPack.cs" />
+    <Compile Include="Reports\ReportPackMore.cs" />
+    <Compile Include="Reports\ReportLsCharge.cs" />
+    <Compile Include="Reports\ReportPackMoreTotal.cs" />
+    <Compile Include="Reports\ReportChargePrih.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\Report2.frx" />
+    <None Include="Resources\ReportChargePrih.frx" />
+    <None Include="Resources\ReportCounters.frx" />
+    <None Include="Resources\ReportGenerator.frx" />
+    <None Include="Resources\ReportJudgment.frx">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\ReportLsCharge.frx" />
+    <None Include="Resources\ReportPack.frx" />
+    <None Include="Resources\ReportPackMoreTotal.frx" />
+    <None Include="Resources\ReportPackMore.frx" />
+    <None Include="Resources\ReportPeni.frx" />
+    <None Include="Resources\ReportPeniCheck.frx" />
+    <None Include="Resources\ReportProtCalc.frx" />
+    <None Include="Resources\ReportSupplier.frx">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Report_30_1_10.frx" />
+    <None Include="Resources\Report_30_1_11.frx" />
+    <None Include="Resources\Report_30_1_12.frx" />
+    <None Include="Resources\Report_30_1_13.frx" />
+    <None Include="Resources\Report_30_1_14.frx" />
+    <None Include="Resources\Report_30_1_15.frx" />
+    <None Include="Resources\Report_30_1_17.frx" />
+    <None Include="Resources\Report_30_1_16.frx" />
+    <None Include="Resources\Report_30_1_18.frx" />
+    <None Include="Resources\Report_30_2_2.frx" />
+    <None Include="Resources\Report_30_2_3.frx">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Report_30_2_7.frx" />
+    <None Include="Resources\Report_group.frx" />
+    <None Include="Resources\Report_30_1_5.frx" />
+    <None Include="Resources\Report_30_1_6.frx">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Report_30_1_4.frx" />
+    <None Include="Resources\Report_30_1_1.frx">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Report_30_1_2.frx" />
+    <None Include="Resources\Report_30_1_3.frx" />
+    <None Include="Resources\Agent_rasch.frx" />
+    <None Include="Resources\Sprav_nach_heat.frx" />
+    <None Include="Resources\Sprav_nach_hot_water.frx" />
+    <None Include="Resources\Turn_off_gku.frx" />
+    <None Include="Resources\Vipis_counters.frx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 с пакетом обновления 1 %28SP1%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bars.KP50.Report\Bars.KP50.Report.csproj">
+      <Project>{9932da32-9b1b-4fb2-bd7f-8d457ade13d7}</Project>
+      <Name>Bars.KP50.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bars.KP50.Utils\Bars.KP50.Utils.csproj">
+      <Project>{ee6f5a3b-8667-4fd3-8445-51b5ea6e4b57}</Project>
+      <Name>Bars.KP50.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

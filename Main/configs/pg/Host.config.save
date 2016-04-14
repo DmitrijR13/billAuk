@@ -1,0 +1,16 @@
+<appSettings>
+  <add key="W1" value="miCtg2kV5xz2HR_YA_SBc9FW7DLlxuJretjMPWR6CMaggXiudTg_spxlFiP7EHA8wigVvYjxCDH-lIfvGlHZovbqyvkpPVxvEOK1zlO1f_BGlhdxFQLDZSF_q8uM62i6wXGERH7KeCqa0zIe3UjbhQPGNsdw8FTqVQMEiPVkZN6NCp9UbI_Uo_L_GxNCR2TB6XaUrDIl-AytCXketaila5G94xD9RmsMhCGybWHde75mFkAqmCjZskB5vpmtN3x9gJd5WJi59nlhl0MWavfKCQ==" />
+  <add key="W2" value="FOW9KhF8RVDp9SkkR4SOvXvlsW_gmeAS03ZS22uNfplM7nVIC3BY_fqRrxh3LFvd" />
+  <add key="W3" value="4KJn-RvR93YgFQelgwfwPRVU79rLu0XUfjFum6jywYPmCMopyOOECOZE1mdIj_PJeXsmHv5CfL51bu2TENyGmQ==" />
+  <add key="W4" value="miCtg2kV5xz2HR_YA_SBc9FW7DLlxuJretjMPWR6CMaggXiudTg_spxlFiP7EHA8wigVvYjxCDH-lIfvGlHZovbqyvkpPVxvEOK1zlO1f_BGlhdxFQLDZSF_q8uM62i6wXGERH7KeCqa0zIe3UjbhQPGNsdw8FTqVQMEiPVkZN6NCp9UbI_Uo_L_GxNCR2TB6XaUrDIl-AytCXketaila5G94xD9RmsMhCGybWHde75mFkAqmCjZskB5vpmtN3x9gJd5WJi59nlhl0MWavfKCQ==" />
+  <add key="W5" value="4KJn-RvR93YgFQelgwfwPRVU79rLu0XUfjFum6jywYPUQO3PEFJ1_aF2cab2_LuJ1pFZp8wr3_uT4Pufk7HipQ==" />
+  <add key="W6" value="0NYH9UV3mIapiIMbt_mANt-pH-1yeUiQ330xggjGrKs=" />
+  <add key="W9" value="jBtOGL8ln86oOx57u4bnIw==" />
+  <add key="W10" value="rE-TlzQ7bRQPDROQ9pYNUA==" />
+  <add key="W11" value="pr5W4XEDCj6nMvHAvqitjQ==" />
+  <add key="DbWaitingTimeout" value="O2mN6Gnl-dDIaFcmN2wiOg==" />
+  <add key="FtpHostAddress" value="2Uv9GM2W0dEY4GYOTl5jE4_ulwWXkZs10hVUCiKuhog=" />
+  <add key="FtpUserName" value="FOW9KhF8RVDp9SkkR4SOvWirYzFA8_EYwU_PSWDARhM=" />
+  <add key="FtpUserPassword" value="u-cjEMZ6iZ-lqlwI9rghX6igqod4mlE7nY5qeiv95e8=" />
+  <add key="FtpUseProxy" value="37zkYqcoEXvvscFF41sNow==" />
+</appSettings>

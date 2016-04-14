@@ -1,0 +1,11 @@
+--DROP TABLE nftul_kernel.serv_norm_koef;
+--CREATE TABLE nftul_kernel.serv_norm_koef
+
+DROP TABLE fbill_kernel.serv_norm_koef;
+CREATE TABLE fbill_kernel.serv_norm_koef
+(
+  nzp_serv      integer,
+  nzp_serv_link integer,
+  nzp_frm       integer,
+  nzp_prm       integer
+);

@@ -1,0 +1,147 @@
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Calc.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Calc.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Utils.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.Globals.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Client.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Common.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Windsor.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\NLog.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\SevenZipSharp.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Core.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Ionic.Zip.Reduced.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Npgsql.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Report.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.CliKart.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Newtonsoft.Json.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Mono.Security.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\FastReport.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\FastReport.Bars.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\FastReport.Editor.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.Globals.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Client.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Common.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Utils.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Windsor.xml
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\NLog.xml
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Core.xml
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.CliKart.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\obj\Debug PG\Bars.KP50.DB.Calc.csprojResolveAssemblyReference.cache
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\obj\Debug PG\Bars.KP50.Calc.dll
+D:\billWork\billTltTwstFrom18_02_2016\Samara\Samara\Calc\Bars.KP50.Calc\obj\Debug PG\Bars.KP50.Calc.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Calc.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Calc.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Utils.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.Globals.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Client.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Common.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Windsor.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\NLog.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\SevenZipSharp.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Core.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Npgsql.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.CliKart.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Newtonsoft.Json.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Mono.Security.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\FastReport.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\FastReport.Bars.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\FastReport.Editor.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.Globals.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Windsor.xml
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\NLog.xml
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Core.xml
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.CliKart.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\obj\Debug PG\Bars.KP50.DB.Calc.csprojResolveAssemblyReference.cache
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\obj\Debug PG\Bars.KP50.Calc.dll
+C:\billTest\Main - копия\Main\Calc\Bars.KP50.Calc\obj\Debug PG\Bars.KP50.Calc.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Calc.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Calc.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Utils.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.Globals.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Client.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Common.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\SevenZipSharp.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Ionic.Zip.Reduced.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\NLog.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Windsor.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Core.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Npgsql.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Report.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.CliKart.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Newtonsoft.Json.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Mono.Security.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\FastReport.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\FastReport.Bars.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\FastReport.Editor.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.Globals.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Client.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.IFMX.Common.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.Utils.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\NLog.xml
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Windsor.xml
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Castle.Core.xml
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\KP50.CliKart.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\obj\Debug PG\Bars.KP50.DB.Calc.csprojResolveAssemblyReference.cache
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\obj\Debug PG\Bars.KP50.Calc.dll
+D:\projects\billAuk\Main\Calc\Bars.KP50.Calc\obj\Debug PG\Bars.KP50.Calc.pdb

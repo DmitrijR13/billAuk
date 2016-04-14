@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="05/15/2015 16:26:39" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string who=&quot;&quot;;
+    string vid_sobs=&quot;&quot;;
+    string count_room=&quot;&quot;;
+    string gil_s=&quot;&quot;;
+    string ob_s=&quot;&quot;;
+    
+    string adres=&quot;&quot;;
+    string pDate=&quot;&quot;;
+    string pNumber=&quot;&quot;;
+    string pkod=&quot;&quot;;
+    string fio=&quot;&quot;;
+    string komm=&quot;&quot;;
+    string pasp_gil=&quot;&quot;;
+    string sobstv_count=&quot;&quot;;
+    string sobstv_reg_count=&quot;&quot;;
+    string fio_obrasch=&quot;&quot;;
+    string dana=&quot;&quot;;
+    string name_nach=&quot;&quot;;
+    string name_pasport=&quot;&quot;;
+    
+    private void Cell8_BeforePrint(object sender, EventArgs e)
+    { 
+      who = &quot;&quot;;
+      count_room=Report.GetParameterValue(&quot;kol_komnat&quot;).ToString();
+      ob_s = Report.GetParameterValue(&quot;ob_s&quot;).ToString();
+      gil_s=Report.GetParameterValue(&quot;gil_s&quot;).ToString();       
+      if (Report.GetParameterValue(&quot;is_priv&quot;).ToString()!=&quot;1&quot; &amp;&amp; Report.GetParameterValue(&quot;is_priv&quot;).ToString()!=&quot;&quot;)
+      {
+        who = &quot;нанимателем&quot;;
+        vid_sobs = &quot;муниципальная&quot;;
+      }
+      else
+      {        
+        if (Report.GetParameterValue(&quot;type_sob&quot;).ToString()==&quot;1&quot;)
+        { 
+          vid_sobs = &quot;частная&quot;;
+          who = &quot;участником долевой собственности&quot;;
+        }
+        if (Report.GetParameterValue(&quot;type_sob&quot;).ToString()==&quot;2&quot;)
+        {
+          vid_sobs = &quot;частная&quot;;
+          who = &quot;участником совместной собственности&quot;;
+        }
+        
+        if (Report.GetParameterValue(&quot;type_sob&quot;).ToString()==&quot;3&quot;)
+        {
+          vid_sobs = &quot;муниципальная&quot;;
+          who = &quot;нанимателем&quot;;
+       }
+        
+        if(who ==&quot;&quot; &amp;&amp; Report.GetParameterValue(&quot;isSob&quot;).ToString()==&quot;1&quot; &amp;&amp; Report.GetParameterValue(&quot;sobstv_count&quot;).ToString()==&quot;1&quot;)
+       {
+          who=&quot;собственником&quot;;
+         vid_sobs = &quot;частная&quot;;
+       }        
+      }     
+    }
+    
+    
+    private void Cell12_BeforePrint(object sender, EventArgs e)
+    {
+      if (Report.GetParameterValue(&quot;komm&quot;).ToString()==&quot;коммунальная&quot; || Convert.ToDecimal(Report.GetParameterValue(&quot;total_ob_s&quot;))&gt;0 )
+        {
+          count_room=Trim(Report.GetParameterValue(&quot;kol_komnat&quot;).ToString())+&quot;(&quot;+Trim(Report.GetParameterValue(&quot;gil_s&quot;).ToString())+&quot;)&quot;;
+          Cell12.Text = Trim(Report.GetParameterValue(&quot;ob_s&quot;).ToString())+&quot;/&quot;+Report.GetParameterValue(&quot;total_ob_s&quot;).ToString();        
+        } 
+      else
+      {
+          ob_s = Trim(Report.GetParameterValue(&quot;ob_s&quot;).ToString());
+      }
+    }
+
+    private void Cell15_BeforePrint(object sender, EventArgs e)
+    {
+       if (Report.GetParameterValue(&quot;komm&quot;).ToString()==&quot;коммунальная&quot; || Convert.ToDecimal(Report.GetParameterValue(&quot;total_gil_s&quot;))&gt;0)
+        {
+          Cell15.Text=Trim(Report.GetParameterValue(&quot;gil_s&quot;).ToString())+&quot;/&quot;+Report.GetParameterValue(&quot;total_gil_s&quot;).ToString();         
+        } 
+    }
+
+
+    private void Cell53_BeforePrint(object sender, EventArgs e)
+    {
+      if  (Report.GetParameterValue(&quot;fam_gil&quot;).ToString()==&quot;&quot;) 
+      {
+       Cell53.Border.BottomLine.Width=0;        
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="9.45,737.1,113.4,604.8,7.56,737.21,182.24,94.89999,57.1,73.71,92.61,300.22,387.56,538.76,604.91,671.06,250.68,349.65,406.35" StartPageEvent="Page1_StartPage">
+    <DataBand Name="Data1" Width="756" Height="279.72" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" Guides="75.6,94.5,18.9,64.26,98.28,279.72,0,22.68,45.36,68.04,90.72,113.4,136.08,158.76,181.44">
+      <TextObject Name="Text2" Left="9.45" Top="75.6" Width="727.65" Height="18.9" Border.Lines="Bottom" Text="[adres]" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text1" Left="113.4" Top="18.9" Width="491.4" Height="45.36" Text="2.1 Выписка от [pDate] №[pNumber]&#13;&#10;из лицевого счета № [pkod]&#13;&#10;" HorzAlign="Center" Font="Times New Roman, 12pt"/>
+      <TableObject Name="Table1" Left="7.56" Top="98.28" Width="729.65" Height="181.44">
+        <TableColumn Name="Column1" Width="87.34"/>
+        <TableColumn Name="Column2" Width="87.34"/>
+        <TableColumn Name="Column3" Width="68.44"/>
+        <TableColumn Name="Column4" Width="49.54"/>
+        <TableColumn Name="Column5" Width="87.34"/>
+        <TableColumn Name="Column6"/>
+        <TableColumn Name="Column7" Width="85.05"/>
+        <TableColumn Name="Column8"/>
+        <TableColumn Name="Column9"/>
+        <TableColumn Name="Column10"/>
+        <TableRow Name="Row1" Height="22.68">
+          <TableCell Name="Cell1" Text="Лицевой счет открыт" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell2" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell3" Border.Lines="Bottom" Text="[fio]" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="8"/>
+          <TableCell Name="Cell4" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell5" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell26" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell27" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell28" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell29" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell30" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="22.68">
+          <TableCell Name="Cell6" Text="который является" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell7" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell8" Border.Lines="Bottom" BeforePrintEvent="Cell8_BeforePrint" Text="[who]" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="8"/>
+          <TableCell Name="Cell9" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell10" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell31" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell32" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell33" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell34" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell35" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="22.68">
+          <TableCell Name="Cell11" Text="Общая площадь " VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell12" Border.Lines="Bottom" BeforePrintEvent="Cell12_BeforePrint" Text="[ob_s]" AutoShrink="FontSize" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell13" Text="жилая площадь " HorzAlign="Right" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell14" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell15" Border.Lines="Bottom" BeforePrintEvent="Cell15_BeforePrint" Text="[gil_s]" AutoShrink="FontSize" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell36" Text="кол-во комнат " HorzAlign="Right" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell37" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell38" Border.Lines="Bottom" BeforePrintEvent="Cell38_BeforePrint" Text="[count_room]" AutoShrink="FontSize" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell39" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell40" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="22.68">
+          <TableCell Name="Cell16" Text="Вид собственности " VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell17" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell18" Border.Lines="Bottom" BeforePrintEvent="Cell18_BeforePrint" Text="[vid_sobs]" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell19" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell20" Text="Тип квартиры " HorzAlign="Right" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell41" Border.Lines="Bottom" BeforePrintEvent="Cell41_BeforePrint" Text="[komm]" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="3"/>
+          <TableCell Name="Cell42" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell43" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell44" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell45" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="22.68">
+          <TableCell Name="Cell21" Text="Всего зарегистрировано " VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell22" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell23" Border.Lines="Bottom" Text="[pasp_gil]" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell24" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell25" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell46" Text="Всего собственников" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell47" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell48" Border.Lines="Bottom" Text="[sobstv_count]" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell49" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell50" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="22.68">
+          <TableCell Name="Cell51" Text="[tfam_gil]" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell52" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell53" Border.Lines="Bottom" BeforePrintEvent="Cell53_BeforePrint" Text="[fam_gil]" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell54" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell55" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell56" Text="Из них зарегистрировано" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell57" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell58" Border.Lines="Bottom" Text="[sobstv_reg_count]" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell59" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell60" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="22.68">
+          <TableCell Name="Cell61" Text="Выписка дана по обращению" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell62" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell63" Border.Lines="Bottom" Text="[fio_obrasch]" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="8"/>
+          <TableCell Name="Cell64" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell65" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell66" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell67" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell68" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell69" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell70" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="22.68">
+          <TableCell Name="Cell71" Text="Дана для представления" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell72" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell73" Border.Lines="Bottom" Text="[dana]" VertAlign="Bottom" Font="Times New Roman, 8pt" ColSpan="8"/>
+          <TableCell Name="Cell74" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell75" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell76" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell77" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell78" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell79" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell80" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+        </TableRow>
+      </TableObject>
+      <ChildBand Name="Child1" Top="283.72" Width="756" Height="18.9" CanGrow="true" CanShrink="true" Guides="0,18.9">
+        <TextObject Name="Text3" Left="9.45" Width="172.79" Height="18.9" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[tb_P]" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+        <TextObject Name="Text4" Left="182.24" Width="554.86" Height="18.9" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[tb_Prim]" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+      </ChildBand>
+      <DataFooterBand Name="DataFooter1" Top="306.62" Width="756" Height="39.69" Guides="11.34,30.24">
+        <TextObject Name="Text11" Left="9.45" Top="11.34" Width="340.2" Height="18.9" CanGrow="true" Text="[dolgnost_nach]" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        <TextObject Name="Text13" Left="406.35" Top="11.34" Width="330.75" Height="18.9" GrowToBottom="true" Text="[name_nach]" Font="Times New Roman, 10pt"/>
+        <ChildBand Name="Child2" Top="350.31" Width="756" Height="37.8" Guides="11.34,30.24">
+          <TextObject Name="Text12" Left="9.45" Top="11.34" Width="340.2" Height="18.9" Text="Специалист" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TextObject Name="Text14" Left="406.35" Top="11.34" Width="330.75" Height="18.9" Text="[name_pasport]" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        </ChildBand>
+      </DataFooterBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="392.11" Width="756"/>
+  </ReportPage>
+</Report>

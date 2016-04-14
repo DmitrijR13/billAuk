@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/17/2010 10:22:58" ReportInfo.Modified="01/31/2011 13:29:16" ReportInfo.CreatorVersion="1.5.1.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+  string numkvit = &quot;1&quot;;
+    string kindkvit = &quot;&quot;;
+    string Data_print = &quot;01.01.2010&quot;;
+    string dat2 = &quot;31.01.2010&quot;;
+    string Lschet = &quot;31.01.2010&quot;;
+    string Platelchik = &quot;Иванов И.И.&quot;;
+    string AdresIRC = &quot;ул. Ленина д.1 кв.1 &quot;;
+    string komplex = &quot;комплекс 1&quot;;
+    string kv_pl = &quot;47.00&quot;;
+    string kol_kom = &quot;2&quot;;
+    string kolgil =&quot;2&quot;;
+    string kolvgil =&quot;0&quot;;
+    string ulica = &quot;Ленина&quot;;
+    string numdom = &quot;1&quot;;
+    string kvnum = &quot;1&quot;;
+    string months = &quot;Декабрь 2010г.&quot;;
+    string rrc = &quot;РЦ 4&quot;;
+    string vars = &quot;0&quot;;
+    string closepr = &quot;&quot;;
+    string el_dpu = &quot;1000&quot;;
+    string el_kv  = &quot;200&quot;;
+    string ni_kv = &quot;&quot;;
+    string el_odn = &quot;&quot;;
+    string ni_odn = &quot;&quot;;
+
+    string nom_day1 = &quot;1&quot;;
+    string nom_day2 = &quot;2&quot;;    
+    string nom_day3 = &quot;3&quot;;
+    string val_day1 = &quot;4&quot;;
+    string val_day2 = &quot;5&quot;;    
+    string val_day3 = &quot;6&quot;;
+    
+    string nom_night1 = &quot;1&quot;;
+    string nom_night2 = &quot;2&quot;;    
+    string nom_night3 = &quot;3&quot;;
+    string val_night1 = &quot;4&quot;;
+    string val_night2 = &quot;5&quot;;    
+    string val_night3 = &quot;6&quot;;
+    
+    
+    string prib_1 = &quot;1&quot;;
+    string prib_2 = &quot;2&quot;;    
+    string prib_3 = &quot;3&quot;;
+    string prib_4 = &quot;4&quot;;    
+    string prib_5 = &quot;5&quot;;
+    string prib_6 = &quot;6&quot;;    
+    string prib_7 = &quot;7&quot;;
+    string prib_8 = &quot;8&quot;;    
+    string prib_9 = &quot;9&quot;;
+    string prib_10 = &quot;10&quot;;    
+    string prib_11 = &quot;11&quot;;
+    string prib_12 = &quot;12&quot;;    
+    string prib_13 = &quot;13&quot;;
+    string prib_14 = &quot;14&quot;;    
+    string prib_15 = &quot;15&quot;;
+    string prib_16 = &quot;16&quot;;    
+    string prib_17 = &quot;17&quot;;
+    string prib_18 = &quot;18&quot;;    
+    string prib_19 = &quot;19&quot;;
+    string prib_20 = &quot;20&quot;;    
+    string prib_21 = &quot;21&quot;;
+    string prib_22 = &quot;22&quot;;    
+    string prib_23 = &quot;23&quot;;
+    string prib_24 = &quot;24&quot;;    
+    string prib_25 = &quot;25&quot;;
+    
+    string rash_1 = &quot;1&quot;;
+    string rash_2 = &quot;2&quot;;    
+    string rash_3 = &quot;3&quot;;
+    string rash_4 = &quot;4&quot;;    
+    string rash_5 = &quot;5&quot;;
+    string rash_6 = &quot;6&quot;;    
+    string rash_7 = &quot;7&quot;;
+    string rash_8 = &quot;8&quot;;    
+    string rash_9 = &quot;9&quot;;
+    string rash_10 = &quot;10&quot;;    
+    string rash_11 = &quot;11&quot;;
+    string rash_12 = &quot;12&quot;;    
+    
+    string digmas_1 = &quot;1&quot;;
+    string digmas_2 = &quot;2&quot;;    
+    string digmas_3 = &quot;3&quot;;
+    string digmas_4 = &quot;4&quot;;    
+    string digmas_5 = &quot;5&quot;;
+    string digmas_6 = &quot;6&quot;;    
+    string digmas_7 = &quot;7&quot;;
+    string digmas_8 = &quot;8&quot;;    
+    string digmas_9 = &quot;9&quot;;
+    string digmas_10 = &quot;10&quot;;    
+    string digmas_11 = &quot;11&quot;;
+    string digmas_12 = &quot;12&quot;;    
+    string digmas_13 = &quot;13&quot;;
+    string digmas_14 = &quot;14&quot;;    
+    string digmas_15 = &quot;15&quot;;
+    string digmas_16 = &quot;16&quot;;    
+    string digmas_17 = &quot;17&quot;;
+    string digmas_18 = &quot;18&quot;;    
+    string digmas_19 = &quot;19&quot;;
+    string digmas_20 = &quot;20&quot;;    
+    string digmas_21 = &quot;21&quot;;
+    string digmas_22 = &quot;22&quot;;    
+    string digmas_23 = &quot;23&quot;;
+    string digmas_24 = &quot;24&quot;;    
+    string digmas_25 = &quot;25&quot;;   
+    string digmas_26 = &quot;26&quot;;
+    string digmas_27 = &quot;27&quot;;    
+    string digmas_28 = &quot;28&quot;;
+    string digmas_29 = &quot;29&quot;;    
+    string digmas_30 = &quot;30&quot;;
+    string digmas_31 = &quot;31&quot;;    
+    string digmas_32 = &quot;32&quot;;
+    string digmas_33 = &quot;33&quot;;    
+    string digmas_34 = &quot;34&quot;;
+    string digmas_35 = &quot;35&quot;;    
+    string digmas_36 = &quot;36&quot;;
+    string digmas_37 = &quot;37&quot;;    
+    string digmas_38 = &quot;38&quot;;
+    string digmas_39 = &quot;39&quot;;    
+    string digmas_40 = &quot;40&quot;;
+    string digmas_41 = &quot;41&quot;;    
+    string digmas_42 = &quot;42&quot;;
+    string digmas_43 = &quot;43&quot;;    
+    string digmas_44 = &quot;44&quot;;
+    string digmas_45 = &quot;45&quot;;    
+    string digmas_46 = &quot;46&quot;;
+    string digmas_47 = &quot;47&quot;;    
+    string digmas_48 = &quot;48&quot;;
+    string digmas_49 = &quot;49&quot;;    
+    string digmas_50 = &quot;50&quot;;    
+    string digmas_51 = &quot;51&quot;;
+    string digmas_52 = &quot;52&quot;;    
+    string digmas_53 = &quot;53&quot;;    
+    
+    string sum_dolgd = &quot;&quot;;
+    string sum_opld = &quot;&quot;;
+    string sum_sn = &quot;&quot;;
+    string sum_reald = &quot;&quot;;
+    string sum_tarifd = &quot;&quot;;
+    string revald = &quot;&quot;;
+    string sum_charged = &quot;&quot;;
+    
+   
+    
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5">
+    <DataBand Name="Data1" Width="1084.86" Height="790.13">
+      <TextObject Name="Text2" Left="905.31" Top="32.13" Width="94.5" Height="18.9" Text="[numkvit]" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text3" Left="999.81" Top="32.13" Width="66.15" Height="18.9" Text="[kindkvit]" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text4" Left="905.31" Top="69.93" Width="160.65" Height="18.9" Text="от [Data_print]" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text5" Left="895.86" Top="245.7" Width="160.65" Height="18.9" Text="Кассир" Font="Times New Roman, 10pt"/>
+      <BarcodeObject Name="Barcode1" Left="935.55" Top="168.21" Width="126.25" Height="45.36" Text="165000000020" ShowText="false" Barcode="Code128" Barcode.AutoEncode="true"/>
+      <TextObject Name="Text16" Left="912.87" Top="88.83" Width="162.54" Height="111.51" Text="Реквизиты для оплаты Р/С 40702810100000001465&#13;&#10;К/С 30101810100000000803  БИК 049240803 ОАО &quot;Акибанк&quot;&#13;&#10;ООО &quot;Городской расчетный центр&quot;&#13;&#10;ИНН 1650093526/165001001 б-р Школьный д.3&#13;&#10;" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text56" Left="890.19" Top="287.28" Width="211.68" Height="45.36" Text="Лицевой счет: [Lschet] от [Data_print]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text57" Left="903.42" Top="334.53" Width="136.08" Height="26.46" Text="[AdresIRC] [komplex]" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text58" Left="897.75" Top="277.83" Width="126.63" Height="17.01" Text="Плательщик: " VertAlign="Center" Font="Times New Roman, 9pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text59" Left="882.63" Top="362.88" Width="164.43" Height="35.91" Text="[Platelchik]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold, Italic" HtmlTags="true"/>
+      <TextObject Name="Text60" Left="886.41" Top="400.68" Width="183.33" Height="54.81" Text="Сумма к оплате : [sum_charged] руб  за [months]&#13;&#10;" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text61" Left="880.74" Top="561.33" Width="117.18" Height="26.46" Text="Оплачиваю" VertAlign="Bottom" Font="Times New Roman, 10pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text24" Left="878.85" Top="610.47" Width="170.1" Height="18.9" Text="Подпись _______________" VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <BarcodeObject Name="Barcode2" Left="841.05" Top="485.73" Width="236.25" Height="45.36" Expression="[vars]" Text="1234567890123456789012345678" ShowText="false" Barcode="Code128" Barcode.AutoEncode="true"/>
+      <TextObject Name="Text11" Left="15.12" Top="7.56" Width="309.96" Height="18.9" Text="СЧЕТ-КВИТАНЦИЯ от [Date_Print]   [kindkvit] ПСС [pss]" VertAlign="Bottom" Font="Times New Roman, 7pt, style=Bold"/>
+      <TextObject Name="Text15" Left="15.12" Top="28.35" Width="803.25" Height="37.8" Text="Лицевой счет [Lschet] Начислено: [sum_charge] руб. за [months] Этаж: [et]  Подъезд:  [pod] Квартир на лестничной площадке: [kvonl]&#13;&#10;Плательщик [Platelchik] Количество жильцов: [kolgil] Временно выбывших: [kolvgil] Общая площадь: [kv_pl] кв.м.  Комфортность: [komf]" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text98" Left="289.17" Top="9.45" Width="45.36" Height="18.9" Text="Адрес: " HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text99" Left="334.53" Top="9.45" Width="370.44" Height="18.9" Text="ул. [ulica] д.[numdom] кв.[kvnum]" VertAlign="Bottom" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text19" Left="32.02" Top="66.26" Width="134.19" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Услуги&#13;&#10;электро-&#13;&#10;снабжения&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text101" Left="166.21" Top="66.26" Width="68.04" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Долг(+), переплата(-) (руб.)&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text102" Left="234.25" Top="66.26" Width="56.7" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Оплаты (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text103" Left="366.45" Top="66.26" Width="37.8" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Тариф (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text104" Left="464.59" Top="66.26" Width="69.93" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Недопоставка услуг  в текущем месяце (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text105" Left="404.11" Top="66.26" Width="60.48" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Начислено за месяц (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text106" Left="534.76" Top="66.26" Width="71.82" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Начислено за месяц, с учетом недопоставки (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text107" Left="606.48" Top="66.26" Width="64.26" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Перерасчет (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text108" Left="670.74" Top="66.26" Width="60.48" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Начислено к оплате (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text109" Left="32.02" Top="115.4" Width="134.19" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_1]&#13;&#10;[digmas_15]&#13;&#10;[digmas_29]&#13;&#10;[digmas_43]&#13;&#10;[digmas_57]&#13;&#10;[digmas_71]&#13;&#10;[digmas_85]&#13;&#10;[digmas_99]&#13;&#10;[digmas_113]&#13;&#10;[digmas_127]&#13;&#10;[digmas_141]&#13;&#10;[digmas_155]&#13;&#10;[digmas_169]&#13;&#10;[digmas_183]&#13;&#10;[digmas_197]&#13;&#10;[digmas_211]&#13;&#10;[digmas_225]&#13;&#10;[digmas_239]&#13;&#10;[digmas_253]&#13;&#10;[digmas_267]&#13;&#10;[digmas_281]&#13;&#10;[digmas_295]&#13;&#10;[digmas_309]&#13;&#10;[digmas_323]&#13;&#10;[digmas_337]&#13;&#10;[digmas_351]&#13;&#10;[digmas_365]&#13;&#10;[digmas_379]&#13;&#10;[digmas_393]&#13;&#10;[digmas_407]&#13;&#10;[digmas_421]&#13;&#10;[digmas_435]&#13;&#10;[digmas_449]&#13;&#10;[digmas_463]&#13;&#10;[digmas_477]&#13;&#10;" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text110" Left="166.21" Top="115.4" Width="68.04" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_2]&#13;&#10;[digmas_16]&#13;&#10;[digmas_30]&#13;&#10;[digmas_44]&#13;&#10;[digmas_58]&#13;&#10;[digmas_72]&#13;&#10;[digmas_86]&#13;&#10;[digmas_100]&#13;&#10;[digmas_114]&#13;&#10;[digmas_128]&#13;&#10;[digmas_142]&#13;&#10;[digmas_156]&#13;&#10;[digmas_170]&#13;&#10;[digmas_184]&#13;&#10;[digmas_198]&#13;&#10;[digmas_212]&#13;&#10;[digmas_226]&#13;&#10;[digmas_240]&#13;&#10;[digmas_254]&#13;&#10;[digmas_268]&#13;&#10;[digmas_282]&#13;&#10;[digmas_296]&#13;&#10;[digmas_310]&#13;&#10;[digmas_324]&#13;&#10;[digmas_338]&#13;&#10;[digmas_352]&#13;&#10;[digmas_366]&#13;&#10;[digmas_380]&#13;&#10;[digmas_394]&#13;&#10;[digmas_408]&#13;&#10;[digmas_422]&#13;&#10;[digmas_436]&#13;&#10;[digmas_450]&#13;&#10;[digmas_464]&#13;&#10;[digmas_478]&#13;&#10;" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text111" Left="234.25" Top="115.4" Width="56.7" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_3]&#13;&#10;[digmas_17]&#13;&#10;[digmas_31]&#13;&#10;[digmas_45]&#13;&#10;[digmas_59]&#13;&#10;[digmas_73]&#13;&#10;[digmas_87]&#13;&#10;[digmas_101]&#13;&#10;[digmas_115]&#13;&#10;[digmas_129]&#13;&#10;[digmas_143]&#13;&#10;[digmas_157]&#13;&#10;[digmas_171]&#13;&#10;[digmas_185]&#13;&#10;[digmas_199]&#13;&#10;[digmas_213]&#13;&#10;[digmas_227]&#13;&#10;[digmas_241]&#13;&#10;[digmas_255]&#13;&#10;[digmas_269]&#13;&#10;[digmas_283]&#13;&#10;[digmas_297]&#13;&#10;[digmas_311]&#13;&#10;[digmas_325]&#13;&#10;[digmas_339]&#13;&#10;[digmas_353]&#13;&#10;[digmas_367]&#13;&#10;[digmas_381]&#13;&#10;[digmas_395]&#13;&#10;[digmas_409]&#13;&#10;[digmas_423]&#13;&#10;[digmas_437]&#13;&#10;[digmas_451]&#13;&#10;[digmas_465]&#13;&#10;[digmas_479]&#13;&#10;" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text112" Left="366.45" Top="115.4" Width="37.8" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_5]&#13;&#10;[digmas_19]&#13;&#10;[digmas_33]&#13;&#10;[digmas_47]&#13;&#10;[digmas_61]&#13;&#10;[digmas_75]&#13;&#10;[digmas_89]&#13;&#10;[digmas_103]&#13;&#10;[digmas_117]&#13;&#10;[digmas_131]&#13;&#10;[digmas_145]&#13;&#10;[digmas_159]&#13;&#10;[digmas_173]&#13;&#10;[digmas_187]&#13;&#10;[digmas_201]&#13;&#10;[digmas_215]&#13;&#10;[digmas_229]&#13;&#10;[digmas_243]&#13;&#10;[digmas_257]&#13;&#10;[digmas_271]&#13;&#10;[digmas_285]&#13;&#10;[digmas_299]&#13;&#10;[digmas_313]&#13;&#10;[digmas_327]&#13;&#10;[digmas_341]&#13;&#10;[digmas_355]&#13;&#10;[digmas_369]&#13;&#10;[digmas_383]&#13;&#10;[digmas_397]&#13;&#10;[digmas_411]&#13;&#10;[digmas_425]&#13;&#10;[digmas_439]&#13;&#10;[digmas_453]&#13;&#10;[digmas_467]&#13;&#10;[digmas_481]&#13;&#10;" Format="Number" Format.UseLocale="false" Format.DecimalDigits="3" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text113" Left="464.59" Top="115.4" Width="69.93" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_6]&#13;&#10;[digmas_20]&#13;&#10;[digmas_34]&#13;&#10;[digmas_48]&#13;&#10;[digmas_62]&#13;&#10;[digmas_76]&#13;&#10;[digmas_90]&#13;&#10;[digmas_104]&#13;&#10;[digmas_118]&#13;&#10;[digmas_132]&#13;&#10;[digmas_146]&#13;&#10;[digmas_160]&#13;&#10;[digmas_174]&#13;&#10;[digmas_188]&#13;&#10;[digmas_202]&#13;&#10;[digmas_216]&#13;&#10;[digmas_230]&#13;&#10;[digmas_244]&#13;&#10;[digmas_258]&#13;&#10;[digmas_272]&#13;&#10;[digmas_286]&#13;&#10;[digmas_300]&#13;&#10;[digmas_314]&#13;&#10;[digmas_328]&#13;&#10;[digmas_342]&#13;&#10;[digmas_356]&#13;&#10;[digmas_370]&#13;&#10;[digmas_384]&#13;&#10;[digmas_398]&#13;&#10;[digmas_412]&#13;&#10;[digmas_426]&#13;&#10;[digmas_440]&#13;&#10;[digmas_454]&#13;&#10;[digmas_468]&#13;&#10;[digmas_482]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text114" Left="404.11" Top="115.4" Width="60.48" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_7]&#13;&#10;[digmas_21]&#13;&#10;[digmas_35]&#13;&#10;[digmas_49]&#13;&#10;[digmas_63]&#13;&#10;[digmas_77]&#13;&#10;[digmas_91]&#13;&#10;[digmas_105]&#13;&#10;[digmas_119]&#13;&#10;[digmas_133]&#13;&#10;[digmas_147]&#13;&#10;[digmas_161]&#13;&#10;[digmas_175]&#13;&#10;[digmas_189]&#13;&#10;[digmas_203]&#13;&#10;[digmas_217]&#13;&#10;[digmas_231]&#13;&#10;[digmas_245]&#13;&#10;[digmas_259]&#13;&#10;[digmas_273]&#13;&#10;[digmas_287]&#13;&#10;[digmas_301]&#13;&#10;[digmas_315]&#13;&#10;[digmas_329]&#13;&#10;[digmas_343]&#13;&#10;[digmas_357]&#13;&#10;[digmas_371]&#13;&#10;[digmas_385]&#13;&#10;[digmas_399]&#13;&#10;[digmas_413]&#13;&#10;[digmas_427]&#13;&#10;[digmas_441]&#13;&#10;[digmas_455]&#13;&#10;[digmas_469]&#13;&#10;[digmas_483]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text115" Left="534.76" Top="115.4" Width="71.82" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_12]&#13;&#10;[digmas_26]&#13;&#10;[digmas_40]&#13;&#10;[digmas_54]&#13;&#10;[digmas_68]&#13;&#10;[digmas_82]&#13;&#10;[digmas_96]&#13;&#10;[digmas_110]&#13;&#10;[digmas_124]&#13;&#10;[digmas_138]&#13;&#10;[digmas_152]&#13;&#10;[digmas_166]&#13;&#10;[digmas_180]&#13;&#10;[digmas_194]&#13;&#10;[digmas_208]&#13;&#10;[digmas_222]&#13;&#10;[digmas_236]&#13;&#10;[digmas_250]&#13;&#10;[digmas_264]&#13;&#10;[digmas_278]&#13;&#10;[digmas_292]&#13;&#10;[digmas_306]&#13;&#10;[digmas_320]&#13;&#10;[digmas_334]&#13;&#10;[digmas_348]&#13;&#10;[digmas_362]&#13;&#10;[digmas_376]&#13;&#10;[digmas_390]&#13;&#10;[digmas_404]&#13;&#10;[digmas_418]&#13;&#10;[digmas_432]&#13;&#10;[digmas_446]&#13;&#10;[digmas_460]&#13;&#10;[digmas_474]&#13;&#10;[digmas_488]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text116" Left="606.48" Top="115.4" Width="64.26" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_11]&#13;&#10;[digmas_25]&#13;&#10;[digmas_39]&#13;&#10;[digmas_53]&#13;&#10;[digmas_67]&#13;&#10;[digmas_81]&#13;&#10;[digmas_95]&#13;&#10;[digmas_109]&#13;&#10;[digmas_123]&#13;&#10;[digmas_137]&#13;&#10;[digmas_151]&#13;&#10;[digmas_165]&#13;&#10;[digmas_179]&#13;&#10;[digmas_193]&#13;&#10;[digmas_207]&#13;&#10;[digmas_221]&#13;&#10;[digmas_235]&#13;&#10;[digmas_249]&#13;&#10;[digmas_263]&#13;&#10;[digmas_277]&#13;&#10;[digmas_291]&#13;&#10;[digmas_305]&#13;&#10;[digmas_319]&#13;&#10;[digmas_333]&#13;&#10;[digmas_347]&#13;&#10;[digmas_361]&#13;&#10;[digmas_375]&#13;&#10;[digmas_389]&#13;&#10;[digmas_403]&#13;&#10;[digmas_417]&#13;&#10;[digmas_431]&#13;&#10;[digmas_445]&#13;&#10;[digmas_459]&#13;&#10;[digmas_473]&#13;&#10;[digmas_487]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text117" Left="670.74" Top="115.4" Width="60.48" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_14]&#13;&#10;[digmas_28]&#13;&#10;[digmas_42]&#13;&#10;[digmas_56]&#13;&#10;[digmas_70]&#13;&#10;[digmas_84]&#13;&#10;[digmas_98]&#13;&#10;[digmas_112]&#13;&#10;[digmas_126]&#13;&#10;[digmas_140]&#13;&#10;[digmas_154]&#13;&#10;[digmas_168]&#13;&#10;[digmas_182]&#13;&#10;[digmas_196]&#13;&#10;[digmas_210]&#13;&#10;[digmas_224]&#13;&#10;[digmas_238]&#13;&#10;[digmas_252]&#13;&#10;[digmas_266]&#13;&#10;[digmas_280]&#13;&#10;[digmas_294]&#13;&#10;[digmas_308]&#13;&#10;[digmas_322]&#13;&#10;[digmas_336]&#13;&#10;[digmas_350]&#13;&#10;[digmas_364]&#13;&#10;[digmas_378]&#13;&#10;[digmas_392]&#13;&#10;[digmas_406]&#13;&#10;[digmas_420]&#13;&#10;[digmas_434]&#13;&#10;[digmas_448]&#13;&#10;[digmas_462]&#13;&#10;[digmas_476]&#13;&#10;[digmas_490]&#13;&#10;[digmas_504]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text23" Left="841.05" Top="532.2" Width="236.25" Height="18.9" Text="[vars]" HorzAlign="Center" Font="Tahoma, 10pt"/>
+      <TextObject Name="Text25" Left="935.55" Top="215.35" Width="122.85" Height="18.9" Text="165000000020" HorzAlign="Center" Font="Tahoma, 10pt"/>
+      <TextObject Name="Text154" Left="14.79" Top="66.15" Width="17.01" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text155" Left="14.79" Top="115.29" Width="17.01" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[num_1]&#13;&#10;[num_2]&#13;&#10;[num_3]&#13;&#10;[num_4]&#13;&#10;[num_5]&#13;&#10;[num_6]&#13;&#10;[num_7]&#13;&#10;[num_8]&#13;&#10;[num_9]&#13;&#10;[num_10]&#13;&#10;[num_11]&#13;&#10;[num_12]&#13;&#10;[num_13]&#13;&#10;[num_14]&#13;&#10;[num_15]&#13;&#10;[num_16]&#13;&#10;[num_17]&#13;&#10;[num_18]&#13;&#10;[num_19]&#13;&#10;[num_20]&#13;&#10;[num_21]&#13;&#10;[num_22]&#13;&#10;[num_23]&#13;&#10;[num_24]&#13;&#10;[num_25]&#13;&#10;[num_26]&#13;&#10;[num_27]&#13;&#10;[num_28]&#13;&#10;[num_29]&#13;&#10;[num_30]&#13;&#10;[num_31]&#13;&#10;[num_32]&#13;&#10;[num_33]&#13;&#10;[num_34]&#13;&#10;[num_35]" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text156" Left="290.95" Top="66.15" Width="75.6" Height="49.14" Border.Lines="All" Border.Width="0.25" Text="Единица измерения  &#13;&#10;(по нормативу /&#13;&#10;приборам учета)&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text157" Left="290.95" Top="115.29" Width="75.6" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_4]&#13;&#10;[digmas_18]&#13;&#10;[digmas_32]&#13;&#10;[digmas_46]&#13;&#10;[digmas_60]&#13;&#10;[digmas_74]&#13;&#10;[digmas_88]&#13;&#10;[digmas_102]&#13;&#10;[digmas_116]&#13;&#10;[digmas_130]&#13;&#10;[digmas_144]&#13;&#10;[digmas_158]&#13;&#10;[digmas_172]&#13;&#10;[digmas_186]&#13;&#10;[digmas_200]&#13;&#10;[digmas_214]&#13;&#10;[digmas_228]&#13;&#10;[digmas_242]&#13;&#10;[digmas_256]&#13;&#10;[digmas_270]&#13;&#10;[digmas_284]&#13;&#10;[digmas_298]&#13;&#10;[digmas_312]&#13;&#10;[digmas_326]&#13;&#10;[digmas_340]&#13;&#10;[digmas_354]&#13;&#10;[digmas_368]&#13;&#10;[digmas_382]&#13;&#10;[digmas_396]&#13;&#10;[digmas_410]&#13;&#10;[digmas_424]&#13;&#10;[digmas_438]&#13;&#10;[digmas_452]&#13;&#10;[digmas_466]&#13;&#10;[digmas_480]&#13;&#10;" Format="Number" Format.UseLocale="false" Format.DecimalDigits="3" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text158" Left="32.13" Top="546.21" Width="134.19" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="Итого" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text159" Left="166.32" Top="546.21" Width="68.04" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="{sum_dolg]" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text160" Left="234.36" Top="546.21" Width="56.7" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[sum_money]" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text162" Left="464.7" Top="546.21" Width="69.93" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[sum_nedop]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text163" Left="404.22" Top="546.21" Width="60.48" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[rsum_tarif]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text164" Left="534.87" Top="546.21" Width="71.82" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[sum_tarif]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text165" Left="606.59" Top="546.21" Width="64.26" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[reval]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text166" Left="670.85" Top="546.21" Width="60.48" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[sum_charge]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

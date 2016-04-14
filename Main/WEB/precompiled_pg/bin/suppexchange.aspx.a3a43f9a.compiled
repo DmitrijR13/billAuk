@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/exchange/service/suppexchange.aspx" hash="cedb9400c" filehash="f30a43ca256dbecb" flags="110000" assembly="App_Web_gczuvt2c" type="ASP.exchange_service_suppexchange_aspx">
+    <filedeps>
+        <filedep name="/none/exchange/service/suppexchange.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/master/templates/MyFiles.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+        <filedep name="/none/reports/upload_reestr.ascx" />
+    </filedeps>
+</preserve>

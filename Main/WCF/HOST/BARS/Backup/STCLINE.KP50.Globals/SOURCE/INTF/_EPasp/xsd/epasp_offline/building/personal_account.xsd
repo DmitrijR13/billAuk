@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cit.ru/gkhrt" version="1.0"
+           xmlns:gkh="http://cit.ru/gkhrt" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:Xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="mab_core.xsd"/>
+  <xs:include schemaLocation="mab_services.xsd"/>
+
+  <xs:complexType name="nonresidentialPremise">
+    <xs:annotation>
+      <xs:documentation>Нежилое помещение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="uniqueNumber" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Уникальный в рамках дома номер</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="entrance">
+        <xs:annotation>
+          <xs:documentation>Подъезд</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="floor" type="xs:short">
+        <xs:annotation>
+          <xs:documentation>Этаж</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>общая площадь, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="comment">
+        <xs:annotation>
+          <xs:documentation>Комментарий</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="resourceInputs" type="gkh:resourceInput">
+        <xs:annotation>
+          <xs:documentation>Места ввода инженерных систем для подачи в помещение ресурсов, необходимых для предоставления коммунальных услуг</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="personalAccount" type="gkh:personalAccount">
+        <xs:annotation>
+          <xs:documentation>Лицевой счет</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="measurementReadings" type="gkh:measurementReading">
+        <xs:annotation>
+          <xs:documentation>Показания счетчиков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="flat">
+    <xs:annotation>
+      <xs:documentation>Квартира</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="uniqueNumber" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Уникальный в рамках дома номер</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="number">
+        <xs:annotation>
+          <xs:documentation>Номер</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="entrance">
+        <xs:annotation>
+          <xs:documentation>Подъезд</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="5"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="floor" type="xs:short">
+        <xs:annotation>
+          <xs:documentation>Этаж</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>общая площадь, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="livingArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>жилая площадь, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="additionalArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Дополнительная площадь, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="kitchenArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь кухни, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="loggiaArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь лоджии, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="roomCount" type="gkh:nonNegativeShort">
+        <xs:annotation>
+          <xs:documentation>Количество комнат</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="resourceInputs" type="gkh:resourceInput">
+        <xs:annotation>
+          <xs:documentation>Места ввода инженерных систем для подачи в помещение ресурсов, необходимых для предоставления коммунальных услуг</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:element name="personalAccount" type="gkh:livingPremisePersonalAccount">
+          <xs:annotation>
+            <xs:documentation>Лицевой счет</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="rooms" type="gkh:flatRoom">
+          <xs:annotation>
+            <xs:documentation>Комнаты в коммунальной квартире</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="measurementReadings" type="gkh:measurementReading">
+        <xs:annotation>
+          <xs:documentation>Показания счетчиков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="flatRoom">
+    <xs:annotation>
+      <xs:documentation>Комната в коммунальной квартире</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="uniqueNumber" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Уникальный в рамках дома номер</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>общая площадь, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="livingArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>жилая площадь, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="additionalArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Дополнительная площадь, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="kitchenArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь кухни, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="loggiaArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь лоджии, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="comWithoutKitchenArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь МОП без кухни, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="roomCount" type="gkh:nonNegativeShort">
+        <xs:annotation>
+          <xs:documentation>Количество комнат</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="resourceInputs" type="gkh:resourceInput">
+        <xs:annotation>
+          <xs:documentation>Места ввода инженерных систем для подачи в помещение ресурсов, необходимых для предоставления коммунальных услуг</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="personalAccount" type="gkh:livingPremisePersonalAccount">
+        <xs:annotation>
+          <xs:documentation>Лицевой счет</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="measurementReadings" type="gkh:measurementReading">
+        <xs:annotation>
+          <xs:documentation>Показания счетчиков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="livingPremisePersonalAccount">
+    <xs:annotation>
+      <xs:documentation>Лицевой счет жилого помещения</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:personalAccount">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="registeredPersons" type="gkh:apartmentRegisteredPerson">
+            <xs:annotation>
+              <xs:documentation>Зарегистрированные граждане</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="temporaryRegisteredPersons" type="gkh:apartmentRegisteredPerson">
+            <xs:annotation>
+              <xs:documentation>Временно зарегистрированные граждане</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="31" name="residentCountPeriods" type="gkh:personalAccountNaturPersonCount">
+            <xs:annotation>
+              <xs:documentation>Количество проживающих по периодам</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element maxOccurs="31" name="registeredPersonCountPeriods" type="gkh:personalAccountNaturPersonCount">
+            <xs:annotation>
+              <xs:documentation>Количество зарегистрированных граждан по периодам</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:sequence minOccurs="0">
+            <xs:element name="apartmentOwnershipPartNumerator" type="gkh:positiveTwoSignedDecimal">
+              <xs:annotation>
+                <xs:documentation>Числитель доли собственности лс</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="apartmentOwnershipPartDenominator" type="gkh:positiveTwoSignedDecimal">
+              <xs:annotation>
+                <xs:documentation>Знаменатель доли собственности лс</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="personalAccountNaturPersonCount">
+    <xs:annotation>
+      <xs:documentation>Количество проживающих / зарегистрированных в жилом помещении</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="count" type="gkh:nonNegativeShort">
+        <xs:annotation>
+          <xs:documentation>Количество</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="startDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата с которой действовало указанное количество</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="endDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата по которую действовало указанное количество</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="apartmentRegisteredPerson">
+    <xs:annotation>
+      <xs:documentation>Зарегистрированный / Временно зарегистрированный гражданин</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="naturPerson" type="gkh:naturPerson">
+        <xs:annotation>
+          <xs:documentation>Физ лицо</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:element name="registrationStartDate" type="gkh:date">
+          <xs:annotation>
+            <xs:documentation>Дата регистрации. Заполняется при регистрации</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="registrationEndDate" type="gkh:date">
+          <xs:annotation>
+            <xs:documentation>Дата окончания регистрации. Заполняется при выписке</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="personalAccount">
+    <xs:annotation>
+      <xs:documentation>Лицевой счет</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number">
+        <xs:annotation>
+          <xs:documentation>Уникальный номер</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ownershipType" type="gkh:ownershipType">
+        <xs:annotation>
+          <xs:documentation>Тип собственности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:element name="responsibleNaturPerson" type="gkh:naturPerson">
+          <xs:annotation>
+            <xs:documentation>Ответственный собственник - физ. лицо</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="responsibleJurPerson" type="gkh:jurPerson">
+          <xs:annotation>
+            <xs:documentation>Ответственный собственник - юр. лицо</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+      <xs:choice>
+        <xs:element maxOccurs="unbounded" name="owners" type="gkh:naturPerson">
+          <xs:annotation>
+            <xs:documentation>Собственник - физ. лицо</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="tenant" type="gkh:naturPerson">
+          <xs:annotation>
+            <xs:documentation>Арендатор - физ. лицо</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+      <xs:element name="useTariffsForPopulation" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Использовать тарифы для населения / не для населения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="8" name="communalServiceCharges" type="gkh:communalServiceChargeWithRecalculation">
+        <xs:annotation>
+          <xs:documentation>Начисления по коммунальным услугам</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="housingServiceCharges" type="gkh:housingServiceChargeWithRecalculation">
+        <xs:annotation>
+          <xs:documentation>Начисления по жилищным услугам</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="chargeFine" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено пени, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="chargeWithoutShortDelivery" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено без учета недопоставки, руб. Без учета перерасчетов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="chargeIncludingShortDelivery" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено с учетом недопоставки, руб. Без учета перерасчетов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="chargeRecalculation" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено по перерасчету</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="chargeOdn" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено по ОДН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="chargeTotal" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено с учетом недопоставки и перерасчетов, пени, ОДН, задолженности/переплаты, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="paidPreviousMonth" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Оплачено в предыдущем месяце, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="openingDebt" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Задолженность / переплата на первое число месяца, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="communalServiceChargeWithRecalculation">
+    <xs:annotation>
+      <xs:documentation>Начисление на лицевой счет по коммунальной услуге</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="serviceCode" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Код услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="charge" type="gkh:personalAccountCommunalServiceCharge">
+        <xs:annotation>
+          <xs:documentation>Начисление по услуге</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="recalculations" type="gkh:recalculationCommunal">
+        <xs:annotation>
+          <xs:documentation>Перерасчеты по услуге, учтенные в данном месяце</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="housingServiceChargeWithRecalculation">
+    <xs:annotation>
+      <xs:documentation>Начисление на лицевой счет по жилищной услуге</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="serviceCode" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Код услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="charge" type="gkh:personalAccountHousingServiceCharge">
+        <xs:annotation>
+          <xs:documentation>Начисление по услуге</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="recalculations" type="gkh:recalculationHousing">
+        <xs:annotation>
+          <xs:documentation>Перерасчеты по услуге, учтенные в данном месяце</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recalculationCommunalServiceCharge">
+    <xs:annotation>
+      <xs:documentation>Начисление для перерасчета</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="charge" type="gkh:personalAccountCommunalServiceCharge">
+        <xs:annotation>
+          <xs:documentation>Начисление по услуге</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="recalculations" type="gkh:recalculationBase">
+        <xs:annotation>
+          <xs:documentation>Перерасчеты по услуге</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recalculationHousingServiceCharge">
+    <xs:annotation>
+      <xs:documentation>Начисление для перерасчета</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="charge" type="gkh:personalAccountHousingServiceCharge">
+        <xs:annotation>
+          <xs:documentation>Начисление по услуге</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="recalculations" type="gkh:recalculationBase">
+        <xs:annotation>
+          <xs:documentation>Перерасчеты по услуге</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="personalAccountCommunalServiceCharge">
+    <xs:annotation>
+      <xs:documentation>Начисление по коммунальной услуге</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:personalAccountServiceChargeBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="measuredResource" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Расход ресурса за месяц по показанию счетчика</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="resourceByNormative" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Расход ресурса за месяц по нормативу</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:sequence minOccurs="0">
+            <xs:element name="averageMeasuredResourceAmount" type="gkh:indication">
+              <xs:annotation>
+                <xs:documentation>Расход ресурса за месяц, полученный как среднее значение предыдущих показаний</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" name="averageMeasuredResourceMonths" type="gkh:monthWithYear">
+              <xs:annotation>
+                <xs:documentation>Список месяцев, за которые рассчитывалось среднее значение</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+
+          <xs:element name="odnResource" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Расход ресурса на ОДН</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="odnChargeWithoutShortDelivery" type="gkh:money">
+            <xs:annotation>
+              <xs:documentation>Начислено по ОДН без учета недопоставки, руб. Без учета перерасчетов</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="odnChargeIncludingShortDelivery" type="gkh:money">
+            <xs:annotation>
+              <xs:documentation>Начислено по ОДН с учетом недопоставки, руб. Без учета перерасчетов</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="odnChargeTotal" type="gkh:money">
+            <xs:annotation>
+              <xs:documentation>Начислено с учетом недопоставки и перерасчетов, задолженности/переплаты, руб</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="odnShortDeliveries" type="gkh:shortDeliveryWithSum">
+            <xs:annotation>
+              <xs:documentation>Недопоставки, влияющие на начисление ОДН</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="shortDeliveryWithSum">
+    <xs:annotation>
+      <xs:documentation>Недопоставка с суммой снижения начислений</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:shortDelivery">
+        <xs:sequence>
+          <xs:element name="chargeReductionSum" type="gkh:money">
+            <xs:annotation>
+              <xs:documentation>Сумма, на которую снижено начисление по услуге</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="personalAccountHousingServiceCharge">
+    <xs:annotation>
+      <xs:documentation>Начисление по жилищной услуге</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:personalAccountServiceChargeBase">
+        <xs:sequence>
+          <xs:element name="resource" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Количество ресурса, по которому произведено начисление</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="personalAccountServiceChargeBase">
+    <xs:annotation>
+      <xs:documentation>Начисление по услуге</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="chargeWithoutShortDelivery" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено без учета недопоставки, руб. Без учета перерасчетов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="chargeIncludingShortDelivery" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено с учетом недопоставки, руб. Без учета перерасчетов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="chargeTotal" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено с учетом недопоставки и перерасчетов,ОДН, задолженности/переплаты, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="paidPreviousMonth" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Оплачено в предыдущем месяце, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="openingDebt" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Задолженность / переплата на первое число месяца, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="shortDeliveries" type="gkh:shortDeliveryWithSum">
+        <xs:annotation>
+          <xs:documentation>Недопоставки</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="chargeVisualization">
+        <xs:annotation>
+          <xs:documentation>Визуализация расчета. Например: (0.1 м3/м2 * 100 м2) * 5 руб/м3 - 100 руб(перерасчет)</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction  base="gkh:string">
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recalculationCommunal">
+    <xs:annotation>
+      <xs:documentation>Перерасчет коммунальной услуги</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:recalculationBase">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="months" type="gkh:recalculationMonthCommunal">
+            <xs:annotation>
+              <xs:documentation>Перерасчет по месяцам</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="recalculationHousing">
+    <xs:annotation>
+      <xs:documentation>Перерасчет жилищной услуги</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:recalculationBase">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="months" type="gkh:recalculationMonthHousing">
+            <xs:annotation>
+              <xs:documentation>Перерасчет по месяцам</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="recalculationBase">
+    <xs:annotation>
+      <xs:documentation>Перерасчет услуги</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="chargeChange" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Разница начислений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recalculationMonthCommunal">
+    <xs:annotation>
+      <xs:documentation>Перерасчет коммунальной услуги за месяц</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:recalculationMonthBase">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element name="chargedTariff" type="gkh:indication">
+              <xs:annotation>
+                <xs:documentation>Действовавший тариф коммунальной услуги</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+          <xs:element minOccurs="0" name="correctedTariff" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Исправленный тариф коммунальной услуги</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="chargedNormAmount" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Действовавший размер нормы</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="correctedNormAmount" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Исправленный размер нормы</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="previousPersonalAccountCommunalServiceCharge" type="gkh:recalculationCommunalServiceCharge">
+            <xs:annotation>
+              <xs:documentation>Предыдущее начисление по коммунальной услуге</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="recalculatedPersonalAccountCommunalServiceCharge" type="gkh:recalculationCommunalServiceCharge">
+            <xs:annotation>
+              <xs:documentation>Перерасчитанное начисление по коммунальной услуге</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="recalculationMonthHousing">
+    <xs:annotation>
+      <xs:documentation>Перерасчет жилищной услуги за месяц</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:recalculationMonthBase">
+        <xs:sequence>
+          <xs:element name="chargedTariff" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Действовавший тариф жилищной услуги</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="correctedTariff" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Исправленный тариф жилищной услуги</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="previousPersonalAccountHousingServiceCharge" type="gkh:recalculationHousingServiceCharge">
+            <xs:annotation>
+              <xs:documentation>Предыдущее начисление по жилищной услуге</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="recalculatedPersonalAccountHousingServiceCharge" type="gkh:recalculationHousingServiceCharge">
+            <xs:annotation>
+              <xs:documentation>Перерасчитанное начисление по жилищной услуге</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="recalculationMonthBase">
+    <xs:annotation>
+      <xs:documentation>Перерасчет услуги за месяц</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="month" type="gkh:monthWithYear">
+        <xs:annotation>
+          <xs:documentation>Месяц</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="type" type="gkh:recalculationType">
+        <xs:annotation>
+          <xs:documentation>Типы пересчета</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <Xs:element minOccurs="0" maxOccurs="unbounded" name="correctedParameter" type="recalculationCorrectedParameter">
+        <xs:annotation>
+          <xs:documentation>Исправленный параметр</xs:documentation>
+        </xs:annotation>
+      </Xs:element>
+
+      <xs:sequence minOccurs="0">
+        <xs:element name="residentType" type="gkh:residentsType">
+          <xs:annotation>
+            <xs:documentation>проживающие / зарегистрированные</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element maxOccurs="31" name="previousResidentCountPeriods" type="gkh:personalAccountNaturPersonCount">
+          <xs:annotation>
+            <xs:documentation>Предыдущее количество проживающих / зарегистрированных граждан по периодам</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element maxOccurs="31" name="recalculatedResidentCountPeriods" type="gkh:personalAccountNaturPersonCount">
+          <xs:annotation>
+            <xs:documentation>Исправленное количество проживающих / зарегистрированных граждан по периодам</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recalculationCorrectedParameter">
+    <xs:annotation>
+      <xs:documentation>Исправленный параметр</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="previousParameterValue" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Предыдущее значение параметра</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="correctedParameterValue" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Исправленное значение параметра</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="parameterName">
+        <xs:annotation>
+          <xs:documentation>Наименование исправленного параметра</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="recalculationType">
+    <xs:annotation>
+      <xs:documentation>Тип пересчета начислений по услуге для лицевого счета</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="RESIDENT_COUNT_CHANGE">
+        <xs:annotation>
+          <xs:documentation>Изменение количества проживающих граждан</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="REGISTERED_COUNT_CHANGE">
+        <xs:annotation>
+          <xs:documentation>Изменение количества зарегистрированных граждан</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RESOURCE_AMOUNT_CHANGE">
+        <xs:annotation>
+          <xs:documentation>Изменение количества потребленного ресурса (для коммунальных услуг)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PARAMETER_CORRECTION">
+        <xs:annotation>
+          <xs:documentation>Исправление неизменного во времени параметра, влияющего на начисления (например, площадь)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SHORT_DELIVERY">
+        <xs:annotation>
+          <xs:documentation>Недопоставка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INCORRECT_CHARGE_CORRECTION">
+        <xs:annotation>
+          <xs:documentation>Исправление неверного начисления</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

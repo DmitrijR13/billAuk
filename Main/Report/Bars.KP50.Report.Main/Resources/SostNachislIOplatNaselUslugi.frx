@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/21/2013 13:47:00" ReportInfo.Modified="12/27/2013 12:03:54" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="area" Enabled="false" DataType="System.String"/>
+      <Column Name="name_supp" Enabled="false" DataType="System.String"/>
+      <Column Name="service" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="num_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar_n" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="real_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval_lgota" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_lgota" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_lgota" Enabled="false" DataType="System.Decimal" PropName="Column" Calculated="true" Expression=""/>
+      <Column Name="h" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="f" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="a" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="money_to" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="money_from" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="ha" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="ed_izmer" DataType="System.String" PropName="Column"/>
+      <Column Name="vsego" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="money_del" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="hat" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum4" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <Parameter Name="reportHeader" DataType="System.String"/>
+    <Parameter Name="sumHeader" DataType="System.String"/>
+    <Parameter Name="principal" DataType="System.String"/>
+    <Parameter Name="ercName" DataType="System.String"/>
+    <Parameter Name="month" DataType="System.String"/>
+    <Parameter Name="year" DataType="System.String"/>
+    <Parameter Name="ispolnitel" DataType="System.String"/>
+    <Total Name="t_sum_tarif" Expression="[Q_master.sum_tarif]" Evaluator="Data1"/>
+    <Total Name="t_real_charge" Expression="[Q_master.real_charge]" Evaluator="Data1"/>
+    <Total Name="t_reval_tarif" Expression="[Q_master.reval_tarif]" Evaluator="Data1"/>
+    <Total Name="t_sum_lgota" Expression="[Q_master.sum_lgota]" Evaluator="Data1"/>
+    <Total Name="th" Expression="[Q_master.h]" Evaluator="Data1"/>
+    <Total Name="t_r" Expression="[Q_master.r]" Evaluator="Data1"/>
+    <Total Name="t_f" Expression="[Q_master.f]" Evaluator="Data1"/>
+    <Total Name="t_a" Expression="[Q_master.a]" Evaluator="Data1"/>
+    <Total Name="t_money_to" Expression="[Q_master.money_to]" Evaluator="Data1"/>
+    <Total Name="t_money_from" Expression="[Q_master.money_from]" Evaluator="Data1"/>
+    <Total Name="t_h_a" Expression="[Q_master.ha]" Evaluator="Data1"/>
+    <Total Name="t_hat" Expression="[Q_master.hat]" Evaluator="Data1"/>
+    <Total Name="tvsego" Expression="[Q_master.vsego]" Evaluator="Data1"/>
+    <Total Name="t_reval" Expression="[Q_master.reval]" Evaluator="Data1"/>
+    <Total Name="t_money_del" Expression="[Q_master.money_del]" Evaluator="Data1"/>
+    <Total Name="t_sum_charge" Expression="[Q_master.sum_charge]" Evaluator="Data1"/>
+    <Total Name="t_real_charge" Expression="[Q_master.real_charge]" Evaluator="Data1"/>
+    <Total Name="tinsaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1"/>
+    <Total Name="tsum4" Expression="[Q_master.sum4]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="141.75">
+      <TextObject Name="Text1" Left="302.4" Top="18.9" Width="444.15" Height="56.7" Text="3.11. Состояние начисления и оплаты населением услуги &quot;[service]&quot; за  период с [dats] по [datpo]. [s] " HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text2" Left="822.15" Top="18.9" Width="94.5" Height="28.35" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="916.65" Top="18.9" Width="113.4" Height="28.35" Text="[date]&#13;&#10;[time]" Font="Arial, 8pt"/>
+      <TextObject Name="Text4" Left="18.9" Top="18.9" Width="255.15" Height="56.7"/>
+      <TextObject Name="Text5" Left="18.9" Top="75.6" Width="255.15" Height="56.7" Text="Балансосодержатель&#13;&#10;Поставщик:&#13;&#10;"/>
+      <TextObject Name="Text6" Left="274.05" Top="75.6" Width="160.65" Height="18.9" Text="[area]"/>
+      <TextObject Name="Text7" Left="274.05" Top="94.5" Width="160.65" Height="18.9" Text="[su]"/>
+      <TextObject Name="Text8" Left="274.05" Top="103.95" Width="160.65" Height="18.9"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="144.95" Width="1047.06" Height="66.15">
+      <TextObject Name="Text9" Left="9.45" Width="47.25" Height="66.15" Border.Lines="All" Text="№ ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text10" Left="56.7" Width="141.75" Height="66.15" Border.Lines="All" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text32" Left="198.45" Width="151.2" Height="66.15" Border.Lines="All" GrowToBottom="true" Text="Квартиросъемщик" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text33" Left="349.65" Width="37.8" Height="66.15" Border.Lines="All" GrowToBottom="true" Text="т&#13;&#10;а&#13;&#10;р&#13;&#10;и&#13;&#10;ф" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text34" Left="387.45" Width="47.25" Height="66.15" Border.Lines="All" Text="Долг на&#13;&#10;начало &#13;&#10;месяца" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text35" Left="434.7" Width="56.7" Height="66.15" Border.Lines="All" Text="Начислено&#13;&#10;за месяц" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text15" Left="491.4" Width="47.25" Height="66.15" Border.Lines="All" Text="Изменения&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text21" Left="595.35" Width="94.5" Height="37.8" Border.Lines="All" Text="Итого начислено к оплате с учетом долга" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text22" Left="595.35" Top="37.8" Width="47.25" Height="28.35" Border.Lines="All" Text="руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text23" Left="642.6" Top="37.8" Width="47.25" Height="28.35" Border.Lines="All" Text="[ed_izmer]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text24" Left="689.85" Width="245.7" Height="37.8" Border.Lines="All" Text="Оплачено (руб)" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text25" Left="689.85" Top="37.8" Width="47.25" Height="28.35" Border.Lines="All" Text="[ed_izmer]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text26" Left="737.1" Top="37.8" Width="56.7" Height="28.35" Border.Lines="All" Text="руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text27" Left="793.8" Top="37.8" Width="56.7" Height="28.35" Border.Lines="All" Text="ИРЦ" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text28" Left="850.5" Top="37.8" Width="37.8" Height="28.35" Border.Lines="All" Text="ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text29" Left="935.55" Width="94.5" Height="37.8" Border.Lines="All" Text="Не оплачено" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text30" Left="935.55" Top="37.8" Width="47.25" Height="28.35" Border.Lines="All" Text="[ed_izmer]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text31" Left="982.8" Top="37.8" Width="47.25" Height="28.35" Border.Lines="All" Text="руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text13" Left="888.3" Top="37.8" Width="47.25" Height="28.35" Border.Lines="All" CanGrow="true" Text="Перерасп" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text16" Left="538.65" Width="56.7" Height="66.15" Border.Lines="All" Text="Перерасчет" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="214.3" Width="1047.06" Height="11.34" CanGrow="true" Guides="0" DataSource="Q_master">
+      <TextObject Name="Text51" Left="9.45" Width="47.25" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.num_ls]" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text52" Left="56.7" Width="141.75" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.ulica])] д.[Trim([Q_master.ndom])][Trim([Q_master.nkor] )] [Trim([Q_master.nkvar] )] [Q_master.nkvar_n]" Font="Arial, 7pt"/>
+      <TextObject Name="Text53" Left="198.45" Width="151.2" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text=" [Q_master.fio]" Font="Arial, 7pt"/>
+      <TextObject Name="Text54" Left="349.65" Width="37.8" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.tarif]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text36" Left="387.45" Width="47.25" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_insaldo]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text37" Left="434.7" Width="56.7" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_tarif]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text38" Left="491.4" Width="47.25" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.real_charge]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text39" Left="538.65" Width="56.7" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.reval]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text43" Left="595.35" Width="47.25" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum4]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text44" Left="642.6" Width="47.25" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.r]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text45" Left="689.85" Width="47.25" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.f]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text46" Left="737.1" Width="56.7" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.a]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text47" Left="793.8" Width="56.7" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.money_to]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text48" Left="850.5" Width="37.8" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.money_from]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text49" Left="935.55" Width="47.25" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text=" [Q_master.hat]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text50" Left="982.8" Width="47.25" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ha]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text74" Left="888.3" Width="47.25" Height="11.34" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.money_del]" HorzAlign="Right" Font="Arial, 7pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="228.84" Width="1047.06" Height="18.9">
+      <TextObject Name="Text55" Left="9.45" Width="47.25" Height="18.9" Border.Lines="All" Text="Итого: " HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text56" Left="56.7" Width="141.75" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text57" Left="198.45" Width="151.2" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text58" Left="349.65" Width="37.8" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text59" Left="387.45" Width="47.25" Height="18.9" Border.Lines="All" Text="[tinsaldo]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text60" Left="434.7" Width="56.7" Height="18.9" Border.Lines="All" Text=" [t_sum_tarif]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text61" Left="491.4" Width="47.25" Height="18.9" Border.Lines="All" Text="[t_real_charge]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text66" Left="595.35" Width="47.25" Height="18.9" Border.Lines="All" Text="[tsum4]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text67" Left="642.6" Width="47.25" Height="18.9" Border.Lines="All" Text=" [t_r]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text68" Left="689.85" Width="47.25" Height="18.9" Border.Lines="All" Text="[t_f]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text69" Left="737.1" Width="56.7" Height="18.9" Border.Lines="All" Text="[t_a]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text70" Left="793.8" Width="56.7" Height="18.9" Border.Lines="All" Text="[t_money_to]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text71" Left="850.5" Width="37.8" Height="18.9" Border.Lines="All" Text="[t_money_from]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text72" Left="935.55" Width="47.25" Height="18.9" Border.Lines="All" Text=" [t_hat]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text73" Left="982.8" Width="47.25" Height="18.9" Border.Lines="All" Text="[t_h_a]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text75" Left="888.3" Width="47.25" Height="18.9" Border.Lines="All" Text="[t_money_del]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="Text62" Left="538.65" Width="56.7" Height="18.9" Border.Lines="All" Text="[t_reval]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="250.94" Width="1047.06" Height="85.05">
+      <TextObject Name="Text11" Left="9.45" Width="670.95" Height="56.7" Text="ППП &quot;Коммунальные платежи&quot;&#13;&#10;3.11. Состояние начисления и оплаты населением услуги &quot;[service]&quot; за  период с [dats] по [datpo]. &#13;&#10;Дата печати [date] [time]. Версия [ver]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="680.4" Width="330.75" Height="56.7" Text="Страница [Page]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

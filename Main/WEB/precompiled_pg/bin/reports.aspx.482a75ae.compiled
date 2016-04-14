@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/bill/reports.aspx" hash="cedb9400c" filehash="db784e86bcb47263" flags="110000" assembly="App_Web_sr1utqqo" type="ASP.kart_bill_reports_aspx">
+    <filedeps>
+        <filedep name="/none/kart/bill/reports.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+    </filedeps>
+</preserve>

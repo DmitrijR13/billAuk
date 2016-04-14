@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FormatForm</RootNamespace>
+    <AssemblyName>FormatForm</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFormat.Designer.cs">
+      <DependentUpon>AddFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormatList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormatList.Designer.cs">
+      <DependentUpon>FormatList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplitFile.cs" />
+    <Compile Include="SplitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplitForm.Designer.cs">
+      <DependentUpon>SplitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Viewer.Designer.cs">
+      <DependentUpon>Viewer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddFormat.resx">
+      <DependentUpon>AddFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormatList.resx">
+      <DependentUpon>FormatList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplitForm.resx">
+      <DependentUpon>SplitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viewer.resx">
+      <DependentUpon>Viewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <Fakes Include="Fakes\FormatLibrary.fakes" />
+    <None Include="Properties\DataSources\FormatList.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_playback_start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232560_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232620_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232736_Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232761_PauseNormalRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232831_gtk-refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232901_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232928_start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232950_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232967_button_blue_repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1416232995_adept_update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Format.Load\Format.Load.csproj">
+      <Project>{2747414e-fe7f-4cdc-b760-574930c92b7e}</Project>
+      <Name>Format.Load</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormatLibrary\FormatLibrary.csproj">
+      <Project>{751c8fca-2d97-4bad-bcd6-7c05ddfdb016}</Project>
+      <Name>FormatLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TreeGridView\ExpandableGridView.csproj">
+      <Project>{2efe526f-79b3-49bc-9575-a7b258c59bb5}</Project>
+      <Name>ExpandableGridView</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meta.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viewer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1426528187_old-edit-find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editcopy.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

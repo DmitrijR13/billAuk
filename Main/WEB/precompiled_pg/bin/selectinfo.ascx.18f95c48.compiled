@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/adres/SelectInfo.ascx" hash="cedb9400c" filehash="43b2c8b890ca" flags="110000" assembly="App_Web_m3duyr5l" type="ASP.kart_adres_selectinfo_ascx">
+    <filedeps>
+        <filedep name="/none/kart/adres/SelectInfo.ascx" />
+    </filedeps>
+</preserve>

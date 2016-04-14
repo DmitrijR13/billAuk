@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/22/2014 17:28:40" ReportInfo.Modified="02/26/2016 15:16:04" ReportInfo.CreatorVersion="2015.4.2.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="date_from" DataType="System.String" PropName="Column" Format="Date"/>
+      <Column Name="date_to" DataType="System.Char" PropName="Column" Format="Date"/>
+      <Column Name="area" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="supp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="ud" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_house" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="фио" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_blag" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="build_year" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="floors" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="dolg" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="days" DataType="System.Int32" PropName="Column"/>
+      <Column Name="peni" DataType="System.Decimal" PropName="Column" Format="Number"/>
+      <Column Name="sum_total" DataType="System.Decimal" PropName="Column" Format="Number"/>
+      <Column Name="sum_tarif_15" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_15" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_8" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_8" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="sum_tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="sum_tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column5"/>
+      <Column Name="tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column6"/>
+      <Column Name="sum_tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column7"/>
+      <Column Name="sum_tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="dat_prih" Enabled="false" DataType="System.String" PropName="Column3"/>
+      <Column Name="tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_peni" DataType="System.Decimal" PropName="Column" Format="Number"/>
+      <Column Name="sum_prih" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_epd" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="stavka" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="total_sum_dolg" Expression="[Q_master.dolg]" Evaluator="Data1"/>
+    <Total Name="total_peni" Expression="[Q_master.peni]" Evaluator="Data1"/>
+    <Total Name="total_sum_total" Expression="[Q_master.sum_total]" Evaluator="Data1"/>
+    <Total Name="t_dolg_epd" Expression="[Q_master.dolg_epd]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="371" Guides="604.8,1115.1">
+    <ReportTitleBand Name="ReportTitle1" Width="1326.78" Height="202.23" Guides="0,0,0">
+      <TextObject Name="Text84" Top="113.4" Width="1313.55" Height="88.83" Border.Lines="All" Text="Формула расчета:  &#13;&#10;2015 год: Пеня = Сумма основного долга  * 0,000275 * Количество дней просрочки&#13;&#10; 0,000275 = ( Ставка рефинансирования ЦБ РФ = 8,25 / 300 / 100 )&#13;&#10;2016 год: Пеня = Сумма основного долга  * 0,000366 * Количество дней просрочки&#13;&#10; 0,000366 = ( Ставка рефинансирования ЦБ РФ = 11 / 300 / 100 )&#13;&#10; 0,000846 = ( Ставка рефинансирования ЦБ РФ = 11 / 130 / 100 )" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text85" Width="945" Height="32.13" Text="Расчёт пени за просрочку платежа согласно п. 14 ст. 155 ЖК РФ" HorzAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text86" Left="604.8" Top="75.6" Width="132.3" Height="22.68" Text="Дата формирования" Font="Arial, 9pt"/>
+      <TextObject Name="Text87" Top="37.8" Width="160.65" Height="22.68" Text="Квартиросъемщик  (ФИО)" Font="Arial, 9pt"/>
+      <TextObject Name="Text88" Top="66.15" Width="160.65" Height="22.68" Text="Адрес:" Font="Arial, 9pt"/>
+      <TextObject Name="Text89" Left="160.65" Top="37.8" Width="368.55" Height="22.68" Text="[Q_master2.fio]" Font="Arial, 8pt"/>
+      <TextObject Name="Text90" Left="160.65" Top="66.15" Width="368.55" Height="41.58" Text="[Q_master2.address]" Font="Arial, 8pt"/>
+      <TextObject Name="Text91" Left="604.8" Top="37.8" Width="47.25" Height="22.68" Text="Л/С" Font="Arial, 9pt"/>
+      <TextObject Name="Text92" Left="765.45" Top="37.8" Width="179.55" Height="22.68" Text="[Q_master2.num_ls]" Font="Arial, 9pt"/>
+      <TextObject Name="Text93" Left="765.45" Top="75.6" Width="132.3" Height="22.68" Text="[Date]" Format="Date" Format.Format="dd.MM.yyyy" Font="Arial, 9pt"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="206.23" Width="1326.78" Height="54.81" PrintOn="FirstPage">
+      <TextObject Name="Text11" Width="28.35" Height="41.58" Border.Lines="All" Text="№ п/п" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text13" Left="28.35" Width="141.75" Height="41.58" Border.Lines="All" Text="Дата начала просрочки" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text41" Left="170.1" Width="141.75" Height="41.58" Border.Lines="All" Text="Расчетная дата окончания просрочки" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text43" Left="585.9" Width="160.65" Height="41.58" Border.Lines="All" Text="Ставка рефинансирования ЦБ РФ, %" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text44" Left="746.55" Width="113.4" Height="41.58" Border.Lines="All" Text="Кол-во дней просрочки" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text45" Left="859.95" Width="113.4" Height="41.58" Border.Lines="All" Text="Сумма пени, руб.-коп." HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text42" Left="453.6" Width="132.3" Height="41.58" Border.Lines="All" Text="Сумма основного долга, руб.-коп." HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text75" Top="41.58" Width="28.35" Height="13.23" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text77" Left="28.35" Top="41.58" Width="141.75" Height="13.23" Border.Lines="All" Text="2" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text78" Left="170.1" Top="41.58" Width="141.75" Height="13.23" Border.Lines="All" Text="3" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text79" Left="453.6" Top="41.58" Width="132.3" Height="13.23" Border.Lines="All" Text="5" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text80" Left="585.9" Top="41.58" Width="160.65" Height="13.23" Border.Lines="All" Text="6" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text81" Left="746.55" Top="41.58" Width="113.4" Height="13.23" Border.Lines="All" Text="7" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text82" Left="859.95" Top="41.58" Width="113.4" Height="13.23" Border.Lines="All" Text="8" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text95" Left="973.35" Width="113.4" Height="41.58" Border.Lines="All" Text="Сумма пени накопительным итогом, руб.-коп." HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text96" Left="973.35" Top="41.58" Width="113.4" Height="13.23" Border.Lines="All" Text="9" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text99" Left="311.85" Width="141.75" Height="41.58" Border.Lines="All" Text="Сумма оплат" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text100" Left="311.85" Top="41.58" Width="141.75" Height="13.23" Border.Lines="All" Text="4" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text103" Left="1086.75" Width="113.4" Height="41.58" Border.Lines="All" Text="Сумма пени в ЕПД, руб.-коп." HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text104" Left="1086.75" Top="41.58" Width="113.4" Height="13.23" Border.Lines="All" Text="10" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text105" Left="1200.15" Top="41.58" Width="113.4" Height="13.23" Border.Lines="All" Text="11" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text106" Left="1200.15" Width="113.4" Height="41.58" Border.Lines="All" Text="Разница, руб.-коп." HorzAlign="Center" Font="Arial, 9pt"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="265.04" Width="1326.78" Height="37.8" DataSource="Q_master">
+      <TextObject Name="Text6" Left="28.35" Width="141.75" Height="37.8" Border.Lines="All" Text="[Q_master.date_from]" HorzAlign="Center"/>
+      <TextObject Name="Text8" Left="453.6" Width="132.3" Height="37.8" Border.Lines="All" Text="[Q_master.dolg]" HorzAlign="Center"/>
+      <TextObject Name="Text53" Width="28.35" Height="37.8" Border.Lines="All" Text="[Row#]"/>
+      <TextObject Name="Text55" Left="585.9" Width="160.65" Height="37.8" Border.Lines="All" Text="[Q_master.stavka]" HorzAlign="Center"/>
+      <TextObject Name="Text57" Left="746.55" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.days]"/>
+      <TextObject Name="Text59" Left="859.95" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.peni]" Format="Number" Format.UseLocale="true" WordWrap="false"/>
+      <TextObject Name="Text7" Left="170.1" Width="141.75" Height="37.8" Border.Lines="All" Text="[Q_master.date_to]" HorzAlign="Center"/>
+      <TextObject Name="Text97" Left="973.35" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.dolg_peni]" Format="Number" Format.UseLocale="true" WordWrap="false"/>
+      <TextObject Name="Text101" Left="311.85" Width="141.75" Height="37.8" Border.Lines="All" Text="[Q_master.sum_prih]" Format="Number" Format.UseLocale="true" HorzAlign="Center"/>
+      <TextObject Name="Text107" Left="1086.75" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.dolg_epd]" Format="Number" Format.UseLocale="true" WordWrap="false"/>
+      <TextObject Name="Text108" Left="1200.15" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.difference]" Format="Number" Format.UseLocale="true" WordWrap="false"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="329.74" Width="1326.78" Height="292.95">
+      <TextObject Name="Text74" Left="9.45" Top="160.65" Width="548.1" Height="91.48" Text="&#13;&#10;&#13;&#10;Генеральный директор _________________ Гордиевский П.А.&#13;&#10;&#13;&#10;&#13;&#10;Выполнил                    _________________ &#13;&#10;&#13;&#10;&#13;&#10;" Font="Arial, 9pt"/>
+      <TextObject Name="Text94" Top="9.45" Width="935.55" Height="138.73" Text="Примечание:      &#13;&#10;Ставка рефинансирования ЦБ в размере 8,25% установлена в соответствии с:      &#13;&#10;Указанием Банка России от 13.09.2012 № 2873-У &quot;О размере ставки рефинансирования Банка России&quot;      &#13;&#10;      &#13;&#10;      &#13;&#10;ИТОГО сумма пени на [Substring(ToString([Q_master1.date_to]),0,10)] составляет: [Q_master6.total_peni] руб." Font="Arial, 9pt"/>
+    </ReportSummaryBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="306.84" Width="1326.78" Height="18.9" PrintOn="LastPage">
+      <TextObject Name="Text30" Width="28.35" Height="18.9" Border.Lines="All" Text="Х" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text32" Left="28.35" Width="141.75" Height="18.9" Border.Lines="All" Text="Х" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text60" Left="859.95" Width="113.4" Height="18.9" Border.Lines="All" Text="[Q_master6.total_peni]"/>
+      <TextObject Name="Text33" Left="453.6" Width="132.3" Height="18.9" Border.Lines="All" Text="[Q_master3.dolg]"/>
+      <TextObject Name="Text54" Left="170.1" Width="141.75" Height="18.9" Border.Lines="All" Text="Х" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text56" Left="585.9" Width="160.65" Height="18.9" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text58" Left="746.55" Width="113.4" Height="18.9" Border.Lines="All" Text="Х" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text98" Left="973.35" Width="113.4" Height="18.9" Border.Lines="All" Text="[Q_master6.total_peni]"/>
+      <TextObject Name="Text102" Left="311.85" Width="141.75" Height="18.9" Border.Lines="All" Text="Х" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text109" Left="1086.75" Width="113.4" Height="18.9" Border.Lines="All" Text="[Q_master7.total_dolg_epd]"/>
+      <TextObject Name="Text110" Left="1200.15" Width="113.4" Height="18.9" Border.Lines="All" Text="Х" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ColumnFooterBand>
+  </ReportPage>
+</Report>

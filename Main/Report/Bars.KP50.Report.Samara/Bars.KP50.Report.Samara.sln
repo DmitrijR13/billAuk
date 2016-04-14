@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.KP50.Report.Samara", "Bars.KP50.Report.Samara.csproj", "{085D4230-7543-4842-A82E-5AAC0C5E9F45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug PG|Any CPU = Debug PG|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release PG|Any CPU = Release PG|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{085D4230-7543-4842-A82E-5AAC0C5E9F45}.Debug PG|Any CPU.ActiveCfg = Debug PG|Any CPU
+		{085D4230-7543-4842-A82E-5AAC0C5E9F45}.Debug PG|Any CPU.Build.0 = Debug PG|Any CPU
+		{085D4230-7543-4842-A82E-5AAC0C5E9F45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{085D4230-7543-4842-A82E-5AAC0C5E9F45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{085D4230-7543-4842-A82E-5AAC0C5E9F45}.Release PG|Any CPU.ActiveCfg = Release PG|Any CPU
+		{085D4230-7543-4842-A82E-5AAC0C5E9F45}.Release PG|Any CPU.Build.0 = Release PG|Any CPU
+		{085D4230-7543-4842-A82E-5AAC0C5E9F45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{085D4230-7543-4842-A82E-5AAC0C5E9F45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

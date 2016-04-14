@@ -1,0 +1,108 @@
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.Samara.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.Samara.pdb
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Utils.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.QueueCore.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Core.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Windsor.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\FastReport.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.Globals.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Common.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Newtonsoft.Json.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\NLog.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\SevenZipSharp.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Ionic.Zip.Reduced.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\IBM.Data.Informix.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Npgsql.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.CLI.Admin.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\FastReport.Bars.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\System.Windows.Forms.DataVisualization.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\FastReport.Editor.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Mono.Security.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.CliKart.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Client.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.Globals.pdb
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Common.pdb
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.QueueCore.pdb
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.pdb
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Utils.pdb
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Core.xml
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Windsor.xml
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.CLI.Admin.pdb
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.CliKart.pdb
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Client.pdb
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.csprojResolveAssemblyReference.cache
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.Properties.Resources.resources
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.csproj.GenerateResource.Cache
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.dll
+D:\Проги\Resharper_8\Новая папка\Billing.GKH.KP50\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.pdb
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.Samara.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.Samara.pdb
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Utils.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.QueueCore.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Core.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Windsor.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\FastReport.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.Globals.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Common.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Newtonsoft.Json.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\STCLINE.KP50.IFMX.Kernel.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.CLI.Admin.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Npgsql.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\FastReport.Bars.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\FastReport.Editor.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\NLog.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\SevenZipSharp.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Ionic.Zip.Reduced.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Client.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.CLI.Sprav.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.CliKart.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Mono.Security.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Core.xml
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Windsor.xml
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.csprojResolveAssemblyReference.cache
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.Properties.Resources.resources
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.csproj.GenerateResource.Cache
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.dll
+C:\Project\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.Samara.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.Samara.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Utils.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Core.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Windsor.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\FastReport.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.Globals.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Common.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Newtonsoft.Json.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\STCLINE.KP50.IFMX.Kernel.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\NLog.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\SevenZipSharp.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Ionic.Zip.Reduced.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Npgsql.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Client.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.CLI.Sprav.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.CLI.Admin.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\FastReport.Bars.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\FastReport.Editor.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Mono.Security.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.CliKart.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.Globals.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Common.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\STCLINE.KP50.IFMX.Kernel.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Report.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.Utils.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.QueueCore.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Core.xml
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Castle.Windsor.xml
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\NLog.xml
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.IFMX.Client.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.CLI.Sprav.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\Bars.KP50.CLI.Admin.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\bin\Debug\KP50.CliKart.pdb
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.csprojResolveAssemblyReference.cache
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.Properties.Resources.resources
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.csproj.GenerateResource.Cache
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.dll
+C:\Users\WCSMR-HP\Desktop\Dev\Dev\Report\Bars.KP50.Report.Samara\obj\Debug\Bars.KP50.Report.Samara.pdb

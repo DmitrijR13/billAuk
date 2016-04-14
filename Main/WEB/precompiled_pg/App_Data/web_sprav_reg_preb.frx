@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/25/2013 17:15:37" ReportInfo.Modified="04/16/2014 16:02:27" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary/>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="210.1" PaperHeight="148.1" RawPaperSize="11" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="718.58" Height="66.15">
+      <TextObject Name="Text1" Left="453.6" Width="255.15" Height="18.9" Text="Форма №3" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text2" Left="75.6" Top="18.9" Width="557.55" Height="47.25" Text="СВИДЕТЕЛЬСТВО №&#13;&#10;о регистрации по месту пребывания" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="69.66" Width="718.58" Height="518.97">
+      <TextObject Name="Text3" Left="18.9" Top="9.45" Width="66.15" Height="18.9" Text="Выдано" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="85.05" Top="9.45" Width="604.8" Height="18.9" Text="[fio] [dr] г.р." HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="18.9" Top="40.35" Width="670.95" Height="18.9" Text="[mesto_rog]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="85.05" Top="28.35" Width="604.8" Height="11.34" Border.Lines="Top" Text="(фамилия, имя, отчество, дата рождения)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text7" Left="18.9" Top="59.7" Width="670.95" Height="11.34" Border.Lines="Top" Text="(место рождения)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text8" Left="18.9" Top="72.6" Width="670.95" Height="18.9" Text="о том, что он(а) зарегистрирован(а) по месту пребывания по адресу:" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="19.9" Top="91.5" Width="670.95" Height="18.9" Text="[adres]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="19.9" Top="110.85" Width="670.95" Height="11.34" Border.Lines="Top" Text="(республика, край, область, округ, район, город,пгт, село, деревня, аул)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text11" Left="18.9" Top="122.85" Width="670.95" Height="18.9" Text="[adres1]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="18.9" Top="142.2" Width="670.95" Height="11.34" Border.Lines="Top" Text="(улица, дом, корпус, квартира)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text13" Left="19.9" Top="153.2" Width="75.6" Height="18.9" Text="на срок с" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="95.95" Top="153.2" Width="160.65" Height="18.9" Border.Lines="Bottom" Text="[dat_s]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="258.6" Top="153.2" Width="75.6" Height="18.9" Text="по" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text16" Left="334.65" Top="153.2" Width="160.65" Height="18.9" Border.Lines="Bottom" Text="[dat_po]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="19.9" Top="175.55" Width="434.7" Height="18.9" Text="Свидетельство выдано к документу, удостоверяющему личность," VertAlign="Center"/>
+      <TextObject Name="Text18" Left="20.9" Top="197.45" Width="47.25" Height="18.9" Text="вид" VertAlign="Center"/>
+      <TextObject Name="Text19" Left="68.6" Top="197.45" Width="160.65" Height="18.9" Border.Lines="Bottom" Text="[vid_dok]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="229.25" Top="197.45" Width="47.25" Height="18.9" Text="серия" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="276.95" Top="197.45" Width="160.65" Height="18.9" Border.Lines="Bottom" Text="[serij]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="436.7" Top="196.45" Width="66.15" Height="18.9" Text="номер" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="503.3" Top="196.45" Width="189" Height="18.9" Border.Lines="Bottom" Text="[nomer]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="21.9" Top="218.35" Width="94.5" Height="18.9" Text="дата выдачи" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="116.85" Top="218.35" Width="160.65" Height="18.9" Border.Lines="Bottom" Text="[vid_dat]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="21.9" Top="239.25" Width="670.95" Height="18.9" Text="[vid_mes]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text27" Left="21.9" Top="258.6" Width="670.95" Height="11.34" Border.Lines="Top" Text="(наименование органа, учреждения, выдавшего документ)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text29" Left="20.9" Top="349.65" Width="415.8" Height="18.9" Text="Начальник (руководитель) органа регистрационного учета" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text30" Left="20.9" Top="371.55" Width="670.95" Height="18.9" Text="[nam]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text31" Left="20.9" Top="390.9" Width="670.95" Height="11.34" Border.Lines="Top" Text="(наименование органа регистрационного учета)" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text32" Left="22.9" Top="436.25" Width="160.65" Height="15.12" Border.Lines="Top" Text="подпись" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text33" Left="66.15" Top="472.5" Width="47.25" Height="18.9" Text="М.П." HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text34" Left="444.15" Top="444.15" Width="160.65" Height="15.12" Border.Lines="Top" Text="фамилия" HorzAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text35" Left="444.15" Top="425.25" Width="160.65" Height="18.9" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text36" Left="444.15" Top="494.4" Width="160.65" Height="15.12" Border.Lines="Bottom" HorzAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="592.14" Width="718.58" Height="18.9"/>
+  </ReportPage>
+</Report>

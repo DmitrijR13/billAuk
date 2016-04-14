@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="02/17/2014 11:09:36" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string who;
+    string vid_sobs;
+    string kvar_type;
+
+    private void Text4_BeforePrint(object sender, EventArgs e)
+    {
+      if (Report.GetColumnValue(&quot;Q_master.has_naem&quot;).ToString()==&quot;1&quot;)
+      {
+        who = &quot;нанимателем&quot;;
+        vid_sobs = &quot;муниципальная&quot;;
+      }
+      else
+      {
+        who = &quot;&quot;;
+        vid_sobs = &quot;частная&quot;;
+        
+      }
+    }
+
+    private void Text6_BeforePrint(object sender, EventArgs e)
+    {
+      kvar_type = &quot;отдельная&quot;;
+      if (Report.GetColumnValue(&quot;Q_master.is_komm&quot;).ToString()==&quot;1&quot;)
+      {
+        kvar_type = &quot;коммунальная&quot;;
+      }
+      else
+      {
+        
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="Column" DataType="System.Int32" Calculated="true" Expression=""/>
+      <Column Name="Column1" Enabled="false" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+      <Column Name="Column1" Enabled="false" DataType="System.String"/>
+      <Column Name="rsum__tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="debt" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="529.2">
+    <DataBand Name="Data1" Width="1084.86" Height="255.15" BeforePrintEvent="Data1_BeforePrint" DataSource="Q_master">
+      <TextObject Name="Text1" Left="567" Top="18.9" Width="491.4" Height="45.36" Text="Выписка из лицевого счета № [number_vip] &#13;&#10;На &quot;[day]&quot; [month] [year]г.&#13;&#10;" HorzAlign="Center" Font="Times New Roman, 12pt"/>
+      <TableObject Name="Table1" Left="557.55" Top="79.38" Width="500.85" Height="132.3">
+        <TableColumn Name="Column1" Width="42.71"/>
+        <TableColumn Name="Column2" Width="10.45"/>
+        <TableColumn Name="Column3" Width="71.1"/>
+        <TableColumn Name="Column4" Width="27.79"/>
+        <TableColumn Name="Column5" Width="61.6"/>
+        <TableColumn Name="Column6" Width="30.98"/>
+        <TableColumn Name="Column7" Width="59.33"/>
+        <TableColumn Name="Column8" Width="59.33"/>
+        <TableColumn Name="Column9" Width="68.78"/>
+        <TableColumn Name="Column10" Width="68.78"/>
+        <TableRow Name="Row1" Height="22.68">
+          <TableCell Name="Cell1" Text="для" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell2" Border.Lines="Bottom" Text="[who]" VertAlign="Bottom" Font="Times New Roman, 10pt" ColSpan="9"/>
+          <TableCell Name="Cell3" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell4" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell5" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell26" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell27" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell28" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell29" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell30" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="22.68">
+          <TableCell Name="Cell6" Text="кв.м." VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell7" Border.Lines="Bottom" Text="[Q_master.ob_s]" VertAlign="Bottom" Font="Times New Roman, 10pt" ColSpan="3"/>
+          <TableCell Name="Cell8" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell9" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell10" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell31" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell32" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell33" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell34" Text="чел." HorzAlign="Right" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell35" Border.Lines="Bottom" Text="[Q_master.gil]" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="22.68">
+          <TableCell Name="Cell11" Text="Адрес: " VertAlign="Bottom" Font="Times New Roman, 10pt" ColSpan="2"/>
+          <TableCell Name="Cell12" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell13" Text="[Q_master.town]" VertAlign="Bottom" WordWrap="false" Font="Times New Roman, 10pt" ColSpan="3"/>
+          <TableCell Name="Cell14" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell15" Border.Lines="Bottom" VertAlign="Bottom" WordWrap="false" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell36" Border.Lines="Bottom" Text="[Trim([Q_master.rajon])] [Trim([Q_master.ulica])]" VertAlign="Bottom" WordWrap="false" Font="Times New Roman, 10pt" ColSpan="5"/>
+          <TableCell Name="Cell37" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell38" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell39" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell40" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="22.68">
+          <TableCell Name="Cell16" Text="дом №" VertAlign="Bottom" Font="Times New Roman, 10pt" ColSpan="2"/>
+          <TableCell Name="Cell17" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell18" Border.Lines="Bottom" Text="[Trim([Q_master.ndom])][Q_master.nkor]" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell19" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell20" HorzAlign="Right" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell41" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell42" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell43" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell44" Text="кв. №" HorzAlign="Right" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell45" Border.Lines="Bottom" Text="[Q_master.nkvar][Q_master.nkvar_n]" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="22.68">
+          <TableCell Name="Cell21" Border.Lines="Bottom" Text="[Q_master.fio]" VertAlign="Bottom" Font="Times New Roman, 10pt" ColSpan="10"/>
+          <TableCell Name="Cell22" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell23" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell24" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell25" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell46" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell47" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell48" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell49" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell50" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell51"/>
+          <TableCell Name="Cell52"/>
+          <TableCell Name="Cell53"/>
+          <TableCell Name="Cell54"/>
+          <TableCell Name="Cell55"/>
+          <TableCell Name="Cell56" Text="Фамилия, имя, отчество" HorzAlign="Center" ColSpan="4"/>
+          <TableCell Name="Cell57" HorzAlign="Center"/>
+          <TableCell Name="Cell58" HorzAlign="Center"/>
+          <TableCell Name="Cell59" HorzAlign="Center"/>
+          <TableCell Name="Cell60"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text2" Left="529.2" Top="226.8" Width="179.55" Height="28.35" Border.Lines="All" Text="Услуга" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text15" Left="708.75" Top="226.8" Width="179.55" Height="28.35" Border.Lines="All" Text="Ежемес. начисление" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text16" Left="888.3" Top="226.8" Width="179.55" Height="28.35" Border.Lines="All" Text="Сумма долга" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 10pt, style=Bold"/>
+    </DataBand>
+    <DataBand Name="Data2" Top="258.35" Width="1084.86" Height="18.9" DataSource="Q_master1">
+      <TextObject Name="Text17" Left="529.2" Width="179.55" Height="18.9" Border.Lines="All" Text="[Q_master1.service]"/>
+      <TextObject Name="Text18" Left="708.75" Width="179.55" Height="18.9" Border.Lines="All" Text="[Q_master1.rsum_tarif]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+      <TextObject Name="Text19" Left="888.3" Width="179.55" Height="18.9" Border.Lines="All" Text="[Q_master1.debt]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="280.45" Width="1084.86" Height="68.04">
+      <TextObject Name="Text12" Left="557.55" Top="30.24" Width="207.9" Height="18.9" Text="Оператор ЕРКЦ" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="557.55" Top="11.34" Width="207.9" Height="18.9" Text="Директор ЕРКЦ" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text14" Left="878.85" Top="30.24" Width="207.9" Height="18.9" Text="[oper]" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="878.85" Top="11.34" Width="207.9" Height="18.9" Text="[director]" Font="Times New Roman, 10pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

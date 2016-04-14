@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/master/templates/AddressScope.ascx" hash="cedb9400c" filehash="6bf474dc4dcdf6c" flags="110000" assembly="App_Web_wvz3gney" type="ASP.master_templates_addressscope_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/AddressScope.ascx" />
+        <filedep name="/none/master/templates/AutoCompleteContragents.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

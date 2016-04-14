@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="09/26/2013 10:48:05" ReportInfo.CreatorVersion="2013.1.11.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void _StartReport(object sender, EventArgs e)
+    {
+    }
+    
+    public bool CheckEqual(string a, string b)
+    {
+       if(a.Trim() == b.Trim())
+        return true;
+       else
+        return false;
+    }
+    
+    //процедура получения названия месяца
+    public string GetMonthStr(int month)
+    {
+      string month_name = &quot;&quot;;
+      switch(month)
+      {
+        case 1:
+        {
+          month_name = &quot;январь&quot;; break;
+        }
+        case 2:
+        {
+          month_name = &quot;февраль&quot;; break;
+        }
+        case 3:
+        {
+          month_name = &quot;март&quot;; break;
+        }
+        case 4:
+        {
+          month_name = &quot;апрель&quot;; break;
+        }
+        case 5:
+        {
+          month_name = &quot;май&quot;; break;
+        }
+        case 6:
+        {
+          month_name = &quot;июнь&quot;; break;
+        }
+        case 7:
+        {
+          month_name = &quot;июль&quot;; break;
+        }
+        case 8:
+        {
+          month_name = &quot;август&quot;; break;
+        }
+        case 9:
+        {
+          month_name = &quot;сентябрь&quot;; break;
+        }
+        case 10:
+        {
+          month_name = &quot;октябрь&quot;; break;
+        }
+        case 11:
+        {
+          month_name = &quot;ноябрь&quot;; break;
+        }
+        case 12:
+        {
+          month_name = &quot;декабрь&quot;; break;
+        }      
+      }
+      return month_name;
+    }
+    
+
+    private void Period_BeforePrint(object sender, EventArgs e)
+    {
+      string month = Convert.ToString(Report.GetParameterValue(&quot;month&quot;));
+      string year = Convert.ToString(Report.GetParameterValue(&quot;year&quot;));
+      Period.Text = &quot;Выгрузка за: &quot; + GetMonthStr(Convert.ToInt32(month)) + &quot; &quot; + year + &quot;г.&quot;; 
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master3" ReferenceName="Data.Q_master3" DataType="System.Int32" Enabled="true">
+      <Column Name="pkod" DataType="System.Decimal"/>
+    </TableDataSource>
+    <Parameter Name="month" DataType="System.String"/>
+    <Parameter Name="year" DataType="System.String"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="services" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="0">
+    <DataBand Name="Data3" Top="107.43" Width="1084.86" Height="22.38" DataSource="Q_master3">
+      <TextObject Name="Text390" Left="141.75" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" AfterDataEvent="Text390_AfterData" CanBreak="false" Text="[Q_master3.service]" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text392" Left="18.9" Width="122.85" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master3.adr]" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text408" Left="378" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" AfterDataEvent="Text408_AfterData" CanBreak="false" Text="[Q_master3.val_prm_1_2]" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text409" Left="330.75" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" AfterDataEvent="Text390_AfterData" CanBreak="false" Text="[Q_master3.val_prm_1_1]" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text404" Left="236.25" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" AfterDataEvent="Text390_AfterData" CanBreak="false" Text="[Q_master3.name_supp]" Font="Times New Roman, 7pt"/>
+      <DataHeaderBand Name="DataHeader3" Width="1084.86" Height="103.95">
+        <TextObject Name="Text313" Left="292.95" Top="9.45" Width="463.05" Height="18.9" Text="Протокол сверки данных входящего сальдо" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 15pt"/>
+        <TextObject Name="Text398" Left="141.75" Top="56.7" Width="94.5" Height="47.25" Border.Lines="All" Text="Наименование услуги" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text397" Left="18.9" Top="56.7" Width="122.85" Height="47.25" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text405" Left="236.25" Top="56.7" Width="94.5" Height="47.25" Border.Lines="All" Text="Наименование подрядчика" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text410" Left="330.75" Top="56.7" Width="94.5" Height="28.35" Border.Lines="All" Text="Входящее сальдо по услугам" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text411" Left="330.75" Top="85.05" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text412" Left="378" Top="85.05" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Period" Left="292.95" Top="28.35" Width="463.05" Height="28.35" BeforePrintEvent="Period_BeforePrint" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 14pt"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+</Report>

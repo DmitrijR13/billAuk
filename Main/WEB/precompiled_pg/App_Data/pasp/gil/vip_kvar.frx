@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/07/2013 13:46:52" ReportInfo.Modified="11/16/2013 15:09:15" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string num_vip, vday, vmonth, vyear, raj, ulica, dom, build_year, osnovanie, 
+      mes_reg, num_kvar, tot_sq, liv_sq, razm_balkona, sq,
+      dolgn, rn, fio;
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="990.36">
+      <TextObject Name="Text1" Left="260.82" Top="177.66" Width="139.86" Height="18.9" Text="ВЫПИСКА №" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text2" Left="400.68" Top="177.66" Width="60.48" Height="18.9" Border.Lines="Bottom" Text="[num_vip]" HorzAlign="Center" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text3" Left="162.54" Top="204.12" Width="45.36" Height="18.9" Text="от &quot;" HorzAlign="Center" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text4" Left="207.9" Top="204.12" Width="52.92" Height="18.9" Border.Lines="Bottom" Text="[vday]" HorzAlign="Center" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text5" Left="260.82" Top="204.12" Width="18.9" Height="18.9" Text="&quot;" HorzAlign="Center" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text6" Left="279.72" Top="204.12" Width="124.74" Height="18.9" Border.Lines="Bottom" Text="[vmonth]" HorzAlign="Center" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text7" Left="408.24" Top="204.12" Width="60.48" Height="18.9" Border.Lines="Bottom" Text="[vyear]" HorzAlign="Center" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text8" Left="472.5" Top="204.12" Width="56.7" Height="18.9" Text="года" HorzAlign="Center" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text9" Left="139.86" Top="238.14" Width="423.36" Height="64.26" Text="на жилое помещение (квартиру)&#13;&#10;из реестра муниципальной собственности&#13;&#10;города Казани" HorzAlign="Center" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text10" Left="41.58" Top="332.64" Width="245.7" Height="18.9" Text="Местонахождение объекта" Font="Times New Roman, 14pt"/>
+      <TextObject Name="Text11" Left="309.96" Top="325.08" Width="366.66" Height="30.24" Border.Lines="All" Text="Республика Татарстан г. Казань" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 14pt, style=Bold, Italic"/>
+      <TextObject Name="Text12" Left="41.58" Top="374.22" Width="245.7" Height="18.9" Text="Район" Font="Times New Roman, 14pt"/>
+      <TextObject Name="Text13" Left="309.96" Top="366.66" Width="366.66" Height="30.24" Border.Lines="All" Text="[raj]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 14pt, style=Bold, Italic"/>
+      <TextObject Name="Text14" Left="41.58" Top="419.58" Width="245.7" Height="18.9" Text="Улица" Font="Times New Roman, 14pt"/>
+      <TextObject Name="Text15" Left="309.96" Top="412.02" Width="366.66" Height="30.24" Border.Lines="All" Text="[ulica]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 14pt, style=Bold, Italic"/>
+      <TextObject Name="Text16" Left="41.58" Top="464.94" Width="245.7" Height="18.9" Text="Дом" Font="Times New Roman, 14pt"/>
+      <TextObject Name="Text17" Left="309.96" Top="457.38" Width="366.66" Height="30.24" Border.Lines="All" Text="[dom]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 14pt, style=Bold, Italic"/>
+      <TextObject Name="Text18" Left="41.58" Top="510.3" Width="245.7" Height="18.9" Text="Год постройки" Font="Times New Roman, 14pt"/>
+      <TextObject Name="Text19" Left="309.96" Top="502.74" Width="366.66" Height="30.24" Border.Lines="All" Text="[build_year]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 14pt, style=Bold, Italic"/>
+      <TextObject Name="Text20" Left="41.58" Top="555.66" Width="245.7" Height="18.9" Text="Основание для включения" Font="Times New Roman, 14pt"/>
+      <TextObject Name="Text21" Left="309.96" Top="548.1" Width="366.66" Height="83.16" Border.Lines="All" Text="[osnovanie]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 14pt, style=Bold, Italic"/>
+      <TextObject Name="Text22" Left="45.36" Top="650.16" Width="631.26" Height="139.86" Text="Выписка дана для регистрации в ГУ ФРС по РТ ранее возникшего права муниципальной собственности на квартиру № [num_kvar], общей площадью [tot_sq] кв.м. (в том числе жилой [liv_sq] кв.м.), с учетом лоджии (балкона, террасы) размером [razm_balkona] кв.м. площадь квартиры составляет [sq] кв.м.&#13;&#10;Имущество правами третьих лиц не обременено." VertAlign="Center" Font="Times New Roman, 14pt" FirstTabOffset="37.8" ParagraphOffset="37.8"/>
+      <TextObject Name="Text23" Left="3.78" Top="790.02" Width="253.26" Height="124.74" Text="[dolgn]&#13;&#10;[rn]" Font="Times New Roman, 14pt"/>
+      <TextObject Name="Text24" Left="434.7" Top="824.04" Width="283.5" Height="18.9" Text="[fio]" VertAlign="Center" Font="Times New Roman, 14pt"/>
+      <TextObject Name="Text25" Left="257.04" Top="824.04" Width="177.66" Height="18.9" Border.Lines="Bottom" VertAlign="Center" Font="Times New Roman, 14pt"/>
+      <TextObject Name="Text29" Left="90.72" Top="914.76" Width="94.5" Height="18.9" Text="М.П." Font="Arial, 12pt"/>
+      <TextObject Name="Text30" Left="3.78" Top="937.44" Width="703.08" Height="18.9" Text="действующий на основании доверенности [dov]г." Font="Arial, 12pt"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

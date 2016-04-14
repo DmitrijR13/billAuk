@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="06/27/2011 10:53:37" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+    string komn = &quot;&quot;;
+    string korp = &quot;&quot;;    
+    string kind_priv = &quot;&quot;;        
+    string Lschet = &quot;&quot;;        
+    string nkor = &quot;&quot;; 
+    string nkvar = &quot;&quot;;    
+    string nkvar_n = &quot;&quot;;        
+    
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="102.47" Top="9.76" Width="289.49" Height="18.9" Text="Финансово-лицевой счет № [Lschet]"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="40.36" Width="718.2" Height="337.91">
+      <TextObject Name="Text2" Left="18.89" Top="4.5" Width="588.49" Height="303.59" BeforePrintEvent="Text2_BeforePrint" Text="[komn] &lt;i&gt;&lt;u&gt;[nkvar_n]&lt;/u&gt;&lt;/i&gt; Квартира № &lt;u&gt;&lt;i&gt;[nkvar]&lt;/u&gt;&lt;/i&gt; [korp] &lt;u&gt;&lt;i&gt;[nkor]&lt;/u&gt;&lt;/i&gt; Дом &lt;u&gt;&lt;i&gt;[ndom]&lt;/u&gt;&lt;/i&gt;&#13;&#10;По улице &lt;u&gt;&lt;i&gt;[ulica]&lt;/u&gt;&lt;/i&gt;&#13;&#10;&lt;u&gt;&lt;i&gt;[town]&lt;/u&gt;&lt;/i&gt;&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;Квартиросъемщик &lt;u&gt;&lt;i&gt;[fio]&lt;/u&gt;&lt;/i&gt;&#13;&#10;С семьей в составе &lt;u&gt;&lt;i&gt;[kolgil]&lt;/u&gt;&lt;/i&gt; человек&#13;&#10;Жилая площадь квартиры составляет &lt;u&gt;&lt;i&gt;[pl_gil]&lt;/u&gt;&lt;/i&gt; кв.м.&#13;&#10;Общая площадь &lt;u&gt;&lt;i&gt;[pl_all]&lt;/u&gt;&lt;/i&gt; кв.м., за которую взимается&#13;&#10;ежемесячная сумма в размере &lt;u&gt;&lt;i&gt;[sum_real]&lt;/u&gt;&lt;/i&gt; руб.&#13;&#10;[kind_priv] &lt;u&gt;&lt;i&gt;[privat]&lt;/u&gt;&lt;/i&gt;&#13;&#10;&#13;&#10;Копия финансово лицевого счета выдана для предъявления по месту требования&#13;&#10;&#13;&#10;Дата печати [Date]" HtmlTags="true"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="380.84" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

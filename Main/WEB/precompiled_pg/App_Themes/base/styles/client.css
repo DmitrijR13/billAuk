@@ -1,0 +1,31 @@
+.logo-client {
+    position: absolute;
+    left: 0px;
+    top: -89px;
+    width: 346px;
+    height: 89px;
+    display: block;
+    background: 0px 0px no-repeat url('../images/client/logo.png');
+}
+.background-image-client {
+    right: 58px;
+    bottom: 32px;
+    background: 0px -89px no-repeat url('../images/client/logo.png');
+    width: 183px;
+    height: 35px;
+    z-index:0px;
+}
+.background-image-client-right {
+    right: 11px;
+    bottom: 32px;
+    background: 0px -88px no-repeat url('../images/client/logo.png');
+    width: 183px;
+    height: 35px;
+}
+.background-image-right-bottom-client {
+    right: 206px;
+    bottom: 32px;
+    background-position: -274px -370px;
+    width: 31px;
+    height: 37px;
+}

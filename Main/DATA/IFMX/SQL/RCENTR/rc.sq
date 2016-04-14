@@ -1,0 +1,14 @@
+database websmr3;
+
+create table tmp_rc
+( p1 char(10),
+  p2 char(150),
+  p3 char(150),
+  p4 char(150),
+  p5 char(150),
+  p6 char(150),
+  p7 char(150)
+);
+
+loadtxt rc.txt
+insert into tmp_rc;

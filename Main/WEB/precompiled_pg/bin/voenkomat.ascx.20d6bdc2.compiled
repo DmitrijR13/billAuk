@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/pasp/list/voenkomat.ascx" hash="cedb9400c" filehash="4f5730a635813a50" flags="110000" assembly="App_Web_hz1nuxo0" type="ASP.reports_pasp_list_voenkomat_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/reports/pasp/list/voenkomat.ascx" />
+    </filedeps>
+</preserve>

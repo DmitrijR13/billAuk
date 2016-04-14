@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/27/2013 13:34:42" ReportInfo.Modified="01/14/2014 13:40:19" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+   
+    //ул. [Trim([Q_master.ulica])] дом [Trim([Q_master.ndom])] [IIf(Trim([Q_master.nkor])==&quot;-&quot;,&quot;&quot;,&quot;корп. &quot;+Trim([Q_master.nkor]))]
+    //[IIf(Trim([Q_master.nkvar_n])==&quot;-&quot;,&quot;&quot;,Trim([Q_master.nkvar_n]))]
+    // Итого по дому [Trim([Q_master.ndom])] [IIf(Trim([Q_master.nkor])==&quot;-&quot;,&quot;&quot;,&quot;корп. &quot;+Trim([Q_master.nkor]))]
+
+    private void Text27_BeforePrint(object sender, EventArgs e)
+    {
+            //[ToInt32([Q_master.kolgil])]+ [ToInt32([Q_master.vv])]+[ToInt32([Q_master.vp])]
+      int kolgil,vv,vp; 
+      string strkolgil=(string)Report.GetColumnValue(&quot;kolgil&quot;);
+      string strvv =(string) Report.GetColumnValue(&quot;vv&quot;);
+      string strvp =(string) Report.GetColumnValue(&quot;vp&quot;);
+      
+      if (!Int32.TryParse(strkolgil,out kolgil)) kolgil=0;
+      //Text27.Text=kolgil.ToString();
+      //if (!Int32.TryParse(strvv,out vv)) vv=0;
+      //if (!Int32.TryParse(strvp,out vp)) vp=0;
+      //Text27.Text=(kolgil+vv+vp).ToString();
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_real" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="pl_kvar" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar_n" DataType="System.String" PropName="Column"/>
+      <Column Name="num_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="pol_kvar" DataType="System.String" PropName="Column"/>
+      <Column Name="kolgil" DataType="System.Int32" PropName="Column"/>
+      <Column Name="vv" DataType="System.Int32" PropName="Column"/>
+      <Column Name="vp" DataType="System.Int32" PropName="Column"/>
+      <Column Name="day_vv" DataType="System.Int32" PropName="Column"/>
+      <Column Name="day_vp" DataType="System.Int32" PropName="Column"/>
+      <Column Name="Priv" DataType="System.Int32" PropName="Column"/>
+      <Column Name="town" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="spl_kvar" Expression="[Q_master.pl_kvar]" Evaluator="Data1"/>
+    <Total Name="spol_kvar" Expression="[Q_master.pol_kvar]" Evaluator="Data1"/>
+    <Total Name="svp" Expression="[Q_master.vp]" Evaluator="Data1"/>
+    <Total Name="svv" Expression="[Q_master.vv]" Evaluator="Data1"/>
+    <Total Name="sday_vv" Expression="[Q_master.day_vv]" Evaluator="Data1"/>
+    <Total Name="spriv" Expression="[Q_master.Priv]" Evaluator="Data1"/>
+    <Total Name="sday_vp" Expression="[Q_master.day_vp]" Evaluator="Data1"/>
+    <Total Name="propis" Expression="[Q_master.kolgil]+[Q_master.vv]+[Q_master.vp]" Evaluator="Data1"/>
+    <Total Name="spl_kvar_l" Expression="[Q_master.pl_kvar]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="spol_kvar_l" Expression="[Q_master.pol_kvar]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="svp_l" Expression="[Q_master.vp]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="svv_l" Expression="[Q_master.vv]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="sday_vv_l" Expression="[Q_master.vv]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="spriv_l" Expression="[Q_master.Priv]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="sday_vp_l" Expression="[Q_master.day_vp]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="propis_l" Expression="[Q_master.kolgil]+[Q_master.vv]+[Q_master.vp]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="66.15">
+      <TextObject Name="Text1" Width="491.4" Height="37.8" Text="6.5.3.1 Список по домам поквартирно &#13;&#10;за период с [dats] по [datpo]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="491.4" Width="151.2" Height="37.8" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Right" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text3" Left="642.6" Width="75.6" Height="37.8" Text="[DATE]&#13;&#10;[TIME]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text51" Top="37.8" Width="491.4" Height="28.35" Text="Балансодержатель: [area]&#13;&#10;Район: [rajon]" Font="Arial, 8pt, style=Italic"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="69.03" Width="718.2" Height="37.8">
+      <TextObject Name="Text2" Width="47.25" Height="37.8" Border.Lines="All" Text="Квартира" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text5" Left="47.25" Width="47.25" Height="37.8" Border.Lines="All" Text="Комната" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text6" Left="94.5" Width="56.7" Height="37.8" Border.Lines="All" Text="ЛС" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text7" Left="151.2" Width="189" Height="37.8" Border.Lines="All" Text="ФИО" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text8" Left="340.2" Width="56.7" Height="37.8" Border.Lines="All" Text="Общая площадь" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text10" Left="396.9" Width="56.7" Height="37.8" Border.Lines="All" Text="Полезная площадь" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text12" Left="453.6" Width="37.8" Height="37.8" Border.Lines="All" Text="Пропи-&#13;&#10;сано" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text9" Left="491.4" Width="179.55" Height="18.9" Border.Lines="All" Text="в т.ч. временно" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text11" Left="670.95" Width="47.25" Height="37.8" Border.Lines="All" Text="Прив." Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text13" Left="491.4" Top="18.9" Width="56.7" Height="18.9" Border.Lines="All" Text="Выбывших" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text14" Left="548.1" Top="18.9" Width="28.35" Height="18.9" Border.Lines="All" Text="Дней" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text15" Left="576.45" Top="18.9" Width="66.15" Height="18.9" Border.Lines="All" Text="Прибывших" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text16" Left="642.6" Top="18.9" Width="28.35" Height="18.9" Border.Lines="All" Text="Дней" Padding="1, 0, 1, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="109.71" Width="718.2" Height="18.9" Condition="[Q_master.town]" SortOrder="None">
+      <TextObject Name="Text19" Width="718.2" Height="18.9" Border.Lines="All" Text="[IIf(Trim([rajon])==&quot;-&quot;,Trim([Q_master.town]),Trim([rajon]))] " VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="131.48" Width="718.2" Height="18.9" Condition="[Q_master.ndom]" SortOrder="None">
+        <TextObject Name="Text20" Width="718.2" Height="18.9" Border.Lines="All" Text="ул. [Trim([Q_master.ulica])] дом [Trim([Q_master.ndom])] [IIf(Trim([Q_master.nkor])==&quot;-&quot;,&quot;&quot;,&quot;корп. &quot;+Trim([Q_master.nkor]))]" VertAlign="Center" Font="Arial, 7pt"/>
+        <DataBand Name="Data1" Top="153.26" Width="718.2" Height="18.9" Border.Lines="Left, Right" DataSource="Q_master">
+          <TextObject Name="Text21" Width="47.25" Height="18.9" Border.Lines="Left, Right" Text="[Trim([Q_master.nkvar])]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text22" Left="47.25" Width="47.25" Height="18.9" Border.Lines="Left, Right" Text="[IIf(Trim([Q_master.nkvar_n])==&quot;-&quot;,&quot;&quot;,Trim([Q_master.nkvar_n]))]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text23" Left="94.5" Width="56.7" Height="18.9" Border.Lines="Left, Right" Text="[Q_master.num_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text24" Left="151.2" Width="189" Height="18.9" Border.Lines="Left, Right" Text="[Trim([Q_master.fio])]" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text25" Left="340.2" Width="56.7" Height="18.9" Border.Lines="Left, Right" Text="[Q_master.pl_kvar]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text26" Left="396.9" Width="56.7" Height="18.9" Border.Lines="Left, Right" Text="[Q_master.pol_kvar]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text27" Left="453.6" Width="37.8" Height="18.9" Border.Lines="Left, Right" BeforePrintEvent="Text27_BeforePrint" Text="[ToInt32([Q_master.kolgil]+[Q_master.vv]+[Q_master.vp])]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="0" DecimalSeparator="," GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text28" Left="491.4" Width="56.7" Height="18.9" Border.Lines="Left, Right" Text="[Q_master.vv]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text29" Left="548.1" Width="28.35" Height="18.9" Border.Lines="Left, Right" Text="[Q_master.day_vv]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text30" Left="576.45" Width="66.15" Height="18.9" Border.Lines="Left, Right" Text="[Q_master.vp]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text31" Left="642.6" Width="28.35" Height="18.9" Border.Lines="Left, Right" Text="[Q_master.day_vp]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text32" Left="670.95" Width="47.25" Height="18.9" Border.Lines="Left, Right" Text="[Q_master.Priv]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter2" Top="175.04" Width="718.2" Height="18.9">
+          <TextObject Name="Text33" Width="340.2" Height="18.9" Border.Lines="All" Text="Итого по дому [Trim([Q_master.ndom])] [IIf(Trim([Q_master.nkor])==&quot;-&quot;,&quot;&quot;,&quot;корп. &quot;+Trim([Q_master.nkor]))]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text34" Left="340.2" Width="56.7" Height="18.9" Border.Lines="All" Text="[spl_kvar_l]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text35" Left="396.9" Width="56.7" Height="18.9" Border.Lines="All" Text="[spol_kvar_l]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text36" Left="453.6" Width="37.8" Height="18.9" Border.Lines="All" Text="[propis_l]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text37" Left="491.4" Width="56.7" Height="18.9" Border.Lines="All" Text="[svv_l]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text38" Left="548.1" Width="28.35" Height="18.9" Border.Lines="All" Text="[sday_vv_l]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text39" Left="576.45" Width="66.15" Height="18.9" Border.Lines="All" Text="[svp_l]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text40" Left="642.6" Width="28.35" Height="18.9" Border.Lines="All" Text="[sday_vp_l]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text41" Left="670.95" Width="47.25" Height="18.9" Border.Lines="All" Text="[spriv_l]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <DataFooterBand Name="DataFooter2" Top="196.82" Width="718.2" Height="18.9">
+        <TextObject Name="Text42" Width="340.2" Height="18.9" Border.Lines="All" Text="Всего" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text43" Left="340.2" Width="56.7" Height="18.9" Border.Lines="All" Text="[spl_kvar]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text44" Left="396.9" Width="56.7" Height="18.9" Border.Lines="All" Text="[spol_kvar]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text45" Left="453.6" Width="37.8" Height="18.9" Border.Lines="All" Text="[propis]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text46" Left="491.4" Width="56.7" Height="18.9" Border.Lines="All" Text="[svv]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text47" Left="548.1" Width="28.35" Height="18.9" Border.Lines="All" Text="[sday_vv]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text48" Left="576.45" Width="66.15" Height="18.9" Border.Lines="All" Text="[svp]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text49" Left="642.6" Width="28.35" Height="18.9" Border.Lines="All" Text="[sday_vp]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text50" Left="670.95" Width="47.25" Height="18.9" Border.Lines="All" Text="[spriv]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      </DataFooterBand>
+    </GroupHeaderBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="218.59" Width="718.2" Height="9.45" Border.Lines="Top"/>
+    <PageFooterBand Name="PageFooter1" Top="230.92" Width="718.2" Height="18.9">
+      <TextObject Name="Text17" Width="576.45" Height="18.9" Text="Наименование отчета: 6.5.3 Поквартирный список ( с учетом временно выбывших, прибывших )" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text18" Left="576.45" Width="141.75" Height="18.9" Text="Страница [Page]" VertAlign="Center" Font="Arial, 7pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

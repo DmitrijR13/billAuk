@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/pasp/sprav/sprav.aspx" hash="cedb9400c" filehash="69da0a5413d26aa8" flags="110000" assembly="App_Web_wmtwgc0y" type="ASP.pasp_sprav_sprav_aspx">
+    <filedeps>
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/pasp/sprav/sprav.aspx" />
+    </filedeps>
+</preserve>

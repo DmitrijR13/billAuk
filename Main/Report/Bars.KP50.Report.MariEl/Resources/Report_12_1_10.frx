@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="11/21/2013 13:47:00" ReportInfo.Modified="12/08/2015 14:50:05" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+      System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo(&quot;ru-RU&quot;);
+      culture.NumberFormat.NumberDecimalSeparator = &quot;.&quot;;
+      culture.DateTimeFormat.ShortDatePattern = &quot;dd.MM.yyyy&quot;;
+      culture.DateTimeFormat.ShortTimePattern = &quot;HH:mm:ss&quot;;
+      System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
+      System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+    }
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="area" DataType="System.String"/>
+      <Column Name="name_supp" DataType="System.String"/>
+      <Column Name="service" DataType="System.String"/>
+      <Column Name="sum_nach" DataType="System.Decimal" PropName="sum_rasp"/>
+      <Column Name="sum_ud" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_in" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_out" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_send" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="money_from" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="Principal" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Agent" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="agent" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="principal" Enabled="false" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Guides="25.91,983.69">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="78.26">
+      <TextObject Name="Text1" Left="25.91" Top="45.75" Width="957.78" Height="32.51" Text="12.1.10 Информация о задолженности" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="25.91" Width="957.78" Height="18.9" Text="[print_date]" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text3" Left="25.91" Top="18.9" Width="957.78" Height="18.9" Text="[print_time]" HorzAlign="Right" VertAlign="Center"/>
+      <ChildBand Name="Child4" Top="82.26" Width="1047.06" Height="56.7" CanGrow="true" CanShrink="true">
+        <TextObject Name="Text57" Left="25.91" Top="2.63" Width="957.78" Height="28.35" CanGrow="true" AfterDataEvent="Text45_AfterData" Text="[headerParam]&#13;&#10; " HorzAlign="Justify" VertAlign="Center" Font="Arial, 8pt" Wysiwyg="true"/>
+        <ChildBand Name="Child1" Top="142.96" Width="1047.06" Height="94.51" CanGrow="true" CanShrink="true">
+          <TableObject Name="Table2" Left="25.91" Width="973.35" Height="94.5" Border.Lines="Bottom">
+            <TableColumn Name="Column4" Width="37.8"/>
+            <TableColumn Name="Column5" Width="56.7"/>
+            <TableColumn Name="Column6"/>
+            <TableColumn Name="Column7" Width="189"/>
+            <TableColumn Name="Column8" Width="37.8"/>
+            <TableColumn Name="Column9" Width="37.8"/>
+            <TableColumn Name="Column10" Width="151.2"/>
+            <TableColumn Name="Column11"/>
+            <TableColumn Name="Column12"/>
+            <TableColumn Name="Column13"/>
+            <TableColumn Name="Column14"/>
+            <TableColumn Name="Column15"/>
+            <TableColumn Name="Column16"/>
+            <TableRow Name="Row6" Height="47.25">
+              <TableCell Name="Cell24" Border.Lines="All" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt" RowSpan="2"/>
+              <TableCell Name="Cell25" Border.Lines="All" Text="№ л/с" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt" RowSpan="2"/>
+              <TableCell Name="Cell26" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt" ColSpan="4"/>
+              <TableCell Name="Cell27" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell28" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell49" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell50" Border.Lines="All" Text="ФИО" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt" RowSpan="2"/>
+              <TableCell Name="Cell51" Border.Lines="All" Text="Сальдо на начало месяца&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt" RowSpan="2"/>
+              <TableCell Name="Cell52" Border.Lines="All" Text="Начисление предыдущего месяца" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt" RowSpan="2"/>
+              <TableCell Name="Cell53" Border.Lines="All" Text="Перерасчет в текущем месяце на дату предоставления информации" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt" RowSpan="2"/>
+              <TableCell Name="Cell54" Border.Lines="All" Text="Итого начисление с учетом перерасчета" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt" RowSpan="2"/>
+              <TableCell Name="Cell55" Border.Lines="All" Text="Оплата на дату предоставления информации" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt" RowSpan="2"/>
+              <TableCell Name="Cell56" Border.Lines="All" Text="Сальдо на дату предоставления" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt" RowSpan="2"/>
+            </TableRow>
+            <TableRow Name="Row7" Height="47.25">
+              <TableCell Name="Cell29" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell30" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell31" Border.Lines="All" Text="Код дома" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell32" Border.Lines="All" Text="Республика, район, населен ный пункт, улица" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell33" Border.Lines="All" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell57" Border.Lines="All" Text="Кв." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell58" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell59" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell60" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell61" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell62" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell63" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell64" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            </TableRow>
+          </TableObject>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="241.47" Width="1047.06" Height="37.8" CanGrow="true" CanShrink="true" DataSource="Q_master">
+      <TableObject Name="Table3" Left="25.91" Width="973.35" Height="37.8" Border.Lines="All">
+        <TableColumn Name="Column17" Width="37.8"/>
+        <TableColumn Name="Column18" Width="56.7"/>
+        <TableColumn Name="Column19"/>
+        <TableColumn Name="Column20" Width="189"/>
+        <TableColumn Name="Column21" Width="37.8"/>
+        <TableColumn Name="Column22" Width="37.8"/>
+        <TableColumn Name="Column23" Width="151.2"/>
+        <TableColumn Name="Column24"/>
+        <TableColumn Name="Column25"/>
+        <TableColumn Name="Column26"/>
+        <TableColumn Name="Column27"/>
+        <TableColumn Name="Column28"/>
+        <TableColumn Name="Column29"/>
+        <TableRow Name="Row8" Height="37.8" AutoSize="true">
+          <TableCell Name="Cell65" Border.Lines="All" Text="[Row#]" AutoShrink="FontSize" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell66" Border.Lines="All" Text="[Q_master.num_ls] " VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell67" Border.Lines="All" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell68" Border.Lines="All" Text="[Q_master.rajon] [Q_master.ulica] [Q_master.ulicareg]" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell69" Border.Lines="All" Text="[Q_master.ndom][Q_master.nkor]" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell70" Border.Lines="All" Text="[Q_master.nkvar][Q_master.nkvar_n] " VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell71" Border.Lines="All" Text="[Q_master.fio] " VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell72" Border.Lines="All" Text="[Q_master.sum_insaldo] " Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell73" Border.Lines="All" Text="[Q_master.sum_nach] " Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell74" Border.Lines="All" Text="[Q_master.reval] " Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell75" Border.Lines="All" Text="[[Q_master.sum_nach] +[Q_master.reval] ]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell76" Border.Lines="All" Text="[Q_master.sum_money] " Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell77" Border.Lines="All" Text="[Q_master.sum_insaldo] " Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="283.27" Width="1047.06" Height="198.45">
+      <TableObject Name="Table1" Left="25.91" Width="945" Height="170.1">
+        <TableColumn Name="Column1" Width="378"/>
+        <TableColumn Name="Column2" Width="226.8"/>
+        <TableColumn Name="Column3" Width="340.2"/>
+        <TableRow Name="Row1" Height="56.7">
+          <TableCell Name="Cell1" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell2" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell3" Font="Arial, 8pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6" Text="Директор ОАО «ЕРЦ на территории Республики Марий Эл»" Font="Arial, 8pt"/>
+          <TableCell Name="Cell7" Border.Lines="Bottom" Font="Arial, 8pt"/>
+          <TableCell Name="Cell8" Font="Arial, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="37.8">
+          <TableCell Name="Cell11" Font="Arial, 8pt"/>
+          <TableCell Name="Cell12" Font="Arial, 8pt"/>
+          <TableCell Name="Cell13" Font="Arial, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell16" Text="Главный бухгалтер ОАО «ЕРЦ на территории  Республика Марий Эл»" Font="Arial, 8pt"/>
+          <TableCell Name="Cell17" Border.Lines="Bottom" Font="Arial, 8pt"/>
+          <TableCell Name="Cell18" Font="Arial, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="37.8">
+          <TableCell Name="Cell21" Font="Arial, 8pt"/>
+          <TableCell Name="Cell22" Font="Arial, 8pt"/>
+          <TableCell Name="Cell23" Font="Arial, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

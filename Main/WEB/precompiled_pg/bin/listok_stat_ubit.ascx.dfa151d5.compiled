@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/listok_stat_ubit.ascx" hash="cedb9400c" filehash="b0a88ac3717db064" flags="110000" assembly="App_Web_k0rln3vi" type="ASP.reports_listok_stat_ubit_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/reports/listok_stat_ubit.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="06/21/2013 15:18:05" ReportInfo.Modified="07/22/2013 19:55:38" ReportInfo.CreatorVersion="1.5.1.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void _StartReport(object sender, EventArgs e)
+    {
+      System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo(&quot;ru-RU&quot;);
+      culture.NumberFormat.NumberDecimalSeparator = &quot;.&quot;;
+      culture.NumberFormat.CurrencyDecimalSeparator = &quot;.&quot;;
+      culture.DateTimeFormat.ShortDatePattern = &quot;dd.MM.yyyy&quot;;
+      System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
+      System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+      
+      string year = ((String)Report.GetParameterValue(&quot;year_from&quot;));
+      string month = ((String)Report.GetParameterValue(&quot;month_from&quot;));
+      //последний день месяца
+      string last_day = string.Format(&quot;{0:00}&quot;, DateTime.DaysInMonth(Convert.ToInt32(year), Convert.ToInt32(month)));
+      
+      MessageBox.Show(&quot;abc&quot;);
+      string prefix1 = ((String)Report.GetParameterValue(&quot;prefix1&quot;));
+      string prefix2 =  prefix1.Substring(1, prefix1.Length - 1).Replace(&quot;_kernel&quot;, &quot;01_charge_&quot; + year.Substring(2, 2));
+      string prefix3 = prefix1.Replace(&quot;kernel&quot;, &quot;data&quot;);
+      
+      //работа с первым столбцом
+      TableDataSource tb1 = Report.GetDataSource(&quot;source1&quot;) as TableDataSource;
+      tb1.SelectCommand = 
+        &quot;SELECT name_y as group_name, '' as name_y, nzp_y as typek, 0 as nzp_y &quot; + 
+        &quot;FROM &quot; + prefix1 + &quot; :res_y ry &quot; + 
+        &quot;WHERE nzp_res = 9999 and nzp_y=1 &quot; + 
+        &quot;UNION ALL SELECT ry.name_y as group_name, b.name_y as name_y, ry.nzp_y as typek, b.nzp_y &quot; +
+        &quot;FROM &quot; + prefix1 + &quot; :res_y ry, &quot; + 
+        prefix1 + &quot; :res_y b &quot; + 
+        &quot;WHERE ry.nzp_res = 9999 and ry.nzp_y=2 and b.nzp_res=22 UNION ALL &quot; + 
+        &quot;SELECT name_y as group_name,'' as name_y,ry.nzp_y as typek, 0 as nzp_y FROM &quot; + 
+        prefix1 + &quot; :res_y ry &quot; + 
+        &quot;WHERE nzp_res = 9999 and nzp_y=3&quot;;   
+      MessageBox.Show(&quot;1&quot;);
+      MessageBox.Show(tb1.SelectCommand.ToString());
+      tb1.Init();
+      MessageBox.Show(&quot;2&quot;);
+      
+      System.Data.DataTable dh = new System.Data.DataTable();
+      dh.TableName =&quot;help&quot;;
+      dh.Columns.Add(&quot;typek&quot;, typeof(int));
+      dh.Columns.Add(&quot;nzp_y&quot;, typeof(int)); 
+      System.Data.DataRow dhr;
+      
+      System.Data.DataTable dt = new System.Data.DataTable();
+      dt.TableName =&quot;consumer&quot;;
+      dt.Columns.Add(&quot;first&quot;, typeof(string));
+      dt.Columns.Add(&quot;second&quot;, typeof(string));
+      dt.Columns.Add(&quot;third&quot;, typeof(string));
+      dt.Columns.Add(&quot;fourth&quot;, typeof(string));
+      dt.Columns.Add(&quot;fifth&quot;, typeof(string));
+      dt.Columns.Add(&quot;sixth&quot;, typeof(string));
+      dt.Columns.Add(&quot;seventh&quot;, typeof(string));
+      System.Data.DataRow dr;
+      int temp = tb1.Table.Rows.Count;
+      for(int i = 0; i &lt; temp - 1; i++)
+      {
+        if(i == 0)
+        {
+          dr = dt.Rows.Add();
+          dr[&quot;first&quot;] = &quot;1.&quot; + tb1.Table.Rows[i].ItemArray[0];
+          
+          //запоминаем typek, nzp_y 
+          dhr = dh.Rows.Add();
+          dhr[&quot;typek&quot;] = tb1.Table.Rows[i].ItemArray[2];
+          dhr[&quot;nzp_y&quot;] = tb1.Table.Rows[i].ItemArray[3];
+        }
+        else
+        {
+          if(i == 1)
+          {
+            dr = dt.Rows.Add();
+            dr[&quot;first&quot;] = &quot;2.&quot; + Trim(tb1.Table.Rows[i].ItemArray[0].ToString()) + &quot;, в том числе:&quot;;
+            dr = dt.Rows.Add();
+            dr[&quot;first&quot;] = tb1.Table.Rows[i].ItemArray[1];
+            
+            dhr = dh.Rows.Add();
+            dhr[&quot;typek&quot;] = 2;
+            dhr[&quot;nzp_y&quot;] = 0;
+            
+            //запоминаем typek, nzp_y
+            dhr = dh.Rows.Add();
+            dhr[&quot;typek&quot;] = tb1.Table.Rows[i].ItemArray[2];
+            dhr[&quot;nzp_y&quot;] = tb1.Table.Rows[i].ItemArray[3];
+          }
+          else
+          {
+            if(i != temp - 1)
+            {
+              dr = dt.Rows.Add();
+              dr[&quot;first&quot;] = tb1.Table.Rows[i].ItemArray[1];
+              
+              //запоминаем typek, nzp_y 
+              dhr = dh.Rows.Add();
+              dhr[&quot;typek&quot;] = tb1.Table.Rows[i].ItemArray[2];
+              dhr[&quot;nzp_y&quot;] = tb1.Table.Rows[i].ItemArray[3];
+            }
+          }
+        }
+      }
+      dr = dt.Rows.Add();
+      dr[&quot;first&quot;] = &quot;3.&quot; + tb1.Table.Rows[tb1.Table.Rows.Count - 1].ItemArray[0];
+
+      //запоминаем typek, nzp_y 
+      dhr = dh.Rows.Add();
+      dhr[&quot;typek&quot;] = tb1.Table.Rows[tb1.Table.Rows.Count - 1].ItemArray[2];
+      dhr[&quot;nzp_y&quot;] = tb1.Table.Rows[tb1.Table.Rows.Count - 1].ItemArray[3];
+      
+      dr = dt.Rows.Add(); 
+      dr[&quot;first&quot;] = &quot;ВСЕГО&quot;;
+
+      //работа со 2ым столбцом
+      for(int i = 0; i &lt; dh.Rows.Count;i++)
+      {
+        if(i != 1)
+        {
+          DateTime date = new DateTime();
+          
+          TableDataSource tb2 = Report.GetDataSource(&quot;source2&quot;) as TableDataSource;   
+          tb2.SelectCommand = 
+            &quot;SELECT ch.sum_insaldo &quot; +
+            &quot;FROM &quot; + prefix2 + &quot;: charge_01 ch, &quot; + 
+            &quot;OUTER &quot; + prefix3 + &quot;: prm_1 prm, &quot; +  
+            prefix3 + &quot;: kvar kv &quot; + 
+            &quot;WHERE prm.nzp = kv.nzp_kvar &quot; + 
+            &quot;AND prm.val_prm = &quot; + dh.Rows[i][1].ToString() + &quot; AND prm.is_actual = 1 AND kv.typek = &quot; + dh.Rows[i][0].ToString() + &quot; &quot; +  
+            &quot;AND prm.nzp_prm = 110 &quot; +                                                                                       
+            &quot;AND prm.dat_s &lt;= '01.&quot; + month + &quot;.&quot; + year + &quot;' &quot; + 
+            &quot;AND prm.dat_po &gt;= '&quot; + last_day + &quot;.&quot; + month + &quot;.&quot; + year + &quot;' &quot; + 
+            &quot;AND ch.dat_charge IS NULL &quot; + 
+            &quot;AND ch.nzp_serv = 1&quot;;
+          tb2.Init();
+          //запись результата
+          if(tb2.Table.Rows.Count &gt; 0)
+          {
+            dt.Rows[i][&quot;second&quot;] = tb2.Table.Rows[0].ItemArray[0];
+          }
+          else
+          {
+            dt.Rows[i][&quot;second&quot;] = &quot;0.00&quot;;
+          }  
+        }
+        else
+        {
+          dt.Rows[i][&quot;second&quot;] = &quot;0.00&quot;;
+        }
+      }
+      
+      //работа с 3им столбцом
+      for(int i = 0; i &lt; dh.Rows.Count;i++)
+      {
+        if(i != 1)
+        {
+          TableDataSource tb3 = Report.GetDataSource(&quot;source2&quot;) as TableDataSource;   
+          tb3.SelectCommand = 
+            &quot;SELECT ch.sum_insaldo &quot; +
+            &quot;FROM &quot; + prefix2 + &quot;: charge_&quot; + month + &quot; ch, &quot; + 
+            &quot;OUTER &quot; + prefix3 + &quot;: prm_1 prm, &quot; +  
+            prefix3 + &quot;: kvar kv &quot; + 
+            &quot;WHERE prm.nzp = kv.nzp_kvar &quot; + 
+            &quot;AND prm.val_prm = &quot; + dh.Rows[i][1].ToString() + &quot; AND prm.is_actual = 1 AND kv.typek = &quot; + dh.Rows[i][0].ToString() + &quot; &quot; +  
+            &quot;AND prm.nzp_prm = 110 &quot; +                                                                                       
+            &quot;AND prm.dat_s &lt;= '01.&quot; + month + &quot;.&quot; + year + &quot;' &quot; + 
+            &quot;AND prm.dat_po &gt;= '&quot; + last_day + &quot;.&quot; + month + &quot;.&quot; + year + &quot;' &quot; + 
+            &quot;AND ch.dat_charge IS NULL &quot; + 
+            &quot;AND ch.nzp_serv = 1&quot;;
+          tb3.Init();
+          //запись результата
+          if(tb3.Table.Rows.Count &gt; 0)
+          {
+            if(dt.Rows[i][&quot;second&quot;].ToString() == &quot;0.00&quot;)
+            {
+              dt.Rows[i][&quot;third&quot;] = Convert.ToDecimal(tb3.Table.Rows[0].ItemArray[0]);
+            }
+            else 
+            {
+              decimal _s = Convert.ToDecimal(tb3.Table.Rows[0].ItemArray[0])- Convert.ToDecimal(dt.Rows[i][&quot;second&quot;]);   
+              dt.Rows[i][&quot;third&quot;] = _s.ToString();
+            }
+          }
+          else
+          {
+            dt.Rows[i][&quot;third&quot;] = &quot;0.00&quot;;
+          }
+        }
+        else
+        {
+          dt.Rows[i][&quot;third&quot;] = &quot;0.00&quot;;
+        }
+      }
+      
+      //работа с 4ым столбцом
+      for(int i = 0; i &lt; dh.Rows.Count;i++)
+      {
+        if(i != 1)
+        {
+          TableDataSource tb4 = Report.GetDataSource(&quot;source2&quot;) as TableDataSource;   
+          tb4.SelectCommand = 
+            &quot;SELECT ch.sum_real + ch.reval + ch.real_charge &quot; +
+            &quot;FROM &quot; + prefix2 + &quot;: charge_&quot; + month + &quot; ch, &quot; + 
+            &quot;OUTER &quot; + prefix3 + &quot;: prm_1 prm, &quot; +  
+            prefix3 + &quot;: kvar kv &quot; + 
+            &quot;WHERE prm.nzp = kv.nzp_kvar &quot; + 
+            &quot;AND prm.val_prm = &quot; + dh.Rows[i][1].ToString() + &quot; AND prm.is_actual = 1 AND kv.typek = &quot; + dh.Rows[i][0].ToString() + &quot; &quot; +  
+            &quot;AND prm.nzp_prm = 110 &quot; +                                                                                       
+            &quot;AND prm.dat_s &lt;= '01.&quot; + month + &quot;.&quot; + year + &quot;' &quot; + 
+            &quot;AND prm.dat_po &gt;= '&quot; + last_day + &quot;.&quot; + month + &quot;.&quot; + year + &quot;' &quot; + 
+            &quot;AND ch.dat_charge IS NULL &quot; + 
+            &quot;AND ch.nzp_serv = 1&quot;;
+          tb4.Init();
+          //запись результата
+          if(tb4.Table.Rows.Count &gt; 0)
+          {
+            decimal _d = Convert.ToDecimal(tb4.Table.Rows[0].ItemArray[0]);
+            dt.Rows[i][&quot;fourth&quot;] = _d.ToString();
+          }
+          else
+          {
+            dt.Rows[i][&quot;fourth&quot;] = &quot;0.00&quot;;
+          }
+        }
+        else
+        {
+          dt.Rows[i][&quot;fourth&quot;] = &quot;0.00&quot;;
+        }
+      }
+      
+      //работа с 5ым столбцом
+      for(int i = 0; i &lt; dh.Rows.Count;i++)
+      {
+        if(i != 1)
+        {
+          TableDataSource tb5 = Report.GetDataSource(&quot;source2&quot;) as TableDataSource;   
+          
+          tb5.SelectCommand = 
+            &quot;SELECT fn.sum_prih  &quot; +
+            &quot;FROM &quot; + prefix2 + &quot;: fn_supplier&quot; + month + &quot; fn, &quot; + 
+            &quot;OUTER &quot; + prefix3 + &quot;: prm_1 prm, &quot; +  
+            prefix3 + &quot;: kvar kv &quot; + 
+            &quot;WHERE prm.nzp = kv.nzp_kvar &quot; +
+            &quot;AND fn.num_ls = kv.nzp_kvar &quot; + 
+            &quot;AND prm.val_prm = &quot; + dh.Rows[i][1].ToString() + &quot; AND prm.is_actual = 1 AND kv.typek = &quot; + dh.Rows[i][0].ToString() + &quot; &quot; +  
+            &quot;AND prm.nzp_prm = 110 &quot; +                                                                                       
+            &quot;AND prm.dat_s &lt;= '01.&quot; + month + &quot;.&quot; + year + &quot;' &quot; + 
+            &quot;AND prm.dat_po &gt;= '&quot; + last_day + &quot;.&quot; + month + &quot;.&quot; + year + &quot;'&quot;;
+          tb5.Init();
+          //запись результата
+          if(tb5.Table.Rows.Count &gt; 0)
+          {
+            decimal _k = Convert.ToDecimal(tb5.Table.Rows[0].ItemArray[0]);
+            dt.Rows[i][&quot;fifth&quot;] = _k.ToString();
+          }
+          else
+          {
+            dt.Rows[i][&quot;fifth&quot;] = &quot;0.00&quot;;
+          }
+        }
+        else
+        {
+          dt.Rows[i][&quot;fifth&quot;] = &quot;0.00&quot;;
+        }
+      } 
+      
+      //работа с 6ой колонкой
+      for(int i = 0; i &lt; dh.Rows.Count;i++)
+      {
+        if(dt.Rows[i][&quot;fourth&quot;].ToString() != &quot;0.00&quot; &amp;&amp; dt.Rows[i][&quot;fifth&quot;].ToString() != &quot;0.00&quot;)
+        {
+          dt.Rows[i][&quot;sixth&quot;] = Convert.ToDecimal(dt.Rows[i][&quot;fourth&quot;]) - Convert.ToDecimal(dt.Rows[i][&quot;fifth&quot;]);  
+        }
+        else
+        {
+          dt.Rows[i][&quot;sixth&quot;] = &quot;0.00&quot;;
+        }
+      }
+      
+      //подсчет ВСЕГО
+      for(int i = 1; i &lt; 6; i++)
+      {   
+        decimal sum = 0.00M;
+        for(int j = 0; j &lt; dh.Rows.Count;j++)
+        {
+          if(dt.Rows[j][i].ToString() != &quot;0.00&quot;)
+          {
+            sum += Convert.ToDecimal(dt.Rows[j][i]);
+          }
+        }
+        dt.Rows[dh.Rows.Count][i] = sum.ToString();
+      }
+
+            
+      //подсчет сумм групп
+      int index = 0;
+      //по строкам
+      for (int i = 0; i &lt; dh.Rows.Count - 1; i++)
+      {
+        if (dh.Rows[i][&quot;typek&quot;].ToString() == dh.Rows[i + 1][&quot;typek&quot;].ToString())
+        {
+          //по колонкам
+          for(int j = 1; j &lt; 6; j++)
+          {
+            dt.Rows[index][j] = Convert.ToDecimal(dt.Rows[index][j]) + Convert.ToDecimal(dt.Rows[i + 1][j]);
+          }
+        }
+        else
+        {
+          index = i + 1;
+        }
+      }
+      
+      //работа с 7ой колонкой
+      for(int i = 0; i &lt; dh.Rows.Count + 1;i++)
+      {
+        if(dt.Rows[i][&quot;fourth&quot;].ToString() != &quot;0.00&quot; &amp;&amp; dt.Rows[i][&quot;fifth&quot;].ToString() != &quot;0.00&quot;)
+        {
+          dt.Rows[i][&quot;seventh&quot;] = (Convert.ToDecimal(dt.Rows[i][&quot;fifth&quot;]) / Convert.ToDecimal(dt.Rows[i][&quot;fourth&quot;]) * 100).ToString(&quot;n2&quot;);;
+        }
+        else
+        {
+          dt.Rows[i][&quot;seventh&quot;] = &quot;0.00&quot;;
+        }
+      }
+
+      //данные для футера
+      TableDataSource tb6 = Report.GetDataSource(&quot;source3&quot;) as TableDataSource;   
+      tb6.SelectCommand = 
+        &quot;SELECT val_prm  &quot; +
+        &quot;FROM &quot; + prefix3 + &quot;: prm_7 &quot; +  
+        &quot;WHERE nzp_prm = 581&quot;;
+      tb6.Init();
+
+      if(tb6.Table.Rows.Count &gt; 0 &amp;&amp; tb6.Table.Rows[0].ItemArray[0].ToString()!= &quot;0.00&quot;)
+      {
+        Text8.Text = tb6.Table.Rows[0].ItemArray[0].ToString();
+      }
+      else
+      {
+        Text8.Text =  &quot;-&quot;;
+      }
+      
+      TableDataSource tb7 = Report.GetDataSource(&quot;source4&quot;) as TableDataSource;   
+      tb7.SelectCommand = 
+        &quot;SELECT val_prm  &quot; +
+        &quot;FROM &quot; + prefix3 + &quot;: prm_7 &quot; +  
+        &quot;WHERE nzp_prm = 576&quot;;
+      tb7.Init();
+
+      if(tb7.Table.Rows.Count &gt; 0 &amp;&amp; tb7.Table.Rows[0].ItemArray[0].ToString()!= &quot;0.00&quot;)
+      {
+        Text9.Text = tb7.Table.Rows[0].ItemArray[0].ToString();
+      }
+      else
+      {
+        Text9.Text =  &quot;-&quot;;
+      }
+      
+      System.Data.DataSet fDataSet = new System.Data.DataSet();
+      fDataSet.Tables.Add(dt);
+      Report.RegisterData(fDataSet.Tables[&quot;consumer&quot;], &quot;consumer&quot;);
+      Report.GetDataSource(&quot;consumer&quot;).Enabled = true;
+      Data1.DataSource = Report.GetDataSource(&quot;consumer&quot;);
+      Cell26.Text = &quot;[consumer.first]&quot;;
+      Cell27.Text = &quot;[consumer.second]&quot;;
+      Cell28.Text = &quot;[consumer.third]&quot;;
+      Cell29.Text = &quot;[consumer.fourth]&quot;;
+      Cell30.Text = &quot;[consumer.fifth]&quot;;
+      Cell51.Text = &quot;[consumer.sixth]&quot;;
+      Cell52.Text = &quot;[consumer.seventh]&quot;;
+
+      
+      //вывод названия месяца
+      string month_name = &quot;&quot;;
+      switch(month)
+      {
+        case &quot;01&quot;:
+        {
+          month_name = &quot;ЯНВАРЬ&quot;; break;
+        }
+        case &quot;02&quot;:
+        {
+          month_name = &quot;ФЕВРАЛЬ&quot;; break;
+        }
+        case &quot;03&quot;:
+        {
+          month_name = &quot;МАРТ&quot;; break;
+        }
+        case &quot;04&quot;:
+        {
+          month_name = &quot;АПРЕЛЬ&quot;; break;
+        }
+        case &quot;05&quot;:
+        {
+          month_name = &quot;МАЙ&quot;; break;
+        }
+        case &quot;06&quot;:
+        {
+          month_name = &quot;ИЮНЬ&quot;; break;
+        }
+        case &quot;07&quot;:
+        {
+          month_name = &quot;ИЮЛЬ&quot;; break;
+        }
+        case &quot;08&quot;:
+        {
+          month_name = &quot;АВГУСТ&quot;; break;
+        }
+        case &quot;09&quot;:
+        {
+          month_name = &quot;СЕНТЯБРЬ&quot;; break;
+        }
+        case &quot;10&quot;:
+        {
+          month_name = &quot;ОКТЯБРЬ&quot;; break;
+        }
+        case &quot;11&quot;:
+        {
+          month_name = &quot;НОЯБРЬ&quot;; break;
+        }
+        case &quot;12&quot;:
+        {
+          month_name = &quot;ДЕКАБРЬ&quot;; break;
+        }      
+      }
+      Text2.Text = month_name;
+    } 
+  }
+}</ScriptText>
+  <Dictionary>
+    <IfxDataConnection Name="Connection" ConnectionString="rijcmlqAR3exEBj6tIvVLrEX2VWHGYanPB2g9vK3J94VC+//g8SAHkrFF0SG6Z/7aANdrkiGnDPbrOZxxLm1H04krop80g8g2or7lHWuGxmGmbmmwxvgGpkCK37G3YDjR7tcqPjb2CPcO9PdYQl2acNLmwo0QR3Q94VczfSi1EiVJwuVkY=">
+      <TableDataSource Name="Table" Alias="source1" DataType="System.Int32" Enabled="true" SelectCommand="select name_y as group_name, '' as name_y, nzp_y as typek, 0 as nzp_y &#13;&#10;from fgub_kernel:res_y ry &#13;&#10;where nzp_res = 9999 and nzp_y=1 &#13;&#10;union all select ry.name_y as group_name ,b.name_y as name_y,ry.nzp_y as typek,b.nzp_y &#13;&#10;from fgub_kernel:res_y ry, fgub_kernel:res_y b where ry.nzp_res = 9999 and ry.nzp_y=2 and b.nzp_res=22 union all &#13;&#10;select name_y as group_name,'' as name_y,ry.nzp_y as typek, 0 as nzp_y from fgub_kernel:res_y ry &#13;&#10;where nzp_res = 9999 and nzp_y=3 AND 2=1">
+        <Column Name="group_name" DataType="System.String"/>
+        <Column Name="name_y" DataType="System.String"/>
+        <Column Name="typek" DataType="System.Int32"/>
+        <Column Name="nzp_y" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Table2" Alias="source2" DataType="System.Int32" Enabled="true" SelectCommand="SELECT ch.sum_insaldo &#13;&#10;FROM gub01_charge_13: charge_06 ch,&#13;&#10; OUTER fgub_data: prm_1 prm, &#13;&#10;fgub_data: kvar kv&#13;&#10;WHERE prm.nzp = kv.nzp_kvar &#13;&#10; AND prm.val_prm = 5 AND prm.is_actual = 1 AND kv.typek = 1 &#13;&#10; AND prm.nzp_prm = 110&#13;&#10; AND prm.dat_s &lt;= '22.06.2013' &#13;&#10; AND prm.dat_po &gt;= '22.06.2013' &#13;&#10; AND ch.dat_charge IS NULL &#13;&#10; AND ch.nzp_serv = 1 AND 1=2">
+        <Column Name="sum_insaldo" DataType="System.Decimal"/>
+      </TableDataSource>
+      <TableDataSource Name="Table4" Alias="source3" DataType="System.Int32" Enabled="true" SelectCommand="SELECT val_prm &#13;&#10;FROM fgub_data: prm_7 &#13;&#10;WHERE nzp_prm= 576 AND 1=2">
+        <Column Name="val_prm" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table5" Alias="source4" DataType="System.Int32" Enabled="true" SelectCommand="SELECT val_prm&#13;&#10;       FROM fgub_data@ol_mars:prm_7  &#13;&#10;        WHERE nzp_prm = 576 ">
+        <Column Name="val_prm" DataType="System.String"/>
+      </TableDataSource>
+    </IfxDataConnection>
+    <Parameter Name="month_from" DataType="System.String"/>
+    <Parameter Name="year_from" DataType="System.String"/>
+    <Parameter Name="prefix1" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <PageHeaderBand Name="PageHeader1" Width="1047.06" Height="103.95">
+      <TextObject Name="Text1" Left="236.25" Top="18.9" Width="226.8" Height="18.9" Text="Ежедневная информация за" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text2" Left="463.05" Top="18.9" Width="103.95" Height="18.9" HorzAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text3" Left="567" Top="18.9" Width="56.7" Height="18.9" Text="месяц" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text5" Left="387.45" Top="56.7" Width="283.5" Height="18.9" Text="по г.Губкину и Губкинскому району" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text7" Left="623.7" Top="18.9" Width="47.25" Height="18.9" Text="[year_from]" HorzAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text6" Left="670.95" Top="18.9" Width="274.05" Height="18.9" Text="года по платежам за ЖКУ" Font="Arial, 11pt, style=Bold"/>
+    </PageHeaderBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="107.95" Width="1047.06" Height="122.85">
+      <TableObject Name="Table1" Left="9.45" Width="1030.05" Height="114.4" Border.Lines="All" AfterDataEvent="Table1_AfterData">
+        <TableColumn Name="Column1" Width="190.89"/>
+        <TableColumn Name="Column2" Width="143.64"/>
+        <TableColumn Name="Column3" Width="153.09"/>
+        <TableColumn Name="Column4" Width="134.19"/>
+        <TableColumn Name="Column5" Width="134.19"/>
+        <TableColumn Name="Column13" Width="151.2"/>
+        <TableColumn Name="Column14" Width="122.85"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Text="наименование потребителя" HorzAlign="Center" VertAlign="Center" RowSpan="5"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="задолженность за ЖКУ" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell3" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell4" Border.Lines="All" ColSpan="4"/>
+          <TableCell Name="Cell5"/>
+          <TableCell Name="Cell53"/>
+          <TableCell Name="Cell54"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="прошлых лет" HorzAlign="Center" VertAlign="Center" RowSpan="4"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="текущего года" HorzAlign="Center" VertAlign="Center" RowSpan="4"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="начислено" HorzAlign="Center" VertAlign="Center" RowSpan="4"/>
+          <TableCell Name="Cell10" Border.Lines="All" Text="собрано" HorzAlign="Center" VertAlign="Center" RowSpan="4"/>
+          <TableCell Name="Cell55" Border.Lines="All" Text="отклонение(начислено-собрано)" HorzAlign="Center" VertAlign="Center" RowSpan="4"/>
+          <TableCell Name="Cell56" Border.Lines="All" Text="Уровень сбора" HorzAlign="Center" VertAlign="Center" RowSpan="4"/>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell11" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell12"/>
+          <TableCell Name="Cell13"/>
+          <TableCell Name="Cell14"/>
+          <TableCell Name="Cell15"/>
+          <TableCell Name="Cell57"/>
+          <TableCell Name="Cell58"/>
+        </TableRow>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell16" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell17"/>
+          <TableCell Name="Cell18"/>
+          <TableCell Name="Cell19"/>
+          <TableCell Name="Cell20"/>
+          <TableCell Name="Cell59"/>
+          <TableCell Name="Cell60"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="1">
+          <TableCell Name="Cell21" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell22"/>
+          <TableCell Name="Cell23"/>
+          <TableCell Name="Cell24"/>
+          <TableCell Name="Cell25"/>
+          <TableCell Name="Cell61"/>
+          <TableCell Name="Cell62"/>
+        </TableRow>
+        <TableRow Name="Row7">
+          <TableCell Name="Cell63" Border.Lines="All" Text="един. измерения" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell64" Border.Lines="All" Text="тыс.руб." HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell65" Border.Lines="All" Text="тыс.руб." HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell66" Border.Lines="All" Text="тыс.руб." HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell67" Border.Lines="All" Text="тыс.руб." HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell68" Border.Lines="All" Text="тыс.руб." HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell69" Border.Lines="All" Text="%" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row8">
+          <TableCell Name="Cell70" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell71" Border.Lines="All" Text="2" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell72" Border.Lines="All" Text="3" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell73" Border.Lines="All" Text="4" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell74" Border.Lines="All" Text="5" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell75" Border.Lines="All" Text="6" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell76" Text="7" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+      </TableObject>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="234.8" Width="1047.06" Height="18.9">
+      <TableObject Name="Table3" Left="9.45" Width="1030.05" Height="18.9">
+        <TableColumn Name="Column6" Width="193.05"/>
+        <TableColumn Name="Column7" Width="145.8"/>
+        <TableColumn Name="Column8" Width="145.8"/>
+        <TableColumn Name="Column9" Width="136.35"/>
+        <TableColumn Name="Column10" Width="136.35"/>
+        <TableColumn Name="Column11" Width="145.8"/>
+        <TableColumn Name="Column12" Width="126.9"/>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell26" Border.Lines="All" VertAlign="Center">
+            <Highlight>
+              <Condition Expression="(Substring(Value,0,1) == &quot;1&quot;) || (Substring(Value,0,1) == &quot;2&quot;) || (Substring(Value,0,1) == &quot;3&quot;) || (Substring(Value,0,1) == &quot;4&quot;) || (Substring(Value,0,1) == &quot;5&quot;) || (Substring(Value,0,1) == &quot;6&quot;) || (Substring(Value,0,1) == &quot;7&quot;) || (Substring(Value,0,1) == &quot;8&quot;) || (Substring(Value,0,1) == &quot;9&quot;) || (Trim(Value) == &quot;ВСЕГО&quot;)" Font="Arial, 9.75pt, style=Bold" ApplyTextFill="false" ApplyFont="true"/>
+              <Condition Expression="(Substring(Value,0,1) != &quot;1&quot;) || (Substring(Value,0,1) != &quot;2&quot;) || (Substring(Value,0,1) != &quot;3&quot;) || (Substring(Value,0,1) != &quot;4&quot;) || (Substring(Value,0,1) != &quot;5&quot;) || (Substring(Value,0,1) != &quot;6&quot;) || (Substring(Value,0,1) != &quot;7&quot;) || (Substring(Value,0,1) != &quot;8&quot;) || (Substring(Value,0,1) != &quot;9&quot;) || (Trim(Value) != &quot;ВСЕГО&quot;)" TextFill.Color="Black" Font="Arial, 9.75pt, style=Italic" ApplyFont="true"/>
+            </Highlight>
+          </TableCell>
+          <TableCell Name="Cell27" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell28" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell29" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell30" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell51" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell52" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="257.7" Width="1047.06" Height="18.9">
+      <TextObject Name="Text8" Left="9.45" Width="481.95" Height="18.9" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="699.3" Width="340.2" Height="18.9" HorzAlign="Center" VertAlign="Center"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,104 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{3FADFB5B-00FC-45D6-BDB2-8D87E0A49251}"
+	ProjectSection(SolutionItems) = preProject
+		config\app.config = config\app.config
+		config\AssemblyInfo.cs = config\AssemblyInfo.cs
+		config\nlog.config = config\nlog.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{97677CB5-C7A9-4AB1-9EE6-BA91427FD655}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP50.DataBase.Migrator", "ECM7.Migrator\KP50.DataBase.Migrator.csproj", "{1FEE70A4-AAD7-4C60-BE60-3F7DC03A8C4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP50.DataBase.Migrator.Framework", "ECM7.Migrator.Framework\KP50.DataBase.Migrator.Framework.csproj", "{5270F048-E580-486C-B14C-E5B9F6E539D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP50.DataBase.Migrator.Providers.PostgreSQL", "ECM7.Migrator.Providers.PostgreSQL\KP50.DataBase.Migrator.Providers.PostgreSQL.csproj", "{FFE9E6C3-E4F6-465B-AEC0-7EC35E293072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP50.DataBase.Migrator.Providers.Informix", "ECM7.Migrator.Providers.Informix\KP50.DataBase.Migrator.Providers.Informix.csproj", "{04768C53-8353-48B3-94DE-622F7456DA2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP50.DataBase.Update", "KP50.DataBase.Update\KP50.DataBase.Update.csproj", "{959E1DFF-FBA6-4566-A61E-0D16AA0A6FE5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D57386BC-5344-4C8C-9D82-9521475A1795} = {D57386BC-5344-4C8C-9D82-9521475A1795}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP50.DataBase.UpdateAssembly", "KP50.DataBase.UpdateAssemly\KP50.DataBase.UpdateAssembly.csproj", "{D57386BC-5344-4C8C-9D82-9521475A1795}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrator", "Migrator", "{463446F2-CD3B-455C-A7F9-5A64CCF64BAF}"
+	ProjectSection(SolutionItems) = preProject
+		config\app.config = config\app.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = KP50.DataBase.Update\\KP50.DataBase.Update.csproj
+		SccProjectName0 = KP50.DataBase.Update
+		SccLocalPath0 = KP50.DataBase.Update
+		SccProjectUniqueName1 = KP50.DataBase.UpdateAssemly\\KP50.DataBase.UpdateAssembly.csproj
+		SccProjectName1 = KP50.DataBase.UpdateAssemly
+		SccLocalPath1 = KP50.DataBase.UpdateAssemly
+		SccProjectUniqueName2 = ECM7.Migrator.Framework\\KP50.DataBase.Migrator.Framework.csproj
+		SccProjectTopLevelParentUniqueName2 = ECM7.Migrator.sln
+		SccProjectName2 = ECM7.Migrator.Framework
+		SccLocalPath2 = ECM7.Migrator.Framework
+		SccProjectUniqueName3 = ECM7.Migrator\\KP50.DataBase.Migrator.csproj
+		SccProjectTopLevelParentUniqueName3 = ECM7.Migrator.sln
+		SccProjectName3 = ECM7.Migrator
+		SccLocalPath3 = ECM7.Migrator
+		SccProjectUniqueName4 = ECM7.Migrator.Providers.PostgreSQL\\KP50.DataBase.Migrator.Providers.PostgreSQL.csproj
+		SccProjectTopLevelParentUniqueName4 = ECM7.Migrator.sln
+		SccProjectName4 = ECM7.Migrator.Providers.PostgreSQL
+		SccLocalPath4 = ECM7.Migrator.Providers.PostgreSQL
+		SccProjectUniqueName5 = ECM7.Migrator.Providers.Informix\\KP50.DataBase.Migrator.Providers.Informix.csproj
+		SccProjectTopLevelParentUniqueName5 = ECM7.Migrator.sln
+		SccProjectName5 = ECM7.Migrator.Providers.Informix
+		SccLocalPath5 = ECM7.Migrator.Providers.Informix
+		SccLocalPath6 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FEE70A4-AAD7-4C60-BE60-3F7DC03A8C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEE70A4-AAD7-4C60-BE60-3F7DC03A8C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEE70A4-AAD7-4C60-BE60-3F7DC03A8C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEE70A4-AAD7-4C60-BE60-3F7DC03A8C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5270F048-E580-486C-B14C-E5B9F6E539D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5270F048-E580-486C-B14C-E5B9F6E539D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5270F048-E580-486C-B14C-E5B9F6E539D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5270F048-E580-486C-B14C-E5B9F6E539D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE9E6C3-E4F6-465B-AEC0-7EC35E293072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE9E6C3-E4F6-465B-AEC0-7EC35E293072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE9E6C3-E4F6-465B-AEC0-7EC35E293072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE9E6C3-E4F6-465B-AEC0-7EC35E293072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04768C53-8353-48B3-94DE-622F7456DA2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04768C53-8353-48B3-94DE-622F7456DA2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04768C53-8353-48B3-94DE-622F7456DA2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04768C53-8353-48B3-94DE-622F7456DA2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{959E1DFF-FBA6-4566-A61E-0D16AA0A6FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{959E1DFF-FBA6-4566-A61E-0D16AA0A6FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{959E1DFF-FBA6-4566-A61E-0D16AA0A6FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{959E1DFF-FBA6-4566-A61E-0D16AA0A6FE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D57386BC-5344-4C8C-9D82-9521475A1795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D57386BC-5344-4C8C-9D82-9521475A1795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D57386BC-5344-4C8C-9D82-9521475A1795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D57386BC-5344-4C8C-9D82-9521475A1795}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97677CB5-C7A9-4AB1-9EE6-BA91427FD655} = {463446F2-CD3B-455C-A7F9-5A64CCF64BAF}
+		{1FEE70A4-AAD7-4C60-BE60-3F7DC03A8C4D} = {463446F2-CD3B-455C-A7F9-5A64CCF64BAF}
+		{5270F048-E580-486C-B14C-E5B9F6E539D4} = {463446F2-CD3B-455C-A7F9-5A64CCF64BAF}
+		{3FADFB5B-00FC-45D6-BDB2-8D87E0A49251} = {463446F2-CD3B-455C-A7F9-5A64CCF64BAF}
+		{FFE9E6C3-E4F6-465B-AEC0-7EC35E293072} = {97677CB5-C7A9-4AB1-9EE6-BA91427FD655}
+		{04768C53-8353-48B3-94DE-622F7456DA2D} = {97677CB5-C7A9-4AB1-9EE6-BA91427FD655}
+	EndGlobalSection
+EndGlobal

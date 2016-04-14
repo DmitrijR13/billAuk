@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/counter/spisval.aspx" hash="cedb9400c" filehash="15d2ce0754d8414c" flags="110000" assembly="App_Web_xjboctcf" type="ASP.kart_counter_spisval_aspx">
+    <filedeps>
+        <filedep name="/none/kart/counter/spisval.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressTemplate.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+    </filedeps>
+</preserve>

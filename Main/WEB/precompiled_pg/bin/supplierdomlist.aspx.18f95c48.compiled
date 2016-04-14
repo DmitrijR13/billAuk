@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/adres/supplierdomlist.aspx" hash="cedb9400c" filehash="82efba5b2365bb1e" flags="110000" assembly="App_Web_m3duyr5l" type="ASP.kart_adres_supplierdomlist_aspx">
+    <filedeps>
+        <filedep name="/none/kart/adres/supplierdomlist.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressTemplate.ascx" />
+        <filedep name="/none/master/templates/AutoCompleteContragents.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

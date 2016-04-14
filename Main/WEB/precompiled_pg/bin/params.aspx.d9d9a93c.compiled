@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/prm/params.aspx" hash="cedb9400c" filehash="419814ca59285ac7" flags="110000" assembly="App_Web_5y4xkivz" type="ASP.kart_prm_params_aspx">
+    <filedeps>
+        <filedep name="/none/kart/prm/params.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

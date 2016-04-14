@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4CA4459F-8492-4E26-92F0-76592A13030F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>STCLINE.KP50.IFMX.Report</RootNamespace>
+    <AssemblyName>KP50.IFMX.Report</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\WCF\HOST\AUTOHOST\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastReport">
+      <HintPath>..\..\..\Libraries\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Libraries\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="SevenZipSharp">
+      <HintPath>..\..\..\Libraries\SevenZipSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SOURCE\REPORT\BankUnload\AbstractBankUnload.cs" />
+    <Compile Include="SOURCE\REPORT\BankUnload\BankUnloadIrkutsk.cs" />
+    <Compile Include="SOURCE\REPORT\BankUnload\BankUnloadIssrpF102.cs" />
+    <Compile Include="SOURCE\REPORT\BankUnload\BankUnloadIssrpR102.cs" />
+    <Compile Include="SOURCE\REPORT\BankUnload\BankUnloadKaluga.cs" />
+    <Compile Include="SOURCE\REPORT\BankUnload\BankUnloadMariyEl.cs" />
+    <Compile Include="SOURCE\REPORT\BankUnload\BankUnloadTagil.cs" />
+    <Compile Include="SOURCE\REPORT\BankUnload\BankUnloadTula.cs" />
+    <Compile Include="SOURCE\REPORT\CalcAddressDeptReport.cs" />
+    <Compile Include="SOURCE\REPORT\ChargeUnload.cs" />
+    <Compile Include="SOURCE\REPORT\UnloadKassa30.cs" />
+    <Compile Include="SOURCE\SamaraOldReport\ExcelRepSamaraServ8_2.ifmx.cs" />
+    <Compile Include="SOURCE\SamaraOldReport\ExcelRepSamaraServ8.ifmx.cs" />
+    <Compile Include="SOURCE\SamaraOldReport\ExcelRepSamaraServ9_2.ifmx.cs" />
+    <Compile Include="SOURCE\SamaraOldReport\ExcelRepSamaraSuppForma1.ifmx.cs" />
+    <Compile Include="SOURCE\SamaraOldReport\ExcelRepSamaraSuppForma2.ifmx.cs" />
+    <Compile Include="SOURCE\SamaraOldReport\ExcelRepSamaraSuppForma3.ifmx.cs" />
+    <Compile Include="SOURCE\SamaraOldReport\ExcelRepSostGilFondl.ifmx.cs" />
+    <Compile Include="SOURCE\SamaraReport\BaseSamaraReport.cs" />
+    <Compile Include="SOURCE\SamaraReport\SamaraKartSaldo.cs" />
+    <Compile Include="SOURCE\Samara\Samara_baseClass.cs" />
+    <Compile Include="SOURCE\Samara\Samara_local.cs" />
+    <Compile Include="SOURCE\Samara\Samara_nedop.cs" />
+    <Compile Include="SOURCE\Samara\Samara_groupReport.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_1.ifmx.cs" />
+    <Compile Include="SOURCE\SamaraOldReport\ExcelRepSpravOtkl.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_11.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_12.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_2.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_3.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_4.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_5.ifmx.cs" />
+    <Compile Include="SOURCE\SamaraOldReport\ExcelRepSamaraServ9.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_7.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_8.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep1_9.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep3.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep4.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\SaldoVbank.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\FastRep.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\FastRep_tula.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\FastRep_samara.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\SimpleRep.ifmx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SOURCE\REPORT\ExcelRep.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\ExcelRep2.ifmx.cs" />
+    <Compile Include="SOURCE\REPORT\Generator.ifmx.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Admin\Bars.KP50.CLI.Admin\Bars.KP50.CLI.Admin.csproj">
+      <Project>{699fd7dc-5c99-4036-998e-a8b9ab62dbf3}</Project>
+      <Name>Bars.KP50.CLI.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Admin\Bars.KP50.DB.Admin\Bars.KP50.DB.Admin.csproj">
+      <Project>{5cc37a0e-5ce4-4926-8153-2832354a9982}</Project>
+      <Name>Bars.KP50.DB.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Adres\Bars.KP50.CLI.Adres\Bars.KP50.CLI.Adres.csproj">
+      <Project>{00370877-76ce-4c58-813d-6105b994ebaf}</Project>
+      <Name>Bars.KP50.CLI.Adres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Adres\Bars.KP50.DB.Adres\Bars.KP50.DB.Adres.csproj">
+      <Project>{13daaf47-d4bb-416f-87f9-4873c6ea717f}</Project>
+      <Name>Bars.KP50.DB.Adres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataImport\Bars.KP50.CLI.DataImport\Bars.KP50.CLI.DataImport.csproj">
+      <Project>{19f9e4b8-b08f-4951-b4b2-8b28a92f3480}</Project>
+      <Name>Bars.KP50.CLI.DataImport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Debitor\Bars.KP50.CLI.Debitor\Bars.KP50.CLI.Debitor.csproj">
+      <Project>{2bfbabe7-467c-4f78-beda-5975cd27ab5b}</Project>
+      <Name>Bars.KP50.CLI.Debitor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Faktura\Bars.KP50.CLI.Faktura\Bars.KP50.CLI.Faktura.csproj">
+      <Project>{cc4cbb82-2287-4c00-8010-366b0645b860}</Project>
+      <Name>Bars.KP50.CLI.Faktura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Finans\Bars.KP50.CLI.Finans\Bars.KP50.CLI.Finans.csproj">
+      <Project>{b72c22eb-d313-4fa3-8a0c-fcebdb1456e1}</Project>
+      <Name>Bars.KP50.CLI.Finans</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Finans\Bars.KP50.DB.Finans\Bars.KP50.DB.Finans.csproj">
+      <Project>{13383ea0-8911-48ef-87db-15fe969388ec}</Project>
+      <Name>Bars.KP50.DB.Finans</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Parametrs\Bars.KP50.DB.Parameters\Bars.KP50.DB.Parameters.csproj">
+      <Project>{31c8e9f2-3d11-4d7e-aa34-eb16553221d0}</Project>
+      <Name>Bars.KP50.DB.Parameters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.CLI.Report\Bars.KP50.CLI.Report.csproj">
+      <Project>{d79794ee-cfaa-4103-81b0-ab2fa8c16dfd}</Project>
+      <Name>Bars.KP50.CLI.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Utils\Bars.KP50.Utils.csproj">
+      <Project>{ee6f5a3b-8667-4fd3-8445-51b5ea6e4b57}</Project>
+      <Name>Bars.KP50.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sprav\Bars.KP50.CLI.Sprav\Bars.KP50.CLI.Sprav.csproj">
+      <Project>{b96681f0-0674-4123-89c4-c88930b12e21}</Project>
+      <Name>Bars.KP50.CLI.Sprav</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sprav\Bars.KP50.DB.Sprav\Bars.KP50.DB.Sprav.csproj">
+      <Project>{139dd0b8-47dd-47f7-a1af-880034ffb31e}</Project>
+      <Name>Bars.KP50.DB.Sprav</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Supg\Bars.KP50.CLI.Supg\Bars.KP50.CLI.Supg.csproj">
+      <Project>{a2a78c22-9249-46d7-915c-251a71594269}</Project>
+      <Name>Bars.KP50.CLI.Supg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Supg\Bars.KP50.DB.Supg\Bars.KP50.DB.Supg.csproj">
+      <Project>{5f7d1797-67d2-4d28-b11f-e5b3c7782fdb}</Project>
+      <Name>Bars.KP50.DB.Supg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj">
+      <Project>{A09E0051-6B16-42B5-9840-8CB60B0729C7}</Project>
+      <Name>STCLINE.KP50.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bars.KP50.Faktura\Bars.KP50.DB.Faktura.csproj">
+      <Project>{494311d1-9d4c-4667-bd49-624dbf4d8b85}</Project>
+      <Name>Bars.KP50.DB.Faktura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Client\STCLINE.KP50.IFMX.Client.csproj">
+      <Project>{2AB80CEA-D131-4E93-9B35-8F86DD474080}</Project>
+      <Name>STCLINE.KP50.IFMX.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\STCLINE.KP50.IFMX.Common.csproj">
+      <Project>{13FAA6D8-DA11-4392-BAD2-C1640C172E01}</Project>
+      <Name>STCLINE.KP50.IFMX.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kernel\STCLINE.KP50.IFMX.Kernel.csproj">
+      <Project>{51D199A0-A5BD-4EB3-A4CF-E5DD004D55F7}</Project>
+      <Name>STCLINE.KP50.IFMX.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Server\STCLINE.KP50.IFMX.Server.csproj">
+      <Project>{5D6DEEA7-1486-4088-8ECE-9B73306181AC}</Project>
+      <Name>STCLINE.KP50.IFMX.Server</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

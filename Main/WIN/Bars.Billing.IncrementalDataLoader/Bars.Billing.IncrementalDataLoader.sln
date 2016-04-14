@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.Billing.IncrementalDataLoader", "Loader\Bars.Billing.IncrementalDataLoader.csproj", "{1EF2F1FC-CFBC-448F-800C-CF3FF5375496}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLoader", "TestLoader\TestLoader.csproj", "{B4423B7A-A3F0-4AB9-B61F-75CBF1261165}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{723EA37B-FA44-40D6-8B83-C61E4EB664FB}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionDescription.txt = SolutionDescription.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Loader\\Bars.Billing.IncrementalDataLoader.csproj
+		SccProjectName1 = Loader
+		SccLocalPath1 = Loader
+		SccProjectUniqueName2 = TestLoader\\TestLoader.csproj
+		SccProjectName2 = TestLoader
+		SccLocalPath2 = TestLoader
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EF2F1FC-CFBC-448F-800C-CF3FF5375496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF2F1FC-CFBC-448F-800C-CF3FF5375496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF2F1FC-CFBC-448F-800C-CF3FF5375496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF2F1FC-CFBC-448F-800C-CF3FF5375496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4423B7A-A3F0-4AB9-B61F-75CBF1261165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4423B7A-A3F0-4AB9-B61F-75CBF1261165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4423B7A-A3F0-4AB9-B61F-75CBF1261165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4423B7A-A3F0-4AB9-B61F-75CBF1261165}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

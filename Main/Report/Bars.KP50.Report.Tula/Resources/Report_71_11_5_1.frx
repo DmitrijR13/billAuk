@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" UseFileCache="true" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="06/25/2015 10:37:06" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+    
+
+namespace FastReport
+{
+  public class ReportScript
+  {           
+   int BankCount=0;
+
+    private void DataHeader1_AfterData(object sender, EventArgs e)
+    {
+
+
+      
+ 
+
+    }
+
+    private void Page1_StartPage(object sender, EventArgs e)
+    {
+
+
+
+      
+    }
+
+  }
+}
+  </ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="month_" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="comment" DataType="System.String" PropName="Column"/>
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+      <Column Name="supplier" DataType="System.String" PropName="Column1"/>
+      <Column Name="reason" DataType="System.String" PropName="Column2"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column3"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column3"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column3"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column3"/>
+      <Column Name="num_ls" DataType="System.String" PropName="Column3"/>
+      <Column Name="nzp_dom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="hvs_sum" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="gvs_sum" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="hvs_sum" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="hvs_rash" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="gvs_rash" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="kan_sum" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="otopl_sum" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="kan_rash" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sod_gil_sum" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="clean_MOP_sum" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="t_hvs_sum_dom" Expression="[Q_master.hvs_sum]" Evaluator="Data2" PrintOn="GroupFooter6"/>
+    <Total Name="t_hvs_sum_reason" Expression="[Q_master.hvs_sum]" Evaluator="Data2" PrintOn="GroupFooter5"/>
+    <Total Name="t_hvs_sum_supplier" Expression="[Q_master.hvs_sum]" Evaluator="Data2" PrintOn="GroupFooter4"/>
+    <Total Name="t_hvs_sum_area" Expression="[Q_master.hvs_sum]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t_hvs_sum_dat_doc" Expression="[Q_master.hvs_sum]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="t_hvs_sum_month" Expression="[Q_master.hvs_sum]" Evaluator="Data2" PrintOn="GroupFooter1"/>
+    <Total Name="t_hvs_sum" Expression="[Q_master.hvs_sum]" Evaluator="Data2" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="t_gvs_sum_dom" Expression="[Q_master.gvs_sum]" Evaluator="Data2" PrintOn="GroupFooter6"/>
+    <Total Name="t_gvs_sum_reason" Expression="[Q_master.gvs_sum]" Evaluator="Data2" PrintOn="GroupFooter5"/>
+    <Total Name="t_gvs_sum_supplier" Expression="[Q_master.gvs_sum]" Evaluator="Data2" PrintOn="GroupFooter4"/>
+    <Total Name="t_gvs_sum_area" Expression="[Q_master.gvs_sum]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t_gvs_sum_dat_doc" Expression="[Q_master.gvs_sum]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="t_gvs_sum_month" Expression="[Q_master.gvs_sum]" Evaluator="Data2" PrintOn="GroupFooter1"/>
+    <Total Name="t_gvs_sum" Expression="[Q_master.gvs_sum]" Evaluator="Data2" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="t_kan_sum_dom" Expression="[Q_master.kan_sum]" Evaluator="Data2" PrintOn="GroupFooter6"/>
+    <Total Name="t_kan_sum_reason" Expression="[Q_master.kan_sum]" Evaluator="Data2" PrintOn="GroupFooter5"/>
+    <Total Name="t_kan_sum_supplier" Expression="[Q_master.kan_sum]" Evaluator="Data2" PrintOn="GroupFooter4"/>
+    <Total Name="t_kan_sum_area" Expression="[Q_master.kan_sum]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t_kan_sum_dat_doc" Expression="[Q_master.kan_sum]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="t_kan_sum_month" Expression="[Q_master.kan_sum]" Evaluator="Data2" PrintOn="GroupFooter1"/>
+    <Total Name="t_kan_sum" Expression="[Q_master.kan_sum]" Evaluator="Data2" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="t_otopl_sum_dom" Expression="[Q_master.otopl_sum]" Evaluator="Data2" PrintOn="GroupFooter6"/>
+    <Total Name="t_otopl_sum_reason" Expression="[Q_master.otopl_sum]" Evaluator="Data2" PrintOn="GroupFooter5"/>
+    <Total Name="t_otopl_sum_supplier" Expression="[Q_master.otopl_sum]" Evaluator="Data2" PrintOn="GroupFooter4"/>
+    <Total Name="t_otopl_sum_area" Expression="[Q_master.otopl_sum]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t_otopl_sum_dat_doc" Expression="[Q_master.otopl_sum]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="t_otopl_sum_month" Expression="[Q_master.otopl_sum]" Evaluator="Data2" PrintOn="GroupFooter1"/>
+    <Total Name="t_otopl_sum" Expression="[Q_master.otopl_sum]" Evaluator="Data2" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="t_hvs_rash_dom" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter6"/>
+    <Total Name="t_hvs_rash_reason" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter5"/>
+    <Total Name="t_hvs_rash_supplier" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter4"/>
+    <Total Name="t_hvs_rash_area" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t_hvs_rash_dat_doc" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="t_hvs_rash_month" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter1"/>
+    <Total Name="t_hvs_rash" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="t_gvs_rash_dom" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter6"/>
+    <Total Name="t_gvs_rash_reason" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter5"/>
+    <Total Name="t_gvs_rash_supplier" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter4"/>
+    <Total Name="t_gvs_rash_area" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t_gvs_rash_dat_doc" Expression="[Q_master.hvs_rash]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="t_gvs_rash_month" Expression="[Q_master.gvs_rash]" Evaluator="Data2" PrintOn="GroupFooter1"/>
+    <Total Name="t_gvs_rash" Expression="[Q_master.gvs_rash]" Evaluator="Data2" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="t_kan_rash_dom" Expression="[Q_master.kan_rash]" Evaluator="Data2" PrintOn="GroupFooter6"/>
+    <Total Name="t_kan_rash_reason" Expression="[Q_master.kan_rash]" Evaluator="Data2" PrintOn="GroupFooter5"/>
+    <Total Name="t_kan_rash_supplier" Expression="[Q_master.kan_rash]" Evaluator="Data2" PrintOn="GroupFooter4"/>
+    <Total Name="t_kan_rash_area" Expression="[Q_master.kan_rash]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t_kan_rash_dat_doc" Expression="[Q_master.kan_rash]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="t_kan_rash_month" Expression="[Q_master.kan_rash]" Evaluator="Data2" PrintOn="GroupFooter1"/>
+    <Total Name="t_kan_rash" Expression="[Q_master.kan_rash]" Evaluator="Data2" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="t_sod_gil_sum_dom" Expression="[Q_master.sod_gil_sum]" Evaluator="Data2" PrintOn="GroupFooter6"/>
+    <Total Name="t_sod_gil_sum_reason" Expression="[Q_master.sod_gil_sum]" Evaluator="Data2" PrintOn="GroupFooter5"/>
+    <Total Name="t_sod_gil_sum_supplier" Expression="[Q_master.sod_gil_sum]" Evaluator="Data2" PrintOn="GroupFooter4"/>
+    <Total Name="t_sod_gil_sum_area" Expression="[Q_master.sod_gil_sum]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t_sod_gil_sum_dat_doc" Expression="[Q_master.sod_gil_sum]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="t_sod_gil_sum_month" Expression="[Q_master.sod_gil_sum]" Evaluator="Data2" PrintOn="GroupFooter1"/>
+    <Total Name="t_sod_gil_sum" Expression="[Q_master.sod_gil_sum]" Evaluator="Data2" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="t_clean_MOP_sum_dom" Expression="[Q_master.clean_MOP_sum]" Evaluator="Data2" PrintOn="GroupFooter6"/>
+    <Total Name="t_clean_MOP_sum_reason" Expression="[Q_master.clean_MOP_sum]" Evaluator="Data2" PrintOn="GroupFooter5"/>
+    <Total Name="t_clean_MOP_sum_supplier" Expression="[Q_master.clean_MOP_sum]" Evaluator="Data2" PrintOn="GroupFooter4"/>
+    <Total Name="t_clean_MOP_sum_area" Expression="[Q_master.clean_MOP_sum]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t_clean_MOP_sum_dat_doc" Expression="[Q_master.clean_MOP_sum]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="t_clean_MOP_sum_month" Expression="[Q_master.clean_MOP_sum]" Evaluator="Data2" PrintOn="GroupFooter1"/>
+    <Total Name="t_clean_MOP_sum" Expression="[Q_master.clean_MOP_sum]" Evaluator="Data2" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="410" PaperHeight="210" FirstPageSource="15" OtherPagesSource="15" ExtraDesignWidth="true" StartPageEvent="Page1_StartPage">
+    <ReportTitleBand Name="ReportTitle1" Width="1474.2" Height="70.66" CanGrow="true" CanShrink="true" BeforePrintEvent="ReportTitle1_BeforePrint" AfterDataEvent="ReportTitle1_AfterData" CanBreak="true">
+      <TextObject Name="TextTop" Top="42.31" Width="1034.42" Height="28.35" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="71.11.5. Выгрузка сумм перерасчета.&#13;&#10;&#13;&#10;" HorzAlign="Center" Font="Arial, 10pt, style=Bold" Wysiwyg="true"/>
+      <TextObject Name="TextDate" Width="1030.05" Height="28.35" Text="Дата печати:[Date]" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+      <ChildBand Name="Child1" Top="74.66" Width="1474.2" Height="37.8">
+        <TextObject Name="Text1" Width="1039.5" Height="28.35" Text="[headerParam]"/>
+        <ChildBand Name="Child2" Top="116.46" Width="1474.2" Height="122.85">
+          <TableObject Name="Table1" Width="1474.2" Height="122.85">
+            <TableColumn Name="Column1" Width="75.6"/>
+            <TableColumn Name="Column2" Width="75.6"/>
+            <TableColumn Name="Column3" Width="113.4"/>
+            <TableColumn Name="Column4" Width="113.4"/>
+            <TableColumn Name="Column5" Width="113.4"/>
+            <TableColumn Name="Column6" Width="189"/>
+            <TableColumn Name="Column7" Width="37.8"/>
+            <TableColumn Name="Column8" Width="75.6"/>
+            <TableColumn Name="Column9" Width="75.6"/>
+            <TableColumn Name="Column10" Width="75.6"/>
+            <TableColumn Name="Column11" Width="75.6"/>
+            <TableColumn Name="Column12" Width="75.6"/>
+            <TableColumn Name="Column13" Width="75.6"/>
+            <TableColumn Name="Column14" Width="75.6"/>
+            <TableColumn Name="Column127" Width="75.6"/>
+            <TableColumn Name="Column128" Width="75.6"/>
+            <TableColumn Name="Column129" Width="75.6"/>
+            <TableRow Name="Row1" Height="122.85">
+              <TableCell Name="Cell1" Border.Lines="All" Text="Месяц" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell2" Border.Lines="All" Text="Основание" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell3" Border.Lines="All" Text="УК" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell4" Border.Lines="All" Text="За счет" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell5" Border.Lines="All" Text="Причина" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell6" Border.Lines="All" Text="Дом" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell7" Border.Lines="All" Text="Кв." HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell8" Border.Lines="All" Text="ЛС" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell9" Border.Lines="All" Text="Холодная вода сумма" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell10" Border.Lines="All" Text="Горячая вода сумма" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell11" Border.Lines="All" Text="Канализация сумма" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell12" Border.Lines="All" Text="Отопление сумма" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell13" Border.Lines="All" Text="Холодная вода потребление" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell14" Border.Lines="All" Text="Горячая вода потребление" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell127" Border.Lines="All" Text="Канализация потребление" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell128" Border.Lines="All" Text="Содержание жилья сумма" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell129" Border.Lines="All" Text="Уборка МОП сумма" HorzAlign="Center" VertAlign="Center"/>
+            </TableRow>
+          </TableObject>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="243.31" Width="1474.2" Condition="[Q_master.month_]" SortOrder="None">
+      <GroupHeaderBand Name="GroupHeader2" Top="247.31" Width="1474.2" Condition="[Q_master.comment]" SortOrder="None">
+        <GroupHeaderBand Name="GroupHeader3" Top="251.31" Width="1474.2" Condition="[Q_master.area]" SortOrder="None">
+          <GroupHeaderBand Name="GroupHeader4" Top="255.31" Width="1474.2" Condition="[Q_master.supplier]" SortOrder="None">
+            <GroupHeaderBand Name="GroupHeader5" Top="259.31" Width="1474.2" Condition="[Q_master.reason]" SortOrder="None">
+              <GroupHeaderBand Name="GroupHeader6" Top="263.31" Width="1474.2" Condition="[Q_master.nzp_dom]" SortOrder="None">
+                <DataBand Name="Data2" Top="267.31" Width="1474.2" Height="47.25" CanGrow="true" CanShrink="true" DataSource="Q_master">
+                  <TableObject Name="Table2" Width="1474.2" Height="47.25" GrowToBottom="true">
+                    <TableColumn Name="Column15" Width="75.6"/>
+                    <TableColumn Name="Column16" Width="75.6"/>
+                    <TableColumn Name="Column17" Width="113.4"/>
+                    <TableColumn Name="Column18" Width="113.4"/>
+                    <TableColumn Name="Column19" Width="113.4"/>
+                    <TableColumn Name="Column20" Width="189"/>
+                    <TableColumn Name="Column21" Width="37.8"/>
+                    <TableColumn Name="Column22" Width="75.6"/>
+                    <TableColumn Name="Column23" Width="75.6"/>
+                    <TableColumn Name="Column24" Width="75.6"/>
+                    <TableColumn Name="Column25" Width="75.6"/>
+                    <TableColumn Name="Column26" Width="75.6"/>
+                    <TableColumn Name="Column27" Width="75.6"/>
+                    <TableColumn Name="Column28" Width="75.6"/>
+                    <TableColumn Name="Column130" Width="75.6"/>
+                    <TableColumn Name="Column131" Width="75.6"/>
+                    <TableColumn Name="Column132" Width="75.6"/>
+                    <TableRow Name="Row2" Height="47.25" AutoSize="true">
+                      <TableCell Name="Cell15" Border.Lines="All" Text="[Q_master.month_]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell16" Border.Lines="All" Text="[Q_master.comment]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell17" Border.Lines="All" Text="[Q_master.area]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell18" Border.Lines="All" Text="[Q_master.supplier]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell19" Border.Lines="All" Text="[Q_master.reason]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell20" Border.Lines="All" Text="[Q_master.ulica][Q_master.ndom][Q_master.nkor]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell21" Border.Lines="All" Text="[Q_master.nkvar]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell22" Border.Lines="All" Text="[Q_master.num_ls]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell23" Border.Lines="All" Text="[Q_master.hvs_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell24" Border.Lines="All" Text="[Q_master.gvs_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell25" Border.Lines="All" Text="[Q_master.kan_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell26" Border.Lines="All" Text="[Q_master.otopl_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell27" Border.Lines="All" Text="[Q_master.hvs_rash]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell28" Border.Lines="All" Text="[Q_master.gvs_rash]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell130" Border.Lines="All" Text="[Q_master.kan_rash]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center"/>
+                      <TableCell Name="Cell131" Border.Lines="All" Text="[Q_master.sod_gil_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center"/>
+                      <TableCell Name="Cell132" Border.Lines="All" Text="[Q_master.clean_MOP_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center"/>
+                    </TableRow>
+                  </TableObject>
+                </DataBand>
+                <GroupFooterBand Name="GroupFooter6" Top="318.56" Width="1474.2" Height="47.25">
+                  <TableObject Name="Table3" Width="1474.2" Height="47.25">
+                    <TableColumn Name="Column29" Width="75.6"/>
+                    <TableColumn Name="Column30" Width="75.6"/>
+                    <TableColumn Name="Column31" Width="113.4"/>
+                    <TableColumn Name="Column32" Width="113.4"/>
+                    <TableColumn Name="Column33" Width="113.4"/>
+                    <TableColumn Name="Column34" Width="189"/>
+                    <TableColumn Name="Column35" Width="37.8"/>
+                    <TableColumn Name="Column36" Width="75.6"/>
+                    <TableColumn Name="Column37" Width="75.6"/>
+                    <TableColumn Name="Column38" Width="75.6"/>
+                    <TableColumn Name="Column39" Width="75.6"/>
+                    <TableColumn Name="Column40" Width="75.6"/>
+                    <TableColumn Name="Column41" Width="75.6"/>
+                    <TableColumn Name="Column42" Width="75.6"/>
+                    <TableColumn Name="Column133" Width="75.6"/>
+                    <TableColumn Name="Column134" Width="75.6"/>
+                    <TableColumn Name="Column135" Width="75.6"/>
+                    <TableRow Name="Row3" Height="47.25">
+                      <TableCell Name="Cell29" Border.Lines="All" Text="[Q_master.month_]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell30" Border.Lines="All" Text="[Q_master.comment]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell31" Border.Lines="All" Text="[Q_master.area]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell32" Border.Lines="All" Text="[Q_master.supplier]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell33" Border.Lines="All" Text="[Q_master.reason]" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell34" Border.Lines="All" Text="Итого по дому" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell35" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell36" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell37" Border.Lines="All" Text="[t_hvs_sum_dom]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell38" Border.Lines="All" Text="[t_gvs_sum_dom]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell39" Border.Lines="All" Text="[t_kan_sum_dom]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell40" Border.Lines="All" Text="[t_otopl_sum_dom]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell41" Border.Lines="All" Text="[t_hvs_rash_dom]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell42" Border.Lines="All" Text="[t_gvs_rash_dom]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell133" Border.Lines="All" Text="[t_kan_rash_dom]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell134" Border.Lines="All" Text="[t_sod_gil_sum_dom]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                      <TableCell Name="Cell135" Border.Lines="All" Text="[t_clean_MOP_sum_dom]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                    </TableRow>
+                  </TableObject>
+                </GroupFooterBand>
+              </GroupHeaderBand>
+              <GroupFooterBand Name="GroupFooter5" Top="369.81" Width="1474.2" Height="47.25">
+                <TableObject Name="Table4" Width="1474.2" Height="47.25">
+                  <TableColumn Name="Column43" Width="75.6"/>
+                  <TableColumn Name="Column44" Width="75.6"/>
+                  <TableColumn Name="Column45" Width="113.4"/>
+                  <TableColumn Name="Column46" Width="113.4"/>
+                  <TableColumn Name="Column47" Width="113.4"/>
+                  <TableColumn Name="Column48" Width="189"/>
+                  <TableColumn Name="Column49" Width="37.8"/>
+                  <TableColumn Name="Column50" Width="75.6"/>
+                  <TableColumn Name="Column51" Width="75.6"/>
+                  <TableColumn Name="Column52" Width="75.6"/>
+                  <TableColumn Name="Column53" Width="75.6"/>
+                  <TableColumn Name="Column54" Width="75.6"/>
+                  <TableColumn Name="Column55" Width="75.6"/>
+                  <TableColumn Name="Column56" Width="75.6"/>
+                  <TableColumn Name="Column136" Width="75.6"/>
+                  <TableColumn Name="Column137" Width="75.6"/>
+                  <TableColumn Name="Column138" Width="75.6"/>
+                  <TableRow Name="Row4" Height="47.25">
+                    <TableCell Name="Cell43" Border.Lines="All" Text="[Q_master.month_]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell44" Border.Lines="All" Text="[Q_master.comment]" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell45" Border.Lines="All" Text="[Q_master.area]" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell46" Border.Lines="All" Text="[Q_master.supplier]" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell47" Border.Lines="All" Text="Итого по причине" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell48" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell49" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell50" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell51" Border.Lines="All" Text="[t_hvs_sum_reason]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell52" Border.Lines="All" Text="[t_gvs_sum_reason]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell53" Border.Lines="All" Text="[t_kan_sum_reason]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell54" Border.Lines="All" Text="[t_otopl_sum_reason]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell55" Border.Lines="All" Text="[t_hvs_rash_reason]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell56" Border.Lines="All" Text="[t_hvs_rash_reason]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell136" Border.Lines="All" Text="[t_kan_rash_reason]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell137" Border.Lines="All" Text="[t_sod_gil_sum_reason]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                    <TableCell Name="Cell138" Border.Lines="All" Text="[t_clean_MOP_sum_reason]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                  </TableRow>
+                </TableObject>
+              </GroupFooterBand>
+            </GroupHeaderBand>
+            <GroupFooterBand Name="GroupFooter4" Top="421.06" Width="1474.2" Height="47.25">
+              <TableObject Name="Table5" Width="1474.2" Height="47.25">
+                <TableColumn Name="Column57" Width="75.6"/>
+                <TableColumn Name="Column58" Width="75.6"/>
+                <TableColumn Name="Column59" Width="113.4"/>
+                <TableColumn Name="Column60" Width="113.4"/>
+                <TableColumn Name="Column61" Width="113.4"/>
+                <TableColumn Name="Column62" Width="189"/>
+                <TableColumn Name="Column63" Width="37.8"/>
+                <TableColumn Name="Column64" Width="75.6"/>
+                <TableColumn Name="Column65" Width="75.6"/>
+                <TableColumn Name="Column66" Width="75.6"/>
+                <TableColumn Name="Column67" Width="75.6"/>
+                <TableColumn Name="Column68" Width="75.6"/>
+                <TableColumn Name="Column69" Width="75.6"/>
+                <TableColumn Name="Column70" Width="75.6"/>
+                <TableColumn Name="Column139" Width="75.6"/>
+                <TableColumn Name="Column140" Width="75.6"/>
+                <TableColumn Name="Column141" Width="75.6"/>
+                <TableRow Name="Row5" Height="47.25">
+                  <TableCell Name="Cell57" Border.Lines="All" Text="[Q_master.month_]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell58" Border.Lines="All" Text="[Q_master.comment]" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell59" Border.Lines="All" Text="[Q_master.area]" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell60" Border.Lines="All" Text="Итого по поставщику" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell61" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell62" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell63" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell64" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell65" Border.Lines="All" Text="[t_hvs_sum_supplier]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell66" Border.Lines="All" Text="[t_gvs_sum_supplier]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell67" Border.Lines="All" Text="[t_kan_sum_supplier]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell68" Border.Lines="All" Text="[t_otopl_sum_supplier]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell69" Border.Lines="All" Text="[t_hvs_rash_supplier]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell70" Border.Lines="All" Text="[t_gvs_rash_supplier]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell139" Border.Lines="All" Text="[t_kan_rash_supplier]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell140" Border.Lines="All" Text="[t_sod_gil_sum_supplier]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                  <TableCell Name="Cell141" Border.Lines="All" Text="[t_clean_MOP_sum_supplier]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                </TableRow>
+              </TableObject>
+            </GroupFooterBand>
+          </GroupHeaderBand>
+          <GroupFooterBand Name="GroupFooter3" Top="472.31" Width="1474.2" Height="47.25">
+            <TableObject Name="Table6" Width="1474.2" Height="47.25">
+              <TableColumn Name="Column71" Width="75.6"/>
+              <TableColumn Name="Column72" Width="75.6"/>
+              <TableColumn Name="Column73" Width="113.4"/>
+              <TableColumn Name="Column74" Width="113.4"/>
+              <TableColumn Name="Column75" Width="113.4"/>
+              <TableColumn Name="Column76" Width="189"/>
+              <TableColumn Name="Column77" Width="37.8"/>
+              <TableColumn Name="Column78" Width="75.6"/>
+              <TableColumn Name="Column79" Width="75.6"/>
+              <TableColumn Name="Column80" Width="75.6"/>
+              <TableColumn Name="Column81" Width="75.6"/>
+              <TableColumn Name="Column82" Width="75.6"/>
+              <TableColumn Name="Column83" Width="75.6"/>
+              <TableColumn Name="Column84" Width="75.6"/>
+              <TableColumn Name="Column142" Width="75.6"/>
+              <TableColumn Name="Column143" Width="75.6"/>
+              <TableColumn Name="Column144" Width="75.6"/>
+              <TableRow Name="Row6" Height="47.25">
+                <TableCell Name="Cell71" Border.Lines="All" Text="[Q_master.month_]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell72" Border.Lines="All" Text="[Q_master.comment]" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell73" Border.Lines="All" Text="Итого по УК" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell74" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell75" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell76" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell77" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell78" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell79" Border.Lines="All" Text="[t_hvs_sum_area]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell80" Border.Lines="All" Text="[t_gvs_sum_area]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell81" Border.Lines="All" Text="[t_otopl_sum_area]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell82" Border.Lines="All" Text="[t_otopl_sum_area]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell83" Border.Lines="All" Text="[t_hvs_rash_area]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell84" Border.Lines="All" Text="[t_gvs_rash_area]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell142" Border.Lines="All" Text="[t_kan_rash_area]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell143" Border.Lines="All" Text="[t_sod_gil_sum_area]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+                <TableCell Name="Cell144" Border.Lines="All" Text="[t_clean_MOP_sum_area]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+              </TableRow>
+            </TableObject>
+          </GroupFooterBand>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="523.56" Width="1474.2" Height="47.25">
+          <TableObject Name="Table7" Width="1474.2" Height="47.25">
+            <TableColumn Name="Column85" Width="75.6"/>
+            <TableColumn Name="Column86" Width="75.6"/>
+            <TableColumn Name="Column87" Width="113.4"/>
+            <TableColumn Name="Column88" Width="113.4"/>
+            <TableColumn Name="Column89" Width="113.4"/>
+            <TableColumn Name="Column90" Width="189"/>
+            <TableColumn Name="Column91" Width="37.8"/>
+            <TableColumn Name="Column92" Width="75.6"/>
+            <TableColumn Name="Column93" Width="75.6"/>
+            <TableColumn Name="Column94" Width="75.6"/>
+            <TableColumn Name="Column95" Width="75.6"/>
+            <TableColumn Name="Column96" Width="75.6"/>
+            <TableColumn Name="Column97" Width="75.6"/>
+            <TableColumn Name="Column98" Width="75.6"/>
+            <TableColumn Name="Column145" Width="75.6"/>
+            <TableColumn Name="Column146" Width="75.6"/>
+            <TableColumn Name="Column147" Width="75.6"/>
+            <TableRow Name="Row7" Height="47.25">
+              <TableCell Name="Cell85" Border.Lines="All" Text="[Q_master.month_]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell86" Border.Lines="All" Text="Итого по основанию" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell87" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell88" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell89" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell90" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell91" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell92" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell93" Border.Lines="All" Text="[t_hvs_sum_dat_doc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell94" Border.Lines="All" Text="[t_gvs_sum_dat_doc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell95" Border.Lines="All" Text="[t_hvs_rash_dat_doc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell96" Border.Lines="All" Text="[t_otopl_sum_dat_doc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell97" Border.Lines="All" Text="[t_hvs_rash_dat_doc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell98" Border.Lines="All" Text="[t_gvs_rash_dat_doc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell145" Border.Lines="All" Text="[t_kan_rash_dat_doc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell146" Border.Lines="All" Text="[t_sod_gil_sum_dat_doc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+              <TableCell Name="Cell147" Border.Lines="All" Text="[t_clean_MOP_sum_dat_doc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+            </TableRow>
+          </TableObject>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="574.81" Width="1474.2" Height="47.25">
+        <TableObject Name="Table8" Width="1474.2" Height="47.25">
+          <TableColumn Name="Column99" Width="75.6"/>
+          <TableColumn Name="Column100" Width="75.6"/>
+          <TableColumn Name="Column101" Width="113.4"/>
+          <TableColumn Name="Column102" Width="113.4"/>
+          <TableColumn Name="Column103" Width="113.4"/>
+          <TableColumn Name="Column104" Width="189"/>
+          <TableColumn Name="Column105" Width="37.8"/>
+          <TableColumn Name="Column106" Width="75.6"/>
+          <TableColumn Name="Column107" Width="75.6"/>
+          <TableColumn Name="Column108" Width="75.6"/>
+          <TableColumn Name="Column109" Width="75.6"/>
+          <TableColumn Name="Column110" Width="75.6"/>
+          <TableColumn Name="Column111" Width="75.6"/>
+          <TableColumn Name="Column112" Width="75.6"/>
+          <TableColumn Name="Column148" Width="75.6"/>
+          <TableColumn Name="Column149" Width="75.6"/>
+          <TableColumn Name="Column150" Width="75.6"/>
+          <TableRow Name="Row8" Height="47.25">
+            <TableCell Name="Cell99" Border.Lines="All" Text="Итого за [Q_master.month_]" Format="Date" Format.Format="d" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell100" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell101" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell102" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell103" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell104" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell105" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell106" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell107" Border.Lines="All" Text="[t_hvs_sum_month]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell108" Border.Lines="All" Text="[t_gvs_sum_month]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell109" Border.Lines="All" Text="[t_otopl_sum_month]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell110" Border.Lines="All" Text="[t_otopl_sum_month]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell111" Border.Lines="All" Text="[t_hvs_rash_month]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell112" Border.Lines="All" Text="[t_gvs_rash_month]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell148" Border.Lines="All" Text="[t_kan_rash_month]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell149" Border.Lines="All" Text="[t_sod_gil_sum_month]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell150" Border.Lines="All" Text="[t_clean_MOP_sum_month]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+          </TableRow>
+        </TableObject>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="626.06" Width="1474.2" Height="47.25">
+      <TableObject Name="Table9" Width="1474.2" Height="47.25">
+        <TableColumn Name="Column113" Width="75.6"/>
+        <TableColumn Name="Column114" Width="75.6"/>
+        <TableColumn Name="Column115" Width="113.4"/>
+        <TableColumn Name="Column116" Width="113.4"/>
+        <TableColumn Name="Column117" Width="113.4"/>
+        <TableColumn Name="Column118" Width="189"/>
+        <TableColumn Name="Column119" Width="37.8"/>
+        <TableColumn Name="Column120" Width="75.6"/>
+        <TableColumn Name="Column121" Width="75.6"/>
+        <TableColumn Name="Column122" Width="75.6"/>
+        <TableColumn Name="Column123" Width="75.6"/>
+        <TableColumn Name="Column124" Width="75.6"/>
+        <TableColumn Name="Column125" Width="75.6"/>
+        <TableColumn Name="Column126" Width="75.6"/>
+        <TableColumn Name="Column151" Width="75.6"/>
+        <TableColumn Name="Column152" Width="75.6"/>
+        <TableColumn Name="Column153" Width="75.6"/>
+        <TableRow Name="Row9" Height="47.25">
+          <TableCell Name="Cell113" Border.Lines="All" Text="Итого" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell114" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell115" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell116" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell117" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell118" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell119" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell120" Border.Lines="All" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell121" Border.Lines="All" Text="[t_hvs_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell122" Border.Lines="All" Text="[t_gvs_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell123" Border.Lines="All" Text="[t_kan_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell124" Border.Lines="All" Text="[t_otopl_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell125" Border.Lines="All" Text="[t_hvs_rash]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell126" Border.Lines="All" Text="[t_gvs_rash]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+          <TableCell Name="Cell151" Border.Lines="All" Text="[t_kan_rash]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell152" Border.Lines="All" Text="[t_sod_gil_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell153" Border.Lines="All" Text="[t_clean_MOP_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </TableObject>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

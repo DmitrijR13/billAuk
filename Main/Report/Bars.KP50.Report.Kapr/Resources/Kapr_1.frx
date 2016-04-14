@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="12/19/2013 14:22:04" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      Data1.DataSource = Report.GetDataSource(&quot;Q_master&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="rajon" DataType="System.String"/>
+      <Column Name="town" DataType="System.String"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal"/>
+      <Column Name="sum_tarif" DataType="System.Decimal"/>
+      <Column Name="reval" DataType="System.Decimal"/>
+      <Column Name="real_charge" DataType="System.Decimal"/>
+      <Column Name="sum_money" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal"/>
+    </TableDataSource>
+    <Total Name="TotalIn" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalNach" Expression="[Q_master.sum_tarif]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalReval" Expression="[Q_master.reval]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalRealCharge" Expression="[Q_master.real_charge]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalMoney" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalSumOut" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="756" Height="120.52" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text3" Left="260.74" Top="65.71" Width="88.45" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Входящее сальдо" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text2" Left="3.78" Top="65.71" Width="143.64" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Район" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text4" Left="349.26" Top="65.71" Width="80.89" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Начислено за месяц" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text5" Left="430.21" Top="65.71" Width="75.6" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Перерасчет" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text20" Left="3.78" Top="22.68" Width="729.54" Height="37.8" Text="Сальдовая оборотная ведомость по районам&#13;&#10;за [month] [year] г." Format="Date" Format.Format="d" HorzAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text21" Left="147.44" Top="65.71" Width="113.4" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Населенный пункт" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text23" Left="505.78" Top="65.71" Width="75.6" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Изменения" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text25" Left="581.38" Top="65.71" Width="75.6" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Оплаты" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text27" Left="656.96" Top="65.71" Width="75.6" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Исходящее сальдо" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="123.72" Width="756" Height="19.3" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" DataSource="Q_master">
+      <TextObject Name="Text11" Left="3.78" Width="143.64" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Q_master.town]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text12" Left="260.74" Width="88.45" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Q_master.sum_insaldo]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text13" Left="349.26" Width="80.89" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Q_master.sum_tarif]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text14" Left="430.21" Width="75.6" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Q_master.reval]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text22" Left="147.44" Top="0.07" Width="113.4" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Q_master.rajon]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text24" Left="505.78" Width="75.6" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Q_master.real_charge]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text26" Left="581.38" Width="75.6" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Q_master.sum_money]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text28" Left="656.96" Width="75.6" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Q_master.sum_outsaldo]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="146.22" Width="756" Height="83.16">
+      <TextObject Name="Text30" Left="260.74" Width="88.45" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[TotalIn]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text31" Left="349.26" Width="80.89" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[TotalNach]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text32" Left="430.21" Width="75.6" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[TotalReval]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text33" Left="147.44" Width="113.4" Height="18.9" Border.Lines="All" Border.Width="0.5" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text34" Left="505.78" Width="75.6" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[TotalRealCharge]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text35" Left="581.38" Width="75.6" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[TotalMoney]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text36" Left="656.96" Width="75.6" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[TotalSumOut]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text29" Left="3.78" Width="143.64" Height="18.9" Border.Lines="All" Border.Width="0.5" VertAlign="Center" Font="Times New Roman, 8pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="01/31/2014 14:09:20" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      Data1.DataSource = Report.GetDataSource(&quot;Q_master&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="rajon" Enabled="false" DataType="System.String"/>
+      <Column Name="town" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_tarif" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="idom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_vvod" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_prih" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="propis" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="privat" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="rajon" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="town" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="area" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="num_ls" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="Total_sum_prih" Expression="[Q_master.sum_prih]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="756" Height="113.4" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text20" Left="183.33" Top="3.78" Width="379.89" Height="47.25" Text="11.15. Реестр оплаченных лицевых счетов&#13;&#10;за период с [dats] по [datpo]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text1" Left="94.5" Top="85.05" Width="217.35" Height="28.35" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text2" Left="311.85" Top="85.05" Width="264.6" Height="28.35" Border.Lines="All" Text="Квартиросъемщик" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text40" Left="576.45" Top="85.05" Width="75.6" Height="28.35" Border.Lines="All" Text="Дата оплаты" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text41" Left="652.05" Top="85.05" Width="94.5" Height="28.35" Border.Lines="All" Text="Сумма оплаты" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text3" Left="567" Top="9.45" Width="75.6" Height="18.9" Text="Дата печати" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text42" Left="567" Top="28.35" Width="75.6" Height="18.9" Text="Время печати" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text4" Left="642.6" Top="9.45" Width="103.95" Height="18.9" Text="[dat]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text43" Left="642.6" Top="28.35" Width="103.95" Height="18.9" Text="[time]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text57" Left="9.45" Top="85.05" Width="85.05" Height="28.35" Border.Lines="All" Text="Номер лс" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text5" Left="9.45" Top="56.7" Width="737.1" Height="18.9" Text="[supp]" Font="Times New Roman, 7pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="116.6" Width="756" Height="18.9" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" DataSource="Q_master">
+      <TextObject Name="Text60" Left="94.5" Width="217.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="Ул. [Trim([Q_master.ulica])] д.[Q_master.idom][Trim([Q_master.nkor])] [Q_master.nkvar]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text61" Left="311.85" Width="264.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fio]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text62" Left="576.45" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_vvod]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text63" Left="652.05" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_prih]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text64" Left="9.45" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.num_ls]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="138.7" Width="756" Height="18.9">
+      <TextObject Name="Text58" Left="9.45" Width="642.6" Height="18.9" Border.Lines="All" Text="Итого:" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text59" Left="652.05" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_sum_prih]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="160.8" Width="756" Height="37.8">
+      <TextObject Name="Text6" Left="18.9" Top="9.45" Width="548.1" Height="18.9" Text="Наименование отчета: 11.15. Реестр оплаченных лицевых счетов" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text7" Left="614.25" Top="9.45" Width="103.95" Height="18.9" Text="Страница: [Page]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

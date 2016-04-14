@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/report_Nachisleniya.ascx" hash="cedb9400c" filehash="41d2d5d4f7c1af47" flags="110000" assembly="App_Web_macr1xxk" type="ASP.reports_report_nachisleniya_ascx">
+    <filedeps>
+        <filedep name="/none/kart/charge/findcharge.ascx" />
+        <filedep name="/none/kart/prm/findparams.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/reports/report_Nachisleniya.ascx" />
+    </filedeps>
+</preserve>

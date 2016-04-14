@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A09E0051-6B16-42B5-9840-8CB60B0729C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Globals</RootNamespace>
+    <AssemblyName>KP50.Globals</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\WEB\WebKomplat5\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\..\Packages\Castle.Core.3.3.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\Castle.Windsor.3.3.0\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport">
+      <HintPath>..\..\..\LIBRARIES\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>..\..\..\LIBRARIES\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\..\Packages\NLog.2.0.1.2\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="SevenZipSharp">
+      <HintPath>..\..\..\LIBRARIES\SevenZipSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\Config\AppConfig.cs" />
+    <Compile Include="SOURCE\Config\DbParams.cs" />
+    <Compile Include="SOURCE\Config\Directories.cs" />
+    <Compile Include="SOURCE\Config\FileConfigProvider.cs" />
+    <Compile Include="SOURCE\Config\FtpParams.cs" />
+    <Compile Include="SOURCE\Config\IConfigProvider.cs" />
+    <Compile Include="SOURCE\Container\IMigratorInstaller.cs" />
+    <Compile Include="SOURCE\Container\IocContainer.cs" />
+    <Compile Include="SOURCE\Container\IBillInstaller.cs" />
+    <Compile Include="SOURCE\Container\IReportsInstaller.cs" />
+    <Compile Include="SOURCE\FINDER\ExcelUtilityFinder.cs" />
+    <Compile Include="SOURCE\FINDER\DataImportFinder.cs" />
+    <Compile Include="SOURCE\FINDER\ExchangeFinder.cs" />
+    <Compile Include="SOURCE\FINDER\KladrFinder.cs" />
+    <Compile Include="SOURCE\FINDER\SpravFinder.cs" />
+    <Compile Include="SOURCE\FINDER\DebitorFinder.cs" />
+    <Compile Include="SOURCE\FINDER\BaseUser.cs" />
+    <Compile Include="SOURCE\FINDER\SupgFinder.cs" />
+    <Compile Include="SOURCE\FINDER\GlobalsFinder.cs" />
+    <Compile Include="SOURCE\GLOBAL\GlobalsCheckBeforeClosing.cs" />
+    <Compile Include="SOURCE\GLOBAL\GlobalsTransfer.cs" />
+    <Compile Include="SOURCE\GLOBAL\GlobalsRepServer.cs" />
+    <Compile Include="SOURCE\GLOBAL\GlobalsEnumerators.cs" />
+    <Compile Include="SOURCE\GLOBAL\GlobalsUtils.cs" />
+    <Compile Include="SOURCE\GLOBAL\GlobalsConstants.cs" />
+    <Compile Include="SOURCE\INTF\Adres.intf.cs" />
+    <Compile Include="SOURCE\INTF\AdresHard.intf.cs" />
+    <Compile Include="SOURCE\INTF\AdminHard.intf.cs" />
+    <Compile Include="SOURCE\INTF\Archive.intf.cs" />
+    <Compile Include="SOURCE\INTF\Calcs.intf.cs" />
+    <Compile Include="SOURCE\INTF\Counter.intf.cs" />
+    <Compile Include="SOURCE\INTF\EditInterData.intf.cs" />
+    <Compile Include="SOURCE\INTF\FnReval.intf.cs" />
+    <Compile Include="SOURCE\INTF\Fon.intf.cs" />
+    <Compile Include="SOURCE\BARS\IAdres.cs" />
+    <Compile Include="SOURCE\BARS\ICounter.cs" />
+    <Compile Include="SOURCE\CERT\intf_Cert.cs" />
+    <Compile Include="SOURCE\CRYPT\Encryptor.cs" />
+    <Compile Include="SOURCE\CRYPT\RandomText.cs" />
+    <Compile Include="SOURCE\CRYPT\RNG.cs" />
+    <Compile Include="SOURCE\GLOBAL\Globals.cs" />
+    <Compile Include="SOURCE\GLOBAL\MonitorLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SOURCE\INTF\Charge.intf.cs" />
+    <Compile Include="SOURCE\INTF\Gilec.intf.cs" />
+    <Compile Include="SOURCE\INTF\License.intf.cs" />
+    <Compile Include="SOURCE\INTF\Message.intf.cs" />
+    <Compile Include="SOURCE\INTF\Money.intf.cs" />
+    <Compile Include="SOURCE\INTF\MustCalc.intf.cs" />
+    <Compile Include="SOURCE\INTF\Nedop.intf.cs" />
+    <Compile Include="SOURCE\INTF\Odn.intf.cs" />
+    <Compile Include="SOURCE\INTF\Patch.intf.cs" />
+    <Compile Include="SOURCE\INTF\Points.cs" />
+    <Compile Include="SOURCE\INTF\Prm.intf.cs" />
+    <Compile Include="SOURCE\INTF\Analiz.intf.cs" />
+    <Compile Include="SOURCE\INTF\Report\IReportService.cs" />
+    <Compile Include="SOURCE\INTF\Report\ReportResult.cs" />
+    <Compile Include="SOURCE\INTF\SendedMoney.intf.cs" />
+    <Compile Include="SOURCE\INTF\Serv.intf.cs" />
+    <Compile Include="SOURCE\INTF\MultiHost.intf.cs" />
+    <Compile Include="SOURCE\INTF\EFS.cs" />
+    <Compile Include="SOURCE\INTF\StructSprav.intf.cs" />
+    <Compile Include="SOURCE\INTF\SysEvents.cs" />
+    <Compile Include="SOURCE\INTF\Sz.intf.cs" />
+    <Compile Include="SOURCE\INTF\_EPasp\classes\building_report.cs" />
+    <Compile Include="SOURCE\INTF\_EPasp\classes\custom_EPasp.cs" />
+    <Compile Include="SOURCE\INTF\_EPasp\I_EPasp.cs" />
+    <Compile Include="SOURCE\INTF\_Request\_IntfRequest.Model.cs" />
+    <Compile Include="SOURCE\INTF\_Result\_IntfResult.Model.cs" />
+    <Compile Include="SOURCE\JSONP\JSONPBehavior.cs" />
+    <Compile Include="SOURCE\JSONP\JSONPBindingElement.cs" />
+    <Compile Include="SOURCE\JSONP\JSONPBindingExtension.cs" />
+    <Compile Include="SOURCE\JSONP\JSONPEncoderFactory.cs" />
+    <Compile Include="SOURCE\Log\ILog.cs" />
+    <Compile Include="SOURCE\Log\NLogLogger.cs" />
+    <Compile Include="SOURCE\Utility\Archive\Archive.cs" />
+    <Compile Include="SOURCE\Utility\Archive\ArchiveExceptionEventArgs.cs" />
+    <Compile Include="SOURCE\Utility\Archive\SevenZipArchiveProvider.cs" />
+    <Compile Include="SOURCE\Utility\Archive\ZipArchiveProvider.cs" />
+    <Compile Include="SOURCE\Utility\ConvertUtility.cs" />
+    <Compile Include="SOURCE\Utility\DataTypesUtility.cs" />
+    <Compile Include="SOURCE\Utility\DbfUtility.cs" />
+    <Compile Include="SOURCE\Utility\ExceptionUtility.cs" />
+    <Compile Include="SOURCE\Utility\FileUtility.cs" />
+    <Compile Include="SOURCE\Utility\LogUtility.cs" />
+    <Compile Include="SOURCE\Utility\MathUtility.cs" />
+    <Compile Include="SOURCE\Utility\OrmUtility.cs" />
+    <Compile Include="SOURCE\Utility\OSVersionInfoClass.cs" />
+    <Compile Include="SOURCE\Utility\Singleton.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\mab_core.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\mab_parameters.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\mab_services.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\multi_apartment_building.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\personal_account.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\report_core.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\service_provider.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building_report.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\request_core.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Utils\Bars.KP50.Utils.csproj">
+      <Project>{ee6f5a3b-8667-4fd3-8445-51b5ea6e4b57}</Project>
+      <Name>Bars.KP50.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

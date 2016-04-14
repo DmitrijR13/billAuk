@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/21/2013 13:47:00" ReportInfo.Modified="04/01/2015 12:00:26" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+      string h;
+    private void GroupHeader2_BeforePrint(object sender, EventArgs e)
+    {
+      h =  Report.GetParameterValue(&quot;hideGil&quot;).ToString().Trim();
+      if (h ==&quot;1&quot;)
+      {
+
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="Point" DataType="System.String" PropName="Column"/>
+      <Column Name="Service" DataType="System.String" PropName="Column"/>
+      <Column Name="IsMkd" DataType="System.String" PropName="Column"/>
+      <Column Name="rashod" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="Point" DataType="System.String" PropName="Column"/>
+      <Column Name="Rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="Service" DataType="System.String" PropName="Column"/>
+      <Column Name="IsMkd" DataType="System.String" PropName="Column"/>
+      <Column Name="count_ind" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master2" ReferenceName="Data.Q_master2" DataType="System.Int32" Enabled="true">
+      <Column Name="Point" DataType="System.String" PropName="Column"/>
+      <Column Name="Service" DataType="System.String" PropName="Column"/>
+      <Column Name="IsMkd" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master3" ReferenceName="Data.Q_master3" DataType="System.Int32" Enabled="true">
+      <Column Name="Point" DataType="System.String" PropName="Column"/>
+      <Column Name="Rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="Service" DataType="System.String" PropName="Column"/>
+      <Column Name="IsMkd" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="t1_rashod" Expression="[Q_master.rashod]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t2_rashod" Expression="[Q_master1.rashod]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="t3_rashod" Expression="[Q_master2.rashod]" Evaluator="Data3" PrintOn="GroupFooter4"/>
+    <Total Name="t4_rashod" Expression="[Q_master3.rashod]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+    <Total Name="t1_rashod_ipu" Expression="[Q_master.rashod_ipu]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t3_rashod_ipu" Expression="[Q_master2.rashod_ipu]" Evaluator="Data3" PrintOn="GroupFooter4"/>
+    <Total Name="t4_rashod_ipu" Expression="[Q_master3.rashod_ipu]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+    <Total Name="t1_count_gil" Expression="[Q_master.count_gil]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t3_count_gil" Expression="[Q_master2.count_gil]" Evaluator="Data3" PrintOn="GroupFooter4"/>
+    <Total Name="t4_count_gil" Expression="[Q_master3.count_gil]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+    <Total Name="t1_count_gil_ipu" Expression="[Q_master.count_gil_ipu]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t3_count_gil_ipu" Expression="[Q_master2.count_gil_ipu]" Evaluator="Data3" PrintOn="GroupFooter4"/>
+    <Total Name="t4_count_gil_ipu" Expression="[Q_master3.count_gil_ipu]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+    <Total Name="t1_count_ls" Expression="[Q_master.count_ls]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t2_count_ls" Expression="[Q_master1.count_ls]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="t3_count_ls" Expression="[Q_master2.count_ls]" Evaluator="Data3" PrintOn="GroupFooter4"/>
+    <Total Name="t4_count_ls" Expression="[Q_master3.count_ls]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+    <Total Name="t1_count_ls_ipu" Expression="[Q_master.count_ls_ipu]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t3_count_ls_ipu" Expression="[Q_master2.count_ls_ipu]" Evaluator="Data3" PrintOn="GroupFooter4"/>
+    <Total Name="t4_count_ls_ipu" Expression="[Q_master3.count_ls_ipu]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+    <Total Name="t1_count_kvar" Expression="[Q_master.count_kvar]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t2_count_kvar" Expression="[Q_master1.count_kvar]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="t3_count_kvar" Expression="[Q_master2.count_kvar]" Evaluator="Data3" PrintOn="GroupFooter4"/>
+    <Total Name="t4_count_kvar" Expression="[Q_master3.count_kvar]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+    <Total Name="t1_count_kvar_ipu" Expression="[Q_master.count_kvar_ipu]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t3_count_kvar_ipu" Expression="[Q_master2.count_kvar_ipu]" Evaluator="Data3" PrintOn="GroupFooter4"/>
+    <Total Name="t4_count_kvar_ipu" Expression="[Q_master3.count_kvar_ipu]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+    <Total Name="t1_count_ipu" Expression="[Q_master.count_ipu]" Evaluator="Data2" PrintOn="GroupFooter3"/>
+    <Total Name="t3_count_ipu" Expression="[Q_master2.count_ipu]" Evaluator="Data3" PrintOn="GroupFooter4"/>
+    <Total Name="t4_count_ipu" Expression="[Q_master3.count_ipu]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+    <Total Name="t2_ind" Expression="[Q_master1.count_ind]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="t2_has_ipu" Expression="[Q_master1.count_has_ipu]" Evaluator="Data1"/>
+    <Total Name="t2_ob_s" Expression="[Q_master1.ob_s]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="t4_ob_s" Expression="[Q_master3.ob_s]" Evaluator="Data4" PrintOn="GroupFooter5"/>
+  </Dictionary>
+  <ReportPage Name="Page2" PaperWidth="297" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle2" Width="1047.06" Height="37.8" CanGrow="true" CanShrink="true">
+      <TextObject Name="Text160" Width="1022.06" Height="32.91" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="1.24 Отчет комитета по тарифам Тульской области за [period_month]." HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="41.8" Width="1047.06" Height="37.8" CanGrow="true">
+        <TextObject Name="Text170" Width="1022.06" Height="32.91" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[headerParam]" VertAlign="Center"/>
+        <ChildBand Name="Child3" Top="83.6" Width="1047.06" Height="37.8">
+          <TextObject Name="Text166" Width="1022.06" Height="32.91" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="Информация об объемах услуг водоснабжения и водоотведения, оказываемых населению, и количестве проживающих." HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader2" Top="125.4" Width="1047.06" Condition="[Q_master.IsMkd]" SortOrder="None">
+      <GroupHeaderBand Name="GroupHeader3" Top="129.4" Width="1047.06" Height="37.8" Guides="0" KeepWithData="true" Condition="[Q_master.Service]" SortOrder="None">
+        <TextObject Name="Text2" Top="18.9" Width="982.8" Height="18.9" Border.Lines="All" Text="[[Q_master.Service]] [Q_master.IsMkd]"/>
+        <ChildBand Name="Child2" Top="171.2" Width="1047.06" Height="103.95">
+          <TableObject Name="Table1" Width="982.8" Height="103.95">
+            <TableColumn Name="Column69" Width="151.2"/>
+            <TableColumn Name="Column70" Width="75.6"/>
+            <TableColumn Name="Column71" Width="75.6"/>
+            <TableColumn Name="Column72" Width="75.6"/>
+            <TableColumn Name="Column73" Width="75.6"/>
+            <TableColumn Name="Column74" Width="75.6"/>
+            <TableColumn Name="Column75" Width="75.6"/>
+            <TableColumn Name="Column76" Width="75.6"/>
+            <TableColumn Name="Column77" Width="75.6"/>
+            <TableColumn Name="Column78" Width="75.6"/>
+            <TableColumn Name="Column79" Width="75.6"/>
+            <TableColumn Name="Column80" Width="75.6"/>
+            <TableRow Name="Row5" Height="28.35">
+              <TableCell Name="Cell167" Border.Lines="Left, Top, Bottom" Text="При отсутствии приборов учета ([Q_master.IsMkd])" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold" ColSpan="5"/>
+              <TableCell Name="Cell168" Border.Lines="Right, Top, Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell169" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell170" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell171" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell192" Border.Lines="All" Text="При наличии приборов учета ([Q_master.IsMkd])" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold" ColSpan="4"/>
+              <TableCell Name="Cell193" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell194" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell195" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell196" Border.Lines="All" Text="Итог ([Q_master.IsMkd])" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold" ColSpan="3"/>
+              <TableCell Name="Cell197" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell198" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            </TableRow>
+            <TableRow Name="Row6" Height="75.6">
+              <TableCell Name="Cell199" Border.Lines="All" Text="Виды благоустройства" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell200" Border.Lines="All" Text="Норматив потребления в месяц" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell201" Border.Lines="All" Text="Число проживающих (человек)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell202" Border.Lines="All" Text="Число квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell203" Border.Lines="All" Text="Объем услуг в месяц при отсутствии ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell204" Border.Lines="All" Text="Число проживающих (человек)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell205" Border.Lines="All" Text="Число квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell206" Border.Lines="All" Text="Кол-во ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell207" Border.Lines="All" Text="Объем услуг в месяц при наличии ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell208" Border.Lines="All" Text="Всего проживающих (человек)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell209" Border.Lines="All" Text="Всего квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell210" Border.Lines="All" Text="Всего объем услуг" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            </TableRow>
+          </TableObject>
+        </ChildBand>
+        <DataBand Name="Data2" Top="279.15" Width="1047.06" Height="28.35" CanGrow="true" Guides="9.45,18.9" DataSource="Q_master">
+          <TableObject Name="Table3" Width="982.8" Height="28.35" GrowToBottom="true">
+            <TableColumn Name="Column81" Width="151.2"/>
+            <TableColumn Name="Column82" Width="75.6"/>
+            <TableColumn Name="Column83" Width="75.6"/>
+            <TableColumn Name="Column84" Width="75.6"/>
+            <TableColumn Name="Column85" Width="75.6"/>
+            <TableColumn Name="Column86" Width="75.6"/>
+            <TableColumn Name="Column87" Width="75.6"/>
+            <TableColumn Name="Column88" Width="75.6"/>
+            <TableColumn Name="Column89" Width="75.6"/>
+            <TableColumn Name="Column90" Width="75.6"/>
+            <TableColumn Name="Column91" Width="75.6"/>
+            <TableColumn Name="Column92" Width="75.6"/>
+            <TableRow Name="Row7" Height="28.35">
+              <TableCell Name="Cell211" Border.Lines="All" Text="[Q_master.name_norm]" VertAlign="Center" Font="Arial, 7pt"/>
+              <TableCell Name="Cell212" Border.Lines="All" Text="[Q_master.val_norm]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell213" Border.Lines="All" Text="[Q_master.count_gil]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell214" Border.Lines="All" Text="[Q_master.count_kvar]/[Q_master.count_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell215" Border.Lines="All" Text="[Q_master.rashod]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell216" Border.Lines="All" Text="[Q_master.count_gil_ipu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell217" Border.Lines="All" Text="[Q_master.count_kvar_ipu]/[Q_master.count_ls_ipu]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell218" Border.Lines="All" Text="[Q_master.count_ipu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell219" Border.Lines="All" Text="[Q_master.rashod_ipu]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell220" Border.Lines="All" Text="[[Q_master.count_gil]+[Q_master.count_gil_ipu]]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell221" Border.Lines="All" Text="[[Q_master.count_kvar]+[Q_master.count_kvar_ipu]]/[[Q_master.count_ls]+[Q_master.count_ls_ipu]]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TableCell Name="Cell222" Border.Lines="All" Text="[[Q_master.rashod]+[Q_master.rashod_ipu]]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            </TableRow>
+          </TableObject>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter3" Top="311.5" Width="1047.06" Height="18.9">
+          <TableObject Name="Table2" Width="982.8" Height="18.9" Border.Lines="All">
+            <TableColumn Name="Column93" Width="151.2"/>
+            <TableColumn Name="Column94" Width="75.6"/>
+            <TableColumn Name="Column95" Width="75.6"/>
+            <TableColumn Name="Column96" Width="75.6"/>
+            <TableColumn Name="Column97" Width="75.6"/>
+            <TableColumn Name="Column98" Width="75.6"/>
+            <TableColumn Name="Column99" Width="75.6"/>
+            <TableColumn Name="Column100" Width="75.6"/>
+            <TableColumn Name="Column101" Width="75.6"/>
+            <TableColumn Name="Column102" Width="75.6"/>
+            <TableColumn Name="Column103" Width="75.6"/>
+            <TableColumn Name="Column104" Width="75.6"/>
+            <TableRow Name="Row8">
+              <TableCell Name="Cell223" Border.Lines="Left, Top, Bottom" Text="Итого:" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell224" Border.Lines="Right, Top, Bottom" Font="Arial, 8pt"/>
+              <TableCell Name="Cell225" Border.Lines="All" Text="[t1_count_gil]" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell226" Border.Lines="All" Text="[t1_count_kvar]/[t1_count_ls]" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell227" Border.Lines="All" Text="[t1_rashod]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell248" Border.Lines="All" Text="[t1_count_gil_ipu]" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell249" Border.Lines="All" Text="[t1_count_kvar_ipu]/[t1_count_ls_ipu]" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell250" Border.Lines="All" Text="[t1_count_ipu]" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell251" Border.Lines="All" Text="[t1_rashod_ipu]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell252" Border.Lines="All" Text="[[t1_count_gil]+[t1_count_gil_ipu]]" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell253" Border.Lines="All" Text="[[t1_count_kvar]+[t1_count_kvar_ipu]]/[[t1_count_ls]+[t1_count_ls_ipu]]" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell254" Border.Lines="All" Text="[[t1_rashod]+[t1_rashod_ipu]]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            </TableRow>
+          </TableObject>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter2" Top="334.4" Width="1047.06" Height="9.45"/>
+    </GroupHeaderBand>
+  </ReportPage>
+  <ReportPage Name="Page1" PaperWidth="297" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="47.25">
+      <TextObject Name="Text167" Width="1040.96" Height="32.91" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="Информация об объемах услуг отопление, оказываемой населению" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="51.25" Width="1047.06" Height="18.9" Condition="[Q_master1.IsMkd]" SortOrder="None">
+      <TextObject Name="Text1" Width="217.35" Height="18.9" Text="[[Q_master1.IsMkd]]"/>
+      <ChildBand Name="Child4" Top="74.15" Width="1047.06" Height="66.15">
+        <TableObject Name="Table4" Width="963.9" Height="66.15">
+          <TableColumn Name="Column105" Width="132.3"/>
+          <TableColumn Name="Column106" Width="132.3"/>
+          <TableColumn Name="Column107" Width="132.3"/>
+          <TableColumn Name="Column108" Width="37.8"/>
+          <TableColumn Name="Column109" Width="75.6"/>
+          <TableColumn Name="Column110" Width="75.6"/>
+          <TableColumn Name="Column112" Width="75.6"/>
+          <TableColumn Name="Column113" Width="75.6"/>
+          <TableColumn Name="Column114" Width="75.6"/>
+          <TableColumn Name="Column115" Width="75.6"/>
+          <TableColumn Name="Column116" Width="75.6"/>
+          <TableRow Name="Row10" Height="66.15">
+            <TableCell Name="Cell267" Border.Lines="All" Text="Район" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+            <TableCell Name="Cell268" Border.Lines="All" Text="Населенный пункт" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+            <TableCell Name="Cell269" Border.Lines="All" Text="Улица" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+            <TableCell Name="Cell270" Border.Lines="All" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+            <TableCell Name="Cell271" Border.Lines="All" Text="Год постройки" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+            <TableCell Name="Cell272" Border.Lines="All" Text="Площадь квартир" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+            <TableCell Name="Cell274" Border.Lines="All" Text="Число квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+            <TableCell Name="Cell275" Border.Lines="All" Text="Из них с индивидуальным отоплением" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell276" Border.Lines="All" Text="Из них с ИПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+            <TableCell Name="Cell277" Border.Lines="All" Text="Наличие ОДПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+            <TableCell Name="Cell278" Border.Lines="All" Text="Объем услуг в месяц (Гкал)" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </ChildBand>
+      <DataBand Name="Data1" Top="144.3" Width="1047.06" Height="37.8" CanGrow="true" DataSource="Q_master1">
+        <TableObject Name="Table5" Width="963.9" Height="37.8" GrowToBottom="true">
+          <TableColumn Name="Column117" Width="132.3"/>
+          <TableColumn Name="Column118" Width="132.3"/>
+          <TableColumn Name="Column119" Width="132.3"/>
+          <TableColumn Name="Column120" Width="37.8"/>
+          <TableColumn Name="Column121" Width="75.6"/>
+          <TableColumn Name="Column122" Width="75.6"/>
+          <TableColumn Name="Column124" Width="75.6"/>
+          <TableColumn Name="Column125" Width="75.6"/>
+          <TableColumn Name="Column126" Width="75.6"/>
+          <TableColumn Name="Column127" Width="75.6"/>
+          <TableColumn Name="Column128" Width="75.6"/>
+          <TableRow Name="Row11" Height="37.8">
+            <TableCell Name="Cell279" Border.Lines="All" Text="[Q_master1.point]" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell280" Border.Lines="All" Text="[Q_master1.rajon]" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell281" Border.Lines="All" Text="[Q_master1.ulica]" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell282" Border.Lines="All" Text="[Q_master1.ndom]" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell283" Border.Lines="All" Text="[Q_master1.god]" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell284" Border.Lines="All" Text="[Q_master1.ob_s]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center"/>
+            <TableCell Name="Cell286" Border.Lines="All" Text="[Q_master1.count_kvar]/[Q_master1.count_ls]" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell287" Border.Lines="All" Text="[Q_master1.count_ind]" HorzAlign="Right" VertAlign="Center"/>
+            <TableCell Name="Cell288" Border.Lines="All" Text="[Q_master1.count_has_ipu]" HorzAlign="Right" VertAlign="Center"/>
+            <TableCell Name="Cell289" Border.Lines="All" Text="[Q_master1.has_odpu]" HorzAlign="Right" VertAlign="Center"/>
+            <TableCell Name="Cell290" Border.Lines="All" Text="[Q_master1.rashod]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center"/>
+          </TableRow>
+        </TableObject>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="186.1" Width="1047.06" Height="18.9">
+        <TableObject Name="Table6" Width="963.9" Height="18.9">
+          <TableColumn Name="Column129" Width="132.3"/>
+          <TableColumn Name="Column130" Width="132.3"/>
+          <TableColumn Name="Column131" Width="132.3"/>
+          <TableColumn Name="Column132" Width="37.8"/>
+          <TableColumn Name="Column133" Width="75.6"/>
+          <TableColumn Name="Column134" Width="75.6"/>
+          <TableColumn Name="Column136" Width="75.6"/>
+          <TableColumn Name="Column137" Width="75.6"/>
+          <TableColumn Name="Column138" Width="75.6"/>
+          <TableColumn Name="Column139" Width="75.6"/>
+          <TableColumn Name="Column140" Width="75.6"/>
+          <TableRow Name="Row12">
+            <TableCell Name="Cell291" Border.Lines="All" Text="Итого:" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell292" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell293" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell294" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell295" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell296" Border.Lines="All" Text="[t2_ob_s]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell298" Border.Lines="All" Text="[t2_count_kvar]/[t2_count_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell299" Border.Lines="All" Text="[t2_ind]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell300" Border.Lines="All" Text="[t2_has_ipu]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell301" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell302" Border.Lines="All" Text="[t2_rashod]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+  <ReportPage Name="Page3" PaperWidth="297" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle3" Width="1047.06" Height="37.8">
+      <TextObject Name="Text168" Width="1040.96" Height="32.91" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="Информация об объемах услуги газоснабжения, оказываемой населению, и количестве проживающих " HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader4" Top="41.8" Width="1047.06" Height="18.9" Condition="[Q_master2.IsMkd]" SortOrder="None">
+      <TextObject Name="Text3" Width="302.4" Height="18.9" Text="[[Q_master2.IsMkd]]"/>
+      <ChildBand Name="Child5" Top="64.7" Width="1047.06" Height="103.95">
+        <TableObject Name="Table7" Width="982.8" Height="103.95">
+          <TableColumn Name="Column141" Width="151.2"/>
+          <TableColumn Name="Column142" Width="75.6"/>
+          <TableColumn Name="Column143" Width="75.6"/>
+          <TableColumn Name="Column144" Width="75.6"/>
+          <TableColumn Name="Column145" Width="75.6"/>
+          <TableColumn Name="Column146" Width="75.6"/>
+          <TableColumn Name="Column147" Width="75.6"/>
+          <TableColumn Name="Column148" Width="75.6"/>
+          <TableColumn Name="Column149" Width="75.6"/>
+          <TableColumn Name="Column150" Width="75.6"/>
+          <TableColumn Name="Column151" Width="75.6"/>
+          <TableColumn Name="Column152" Width="75.6"/>
+          <TableRow Name="Row13" Height="28.35">
+            <TableCell Name="Cell303" Border.Lines="All" Text="При отсутствии приборов учета ([Q_master2.IsMkd])" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" ColSpan="5"/>
+            <TableCell Name="Cell304" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell305" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell306" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell307" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell308" Border.Lines="All" Text="При наличии приборов учета ([Q_master2.IsMkd])" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" ColSpan="4"/>
+            <TableCell Name="Cell309" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell310" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell311" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell312" Border.Lines="All" Text="Итог ([Q_master2.IsMkd])" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" ColSpan="3"/>
+            <TableCell Name="Cell313" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell314" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row14" Height="75.6">
+            <TableCell Name="Cell315" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell316" Border.Lines="All" Text="Норматив потребления в месяц" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell317" Border.Lines="All" Text="Число проживающих (человек)" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell318" Border.Lines="All" Text="Число квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell319" Border.Lines="All" Text="Объем услуг в месяц при отсутствии ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell320" Border.Lines="All" Text="Число проживающих (человек)" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell321" Border.Lines="All" Text="Число квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell322" Border.Lines="All" Text="Кол-во ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell323" Border.Lines="All" Text="Объем услуг в месяц при наличии ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell324" Border.Lines="All" Text="Всего проживающих (человек)" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell325" Border.Lines="All" Text="Всего квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell326" Border.Lines="All" Text="Всего объем услуг" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </ChildBand>
+      <DataBand Name="Data3" Top="172.65" Width="1047.06" Height="37.8" CanGrow="true" DataSource="Q_master2">
+        <TableObject Name="Table8" Width="982.8" Height="37.8" GrowToBottom="true">
+          <TableColumn Name="Column153" Width="151.2"/>
+          <TableColumn Name="Column154" Width="75.6"/>
+          <TableColumn Name="Column155" Width="75.6"/>
+          <TableColumn Name="Column156" Width="75.6"/>
+          <TableColumn Name="Column157" Width="75.6"/>
+          <TableColumn Name="Column158" Width="75.6"/>
+          <TableColumn Name="Column159" Width="75.6"/>
+          <TableColumn Name="Column160" Width="75.6"/>
+          <TableColumn Name="Column161" Width="75.6"/>
+          <TableColumn Name="Column162" Width="75.6"/>
+          <TableColumn Name="Column163" Width="75.6"/>
+          <TableColumn Name="Column164" Width="75.6"/>
+          <TableRow Name="Row15" Height="37.8">
+            <TableCell Name="Cell327" Border.Lines="All"/>
+            <TableCell Name="Cell328" Border.Lines="All" Text="[Q_master2.val_norm]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right"/>
+            <TableCell Name="Cell329" Border.Lines="All" Text="[Q_master2.count_gil]" HorzAlign="Right"/>
+            <TableCell Name="Cell330" Border.Lines="All" Text="[Q_master2.count_ls]/[Q_master2.count_kvar]" HorzAlign="Center"/>
+            <TableCell Name="Cell331" Border.Lines="All" Text="[Q_master2.rashod]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right"/>
+            <TableCell Name="Cell332" Border.Lines="All" Text="[Q_master2.count_gil_ipu]" HorzAlign="Right"/>
+            <TableCell Name="Cell333" Border.Lines="All" Text="[Q_master2.count_ls_ipu]/[Q_master2.count_kvar_ipu]" HorzAlign="Center"/>
+            <TableCell Name="Cell334" Border.Lines="All" Text="[Q_master2.count_ipu]" HorzAlign="Right"/>
+            <TableCell Name="Cell335" Border.Lines="All" Text="[Q_master2.rashod_ipu]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right"/>
+            <TableCell Name="Cell336" Border.Lines="All" Text="[[Q_master2.count_gil]+[Q_master2.count_gil_ipu]]" HorzAlign="Right"/>
+            <TableCell Name="Cell337" Border.Lines="All" Text="[[Q_master2.count_ls_ipu]+[Q_master2.count_ls]]/[[Q_master2.count_kvar_ipu]+[Q_master2.count_kvar]]" HorzAlign="Center"/>
+            <TableCell Name="Cell338" Border.Lines="All" Text="[[Q_master2.rashod_ipu]+[Q_master2.rashod]]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right"/>
+          </TableRow>
+        </TableObject>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter4" Top="214.45" Width="1047.06" Height="18.9">
+        <TableObject Name="Table9" Width="982.8" Height="18.9" Border.Lines="All">
+          <TableColumn Name="Column165" Width="151.2"/>
+          <TableColumn Name="Column166" Width="75.6"/>
+          <TableColumn Name="Column167" Width="75.6"/>
+          <TableColumn Name="Column168" Width="75.6"/>
+          <TableColumn Name="Column169" Width="75.6"/>
+          <TableColumn Name="Column170" Width="75.6"/>
+          <TableColumn Name="Column171" Width="75.6"/>
+          <TableColumn Name="Column172" Width="75.6"/>
+          <TableColumn Name="Column173" Width="75.6"/>
+          <TableColumn Name="Column174" Width="75.6"/>
+          <TableColumn Name="Column175" Width="75.6"/>
+          <TableColumn Name="Column176" Width="75.6"/>
+          <TableRow Name="Row16">
+            <TableCell Name="Cell339" Border.Lines="Left, Top, Bottom" Text="Итого:" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell340" Border.Lines="Right, Top, Bottom"/>
+            <TableCell Name="Cell341" Border.Lines="All" Text="[t3_count_gil]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell342" Border.Lines="All" Text="[t3_count_kvar]/[t3_count_ls]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell343" Border.Lines="All" Text="[t3_rashod]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell344" Border.Lines="All" Text="[t3_count_gil_ipu]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell345" Border.Lines="All" Text="[t3_count_kvar]/[t3_count_ls]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell346" Border.Lines="All" Text="[t3_count_ipu]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell347" Border.Lines="All" Text="[t3_rashod_ipu]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell348" Border.Lines="All" Text="[[t3_count_gil]+[t3_count_gil_ipu]]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell349" Border.Lines="All" Text="[[t3_count_kvar]+[t3_count_kvar_ipu]]/[[t3_count_ls]+[t3_count_ls_ipu]]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell350" Border.Lines="All" Text="[[t3_rashod]+[t3_rashod_ipu]]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+  <ReportPage Name="Page4" PaperWidth="297" PaperHeight="210">
+    <ReportTitleBand Name="ReportTitle4" Width="1047.06" Height="37.8">
+      <TextObject Name="Text169" Width="1031.51" Height="32.91" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="Информация об объемах услуги электроснабжение, оказываемой населению, и количестве проживающих " HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader5" Top="41.8" Width="1047.06" Height="18.9" Condition="[Q_master3.IsMkd]" SortOrder="None">
+      <TextObject Name="Text4" Width="1030.05" Height="18.9" Text="[[Q_master3.IsMkd]]"/>
+      <ChildBand Name="Child6" Top="64.7" Width="1047.06" Height="132.3">
+        <TableObject Name="Table10" Width="1035.72" Height="132.3" Border.Lines="All">
+          <TableColumn Name="Column177"/>
+          <TableColumn Name="Column178" Width="56.7"/>
+          <TableColumn Name="Column179" Width="85.05"/>
+          <TableColumn Name="Column180" Width="37.8"/>
+          <TableColumn Name="Column181" Width="54.81"/>
+          <TableColumn Name="Column231" Width="47.25"/>
+          <TableColumn Name="Column234" Width="47.25"/>
+          <TableColumn Name="Column182" Width="45.36"/>
+          <TableColumn Name="Column183" Width="54.81"/>
+          <TableColumn Name="Column184" Width="49.14"/>
+          <TableColumn Name="Column185" Width="49.14"/>
+          <TableColumn Name="Column186" Width="49.14"/>
+          <TableColumn Name="Column187" Width="49.14"/>
+          <TableColumn Name="Column188" Width="49.14"/>
+          <TableColumn Name="Column189" Width="49.14"/>
+          <TableColumn Name="Column190" Width="49.14"/>
+          <TableColumn Name="Column191" Width="49.14"/>
+          <TableColumn Name="Column192" Width="49.14"/>
+          <TableColumn Name="Column193" Width="49.14"/>
+          <TableColumn Name="Column194" Width="49.14"/>
+          <TableRow Name="Row17" Height="47.25">
+            <TableCell Name="Cell351" Border.Lines="Top, Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell352" Border.Lines="Top, Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell353" Border.Lines="Top, Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell354" Border.Lines="Top, Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell355" Border.Lines="Top, Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell441"/>
+            <TableCell Name="Cell445"/>
+            <TableCell Name="Cell361" Border.Lines="Top, Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell362" Border.Lines="Top, Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell363" Border.Lines="All" Text="При отсутствии приборов учета ([Q_master3.IsMkd])" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold" ColSpan="4"/>
+            <TableCell Name="Cell364" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell365" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell366" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell367" Border.Lines="All" Text="При наличии приборов учета ([Q_master3.IsMkd])" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold" ColSpan="4"/>
+            <TableCell Name="Cell368" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell369" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell370" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell371" Border.Lines="All" Text="Итог ([Q_master3.IsMkd])" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold" ColSpan="3"/>
+            <TableCell Name="Cell372" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell373" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row18" Height="85.05">
+            <TableCell Name="Cell356" Border.Lines="All" Text="Район" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell357" Border.Lines="All" Text="Населенный пункт" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell358" Border.Lines="All" Text="Улица" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell359" Border.Lines="All" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell360" Border.Lines="All" Text="Год постройки" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell442" Border.Lines="All" Text="Этажность" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell446" Border.Lines="All" Text="Наличие лифта" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell374" Border.Lines="All" Text="Площадь квартир" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell375" Border.Lines="All" Text="Число квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell376" Border.Lines="All" Text="Норматив потребления в месяц" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell377" Border.Lines="All" Text="Число проживающих (человек)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell378" Border.Lines="All" Text="Число квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell379" Border.Lines="All" Text="Объем услуг в месяц при отсутствии ПУ " HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell380" Border.Lines="All" Text="Число проживающих (человек)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell381" Border.Lines="All" Text="Число квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell382" Border.Lines="All" Text="Кол-во ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell383" Border.Lines="All" Text="Объем услуг в месяц при наличии ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell384" Border.Lines="All" Text="Всего проживающих (человек)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell385" Border.Lines="All" Text="Всего квартир/ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell386" Border.Lines="All" Text="Всего объем услуг" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </ChildBand>
+      <DataBand Name="Data4" Top="201" Width="1047.06" Height="37.8" CanGrow="true" DataSource="Q_master3">
+        <TableObject Name="Table11" Width="1035.72" Height="37.8" Border.Lines="All" GrowToBottom="true">
+          <TableColumn Name="Column195"/>
+          <TableColumn Name="Column196" Width="56.7"/>
+          <TableColumn Name="Column197" Width="85.05"/>
+          <TableColumn Name="Column198" Width="37.8"/>
+          <TableColumn Name="Column199" Width="54.81"/>
+          <TableColumn Name="Column232" Width="47.25"/>
+          <TableColumn Name="Column235" Width="47.25"/>
+          <TableColumn Name="Column200" Width="45.36"/>
+          <TableColumn Name="Column201" Width="54.81"/>
+          <TableColumn Name="Column202" Width="49.14"/>
+          <TableColumn Name="Column203" Width="49.14"/>
+          <TableColumn Name="Column204" Width="49.14"/>
+          <TableColumn Name="Column205" Width="49.14"/>
+          <TableColumn Name="Column206" Width="49.14"/>
+          <TableColumn Name="Column207" Width="49.14"/>
+          <TableColumn Name="Column208" Width="49.14"/>
+          <TableColumn Name="Column209" Width="49.14"/>
+          <TableColumn Name="Column210" Width="49.14"/>
+          <TableColumn Name="Column211" Width="49.14"/>
+          <TableColumn Name="Column212" Width="49.14"/>
+          <TableRow Name="Row20" Height="37.8">
+            <TableCell Name="Cell405" Border.Lines="All" Text="[Q_master3.point]" VertAlign="Center" Font="Arial, 7pt"/>
+            <TableCell Name="Cell406" Border.Lines="All" Text="[Q_master3.rajon]" VertAlign="Center" Font="Arial, 7pt"/>
+            <TableCell Name="Cell407" Border.Lines="All" Text="[Q_master3.ulica]" VertAlign="Center" Font="Arial, 7pt"/>
+            <TableCell Name="Cell408" Border.Lines="All" Text="[Q_master3.ndom]" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell409" Border.Lines="All" Text="[Q_master3.god]" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell443" Border.Lines="All" Text="[Q_master3.floor]" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell447" Border.Lines="All" Text="[Q_master3.lift]" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell410" Border.Lines="All" Text="[Q_master3.ob_s]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell411" Border.Lines="All" Text="[[Q_master3.count_kvar]+[Q_master3.count_kvar_ipu]]/[[Q_master3.count_ls]+[Q_master3.count_ls_ipu]]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell412" Border.Lines="All" Text="[Q_master3.val_norm]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell413" Border.Lines="All" Text="[Q_master3.count_gil]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell414" Border.Lines="All" Text="[Q_master3.count_ls]/[Q_master3.count_kvar]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell415" Border.Lines="All" Text="[Q_master3.rashod]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell416" Border.Lines="All" Text="[Q_master3.count_gil_ipu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell417" Border.Lines="All" Text="[Q_master3.count_ls_ipu]/[Q_master3.count_kvar_ipu]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell418" Border.Lines="All" Text="[Q_master3.count_ipu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell419" Border.Lines="All" Text="[Q_master3.rashod_ipu]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell420" Border.Lines="All" Text="[[Q_master3.count_gil_ipu]+[Q_master3.count_gil]]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell421" Border.Lines="All" Text="[[Q_master3.count_ls]+[Q_master3.count_ls_ipu]]/[[Q_master3.count_kvar]+[Q_master3.count_kvar_ipu]]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell422" Border.Lines="All" Text="[[Q_master3.rashod]+[Q_master3.rashod_ipu]]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" Font="Arial, 8pt"/>
+          </TableRow>
+        </TableObject>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter5" Top="242.8" Width="1047.06" Height="28.35">
+        <TableObject Name="Table12" Width="1035.72" Height="28.35" Border.Lines="All">
+          <TableColumn Name="Column213"/>
+          <TableColumn Name="Column214" Width="56.7"/>
+          <TableColumn Name="Column215" Width="85.05"/>
+          <TableColumn Name="Column216" Width="37.8"/>
+          <TableColumn Name="Column217" Width="54.81"/>
+          <TableColumn Name="Column233" Width="47.25"/>
+          <TableColumn Name="Column236" Width="47.25"/>
+          <TableColumn Name="Column218" Width="45.36"/>
+          <TableColumn Name="Column219" Width="54.81"/>
+          <TableColumn Name="Column220" Width="49.14"/>
+          <TableColumn Name="Column221" Width="49.14"/>
+          <TableColumn Name="Column222" Width="49.14"/>
+          <TableColumn Name="Column223" Width="49.14"/>
+          <TableColumn Name="Column224" Width="49.14"/>
+          <TableColumn Name="Column225" Width="49.14"/>
+          <TableColumn Name="Column226" Width="49.14"/>
+          <TableColumn Name="Column227" Width="49.14"/>
+          <TableColumn Name="Column228" Width="49.14"/>
+          <TableColumn Name="Column229" Width="49.14"/>
+          <TableColumn Name="Column230" Width="49.14"/>
+          <TableRow Name="Row21" Height="28.35">
+            <TableCell Name="Cell423" Border.Lines="All" Text="Итого:" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell424" Border.Lines="All" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell425" Border.Lines="All" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell426" Border.Lines="All" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell427" Border.Lines="All" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell444" Border.Lines="All"/>
+            <TableCell Name="Cell448" Border.Lines="All"/>
+            <TableCell Name="Cell428" Border.Lines="All" Text="[t4_ob_s]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell429" Border.Lines="All" Text="[[t4_count_kvar]+[t4_count_kvar_ipu]]/[[t4_count_ls]+[t4_count_ls_ipu]]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell430" Border.Lines="All" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell431" Border.Lines="All" Text="[t4_count_gil]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell432" Border.Lines="All" Text="[t4_count_kvar]/[t4_count_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell433" Border.Lines="All" Text="[t4_rashod]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell434" Border.Lines="All" Text="[t4_count_gil]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell435" Border.Lines="All" Text="[t4_count_kvar_ipu]/[t4_count_ls_ipu]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell436" Border.Lines="All" Text="[t4_count_ipu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell437" Border.Lines="All" Text="[t4_rashod_ipu]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell438" Border.Lines="All" Text="[[t4_count_gil]+[t4_count_gil_ipu]]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell439" Border.Lines="All" Text="[[t4_count_kvar]+[t4_count_kvar_ipu]]/[[t4_count_ls]+[t4_count_ls_ipu]]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell440" Border.Lines="All" Text="[[t4_rashod]+[t4_rashod_ipu]]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

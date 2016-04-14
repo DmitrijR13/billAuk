@@ -1,0 +1,322 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Newtonsoft.Json.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\SevenZipSharp.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Bars.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Editor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.csprojResolveAssemblyReference.cache
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QTask.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QTask.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Newtonsoft.Json.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\SevenZipSharp.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Npgsql.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Bars.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Editor.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Mono.Security.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.xml
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.xml
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.xml
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.xml
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.csprojResolveAssemblyReference.cache
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.dll
+C:\VisualStudioProg\Main\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Newtonsoft.Json.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\SevenZipSharp.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Ionic.Zip.Reduced.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Npgsql.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\IBM.Data.Informix.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Bars.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Editor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Mono.Security.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.csprojResolveAssemblyReference.cache
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Newtonsoft.Json.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\SevenZipSharp.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Npgsql.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\IBM.Data.Informix.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Bars.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Editor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Mono.Security.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.csprojResolveAssemblyReference.cache
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Newtonsoft.Json.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\SevenZipSharp.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Npgsql.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\IBM.Data.Informix.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Bars.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Editor.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Mono.Security.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.xml
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.xml
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.xml
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.xml
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.csprojResolveAssemblyReference.cache
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.dll
+C:\billTest\Main - копия\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.Handlers.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Newtonsoft.Json.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\SevenZipSharp.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Ionic.Zip.Reduced.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Npgsql.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\IBM.Data.Informix.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Bars.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\FastReport.Editor.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Mono.Security.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.Globals.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Client.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.IFMX.Common.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Queue.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\KP50.CliKart.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Report.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.Utils.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.QueueCore.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Core.xml
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Castle.Windsor.xml
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\NLog.xml
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.RabbitMq.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\bin\Debug PG\RabbitMQ.Client.xml
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.csprojResolveAssemblyReference.cache
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.dll
+D:\projects\billAuk\Main\Report\Bars.KP50.Report.Handlers\obj\Debug PG\Bars.KP50.Report.Handlers.pdb

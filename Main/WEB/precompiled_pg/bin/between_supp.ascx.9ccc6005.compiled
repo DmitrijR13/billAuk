@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/charge/autoperekidki/between_supp.ascx" hash="cedb9400c" filehash="52fea7520b49fcbe" flags="110000" assembly="App_Web_0v4fktvz" type="ASP.kart_charge_autoperekidki_between_supp_ascx">
+    <filedeps>
+        <filedep name="/none/kart/charge/autoperekidki/between_supp.ascx" />
+        <filedep name="/none/master/templates/AutoCompleteContracts.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,188 @@
+function go(nmbd);
+
+-- CENTRAL_KERNEL
+database #nmbd_kernel;
+
+try
+drop table s_load_types;
+drop table s_load_kinds;
+drop table act_status_links;
+drop table s_act_status;
+except
+
+--Справочник типов расходов
+CREATE TABLE "are".s_load_types(
+   nzp_val_type SERIAL NOT NULL,
+   name_type    CHAR(90) NOT NULL
+);
+
+insert into s_load_types(nzp_val_type, name_type) values (1, 'Фактический расход за период по услуге');
+insert into s_load_types(nzp_val_type, name_type) values (2, 'Недопоставка                          ');
+insert into s_load_types(nzp_val_type, name_type) values (3, 'Перепоставка                          ');
+
+CREATE UNIQUE INDEX "are".ix1_load_types ON s_load_types(nzp_val_type);
+update statistics for table s_load_types;
+
+--Справочник видов расходов
+CREATE TABLE "are".s_load_kinds(
+   nzp_val_kind SERIAL NOT NULL,
+   name_kind    CHAR(90) NOT NULL,
+   nzp_val_type INTEGER not null,
+   ival_type    INTEGER not null
+);
+
+-- ival_type=1 Недопоставка, направляемая на реализацию программ энергосбережения
+-- ival_type=2 Недопоставка, оставляемая в составе целевой статьи бюджетных ассигнований
+
+-- недопоставки ival_type=1
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values ( 1,2,1, 'Недопоставка по показаниям приборов учета                                                                ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values ( 2,2,1, 'Оптимизация жилого фонда (снос ветхого жилья, уменьшение отапливаемых помещений, количества потребителей)');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values ( 3,2,1, 'Позднее начало и раннее окончание отопительного сезона по вине организации                               ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values ( 4,2,1, 'Не качественная поставка коммунальных ресурсов (услуг)                                                   ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values ( 5,2,1, 'Наличие аварийных ситуаций в котельных                                                                   ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values ( 6,2,1, 'Недовывоз                                                                                                ');
+-- недопоставки ival_type=2
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values ( 7,2,2, 'Добровольное отключение жилого фонда                                                         ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values ( 8,2,2, 'Выбытие жилого фонда (пожар, обрушение, уменьшение отапливаемой площади)                     ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values ( 9,2,2, 'Не подключение запланированного в тарифной реализации  жилого фонда                          ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values (10,2,2, 'Позднее начало и раннее окончание отопительного сезона по независящим от организации причинам');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values (11,2,2, 'Передача котельной, объектов ВОС, КОС  другим поставщикам                                    ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values (12,2,2, 'Перерасчет по температуре наружного воздуха                                                  ');
+-- перепоставки
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values (13,3,0, 'Перепоставка по показаниям приборов учета           ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values (14,3,0, 'Подключение жилого фонда                            ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values (15,3,0, 'Принятие новой  котельной, объекта ВОС, КОС         ');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values (16,3,0, 'Раннее подключение и продление отопительного периода');
+insert into s_load_kinds(nzp_val_kind,nzp_val_type,ival_type,name_kind) values (17,3,0, 'Перевывоз                                           ');
+
+CREATE UNIQUE INDEX "are".ix1_load_kinds ON s_load_kinds(nzp_val_kind);
+update statistics for table s_load_kinds;
+
+
+--статусы актов о фактической поставке
+create table "are".s_act_status
+(
+nzp_status integer not null,
+status char(30)
+);
+
+create unique index ix_s_act_status_1 on s_act_status(nzp_status);
+ALTER TABLE s_act_status ADD CONSTRAINT PRIMARY KEY (nzp_status) CONSTRAINT "are".pk_s_act_status;
+
+insert into "are".s_act_status (nzp_status, status) values (1, 'Генерируется');
+insert into "are".s_act_status (nzp_status, status) values (2, 'Сгенерирован');
+insert into "are".s_act_status (nzp_status, status) values (3, 'Загружается');
+insert into "are".s_act_status (nzp_status, status) values (4, 'Загружен');
+insert into "are".s_act_status (nzp_status, status) values (5, 'В процессе учета');
+insert into "are".s_act_status (nzp_status, status) values (6, 'Учтен');
+insert into "are".s_act_status (nzp_status, status) values (7, 'Удален');
+insert into "are".s_act_status (nzp_status, status) values (8, 'Учтен с ошибками');
+
+
+CREATE TABLE "are".act_status_links(
+   nzp_link SERIAL NOT NULL,
+   nzp_status_from INTEGER NOT NULL,
+   nzp_status_to INTEGER NOT NULL,
+   is_active INTEGER NOT NULL)
+EXTENT SIZE 32 NEXT SIZE 32 LOCK MODE ROW;
+
+CREATE UNIQUE INDEX "are".ix_act_status_links_1 ON "are".act_status_links(nzp_link);
+CREATE UNIQUE INDEX "are".ix_act_status_links_2 ON "are".act_status_links(nzp_status_from, nzp_status_to);
+CREATE INDEX "are".ix_act_status_links_3 ON "are".act_status_links(nzp_status_from);
+CREATE INDEX "are".ix_act_status_links_4 ON "are".act_status_links(nzp_status_to);
+ALTER TABLE act_status_links ADD CONSTRAINT (FOREIGN KEY (nzp_status_from) REFERENCES s_act_status CONSTRAINT "are".fk_act_status_links_1);
+ALTER TABLE act_status_links ADD CONSTRAINT (FOREIGN KEY (nzp_status_to) REFERENCES s_act_status CONSTRAINT "are".fk_act_status_links_2);
+
+insert into "are".act_status_links (nzp_status_from, nzp_status_to, is_active) values (1, 2, 1);
+insert into "are".act_status_links (nzp_status_from, nzp_status_to, is_active) values (2, 7, 1);
+insert into "are".act_status_links (nzp_status_from, nzp_status_to, is_active) values (3, 4, 1);
+insert into "are".act_status_links (nzp_status_from, nzp_status_to, is_active) values (4, 5, 1);
+insert into "are".act_status_links (nzp_status_from, nzp_status_to, is_active) values (4, 7, 1);
+insert into "are".act_status_links (nzp_status_from, nzp_status_to, is_active) values (5, 6, 1);
+insert into "are".act_status_links (nzp_status_from, nzp_status_to, is_active) values (5, 8, 1);
+
+
+-- CENTRAL_FIN_YY
+database #nmbd_fin_12;
+
+try
+drop table zg_act;
+drop table subs_act;
+drop table subs_act_details;
+except
+
+create table are.subs_act
+(
+  nzp_sa    serial,                   -- сериал
+  nzp_ev    integer not null,         -- ссылка на событие загрузки
+  num_act   integer not null,         -- № акта
+  dat_act   date not null,            -- дата акта
+  nzp_contract INTEGER NOT NULL,      -- соглашение
+  nzp_status INTEGER NOT NULL,        -- состояние
+  name_supp char(100) not null,       -- Поставщик услуги / УК                                                     
+  inn       decimal(12,0) not null,   -- ИНН поставщика услуги / УК                                                
+  kpp       decimal(10,0) not null,   -- КПП поставщика услуги / УК                                                
+  nzp_vill  decimal(13,0),            -- Код муниципального образования                                            
+  created_by INTEGER NOT NULL,
+  created_on datetime year to second NOT NULL,
+  changed_by INTEGER,
+  changed_on datetime year to second
+);
+
+create unique index ix1_subs_act on subs_act(nzp_sa);
+create        index ix2_subs_act on subs_act(nzp_ev); 
+create        index ix3_subs_act on subs_act(nzp_contract); 
+
+update statistics for table subs_act;
+
+create table are.subs_act_details
+(
+  nzp_sad   serial,                     -- сериал
+  nzp_sa    integer not null,           -- ссылка на акт
+  ricgd     decimal(13,0),              -- уникальный код дома РС(Я) - РИКЖД
+  dat_month date not null,              -- Месяц/Год учета расхода                                                       
+  nzp_serv  integer not null,           -- Код услуги                                                                
+  nzp_val_type integer default 0,       -- Тип расхода
+  nzp_val_kind integer default 0,       -- Вид расхода - Обязательно для типов расходов: недопоставка и перепоставка.                                                               
+  value_       decimal(14,7) not null,  -- Расход                                                                    
+  created_by INTEGER NOT NULL,
+  created_on datetime year to second NOT NULL,
+  changed_by INTEGER,
+  changed_on datetime year to second
+);
+
+create unique index ix1_subs_actd on subs_act_details(nzp_sad);
+create        index ix2_subs_actd on subs_act_details(nzp_sa); 
+create        index ix3_subs_actd on subs_act_details(ricgd); 
+
+
+----
+
+alter table s_town  modify town char(50);
+
+alter table s_rajon modify rajon char(50); 
+
+alter table subs_act
+ add (filename char(255),   socr_t char(3) , rajon char(50), podr char(40),
+      rc_name char(40), file_type char(20), dat_unload date, count_of integer, vers_f char(5)) ;
+
+alter table subs_act_details add nzp_supp integer;       
+alter table subs_act_details add inn char(12);
+alter table subs_act_details add kpp char(9);
+alter table subs_act_details add pu_name char(25);
+alter table subs_act add nzp_contract integer; 
+
+----
+
+
+update statistics for table subs_act_details;
+
+
+
+end function;
+
+-- fsaha!!!
+go(#pref);
+
+--go(fsaha);
+--go(fsaha2);

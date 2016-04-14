@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="02/06/2014 18:13:58" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      Data1.DataSource = Report.GetDataSource(&quot;Q_master&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="payer" DataType="System.String"/>
+      <Column Name="npayer" DataType="System.String"/>
+      <Column Name="service" DataType="System.String"/>
+      <Column Name="inn" DataType="System.String"/>
+      <Column Name="kpp" DataType="System.String"/>
+      <Column Name="rcount" DataType="System.String"/>
+      <Column Name="ur_adr" DataType="System.String"/>
+      <Column Name="fact_adr" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1084.86" Height="60.48" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text20" Left="18.9" Top="13.23" Width="1047.06" Height="47.25" Text="Сводный отчет по реквизитам поставщиков &#13;&#10;за [period]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="121.87" Width="1084.86" Height="15.12" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" DataSource="Q_master">
+      <TextObject Name="Text11" Left="18.9" Width="170.1" Height="15.12" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[Q_master.payer]" Padding="2, 2, 2, 5" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="189" Width="113.4" Height="15.12" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[Q_master.npayer]" Padding="2, 2, 2, 5" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="302.4" Width="103.95" Height="15.12" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[Q_master.service]" Padding="2, 2, 2, 5" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="406.35" Width="113.4" Height="15.12" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[Q_master.inn]" Padding="2, 2, 2, 5" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="519.75" Width="94.5" Height="15.12" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[Q_master.kpp]" Padding="2, 2, 2, 5" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="614.25" Width="151.2" Height="15.12" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[Q_master.rcount]" Padding="2, 2, 2, 5" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="918.54" Width="151.2" Height="15.12" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[Q_master.ur_adr]" Padding="2, 2, 2, 5" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text18" Left="765.45" Width="153.09" Height="15.12" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[Q_master.fact_adr]" Padding="2, 2, 2, 5" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataHeaderBand Name="DataHeader1" Top="63.99" Width="1084.86" Height="54.37">
+        <TextObject Name="Text2" Left="18.9" Top="-0.44" Width="170.1" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Полное наименование контрагента" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text3" Left="189" Top="-0.44" Width="113.4" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Краткое наименование контрагента" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text4" Left="302.4" Top="-0.44" Width="103.95" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Оказываемые услуги" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text5" Left="406.35" Top="-0.44" Width="113.4" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="ИНН" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text6" Left="519.75" Top="-0.44" Width="94.5" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="КПП" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text7" Left="614.25" Top="-0.44" Width="151.2" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Расчетный счет" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text9" Left="918.54" Top="-0.44" Width="151.2" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Юридический адрес" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text10" Left="765.45" Top="-0.44" Width="153.09" Height="54.81" Border.Lines="All" Border.Width="0.5" Text="Фактический адрес" HorzAlign="Center" VertAlign="Center"/>
+      </DataHeaderBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="140.5" Width="1084.86" Height="83.16">
+      <TextObject Name="Text8" Left="406.35" Top="9.45" Width="512.19" Height="49.14" Text="Начальник абонентского отдела _____________/_____________&#13;&#10;&#13;&#10;Директор _____________/_____________" HorzAlign="Right" VertAlign="Center"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

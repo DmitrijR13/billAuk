@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="01/22/2014 08:11:37" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string nkvar_n = &quot;A&quot;;
+    string nkvar = &quot;1&quot;;    
+    string nkor = &quot;2&quot;;
+    string ndom = &quot;3&quot;;    
+    string ulica = &quot;Ленина&quot;;        
+    string town = &quot;г.Казань&quot;;    
+    string pl_gil = &quot;20.00&quot;;
+    string pl_all = &quot;28.00&quot;;    
+    string sum_real = &quot;100.00&quot;;
+    string privat = &quot;Приватизированная&quot;;    
+    string kolgil = &quot;4&quot;;
+    string fio = &quot;Иванов И.И.&quot;;    
+    string komn = &quot;&quot;;
+    string korp = &quot;&quot;;    
+    string kind_priv = &quot;&quot;;        
+    string Lschet = &quot;1000000&quot;;        
+    
+    
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      
+      if (nkvar_n == &quot;-&quot;)
+         komn = &quot;&quot;;
+      else  
+         komn = &quot;Комната&quot;;
+      
+      if (nkor == &quot;-&quot;) 
+          korp = &quot;&quot;;
+      else
+          korp = &quot;Корпус&quot;;
+      
+      if (nkvar_n == &quot;-&quot;) 
+          kind_priv = &quot;Квартира&quot;;
+      else 
+          kind_priv = &quot;Комната&quot;;
+      }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_prih" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="percent" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_ud" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_prih" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="percent" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_ud" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="Total_sum_charge" Expression="[Q_master.sum_charge]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total_sum_prih" Expression="[Q_master.sum_prih]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_sum_ud" Expression="[Q_master.sum_ud]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_sum_charge_all" Expression="[Q_master1.sum_charge]" Evaluator="Data2" ResetOnReprint="true"/>
+    <Total Name="Total_sum_prih_all" Expression="[Q_master1.sum_prih]" Evaluator="Data2" ResetOnReprint="true"/>
+    <Total Name="Total_sum_ud_all" Expression="[Q_master1.sum_ud]" Evaluator="Data2" ResetOnReprint="true"/>
+    <Total Name="Total_percent" Expression="[Q_master.percent]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="Total_sum_real" Expression="[Q_master.sum_real]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <GroupHeaderBand Name="GroupHeader1" Width="718.2" Height="132.3" StartNewPage="true" RepeatOnEveryPage="true" Condition="[Q_master.area]" SortOrder="None">
+      <TextObject Name="Text172" Left="425.1" Top="94.5" Width="113.4" Height="37.8" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text182" Left="538.5" Top="94.5" Width="56.7" Height="37.8" Border.Lines="All" Text="% &#13;&#10;сбора" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text5" Left="217.35" Top="75.6" Width="103.95" Height="56.7" Border.Lines="All" Text="Начислено за месяц с уч. недопоставки" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text4" Left="9.45" Top="75.6" Width="28.35" Height="56.7" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text171" Left="37.8" Top="75.6" Width="179.55" Height="56.7" Border.Lines="All" Text="Услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text174" Left="425.1" Top="75.6" Width="170.1" Height="18.9" Border.Lines="All" Text="Поступило" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text177" Left="595.2" Top="75.6" Width="85.05" Height="56.7" Border.Lines="All" Text="Удержано за обслуживание" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text1" Left="10.72" Top="13.96" Width="517.44" Height="56.7" Text="10.4мФ Состояние поступлений [Q_master.area]&#13;&#10;за [month] [year] г. на период с [dats] по [datpo]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text22" Left="529.2" Top="13.9" Width="85.05" Height="28.35" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text23" Left="614.25" Top="13.9" Width="85.05" Height="28.35" Text="[date]&#13;&#10;[time]" Font="Arial, 8pt"/>
+      <TextObject Name="Text248" Left="320.95" Top="75.6" Width="103.95" Height="56.7" Border.Lines="All" Text="Начислено к оплате" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <DataBand Name="Data1" Top="134.74" Width="718.2" Height="18.9" CanGrow="true" CanBreak="true" DataSource="Q_master">
+        <TextObject Name="Text191" Left="9.45" Width="28.35" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text194" Left="37.8" Width="179.55" Height="18.9" Border.Lines="All" Text="[Q_master.service]" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text211" Left="217.35" Width="103.95" Height="18.9" Border.Lines="All" Text="[Q_master.sum_real]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text212" Left="425.1" Width="113.4" Height="18.9" Border.Lines="All" Text="[Q_master.sum_prih]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text213" Left="538.5" Width="56.7" Height="18.9" Border.Lines="All" Text="[Q_master.percent]%" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text214" Left="595.2" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.sum_ud]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text249" Left="320.95" Width="103.95" Height="18.9" Border.Lines="All" Text="[Q_master.sum_charge]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="156.08" Width="718.2" Height="23.25">
+        <TextObject Name="Text243" Left="9.45" Width="207.9" Height="18.9" Border.Lines="All" Text="Итого: " HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text244" Left="217.35" Width="103.95" Height="18.9" Border.Lines="All" Text="[Total_sum_real]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text245" Left="425.1" Width="113.4" Height="18.9" Border.Lines="All" Text="[Total_sum_prih]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text246" Left="538.5" Width="56.7" Height="18.9" Border.Lines="All" Text="[[Total_sum_prih]/[Total_sum_charge]*100]%" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text247" Left="595.2" Width="85.05" Height="18.9" Border.Lines="All" Text="[Total_sum_ud]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text250" Left="320.95" Width="103.95" Height="18.9" Border.Lines="All" Text="[Total_sum_charge]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="181.77" Width="718.2" Height="18.9" CanGrow="true"/>
+    <PageFooterBand Name="PageFooter2" Top="203.11" Width="718.2" Height="37.8">
+      <TextObject Name="Text2" Left="529.2" Top="9.45" Width="179.55" Height="18.9" Text="Страница [Page]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text54" Left="9.45" Top="9.45" Width="519.75" Height="18.9" Text="Наименование отчета: 10.4мФ Состояние поступлений" VertAlign="Center" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page2">
+    <ReportTitleBand Name="ReportTitle2" Width="718.2" Height="132.3">
+      <TextObject Name="Text219" Left="133.57" Top="13.96" Width="413.49" Height="56.7" Text="10.4мФ Состояние поступлений в целом по УК &#13;&#10;за [month] [year] г. &#13;&#10;на период с [dats] по [datpo]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text220" Left="548.1" Top="9.45" Width="85.05" Height="28.35" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text221" Left="633.15" Top="9.45" Width="85.05" Height="28.35" Text="[date]&#13;&#10;[time]" Font="Arial, 8pt"/>
+      <TextObject Name="Text222" Left="9.45" Top="75.6" Width="28.35" Height="56.7" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text223" Left="217.35" Top="75.6" Width="151.2" Height="56.7" Border.Lines="All" Text="Начислено к оплате" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text224" Left="37.8" Top="75.6" Width="179.55" Height="56.7" Border.Lines="All" Text="Услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text226" Left="368.55" Top="75.6" Width="160.65" Height="18.9" Border.Lines="All" Text="Поступило" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text227" Left="529.2" Top="75.6" Width="179.55" Height="56.7" Border.Lines="All" Text="Удержано за обслуживание" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text225" Left="368.55" Top="94.5" Width="122.85" Height="37.8" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text228" Left="491.4" Top="94.5" Width="37.8" Height="37.8" Border.Lines="All" Text="% &#13;&#10;сбора" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data2" Top="134.47" Width="718.2" Height="18.9" DataSource="Q_master1">
+      <TextObject Name="Text234" Left="529.2" Width="179.55" Height="18.9" Border.Lines="All" Text="[Q_master1.sum_ud]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text229" Left="9.45" Width="28.35" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text230" Left="37.8" Width="179.55" Height="18.9" Border.Lines="All" Text="[Q_master1.service]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text231" Left="217.35" Width="151.2" Height="18.9" Border.Lines="All" Text="[Q_master1.sum_charge]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text232" Left="368.55" Width="122.85" Height="18.9" Border.Lines="All" Text="[Q_master1.sum_prih]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text233" Left="491.4" Width="37.8" Height="18.9" Border.Lines="All" Text="[[Q_master1.sum_prih]/[Q_master1.sum_charge]*100]%" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary2" Top="155.55" Width="718.2" Height="18.9">
+      <TextObject Name="Text235" Left="9.45" Width="207.9" Height="18.9" Border.Lines="All" Text="Итого:" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text236" Left="217.35" Width="151.2" Height="18.9" Border.Lines="All" Text="[Total_sum_charge_all]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text237" Left="368.55" Width="122.85" Height="18.9" Border.Lines="All" Text="[Total_sum_prih_all]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text238" Left="491.4" Width="37.8" Height="18.9" Border.Lines="All" Text="[[Total_sum_prih_all]/[Total_sum_charge_all]*100]%" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text239" Left="529.2" Width="179.55" Height="18.9" Border.Lines="All" Text="[Total_sum_ud_all]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="176.62" Width="718.2" Height="47.25">
+      <TextObject Name="Text240" Left="595.35" Top="19.05" Width="113.4" Height="18.9" Text="Страница [Page]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text241" Left="9.45" Top="19.05" Width="585.9" Height="18.9" Text="Наименование отчета: 10.4мФ Состояние поступлений" VertAlign="Center" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

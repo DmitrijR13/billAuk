@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AB4B6429-9EA5-4A9B-B435-E55F22B1844E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bars.Security</RootNamespace>
+    <AssemblyName>Bars.Security</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\Attributes\IgnoreOnRegister.cs" />
+    <Compile Include="Authentication\Attributes\ValidateOnRegister.cs" />
+    <Compile Include="Authentication\Attributes\ValidationStrategyType.cs" />
+    <Compile Include="Authentication\AuthenticationAdapter.cs" />
+    <Compile Include="Authentication\Configuration\DatabaseAuthenticationConfiguration.cs" />
+    <Compile Include="Authentication\Configuration\OpenAmAuthenticationConfiguration.cs" />
+    <Compile Include="Authentication\Parameters\DatabaseAuthenticationParam.cs" />
+    <Compile Include="Authentication\Parameters\OpenAmAuthenticationParam.cs" />
+    <Compile Include="Authentication\Session\Sessions.cs" />
+    <Compile Include="Authentication\Session\User.cs" />
+    <Compile Include="Authentication\Session\UserSession.cs" />
+    <Compile Include="Authentication\Strategy\AuthenticationStrategy.cs" />
+    <Compile Include="Authentication\Strategy\DatabaseAuthenticationStrategy.cs" />
+    <Compile Include="Authentication\Strategy\IAuthenticationStrategy.cs" />
+    <Compile Include="Authentication\Strategy\OpenAmAuthenticationStrategy.cs" />
+    <Compile Include="Authentication\Validation\IValidationStrategy.cs" />
+    <Compile Include="Authentication\Validation\Providers\EMailValidationProvider.cs" />
+    <Compile Include="Authentication\Validation\Providers\LoginValidationProvider.cs" />
+    <Compile Include="Authentication\Validation\Providers\PassworValidationProvider.cs" />
+    <Compile Include="Authentication\Validation\Providers\UserValidationProvider.cs" />
+    <Compile Include="Authentication\Validation\ValidationProcessor.cs" />
+    <Compile Include="Authorization\Access\AccessibleAction.cs" />
+    <Compile Include="Authorization\Access\AccessibleData.cs" />
+    <Compile Include="Authorization\Access\AccessibleDataCollection.cs" />
+    <Compile Include="Authorization\Access\AccessibleGroup.cs" />
+    <Compile Include="Authorization\Access\AccessibleObject.cs" />
+    <Compile Include="Authorization\Access\AccessibleObjectsCollection.cs" />
+    <Compile Include="Authorization\Access\AccessibleRoles.cs" />
+    <Compile Include="Authorization\AuthorizationAdapter.cs" />
+    <Compile Include="Authorization\Configuration\DatabaseAuthorizationConfiguration.cs" />
+    <Compile Include="Authorization\Strategy\AuthorizationStrategy.cs" />
+    <Compile Include="Authorization\Strategy\DatabaseAuthorizationStrategy.cs" />
+    <Compile Include="Authorization\Strategy\IAuthorizationStrategy.cs" />
+    <Compile Include="Authorization\Strategy\OpenAmAuthorizationStrategy.cs" />
+    <Compile Include="Exceptions\Authentication\InvalidAuthenticationParamsException.cs" />
+    <Compile Include="Exceptions\Authentication\UserNotAthenticatedException.cs" />
+    <Compile Include="Exceptions\RenataDetectedException.cs" />
+    <Compile Include="Exceptions\Security\InvalidTokenException.cs" />
+    <Compile Include="Extentions\Singleton.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Authentication\Password.cs" />
+    <Compile Include="Security\Authentication\Token.cs" />
+    <Compile Include="Security\Cryptography\CryptoProvider.cs" />
+    <Compile Include="Security\Cryptography\ICryptoProvider.cs" />
+    <Compile Include="Security\Cryptography\Md5CryptoProvider.cs" />
+    <Compile Include="Security\Cryptography\RijndaelCryptoProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DATA\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj">
+      <Project>{a09e0051-6b16-42b5-9840-8cb60b0729c7}</Project>
+      <Name>STCLINE.KP50.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DATA\IFMX\Common\STCLINE.KP50.IFMX.Common.csproj">
+      <Project>{13faa6d8-da11-4392-bad2-c1640c172e01}</Project>
+      <Name>STCLINE.KP50.IFMX.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

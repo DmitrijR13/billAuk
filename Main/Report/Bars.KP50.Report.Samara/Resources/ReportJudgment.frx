@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/22/2014 17:28:40" ReportInfo.Modified="03/29/2016 11:59:26" ReportInfo.CreatorVersion="2015.4.2.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="month" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_tarif_total" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="area" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="supp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="ud" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_house" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="фио" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_blag" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="build_year" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="floors" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_tarif_7" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_7" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_9" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_9" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_15" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_15" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_8" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_8" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_17" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="tarif_17" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="sum_tarif_2" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="tarif_2" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="sum_tarif_22" DataType="System.Decimal" PropName="Column5"/>
+      <Column Name="tarif_22" DataType="System.Decimal" PropName="Column6"/>
+      <Column Name="sum_tarif_14" DataType="System.Decimal" PropName="Column7"/>
+      <Column Name="sum_tarif_25" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_25" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_money" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="dat_prih" DataType="System.String" PropName="Column3"/>
+      <Column Name="tarif_14" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="tarif_100018" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_100018" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_500" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum_peni" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money_peni" DataType="System.Decimal" PropName="Column" Format="Number"/>
+      <Column Name="reval_peni" DataType="System.Decimal" PropName="Column1" Format="Number"/>
+      <Column Name="sum_tarif_100019" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_100019" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_6" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_6" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_26" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_26" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_tarif_210" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="tarif_210" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="sum_tarif_100020" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="tarif_100020" DataType="System.Decimal" PropName="Column5"/>
+      <Column Name="sum_tarif_100021" DataType="System.Decimal" PropName="Column6"/>
+      <Column Name="tarif_100021" DataType="System.Decimal" PropName="Column7"/>
+    </TableDataSource>
+    <Total Name="t_sum_tarif_total" Expression="[Q_master.sum_tarif_total]" Evaluator="Data1" PrintOn="ColumnFooter1"/>
+    <Total Name="t_sum_tarif_7" Expression="[Q_master.sum_tarif_7]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_9" Expression="[Q_master.sum_tarif_9]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_15" Expression="[Q_master.sum_tarif_15]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_8" Expression="[Q_master.sum_tarif_8]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_17" Expression="[Q_master.sum_tarif_17]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_2" Expression="[Q_master.sum_tarif_2]" Evaluator="Data1" ResetAfterPrint="false"/>
+    <Total Name="t_sum_tarif_22" Expression="[Q_master.sum_tarif_22]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_14" Expression="[Q_master.sum_tarif_14]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_25" Expression="[Q_master.sum_tarif_25]" Evaluator="Data1"/>
+    <Total Name="t_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_100018" Expression="[Q_master.sum_tarif_100018]" Evaluator="Data1"/>
+    <Total Name="t_reval" Expression="[Q_master.reval]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_500" Expression="[Q_master.sum_tarif_500]" Evaluator="Data1"/>
+    <Total Name="total_sum_money_peni" Expression="[Q_master.sum_money_peni]" Evaluator="Data1"/>
+    <Total Name="total_reval_peni" Expression="[Q_master.reval_peni]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_100019" Expression="[Q_master.sum_tarif_100019]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_6" Expression="[Q_master.sum_tarif_6]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_26" Expression="[Q_master.sum_tarif_26]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_210" Expression="[Q_master.sum_tarif_210]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_100020" Expression="[Q_master.sum_tarif_100020]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif_100021" Expression="[Q_master.sum_tarif_100021]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="718" Guides="585.9,1115.1,585.9">
+    <ReportTitleBand Name="ReportTitle1" Width="2638.44" Height="264.6">
+      <TextObject Name="Text1" Left="-9.45" Top="132.3" Width="595.35" Height="132.3" Text="Квартиросъемщик (собственник): [Q_master2.fio] л/c: [Q_master2.num_ls]&#13;&#10;Проживающий по адресу: [Q_master2.address]&#13;&#10;Квартира: [Q_master2.privatized]&#13;&#10;Общая площадь: [Q_master2.total_area], Жилая площадь: [Q_master2.living_area]&#13;&#10;Количество зарегистрированных: [Q_master2.people_count]&#13;&#10;Количество проживающих: [Q_master2.people_living]"/>
+      <TextObject Name="Text73" Left="-9.45" Width="595.35" Height="47.25" Text="Справка&#13;&#10;дана для предъявления в суд" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="268.6" Width="2638.44" Height="63.88" PrintOn="FirstPage" Guides="28.35,0,28.35,28.35,28.35,28.35">
+      <TextObject Name="Text13" Left="132.3" Top="28.35" Width="113.4" Height="34.78" Border.Lines="All" Text="Водоотведение" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text11" Width="56.7" Height="63.88" Border.Lines="All" Text="месяц" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text41" Left="245.7" Top="28.35" Width="113.4" Height="34.78" Border.Lines="All" Text="Горячее водоснабжение" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text42" Left="359.1" Top="28.35" Width="113.4" Height="34.78" Border.Lines="All" Text="Найм жилья" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text43" Left="472.5" Top="28.35" Width="113.4" Height="34.78" Border.Lines="All" Text="Отопление" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text44" Left="585.9" Top="28.35" Width="113.4" Height="34.78" Border.Lines="All" Text="Содержание жилых помещений" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text45" Left="699.3" Top="28.35" Width="113.4" Height="34.78" Border.Lines="All" Text="Текущий ремонт" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text46" Left="812.7" Top="28.35" Width="122.85" Height="34.78" Border.Lines="All" Text="ТО ВДГО" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text47" Left="935.55" Top="28.35" Width="113.4" Height="34.78" Border.Lines="All" Text="ХОВ" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text48" Left="1048.95" Top="28.35" Width="122.85" Height="34.78" Border.Lines="All" Text="Электроснабжение" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text49" Left="2268" Width="122.85" Height="63.13" Border.Lines="All" Text="Оплачено" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text50" Left="2390.85" Width="122.85" Height="63.13" Border.Lines="All" Text="Сумма долга нарастающим итогом без пени" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text52" Left="132.3" Width="1899.45" Height="28.35" Border.Lines="All" Text="в том числе по услугам" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text77" Left="1171.8" Top="28.35" Width="122.85" Height="34.78" Border.Lines="All" Text="Двор.туалеты" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text78" Left="2145.15" Width="122.85" Height="63.13" Border.Lines="All" Text="Перерасчеты" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text100" Left="2513.7" Width="122.85" Height="63.13" Border.Lines="All" Text="Сумма долга нарастающим итогом с пени" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text12" Left="56.7" Width="75.6" Height="63.13" Border.Lines="All" Text="всего" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text81" Left="2031.75" Width="113.4" Height="63.13" Border.Lines="All" Text="Пени" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text104" Left="1294.65" Top="28.35" Width="122.85" Height="34.78" Border.Lines="All" Text="Уборка МОП" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text108" Left="1417.5" Top="28.35" Width="122.85" Height="34.78" Border.Lines="All" Text="Холодное водоснабжение" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text112" Left="1540.35" Top="28.35" Width="122.85" Height="34.78" Border.Lines="All" Text="Домофон" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text116" Left="1663.2" Top="28.35" Width="122.85" Height="34.78" Border.Lines="All" Text="Электроснабжение ночное" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text120" Left="1786.05" Top="28.35" Width="122.85" Height="34.78" Border.Lines="All" Text="ТО ППА" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text124" Left="1908.9" Top="28.35" Width="122.85" Height="34.78" Border.Lines="All" Text="Консъержи" HorzAlign="Center" Font="Arial, 9pt"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="336.48" Width="2638.44" Height="37.8" DataSource="Q_master">
+      <TextObject Name="Text5" Left="56.7" Width="75.6" Height="37.8" Border.Lines="All" Text="[ToDecimal([Q_master.sum_tarif_7]) + ToDecimal([Q_master.sum_tarif_9]) + ToDecimal([Q_master.sum_tarif_6]) + ToDecimal([Q_master.sum_tarif_15]) + ToDecimal([Q_master.sum_tarif_8]) + ToDecimal([Q_master.sum_tarif_17]) + ToDecimal([Q_master.sum_tarif_2]) + ToDecimal([Q_master.sum_tarif_22]) + ToDecimal([Q_master.sum_tarif_14]) + ToDecimal([Q_master.sum_tarif_25]) + ToDecimal([Q_master.sum_tarif_100018]) + ToDecimal([Q_master.sum_tarif_26]) + + ToDecimal([Q_master.sum_tarif_210]) + ToDecimal([Q_master.sum_tarif_100020]) + ToDecimal([Q_master.sum_tarif_100021])] "/>
+      <TextObject Name="Text6" Left="132.3" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_7]&#13;&#10;[Q_master.tarif_7]"/>
+      <TextObject Name="Text7" Left="245.7" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_9]&#13;&#10;[Q_master.tarif_9]"/>
+      <TextObject Name="Text8" Left="359.1" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_15]&#13;&#10;[Q_master.tarif_15]"/>
+      <TextObject Name="Text53" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master.date_]&#13;&#10;тариф"/>
+      <TextObject Name="Text55" Left="472.5" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_8]&#13;&#10;[Q_master.tarif_8]"/>
+      <TextObject Name="Text57" Left="585.9" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_17]&#13;&#10;[Q_master.tarif_17]"/>
+      <TextObject Name="Text59" Left="699.3" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_2]&#13;&#10;[Q_master.tarif_2]"/>
+      <TextObject Name="Text61" Left="812.7" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_22]&#13;&#10;[Q_master.tarif_22]"/>
+      <TextObject Name="Text63" Left="935.55" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_14]&#13;&#10;[Q_master.tarif_14]"/>
+      <TextObject Name="Text65" Left="1048.95" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_25]&#13;&#10;[Q_master.tarif_25]"/>
+      <TextObject Name="Text67" Left="2268" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_money]&#13;&#10;[Q_master.dat_prih]"/>
+      <TextObject Name="Text69" Left="2390.85" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.dolg_sum]&#13;&#10;"/>
+      <TextObject Name="Text76" Left="1171.8" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_100018]&#13;&#10;[Q_master.tarif_100018]"/>
+      <TextObject Name="Text79" Left="2145.15" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.reval]"/>
+      <TextObject Name="Text101" Left="2513.7" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.dolg_sum_peni]"/>
+      <TextObject Name="Text82" Left="2031.75" Width="113.4" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_500]"/>
+      <TextObject Name="Text105" Left="1294.65" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_100019]&#13;&#10;[Q_master.tarif_100019]"/>
+      <TextObject Name="Text109" Left="1417.5" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_6]&#13;&#10;[Q_master.tarif_6]"/>
+      <TextObject Name="Text113" Left="1540.35" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_26]&#13;&#10;[Q_master.tarif_26]"/>
+      <TextObject Name="Text117" Left="1663.2" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_210]&#13;&#10;[Q_master.tarif_210]"/>
+      <TextObject Name="Text121" Left="1786.05" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_100020]&#13;&#10;[Q_master.tarif_100020]"/>
+      <TextObject Name="Text125" Left="1908.9" Width="122.85" Height="37.8" Border.Lines="All" Text="[Q_master.sum_tarif_100021]&#13;&#10;[Q_master.tarif_100021]"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="382.28" Width="2638.44" Height="179.55">
+      <TextObject Name="Text74" Left="9.45" Top="85.05" Width="548.1" Height="91.48" Text="&#13;&#10;&#13;&#10;Выполнил                          _________________ Волков С.Б.&#13;&#10;&#13;&#10;&#13;&#10;Генеральный директор _________________ Гордиевский П.А." Font="Arial, 9pt"/>
+      <TextObject Name="Text84" Top="18.9" Width="132.3" Height="18.9" Border.Lines="All" Text="Долг:" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text86" Left="359.1" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text87" Left="132.3" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All" Text="[ToDecimal([t_sum_tarif_7]) + ToDecimal([t_sum_tarif_9]) + ToDecimal([t_sum_tarif_15]) + ToDecimal([t_sum_tarif_8]) + ToDecimal([t_sum_tarif_17]) + ToDecimal([t_sum_tarif_22]) + ToDecimal([t_sum_tarif_2]) + ToDecimal([t_sum_tarif_14]) + ToDecimal([t_sum_tarif_25]) + ToDecimal([t_sum_tarif_100018]) + ToDecimal([t_sum_tarif_100019]) + ToDecimal([t_sum_tarif_6])  + ToDecimal([t_sum_tarif_26]) + ToDecimal([t_sum_tarif_210]) + ToDecimal([t_sum_tarif_100020]) + ToDecimal([t_sum_tarif_100021]) + ToDecimal([t_sum_tarif_500]) - ToDecimal([t_sum_money]) + ToDecimal([t_reval])]"/>
+      <TextObject Name="Text88" Left="245.7" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text89" Left="472.5" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text90" Left="585.9" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text91" Left="699.3" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text92" Left="812.7" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text93" Left="935.55" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text94" Left="1048.95" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text95" Left="1171.8" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text107" Left="1294.65" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text30" Width="56.7" Height="18.9" Border.Lines="All" Text="Итого" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text31" Left="56.7" Width="75.6" Height="18.9" Border.Lines="All" Text="[ToDecimal([t_sum_tarif_7]) + ToDecimal([t_sum_tarif_9]) + ToDecimal([t_sum_tarif_15]) + ToDecimal([t_sum_tarif_8]) + ToDecimal([t_sum_tarif_17]) + ToDecimal([t_sum_tarif_22]) + ToDecimal([t_sum_tarif_2]) + ToDecimal([t_sum_tarif_14]) + ToDecimal([t_sum_tarif_25]) + ToDecimal([t_sum_tarif_100018]) + ToDecimal([t_sum_tarif_6]) + ToDecimal([t_sum_tarif_26]) + ToDecimal([t_sum_tarif_210]) + ToDecimal([t_sum_tarif_100020]) + ToDecimal([t_sum_tarif_100021])]"/>
+      <TextObject Name="Text33" Left="359.1" Width="113.4" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_15]"/>
+      <TextObject Name="Text32" Left="132.3" Width="113.4" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_7]"/>
+      <TextObject Name="Text54" Left="245.7" Width="113.4" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_9]"/>
+      <TextObject Name="Text56" Left="472.5" Width="113.4" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_8]"/>
+      <TextObject Name="Text58" Left="585.9" Width="113.4" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_17]"/>
+      <TextObject Name="Text60" Left="699.3" Width="113.4" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_2]"/>
+      <TextObject Name="Text62" Left="812.7" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_22]"/>
+      <TextObject Name="Text64" Left="935.55" Width="113.4" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_14]"/>
+      <TextObject Name="Text66" Left="1048.95" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_25]"/>
+      <TextObject Name="Text75" Left="1171.8" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_100018]"/>
+      <TextObject Name="Text106" Left="1294.65" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_100019]"/>
+      <TextObject Name="Text96" Left="2145.15" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text98" Left="2268" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text99" Left="2390.85" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text103" Left="2513.7" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text97" Left="2031.75" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text83" Left="2031.75" Width="113.4" Height="18.9" Border.Lines="All" Text="[Q_master3.t_sum_tarif_500]"/>
+      <TextObject Name="Text70" Left="2390.85" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text68" Left="2268" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_money]"/>
+      <TextObject Name="Text80" Left="2145.15" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_reval]"/>
+      <TextObject Name="Text102" Left="2513.7" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text110" Left="1417.5" Top="19.18" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text111" Left="1417.5" Top="0.28" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_6]"/>
+      <TextObject Name="Text114" Left="1540.35" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text115" Left="1540.35" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_26]"/>
+      <TextObject Name="Text118" Left="1663.2" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text119" Left="1663.2" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_210]"/>
+      <TextObject Name="Text122" Left="1786.05" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text123" Left="1786.05" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_100020]"/>
+      <TextObject Name="Text126" Left="1908.9" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text127" Left="1908.9" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_100021]"/>
+    </ReportSummaryBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="378.28" Width="2638.44" CanGrow="true" CanShrink="true" PrintOn="SinglePage" CanBreak="true"/>
+  </ReportPage>
+</Report>

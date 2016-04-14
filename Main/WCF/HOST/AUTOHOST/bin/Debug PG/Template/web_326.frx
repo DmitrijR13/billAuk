@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="09/22/2013 15:31:30" ReportInfo.CreatorVersion="2013.1.11.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void _StartReport(object sender, EventArgs e)
+    {
+    }
+    
+    public bool CheckEqual(string a, string b)
+    {
+       if(a.Trim() == b.Trim())
+        return true;
+       else
+        return false;
+    }
+
+    private void Text57_AfterData(object sender, EventArgs e)
+    {
+      if(CheckEqual(Text9.Text, Text10.Text))
+      {
+        Text9.Text = &quot;&quot;;
+        Text10.Text = &quot;&quot;;
+      }
+      
+      if(CheckEqual(Text40.Text, Text41.Text))
+      {
+        Text40.Text = &quot;&quot;;
+        Text41.Text = &quot;&quot;;
+      }
+      
+      if(CheckEqual(Text42.Text, Text43.Text))
+      {
+        Text42.Text = &quot;&quot;;
+        Text43.Text = &quot;&quot;;
+      }
+      
+      if(CheckEqual(Text44.Text, Text45.Text))
+      {
+        Text44.Text = &quot;&quot;;
+        Text45.Text = &quot;&quot;;
+      }
+      
+      if(CheckEqual(Text46.Text, Text47.Text))
+      {
+        Text46.Text = &quot;&quot;;
+        Text47.Text = &quot;&quot;;
+      }
+      
+      if(CheckEqual(Text48.Text, Text49.Text))
+      {
+        Text48.Text = &quot;&quot;;
+        Text49.Text = &quot;&quot;;
+      }
+      
+      if(CheckEqual(Text50.Text, Text51.Text))
+      {
+        Text50.Text = &quot;&quot;;
+        Text51.Text = &quot;&quot;;
+      }
+      
+      if(CheckEqual(Text52.Text, Text53.Text))
+      {
+        Text52.Text = &quot;&quot;;
+        Text53.Text = &quot;&quot;;
+      }
+      
+      if(CheckEqual(Text54.Text, Text55.Text))
+      {
+        Text54.Text = &quot;&quot;;
+        Text55.Text = &quot;&quot;;
+      }
+      
+      if(CheckEqual(Text56.Text, Text57.Text))
+      {
+        Text56.Text = &quot;&quot;;
+        Text57.Text = &quot;&quot;;
+      }
+    }
+
+    private void Text311_AfterData(object sender, EventArgs e)
+    {
+      if(CheckEqual(Text282.Text, Text283.Text))
+      {
+        Text282.Text = &quot;&quot;;
+        Text283.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text284.Text, Text285.Text))
+      {
+        Text284.Text = &quot;&quot;;
+        Text285.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text286.Text, Text287.Text))
+      {
+        Text286.Text = &quot;&quot;;
+        Text287.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text288.Text, Text289.Text))
+      {
+        Text288.Text = &quot;&quot;;
+        Text289.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text290.Text, Text291.Text))
+      {
+        Text290.Text = &quot;&quot;;
+        Text291.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text292.Text, Text293.Text))
+      {
+        Text292.Text = &quot;&quot;;
+        Text293.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text294.Text, Text295.Text))
+      {
+        Text294.Text = &quot;&quot;;
+        Text295.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text296.Text, Text297.Text))
+      {
+        Text296.Text = &quot;&quot;;
+        Text297.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text298.Text, Text299.Text))
+      {
+        Text298.Text = &quot;&quot;;
+        Text299.Text = &quot;&quot;;
+      }      
+      if(CheckEqual(Text300.Text, Text301.Text))
+      {
+        Text300.Text = &quot;&quot;;
+        Text301.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text302.Text, Text303.Text))
+      {
+        Text302.Text = &quot;&quot;;
+        Text303.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text304.Text, Text305.Text))
+      {
+        Text304.Text = &quot;&quot;;
+        Text305.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text306.Text, Text307.Text))
+      {
+        Text306.Text = &quot;&quot;;
+        Text307.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text308.Text, Text309.Text))
+      {
+        Text308.Text = &quot;&quot;;
+        Text309.Text = &quot;&quot;;
+      }
+      if(CheckEqual(Text310.Text, Text311.Text))
+      {
+        Text310.Text = &quot;&quot;;
+        Text311.Text = &quot;&quot;;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="adr" DataType="System.String"/>
+      <Column Name="pkod" DataType="System.Decimal"/>
+      <Column Name="serv_ls_privat" DataType="System.Int32"/>
+      <Column Name="sobit_ls_privat" DataType="System.Int32"/>
+      <Column Name="serv_ls_shtrih" DataType="System.String"/>
+      <Column Name="sobit_ls_shtrih" DataType="System.String"/>
+      <Column Name="serv_ls_geu" DataType="System.Int32"/>
+      <Column Name="sobit_ls_geu" DataType="System.Int32"/>
+      <Column Name="serv_ls_count_gil" DataType="System.Int32"/>
+      <Column Name="sobit_ls_count_gil" DataType="System.Int32"/>
+      <Column Name="serv_ls_count_propis" DataType="System.Int32"/>
+      <Column Name="sobit_ls_count_propis" DataType="System.Int32"/>
+      <Column Name="serv_ls_pl" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_pl" DataType="System.Decimal"/>
+      <Column Name="serv_ls_pl_dom" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_pl_dom" DataType="System.Decimal"/>
+      <Column Name="serv_ls_pl_mop" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_pl_mop" DataType="System.Decimal"/>
+      <Column Name="serv_ls_count_gil_all" DataType="System.Int32"/>
+      <Column Name="sobit_ls_count_gil_all" DataType="System.Int32"/>
+      <Column Name="serv_ls_sum_charge" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_sum_charge" DataType="System.Decimal"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master2" ReferenceName="Data.Q_master2" DataType="System.Int32" Enabled="true">
+      <Column Name="pkod" DataType="System.Decimal"/>
+      <Column Name="adr" DataType="System.String"/>
+      <Column Name="serv_ls_serv_rashod" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_rashod" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_type_rashod" DataType="System.Int32"/>
+      <Column Name="sobit_ls_serv_type_rashod" DataType="System.Int32"/>
+      <Column Name="serv_ls_serv_rashod_odn" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_rashod_odn" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_type_rashod_odn" DataType="System.Int32"/>
+      <Column Name="sobit_ls_serv_type_rashod_odn" DataType="System.Int32"/>
+      <Column Name="serv_ls_serv_tarif" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_tarif" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_sum_tarif" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_sum_tarif" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_sum_charge" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_sum_charge" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_sum_tarif_all" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_sum_tarif_all" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_sum_tarif_odn" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_sum_tarif_odn" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_sum_charge_odn" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_sum_charge_odn" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_sum_charge_all" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_sum_charge_all" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_kol_odn" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_kol_odn" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_kol_ind" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_kol_ind" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_norma" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_norma" DataType="System.Decimal"/>
+      <Column Name="serv_ls_serv_norma_odn" DataType="System.Decimal"/>
+      <Column Name="sobit_ls_serv_norma_odn" DataType="System.Decimal"/>
+    </TableDataSource>
+    <Parameter Name="month" DataType="System.String"/>
+    <Parameter Name="year" DataType="System.String"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="services" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="0">
+    <DataBand Name="Data1" Top="79.08" Width="1084.86" Height="18.9" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" CanBreak="true" DataSource="Q_master1">
+      <TextObject Name="Text4" Left="9.45" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.pkod]" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text6" Left="47.25" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.adr]" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text9" Left="122.85" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_privat]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text10" Left="170.1" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.sobit_ls_privat]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text40" Left="217.35" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_shtrih]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text41" Left="264.6" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.sobit_ls_shtrih]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text42" Left="311.85" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_geu]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text43" Left="359.1" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.sobit_ls_geu]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text44" Left="406.35" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_count_gil]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text45" Left="453.6" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.sobit_ls_count_gil]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text46" Left="500.85" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_count_propis]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text47" Left="548.1" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.sobit_ls_count_propis]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text48" Left="595.35" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_pl]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text49" Left="642.6" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.sobit_ls_pl]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text50" Left="689.85" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_pl_dom]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text51" Left="737.1" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.sobit_ls_pl_dom]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text52" Left="784.35" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_pl_mop]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text53" Left="831.6" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.sobit_ls_pl_mop]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text54" Left="878.85" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_count_gil_all]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text55" Left="926.1" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.sobit_ls_count_gil_all]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text56" Left="973.35" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master1.serv_ls_sum_charge]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text57" Left="1020.6" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" AfterDataEvent="Text57_AfterData" CanBreak="false" Text="[Q_master1.sobit_ls_sum_charge]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+      <DataHeaderBand Name="DataHeader1" Width="1084.86" Height="75.6">
+        <TextObject Name="Text1" Left="292.95" Top="9.45" Width="463.05" Height="18.9" Text="Протокол сверки данных характеристик" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 15pt"/>
+        <TextObject Name="Text34" Left="878.85" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="Общее количество жильцов" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text3" Left="9.45" Top="28.35" Width="37.8" Height="47.25" Border.Lines="All" Text="Платежный&#13;&#10; код" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text5" Left="47.25" Top="28.35" Width="75.6" Height="47.25" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text7" Left="122.85" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="Приватизировано" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text13" Left="217.35" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="Штрих-код" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text16" Left="311.85" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="ЖЭУ" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text19" Left="406.35" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="Кол-во жильцов по начислениям" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text22" Left="500.85" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="Кол-во жильцов по прописке" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text25" Left="595.35" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="Площадь" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text28" Left="689.85" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="Общая площадь дома" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text31" Left="784.35" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="Площадь места пользования дома" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text37" Left="973.35" Top="28.35" Width="94.5" Height="28.35" Border.Lines="All" Text="Начислено к оплате" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text11" Left="122.85" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text12" Left="170.1" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text58" Left="217.35" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text59" Left="311.85" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text60" Left="406.35" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text61" Left="500.85" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text62" Left="595.35" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text63" Left="689.85" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text64" Left="784.35" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text65" Left="878.85" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text66" Left="973.35" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text67" Left="264.6" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text68" Left="359.1" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text69" Left="453.6" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text70" Left="548.1" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text71" Left="642.6" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text72" Left="737.1" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text73" Left="831.6" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text74" Left="926.1" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text75" Left="1020.6" Top="56.7" Width="47.25" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      </DataHeaderBand>
+    </DataBand>
+    <DataBand Name="Data2" Top="180.53" Width="1084.86" Height="18.9" CanGrow="true" CanShrink="true" DataSource="Q_master2">
+      <TextObject Name="Text281" Left="37.8" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.adr]" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text282" Left="85.05" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_rashod]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text283" Left="113.4" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_rashod]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text284" Left="151.2" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_type_rashod]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text285" Left="179.55" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_type_rashod]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text286" Left="217.35" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_rashod_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text287" Left="245.7" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_rashod_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text288" Left="283.5" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_type_rashod_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text289" Left="311.85" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_type_rashod_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text290" Left="349.65" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_tarif]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text291" Left="378" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_tarif]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text292" Left="415.8" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_sum_tarif]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text293" Left="444.15" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_sum_tarif]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text294" Left="481.95" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_sum_charge]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text295" Left="510.3" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_sum_charge]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text296" Left="548.1" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_sum_tarif_all]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text297" Left="576.45" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_sum_tarif_all]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text298" Left="614.25" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_sum_tarif_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text299" Left="642.6" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_sum_tarif_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text300" Left="680.4" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_sum_charge_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text301" Left="708.75" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_sum_charge_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text302" Left="746.55" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_sum_charge_all]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text303" Left="774.9" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_sum_charge_all]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text304" Left="812.7" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_kol_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text305" Left="841.05" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_kol_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text306" Left="878.85" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_kol_ind]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text307" Left="907.2" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_kol_ind]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text308" Left="945" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_norma]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text309" Left="973.35" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.sobit_ls_serv_norma]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text310" Left="1011.15" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.serv_ls_serv_norma_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text311" Left="1039.5" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" AfterDataEvent="Text311_AfterData" CanBreak="false" Text="[Q_master2.sobit_ls_serv_norma_odn]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+      <TextObject Name="Text312" Left="9.45" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master2.pkod]" Font="Times New Roman, 7pt"/>
+      <DataHeaderBand Name="DataHeader2" Top="101.46" Width="1084.86" Height="75.6">
+        <TextObject Name="Text2" Left="292.95" Top="9.45" Width="463.05" Height="18.9" Text="Протокол сверки данных начисления" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 15pt"/>
+        <TextObject Name="Text79" Left="37.8" Top="28.35" Width="47.25" Height="47.25" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text78" Left="9.45" Top="28.35" Width="28.35" Height="47.25" Border.Lines="All" Text="Платежный&#13;&#10; код" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        <TextObject Name="Text80" Left="85.05" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Расход" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text190" Left="85.05" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text191" Left="113.4" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text192" Left="151.2" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Тип расхода" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text193" Left="151.2" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text194" Left="179.55" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text195" Left="217.35" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Расход ОДН" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text196" Left="217.35" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text197" Left="245.7" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text198" Left="283.5" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Тип расхода ОДН" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text199" Left="283.5" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text200" Left="311.85" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text201" Left="349.65" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Тариф" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text202" Left="349.65" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text203" Left="378" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text204" Left="415.8" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Начислено по тарифу" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text205" Left="415.8" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text206" Left="444.15" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text207" Left="481.95" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Начислено к оплате" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text208" Left="481.95" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text209" Left="510.3" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text210" Left="548.1" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Начислено суммарно по ОДН и по обычной услуге" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text211" Left="548.1" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text212" Left="576.45" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text213" Left="614.25" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Начислено по тарифу ОДН" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text214" Left="614.25" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text215" Left="642.6" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text216" Left="680.4" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Начислено к оплате по ОДН" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text217" Left="680.4" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text218" Left="708.75" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text219" Left="746.55" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Начислено включая основную услугу и ОДН" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text220" Left="746.55" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text221" Left="774.9" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text222" Left="812.7" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Расход по дому ОДН" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text223" Left="812.7" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text224" Left="841.05" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text225" Left="878.85" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Кол-во потребления по квартирам в доме" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text226" Left="878.85" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text227" Left="907.2" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text228" Left="945" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Норматив на человека" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text229" Left="945" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text230" Left="973.35" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text231" Left="1011.15" Top="28.35" Width="66.15" Height="28.35" Border.Lines="All" Text="Норматив на ОДН" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        <TextObject Name="Text232" Left="1011.15" Top="56.7" Width="28.35" Height="18.9" Border.Lines="All" Text="сервер" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        <TextObject Name="Text233" Left="1039.5" Top="56.7" Width="37.8" Height="18.9" Border.Lines="All" Text="собитс" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+      </DataHeaderBand>
+    </DataBand>
+  </ReportPage>
+</Report>

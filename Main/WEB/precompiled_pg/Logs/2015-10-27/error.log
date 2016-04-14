@@ -1,0 +1,15 @@
+27.10.2015 11:06:12 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+27.10.2015 15:09:50 (ERROR): Поток 13 Ошибка CalcChargeLs  
+ This request operation sent to net.tcp://localhost:8008/srv/charge did not receive a reply within the configured timeout (00:25:00).  The time allotted to this operation may have been a portion of a longer timeout.  This may be because the service is still processing the operation or because the service was unable to send a reply message.  Please consider increasing the operation timeout (by casting the channel/proxy to IContextChannel and setting the OperationTimeout property) and ensure that the service is able to connect to the client.
+. 
+27.10.2015 15:24:34 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+27.10.2015 15:56:18 (ERROR): Поток 9 Ошибка GetOperDay
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+27.10.2015 15:56:20 (ERROR): Поток 9 Ошибка GetNedop
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 

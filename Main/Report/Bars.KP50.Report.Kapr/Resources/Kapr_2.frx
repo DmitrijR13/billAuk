@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="12/26/2013 22:25:35" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      Data1.DataSource = Report.GetDataSource(&quot;Q_master&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="ls" DataType="System.String"/>
+      <Column Name="pkod" DataType="System.String"/>
+      <Column Name="domkod" DataType="System.String"/>
+      <Column Name="month" DataType="System.String"/>
+      <Column Name="year" DataType="System.String"/>
+      <Column Name="square" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal"/>
+      <Column Name="sum_tarif" DataType="System.Decimal"/>
+      <Column Name="reval" DataType="System.Decimal"/>
+      <Column Name="real_charge" DataType="System.Decimal"/>
+      <Column Name="sum_money" DataType="System.Decimal"/>
+      <Column Name="sum_nedop" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal"/>
+    </TableDataSource>
+    <Total Name="TotalSquare" Expression="[Q_master.square]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalIn" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalNach" Expression="[Q_master.sum_tarif]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalReval" Expression="[Q_master.reval]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalRealCharge" Expression="[Q_master.real_charge]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalMoney" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalNedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalSumOut" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="500" PaperHeight="500" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="56.7,113.4,113.4,170.1,226.8,283.5,340.2,396.9,453.6,510.3,548.1,510.3,491.4,491.4,491.4,491.4,614.25,670.95,56.7,56.7,56.7,56.7,113.4,453.6,491.4,491.4,491.4">
+    <ReportTitleBand Name="ReportTitle1" Width="1852.2" BeforePrintEvent="ReportTitle1_BeforePrint" Guides="18.9,75.6"/>
+    <DataBand Name="Data1" Top="3.33" Width="1852.2" Height="29.51" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" Guides="28.35" DataSource="Q_master">
+      <TextObject Name="Text11" Left="-0.22" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.ls]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text13" Left="397" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.sum_tarif]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text14" Left="453.7" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.reval]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text24" Left="567.1" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.real_charge]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text26" Left="623.7" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.sum_money]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text28" Left="680.4" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.sum_outsaldo]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text44" Left="113.4" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.domkod]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text45" Left="170.1" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.month]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text46" Left="226.8" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.year]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text12" Left="339.75" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.sum_insaldo]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text47" Left="283.5" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.square]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text261" Left="510.4" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.sum_nedop]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text22" Left="56.7" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.pkod]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text262" Left="737.1" Top="0.06" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.nzp_serv]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text263" Left="793.8" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.gorod]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text264" Left="850.5" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.rajon]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text265" Left="907.3" Top="-0.1" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.ulica]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text266" Left="1020.6" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.kod_doma_erc]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text268" Left="1077.3" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.kod_kvar_erc]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text269" Left="963.9" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.kod_kladr]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text270" Left="1134" Top="-0.1" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.domkor]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text271" Left="1190.7" Top="-0.1" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.nkvar]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text272" Left="1247.85" Top="-0.1" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.fio]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text273" Left="1304.55" Top="-0.1" Width="56.7" Height="29.45" Border.Lines="All" Text="[Q_master.lic_type]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="36.18" Width="1852.2" Height="35.91"/>
+  </ReportPage>
+</Report>

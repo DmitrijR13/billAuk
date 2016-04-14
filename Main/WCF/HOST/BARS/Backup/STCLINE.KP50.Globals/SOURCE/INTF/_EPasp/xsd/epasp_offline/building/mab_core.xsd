@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cit.ru/gkhrt" version="1.0"
+           xmlns:gkh="http://cit.ru/gkhrt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="report_core.xsd"/>
+
+  <xs:simpleType name="area">
+    <xs:annotation>
+      <xs:documentation>Площадь</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="19"/>
+      <xs:fractionDigits value="6"/>
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="measurement">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="19"/>
+      <xs:fractionDigits value="3"/>
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="indication">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="15"/>
+      <xs:fractionDigits value="4"/>
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="positiveTwoSignedDecimal">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="2"/>
+      <xs:fractionDigits value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ownershipType">
+    <xs:annotation>
+      <xs:documentation>Тип собственности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="PRIVATE">
+        <xs:annotation>
+          <xs:documentation>Частная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MUNICIPAL">
+        <xs:annotation>
+          <xs:documentation>Муниципальная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="STATE">
+        <xs:annotation>
+          <xs:documentation>Государственная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="resourceInput">
+    <xs:annotation>
+      <xs:documentation>место ввода инженерных систем для подачи в помещение ресурсов, необходимых для предоставления коммунальных услуг</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communalResource" type="gkh:communalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="description">
+        <xs:annotation>
+          <xs:documentation>Описание</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="controlMeasuringDevice" type="gkh:controlMeasuringDevice">
+        <xs:annotation>
+          <xs:documentation>Прибор учета</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="controlMeasuringDevice">
+    <xs:annotation>
+      <xs:documentation>Прибор учета</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number">
+        <xs:annotation>
+          <xs:documentation>Номер</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="model">
+        <xs:annotation>
+          <xs:documentation>Модель</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="tariffNumber">
+        <xs:annotation>
+          <xs:documentation>Тарифность</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:short">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="capacity" type="gkh:positiveTwoSignedDecimal">
+        <xs:annotation>
+          <xs:documentation>Разрядность счетчика</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="startDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата включения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="checkDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата поверки</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="measurementReading">
+    <xs:annotation>
+      <xs:documentation>Показания счетчика</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communalResource" type="gkh:communalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="measuringDeviceNumber">
+        <xs:annotation>
+          <xs:documentation>Номер счетчика</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="measuringDeviceCapacity" type="gkh:positiveTwoSignedDecimal">
+        <xs:annotation>
+          <xs:documentation>Разрядность счетчика</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="transformationCoefficient" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Коэффициент трансформации</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="indiccurBeginDay" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Дневные показания на начало периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="indiccurEndDay" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Дневные показания на конец периода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:sequence minOccurs="0">
+        <xs:element name="indiccurBeginNight" type="gkh:indication">
+          <xs:annotation>
+            <xs:documentation>Ночные показания на начало периода</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="indiccurEndNight" type="gkh:indication">
+          <xs:annotation>
+            <xs:documentation>Ночные показания на конец периода</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+      <xs:sequence minOccurs="0">
+        <xs:element name="indiccurBeginPeak" type="gkh:indication">
+          <xs:annotation>
+            <xs:documentation>Пиковые показания на начало периода</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="indiccurEndPeak" type="gkh:indication">
+          <xs:annotation>
+            <xs:documentation>Пиковые показания на конец периода</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="naturPerson">
+    <xs:annotation>
+      <xs:documentation>Физ. лицо</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fio" type="gkh:fio">
+        <xs:annotation>
+          <xs:documentation>ФИО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="isForeigner" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Является иностранный гражданином либо лицом без гражданства</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="birthDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="inn" type="gkh:innNaturPerson">
+        <xs:annotation>
+          <xs:documentation>ИНН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="snils" type="gkh:snils">
+        <xs:annotation>
+          <xs:documentation>СНИЛС</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="docLawDoc" type="gkh:docLawDoc">
+        <xs:annotation>
+          <xs:documentation>Документ, удостоверяющий личность</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="docLawDoc">
+    <xs:annotation>
+      <xs:documentation>Документ, удостоверяющий личность</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="gkh:docLawDocType">
+        <xs:annotation>
+          <xs:documentation>Тип документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="series">
+        <xs:annotation>
+          <xs:documentation>Серия</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="number">
+        <xs:annotation>
+          <xs:documentation>Номер</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="date" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата выдачи</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="govName">
+        <xs:annotation>
+          <xs:documentation>Наименование органа выдавшего документ</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="docLawDocType">
+    <xs:annotation>
+      <xs:documentation>Тип документа удостоверяющего личность</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RESIDENCE_PERMIT">
+        <xs:annotation>
+          <xs:documentation>Вид на жительство</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MILITARY_ID_RESERVE_OFFICER">
+        <xs:annotation>
+          <xs:documentation>Военный билет офицера запаса</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MILITARY_ID_SOLDIER">
+        <xs:annotation>
+          <xs:documentation>Военный билет солдата (матроса, сержанта, старшины)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TEMPORARY_IDENTITY_CARD_RF">
+        <xs:annotation>
+          <xs:documentation>Временное удостоверение личности гражданина РФ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DIPLOMATIC_PASSPORT_RF">
+        <xs:annotation>
+          <xs:documentation>Дипломатический паспорт гражданина РФ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FOR_PASSPORT_RF">
+        <xs:annotation>
+          <xs:documentation>Загранпаспорт гражданина РФ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FOR_PASSPORT_USSR">
+        <xs:annotation>
+          <xs:documentation>Загранпаспорт гражданина СССР</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FOREIGN_PASSPORT">
+        <xs:annotation>
+          <xs:documentation>Иностранный паспорт</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PASSPORT_MINMORFLOTA">
+        <xs:annotation>
+          <xs:documentation>Паспорт Минморфлота</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RUSSIAN_PASSPORT">
+        <xs:annotation>
+          <xs:documentation>Паспорт гражданина РФ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PASSPORT_USSR">
+        <xs:annotation>
+          <xs:documentation>Паспорт гражданина СССР</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SEAMAN_PASSPORT">
+        <xs:annotation>
+          <xs:documentation>Паспорт моряка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CER_IMMIGRANTS">
+        <xs:annotation>
+          <xs:documentation>Свидетельство о регистрации ходатайства о признании иммигранта беженцем</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BIRTH_CERTIFICATE">
+        <xs:annotation>
+          <xs:documentation>Свидетельство о рождении</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PRISON">
+        <xs:annotation>
+          <xs:documentation>Справка об освобождении из места лишения свободы</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="REFUGEE_IN_RUSSIAN">
+        <xs:annotation>
+          <xs:documentation>Удостоверение беженца в РФ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ID_CARD_OFFICER">
+        <xs:annotation>
+          <xs:documentation>Удостоверение личности офицера</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OTHER_DOCUMENT">
+        <xs:annotation>
+          <xs:documentation>Иные документы</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OTHER_DOCUMENTS_MVD">
+        <xs:annotation>
+          <xs:documentation>Иные документы, выдаваемые органами МВД</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

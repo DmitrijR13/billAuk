@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="01/14/2014 15:30:08" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string nkvar_n = &quot;A&quot;;
+    string nkvar = &quot;1&quot;;    
+    string nkor = &quot;2&quot;;
+    string ndom = &quot;3&quot;;    
+    string ulica = &quot;Ленина&quot;;        
+    string town = &quot;г.Казань&quot;;    
+    string pl_gil = &quot;20.00&quot;;
+    string pl_all = &quot;28.00&quot;;    
+    string sum_real = &quot;100.00&quot;;
+    string privat = &quot;Приватизированная&quot;;    
+    string kolgil = &quot;4&quot;;
+    string fio = &quot;Иванов И.И.&quot;;    
+    string komn = &quot;&quot;;
+    string korp = &quot;&quot;;    
+    string kind_priv = &quot;&quot;;        
+    string Lschet = &quot;1000000&quot;;        
+    
+    
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      
+      if (nkvar_n == &quot;-&quot;)
+         komn = &quot;&quot;;
+      else  
+         komn = &quot;Комната&quot;;
+      
+      if (nkor == &quot;-&quot;) 
+          korp = &quot;&quot;;
+      else
+          korp = &quot;Корпус&quot;;
+      
+      if (nkvar_n == &quot;-&quot;) 
+          kind_priv = &quot;Квартира&quot;;
+      else 
+          kind_priv = &quot;Комната&quot;;
+      }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="month_" Enabled="false" DataType="System.Int32"/>
+      <Column Name="year_" Enabled="false" DataType="System.Int32"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_tarif" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="num_ls" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="fio" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Column" Enabled="false" DataType="System.Int32" Calculated="true" Expression=""/>
+      <Column Name="nkvar" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="count_gil" Enabled="false" DataType="System.Int32" PropName="Column1"/>
+      <Column Name="count_ls" Enabled="false" DataType="System.Int32" PropName="Column1"/>
+      <Column Name="dat_uchet" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="ndog" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="nzp_serv" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="service" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="rashod" Enabled="false" DataType="System.Int32" PropName="Column1"/>
+      <Column Name="ulica" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="ndom" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="nkor" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="rash_dom" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="rash_ls" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="rash_ls_dom" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="rashod" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="rashod_mes" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="rashod_norm" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="rashod_odn" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_prih" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="dom_rashod_norm" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="dom_rashod_odn" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="dom_rashod_pu" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="ulica" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="ndom" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="nkor" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="kol_ls" Enabled="false" DataType="System.Int32" PropName="Column1"/>
+      <Column Name="hv" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="hv_odn" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="canal" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="canal_odn" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="otopl" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="otopl_odn" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="gv" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="gv_odn" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="hv_gvs" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="hv_gvs_odn" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="el" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="el_odn" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="el_n" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="el_n_odn" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="area" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="name_supp" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="service" DataType="System.String" PropName="Column1"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_2" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="rsum_lgota" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_real" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_5" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_nedop" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_nedop_p" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="money_from" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="money_del" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="geu" Enabled="false" DataType="System.String" PropName="Column1"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="151.2" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="152.47" Top="13.96" Width="678.09" Height="37.8" Text="10.4Ф Состояние поступлений [ts] за [month] [year] г. &#13;&#10;на период с [dats] по [datpo]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text22" Left="831.6" Top="9.45" Width="94.5" Height="28.35" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text23" Left="926.1" Top="9.45" Width="113.4" Height="28.35" Text="[date]&#13;&#10;[time]" Font="Arial, 8pt"/>
+      <TextObject Name="Text4" Left="9.45" Top="94.5" Width="28.35" Height="56.7" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text116" Left="198.45" Top="113.4" Width="75.6" Height="37.8" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text117" Left="274.05" Top="132.3" Width="85.05" Height="18.9" Border.Lines="All" Text="население" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text5" Left="198.45" Top="94.5" Width="245.7" Height="18.9" Border.Lines="All" Text="Начислено к оплате" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text171" Left="37.8" Top="94.5" Width="160.65" Height="56.7" Border.Lines="All" Text="Услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text172" Left="444.15" Top="113.4" Width="75.6" Height="37.8" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text174" Left="444.15" Top="94.5" Width="349.65" Height="18.9" Border.Lines="All" Text="Поступило" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text177" Left="793.8" Top="94.5" Width="245.7" Height="18.9" Border.Lines="All" Text="Удержано за обслуживание" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text178" Left="359.1" Top="132.3" Width="85.05" Height="18.9" Border.Lines="All" Text="арендаторы" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text179" Left="274.05" Top="113.4" Width="170.1" Height="18.9" Border.Lines="All" Text="в том числе" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text180" Left="567" Top="113.4" Width="226.8" Height="18.9" Border.Lines="All" Text="в том числе" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text182" Left="519.75" Top="113.4" Width="47.25" Height="37.8" Border.Lines="All" Text="% &#13;&#10;сбора" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text183" Left="793.8" Top="113.4" Width="75.6" Height="37.8" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text184" Left="869.4" Top="132.3" Width="85.05" Height="18.9" Border.Lines="All" Text="население" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text185" Left="954.45" Top="132.3" Width="85.05" Height="18.9" Border.Lines="All" Text="арендаторы" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text186" Left="869.4" Top="113.4" Width="170.1" Height="18.9" Border.Lines="All" Text="в том числе" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text187" Left="567" Top="132.3" Width="85.05" Height="18.9" Border.Lines="All" Text="население" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text188" Left="680.4" Top="132.3" Width="85.05" Height="18.9" Border.Lines="All" Text="арендаторы" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text189" Left="652.05" Top="132.3" Width="28.35" Height="18.9" Border.Lines="All" Text="%" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text190" Left="765.45" Top="132.3" Width="28.35" Height="18.9" Border.Lines="All" Text="%" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="154.4" Width="1047.06" Height="18.9" CanGrow="true" CanBreak="true" DataSource="Q_master">
+      <TextObject Name="Text192" Left="198.45" Width="75.6" Height="18.9" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text195" Left="444.15" Width="75.6" Height="18.9" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text197" Left="519.75" Width="47.25" Height="18.9" Border.Lines="All" Text="% &#13;&#10;сбора" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text198" Left="793.8" Width="75.6" Height="18.9" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text191" Left="9.45" Width="28.35" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text194" Left="37.8" Width="160.65" Height="18.9" Border.Lines="All" Text="Услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text200" Left="954.45" Width="85.05" Height="18.9" Border.Lines="All" Text="арендаторы" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text196" Left="359.1" Width="85.05" Height="18.9" Border.Lines="All" Text="арендаторы" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text199" Left="869.4" Width="85.05" Height="18.9" Border.Lines="All" Text="население" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text201" Left="567" Width="85.05" Height="18.9" Border.Lines="All" Text="население" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text202" Left="680.4" Width="85.05" Height="18.9" Border.Lines="All" Text="арендаторы" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text203" Left="652.05" Width="28.35" Height="18.9" Border.Lines="All" Text="%" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text204" Left="765.45" Width="28.35" Height="18.9" Border.Lines="All" Text="%" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text193" Left="274.05" Width="85.05" Height="18.9" Border.Lines="All" Text="население" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="176.5" Width="1047.06" Height="18.9" CanGrow="true">
+      <TextObject Name="Text205" Left="198.45" Width="75.6" Height="18.9" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text206" Left="444.15" Width="75.6" Height="18.9" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text207" Left="519.75" Width="47.25" Height="18.9" Border.Lines="All" Text="% &#13;&#10;сбора" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text208" Left="793.8" Width="75.6" Height="18.9" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text210" Left="9.45" Width="189" Height="18.9" Border.Lines="All" Text="Итого:" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text211" Left="954.45" Width="85.05" Height="18.9" Border.Lines="All" Text="арендаторы" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text212" Left="359.1" Width="85.05" Height="18.9" Border.Lines="All" Text="арендаторы" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text213" Left="869.4" Width="85.05" Height="18.9" Border.Lines="All" Text="население" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text214" Left="567" Width="85.05" Height="18.9" Border.Lines="All" Text="население" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text215" Left="680.4" Width="85.05" Height="18.9" Border.Lines="All" Text="арендаторы" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text216" Left="652.05" Width="28.35" Height="18.9" Border.Lines="All" Text="%" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text217" Left="765.45" Width="28.35" Height="18.9" Border.Lines="All" Text="%" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text218" Left="274.05" Width="85.05" Height="18.9" Border.Lines="All" Text="население" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter2" Top="198.6" Width="1047.06" Height="37.8">
+      <TextObject Name="Text2" Left="935.55" Top="9.45" Width="94.5" Height="18.9" Text="Страница [Page]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text54" Left="9.45" Top="9.45" Width="859.95" Height="18.9" Text="Наименование отчета: 10.4Ф Состояние поступлений" VertAlign="Center" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

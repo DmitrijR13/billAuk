@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="STCLINE.KP50.SrvUpdaters.Updaters" CodeBehind="Updaters.svc.cs" %>

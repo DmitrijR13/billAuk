@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="01/24/2015 12:10:06" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string nkvar_n = &quot;&quot;;
+    string nkvar = &quot;&quot;;    
+    string nkor = &quot;&quot;;
+    string ndom = &quot;&quot;;    
+    string ulica = &quot;&quot;;        
+    string town = &quot;&quot;;    
+    string pl_gil = &quot;&quot;;
+    string pl_all = &quot;&quot;;    
+    string sum_real = &quot;&quot;;
+    string privat = &quot;&quot;;    
+    string kolgil = &quot;&quot;;
+    string fio = &quot;&quot;;    
+    string komn = &quot;&quot;;
+    string korp = &quot;&quot;;    
+    string kind_priv = &quot;&quot;;        
+    string Lschet = &quot;&quot;;        
+    
+    
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      if (((bool)Report.GetParameterValue(&quot;IsGubkin&quot;)) == true)
+      {
+        Text53.Visible = true;
+      }
+      if (nkvar_n == &quot;-&quot;)
+         komn = &quot;&quot;;
+      else  
+         komn = &quot;Комната&quot;;
+      
+      if (nkor == &quot;-&quot;) 
+          korp = &quot;&quot;;
+      else
+          korp = &quot;Корпус&quot;;
+      
+      if (nkvar_n == &quot;-&quot;) 
+          kind_priv = &quot;Квартира&quot;;
+      else 
+          kind_priv = &quot;Комната&quot;;
+      
+
+    }
+
+
+    private void Data1_AfterData(object sender, EventArgs e)
+    {       
+      if (((bool)Report.GetParameterValue(&quot;isAlwaysLiving&quot;)) == true)
+      {                         
+        Text45.Visible = false;
+        Text55.Visible = false;      
+        Text45.Width = 0;
+        Text44.Width += Text44.Width;
+        Text54.Width += Text54.Width;         
+      }
+    }
+
+    private void DataHeader1_AfterData(object sender, EventArgs e)
+    {          
+      if (((bool)Report.GetParameterValue(&quot;isAlwaysLiving&quot;)) == true)
+      {                         
+        Text45.Visible = false;
+        Text55.Visible = false;      
+        Text45.Width = 0;
+        Text44.Width += Text44.Width;
+        Text54.Width += Text54.Width;         
+      }          
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String"/>
+      <Column Name="dat_rog" DataType="System.String"/>
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="arrival" DataType="System.String" PropName="Column"/>
+      <Column Name="date_gil" DataType="System.String" PropName="Column"/>
+      <Column Name="date_arrival" DataType="System.String" PropName="Column"/>
+      <Column Name="date_uchet" DataType="System.String" PropName="Column"/>
+      <Column Name="remark" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="170.1" AfterDataEvent="ReportTitle1_AfterData">
+      <TextObject Name="Text1" Left="37.8" Width="1011.15" Height="18.9" Text="[title]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="37.8" Top="18.9" Width="245.7" Height="18.9" Text="Адрес помещения:"/>
+      <TextObject Name="Text25" Left="37.8" Top="37.8" Width="245.7" Height="18.9" Text="Выдана гражданину (гражданке):"/>
+      <TextObject Name="Text26" Left="37.8" Top="56.7" Width="245.7" Height="18.9" Text="Вид собственности:"/>
+      <TextObject Name="Text27" Left="37.8" Top="75.6" Width="245.7" Height="18.9" Text="Площадь общая:"/>
+      <TextObject Name="Text28" Left="37.8" Top="94.5" Width="245.7" Height="18.9" Text="Жилая:"/>
+      <TextObject Name="Text29" Left="37.8" Top="113.4" Width="245.7" Height="18.9" Text="Собственники:"/>
+      <TextObject Name="Text30" Left="37.8" Top="132.3" Width="245.7" Height="18.9" Text="Ответственный (наниматель):"/>
+      <TextObject Name="Text31" Left="37.8" Top="151.2" Width="245.7" Height="18.9" Text="Документ на жилое помещение:"/>
+      <TextObject Name="Text32" Left="283.5" Top="18.9" Width="765.45" Height="18.9" Text="[address]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text33" Left="283.5" Top="37.8" Width="765.45" Height="18.9" Text="[citizen]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text34" Left="283.5" Top="56.7" Width="765.45" Height="18.9" Text="[property]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text35" Left="283.5" Top="75.6" Width="765.45" Height="18.9" Text="[s_ob]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text36" Left="283.5" Top="94.5" Width="765.45" Height="18.9" Text="[s_gil]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text37" Left="283.5" Top="113.4" Width="765.45" Height="18.9" Text="[sobstw]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text38" Left="283.5" Top="132.3" Width="765.45" Height="18.9" Text="[resp]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text39" Left="283.5" Top="151.2" Width="765.45" Height="18.9" Text="[dok]" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="215.9" Width="1047.06" Height="18.9" AfterDataEvent="Data1_AfterData" DataSource="Q_master">
+      <TextObject Name="Text49" Width="37.8" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text50" Left="37.8" Width="283.5" Height="18.9" Border.Lines="All" Text="[Q_master.fio]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text51" Left="321.3" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master.dat_rog]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text52" Left="415.8" Width="103.95" Height="18.9" Border.Lines="All" Text="[Q_master.rod]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text53" Left="519.75" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master.arrival]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text54" Left="614.25" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.date_gil]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text55" Left="699.3" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.date_arrival]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text56" Left="784.35" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.date_uchet]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text57" Left="869.4" Width="179.55" Height="18.9" Border.Lines="All" Text="[Q_master.remark]" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataHeaderBand Name="DataHeader1" Top="174.1" Width="1047.06" Height="37.8" AfterDataEvent="DataHeader1_AfterData">
+        <TextObject Name="Text3" Top="18.9" Width="37.8" Height="18.9" Border.Lines="All" Text="№ пп" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text40" Left="37.8" Top="18.9" Width="283.5" Height="18.9" Border.Lines="All" Text="Фамилия имя отчество зарегестрированных" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text41" Left="321.3" Top="18.9" Width="94.5" Height="18.9" Border.Lines="All" Text="Дата рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text42" Left="415.8" Top="18.9" Width="103.95" Height="18.9" Border.Lines="All" Text="Степень родства" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text43" Left="519.75" Top="18.9" Width="94.5" Height="18.9" Border.Lines="All" Text="Прибытие" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text44" Left="614.25" Top="18.9" Width="85.05" Height="18.9" Border.Lines="All" Text="жительства" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text45" Left="699.3" Top="18.9" Width="85.05" Height="18.9" Border.Lines="All" Text="прибывания" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text46" Left="784.35" Top="18.9" Width="85.05" Height="18.9" Border.Lines="All" Text="Снят с учета" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text47" Left="869.4" Top="18.9" Width="179.55" Height="18.9" Border.Lines="All" Text="Примечание" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text48" Left="614.25" Width="170.1" Height="18.9" Border.Lines="All" Text="Дата регистрации по месту" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      </DataHeaderBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="238.8" Width="1047.06" Height="154.6">
+      <TextObject Name="Text4" Left="38.54" Top="11.38" Width="1012.4" Height="18.9" Text="[place]" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text58" Left="37.8" Top="37.8" Width="1012.4" Height="18.9" Text="Исполнитель   ___________________ / [user] /" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text59" Left="37.8" Top="66.15" Width="1012.4" Height="18.9" Text="Дата выдачи:  [dat]" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text60" Left="37.8" Top="94.5" Width="1012.4" Height="18.9" Text="Основание:  [reason]" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text61" Left="37.8" Top="122.85" Width="1012.4" Height="18.9" Text="Документ выдан от имени [area]" VertAlign="Bottom" Font="Arial, 8pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,1352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cit.ru/gkhrt" version="1.0"
+           xmlns:gkh="http://cit.ru/gkhrt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="mab_core.xsd"/>
+
+  <xs:complexType name="communalResourceServices">
+    <xs:annotation>
+      <xs:documentation>Сведения об оказываемых коммунальных услугах по коммунальному ресурсу с разделением для населения / не для населения</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communalResource" type="gkh:communalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="forPopulation" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Для населения / не для населения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="singleTariffNormAmount" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Размер нормы потребления, по которой разделяются тарифы для однотарифного счетчика. Если разделение или услуга не используется, то заполнять 0</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element  name="dayTariffNormAmount" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Размер нормы потребления, по которой разделяются тарифы дневного потребления. Если разделение или услуга не используется, то заполнять 0</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element  name="nightTariffNormAmount" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Размер нормы потребления, по которой разделяются тарифы для ночного потребления. Если разделение или услуга не используется, то заполнять 0</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element  name="peakTariffNormAmount" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Размер нормы потребления, по которой разделяются тарифы для пикового потребления. Если разделение или услуга не используется, то заполнять 0</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="communalServices" type="gkh:communalService">
+        <xs:annotation>
+          <xs:documentation>Оказываемые коммунальные услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="communalService">
+    <xs:annotation>
+      <xs:documentation>Сведения об оказываемой коммунальной услуге.
+        Элементы с разными типами тарифности и учета нормы потребления считаются разными услугами
+        и должны отличаться кодом и наименованием</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:serviceBase">
+        <xs:sequence>
+          <xs:element name="name">
+            <xs:annotation>
+              <xs:documentation>Наименование</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="gkh:string">
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="tariffCountType" type="gkh:communalServiceTariffCountType">
+            <xs:annotation>
+              <xs:documentation>Тип тарифности коммунальной услуги</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="normType" type="gkh:communalServiceNormType">
+            <xs:annotation>
+              <xs:documentation>Тип учета нормы потребления коммунальной услуги</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="code" type="xs:nonNegativeInteger">
+            <xs:annotation>
+              <xs:documentation>Код услуги</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="measureUnitCode" type="gkh:okei">
+            <xs:annotation>
+              <xs:documentation>Код еденицы измерения по ОКЕИ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+          <xs:element name="startDate" type="gkh:date">
+            <xs:annotation>
+              <xs:documentation>Дата начала действия тарифа</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="endDate" type="gkh:date">
+            <xs:annotation>
+              <xs:documentation>Дата окончания действия тарифа</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="amount" type="gkh:indication">
+            <xs:annotation>
+              <xs:documentation>Размер тарифа</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:choice>
+            <xs:sequence>
+              <xs:element name="ownersMeetingNumber">
+                <xs:annotation>
+                  <xs:documentation>Номер собрания жильцов, на котором утвержден тариф</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="gkh:string">
+                    <xs:maxLength value="15"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ownersMeetingDate" type="gkh:date">
+                <xs:annotation>
+                  <xs:documentation>Дата собрания жильцов, на котором утвержден тариф</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+            <xs:sequence>
+              <xs:element name="normativeLegalActName">
+                <xs:annotation>
+                  <xs:documentation>Наименование нормативного правового акта, которым утвержден тариф</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="gkh:string">
+                    <xs:maxLength value="250"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="normativeLegalActNumber">
+                <xs:annotation>
+                  <xs:documentation>Номер нормативного правового акта, которым утвержден тариф</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="gkh:string">
+                    <xs:maxLength value="20"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="normativeLegalActDate" type="gkh:date">
+                <xs:annotation>
+                  <xs:documentation>Дата нормативного правового акта, которым утвержден тариф</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:choice>
+
+          <xs:element name="personalAccountNormative" type="gkh:communalServiceNormative">
+            <xs:annotation>
+              <xs:documentation>Норматив начисления ресурса на лицевой счет</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="buildingNormative" type="gkh:communalServiceNormative">
+            <xs:annotation>
+              <xs:documentation>Норматив начисления ресурса на дом (ОДН)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="useFormulaNine" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Использовать формулу №9 из Пост.Правительства РФ №307</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="accrualWithoutMeterType" type="gkh:accrualWithoutMeterType">
+            <xs:annotation>
+              <xs:documentation>Способ начисления при отсутствии действующего ПУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="accrualWithoutMeterUsing" type="gkh:accrualWithoutMeterUsing">
+            <xs:annotation>
+              <xs:documentation>Если на услугу установлено несколько ПУ, то использовать начисление в случае</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="accrualWithoutMeterMonths">
+            <xs:annotation>
+              <xs:documentation>Количество месяцев для вычисления среднего значения в случае отсутствия действующего ПУ</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="gkh:nonNegativeShort">
+                <xs:minInclusive value="1"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="accrualWithoutCounterType" type="gkh:accrualWithoutCounterType">
+            <xs:annotation>
+              <xs:documentation>Если на услугу установлено несколько ПУ, то использовать начисление в случае</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="distrTariffsType" type="gkh:distrTariffsType">
+            <xs:annotation>
+              <xs:documentation>Вариант распределения расхода ОПУ по тарифам</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="useNegativeRate" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Признак распределения отрицательного расхода по ОПУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="useNegativeRateType" type="gkh:usingNegativeRateType">
+            <xs:annotation>
+              <xs:documentation>Способ распределения на лс отрицательного расхода по ОПУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="useNegativeRateArea" type="gkh:areaType">
+            <xs:annotation>
+              <xs:documentation>Вид площади для пропорционального распределения отрицательного расхода по ОПУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="useNegativeRatePersonsType" type="gkh:residentsType">
+            <xs:annotation>
+              <xs:documentation>Вид жильцов для пропорционального распределения на лс отрицательного расхода по ОПУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="restrictionTariffType" type="gkh:restrictionTariffType">
+            <xs:annotation>
+              <xs:documentation>Способ распределения ограничений по видам тарифов.
+                Заполняется для 2-х и более тарифных приборов учета.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="accrualWithoutCounterAverageType" type="gkh:accrualWithoutCounterAverageType">
+            <xs:annotation>
+              <xs:documentation>Способ начисления по среднему в случае отсутствия показаний по ПУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="accrualWithoutCounterAverageMonths">
+            <xs:annotation>
+              <xs:documentation>Количество месяцев, в течение которых будет происходить начисление по среднему в случае отсутствия показаний по ПУ</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="gkh:nonNegativeShort">
+                <xs:minInclusive value="1"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="totalIndRateType" type="gkh:totalIndRateType">
+            <xs:annotation>
+              <xs:documentation>В суммарный индивидуальный расход для распределения расхода по ОПУ включать</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="distrMainTariff" type="gkh:distrMainTariff">
+            <xs:annotation>
+              <xs:documentation>При отсутствии начислений по ИПУ начисление производить</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="distrCommonRate" type="gkh:distrCommonRate">
+            <xs:annotation>
+              <xs:documentation>Лс, на которые распределяется расход по ОПУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="distrType" type="gkh:distrType">
+            <xs:annotation>
+              <xs:documentation>Способ распределения расхода по ОПУ на лс</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="metersAreaType" type="gkh:areaType">
+            <xs:annotation>
+              <xs:documentation>Вид площади для пропорционального распределения расхода по ОПУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="metersResidentsType" type="gkh:residentsType">
+            <xs:annotation>
+              <xs:documentation>Вид жильцов для пропорционального распределения расхода по ОПУ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="communalServiceTariffCountType">
+    <xs:annotation>
+      <xs:documentation>Тип тарифности коммунальной услуги</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="SINGLE">
+        <xs:annotation>
+          <xs:documentation>однотарифный</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DAY">
+        <xs:annotation>
+          <xs:documentation>дневной</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NIGHT">
+        <xs:annotation>
+          <xs:documentation>ночной</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PEAK">
+        <xs:annotation>
+          <xs:documentation>пиковый</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HALF_PEAK">
+        <xs:annotation>
+          <xs:documentation>полупиковый</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="communalServiceNormType">
+    <xs:annotation>
+      <xs:documentation>Тип учета нормы потребления коммунальной услуги</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="WITHOUT">
+        <xs:annotation>
+          <xs:documentation>без учета нормы</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WITHIN">
+        <xs:annotation>
+          <xs:documentation>в пределах нормы</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OVER">
+        <xs:annotation>
+          <xs:documentation>сверх нормы</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="housingService">
+    <xs:annotation>
+      <xs:documentation>Сведения об оказываемой жилищной услуге</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:serviceBase">
+        <xs:sequence>
+          <xs:element name="name">
+            <xs:annotation>
+              <xs:documentation>Наименование</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="gkh:string">
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="code" type="xs:nonNegativeInteger">
+            <xs:annotation>
+              <xs:documentation>Код услуги</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="measureUnitCode" type="gkh:okei">
+            <xs:annotation>
+              <xs:documentation>Код еденицы измерения по ОКЕИ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="tariff" type="gkh:housingServiceTariff">
+            <xs:annotation>
+              <xs:documentation>Тариф</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serviceBase">
+    <xs:annotation>
+      <xs:documentation>Услуга</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="providedDaysCount">
+        <xs:annotation>
+          <xs:documentation>Количество дней предоставления услуги</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:nonNegativeShort">
+            <xs:maxInclusive value="31"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="accrualMethod" type="gkh:accrualMethod">
+        <xs:annotation>
+          <xs:documentation>Способ начисления по услуге</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="personsType" type="gkh:residentsType">
+        <xs:annotation>
+          <xs:documentation>Вид жильцов для рассчета начислений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="areaType" type="gkh:areaType">
+        <xs:annotation>
+          <xs:documentation>Вид площади для рассчета начислений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="fullAccrual" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Начислять независимо от периода предоставления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="communalFlatAccrualType" type="gkh:communalFlatAccrualType">
+        <xs:annotation>
+          <xs:documentation>вариант распределения по лс, принадлежащим помещению</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="housingServiceTariff">
+    <xs:annotation>
+      <xs:documentation>Тариф на жилищную услугу</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="startDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала действия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="endDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата окончания действия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tariff" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Размер тарифа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element name="ownersMeetingNumber">
+            <xs:annotation>
+              <xs:documentation>Номер собрания жильцов, на котором утвержден тариф</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="gkh:string">
+                <xs:maxLength value="15"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ownersMeetingDate" type="gkh:date">
+            <xs:annotation>
+              <xs:documentation>Дата собрания жильцов, на котором утвержден тариф</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:sequence>
+          <xs:element name="normativeLegalActName">
+            <xs:annotation>
+              <xs:documentation>Наименование нормативного правового акта, которым утвержден тариф</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="gkh:string">
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="normativeLegalActNumber">
+            <xs:annotation>
+              <xs:documentation>Номер нормативного правового акта, которым утвержден тариф</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="gkh:string">
+                <xs:maxLength value="20"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="normativeLegalActDate" type="gkh:date">
+            <xs:annotation>
+              <xs:documentation>Дата нормативного правового акта, которым утвержден тариф</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="communalServiceNormative">
+    <xs:annotation>
+      <xs:documentation>Норматив начисления ресурса по коммунальной услуге</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="amount">
+        <xs:annotation>
+          <xs:documentation>Размер нормы</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12" />
+            <xs:fractionDigits value="6" />
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element maxOccurs="2" name="bases" type="gkh:normativeBase">
+        <xs:annotation>
+          <xs:documentation>Основания нормы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="normativeBase">
+    <xs:annotation>
+      <xs:documentation>Основание нормы</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="gkh:normativeBaseType">
+        <xs:annotation>
+          <xs:documentation>Тип основания нормы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="baseMinValue" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Минимальное значение основания, с которого действует норматив, включительно</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="baseMaxValue" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Максимальное значение основания, до которого действует норматив, исключительно</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice minOccurs="0">
+        <xs:element name="residentsType" type="gkh:residentsType">
+          <xs:annotation>
+            <xs:documentation>Вид жильцов</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="areaType" type="gkh:areaType">
+          <xs:annotation>
+            <xs:documentation>Вид площади</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="normativeBaseType">
+    <xs:annotation>
+      <xs:documentation>Тип основания нормы</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="DAYS">
+        <xs:annotation>
+          <xs:documentation>количество дней</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AREA">
+        <xs:annotation>
+          <xs:documentation>размер площади</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RESIDENTS">
+        <xs:annotation>
+          <xs:documentation>количество жильцов</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NONE">
+        <xs:annotation>
+          <xs:documentation>без основания</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="communalShortDelivery">
+    <xs:annotation>
+      <xs:documentation>Недопоставка коммунального ресурса</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:shortDelivery">
+        <xs:sequence>
+          <xs:element name="communalResource" type="gkh:communalResource">
+            <xs:annotation>
+              <xs:documentation>Коммунальный ресурс</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mabHousingShortDelivery">
+    <xs:annotation>
+      <xs:documentation>Недопоставка жилищной услуги</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:shortDelivery">
+        <xs:sequence>
+          <xs:element name="code" type="xs:nonNegativeInteger">
+            <xs:annotation>
+              <xs:documentation>Код услуги</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="shortDelivery">
+    <xs:annotation>
+      <xs:documentation>Недопоставка</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="typeName">
+        <xs:annotation>
+          <xs:documentation>Наименование типа недопоставки</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="typeCode" type="xs:short">
+        <xs:annotation>
+          <xs:documentation>Код типа недопоставки</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="amount" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Числовое значение недопоставки</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="measureUnitCode" type="gkh:okei">
+        <xs:annotation>
+          <xs:documentation>Еденица измерения по ОКЕИ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="duration" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Длительность недопоставки, дней</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="residentsType">
+    <xs:annotation>
+      <xs:documentation>Вид жильцов для рассчета начислений</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="LIVING">
+        <xs:annotation>
+          <xs:documentation>проживающие</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="REGISTERED">
+        <xs:annotation>
+          <xs:documentation>зарегистрированные</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="areaType">
+    <xs:annotation>
+      <xs:documentation>Вид площади для рассчета начислений</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="TOTAL">
+        <xs:annotation>
+          <xs:documentation>общая</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LIVING">
+        <xs:annotation>
+          <xs:documentation>жилая</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ADDITIONAL">
+        <xs:annotation>
+          <xs:documentation>дополнительная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="KITCHEN">
+        <xs:annotation>
+          <xs:documentation>кухня</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LOGGIA">
+        <xs:annotation>
+          <xs:documentation>лоджия</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="COMMUNITY_USE">
+        <xs:annotation>
+          <xs:documentation>площадь МОП без кухни</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="accrualMethod">
+    <xs:annotation>
+      <xs:documentation>Способ начисления по услуге</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="FIXED">
+        <xs:annotation>
+          <xs:documentation>фиксированное начисление</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MEASUREMENT">
+        <xs:annotation>
+          <xs:documentation>по показаниям счетчика</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RESIDENT_COUNT">
+        <xs:annotation>
+          <xs:documentation>по количеству жильцов</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AREA">
+        <xs:annotation>
+          <xs:documentation>по площади</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NORMATIVE">
+        <xs:annotation>
+          <xs:documentation>по нормам потребления</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NORMATIVE_WITH_RESTRICTION">
+        <xs:annotation>
+          <xs:documentation>с ограничением по нормам</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MEASUREMENT_AND_NORMATIVE">
+        <xs:annotation>
+          <xs:documentation>по показаниям счетчика и норме потребления</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="communalFlatAccrualType">
+    <xs:annotation>
+      <xs:documentation>вариант распределения по лс, принадлежащим помещению.
+        Определяет, каким образом производить начисление, если на одно помещение открыто сразу несколько лицевых счетов (например, в случае долевой собственности)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="FULL">
+        <xs:annotation>
+          <xs:documentation>полностью на каждый лс</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SHARE">
+        <xs:annotation>
+          <xs:documentation>пропорционально долям лс</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="COUNT">
+        <xs:annotation>
+          <xs:documentation>пропорционально количеству лс в помещении</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="accrualWithoutMeterType">
+    <xs:annotation>
+      <xs:documentation>Способ начисления при отсутствии действующего ПУ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="NONE">
+        <xs:annotation>
+          <xs:documentation>не производить</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NORMATIVE">
+        <xs:annotation>
+          <xs:documentation>производить по норме потребления</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AVERAGE">
+        <xs:annotation>
+          <xs:documentation>производить по среднему значению</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="accrualWithoutMeterUsing">
+    <xs:annotation>
+      <xs:documentation>Если на услугу установлено несколько ПУ, то использовать начисление в случае</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="ONE">
+        <xs:annotation>
+          <xs:documentation>когда отключен хотя бы 1 ПУ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ALL">
+        <xs:annotation>
+          <xs:documentation>когда отключены все ПУ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="accrualWithoutCounterType">
+    <xs:annotation>
+      <xs:documentation>Способ начисления при отсутствии показаний по ПУ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="NONE">
+        <xs:annotation>
+          <xs:documentation>не производить</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NORMATIVE">
+        <xs:annotation>
+          <xs:documentation>производить по норме потребления</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AVERAGE">
+        <xs:annotation>
+          <xs:documentation>производить по среднему значению</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="distrTariffsType">
+    <xs:annotation>
+      <xs:documentation>Вариант распределения расхода ОПУ по тарифам</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="SUMMARY">
+        <xs:annotation>
+          <xs:documentation>суммарный расход. На лицевые счета распределяется суммарный расход по всем видам тарифа коллективного прибора учета</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BY_TYPES">
+        <xs:annotation>
+          <xs:documentation>по видам тарифов. Распределение на лицевые счета происходит по каждому виду тарифа коллективного прибора учета отдельно.
+            Данный вариант распределения возможен только в ситуациях, когда тарифности коллективного прибора учета и индивидуальных приборов учета совпадают.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="usingNegativeRateType">
+    <xs:annotation>
+      <xs:documentation>Способ распределения на лс отрицательного расхода по ОПУ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="RESIDENTS">
+        <xs:annotation>
+          <xs:documentation>пропорционально жильцам</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AREA">
+        <xs:annotation>
+          <xs:documentation>пропорционально площади</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="restrictionTariffType">
+    <xs:annotation>
+      <xs:documentation>Способ распределения ограничений по видам тарифов.
+        Заполняется для 2-х и более тарифных приборов учета.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="EQUALLY_WITH_RESTRICTION">
+        <xs:annotation>
+          <xs:documentation>поровну с ограничением по фактическому расходу. Размер ограничения делится поровну на тарифность прибора учета,
+            после чего проверяется, есть ли такой вид тарифа, где фактический расход меньше полученного ограничения;
+            если такой вид тарифа есть, то по нему берется фактический расход, а разница передается другому виду тарифа по этому же ограничению</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EQUALLY_WITHOUT_RESTRICTION">
+        <xs:annotation>
+          <xs:documentation>поровну без ограничения по фактическому расходу. Размер ограничения делится поровну на тарифность прибора учета,
+            после чего проверяется, есть ли такой вид тарифа, где фактический расход меньше полученного ограничения;
+            если такой вид тарифа есть, то по нему берется размер полученного ограничения, а на разницу уменьшается сверхнормативный расход по другому виду тарифа</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PROPORTIONAL">
+        <xs:annotation>
+          <xs:documentation>пропорционально фактическому расходу. Размер ограничения распределяется по видам тарифа
+            пропорционально фактическому расходу прибора учета по данному виду тарифа</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="accrualWithoutCounterAverageType">
+    <xs:annotation>
+      <xs:documentation>Способ начисления по среднему в случае отсутствия показаний по ПУ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="PERIOD">
+        <xs:annotation>
+          <xs:documentation>в течении указанного периода</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WITH_MEASUREMENTS_ONLY">
+        <xs:annotation>
+          <xs:documentation>в случае наличия данных</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="accrualWithoutCounterAverageMonths">
+    <xs:annotation>
+      <xs:documentation>Количество месяцев, в течение которых будет происходить начисление по среднему в случае отсутствия показаний по ПУ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="PERIOD">
+        <xs:annotation>
+          <xs:documentation>в течении указанного периода</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WITH_MEASUREMENTS_ONLY">
+        <xs:annotation>
+          <xs:documentation>в случае наличия данных</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="totalIndRateType">
+    <xs:annotation>
+      <xs:documentation>В суммарный индивидуальный расход для распределения расхода по ОПУ включать</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="METER">
+        <xs:annotation>
+          <xs:documentation>расход только по ПУ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WITH_NORM">
+        <xs:annotation>
+          <xs:documentation>расход по ПУ и нормам</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WITH_NORM_AND_AVERAGE">
+        <xs:annotation>
+          <xs:documentation>расход по ПУ, нормам и среднему</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="distrMainTariff">
+    <xs:annotation>
+      <xs:documentation>При отсутствии начислений по ИПУ начисление производить</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="GENERAL">
+        <xs:annotation>
+          <xs:documentation>по общему тарифу</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BY_TARIFF_TYPE">
+        <xs:annotation>
+          <xs:documentation>по тарифу, соответствующему тарифности ОПУ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="distrCommonRate">
+    <xs:annotation>
+      <xs:documentation>Лс, на которые распределяется расход по ОПУ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="WITH_METER">
+        <xs:annotation>
+          <xs:documentation>лс с ИПУ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WITHOUT_METER">
+        <xs:annotation>
+          <xs:documentation>лс без ИПУ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ALL">
+        <xs:annotation>
+          <xs:documentation>все лс</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="distrType">
+    <xs:annotation>
+      <xs:documentation>Способ распределения расхода по ОПУ на лс</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="AREA">
+        <xs:annotation>
+          <xs:documentation>пропорционально площади</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ROOM_COUNT">
+        <xs:annotation>
+          <xs:documentation>пропорционально количеству помещений в квартире</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RESOURCE_USAGE">
+        <xs:annotation>
+          <xs:documentation>пропорционально расходу по услуге</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RESIDENT_COUNT">
+        <xs:annotation>
+          <xs:documentation>пропорционально количеству жильцов</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EQUALLY">
+        <xs:annotation>
+          <xs:documentation>поровну</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="providedEmergencyRepairTask">
+    <xs:annotation>
+      <xs:documentation>Выполненная работа по аварийному ремонту</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taskCode" type="gkh:nonNegativeShort">
+        <xs:annotation>
+          <xs:documentation>Код работы по аварийному ремонту</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="taskName">
+        <xs:annotation>
+          <xs:documentation>Наименование работы по аварийному ремонту</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="repairTaskCategory" >
+        <xs:annotation>
+          <xs:documentation>Категория работ по ремонту дома (элемент здания, система)</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="comment" >
+        <xs:annotation>
+          <xs:documentation>Комментарий</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="price" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Стоимость, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabProvidedService">
+    <xs:annotation>
+      <xs:documentation>Выполненная работа по МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="serviceCode" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Код услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serviceName">
+        <xs:annotation>
+          <xs:documentation>Наименование услуги</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="measureUnitCode" type="gkh:okei">
+        <xs:annotation>
+          <xs:documentation>Код еденицы измерения по ОКЕИ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="amount" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Объем</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="comment" >
+        <xs:annotation>
+          <xs:documentation>Комментарий</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="price" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Стоимость, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buildingSurvey">
+    <xs:annotation>
+      <xs:documentation>Осмотр многоквартирного дома</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="repairTaskCategory" >
+        <xs:annotation>
+          <xs:documentation>Категория работ по ремонту дома (элемент здания, система)</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="date" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>дата подписания акта осмотра</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tearPercent">
+        <xs:annotation>
+          <xs:documentation>процент износа</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:indication">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="buildingSurveyBasis" >
+        <xs:annotation>
+          <xs:documentation>Основание осмотра многоквартирного дома</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="inspectors" type="gkh:buildingSurveyInspector">
+        <xs:annotation>
+          <xs:documentation>Лица, проводящие осмотр</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="majorRepairTasks" type="gkh:mabMajorRepairTask">
+        <xs:annotation>
+          <xs:documentation>Работы по капитальному ремонту, выявленная по результатам осмотра</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buildingSurveyInspector">
+    <xs:annotation>
+      <xs:documentation>Лицо, проводящее осмотр МКД</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="fio" type="gkh:fio">
+        <xs:annotation>
+          <xs:documentation>Фио физ. лица</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="jurPerson" type="gkh:jurPerson">
+        <xs:annotation>
+          <xs:documentation>Юр лицо</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="phone" >
+        <xs:annotation>
+          <xs:documentation>контактный номер телефона</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="mabMajorRepairTask">
+    <xs:annotation>
+      <xs:documentation>Работа по капитальному ремонту многоквартирного дома</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Номер</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="taskTypeCode" type="gkh:nonNegativeShort">
+        <xs:annotation>
+          <xs:documentation>Код работы по капитальному ремонту</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="taskTypeName">
+        <xs:annotation>
+          <xs:documentation>Наименование работы по капитальному ремонту</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="repairTaskTypeCategory" >
+        <xs:annotation>
+          <xs:documentation>Категория работ по ремонту дома (элемент здания, система)</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="comment" >
+        <xs:annotation>
+          <xs:documentation>Комментарий</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="price" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Стоимость выполнения работы, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buildingMajorRepairPlanTask">
+    <xs:annotation>
+      <xs:documentation>Работа, включенная в план работ по дому</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taskNumber" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Номер работы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="price" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Стоимость выполнения работы, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabMajorRepairRefusedTask">
+    <xs:annotation>
+      <xs:documentation>работа по кап ремонту МКД с отказом выполнения</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taskNumber" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Номер работы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabMajorRepairDoneTask">
+    <xs:annotation>
+      <xs:documentation>выполненная работа по кап ремонту МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taskNumber" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Номер работы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="finalPrice" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Сумма, за которую выполнена, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="fundingSources" type="gkh:mabMajorRepairTaskFundingSource">
+        <xs:annotation>
+          <xs:documentation>Источники финансирования</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="year" type="gkh:year">
+        <xs:annotation>
+          <xs:documentation>Год, в котором выполнена</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabMajorRepairTaskFundingSource">
+    <xs:annotation>
+      <xs:documentation>Источник финансирования работы по кап ремонту</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fundingSourceTypeName">
+        <xs:annotation>
+          <xs:documentation>Наименование источника финансирования</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="fundingSourceTypeCode" type="xs:short">
+        <xs:annotation>
+          <xs:documentation>Код источника финансирования</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="fundingSourceComment">
+        <xs:annotation>
+          <xs:documentation>Пояснение к источнику финансирования</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="amount" type="gkh:positiveMoney">
+        <xs:annotation>
+          <xs:documentation>Сумма, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

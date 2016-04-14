@@ -1,0 +1,8 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.QueueCore\bin\Release\Bars.QueueCore.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.QueueCore\bin\Release\Bars.QueueCore.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.QueueCore\bin\Release\Castle.Core.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.QueueCore\bin\Release\Castle.Windsor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.QueueCore\bin\Release\Castle.Core.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.QueueCore\bin\Release\Castle.Windsor.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.QueueCore\obj\Release\Bars.QueueCore.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.QueueCore\obj\Release\Bars.QueueCore.pdb

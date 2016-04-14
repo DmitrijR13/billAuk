@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2011 15:52:15" ReportInfo.Modified="09/27/2012 17:43:14" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+     string dat_s, dat_po, name;
+  }
+  
+  
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="ls" DataType="System.String"/>
+      <Column Name="fio" DataType="System.String"/>
+      <Column Name="adres" DataType="System.String"/>
+      <Column Name="doc" DataType="System.String"/>
+      <Column Name="seriya" DataType="System.String"/>
+      <Column Name="nomer" DataType="System.String"/>
+      <Column Name="dat_vid" DataType="System.String"/>
+      <Column Name="who_vid" DataType="System.String"/>
+      <Column Name="geu" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="1047.06" Height="79.38">
+      <TextObject Name="Text1" Left="3.78" Top="15.12" Width="997.92" Height="45.36" Text="РЕЕСТР ГРАЖДАН, СМЕНИВШИХ ИЛИ ПОЛУЧИВШИХ УДОСТОВЕРЕНИЕ ЛИЧНОСТИ ЗА [dat_s] - [dat_po]&#13;&#10;[name]" HorzAlign="Center"/>
+      <TextObject Name="Text2" Left="3.78" Top="60.48" Width="147.42" Height="18.9" Text="[Date]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="119.38" Width="1047.06" Height="49.14">
+      <TextObject Name="Text3" Left="3.78" Top="18.9" Width="56.7" Height="30.24" Border.Lines="All" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="151.2" Top="18.9" Width="211.68" Height="30.24" Border.Lines="All" Text="Фамилия, имя, отчество жильца" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="60.48" Top="18.9" Width="90.72" Height="30.24" Border.Lines="All" Text="Лицевой счет" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text6" Left="362.88" Top="18.9" Width="204.12" Height="30.24" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="567" Top="18.9" Width="124.74" Height="30.24" Border.Lines="All" Text="Вид документа" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text8" Left="691.74" Top="18.9" Width="52.92" Height="30.24" Border.Lines="All" Text="Серия" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="744.66" Top="18.9" Width="79.38" Height="30.24" Border.Lines="All" Text="Номер" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text10" Left="824.04" Top="18.9" Width="79.38" Height="30.24" Border.Lines="All" Text="Дата выдачи" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="903.42" Top="18.9" Width="139.86" Height="30.24" Border.Lines="All" Text="Кем выдан" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text22" Left="884.52" Width="158.76" Height="18.9" Text="Лист [Page#] " HorzAlign="Right"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="188.52" Width="1047.06" Height="18.9" Condition="[Q_master.geu]">
+      <TextObject Name="Text12" Left="3.78" Width="1039.5" Height="18.9" Text="[[Q_master.geu]]" Font="Arial, 10pt, style=Bold"/>
+      <DataBand Name="Data1" Top="227.42" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+        <TextObject Name="Text13" Left="3.78" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Right" VertAlign="Center"/>
+        <TextObject Name="Text14" Left="151.2" Width="211.68" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fio]" VertAlign="Center"/>
+        <TextObject Name="Text15" Left="60.48" Width="90.72" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ls]" VertAlign="Center"/>
+        <TextObject Name="Text16" Left="362.88" Width="204.12" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.adres]" VertAlign="Center"/>
+        <TextObject Name="Text17" Left="567" Width="124.74" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.doc]" VertAlign="Center"/>
+        <TextObject Name="Text18" Left="691.74" Width="52.92" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.seriya]" VertAlign="Center"/>
+        <TextObject Name="Text19" Left="744.66" Width="79.38" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nomer]" VertAlign="Center"/>
+        <TextObject Name="Text20" Left="824.04" Width="79.38" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_vid]" VertAlign="Center"/>
+        <TextObject Name="Text21" Left="903.42" Width="139.86" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.who_vid]" VertAlign="Center"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="266.32" Width="1047.06"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="286.32" Width="1047.06" Height="18.9" Guides="18.9"/>
+  </ReportPage>
+</Report>

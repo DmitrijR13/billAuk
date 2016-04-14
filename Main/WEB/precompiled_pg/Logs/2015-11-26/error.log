@@ -1,0 +1,18 @@
+26.11.2015 09:51:44 (ERROR): Поток 6 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.11.2015 10:14:02 (ERROR): Поток 6 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9990000'.
+. 
+26.11.2015 10:17:08 (ERROR): Поток 9 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9990000'.
+. 
+26.11.2015 12:57:44 (ERROR): Поток 5 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9969998'.
+. 
+26.11.2015 13:06:25 (ERROR): Поток 18 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9990000'.
+. 
+26.11.2015 13:45:39 (ERROR): Поток 11 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9609978'.
+. 

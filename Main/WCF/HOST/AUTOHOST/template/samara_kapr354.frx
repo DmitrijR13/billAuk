@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;System.Xml.dll&#13;&#10;" StartReportEvent="_StartReport" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="06/10/2014 18:01:12" ReportInfo.CreatorVersion="1.6.12.0" PrintSettings.PagesOnSheet="Two">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    public int counter=0;
+    public int lineCounter=1;
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {  
+     
+      counter++;
+      if(counter%2==0)
+      {
+        Child1.Visible=true;                
+      }
+      else            
+      {
+        Child1.Visible=false; 
+      }
+     if(lineCounter%2==0)
+      {
+        Line1.Visible=true;
+        lineCounter++;
+      }
+      else
+      {   
+        Line1.Visible=false;
+        lineCounter++;
+      }
+                         
+      
+    }     
+  
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="0" RightMargin="5" BottomMargin="0" FirstPageSource="15" OtherPagesSource="15" Guides="680.4" StartPageEvent="Page1_StartPage">
+    <DataBand Name="Data1" Width="756" Height="553.55" BeforePrintEvent="Data1_BeforePrint" Guides="340.2,274.05,274.05,274.05,274.05,274.05,274.05" DataSource="Q_master">
+      <TextObject Name="Text8" Left="26.9" Top="38" Width="625.59" Height="39.69" Text="ПЛАТЕЖНЫЙ ДОКУМЕНТ (СЧЕТ) № 00 [Substring([Q_master.pkod],0,11)]-[Q_master.month_]/[Q_master.year_] &#13;&#10;для внесения взноса на капитальный ремонт собственником [Q_master.typek] помещения" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text63" Left="666.5" Top="47.45" Width="75.6" Height="18.9" Text="[Date]" Format="Date" Format.Format="d" HorzAlign="Right" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text64" Left="11" Top="80.8" Width="238.14" Height="10.34" Text="Раздел 1. &lt;b&gt;Сведения о плательщике и исполнителе услуг&lt;/b&gt;" VertAlign="Center" Font="Times New Roman, 6pt" HtmlTags="true"/>
+      <TableObject Name="Table2" Left="8" Top="91.7" Width="735.21" Height="93.87">
+        <TableColumn Name="Column13" Width="347.76"/>
+        <TableColumn Name="Column35" Width="9.45"/>
+        <TableColumn Name="Column34" Width="378"/>
+        <TableRow Name="Row20" Height="93.87">
+          <TableCell Name="Cell259" Border.Lines="All" Border.Width="0.25" Text="за &lt;b&gt;[Q_master.months]г.&lt;/b&gt;                                &lt;b&gt;[Q_master.priv]&lt;/b&gt;&#13;&#10;ФИО (наименование плательщика)  &lt;b&gt;[Q_master.fio]&lt;/b&gt;&#13;&#10;Адрес помещения &lt;b&gt; [Q_master.ulica], [Q_master.numdom] - [Q_master.kvnum]&lt;/b&gt;&#13;&#10;Общая площадь [Q_master.kv_pl] м2 ([Q_master.type_pl]) &#13;&#10;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2305"/>
+          <TableCell Name="Cell2304" Border.Lines="All" Border.Width="0.25" Text="&lt;b&gt;Наименование регионального оператора:&lt;/b&gt;&#13;&#10;НО &quot;ФКР&quot;&#13;&#10;Адрес: 443013 г.Самара ул.Дачная, 24&#13;&#10;&#13;&#10;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text65" Left="8" Top="190" Width="366.66" Height="11.34" Text="Раздел 2. &lt;b&gt;Сведения для внесения платы получателю платежа (получателям платежей)&lt;/b&gt;" VertAlign="Center" Font="Times New Roman, 6pt" HtmlTags="true"/>
+      <TableObject Name="Table3" Left="8" Top="203.45" Width="737.63" Height="115.29">
+        <TableColumn Name="Column14" Width="175.88"/>
+        <TableColumn Name="Column15" Width="300.62"/>
+        <TableColumn Name="Column16" Width="130.19"/>
+        <TableColumn Name="Column17" Width="130.94"/>
+        <TableRow Name="Row22" Height="15.12">
+          <TableCell Name="Cell265" Border.Lines="All" Border.Width="0.25" Text="Наименование получателя платежа" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell266" Border.Lines="All" Border.Width="0.25" Text="Наименование банковского счета и банковские реквизиты" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell267" Border.Lines="All" Border.Width="0.25" Text="Идентификатор плательщика" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell268" Border.Lines="All" Border.Width="0.25" Text="Вид платы" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row23" Height="52.92">
+          <TableCell Name="Cell270" Border.Lines="All" Border.Width="0.25" Text="ГУП ЕИРРЦ Самарской области &#13;&#10;&#13;&#10;ИНН 6315856269" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell271" Border.Lines="All" Border.Width="0.25" Text="БИК 043601607 	ИНН  д/б 7707083893 КПП 631602006&#13;&#10;банк для сбора взносов ФКР&#13;&#10;Поволжский банк ОАО &quot;Сбербанк России&quot; г.Самара&#13;&#10;Р/с 40702810854400026563  К/с 30101810200000000607" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell272" Border.Lines="All" Border.Width="0.25" Text="**********************&#13;&#10;00 [Q_master.pkod]&#13;&#10;**********************" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell273" Border.Lines="All" Border.Width="0.25" Text="взносы на капитальный ремонт" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row25">
+          <TableCell Name="Cell2310" Font="Arial, 8pt"/>
+          <TableCell Name="Cell2311" Font="Arial, 8pt">
+            <BarcodeObject Name="Barcode1" Left="102.5" Top="14" Width="140" Height="33.57" Expression="[Q_master.vars]" Text="00000000000000" ShowText="false" Barcode="Code128" Barcode.AutoEncode="true"/>
+          </TableCell>
+          <TableCell Name="Cell2312" Font="Arial, 8pt"/>
+          <TableCell Name="Cell2313" Border.Lines="All" Border.Width="0.25" Text="Сумма к оплате, руб." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row24" Height="28.35">
+          <TableCell Name="Cell2306" Font="Arial, 8pt"/>
+          <TableCell Name="Cell2307" Font="Arial, 8pt"/>
+          <TableCell Name="Cell2308" Font="Arial, 8pt"/>
+          <TableCell Name="Cell2309" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_ticket]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text1" Left="283.6" Top="338.4" Width="179.55" Height="18.9" Text="Информация для собственника" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text2" Left="17.45" Top="345.65" Width="245.7" Height="18.9" Text="Раздел 3 &lt;b&gt;РАСЧЕТ РАЗМЕРА ВЗНОСОВ&lt;/b&gt;" VertAlign="Center" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TableObject Name="Table1" Left="17.45" Top="364.55" Width="529.2" Height="65.26">
+        <TableColumn Name="Column1" Width="213.57"/>
+        <TableColumn Name="Column2" Width="37.8"/>
+        <TableColumn Name="Column5" Width="49.14"/>
+        <TableColumn Name="Column6" Width="64.26"/>
+        <TableColumn Name="Column7" Width="54.81"/>
+        <TableColumn Name="Column8" Width="62.37"/>
+        <TableColumn Name="Column9" Width="47.25"/>
+        <TableRow Name="Row3" Height="38.8">
+          <TableCell Name="Cell2241" Border.Lines="All" Border.Width="0.25" Text="Вид взноса" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2242" Border.Lines="All" Border.Width="0.25" Text="Един.&#13;&#10;измер." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2245" Border.Lines="All" Border.Width="0.25" Text="Общая площадь" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2246" Border.Lines="All" Border.Width="0.25" Text="Размер взноса на кв.м., руб." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2247" Border.Lines="All" Border.Width="0.25" Text="Сумма взноса, руб." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2248" Border.Lines="All" Border.Width="0.25" Text="Пере-&#13;&#10;расчеты, руб." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2249" Border.Lines="All" Border.Width="0.25" Text="Итого к оплате, руб." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="11.34">
+          <TableCell Name="Cell16" Border.Lines="All" Border.Width="0.25" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell857" Border.Lines="All" Border.Width="0.25" Text="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2189" Border.Lines="All" Border.Width="0.25" Text="3" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2190" Border.Lines="All" Border.Width="0.25" Text="4" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2191" Border.Lines="All" Border.Width="0.25" Text="5" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2192" Border.Lines="All" Border.Width="0.25" Text="6" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2193" Border.Lines="All" Border.Width="0.25" Text="7" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="15.12">
+          <TableCell Name="serv1" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="Капитальный ремонт общего имущества в МКД" WordWrap="false" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell862" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="кв.м." NullValue="0.00" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2194" Border.Lines="Right, Bottom" Border.Width="0.25" Text="[Q_master.c_calc1]" NullValue="0.00" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2195" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.tarif1]" NullValue="0.00" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2196" Border.Lines="Left, Bottom" Border.Width="0.25" Text="[Q_master.rsum_tarif_all1]" NullValue="0.00" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2197" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.reval1]" NullValue="0.00" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell2198" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.sum_charge_all1]" NullValue="0.00" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text3" Left="45.8" Top="433.05" Width="387.45" Height="18.9" Text="Итого к оплате:  [Q_master.sum_rub] руб.  [Q_master.sum_kop] коп." HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text60" Left="285.6" Top="319.95" Width="271.41" Height="16.25" Text="[Q_master.vars]" Font="Times New Roman, 11pt"/>
+      <LineObject Name="Line1" Left="-1.35" Width="756" Border.ShadowWidth="1" Border.Style="Dash" Border.Width="1.3"/>
+      <TextObject Name="Text9" Left="567" Top="332.55" Width="179.55" Height="29.65" Text="[Q_master.utoch_pl]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="556.75" Width="756" Height="1060.15" Guides="85.05,463.05,585.9,963.9,548.1,954.45,954.45,954.45">
+        <TextObject Name="Text6" Left="63.9" Top="134.4" Width="614.25" Height="300.3" Text="В соответствии с  ч.3 ст.7 Закона Самарской области от 21.06.2013 №60-ГД, с 01 марта 2014 года у всех собственников помещений многоквартирных домов возникает обязанность по уплате взносов на капитальный ремонт общего имущества в многоквартирном доме.&#13;&#10;&lt;b&gt; Данный платежный документ является (УТОЧНЯЮЩИМ), т.е. не требует оплаты&lt;/b&gt; и сформирован с целью сверки Ваших данных для произведения правильного расчета ежемесячного взноса   &lt;b&gt;   ЗА КАПИТАЛЬНЫЙ РЕМОНТ.&lt;/b&gt;&#13;&#10;В случае обнаружения расхождений в следующих данных, указанных в платежном документе &lt;b&gt;(Ф.И.О. собственника; количество указанных в документе кв.м.&lt;/b&gt;, принадлежащего Вам помещения; тариф, использованный при начислении взноса на капитальный ремонт (для домов до 5 этажей – 5,07, для домов более 5 этажей 5,84))&#13;&#10;ВЫ МОЖЕТЕ ПОДАТЬ ЗАЯВЛЕНИЕ ДЛЯ КОРРЕКТИРОВКИ СЛЕДУЮЩИМИ СПОСОБАМИ:&#13;&#10;- в территориальные филиалы ГУП Самарской области «Единый информационно-расчетный региональный центр» (ЕИРРЦ), либо в Многофункциональные центры (МФЦ) предоставления государственных и муниципальных услуг по адресам, размещенным на сайте http://еирц-самара.рф (в разделе «капитальный ремонт»)&#13;&#10;- в электронной форме через сайт http://еирц-самара.рф (в разделе «капитальный ремонт»)&#13;&#10;Уточнить ближайший адрес для обращения, или получить консультацию мы можете &lt;b&gt;по области: +7(846) 270-78-55, Самара: +7(846) 270-78-55; Тольятти: +7 (8482) 556-855; Новокуйбышевск: +7 (84635) 38-002.&lt;/b&gt;&#13;&#10;Подробную инструкцию о Ваших действиях при обнаружении неточностей и их устранении смотреть на официальном сайте: http://еирц-самара.рф&#13;&#10;ВНИМАНИЕ, ОБЯЗАТЕЛЬНО ПРОВЕРЬТЕ, ВКЛЮЧЕН ЛИ ВАШ ДОМ, В РЕГИОНАЛЬНУЮ ПРОГРАММУ КАПИТАЛЬНОГО РЕМОНТА ОБРАТИВШИСЬ НА САЙТ  http://капремонт-самара.рф (в разделе «РЕГИОНАЛЬНЫЕ ПРОГРАММЫ»).&#13;&#10;" HorzAlign="Justify" Font="Times New Roman, 9pt" HtmlTags="true"/>
+        <TextObject Name="Text5" Left="271.8" Top="110.5" Width="189" Height="18.9" Text="Уважаемый собственник!   " HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+        <TextObject Name="Text7" Left="64.15" Top="441.6" Width="614.25" Height="30.24" Border.Lines="All" Border.Width="0.25" Text="ПЛАТЕЖНЫЙ ДОКУМЕНТ, ДЛЯ ОПЛАТЫ ВЗНОСА ЗА &#13;&#10;КАПИТАЛЬНЫЙ РЕМОНТ ЗА МАРТ 2014, БУДЕТ ВЫСТАВЛЕН В АПРЕЛЕ 2014 ГОДА.&#13;&#10;" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+        <TextObject Name="Text66" Left="63.25" Top="656.7" Width="614.25" Height="300.3" Text="В соответствии с  ч.3 ст.7 Закона Самарской области от 21.06.2013 №60-ГД, с 01 марта 2014 года у всех собственников помещений многоквартирных домов возникает обязанность по уплате взносов на капитальный ремонт общего имущества в многоквартирном доме.&#13;&#10;&lt;b&gt; Данный платежный документ является (УТОЧНЯЮЩИМ), т.е. не требует оплаты&lt;/b&gt; и сформирован с целью сверки Ваших данных для произведения правильного расчета ежемесячного взноса   &lt;b&gt;   ЗА КАПИТАЛЬНЫЙ РЕМОНТ.&lt;/b&gt;&#13;&#10;В случае обнаружения расхождений в следующих данных, указанных в платежном документе &lt;b&gt;(Ф.И.О. собственника; количество указанных в документе кв.м.&lt;/b&gt;, принадлежащего Вам помещения; тариф, использованный при начислении взноса на капитальный ремонт (для домов до 5 этажей – 5,07, для домов более 5 этажей 5,84))&#13;&#10;ВЫ МОЖЕТЕ ПОДАТЬ ЗАЯВЛЕНИЕ ДЛЯ КОРРЕКТИРОВКИ СЛЕДУЮЩИМИ СПОСОБАМИ:&#13;&#10;- в территориальные филиалы ГУП Самарской области «Единый информационно-расчетный региональный центр» (ЕИРРЦ), либо в Многофункциональные центры (МФЦ) предоставления государственных и муниципальных услуг по адресам, размещенным на сайте http://еирц-самара.рф (в разделе «капитальный ремонт»)&#13;&#10;- в электронной форме через сайт http://еирц-самара.рф (в разделе «капитальный ремонт»)&#13;&#10;Уточнить ближайший адрес для обращения, или получить консультацию мы можете &lt;b&gt;по области: +7(846) 270-78-55, Самара: +7(846) 270-78-55; Тольятти: +7 (8482) 556-855; Новокуйбышевск: +7 (84635) 38-002.&lt;/b&gt;&#13;&#10;Подробную инструкцию о Ваших действиях при обнаружении неточностей и их устранении смотреть на официальном сайте: http://еирц-самара.рф&#13;&#10;ВНИМАНИЕ, ОБЯЗАТЕЛЬНО ПРОВЕРЬТЕ, ВКЛЮЧЕН ЛИ ВАШ ДОМ, В РЕГИОНАЛЬНУЮ ПРОГРАММУ КАПИТАЛЬНОГО РЕМОНТА ОБРАТИВШИСЬ НА САЙТ  http://капремонт-самара.рф (в разделе «РЕГИОНАЛЬНЫЕ ПРОГРАММЫ»).&#13;&#10;" HorzAlign="Justify" Font="Times New Roman, 9pt" HtmlTags="true"/>
+        <TextObject Name="Text67" Left="271.15" Top="632.8" Width="189" Height="18.9" Text="Уважаемый собственник!   " HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+        <TextObject Name="Text68" Left="63.5" Top="963.9" Width="614.25" Height="30.24" Border.Lines="All" Border.Width="0.25" Text="ПЛАТЕЖНЫЙ ДОКУМЕНТ, ДЛЯ ОПЛАТЫ ВЗНОСА ЗА &#13;&#10;КАПИТАЛЬНЫЙ РЕМОНТ ЗА МАРТ 2014, БУДЕТ ВЫСТАВЛЕН В АПРЕЛЕ 2014 ГОДА.&#13;&#10;" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      </ChildBand>
+    </DataBand>
+  </ReportPage>
+</Report>

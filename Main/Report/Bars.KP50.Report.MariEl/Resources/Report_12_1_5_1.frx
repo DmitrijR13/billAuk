@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="11/02/2015 11:20:14" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {   
+    private void GroupHeader2_BeforePrint(object sender, EventArgs e)
+    {
+
+      if(((string)Report.GetColumnValue(&quot;Q_master.group4&quot;)).Trim() == &quot;-&quot; || ((string)Report.GetColumnValue(&quot;Q_master.group4&quot;)).Trim() == &quot;&quot; || (((string)Report.GetColumnValue(&quot;Q_master.service&quot;)) == &quot;&quot; )) { GroupHeader2.Visible=false;}  
+      else  { GroupHeader2.Visible=true;}
+    }
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+      if(((string)Report.GetColumnValue(&quot;Q_master.service&quot;)) == &quot;&quot; ) { GroupHeader3.Visible=false;}  
+      else  { Data1.Visible=true;}
+      
+    }
+               
+
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="group2" DataType="System.String" PropName="Column"/>
+      <Column Name="group3" DataType="System.String" PropName="area"/>
+      <Column Name="group4" DataType="System.String" PropName="rajon"/>
+      <Column Name="service" DataType="System.String"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal"/>
+      <Column Name="rsum_tarif" DataType="System.Decimal" PropName="sum_real"/>
+      <Column Name="reval" DataType="System.Decimal"/>
+      <Column Name="real_charge" DataType="System.Decimal"/>
+      <Column Name="sum_nedop" DataType="System.Decimal"/>
+      <Column Name="sum_money" DataType="System.Decimal"/>
+      <Column Name="sum_sn" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal"/>
+      <Column Name="sum_vh" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="group1" DataType="System.Char" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="group2_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="group2_rsum_tarif" Expression="[Q_master.rsum_tarif]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="group2_reval" Expression="[Q_master.reval]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="group2_sum_nedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="group2_sum_sn" TotalType="Avg" Expression="[Q_master.sum_sn]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="group2_real_charge" Expression="[Q_master.real_charge]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="group2_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="group2_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="group2_sum_vh" Expression="[Q_master.sum_vh]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="Total_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="ReportSummary1" ResetOnReprint="true"/>
+    <Total Name="Total_rsum_tarif" Expression="[Q_master.rsum_tarif]" Evaluator="Data1" PrintOn="ReportSummary1" ResetOnReprint="true"/>
+    <Total Name="Total_reval" Expression="[Q_master.reval]" Evaluator="Data1" PrintOn="ReportSummary1" ResetOnReprint="true"/>
+    <Total Name="Total_sum_nedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1" PrintOn="ReportSummary1" ResetOnReprint="true"/>
+    <Total Name="Total_sum_sn" TotalType="Avg" Expression="[Q_master.sum_sn]" Evaluator="Data1" PrintOn="ReportSummary1" ResetOnReprint="true"/>
+    <Total Name="Total_real_charge" Expression="[Q_master.real_charge]" Evaluator="Data1" PrintOn="ReportSummary1" ResetOnReprint="true"/>
+    <Total Name="Total_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="ReportSummary1" ResetOnReprint="true"/>
+    <Total Name="Total_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="ReportSummary1" ResetOnReprint="true"/>
+    <Total Name="Total_sum_vh" Expression="[Q_master.sum_vh]" Evaluator="Data1" PrintOn="ReportSummary1" ResetOnReprint="true"/>
+    <Total Name="group4_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="group4_rsum_tarif" Expression="[Q_master.rsum_tarif]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="group4_reval" Expression="[Q_master.reval]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="group4_sum_nedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="group4_sum_sn" TotalType="Avg" Expression="[Q_master.sum_sn]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="group4_real_charge" Expression="[Q_master.real_charge]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="group4_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="group4_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="group3_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="group3_rsum_tarif" Expression="[Q_master.rsum_tarif]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="group3_reval" Expression="[Q_master.reval]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="group3_sum_nedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="group3_sum_sn" TotalType="Avg" Expression="[Q_master.sum_sn]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="group3_real_charge" Expression="[Q_master.real_charge]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="group3_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="group3_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="group1_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="GroupFooter4" ResetOnReprint="true"/>
+    <Total Name="group1_rsum_tarif" Expression="[Q_master.rsum_tarif]" Evaluator="Data1" PrintOn="GroupFooter4" ResetOnReprint="true"/>
+    <Total Name="group1_reval" Expression="[Q_master.reval]" Evaluator="Data1" PrintOn="GroupFooter4" ResetOnReprint="true"/>
+    <Total Name="group1_sum_nedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1" PrintOn="GroupFooter4" ResetOnReprint="true"/>
+    <Total Name="group1_sum_sn" TotalType="Avg" Expression="[Q_master.sum_sn]" Evaluator="Data1" PrintOn="GroupFooter4" ResetOnReprint="true"/>
+    <Total Name="group1_real_charge" Expression="[Q_master.real_charge]" Evaluator="Data1" PrintOn="GroupFooter4" ResetOnReprint="true"/>
+    <Total Name="group1_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="GroupFooter4" ResetOnReprint="true"/>
+    <Total Name="group1_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="GroupFooter4" ResetOnReprint="true"/>
+    <Total Name="group1_sum_vh" Expression="[Q_master.sum_vh]" Evaluator="Data1" PrintOn="GroupFooter4" ResetOnReprint="true"/>
+    <Total Name="group3_sum_vh" Expression="[Q_master.sum_vh]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="group4_sum_vh" Expression="[Q_master.sum_vh]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" ExtraDesignWidth="true" StartPageEvent="Page1_StartPage" FinishPageEvent="Page1_FinishPage">
+    <ReportTitleBand Name="ReportTitle1" Width="1084.86" Height="47.25" CanGrow="true" BeforePrintEvent="ReportTitle1_BeforePrint" CanBreak="true">
+      <TextObject Name="Text1" Width="1077.3" Height="47.25" Text="1.5 Информация о собираемости платежей с населения" HorzAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="50.38" Width="1084.86" Height="28.35" CanGrow="true" CanShrink="true">
+        <TextObject Name="Text65" Width="1075.76" Height="28.35" CanGrow="true" AfterDataEvent="Text45_AfterData" Text="[headerParam]&#13;&#10; " HorzAlign="Justify" VertAlign="Center" Wysiwyg="true"/>
+        <ChildBand Name="Child2" Top="81.85" Width="1084.86" Height="47.25" Border.Lines="All">
+          <TableObject Name="Table2" Left="85.05" Width="954.45" Height="47.25">
+            <TableColumn Name="Column10" Width="189"/>
+            <TableColumn Name="Column11" Width="85.05"/>
+            <TableColumn Name="Column12" Width="85.05"/>
+            <TableColumn Name="Column13" Width="85.05"/>
+            <TableColumn Name="Column14" Width="85.05"/>
+            <TableColumn Name="Column15" Width="85.05"/>
+            <TableColumn Name="Column55" Width="85.05"/>
+            <TableColumn Name="Column16" Width="85.05"/>
+            <TableColumn Name="Column17" Width="85.05"/>
+            <TableColumn Name="Column18" Width="85.05"/>
+            <TableRow Name="Row2" Height="47.25">
+              <TableCell Name="Cell10" Border.Lines="All" Text="Принципал/Муниципальное образование/ Управляющая компания/ Район/ Услуга" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell11" Border.Lines="All" Text="Начальное сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell12" Border.Lines="All" Text="Сумма начисления" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell13" Border.Lines="All" Text="Сумма перерасчета" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell14" Border.Lines="All" Text="Сумма перекидки" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell15" Border.Lines="All" Text="Сумма недо-поставки" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell55" Border.Lines="All" Text="Начислено с учетом изменений" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell16" Border.Lines="All" Text="Сумма оплаты" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell17" Border.Lines="All" Text="Сбор всего, %" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell18" Border.Lines="All" Text="Конечное сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            </TableRow>
+          </TableObject>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader4" Top="132.23" Width="1084.86" Height="18.9" CanGrow="true" CanShrink="true" KeepWithData="true" Condition="[Q_master.group1]">
+      <TextObject Name="Text2" Left="28.35" Width="245.7" Height="18.9" Border.Lines="Right, Top, Bottom" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text3" Left="274.05" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" Text="[group1_sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text4" Left="359.1" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" Text="[group1_rsum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text5" Left="444.15" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" Text="[group1_reval]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text6" Left="529.2" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" Text="[group1_real_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text7" Left="614.25" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" Text="[group1_sum_nedop]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text8" Left="699.3" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" Text="[group1_sum_vh]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text9" Left="784.35" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" Text="[group1_sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text10" Left="869.4" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" Text="[group1_sum_sn]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text11" Left="954.45" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" Text="[group1_sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text73" Width="274.05" Height="18.9" Border.Lines="Left, Top" Fill.Color="255, 192, 128" CanGrow="true" GrowToBottom="true" BreakTo="Text2" Text="[Q_master.group1]" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <GroupHeaderBand Name="GroupHeader3" Top="154.25" Width="1084.86" Height="18.9" CanGrow="true" CanShrink="true" KeepWithData="true" Condition="[Q_master.group2]">
+        <TableObject Name="Table7" Left="28.35" Width="1011.15" Height="18.9" GrowToBottom="true">
+          <TableColumn Name="Column70" Width="28.35"/>
+          <TableColumn Name="Column60" Width="217.35"/>
+          <TableColumn Name="Column61" Width="85.05"/>
+          <TableColumn Name="Column62" Width="85.05"/>
+          <TableColumn Name="Column63" Width="85.05"/>
+          <TableColumn Name="Column64" Width="85.05"/>
+          <TableColumn Name="Column65" Width="85.05"/>
+          <TableColumn Name="Column66" Width="85.05"/>
+          <TableColumn Name="Column67" Width="85.05"/>
+          <TableColumn Name="Column68" Width="85.05"/>
+          <TableColumn Name="Column69" Width="85.05"/>
+          <TableRow Name="Row7">
+            <TableCell Name="Cell70" Border.Lines="Left, Top" Fill.Color="255, 192, 192" BreakTo="Cell60" VertAlign="Center" Font="Arial, 8pt, style=Bold">
+              <TextObject Name="Text74" Width="245.7" Height="18.9" Border.Lines="Left, Top" Fill.Color="255, 192, 192" CanGrow="true" GrowToBottom="true" Text="[Q_master.group2]" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            </TableCell>
+            <TableCell Name="Cell60" Border.Lines="Right, Top, Bottom" Fill.Color="255, 192, 192" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell61" Border.Lines="All" Fill.Color="255, 192, 192" Text="[group2_sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell62" Border.Lines="All" Fill.Color="255, 192, 192" Text="[group2_rsum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell63" Border.Lines="All" Fill.Color="255, 192, 192" Text="[group2_reval]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell64" Border.Lines="All" Fill.Color="255, 192, 192" Text="[group2_real_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell65" Border.Lines="All" Fill.Color="255, 192, 192" Text="[group2_sum_nedop]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell66" Border.Lines="All" Fill.Color="255, 192, 192" Text="[group2_sum_vh]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell67" Border.Lines="All" Fill.Color="255, 192, 192" Text="[group2_sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell68" Border.Lines="All" Fill.Color="255, 192, 192" Text="[group2_sum_sn]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            <TableCell Name="Cell69" Border.Lines="All" Fill.Color="255, 192, 192" Text="[group2_sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+        <TextObject Name="Text72" Width="28.35" Height="18.9" Border.Lines="Left" Fill.Color="255, 192, 128" BreakTo="Text71" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <GroupHeaderBand Name="GroupHeader1" Top="176.27" Width="1084.86" Height="18.9" CanGrow="true" CanShrink="true" KeepWithData="true" Condition="[Q_master.group3]">
+          <TableObject Name="Table6" Left="56.7" Width="982.8" Height="18.9" GrowToBottom="true">
+            <TableColumn Name="Column71" Width="28.35"/>
+            <TableColumn Name="Column46" Width="189"/>
+            <TableColumn Name="Column47" Width="85.05"/>
+            <TableColumn Name="Column48" Width="85.05"/>
+            <TableColumn Name="Column49" Width="85.05"/>
+            <TableColumn Name="Column50" Width="85.05"/>
+            <TableColumn Name="Column51" Width="85.05"/>
+            <TableColumn Name="Column56" Width="85.05"/>
+            <TableColumn Name="Column52" Width="85.05"/>
+            <TableColumn Name="Column53" Width="85.05"/>
+            <TableColumn Name="Column54" Width="85.05"/>
+            <TableRow Name="Row6">
+              <TableCell Name="Cell71" Border.Lines="Left, Top" Fill.Color="PaleGreen" Font="Arial, 8pt, style=Bold">
+                <TextObject Name="Text75" Width="217.35" Height="18.9" Border.Lines="Left, Top" Fill.Color="PaleGreen" Text="[Q_master.group3]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              </TableCell>
+              <TableCell Name="Cell46" Border.Lines="Right, Top, Bottom" Fill.Color="PaleGreen" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell47" Border.Lines="All" Fill.Color="PaleGreen" Text="[group3_sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell48" Border.Lines="All" Fill.Color="PaleGreen" Text="[group3_rsum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell49" Border.Lines="All" Fill.Color="PaleGreen" Text="[group3_reval]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell50" Border.Lines="All" Fill.Color="PaleGreen" Text="[group3_real_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell51" Border.Lines="All" Fill.Color="PaleGreen" Text="[group3_sum_nedop]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell56" Border.Lines="All" Fill.Color="PaleGreen" Text="[group3_sum_vh]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell52" Border.Lines="All" Fill.Color="PaleGreen" Text="[group3_sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell53" Border.Lines="All" Fill.Color="PaleGreen" Text="[group3_sum_sn]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              <TableCell Name="Cell54" Border.Lines="All" Fill.Color="PaleGreen" Text="[group3_sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+            </TableRow>
+          </TableObject>
+          <TextObject Name="Text69" Left="28.35" Width="28.35" Height="18.9" Border.Lines="Left" Fill.Color="255, 192, 192" BreakTo="Text68" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text71" Width="28.35" Height="18.9" Border.Lines="Left" Fill.Color="255, 192, 128" BreakTo="Text70" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <GroupHeaderBand Name="GroupHeader2" Top="198.3" Width="1084.86" Height="18.9" CanGrow="true" BeforePrintEvent="GroupHeader2_BeforePrint" KeepWithData="true" Condition="[Q_master.group4]">
+            <TableObject Name="Table5" Left="85.05" Width="954.45" Height="18.9" Border.Lines="All" Fill.Color="LemonChiffon" GrowToBottom="true">
+              <TableColumn Name="Column37" Width="189"/>
+              <TableColumn Name="Column38" Width="85.05"/>
+              <TableColumn Name="Column39" Width="85.05"/>
+              <TableColumn Name="Column40" Width="85.05"/>
+              <TableColumn Name="Column41" Width="85.05"/>
+              <TableColumn Name="Column42" Width="85.05"/>
+              <TableColumn Name="Column57" Width="85.05"/>
+              <TableColumn Name="Column43" Width="85.05"/>
+              <TableColumn Name="Column44" Width="85.05"/>
+              <TableColumn Name="Column45" Width="85.05"/>
+              <TableRow Name="Row5">
+                <TableCell Name="Cell37" Border.Lines="Right, Top, Bottom" Fill.Color="LightCyan" Text="[Q_master.group4]" Font="Arial, 8pt, style=Bold"/>
+                <TableCell Name="Cell38" Border.Lines="All" Fill.Color="LightCyan" Text="[group4_sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+                <TableCell Name="Cell39" Border.Lines="All" Fill.Color="LightCyan" Text="[group4_rsum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+                <TableCell Name="Cell40" Border.Lines="All" Fill.Color="LightCyan" Text="[group4_reval]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+                <TableCell Name="Cell41" Border.Lines="All" Fill.Color="LightCyan" Text="[group4_real_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+                <TableCell Name="Cell42" Border.Lines="All" Fill.Color="LightCyan" Text="[group4_sum_nedop]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+                <TableCell Name="Cell57" Border.Lines="All" Fill.Color="LightCyan" Text="[group4_sum_vh]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+                <TableCell Name="Cell43" Border.Lines="All" Fill.Color="LightCyan" Text="[group4_sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+                <TableCell Name="Cell44" Border.Lines="All" Fill.Color="LightCyan" Text="[group4_sum_sn]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+                <TableCell Name="Cell45" Border.Lines="All" Fill.Color="LightCyan" Text="[group4_sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" ProcessAt="GroupFinished" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+              </TableRow>
+            </TableObject>
+            <TextObject Name="Text68" Left="28.35" Width="28.35" Height="18.9" Border.Lines="Left" Fill.Color="255, 192, 192" BreakTo="Text67" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TextObject Name="Text70" Width="28.35" Height="18.9" Border.Lines="Left" Fill.Color="255, 192, 128" BreakTo="Text66" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <TextObject Name="Text76" Left="56.7" Width="28.35" Height="18.9" Border.Lines="Left, Right" Fill.Color="PaleGreen" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            <DataBand Name="Data1" Top="220.32" Width="1084.86" Height="18.9" CanGrow="true" CanShrink="true" BeforePrintEvent="Data1_BeforePrint" DataSource="Q_master">
+              <TableObject Name="Table1" Left="85.05" Width="954.45" Height="18.9" GrowToBottom="true">
+                <TableColumn Name="Column1" Width="189"/>
+                <TableColumn Name="Column2" Width="85.05"/>
+                <TableColumn Name="Column3" Width="85.05"/>
+                <TableColumn Name="Column4" Width="85.05"/>
+                <TableColumn Name="Column5" Width="85.05"/>
+                <TableColumn Name="Column6" Width="85.05"/>
+                <TableColumn Name="Column58" Width="85.05"/>
+                <TableColumn Name="Column7" Width="85.05"/>
+                <TableColumn Name="Column8" Width="85.05"/>
+                <TableColumn Name="Column9" Width="85.05"/>
+                <TableRow Name="Row1">
+                  <TableCell Name="Cell1" Border.Lines="All" Text=" [Q_master.service]" AutoShrink="FontSize" Font="Arial, 8pt"/>
+                  <TableCell Name="Cell2" Border.Lines="All" Text="[Q_master.sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt"/>
+                  <TableCell Name="Cell3" Border.Lines="All" Text="[Q_master.rsum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt"/>
+                  <TableCell Name="Cell4" Border.Lines="All" Text="[Q_master.reval]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt"/>
+                  <TableCell Name="Cell5" Border.Lines="All" Text="[Q_master.real_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt"/>
+                  <TableCell Name="Cell6" Border.Lines="All" Text="[Q_master.sum_nedop]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt"/>
+                  <TableCell Name="Cell58" Border.Lines="All" Text="[Q_master.sum_vh]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" Font="Arial, 8pt"/>
+                  <TableCell Name="Cell7" Border.Lines="All" Text="[Q_master.sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt"/>
+                  <TableCell Name="Cell8" Border.Lines="All" Text="[Q_master.sum_sn]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt"/>
+                  <TableCell Name="Cell9" Border.Lines="All" Text="[Q_master.sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" Font="Arial, 8pt"/>
+                </TableRow>
+              </TableObject>
+              <TextObject Name="Text67" Left="28.35" Width="28.35" Height="18.9" Border.Lines="Left" Fill.Color="255, 192, 192" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TextObject Name="Text66" Width="28.35" Height="18.9" Border.Lines="Left" Fill.Color="255, 192, 128" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+              <TextObject Name="Text77" Left="56.7" Width="28.35" Height="18.9" Border.Lines="Left, Right" Fill.Color="PaleGreen" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" Duplicates="Clear" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+            </DataBand>
+            <GroupFooterBand Name="GroupFooter2" Top="242.35" Width="1084.86"/>
+          </GroupHeaderBand>
+          <GroupFooterBand Name="GroupFooter1" Top="245.47" Width="1084.86"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter3" Top="248.6" Width="1084.86"/>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter4" Top="251.72" Width="1084.86"/>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="254.85" Width="1084.86" Height="18.9" CanGrow="true" CanShrink="true" KeepWithData="true">
+      <TableObject Name="Table3" Left="85.05" Width="954.45" Height="18.9" Fill.Color="White">
+        <TableColumn Name="Column19" Width="189"/>
+        <TableColumn Name="Column20" Width="85.05"/>
+        <TableColumn Name="Column21" Width="85.05"/>
+        <TableColumn Name="Column22" Width="85.05"/>
+        <TableColumn Name="Column23" Width="85.05"/>
+        <TableColumn Name="Column24" Width="85.05"/>
+        <TableColumn Name="Column59" Width="85.05"/>
+        <TableColumn Name="Column25" Width="85.05"/>
+        <TableColumn Name="Column26" Width="85.05"/>
+        <TableColumn Name="Column27" Width="85.05"/>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell19" Border.Lines="All" Text="Итого" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell20" Border.Lines="All" Text="[Total_sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell21" Border.Lines="All" Text="[Total_rsum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell22" Border.Lines="All" Text="[Total_reval]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell23" Border.Lines="All" Text="[Total_real_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell24" Border.Lines="All" Text="[Total_sum_nedop]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell59" Border.Lines="All" Text="[Total_sum_vh]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell25" Border.Lines="All" Text="[Total_sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="[Total_sum_sn]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="[Total_sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" AutoShrink="FontSize" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

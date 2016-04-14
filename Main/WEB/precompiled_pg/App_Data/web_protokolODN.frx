@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/24/2012 10:34:46" ReportInfo.Modified="08/27/2014 10:26:50" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="num_ls" DataType="System.String"/>
+      <Column Name="fio" DataType="System.String"/>
+      <Column Name="count_gil" DataType="System.String"/>
+      <Column Name="count_room" DataType="System.Int32"/>
+      <Column Name="pl_kvar" DataType="System.Decimal"/>
+      <Column Name="norma" DataType="System.String"/>
+      <Column Name="ipu" DataType="System.Decimal"/>
+      <Column Name="wipu" DataType="System.Decimal"/>
+      <Column Name="c_calc" DataType="System.Decimal"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="Total" Expression="[Q_master.ipu]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="Total1" Expression="[Q_master.wipu]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="Total2" Expression="[Q_master.c_calc]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="Total3" Expression="[Q_master.count_gil]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="Total4" Expression="[Q_master.pl_kvar]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="Total5" Expression="[Total]+[Total1]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Guides="381.78">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="52.92">
+      <TextObject Name="Text1" Left="90.72" Top="11.34" Width="453.6" Height="30.24" Text="Протокол расчета общедомового поправочного коэффициента&#13;&#10;за [months]" HorzAlign="Center"/>
+      <TextObject Name="Text22" Left="589.68" Top="11.34" Width="120.96" Height="18.9" Text="[Date]" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="56.15" Width="718.2" Height="49.14" CanGrow="true">
+      <TextObject Name="Text2" Left="7.56" Top="3.78" Width="699.3" Height="18.9" Text="[adr_dom], [service]"/>
+      <TextObject Name="Text23" Left="7.56" Top="22.68" Width="699.3" Height="26.46" CanGrow="true" Text="Поправочный коэффициент: [kf307]&#13;&#10;Алгоритм: [name_alg]" Font="Arial, 8pt"/>
+    </PageHeaderBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="108.51" Width="718.2" Height="64.26">
+      <TextObject Name="Text3" Width="37.8" Height="64.26" Border.Lines="All" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text4" Left="37.8" Width="64.26" Height="64.26" Border.Lines="All" Text="Л/счет" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text5" Left="149.31" Width="149.31" Height="64.26" Border.Lines="All" Text="Квартиросъемщик" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text6" Left="298.62" Width="45.36" Height="64.26" Border.Lines="All" Text="Жиль-&#13;&#10;цов" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text7" Left="343.76" Width="37.8" Height="64.26" Border.Lines="All" Text="Ком-&#13;&#10;нат" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text8" Left="427.14" Width="68.04" Height="64.26" Border.Lines="All" Text="Норматив потреб-&#13;&#10;ления" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text9" Left="495.18" Width="151.2" Height="37.8" Border.Lines="All" Text="Показатель для расчета коэффициента" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text10" Left="495.18" Top="37.8" Width="79.38" Height="26.46" Border.Lines="All" Text="с ИПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text11" Left="574.56" Top="37.8" Width="71.82" Height="26.46" Border.Lines="All" Text="без ИПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text12" Left="646.38" Width="64.26" Height="64.26" Border.Lines="All" Text="Объем с учетом прошлых расчетов" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text31" Left="381.78" Width="45.36" Height="64.26" Border.Lines="All" Text="Пло-&#13;&#10;щадь кв." HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text58" Left="102.06" Width="47.25" Height="64.26" Border.Lines="All" Text="Квар-тира" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="176" Width="718.2" Height="26.46" DataSource="Q_master">
+      <TextObject Name="Text13" Width="37.8" Height="26.46" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="37.8" Width="64.26" Height="26.46" Border.Lines="All" Text="[Q_master.num_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="149.31" Width="149.31" Height="26.46" Border.Lines="All" Text="[Q_master.fio]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="298.62" Width="45.36" Height="26.46" Border.Lines="All" Text="[Q_master.count_gil]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="343.98" Width="37.8" Height="26.46" Border.Lines="All" Text="[Q_master.count_room]" HideZeros="true" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text18" Left="427.14" Width="68.04" Height="26.46" Border.Lines="All" Text="[Q_master.norma]" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Left="495.18" Width="79.38" Height="26.46" Border.Lines="All" Text="[Q_master.ipu]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Left="574.56" Width="71.82" Height="26.46" Border.Lines="All" Text="[Q_master.wipu]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text21" Left="646.38" Width="64.26" Height="26.46" Border.Lines="All" Text="[Q_master.c_calc]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text32" Left="381.78" Width="45.36" Height="26.46" Border.Lines="All" Text="[Q_master.pl_kvar]" HideZeros="true" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text59" Left="102.06" Width="47.25" Height="26.46" Border.Lines="All" Text="[Q_master.nkvar]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataFooterBand Name="DataFooter1" Top="205.68" Width="718.2" Height="52.92">
+        <TextObject Name="Text38" Left="149.31" Width="149.31" Height="26.46" Border.Lines="All" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text39" Left="298.62" Width="45.36" Height="26.46" Border.Lines="All" Text="[Total3]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text40" Left="343.98" Width="37.8" Height="26.46" Border.Lines="All" HideZeros="true" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text41" Left="427.14" Width="68.04" Height="26.46" Border.Lines="All" Format="Number" Format.UseLocale="true" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text42" Left="495.18" Width="79.38" Height="26.46" Border.Lines="All" Text="[Total]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text43" Left="574.56" Width="71.82" Height="26.46" Border.Lines="All" Text="[Total1]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text44" Left="646.38" Width="64.26" Height="26.46" Border.Lines="All" Text="[Total2]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text45" Left="381.78" Width="45.36" Height="26.46" Border.Lines="All" Text="[Total4]" HideZeros="true" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text46" Left="37.8" Width="64.26" Height="26.46" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text47" Width="37.8" Height="26.46" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text48" Left="149.31" Top="26.46" Width="149.31" Height="26.46" Border.Lines="All" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text49" Left="298.62" Top="26.46" Width="45.36" Height="26.46" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text50" Left="343.98" Top="26.46" Width="37.8" Height="26.46" Border.Lines="All" HideZeros="true" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text51" Left="427.14" Top="26.46" Width="68.04" Height="26.46" Border.Lines="All" Format="Number" Format.UseLocale="true" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text52" Left="495.18" Top="26.46" Width="79.38" Height="26.46" Border.Lines="All" Text="ВСЕГО" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text53" Left="574.56" Top="26.46" Width="71.82" Height="26.46" Border.Lines="All" Text="[[Total]+[Total1]]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text54" Left="646.38" Top="26.46" Width="64.26" Height="26.46" Border.Lines="All" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text55" Left="381.78" Top="26.46" Width="45.36" Height="26.46" Border.Lines="All" HideZeros="true" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text56" Left="37.8" Top="26.46" Width="64.26" Height="26.46" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text57" Top="26.46" Width="37.8" Height="26.46" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text61" Left="102.06" Top="26.46" Width="47.25" Height="26.46" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text60" Left="102.06" Width="47.25" Height="26.46" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      </DataFooterBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="261.83" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

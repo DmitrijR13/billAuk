@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/upload_kassa_3_0.ascx" hash="cedb9400c" filehash="8c9f7312a2e00a13" flags="110000" assembly="App_Web_macr1xxk" type="ASP.reports_upload_kassa_3_0_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/reports/upload_kassa_3_0.ascx" />
+    </filedeps>
+</preserve>

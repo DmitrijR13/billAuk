@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/24/2013 10:17:35" ReportInfo.Modified="02/13/2014 13:04:03" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_real" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="type_device" DataType="System.Int32" PropName="Column"/>
+      <Column Name="numb_payer" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_m_inwater" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_r_inwater" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_m_outwater" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_r_outwater" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_r_total" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="t_numb_payer" Expression="[Q_master.numb_payer]" Evaluator="Data1"/>
+    <Total Name="t_sum_m_inwater" Expression="[Q_master.sum_m_inwater]" Evaluator="Data1"/>
+    <Total Name="t_sum_r_inwater" Expression="[Q_master.sum_r_inwater]" Evaluator="Data1"/>
+    <Total Name="t_sum_m_outwater" Expression="[Q_master.sum_m_outwater]" Evaluator="Data1"/>
+    <Total Name="t_sum_r_outwater" Expression="[Q_master.sum_r_outwater]" Evaluator="Data1"/>
+    <Total Name="t_sum_r_total" Expression="[Q_master.sum_r_total]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="103.95">
+      <TextObject Name="Text1" Width="718.2" Height="66.15" Text="Отчет по начислениям и оплатам [IIf(Trim([supplier])==&quot;&quot;,&quot;по всем поставщикам&quot;,&quot;для &quot;+Trim([supplier]))] по ИПУ и по нормативам [rajon] &#13;&#10;за [period]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text32" Left="548.1" Top="66.15" Width="85.05" Height="37.8" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Right" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text33" Left="633.15" Top="66.15" Width="85.05" Height="37.8" Text="[DATE]&#13;&#10;[TIME]" Font="Arial, 8.25pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="176.5" Width="718.2" Height="28.35" DataSource="Q_master">
+      <TextObject Name="Text11" Width="141.75" Height="28.35" Border.Lines="All" Text=" [IIf([Q_master.type_device]==0,&quot;По нормативу&quot;,&quot;По приборам учета&quot;)]" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="141.75" Width="132.3" Height="28.35" Border.Lines="All" Text="[Q_master.numb_payer]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="274.05" Width="94.5" Height="28.35" Border.Lines="All" Text="[Q_master.sum_m_inwater]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="368.55" Width="85.05" Height="28.35" Border.Lines="All" Text="[Q_master.sum_r_inwater]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="453.6" Width="94.5" Height="28.35" Border.Lines="All" Text="[Q_master.sum_m_outwater]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="548.1" Width="85.05" Height="28.35" Border.Lines="All" Text="[Q_master.sum_r_outwater]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="633.15" Width="83.16" Height="28.35" Border.Lines="All" Text="[Q_master.sum_r_total]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+      <DataHeaderBand Name="DataHeader1" Top="107.15" Width="718.2" Height="66.15" Guides="0">
+        <TextObject Name="Text4" Left="274.05" Width="179.55" Height="37.8" Border.Lines="All" Text="Начисление за водоснабжение" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text2" Width="141.75" Height="66.15" Border.Lines="All" Text="Наименование" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text3" Left="141.75" Width="132.3" Height="66.15" Border.Lines="All" Text="Кол-во&#13;&#10;зарегистрированных лиц" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text7" Left="453.6" Width="179.55" Height="37.8" Border.Lines="All" Text="Начислено за водоотведение" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text10" Left="633.15" Width="83.16" Height="66.15" Border.Lines="All" Text="Сумма оплаты, руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text5" Left="274.05" Top="37.8" Width="94.5" Height="28.35" Border.Lines="All" Text="м3" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text6" Left="368.55" Top="37.8" Width="85.05" Height="28.35" Border.Lines="All" Text="руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text8" Left="453.6" Top="37.8" Width="94.5" Height="28.35" Border.Lines="All" Text="м3" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text9" Left="548.1" Top="37.8" Width="85.05" Height="28.35" Border.Lines="All" Text="руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      </DataHeaderBand>
+      <DataFooterBand Name="DataFooter1" Top="208.05" Width="718.2" Height="28.35">
+        <TextObject Name="Text13" Width="141.75" Height="28.35" Border.Lines="All" Text="Всего:" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text16" Left="141.75" Width="132.3" Height="28.35" Border.Lines="All" Text="[t_numb_payer]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+        <TextObject Name="Text19" Left="274.05" Width="94.5" Height="28.35" Border.Lines="All" Text="[t_sum_m_inwater]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+        <TextObject Name="Text22" Left="368.55" Width="85.05" Height="28.35" Border.Lines="All" Text="[t_sum_r_inwater]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+        <TextObject Name="Text25" Left="453.6" Width="94.5" Height="28.35" Border.Lines="All" Text="[t_sum_m_outwater]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+        <TextObject Name="Text28" Left="548.1" Width="85.05" Height="28.35" Border.Lines="All" Text="[t_sum_r_outwater]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+        <TextObject Name="Text31" Left="633.15" Width="83.16" Height="28.35" Border.Lines="All" Text="[t_sum_r_total]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+      </DataFooterBand>
+    </DataBand>
+  </ReportPage>
+</Report>

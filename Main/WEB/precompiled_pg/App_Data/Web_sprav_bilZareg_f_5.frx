@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/25/2011 11:08:27" ReportInfo.Modified="04/24/2014 14:29:29" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string gil_fam = &quot;&quot;;              //Фамилия
+    string gil_ima = &quot;&quot;;                //Имя
+    string gil_otch = &quot;&quot;;           //Отчество
+    string b_date = &quot;&quot;;           //дата рождения
+    string dat_prib = &quot;&quot;;         //дата прописки
+    string dat_vip = &quot;&quot;;          //дата выписки
+    string d_day = &quot;&quot;;                    //день смерти
+    string d_mon = &quot;&quot;;                    //месяц смерти
+    string d_year = &quot;&quot;;                 //год смерти
+    string town = &quot;&quot;;                 //город
+    string area = &quot;&quot;;            //район
+    string ulica = &quot;&quot;;         //улица
+    string ndom = &quot;&quot;;                     //дом
+    string nkvar =&quot;&quot;;                    //квартира
+    string get_date = &quot;&quot;;         //дата выдачи
+    string fim_nachPus = &quot;&quot;;   //ФИО Начальника ПУС
+    string fim_pasportist = &quot;&quot;;//ФИО паспортиста
+    
+    string dat_smert = &quot;&quot;;
+    string rajon = &quot;&quot;; 
+   
+    string dolgnost_nach = &quot;&quot;;
+    string dolgnost_pasport = &quot;&quot;;
+    
+    string osnovanie = &quot;&quot;;
+    string kuda = &quot;&quot;;
+    string adr, prim;
+
+    private void Text47_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetParameterValue(&quot;isSmr&quot;)) != &quot;1&quot;)
+      {
+        Text47.Text = &quot;&quot;;
+      }
+    }
+
+    private void Text48_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetParameterValue(&quot;isSmr&quot;)) != &quot;1&quot;)
+      {
+        Text48.Text = &quot;&quot;;
+      }
+    }
+
+    private void Text53_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetParameterValue(&quot;isSmr&quot;)) != &quot;1&quot;)
+      {
+        Text53.Text = &quot;&quot;;
+      }
+    }
+
+    private void Text52_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetParameterValue(&quot;isSmr&quot;)) != &quot;1&quot;)
+      {
+        Text52.Text = &quot;&quot;;
+      }
+    }
+
+    private void Text49_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetParameterValue(&quot;isSmr&quot;)) != &quot;1&quot;)
+      {
+        Text49.Text = &quot;&quot;;
+      }
+    }
+
+    private void Text51_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetParameterValue(&quot;isSmr&quot;)) != &quot;1&quot;)
+      {
+        Text51.Text = &quot;&quot;;
+      }
+    }
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      if (((bool)Report.GetParameterValue(&quot;IsGubkin&quot;)) == true)
+      {
+        Text54.Visible = true;
+        Text47.Visible = false;
+        Text48.Visible = false;
+        Text49.Visible = false;
+        Text51.Visible = false;
+        Text52.Visible = false;
+        Text53.Visible = false;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fam" DataType="System.String"/>
+      <Column Name="ima" DataType="System.String"/>
+      <Column Name="otch" DataType="System.String"/>
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="dat_rog" DataType="System.String"/>
+      <Column Name="dat_prib" DataType="System.String"/>
+      <Column Name="dat_vip" DataType="System.String"/>
+    </TableDataSource>
+    <Parameter Name="isSmr" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="30" FirstPageSource="15" OtherPagesSource="15" Guides="0,642.6,230.58,453.6,264.6,359.1,548.1,45.36,120.96,170.1">
+    <ReportTitleBand Name="ReportTitle1" Width="642.6" Height="181.44" CanGrow="true" CanShrink="true" BeforePrintEvent="ReportTitle1_BeforePrint" Guides="219.24,317.52,181.44,0,15.12,30.24,120.96,151.2,83.16">
+      <TextObject Name="Text47" Width="230.58" Height="15.12" CanGrow="true" BeforePrintEvent="Text47_BeforePrint" Text="ГУП Самарской области" HorzAlign="Center" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text48" Top="15.12" Width="230.58" Height="15.12" CanGrow="true" BeforePrintEvent="Text48_BeforePrint" Text="&quot;ЕИРРЦ&quot; " HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text49" Top="120.96" Width="230.58" Height="30.24" CanGrow="true" BeforePrintEvent="Text49_BeforePrint" Text="443096, г. Самара, ул. Мичурина, 46а&#13;&#10;тел. 263-88-93" HorzAlign="Center" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text51" Top="151.2" Width="230.58" Height="30.24" CanGrow="true" BeforePrintEvent="Text51_BeforePrint" Text="&#13;&#10;&quot;_____&quot; ______________20___г." HorzAlign="Center" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text52" Top="83.16" Width="230.58" Height="37.8" CanGrow="true" BeforePrintEvent="Text52_BeforePrint" Text="Служба по учету потребителей &#13;&#10;жилищно-коммунальных услуг №3&#13;&#10;Октябрьского района" HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text53" Top="30.24" Width="230.58" Height="52.92" CanGrow="true" BeforePrintEvent="Text53_BeforePrint" Text="443001, г. Самара,&#13;&#10;Студенческий переулок, д.2б&#13;&#10;ОГРН 1076315007449, ИНН 635856269,&#13;&#10;КПП 631501001" HorzAlign="Center" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text54" Left="-11.34" Top="-15.12" Width="241.92" Height="98.28" Visible="false" BeforePrintEvent="Text4_BeforePrint" Text="Российская Федерация&#13;&#10;Общество с ограниченной ответственностью&#13;&#10;&quot;Единая управляющая компания&quot;&#13;&#10;от [get_date] г." HorzAlign="Center"/>
+      <ChildBand Name="Child1" Top="184.95" Width="642.6" Height="170.1" Guides="0">
+        <TextObject Name="Text1" Top="71.82" Width="642.6" Height="98.28" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="Дана в том, что гр. [gil_fam] [gil_ima] [gil_otch] [b_date] года рождения, &#13;&#10;с [dat_prib] года постоянно по день смерти [dat_smert] года&#13;&#10;был(а) зарегистрирован(а) по адресу:&#13;&#10;[adr]&#13;&#10;С ним(ней) на день смерти были зарегистрированы:&#13;&#10;&#13;&#10;" FirstTabOffset="37.8" HtmlTags="true"/>
+        <TextObject Name="Text2" Left="230.58" Top="5.67" Width="223.02" Height="37.8" Text="СПРАВКА №_____" Font="Arial, 11pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="358.56" Width="642.6" Height="37.8" CanShrink="true" Guides="0,37.8">
+      <TextObject Name="Text4" Left="264.6" Width="94.5" Height="37.8" Border.Lines="All" Text="Родственные&#13;&#10;отношения" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="359.1" Width="94.5" Height="37.8" Border.Lines="All" Text="Год&#13;&#10;рождения" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="453.6" Width="94.5" Height="37.8" Border.Lines="All" Text="Дата&#13;&#10;регистрации" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="548.1" Width="94.5" Height="37.8" Border.Lines="All" Text="Дата &#13;&#10;выписки" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text22" Width="45.36" Height="37.8" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="45.36" Width="219.24" Height="37.8" Border.Lines="All" Text="Фамилия, имя, отчество" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="264.6" Width="94.5" Height="37.8" Border.Lines="All" Text="Родственные&#13;&#10;отношения" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="399.87" Width="642.6" Height="37.8" CanGrow="true" CanShrink="true" Guides="0,37.8" DataSource="Q_master">
+      <TextObject Name="Text8" Left="264.6" Width="94.5" Height="37.8" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.rod]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="359.1" Width="94.5" Height="37.8" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_rog]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="453.6" Width="94.5" Height="37.8" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_prib]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="548.1" Width="94.5" Height="37.8" Border.Lines="All" GrowToBottom="true" Text="[Q_master.dat_vip]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text23" Width="45.36" Height="37.8" Border.Lines="All" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="45.36" Width="219.24" Height="37.8" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fam] [Q_master.ima] [Q_master.otch]" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="441.18" Width="642.6" Height="196.56" Guides="18.9,37.8,56.7,102.06,120.96,158.76,177.66,139.86,75.6">
+      <TextObject Name="Text11" Top="18.9" Width="642.6" Height="18.9" Text="Основание: [osnovanie]"/>
+      <TextObject Name="Text12" Top="37.8" Width="642.6" Height="18.9" Text="Справка дана для предъявления [kuda]"/>
+      <TextObject Name="Text13" Top="102.06" Width="120.96" Height="18.9" Text="[get_date]"/>
+      <TextObject Name="Text14" Left="120.96" Top="102.06" Width="49.14" Height="18.9" Text="М. П."/>
+      <TextObject Name="Text15" Top="158.76" Width="359.1" Height="18.9" CanGrow="true" Text="[dolgnost_pasport]" HorzAlign="Right"/>
+      <TextObject Name="Text16" Top="120.96" Width="359.1" Height="18.9" CanGrow="true" Text="[dolgnost_nach]" HorzAlign="Right"/>
+      <TextObject Name="Text26" Left="453.6" Top="120.96" Width="189" Height="18.9" Text="/[fim_nachPus]/"/>
+      <TextObject Name="Text27" Left="453.6" Top="158.76" Width="189" Height="18.9" CanGrow="true" BeforePrintEvent="Text15_BeforePrint" Text="/[fim_pasportist]/"/>
+      <TextObject Name="Text32" Top="56.7" Width="642.6" Height="18.9" Text="Примечание: [prim]"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

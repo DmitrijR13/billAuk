@@ -1,0 +1,5 @@
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\KP50.DataBase.Update.Build\Debug\KP50.DataBase.Update.exe
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\KP50.DataBase.Update.Build\Debug\KP50.DataBase.Update.pdb
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\KP50.DataBase.Update\obj\Debug\KP50.DataBase.Update.csprojResolveAssemblyReference.cache
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\KP50.DataBase.Update\obj\Debug\KP50.DataBase.Update.exe
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\KP50.DataBase.Update\obj\Debug\KP50.DataBase.Update.pdb

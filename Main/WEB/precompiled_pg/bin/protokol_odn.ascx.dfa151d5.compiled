@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/protokol_odn.ascx" hash="cedb9400c" filehash="9276359dd7b30a18" flags="110000" assembly="App_Web_1snwotzc" type="ASP.reports_protokol_odn_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/reports/protokol_odn.ascx" />
+    </filedeps>
+</preserve>

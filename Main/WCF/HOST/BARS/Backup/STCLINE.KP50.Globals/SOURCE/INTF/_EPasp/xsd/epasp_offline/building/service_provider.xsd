@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cit.ru/gkhrt" version="1.0"
+           xmlns:gkh="http://cit.ru/gkhrt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="report_core.xsd"/>
+
+  <xs:simpleType name="weekDay">
+    <xs:annotation>
+      <xs:documentation>День недели</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="MON">
+        <xs:annotation>
+          <xs:documentation>Понедельник</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TUE">
+        <xs:annotation>
+          <xs:documentation>Вторник</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WED">
+        <xs:annotation>
+          <xs:documentation>Среда</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="THU">
+        <xs:annotation>
+          <xs:documentation>Четверг</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FRI">
+        <xs:annotation>
+          <xs:documentation>Пятница</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SAT">
+        <xs:annotation>
+          <xs:documentation>Суббота</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SUN">
+        <xs:annotation>
+          <xs:documentation>Воскресенье</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="revealContactPersonPosition">
+    <xs:annotation>
+      <xs:documentation>Должность контактного лица по раскрытию информации</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="CONTACT_PERSON">
+        <xs:annotation>
+          <xs:documentation>Контактное лицо</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CEO">
+        <xs:annotation>
+          <xs:documentation>Руководитель</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ACCOUNTANT">
+        <xs:annotation>
+          <xs:documentation>Гл. бухгалтер</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TSG_BOARD_CHAIRMAN">
+        <xs:annotation>
+          <xs:documentation>Председатель правления ТСЖ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TSG_BOARD_MEMBER">
+        <xs:annotation>
+          <xs:documentation>Член правления ТСЖ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="REVISION_COMMISSION_MEMBER">
+        <xs:annotation>
+          <xs:documentation>Член ревизионной комиссии</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="phoneType">
+    <xs:annotation>
+      <xs:documentation>Тип телефона</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="LANDLINE">
+        <xs:annotation>
+          <xs:documentation>Стационарный</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MOBILE">
+        <xs:annotation>
+          <xs:documentation>Мобильный</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FAX">
+        <xs:annotation>
+          <xs:documentation>Факс</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="phone">
+    <xs:annotation>
+      <xs:documentation>Номер телефона</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number">
+        <xs:annotation>
+          <xs:documentation>Номер</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="12"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="type" type="gkh:phoneType">
+        <xs:annotation>
+          <xs:documentation>Тип</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="workday">
+    <xs:annotation>
+      <xs:documentation>Рабочий день</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="weekDay" type="gkh:weekDay">
+        <xs:annotation>
+          <xs:documentation>День недели</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="startTime" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Начало работы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="endTime" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Окончание работы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="lunchBreakStart" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Начало обеденного перерыва</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="lunchBreakEnd" type="xs:time">
+        <xs:annotation>
+          <xs:documentation>Окончание обеденного перерыва</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="holiday">
+    <xs:annotation>
+      <xs:documentation>Выходной</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="weekDay" type="gkh:weekDay">
+        <xs:annotation>
+          <xs:documentation>День недели</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="workWeekDay">
+    <xs:annotation>
+      <xs:documentation>Время работы (день)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="workday" type="gkh:workday">
+          <xs:annotation>
+            <xs:documentation>Рабочий день</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="holiday" type="gkh:holiday">
+          <xs:annotation>
+            <xs:documentation>Выходной</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="workWeek">
+    <xs:annotation>
+      <xs:documentation>Время работы (неделя)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="7" maxOccurs="7" name="days" type="gkh:workWeekDay">
+        <xs:annotation>
+          <xs:documentation>Время работы по дням</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buildingServiceProviderOffice">
+    <xs:annotation>
+      <xs:documentation>Офис поставщика услуг/ресурсов в дом</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="address" type="gkh:fiasAddress">
+        <xs:annotation>
+          <xs:documentation>Адрес</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="headquarter" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Головной офис</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="comment">
+        <xs:annotation>
+          <xs:documentation>Комментарий</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="phone" type="gkh:phone">
+        <xs:annotation>
+          <xs:documentation>Телефон</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="personalReceptionWorkWeek" type="gkh:workWeek">
+        <xs:annotation>
+          <xs:documentation>Часы личного приема граждан</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="officeWorkWeek" type="gkh:workWeek">
+        <xs:annotation>
+          <xs:documentation>Рабочие часы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="buildingServiceProvider">
+    <xs:annotation>
+      <xs:documentation>Поставщик услуг/ресурсов в дом</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="orgLegalForm" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Код организационно-правовой формы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="registrationReasonCode" type="gkh:registrationReasonCode">
+        <xs:annotation>
+          <xs:documentation>Код причины постановки на учет</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name">
+        <xs:annotation>
+          <xs:documentation>Наименование организации</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="website">
+        <xs:annotation>
+          <xs:documentation>Официальный сайт в сети интернет</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="inn" type="gkh:innOrganization">
+        <xs:annotation>
+          <xs:documentation>ИНН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ogrn" type="gkh:ogrn">
+        <xs:annotation>
+          <xs:documentation>ОГРН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="agent" type="gkh:fio">
+        <xs:annotation>
+          <xs:documentation>Лицо имеющее право действовать без доверенности от имени юр. лица</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="email" type="gkh:email">
+        <xs:annotation>
+          <xs:documentation>Адрес электронной почты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="juridicalAddress" type="gkh:fiasAddress">
+        <xs:annotation>
+          <xs:documentation>Юр. адрес</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="formalJuridicalAddress">
+        <xs:annotation>
+          <xs:documentation>Юр. адрес (как в свидетельстве о регистрации)</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="80"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="buildingServiceProviderOffices" type="gkh:buildingServiceProviderOffice">
+        <xs:annotation>
+          <xs:documentation>Офисы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="dispatcherServiceWorkWeek" type="gkh:workWeek">
+        <xs:annotation>
+          <xs:documentation>Рабочие часы диспетчерской службы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="managementBodyWorkWeek" type="gkh:workWeek">
+        <xs:annotation>
+          <xs:documentation>Рабочие часы органов управления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganization">
+    <xs:annotation>
+      <xs:documentation>Управляющая организация</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:buildingServiceProvider">
+        <xs:sequence>
+          <xs:element name="code">
+            <xs:annotation>
+              <xs:documentation>Код УО</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:short">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="10000"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="codeForBank">
+            <xs:annotation>
+              <xs:documentation>Код УО для банка</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="gkh:string">
+                <xs:pattern value="\d{12}"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ceo" type="gkh:fio">
+            <xs:annotation>
+              <xs:documentation>Руководитель</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="revealContactPerson" type="gkh:revealContactPerson">
+            <xs:annotation>
+              <xs:documentation>Контактное лицо по раскрытию информации</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="associations" type="gkh:managingOrganizationAssociation">
+            <xs:annotation>
+              <xs:documentation>Объединения, в которых состоит УО</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="reserveFunds" type="gkh:managingOrganizationReserveFund">
+            <xs:annotation>
+              <xs:documentation>Резервные фонды УО</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="boardMembers" type="gkh:managingOrganizationBoardMember">
+            <xs:annotation>
+              <xs:documentation>Члены правления</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="revisionCommissionMembers" type="gkh:managingOrganizationRevisionCommissionMember">
+            <xs:annotation>
+              <xs:documentation>Члены ревизионной комиссии</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="contracts" type="gkh:managingOrganizationContract">
+            <xs:annotation>
+              <xs:documentation>Заключенные УО договора</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="gjiResolutions" type="gkh:managingOrganizationGjiResolution">
+            <xs:annotation>
+              <xs:documentation>Постановления, вынесенные ГЖИ</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="sanctions" type="gkh:managingOrganizationSanction">
+            <xs:annotation>
+              <xs:documentation>Санкции, примененные к УО в отчетном периоде</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="documents" type="gkh:managingOrganizationDocument">
+            <xs:annotation>
+              <xs:documentation>Финансовые и управленческие документы УО</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="accrualParameters" type="gkh:managingOrganizationAccrualParameters">
+            <xs:annotation>
+              <xs:documentation>Параметры, влияющие на начисления</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationAccrualParameters">
+    <xs:annotation>
+      <xs:documentation>Параметры, влияющие на начисления</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="metersDistType" type="gkh:metersDistType">
+        <xs:annotation>
+          <xs:documentation>Способ распределения показаний ПУ в случае, если он установлен на несколько помещений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="metersAverageDist" type="gkh:metersAverageDist">
+        <xs:annotation>
+          <xs:documentation>Способ определения среднего расхода по ПУ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="accrualPeriodPersons" type="gkh:accrualPeriodPersons">
+        <xs:annotation>
+          <xs:documentation>Факт учета при начислении периода проживания жильцов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="metersDistType">
+    <xs:annotation>
+      <xs:documentation>Способ распределения показаний ПУ в случае, если он установлен на несколько помещений</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="REGISTERED">
+        <xs:annotation>
+          <xs:documentation>пропорционально зарег. жильцам</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LIVING">
+        <xs:annotation>
+          <xs:documentation>пропорционально прожив. жильцам</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PERSONAL_ACCOUNT_SHARE">
+        <xs:annotation>
+          <xs:documentation>пропорционально долям лс</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="metersAverageDist">
+    <xs:annotation>
+      <xs:documentation>Способ определения среднего расхода по ПУ</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="WITH_MEASUREMENT_READING">
+        <xs:annotation>
+          <xs:documentation>отношение расхода к количеству месяцев с ненулевым расходом</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ALL">
+        <xs:annotation>
+          <xs:documentation>отношение расхода к количеству месяцев</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="accrualPeriodPersons">
+    <xs:annotation>
+      <xs:documentation>Факт учета при начислении периода проживания жильцов</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="BY_PERIODS">
+        <xs:annotation>
+          <xs:documentation>учитывать</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TOTAL">
+        <xs:annotation>
+          <xs:documentation>не учитывать</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="managingOrganizationAssociation">
+    <xs:annotation>
+      <xs:documentation>Объединение, в котором состоит УО</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="gkh:jurPerson">
+        <xs:sequence>
+          <xs:element name="website">
+            <xs:annotation>
+              <xs:documentation>Официальный сайт</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="gkh:string">
+                <xs:maxLength value="50"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="entryDate" type="gkh:date">
+            <xs:annotation>
+              <xs:documentation>Дата вступления</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="exitDate" type="gkh:date">
+            <xs:annotation>
+              <xs:documentation>Дата выхода</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="revealContactPerson">
+    <xs:annotation>
+      <xs:documentation>Контактное лицо по раскрытию информации</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="position" type="gkh:revealContactPersonPosition">
+        <xs:annotation>
+          <xs:documentation>Должность</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fio" type="gkh:fio">
+        <xs:annotation>
+          <xs:documentation>ФИО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="phone">
+        <xs:annotation>
+          <xs:documentation>Номер телефона</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="email" type="gkh:email">
+        <xs:annotation>
+          <xs:documentation>Email</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hireDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата принятия на работу</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationReserveFund">
+    <xs:annotation>
+      <xs:documentation>Резервный фонд УО</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name">
+        <xs:annotation>
+          <xs:documentation>Наименование</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="fundSize" type="gkh:positiveMoney">
+        <xs:annotation>
+          <xs:documentation>Размер фонда, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="fee" type="gkh:positiveMoney">
+        <xs:annotation>
+          <xs:documentation>Размер обязательных платежей и взносов, установленный общим собранием членов
+            товарищества/кооператива, для членов товарищества/кооператива, руб
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationBoardMember">
+    <xs:annotation>
+      <xs:documentation>Член правления</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fio" type="gkh:fio">
+        <xs:annotation>
+          <xs:documentation>ФИО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="phones">
+        <xs:annotation>
+          <xs:documentation>Контактные телефоны</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="email" type="gkh:email">
+        <xs:annotation>
+          <xs:documentation>Email</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationRevisionCommissionMember">
+    <xs:annotation>
+      <xs:documentation>Член ревизионной комиссии</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fio" type="gkh:fio">
+        <xs:annotation>
+          <xs:documentation>ФИО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="phones">
+        <xs:annotation>
+          <xs:documentation>Контактные телефоны</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="email" type="gkh:email">
+        <xs:annotation>
+          <xs:documentation>Email</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationContract">
+    <xs:annotation>
+      <xs:documentation>Заключенный УО договор</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number">
+        <xs:annotation>
+          <xs:documentation>Номер договора</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="signDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата подписания договора</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="jurPerson" type="gkh:jurPerson">
+        <xs:annotation>
+          <xs:documentation>Сведения об организации с которой заключен договор</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="startDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала действия договора</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="endDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата окончания действия договора</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="contractAmount" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Сумма договора, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="subject">
+        <xs:annotation>
+          <xs:documentation>Предмет договора</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="contractType">
+        <xs:annotation>
+          <xs:documentation>Тип договора</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="communalResources" type="gkh:managingOrganizationContractCommunalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальные ресурсы, поставляемые по договору</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mabServices" type="gkh:managingOrganizationContractMabService">
+        <xs:annotation>
+          <xs:documentation>Жилищные услуги, поставляемые по договору</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="customServices" type="gkh:managingOrganizationContractCustomService">
+        <xs:annotation>
+          <xs:documentation>Дополнительные услуги, поставляемые по договору (Услуга не представленная в справочниках жилищных и коммунальных услуг)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationContractCommunalResource">
+    <xs:annotation>
+      <xs:documentation>Коммунальный ресурс, поставляемый по договору</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communalResource" type="gkh:communalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tariff" type="gkh:positiveMoney">
+        <xs:annotation>
+          <xs:documentation>Тариф</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="measureUnit" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Единица измерения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationContractMabService">
+    <xs:annotation>
+      <xs:documentation>Жилищная услуга, поставляемая по договору</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mabService" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Код жилищной услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tariff" type="gkh:positiveMoney">
+        <xs:annotation>
+          <xs:documentation>Тариф</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="measureUnit" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Единица измерения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationContractCustomService">
+    <xs:annotation>
+      <xs:documentation>Дополнительная услуга, поставляемая по договору (Услуга не представленная в справочниках жилищных и коммунальных услуг)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mabService" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Код дополнительной услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tariff" type="gkh:positiveMoney">
+        <xs:annotation>
+          <xs:documentation>Тариф</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="measureUnit" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Единица измерения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationGjiResolution">
+    <xs:annotation>
+      <xs:documentation>Постановление, вынесенное ГЖИ</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="date" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата постановления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="number">
+        <xs:annotation>
+          <xs:documentation>Номер постановления</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="content" type="gkh:string">
+        <xs:annotation>
+          <xs:documentation>Содержание постановления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationSanction">
+    <xs:annotation>
+      <xs:documentation>Санкция к УО</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="supervisorName">
+        <xs:annotation>
+          <xs:documentation>Наименование контролирующего органа</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="violationCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Число нарушений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sanctionDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата наложения санкции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="penaltyAmount" type="gkh:positiveMoney">
+        <xs:annotation>
+          <xs:documentation>Сумма штрафа, руб</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="paymentDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата оплаты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:sequence minOccurs="0">
+        <xs:element name="file" type="xs:base64Binary">
+          <xs:annotation>
+            <xs:documentation>Прикрепленный файл, закодированный в base64</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="fileName" type="gkh:string">
+          <xs:annotation>
+            <xs:documentation>Имя прикрепленного файла</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managingOrganizationDocument">
+    <xs:annotation>
+      <xs:documentation>Финансовый / управленческий документ УО</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="typeCode">
+        <xs:annotation>
+          <xs:documentation>Код типа документа</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="typeName">
+        <xs:annotation>
+          <xs:documentation>Наименование типа документа</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="file" type="xs:base64Binary">
+        <xs:annotation>
+          <xs:documentation>Файл документа, закодированный в base64</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="fileName" type="gkh:string">
+        <xs:annotation>
+          <xs:documentation>Имя прикрепленного файла</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

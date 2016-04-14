@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2011 15:52:15" ReportInfo.Modified="10/10/2015 17:57:26" ReportInfo.CreatorVersion="2013.1.3.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+     string dat_s, dat_po, name;
+  }
+  
+  
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="ls" DataType="System.String"/>
+      <Column Name="fio" DataType="System.String"/>
+      <Column Name="adres" DataType="System.String"/>
+      <Column Name="doc" DataType="System.String"/>
+      <Column Name="seriya" DataType="System.String"/>
+      <Column Name="nomer" DataType="System.String"/>
+      <Column Name="dat_vid" DataType="System.String"/>
+      <Column Name="who_vid" DataType="System.String"/>
+      <Column Name="geu" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="45.36">
+      <TextObject Name="Text1" Left="18.9" Width="680.4" Height="45.36" CanGrow="true" Text="Выписка из финансового лицевого счета" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="48.56" Width="718.2" Height="75.6">
+        <TextObject Name="Text2" Left="18.9" Width="151.2" Height="18.9" Text="Квартиронаниматель" VertAlign="Center"/>
+        <TextObject Name="Text3" Left="170.1" Width="529.2" Height="18.9" Border.Lines="Bottom" Text="[fio] [dat_rog]" VertAlign="Center"/>
+        <TextObject Name="Text4" Left="75.6" Top="47.25" Width="330.75" Height="18.9" Border.Lines="Bottom" Text="[ulica]" VertAlign="Center"/>
+        <TextObject Name="Text5" Left="18.9" Top="47.25" Width="56.7" Height="18.9" Text="Улица" VertAlign="Center"/>
+        <TextObject Name="Text6" Left="406.35" Top="47.25" Width="56.7" Height="18.9" Text="дом №" VertAlign="Center"/>
+        <TextObject Name="Text7" Left="463.05" Top="47.25" Width="75.6" Height="18.9" Border.Lines="Bottom" Text="[dom]" VertAlign="Center"/>
+        <TextObject Name="Text8" Left="538.65" Top="47.25" Width="94.5" Height="18.9" Text="квартира №" VertAlign="Center"/>
+        <TextObject Name="Text9" Left="170.1" Top="18.9" Width="529.2" Height="18.9" Text="(Фамилия, имя, отчество)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text10" Left="633.15" Top="47.25" Width="66.15" Height="18.9" Border.Lines="Bottom" Text="[kvar]" VertAlign="Center"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="196.71" Width="718.2" Height="66.15" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text16" Left="18.9" Width="28.35" Height="66.15" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="47.25" Width="103.95" Height="66.15" Border.Lines="All" Text="[Q_master.fam]&#13;&#10;[Q_master.ima]&#13;&#10;[Q_master.otch]" VertAlign="Center"/>
+      <TextObject Name="Text18" Left="151.2" Width="56.7" Height="66.15" Border.Lines="All" Text="[ob_s]/&#13;&#10;[gil_s]" Duplicates="Merge" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text19" Left="207.9" Width="66.15" Height="66.15" Border.Lines="All" Text="[count_room]" Duplicates="Merge" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="274.05" Width="56.7" Height="66.15" Border.Lines="All" Text="[count_gil]" Duplicates="Merge" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="330.75" Width="56.7" Height="66.15" Border.Lines="All" Text="[tmp_gil]" Duplicates="Merge" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="387.45" Width="56.7" Height="66.15" Border.Lines="All" Text="[kuh]" Duplicates="Merge" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="444.15" Width="56.7" Height="66.15" Border.Lines="All" Text="[voda]" Duplicates="Merge" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="500.85" Width="56.7" Height="66.15" Border.Lines="All" Text="[kan]" Duplicates="Merge" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="557.55" Width="56.7" Height="66.15" Border.Lines="All" Text="[gas]" Duplicates="Merge" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="614.25" Width="94.5" Height="66.15" Border.Lines="All" Text="[Prim]" Duplicates="Merge" HorzAlign="Center" VertAlign="Center"/>
+      <DataHeaderBand Name="DataHeader1" Top="127.36" Width="718.2" Height="66.15">
+        <TableObject Name="Table1" Left="18.9" Width="689.85" Height="66.15" Border.Lines="Bottom">
+          <TableColumn Name="Column1" Width="28.35"/>
+          <TableColumn Name="Column2" Width="103.95"/>
+          <TableColumn Name="Column3" Width="56.7"/>
+          <TableColumn Name="Column4"/>
+          <TableColumn Name="Column5" Width="56.7"/>
+          <TableColumn Name="Column6" Width="56.7"/>
+          <TableColumn Name="Column7" Width="56.7"/>
+          <TableColumn Name="Column8" Width="56.7"/>
+          <TableColumn Name="Column9" Width="56.7"/>
+          <TableColumn Name="Column10" Width="56.7"/>
+          <TableColumn Name="Column11" Width="94.5"/>
+          <TableRow Name="Row1" Height="66.15">
+            <TableCell Name="Cell1" Border.Lines="All" Text="№№&#13;&#10;п.п." HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell2" Border.Lines="All" Text="Фамилия, имя, отчество, имеющих право на жилплощадь" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell3" Border.Lines="All" Text="Площадь квартиры" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell4" Border.Lines="All" Text="Количест-во комнат" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell5" Border.Lines="All" Text="Всего прожи-вает" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell6" Border.Lines="All" Text="Временно прожива-ющих" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell7" Border.Lines="All" Text="Наличие кухни" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TableCell Name="Cell8" Border.Lines="All" Text="Водо-провод" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+            <TableCell Name="Cell9" Border.Lines="All" Text="Канали&#13;&#10;зация" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell10" Border.Lines="All" Text="Газ" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell11" Border.Lines="All" Text="Примечание" HorzAlign="Center" VertAlign="Center"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="266.06" Width="718.2" Height="56.7">
+      <TextObject Name="Text11" Left="207.9" Top="9.45" Width="113.4" Height="18.9" Text="Выписка верна" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="321.3" Top="9.45" Width="75.6" Height="18.9" Border.Lines="Bottom" Text="[dt]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="396.9" Top="9.45" Width="207.9" Height="18.9" Border.Lines="Bottom" Text="/[fim_pasportist]/" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="321.3" Top="28.35" Width="283.5" Height="18.9" Text="(подпись и печать)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

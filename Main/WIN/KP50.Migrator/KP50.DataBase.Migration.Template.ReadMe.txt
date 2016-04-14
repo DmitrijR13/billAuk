@@ -1,0 +1,1 @@
+Copy archive KP50.DataBase.Migration.Template.zip into C:\Users\[User]\Documents\Visual Studio 2013\Templates\ItemTemplates\

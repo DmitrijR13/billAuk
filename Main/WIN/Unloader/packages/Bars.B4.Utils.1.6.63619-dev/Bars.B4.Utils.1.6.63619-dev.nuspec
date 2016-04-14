@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>Bars.B4.Utils</id>
+    <version>1.6.63619-dev</version>
+    <title>Bars.B4.Utils</title>
+    <authors>ЗАО "Барс ГРУП"</authors>
+    <owners>ЗАО "Барс ГРУП"</owners>
+    <iconUrl>http://nuget.bars-open.ru/packageIcons/Bars.B4.Utils.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Набор утилитных методов, методов расширений и дополнителных классов</description>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <dependencies>
+      <dependency id="Castle.Core" version="3.3.0" />
+      <dependency id="Castle.Windsor" version="3.3.0" />
+      <dependency id="Newtonsoft.Json" version="[4.5.11]" />
+    </dependencies>
+  </metadata>
+</package>

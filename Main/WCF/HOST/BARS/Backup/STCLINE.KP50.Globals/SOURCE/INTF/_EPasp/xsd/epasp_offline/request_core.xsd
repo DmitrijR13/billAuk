@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cit.ru/gkhrt" version="1.0"
+           xmlns:gkh="http://cit.ru/gkhrt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="string">
+    <xs:annotation>
+      <xs:documentation>Строка содержащая любые символы</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="collapse"/>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="requestNumber">
+    <xs:annotation>
+      <xs:documentation>Номер запроса</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="year">
+    <xs:annotation>
+      <xs:documentation>Год</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short">
+      <xs:minInclusive value="1700"/>
+      <xs:maxExclusive value="2200"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="monthWithYear">
+    <xs:annotation>
+      <xs:documentation>Месяц</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="month">
+        <xs:simpleType>
+          <xs:restriction base="xs:short">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="12"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="year" type="gkh:year"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="operationStatus">
+    <xs:annotation>
+      <xs:documentation>Статус операции</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="SUCCESS">
+        <xs:annotation>
+          <xs:documentation>Успех</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation>Ошибка</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

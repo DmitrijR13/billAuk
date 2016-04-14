@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="11/21/2012 11:20:44" ReportInfo.CreatorVersion="1.8.1.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    decimal sum_money = 0;
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+       
+    }
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="442.59,575.09,1024.38,1073.52,975.1,1020.48,879.85,934.5699,442.25,713.66,18.9,801.36,85.05,209.79,143.64,275.94,408.24,342.09,474.39,548.1,602.91,672.84,738.9901,735.21,540.54,595.35,669.0601,606.69,313.74,721.98,357.21,362.88,1043.06,538.76,707.08,811.14,904.98,905.31,1043.27,974.29,355.32,799.47,234.99,435.96,726.8,130.41,619.07,941.22,287.28,1032.98,353.43,734.36,652.05,812.7,960.12,893.97">
+    <DataBand Name="Data1" Width="1084.86" Height="778.68" BeforePrintEvent="Data1_BeforePrint" Guides="116.65,150.22,220.71,235.81,221.1,236.2,590.44,609.33,150.82,167.07,222.02,525.42,0,65.26,22.68,41.58,76.60001,91.72,106.84,121.96,137.08,152.2,167.32,182.44,197.56,212.68,227.8,242.92,258.04,273.16,288.28,303.4,3.78,26.46,170.1,75.6,143.64,113.4,20.79,86.94,18.9,37.8,56.7,173.88,192.78,200.34,219.24,532.98,570.78,589.68,725.76,60.48,79.38,98.28,117.18,136.08,729.54,748.44,771.12,850.5,13.23,279.72,11.34,34.02">
+      <BarcodeObject Name="Barcode1" Left="442.59" Top="128.65" Width="132.5" Height="33.57" Expression="[vars]" Text="00000000000000" ShowText="false" Barcode="2/5 Interleaved"/>
+      <TextObject Name="Text60" Left="442.25" Top="162.82" Width="271.41" Height="16.25" Text="[vars]" Font="Times New Roman, 11pt"/>
+      <TableObject Name="Table1" Left="18.9" Top="222.68" Width="650.16" Height="303.4">
+        <TableColumn Name="Column1"/>
+        <TableColumn Name="Column2" Width="43.47"/>
+        <TableColumn Name="Column3" Width="51.03"/>
+        <TableColumn Name="Column4" Width="47.25"/>
+        <TableColumn Name="Column5" Width="58.59"/>
+        <TableColumn Name="Column6" Width="51.03"/>
+        <TableColumn Name="Column7"/>
+        <TableColumn Name="Column8" Width="58.59"/>
+        <TableColumn Name="Column9" Width="43.47"/>
+        <TableColumn Name="Column10"/>
+        <TableColumn Name="Column11" Width="54.81"/>
+        <TableColumn Name="Column12" Width="43.47"/>
+        <TableRow Name="Row1" Height="22.68">
+          <TableCell Name="Cell1" Border.Lines="All" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="3"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="Объем коммунальных услуг *" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" ColSpan="2"/>
+          <TableCell Name="Cell3" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="Тариф ру./ед. изм. Размер платы на кв.м." HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="3"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="Размер платы за ком. услуги, руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" ColSpan="2"/>
+          <TableCell Name="Cell26" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="Всего начислено" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="3"/>
+          <TableCell Name="Cell28" Border.Lines="All" Text="Перерасчеты всего, руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="3"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="Льготы, субсидии, руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="3"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="Итого к оплате, руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="3"/>
+          <TableCell Name="Cell31" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell240" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="индив. потреб." HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="2"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="Общедом. нужды" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="2"/>
+          <TableCell Name="Cell9" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell10" Border.Lines="All" Text="индив. потреб." HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="2"/>
+          <TableCell Name="Cell33" Border.Lines="All" Text="Общедом. нужды" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="2"/>
+          <TableCell Name="Cell34" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell35" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell36" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell37" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell38" Border.Lines="All" Text="В т. ч. за комм. услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" ColSpan="2"/>
+          <TableCell Name="Cell241" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="23.68">
+          <TableCell Name="Cell11" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell12" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell13" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell14" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell15" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell40" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell41" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell42" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell43" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell44" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell45" Border.Lines="All" Text="индив. потреб." HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell242" Border.Lines="All" Text="общедом. нужды" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="11.34">
+          <TableCell Name="Cell16" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell17" Border.Lines="All" Text="2" HorzAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell18" Border.Lines="All" Text="3" HorzAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell19" Border.Lines="All" Text="4&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell20" Border.Lines="All" Text="5&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell47" Border.Lines="All" Text="6&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell48" Border.Lines="All" Text="7" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell49" Border.Lines="All" Text="8" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell50" Border.Lines="All" Text="9" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell51" Border.Lines="All" Text="10" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell52" Border.Lines="All" Text="11&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell243" Border.Lines="All" Text="12" HorzAlign="Center" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="15.12">
+          <TableCell Name="Cell21" Border.Lines="Left, Right" Text="[name_serv1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell22" Border.Lines="Right" Text="[c_calc1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell23" Text="[c_calc_odn1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell24" Border.Lines="Left, Right" Text="[tarif1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell25" Text="[rsum_tarif1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell54" Border.Lines="Left, Right" Text="[rsum_tarif_odn1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell55" Text="[rsum_tarif_all1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell56" Border.Lines="Left, Right" Text="[reval1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell57" Font="Arial, 7pt"/>
+          <TableCell Name="Cell58" Border.Lines="Left, Right" Text="[sum_charge_all1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell59" Text="[sum_charge1]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell244" Border.Lines="Left, Right" Text="[sum_charge_odn1]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="15.12">
+          <TableCell Name="Cell61" Border.Lines="Left, Right" Text="[name_serv2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell62" Border.Lines="Right" Text="[c_calc2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell63" Text="[c_calc_odn2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell64" Border.Lines="Left, Right" Text="[tarif2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell65" Text="[rsum_tarif2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell66" Border.Lines="Left, Right" Text="[rsum_tarif_odn2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell67" Text="[rsum_tarif_all2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell68" Border.Lines="Left, Right" Text="[reval2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell69" Font="Arial, 7pt"/>
+          <TableCell Name="Cell70" Border.Lines="Left, Right" Text="[sum_charge_all2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell71" Text="[sum_charge2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell245" Border.Lines="Left, Right" Text="[sum_charge_odn2]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="15.12">
+          <TableCell Name="Cell73" Border.Lines="Left, Right" Text="[name_serv3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell74" Border.Lines="Right" Text="[c_calc3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell75" Text="[c_calc_odn3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell76" Border.Lines="Left, Right" Text="[tarif3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell77" Text="[rsum_tarif3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell78" Border.Lines="Left, Right" Text="[rsum_tarif_odn3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell79" Text="[rsum_tarif_all3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell80" Border.Lines="Left, Right" Text="[reval3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell81" Font="Arial, 7pt"/>
+          <TableCell Name="Cell82" Border.Lines="Left, Right" Text="[sum_charge_all3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell83" Text="[sum_charge3]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell246" Border.Lines="Left, Right" Text="[sum_charge_odn3]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="15.12">
+          <TableCell Name="Cell85" Border.Lines="Left, Right" Text="[name_serv4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell86" Border.Lines="Right" Text="[c_calc4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell87" Text="[c_calc_odn4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell88" Border.Lines="Left, Right" Text="[tarif4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell89" Text="[rsum_tarif4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell90" Border.Lines="Left, Right" Text="[rsum_tarif_odn4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell91" Text="[rsum_tarif_all4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell92" Border.Lines="Left, Right" Text="[reval4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell93" Font="Arial, 7pt"/>
+          <TableCell Name="Cell94" Border.Lines="Left, Right" Text="[sum_charge_all4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell95" Text="[sum_charge4]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell247" Border.Lines="Left, Right" Text="[sum_charge_odn4]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row9" Height="15.12">
+          <TableCell Name="Cell97" Border.Lines="Left, Right" Text="[name_serv5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell98" Border.Lines="Right" Text="[c_calc5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell99" Text="[c_calc_odn5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell100" Border.Lines="Left, Right" Text="[tarif5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell101" Text="[rsum_tarif5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell102" Border.Lines="Left, Right" Text="[rsum_tarif_odn5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell103" Text="[rsum_tarif_all5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell104" Border.Lines="Left, Right" Text="[reval5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell105" Font="Arial, 7pt"/>
+          <TableCell Name="Cell106" Border.Lines="Left, Right" Text="[sum_charge_all5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell107" Text="[sum_charge5]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell248" Border.Lines="Left, Right" Text="[sum_charge_odn5]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row10" Height="15.12">
+          <TableCell Name="Cell109" Border.Lines="Left, Right" Text="[name_serv6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell110" Border.Lines="Right" Text="[c_calc6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell111" Text="[c_calc_odn6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell112" Border.Lines="Left, Right" Text="[tarif6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell113" Text="[rsum_tarif6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell114" Border.Lines="Left, Right" Text="[rsum_tarif_odn6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell115" Text="[rsum_tarif_all6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell116" Border.Lines="Left, Right" Text="[reval6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell117" Font="Arial, 7pt"/>
+          <TableCell Name="Cell118" Border.Lines="Left, Right" Text="[sum_charge_all6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell119" Text="[sum_charge6]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell249" Border.Lines="Left, Right" Text="[sum_charge_odn6]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row11" Height="15.12">
+          <TableCell Name="Cell121" Border.Lines="Left, Right" Text="[name_serv7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell122" Border.Lines="Right" Text="[c_calc7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell123" Text="[c_calc_odn7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell124" Border.Lines="Left, Right" Text="[tarif7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell125" Text="[rsum_tarif7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell126" Border.Lines="Left, Right" Text="[rsum_tarif_odn7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell127" Text="[rsum_tarif_all7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell128" Border.Lines="Left, Right" Text="[reval7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell129" Font="Arial, 7pt"/>
+          <TableCell Name="Cell130" Border.Lines="Left, Right" Text="[sum_charge_all7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell131" Text="[sum_charge7]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell250" Border.Lines="Left, Right" Text="[sum_charge_odn7]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row12" Height="15.12">
+          <TableCell Name="Cell133" Border.Lines="Left, Right" Text="[name_serv8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell134" Border.Lines="Right" Text="[c_calc8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell135" Text="[c_calc_odn8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell136" Border.Lines="Left, Right" Text="[tarif8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell137" Text="[rsum_tarif8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell138" Border.Lines="Left, Right" Text="[rsum_tarif_odn8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell139" Text="[rsum_tarif_all8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell140" Border.Lines="Left, Right" Text="[reval8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell141" Font="Arial, 7pt"/>
+          <TableCell Name="Cell142" Border.Lines="Left, Right" Text="[sum_charge_all8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell143" Text="[sum_charge8]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell251" Border.Lines="Left, Right" Text="[sum_charge_odn8]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row13" Height="15.12">
+          <TableCell Name="Cell145" Border.Lines="Left, Right" Text="[name_serv9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell146" Border.Lines="Right" Text="[c_calc9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell147" Text="[c_calc_odn9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell148" Border.Lines="Left, Right" Text="[tarif9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell149" Text="[rsum_tarif9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell150" Border.Lines="Left, Right" Text="[rsum_tarif_odn9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell151" Text="[rsum_tarif_all9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell152" Border.Lines="Left, Right" Text="[reval9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell153" Font="Arial, 7pt"/>
+          <TableCell Name="Cell154" Border.Lines="Left, Right" Text="[sum_charge_all9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell155" Text="[sum_charge9]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell252" Border.Lines="Left, Right" Text="[sum_charge_odn9]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row14" Height="15.12">
+          <TableCell Name="Cell157" Border.Lines="Left, Right" Text="[name_serv10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell158" Border.Lines="Right" Text="[c_calc10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell159" Text="[c_calc_odn10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell160" Border.Lines="Left, Right" Text="[tarif10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell161" Text="[rsum_tarif10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell162" Border.Lines="Left, Right" Text="[rsum_tarif_odn10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell163" Text="[rsum_tarif_all10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell164" Border.Lines="Left, Right" Text="[reval10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell165" Font="Arial, 7pt"/>
+          <TableCell Name="Cell166" Border.Lines="Left, Right" Text="[sum_charge_all10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell167" Text="[sum_charge10]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell253" Border.Lines="Left, Right" Text="[sum_charge_odn10]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row15" Height="15.12">
+          <TableCell Name="Cell169" Border.Lines="Left, Right" Text="[name_serv11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell170" Border.Lines="Right" Text="[c_calc11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell171" Text="[c_calc_odn11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell172" Border.Lines="Left, Right" Text="[tarif11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell173" Text="[rsum_tarif11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell174" Border.Lines="Left, Right" Text="[rsum_tarif_odn11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell175" Text="[rsum_tarif_all11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell176" Border.Lines="Left, Right" Text="[reval11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell177" Font="Arial, 7pt"/>
+          <TableCell Name="Cell178" Border.Lines="Left, Right" Text="[sum_charge_all11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell179" Text="[sum_charge11]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell254" Border.Lines="Left, Right" Text="[sum_charge_odn11]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row16" Height="15.12">
+          <TableCell Name="Cell181" Border.Lines="Left, Right" Text="[name_serv12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell182" Border.Lines="Right" Text="[c_calc12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell183" Text="[c_calc_odn12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell184" Border.Lines="Left, Right" Text="[tarif12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell185" Text="[rsum_tarif12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell186" Border.Lines="Left, Right" Text="[rsum_tarif_odn12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell187" Text="[rsum_tarif_all12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell188" Border.Lines="Left, Right" Text="[reval12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell189" Font="Arial, 7pt"/>
+          <TableCell Name="Cell190" Border.Lines="Left, Right" Text="[sum_charge_all12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell191" Text="[sum_charge12]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell255" Border.Lines="Left, Right" Text="[sum_charge_odn12]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row17" Height="15.12">
+          <TableCell Name="Cell193" Border.Lines="Left, Right" Text="[name_serv13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell194" Border.Lines="Right" Text="[c_calc13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell195" Text="[c_calc_odn13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell196" Border.Lines="Left, Right" Text="[tarif13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell197" Text="[rsum_tarif13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell198" Border.Lines="Left, Right" Text="[rsum_tarif_odn13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell199" Text="[rsum_tarif_all13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell200" Border.Lines="Left, Right" Text="[reval13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell201" Font="Arial, 7pt"/>
+          <TableCell Name="Cell202" Border.Lines="Left, Right" Text="[sum_charge_all13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell203" Text="[sum_charge13]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell256" Border.Lines="Left, Right" Text="[sum_charge_odn13]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row18" Height="15.12">
+          <TableCell Name="Cell205" Border.Lines="Left, Right" Text="[name_serv14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell206" Border.Lines="Right" Text="[c_calc14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell207" Text="[c_calc_odn14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell208" Border.Lines="Left, Right" Text="[tarif14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell209" Text="[rsum_tarif14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell210" Border.Lines="Left, Right" Text="[rsum_tarif_odn14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell211" Text="[rsum_tarif_all14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell212" Border.Lines="Left, Right" Text="[reval14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell213" Font="Arial, 7pt"/>
+          <TableCell Name="Cell214" Border.Lines="Left, Right" Text="[sum_charge_all14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell215" Text="[sum_charge14]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell257" Border.Lines="Left, Right" Text="[sum_charge_odn14]" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row19" Height="15.12">
+          <TableCell Name="Cell217" Border.Lines="All" Text="Итого к оплате за расчетный период" Font="Arial, 7pt, style=Bold" ColSpan="6"/>
+          <TableCell Name="Cell218" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell219" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell220" Border.Lines="All"/>
+          <TableCell Name="Cell221" Border.Lines="All"/>
+          <TableCell Name="Cell222" Border.Lines="All"/>
+          <TableCell Name="Cell223" Border.Lines="All" Text="[rsum_tarif]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell224" Border.Lines="All"/>
+          <TableCell Name="Cell225" Border.Lines="All"/>
+          <TableCell Name="Cell226" Border.Lines="All" Text="[sum_charge_all]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell227" Border.Lines="All" Text="[sum_charge]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell258" Border.Lines="All" Text="[sum_charge_odn]" Font="Arial, 7pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text8" Left="257.04" Top="4.44" Width="408.24" Height="11.34" Text="ПЛАТЕЖНЫЙ ДОКУМЕНТ (СЧЕТ) № [pkod_samara1]-[m_y_]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TableObject Name="Table2" Left="18.9" Top="46.02" Width="338.31" Height="158.76">
+        <TableColumn Name="Column13" Width="338.31"/>
+        <TableRow Name="Row20" Height="73.08">
+          <TableCell Name="Cell259" Border.Lines="All" Text="за [months]г.&#13;&#10;ФИО (наименование плательщика)  &lt;b&gt;[Platelchik] &lt;/b&gt;&#13;&#10;Адрес помещения &lt;b&gt;ул. [ulica], [numdom], [kvnum]&lt;/b&gt;&#13;&#10;Площадь:помещения &lt;b&gt;[kv_pl]&lt;/b&gt;  Прописано/факт: &lt;b&gt;[kolgil2]/[kolgil]&lt;/b&gt;  &#13;&#10;[priv]&#13;&#10;" Font="Arial, 7pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row21" Height="69.3">
+          <TableCell Name="Cell264" Border.Lines="All" Text="Наименование организации исполнителя услуг&#13;&#10;[str_rekv2]&#13;&#10;" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row58" Height="16.38">
+          <TableCell Name="Cell445" Border.Lines="Top" Text="Прием населения начальниками ЖЭУ по средам с 15.00 до 17.00" Font="Arial, 6pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table3" Left="362.88" Top="38.46" Width="680.18" Height="86.94" Border.Lines="All">
+        <TableColumn Name="Column14" Width="175.88"/>
+        <TableColumn Name="Column15" Width="168.32"/>
+        <TableColumn Name="Column16" Width="104.06"/>
+        <TableColumn Name="Column17" Width="93.84"/>
+        <TableColumn Name="Column18" Width="138.08"/>
+        <TableRow Name="Row22" Height="20.79">
+          <TableCell Name="Cell265" Border.Lines="All" Text="Наименование получателя платежа" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell266" Border.Lines="All" Text="Наименование банковского счета и банковские реквизиты" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell267" Border.Lines="All" Text="№ лицеового счета (иной идентификатор плательщика)" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell268" Border.Lines="All" Text="Вид платы" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell269" Border.Lines="All" Text="Сумма к оплате" HorzAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row23" Height="66.15">
+          <TableCell Name="Cell270" Border.Lines="All" Text="[str_rekv3]" Font="Arial, 8pt"/>
+          <TableCell Name="Cell271" Border.Lines="All" Text="[str_rekv4]" Font="Arial, 8pt"/>
+          <TableCell Name="Cell272" Border.Lines="All" Text="[pkod]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell273" Border.Lines="All" Text="кв/плата и к/услуги ([str_rekv1])" Font="Arial, 8pt"/>
+          <TableCell Name="Cell274" Border.Lines="All" Text="[sum_charge]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table4" Left="905.31" Top="125.4" Width="137.96" Height="56.7" Border.Lines="All">
+        <TableColumn Name="Column19" Width="68.98"/>
+        <TableColumn Name="Column20" Width="68.98"/>
+        <TableRow Name="Row24">
+          <TableCell Name="Cell275" Border.Lines="All" Text="Л/счет" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell276" Border.Lines="All" Text="[ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row25">
+          <TableCell Name="Cell280" Border.Lines="All" Text="ЖЭУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell281" Border.Lines="All" Text="[ngeu]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row26">
+          <TableCell Name="Cell285" Border.Lines="All" Text="УД" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell286" Border.Lines="All" Text="[ud]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text9" Left="362.88" Top="125.4" Width="542.43" Height="56.7" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text2" Left="18.9" Top="207.56" Width="529.2" Height="15.12" Text="Раздел 3. &lt;b&gt;РАСЧЕТ РАЗМЕРА ПЛАТЫ ЗА СОДЕРЖАНИЕ И РЕМОНТ ПОМЕЩЕНИЯ И КОММУНАЛЬНЫЕ УСЛУГИ&lt;/b&gt;" VertAlign="Center" Font="Arial, 6pt" HtmlTags="true"/>
+      <TableObject Name="Table5" Left="18.9" Top="527.08" Width="648.27" Height="30.24">
+        <TableColumn Name="Column21" Width="170.73"/>
+        <TableColumn Name="Column22" Width="284.13"/>
+        <TableColumn Name="Column23" Width="193.41"/>
+        <TableRow Name="Row27" Height="30.24">
+          <TableCell Name="Cell287" Text="* -указывается объем коммунальных услуг, определенный из" Font="Arial, 5pt">
+            <TextObject Name="Text61" Top="30.12" Width="529.2" Height="15.12" Text="Раздел 5 &lt;b&gt;Сведения о перерасчетах (доначислениях+, уменьшения-)&lt;/b&gt; " VertAlign="Center" Font="Arial, 6pt" HtmlTags="true"/>
+          </TableCell>
+          <TableCell Name="Cell288" Text="(1) - нормативов потребления коммунальных услуг&#13;&#10;(2) - показаний индивидуальных (квартирных) приборов учета&#13;&#10;(3) - среднемесячного потребления коммунальных услуг" Font="Arial, 5pt"/>
+          <TableCell Name="Cell289" Text="(4) -  исходя из показаний общедомового прибора учета&#13;&#10;(5) - рассчетного способа для нежилых помещений" Font="Arial, 5pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table6" Left="18.9" Top="571.44" Width="647.42" Height="90.72" Border.Lines="All">
+        <TableColumn Name="Column24" Width="111.51"/>
+        <TableColumn Name="Column25" Width="477.32"/>
+        <TableColumn Name="Column26" Width="58.59"/>
+        <TableRow Name="Row28" Height="15.12">
+          <TableCell Name="Cell290" Border.Lines="All" Text="Вид услуг" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell291" Border.Lines="All" Text="Основание перерасчета" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell292" Border.Lines="All" Text="Сумма, руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        </TableRow>
+        <TableRow Name="Row29" Height="15.12">
+          <TableCell Name="Cell295" Border.Lines="All" Text="[serv_pere1]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell296" Border.Lines="All" Text="[osn_pere1]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell297" Border.Lines="All" Text="[sum_pere1]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row30" Height="15.12">
+          <TableCell Name="Cell298" Border.Lines="All" Text="[serv_pere2]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell299" Border.Lines="All" Text="[osn_pere2]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell300" Border.Lines="All" Text="[sum_pere2]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row31" Height="15.12">
+          <TableCell Name="Cell301" Border.Lines="All" Text="[serv_pere3]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell302" Border.Lines="All" Text="[osn_pere3]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell303" Border.Lines="All" Text="[sum_pere3]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row32" Height="15.12">
+          <TableCell Name="Cell304" Border.Lines="All" Text="[serv_pere4]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell305" Border.Lines="All" Text="[osn_pere4]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell306" Border.Lines="All" Text="[sum_pere4]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row33" Height="15.12">
+          <TableCell Name="Cell307" Border.Lines="All" Text="[serv_pere5]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell308" Border.Lines="All" Text="[osn_pere5]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell309" Border.Lines="All" Text="[sum_pere5]" Font="Arial, 6pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text3" Left="18.9" Top="665.94" Width="922.32" Height="7.56" Text="Прием населения с понедельника по четверг  с8.30-11.30 и 15.00-17.00; в пятницу с 8.30-11.30 и 15.00-16.00 по адр. Мичурина, 46а тел. 263-76-83 Отдел начисления и учета платежей населения" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TableObject Name="Table7" Left="287.28" Top="681.06" Width="745.7" Height="79.38" Border.Lines="All">
+        <TableColumn Name="Column27" Width="364.77"/>
+        <TableColumn Name="Column28" Width="380.93"/>
+        <TableRow Name="Row35" Height="13.23">
+          <TableCell Name="Cell313" Text="Потребитель обязан снимать показания индивидуальных, общих (квартирных) приборов учета ежемесячно с 23-го по 25-е число текущего месяца и передавать полученные показания не позднее 26 числа текущего месяца" HorzAlign="Center" Font="Arial, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell314"/>
+        </TableRow>
+        <TableRow Name="Row36" Height="66.15">
+          <TableCell Name="Cell318" Text="При непредоставлении потребителем сведений о показаниях прибора учета в установленные сроки или исполнитель не допущен до прибора учета для проверки состояния прибора учета и достоверности предоставленных  потребителем сведений о его показаниях, размер платы определяется исходя из рассчитанного среднемесячного объема потребления коммунального ресурса потребителем, определенного по показаниям  индивидуального(общего (квартирного) прибора учета в порядке, установленном п.59 Правил предоставления коммунальных услуг, утв. Постановлением Правительства Российской Федерации от 06.05.11 № 354, а по истечении трех расчетных периодов по нормативам потребления согласно п.60 указанных Правил предоставления коммунальных услуг" Font="Arial, 5pt"/>
+          <TableCell Name="Cell319" Text="При несанкционированном вмешательстве в работу прибора учета, повлекшего искажение его показаний или повреждении прибора учета и несанкционированном подключении оборудования потребителя  к внутридомовым инженерным системам или централизованным сетям инженерно-технического обеспечения исполнитель услуг производит доначисление платы за соответствующие коммунальные услуги исходя из объемов коммунального ресурса, рассчитанных согласно п.62 Правил предоставления коммунальных услуг по пропускной способности трубы (для услуг водоснабжения, водоотведения)  или с учетом мощности подключенного оборудования ( для иных видов коммунальных услуг)" Font="Arial, 5pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table8" Left="672.84" Top="201" Width="147.42" Height="60.48">
+        <TableColumn Name="Column29" Width="81.27"/>
+        <TableColumn Name="Column30"/>
+        <TableRow Name="Row37" Height="11.34">
+          <TableCell Name="Cell320" Text="Справочно:" Font="Arial, 6pt"/>
+          <TableCell Name="Cell321"/>
+        </TableRow>
+        <TableRow Name="Row38" Height="11.34">
+          <TableCell Name="Cell325" Text="К оплате за месяц" Font="Arial, 6pt"/>
+          <TableCell Name="Cell326" Text="[sum_charge]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row39" Height="11.34">
+          <TableCell Name="Cell330" Text="Долг на [Data_dolg]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell331" Text="[sum_insaldo]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row40" Height="7.56">
+          <TableCell Name="Cell335"/>
+          <TableCell Name="Cell336"/>
+        </TableRow>
+        <TableRow Name="Row41">
+          <TableCell Name="Cell340" Border.Lines="Top" Text="Итого к оплате" Font="Arial, 6pt"/>
+          <TableCell Name="Cell341" Border.Lines="Top" Text="[sum_rub] руб. [sum_kop] коп." Font="Arial, 6pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table9" Left="672.84" Top="287.94" Width="395.01" Height="207.9">
+        <TableColumn Name="Column31" Width="81.27"/>
+        <TableColumn Name="Column32" Width="58.59"/>
+        <TableColumn Name="Column33" Width="47.25"/>
+        <TableColumn Name="Column34" Width="47.25"/>
+        <TableColumn Name="Column35" Width="43.47"/>
+        <TableColumn Name="Column36" Width="58.59"/>
+        <TableColumn Name="Column37" Width="58.59"/>
+        <TableRow Name="Row42" Height="22.68">
+          <TableCell Name="Cell342" Border.Lines="All" Text="Виды услуг" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt" RowSpan="2"/>
+          <TableCell Name="Cell343" Border.Lines="All" Text="Нормативы потребления коммунальных услуг" HorzAlign="Center" Font="Arial, 6pt" ColSpan="2"/>
+          <TableCell Name="Cell344" Border.Lines="All" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell345" Border.Lines="All" Text="Текущие показания приборов учета" HorzAlign="Center" Font="Arial, 6pt" ColSpan="2"/>
+          <TableCell Name="Cell346" Border.Lines="All" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell392" Border.Lines="All" Text="Суммарный объем коммунальных услуг в доме" HorzAlign="Center" Font="Arial, 6pt" ColSpan="2"/>
+          <TableCell Name="Cell393" Border.Lines="All" HorzAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row43" Height="22.68">
+          <TableCell Name="Cell347" Border.Lines="All" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell348" Border.Lines="All" Text="индив. потребл." HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell349" Border.Lines="All" Text="общедом. потребл." HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell350" Border.Lines="All" Text="индив. потребл." HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell351" Border.Lines="All" Text="общедом. нужды" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell394" Border.Lines="All" Text="индив. потребл." HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell395" Border.Lines="All" Text="общедом. нужды" HorzAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row44" Height="11.34">
+          <TableCell Name="Cell352" Border.Lines="All" Text="1" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell353" Border.Lines="All" Text="2" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell354" Border.Lines="All" Text="3" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell355" Border.Lines="All" Text="4" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell356" Border.Lines="All" Text="5" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell396" Border.Lines="All" Text="6" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell397" Border.Lines="All" Text="7" HorzAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row45" Height="15.12">
+          <TableCell Name="Cell357" Border.Lines="Left" Text="[rash_name1]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell358" Border.Lines="Left, Right" Text="[rash_norm1]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell359" Text="[rash_norm_odn1]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell360" Border.Lines="Left, Right" Text="[rash_pu1]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell361" Text="[rash_pu_odn1]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell398" Border.Lines="Left, Right" Text="[rash_dpu_pu1]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell399" Border.Lines="Right" Text="[rash_dpu_odn1]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row46" Height="15.12">
+          <TableCell Name="Cell362" Border.Lines="Left" Text="[rash_name2]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell363" Border.Lines="Left, Right" Text="[rash_norm2]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell364" Text="[rash_norm_odn2]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell365" Border.Lines="Left, Right" Text="[rash_pu2]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell366" Text="[rash_pu_odn2]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell400" Border.Lines="Left, Right" Text="[rash_dpu_pu22]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell401" Border.Lines="Right" Text="[rash_dpu_odn2]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row47" Height="15.12">
+          <TableCell Name="Cell367" Border.Lines="Left" Text="[rash_name3]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell368" Border.Lines="Left, Right" Text="[rash_norm3]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell369" Text="[rash_norm_odn3]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell370" Border.Lines="Left, Right" Text="[rash_pu3]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell371" Text="[rash_pu_odn3]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell402" Border.Lines="Left, Right" Text="[rash_dpu_pu3]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell403" Border.Lines="Right" Text="[rash_dpu_odn3]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row48" Height="15.12">
+          <TableCell Name="Cell372" Border.Lines="Left" Text="[rash_name4]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell373" Border.Lines="Left, Right" Text="[rash_norm4]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell374" Text="[rash_norm_odn4]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell375" Border.Lines="Left, Right" Text="[rash_pu4]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell376" Text="[rash_pu_odn4]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell404" Border.Lines="Left, Right" Text="[rash_dpu_pu4]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell405" Border.Lines="Right" Text="[rash_dpu_odn4]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row49" Height="15.12">
+          <TableCell Name="Cell377" Border.Lines="Left" Text="[rash_name5]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell378" Border.Lines="Left, Right" Text="[rash_norm5]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell379" Text="[rash_norm_odn5]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell380" Border.Lines="Left, Right" Text="[rash_pu5]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell381" Text="[rash_pu_odn5]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell406" Border.Lines="Left, Right" Text="[rash_dpu_pu5]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell407" Border.Lines="Right" Text="[rash_dpu_odn5]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row50" Height="15.12">
+          <TableCell Name="Cell382" Border.Lines="Left" Text="[rash_name6]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell383" Border.Lines="Left, Right" Text="[rash_norm6]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell384" Text="[rash_norm_odn6]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell385" Border.Lines="Left, Right" Text="[rash_pu6]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell386" Text="[rash_pu_odn6]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell408" Border.Lines="Left, Right" Text="[rash_dpu_pu6]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell409" Border.Lines="Right" Text="[rash_dpu_odn6]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row51" Height="15.12">
+          <TableCell Name="Cell387" Border.Lines="Left" Text="[rash_name7]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell388" Border.Lines="Left, Right" Text="[rash_norm7]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell389" Text="[rash_norm_odn7]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell390" Border.Lines="Left, Right" Text="[rash_pu7]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell391" Text="[rash_pu_odn7]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell410" Border.Lines="Left, Right" Text="[rash_dpu_pu7]" Font="Arial, 6pt"/>
+          <TableCell Name="Cell411" Border.Lines="Right" Text="[rash_dpu_odn7]" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row52" Height="15.12">
+          <TableCell Name="Cell412" Border.Lines="Left" Font="Arial, 6pt"/>
+          <TableCell Name="Cell413" Border.Lines="Left, Right" Font="Arial, 6pt"/>
+          <TableCell Name="Cell414" Font="Arial, 6pt"/>
+          <TableCell Name="Cell415" Border.Lines="Left, Right" Font="Arial, 6pt"/>
+          <TableCell Name="Cell416" Font="Arial, 6pt"/>
+          <TableCell Name="Cell417" Border.Lines="Left, Right" Font="Arial, 6pt"/>
+          <TableCell Name="Cell418" Border.Lines="Right" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row53" Height="15.12">
+          <TableCell Name="Cell419" Border.Lines="Left" Font="Arial, 6pt"/>
+          <TableCell Name="Cell420" Border.Lines="Left, Right" Font="Arial, 6pt"/>
+          <TableCell Name="Cell421" Font="Arial, 6pt"/>
+          <TableCell Name="Cell422" Border.Lines="Left, Right" Font="Arial, 6pt"/>
+          <TableCell Name="Cell423" Font="Arial, 6pt"/>
+          <TableCell Name="Cell424" Border.Lines="Left, Right" Font="Arial, 6pt"/>
+          <TableCell Name="Cell425" Border.Lines="Right" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row54" Height="15.12">
+          <TableCell Name="Cell426" Border.Lines="Left, Bottom" Font="Arial, 6pt"/>
+          <TableCell Name="Cell427" Border.Lines="Left, Right, Bottom" Font="Arial, 6pt"/>
+          <TableCell Name="Cell428" Border.Lines="Bottom" Font="Arial, 6pt"/>
+          <TableCell Name="Cell429" Border.Lines="Left, Right, Bottom" Font="Arial, 6pt"/>
+          <TableCell Name="Cell430" Border.Lines="Bottom" Font="Arial, 6pt"/>
+          <TableCell Name="Cell431" Border.Lines="Left, Right, Bottom" Font="Arial, 6pt"/>
+          <TableCell Name="Cell432" Border.Lines="Right, Bottom" Font="Arial, 6pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table10" Left="839.16" Top="201" Width="132.3" Height="18.9">
+        <TableColumn Name="Column38"/>
+        <TableColumn Name="Column39"/>
+        <TableRow Name="Row55">
+          <TableCell Name="Cell433" Text="Пени" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell434" Border.Lines="All"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text62" Left="672.84" Top="269.04" Width="396.9" Height="18.9" Text="Раздел 4 &lt;b&gt;Справочная информация&lt;/b&gt; " VertAlign="Center" Font="Arial, 7pt" HtmlTags="true"/>
+      <TextObject Name="Text63" Left="672.84" Top="556.32" Width="396.9" Height="11.34" Text="Раздел 6 &lt;b&gt;Расчет суммы к оплате с учетом рассрочки долга&lt;/b&gt; " VertAlign="Center" Font="Arial, 6pt" HtmlTags="true"/>
+      <TableObject Name="Table11" Left="672.84" Top="571.44" Width="394.99" Height="41.58" Border.Lines="Left, Right">
+        <TableColumn Name="Column40" Width="76.73"/>
+        <TableColumn Name="Column41" Width="80.51"/>
+        <TableColumn Name="Column42" Width="46.49"/>
+        <TableColumn Name="Column43" Width="42.71"/>
+        <TableColumn Name="Column44" Width="148.55"/>
+        <TableRow Name="Row56">
+          <TableCell Name="Cell435" Border.Lines="All" Text="Виды услуг" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell436" Border.Lines="All" Text="Суммы платы с учетом рассрочки платежа" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell437" Border.Lines="All" Text="% за рассрочку" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell438" Border.Lines="All" Text="% ставка" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell439" Border.Lines="All" Text="К оплате с учетом рассрочки платежа и % за рассрочку, руб." HorzAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row57" Height="22.68">
+          <TableCell Name="Cell440" Border.Lines="All" Font="Arial, 6pt"/>
+          <TableCell Name="Cell441" Border.Lines="All" Font="Arial, 6pt"/>
+          <TableCell Name="Cell442" Border.Lines="All" Font="Arial, 6pt"/>
+          <TableCell Name="Cell443" Border.Lines="All" Font="Arial, 6pt"/>
+          <TableCell Name="Cell444" Border.Lines="All" Font="Arial, 6pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text64" Left="18.9" Top="30.24" Width="238.14" Height="15.12" Text="Раздел 1. &lt;b&gt;Сведения о плательщике и исполнителе услуг&lt;/b&gt;" VertAlign="Center" Font="Arial, 6pt" HtmlTags="true"/>
+      <TextObject Name="Text65" Left="362.88" Top="26.46" Width="366.66" Height="11.34" Text="Раздел 2. &lt;b&gt;Сведения для внесения платы получателю платежа (получателям платежей)&lt;/b&gt;" VertAlign="Center" Font="Arial, 6pt" HtmlTags="true"/>
+      <TextObject Name="Text66" Left="257.04" Top="16.12" Width="404.46" Height="11.34" Text="для внесения платы за содержание и ремонт помещения и предоставление коммунальных услуг" VertAlign="Center" Font="Arial, 6pt" HtmlTags="true"/>
+    </DataBand>
+  </ReportPage>
+</Report>

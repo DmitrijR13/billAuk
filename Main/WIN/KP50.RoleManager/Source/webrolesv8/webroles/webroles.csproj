@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE7A9940-8611-476A-A219-51FB74A47F1A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>webroles</RootNamespace>
+    <AssemblyName>RoleManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\..\..\..\..\..\..\..\Users\albert.samigullin\Desktop\Npgsql-2.1.3-net20\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.0.13.91, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Users\albert.samigullin\Documents\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComboBoxBindingSource.cs" />
+    <Compile Include="Enumerators\ProfilesEnum.cs" />
+    <Compile Include="GenerateScriptTable\PagesTableScripts\PagesDeleteWholeScript.cs" />
+    <Compile Include="TransferData\ConnectionToPostgreSqlDb.cs" />
+    <Compile Include="TransferData\DBManager.cs" />
+    <Compile Include="GenerateScriptTable\PagesTableScripts\PagesInsertWholeScript.cs" />
+    <Compile Include="Interfaces\IChangeScript.cs" />
+    <Compile Include="Enumerators\RoleTypes.cs" />
+    <Compile Include="Enumerators\ScriptGenerateOper.cs" />
+    <Compile Include="TablesSecondLevel\UseInRoleActions.cs" />
+    <Compile Include="Enumerators\TypeScript.cs" />
+    <Compile Include="Windows\AutorizationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AutorizationWindow.Designer.cs">
+      <DependentUpon>AutorizationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAllTables.cs" />
+    <Compile Include="CreateDataGridViewColumn.cs" />
+    <Compile Include="Enumerators\EditOperations.cs" />
+    <Compile Include="GenerateScriptTable\ActionsLnkTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\ActionsShowTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\ChangedRow.cs" />
+    <Compile Include="GenerateScriptTable\FirstGenScript.cs" />
+    <Compile Include="GenerateScriptTable\GenerateScript.cs" />
+    <Compile Include="GenerateScriptTable\ImgLnkPagesTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\ImgLnkSactionsTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\ImgLnkSrolesTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\LastGenScript.cs" />
+    <Compile Include="GenerateScriptTable\PageLinksTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\PagesShowTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\PagesTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\ReportTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\RoleActionsTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\RolePagesTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\RoleskeyTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\SactionsTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\SrolesTableGenScript.cs" />
+    <Compile Include="GenerateScriptTable\TRoleMergingTableGenScript.cs" />
+    <Compile Include="Interfaces\IDataSourceIndividComboBox.cs" />
+    <Compile Include="Interfaces\IDeletable.cs" />
+    <Compile Include="Interfaces\IEditable.cs" />
+    <Compile Include="Interfaces\INamePosition.cs" />
+    <Compile Include="Interfaces\ISubject.cs" />
+    <Compile Include="Windows\SelectProfileWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SelectProfileWindow.Designer.cs">
+      <DependentUpon>SelectProfileWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordHashCode.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\RegistrationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\RegistrationWindow.Designer.cs">
+      <DependentUpon>RegistrationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tables.cs" />
+    <Compile Include="TablesFirstLevel\ReportTable.cs" />
+    <Compile Include="TablesSecondLevel\ActionsLnkTable.cs" />
+    <Compile Include="TablesSecondLevel\ActionShowTable.cs" />
+    <Compile Include="Interfaces\IObserver.cs" />
+    <Compile Include="TablesFirstLevel\TableFirstLevel.cs" />
+    <Compile Include="TablesFirstLevel\PageGroupsTable.cs" />
+    <Compile Include="TablesFirstLevel\PageLinksTable.cs" />
+    <Compile Include="TablesFirstLevel\PagesTable.cs" />
+    <Compile Include="TablesFirstLevel\ProfilesTable.cs" />
+    <Compile Include="TablesFirstLevel\SactionTable.cs" />
+    <Compile Include="TablesFirstLevel\SrolesTable.cs" />
+    <Compile Include="TablesSecondLevel\DataSourceStorageForComboBoxCell.cs" />
+    <Compile Include="TablesSecondLevel\ImgLnkPagesTable.cs" />
+    <Compile Include="TablesSecondLevel\ImgLnkSactionsTable.cs" />
+    <Compile Include="TablesSecondLevel\ImgLnkSroleTable.cs" />
+    <Compile Include="TablesSecondLevel\ProfileRolesTable.cs" />
+    <Compile Include="TablesSecondLevel\RoleActionsTable.cs" />
+    <Compile Include="TablesSecondLevel\RolePagesTable.cs" />
+    <Compile Include="TablesSecondLevel\RolesKeyTable.cs" />
+    <Compile Include="TablesSecondLevel\TableSecondLevel.cs" />
+    <Compile Include="TablesFirstLevel\UsersTable.cs" />
+    <Compile Include="TablesSecondLevel\TroleMergingTable.cs" />
+    <Compile Include="TablesSecondLevel\UseInRolePages.cs" />
+    <Compile Include="TransferData\Returns.cs" />
+    <Compile Include="TransferData\TransferDataDb.cs" />
+    <Compile Include="Windows\TypeScriptWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\TypeScriptWindow.Designer.cs">
+      <DependentUpon>TypeScriptWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UpdateRowWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\UpdateRowWindow.Designer.cs">
+      <DependentUpon>UpdateRowWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WatchGeneratedRowsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\WatchGeneratedRowsWindow.Designer.cs">
+      <DependentUpon>WatchGeneratedRowsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WtachGeneratedRows.cs" />
+    <EmbeddedResource Include="Windows\AutorizationWindow.resx">
+      <DependentUpon>AutorizationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Windows\RegistrationWindow.resx">
+      <DependentUpon>RegistrationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\SelectProfileWindow.resx">
+      <DependentUpon>SelectProfileWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\TypeScriptWindow.resx">
+      <DependentUpon>TypeScriptWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\UpdateRowWindow.resx">
+      <DependentUpon>UpdateRowWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\WatchGeneratedRowsWindow.resx">
+      <DependentUpon>WatchGeneratedRowsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\autorizationWindow.datasource" />
+    <None Include="Properties\DataSources\ConnectionToPostgreSqlDb.datasource" />
+    <None Include="Properties\DataSources\mainWindow.datasource" />
+    <None Include="Properties\DataSources\PasswordHashCode.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\registrationWindow.datasource" />
+    <None Include="Properties\DataSources\webroles.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\webroles.Properties.Settings.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

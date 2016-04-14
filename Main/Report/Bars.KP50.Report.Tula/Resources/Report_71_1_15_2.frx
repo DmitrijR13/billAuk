@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/21/2013 13:47:00" ReportInfo.Modified="11/10/2014 15:36:59" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="area" Enabled="false" DataType="System.String"/>
+      <Column Name="name_supp" Enabled="false" DataType="System.String"/>
+      <Column Name="service" DataType="System.String"/>
+      <Column Name="sum_insaldo_mkd" Enabled="false" DataType="System.Decimal" PropName="sum_charge"/>
+      <Column Name="Principal" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Agent" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="payer" DataType="System.String" PropName="Column"/>
+      <Column Name="name_norm" DataType="System.String" PropName="Column"/>
+      <Column Name="norm" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="town" DataType="System.String" PropName="Column"/>
+      <Column Name="count_ls" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="141.75" CanGrow="true" CanShrink="true" CanBreak="true">
+      <TextObject Name="Text1" Left="-17.76" Top="10.56" Width="993.71" Height="42.36" Text="1.15.2 Отчет для сверки загруженных данных в разрезе норматива услуг" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text74" Left="9.45" Top="56.7" Width="965.36" Height="42.36" Text="[headerParam]" Font="Times New Roman, 10pt"/>
+      <TableObject Name="Table1" Top="113.4" Width="1020.64" Height="28.35" Border.Lines="All">
+        <TableColumn Name="Column1" Width="164.43"/>
+        <TableColumn Name="Column2" Width="202.25"/>
+        <TableColumn Name="Column3" Width="202.25"/>
+        <TableColumn Name="Column4" Width="202.25"/>
+        <TableColumn Name="Column5" Width="154.96"/>
+        <TableColumn Name="Column11" Width="94.5"/>
+        <TableRow Name="Row1" Height="28.35" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" Text="Территория" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="Муниципальное образование" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="Наименование норматива" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell5" Text="Норматив" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell11" Border.Lines="All" Text="Кол-во ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="144.63" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TableObject Name="Table2" Width="1020.6" Height="18.9" Border.Lines="All">
+        <TableColumn Name="Column6" Width="164.43"/>
+        <TableColumn Name="Column7" Width="202.23"/>
+        <TableColumn Name="Column8" Width="202.23"/>
+        <TableColumn Name="Column9" Width="202.23"/>
+        <TableColumn Name="Column10" Width="154.98"/>
+        <TableColumn Name="Column12" Width="94.5"/>
+        <TableRow Name="Row2" AutoSize="true">
+          <TableCell Name="Cell6" Border.Lines="All" Text="[Q_master.rajon]"/>
+          <TableCell Name="Cell7" Border.Lines="All" Text="[Q_master.town]"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="[Q_master.service]"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="[Q_master.name_norm]"/>
+          <TableCell Name="Cell10" Border.Lines="All" Text="[Q_master.norm]" HideZeros="true" HorzAlign="Right"/>
+          <TableCell Name="Cell12" Border.Lines="All" Text="[Q_master.count_ls]" HorzAlign="Right"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+</Report>

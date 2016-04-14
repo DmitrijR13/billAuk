@@ -1,0 +1,3 @@
+20.12.2015 10:40:23 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 

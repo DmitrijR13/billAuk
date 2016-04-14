@@ -1,0 +1,4 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\WCF\CLIENT\Test\STCLINE.KP50.Test\obj\x86\Debug\STCLINE.KP50.Test.csprojResolveAssemblyReference.cache
+C:\PROJECTS\Billing.GKH.KP50\Main\WCF\CLIENT\Test\STCLINE.KP50.Test\obj\x86\Debug\STCLINE.KP50.Test.TestForm.resources
+C:\PROJECTS\Billing.GKH.KP50\Main\WCF\CLIENT\Test\STCLINE.KP50.Test\obj\x86\Debug\STCLINE.KP50.Test.Properties.Resources.resources
+C:\PROJECTS\Billing.GKH.KP50\Main\WCF\CLIENT\Test\STCLINE.KP50.Test\obj\x86\Debug\STCLINE.KP50.Test.csproj.GenerateResource.Cache

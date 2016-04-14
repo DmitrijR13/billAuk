@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/13/2014 11:13:09" ReportInfo.Modified="09/24/2015 10:39:10" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="47.25">
+      <TextObject Name="Text1" Left="9.45" Top="9.45" Width="689.85" Height="28.35" Text="Отчет по проверке открытых ЛС без начислений." VertAlign="Center"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="71.15" Width="718.2" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text8" Left="56.7" Width="132.3" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.num_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text9" Left="189" Width="160.65" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.pkod]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text10" Left="349.65" Width="349.65" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.adr]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text11" Left="9.45" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataHeaderBand Name="DataHeader1" Top="49.75" Width="718.2" Height="18.9" Guides="9.45">
+        <TextObject Name="Text2" Left="56.7" Width="132.3" Height="18.9" Border.Lines="All" Text="№ л. сч." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text3" Left="189" Width="160.65" Height="18.9" Border.Lines="All" Text="Платежный код" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text4" Left="349.65" Width="349.65" Height="18.9" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text5" Left="9.45" Width="47.25" Height="18.9" Border.Lines="All" Text="№ п.п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      </DataHeaderBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="92.55" Width="718.2" Height="37.8" CanGrow="true">
+      <TextObject Name="Text7" Left="9.45" Top="9.45" Width="689.85" Height="18.9" CanGrow="true" GrowToBottom="true" Text="[report_name]" VertAlign="Center" Font="Arial, 9pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

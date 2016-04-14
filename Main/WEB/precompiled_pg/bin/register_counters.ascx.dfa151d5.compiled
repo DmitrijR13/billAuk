@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/register_counters.ascx" hash="cedb9400c" filehash="ffffeb2938cdf9cc" flags="110000" assembly="App_Web_1snwotzc" type="ASP.reports_register_counters_ascx">
+    <filedeps>
+        <filedep name="/none/reports/register_counters.ascx" />
+    </filedeps>
+</preserve>

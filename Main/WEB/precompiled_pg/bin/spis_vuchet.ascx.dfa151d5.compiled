@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/spis_vuchet.ascx" hash="cedb9400c" filehash="b0a8af16f5f94d77" flags="110000" assembly="App_Web_k0rln3vi" type="ASP.reports_spis_vuchet_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/reports/spis_vuchet.ascx" />
+    </filedeps>
+</preserve>

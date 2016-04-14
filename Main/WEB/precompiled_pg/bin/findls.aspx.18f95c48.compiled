@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/adres/findls.aspx" hash="cedb9400c" filehash="bcf4a7644d4e069" flags="110000" assembly="App_Web_vw4pl3gw" type="ASP.kart_adres_findls_aspx">
+    <filedeps>
+        <filedep name="/none/kart/adres/findls.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+    </filedeps>
+</preserve>

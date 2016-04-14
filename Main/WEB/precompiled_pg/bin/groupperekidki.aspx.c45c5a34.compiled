@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/charge/groupperekidki.aspx" hash="cedb9400c" filehash="baf051c46bfda48b" flags="110000" assembly="App_Web_l3jhgopc" type="ASP.kart_charge_groupperekidki_aspx">
+    <filedeps>
+        <filedep name="/none/kart/charge/groupperekidki.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/DocumentBase.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

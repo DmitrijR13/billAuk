@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="06/04/2014 14:24:27" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string nkvar_n = &quot;&quot;;
+    string nkvar = &quot;&quot;;    
+    string nkor = &quot;&quot;;
+    string ndom = &quot;&quot;;    
+    string ulica = &quot;&quot;;        
+    string town = &quot;&quot;;    
+    string pl_gil = &quot;&quot;;
+    string pl_all = &quot;&quot;;    
+    string sum_real = &quot;&quot;;
+    string privat = &quot;&quot;;    
+    string kolgil = &quot;&quot;;
+    string fio = &quot;&quot;;    
+    string komn = &quot;&quot;;
+    string korp = &quot;&quot;;    
+    string kind_priv = &quot;&quot;;        
+    string Lschet = &quot;&quot;;        
+    
+    
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      
+      if (nkvar_n == &quot;-&quot;)
+         komn = &quot;&quot;;
+      else  
+         komn = &quot;Комната&quot;;
+      
+      if (nkor == &quot;-&quot;) 
+          korp = &quot;&quot;;
+      else
+          korp = &quot;Корпус&quot;;
+      
+      if (nkvar_n == &quot;-&quot;) 
+          kind_priv = &quot;Квартира&quot;;
+      else 
+          kind_priv = &quot;Комната&quot;;
+      }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fam" DataType="System.String"/>
+      <Column Name="ima" DataType="System.String"/>
+      <Column Name="otch" DataType="System.String"/>
+      <Column Name="dat_rog" DataType="System.String"/>
+      <Column Name="landp" DataType="System.String"/>
+      <Column Name="statp" DataType="System.String"/>
+      <Column Name="rajonp" DataType="System.String"/>
+      <Column Name="townp" DataType="System.String"/>
+      <Column Name="npunktp" DataType="System.String"/>
+      <Column Name="rem_op" DataType="System.String"/>
+      <Column Name="dat_prib" DataType="System.String"/>
+      <Column Name="cel" DataType="System.String"/>
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="serij" DataType="System.String"/>
+      <Column Name="nomer" DataType="System.String"/>
+      <Column Name="vid_dat" DataType="System.String"/>
+      <Column Name="vid_mes" DataType="System.String"/>
+      <Column Name="kod_podrazd" DataType="System.String"/>
+      <Column Name="jobname" DataType="System.String"/>
+      <Column Name="jobpost" DataType="System.String"/>
+      <Column Name="type_prop" DataType="System.String"/>
+      <Column Name="dat_prop" DataType="System.String"/>
+      <Column Name="tprp" DataType="System.String"/>
+      <Column Name="landu" DataType="System.String"/>
+      <Column Name="statu" DataType="System.String"/>
+      <Column Name="rajonu" DataType="System.String"/>
+      <Column Name="townu" DataType="System.String"/>
+      <Column Name="npunktu" DataType="System.String"/>
+      <Column Name="rem_ku" DataType="System.String"/>
+      <Column Name="dat_ubit" DataType="System.String"/>
+    </TableDataSource>
+    <Parameter Name="privat" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="96.39" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text21" Left="26.46" Top="37.8" Width="177.66" Height="28.35" Text="по адресу:" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text2" Left="827.82" Top="37.8" Width="200.34" Height="28.35" Text="[Trim([privatiz])]" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text31" Left="699.3" Width="226.8" Height="37.8" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Right"/>
+      <TextObject Name="Text32" Left="926.1" Width="102.06" Height="37.8" Text="[date]&#13;&#10;[time]"/>
+      <TextObject Name="Text22" Left="204.12" Top="37.8" Width="495.18" Height="28.35" Text="[Trim([Adres])]" AutoWidth="true" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text1" Left="360.99" Width="338.31" Height="37.8" Text="2.2 ВЫПИСКА ИЗ ДОМОВОЙ КНИГИ" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text26" Left="26.46" Top="66.15" Width="177.66" Height="28.35" Text="организация:" HorzAlign="Right" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text25" Left="204.12" Top="66.15" Width="495.18" Height="28.35" Text="[Trim([num_geu])]" AutoWidth="true" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="99.9" Width="1047.06" Height="49.14">
+      <TextObject Name="Text3" Left="7.56" Width="18.9" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text4" Left="26.46" Width="177.66" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Фамилия Имя Отчество" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text5" Left="204.12" Width="83.16" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Год рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text6" Left="287.28" Width="143.64" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Когда и откуда прибыл" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text7" Left="430.92" Width="132.3" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Цель приезда, родственные отношения" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text8" Left="563.22" Width="136.08" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Паспорт, серия, номер" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text9" Left="699.3" Width="128.52" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Место работы, занимаемая должность" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text10" Left="827.82" Width="98.28" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Отметка о прописке, дата" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text11" Left="926.1" Width="102.06" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" CanBreak="false" Text="Когда, куда выбыл" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="152.55" Width="1047.06" Height="39.69" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text12" Left="7.56" Top="-0.38" Width="18.9" Height="39.69" Border.ShadowWidth="1" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Row#]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="26.46" Top="-0.38" Width="177.66" Height="39.69" Border.ShadowWidth="1" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Trim([Q_master.fam])] [Trim([Q_master.ima])] [Trim([Q_master.otch])]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="204.12" Top="-0.38" Width="83.16" Height="39.69" Border.ShadowWidth="1" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master.dat_rog]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="287.28" Top="-0.38" Width="143.64" Height="39.69" Border.ShadowWidth="1" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master.dat_prib] [Trim([Q_master.landp])] [Trim([Q_master.statp])] [Trim([Q_master.townp])] [Trim([Q_master.rajonp])] [Trim([Q_master.npunktp])] [Trim([Q_master.rem_op])]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt">
+        <Formats>
+          <DateFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <DateFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text16" Left="430.92" Top="-0.38" Width="132.3" Height="39.69" Border.ShadowWidth="1" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Trim([Q_master.cel])]&#13;&#10;[Trim([Q_master.rod])]&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="563.22" Top="-0.38" Width="136.08" Height="39.69" Border.ShadowWidth="1" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Trim([Q_master.serij])] [Trim([Q_master.nomer])] &#13;&#10;[Trim([Q_master.vid_mes])]&#13;&#10;[Q_master.vid_dat]&#13;&#10;[Q_master.kod_podrazd]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt">
+        <Formats>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <DateFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text18" Left="699.3" Top="-0.38" Width="128.52" Height="39.69" Border.ShadowWidth="1" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Trim([Q_master.jobname])]&#13;&#10;[Trim([Q_master.jobpost])]&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Left="827.82" Top="-0.38" Width="98.28" Height="39.69" Border.ShadowWidth="1" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Trim([Q_master.tprp])]&#13;&#10;[Q_master.dat_prop]&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt">
+        <Formats>
+          <GeneralFormat/>
+          <DateFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text20" Left="926.1" Top="-0.38" Width="102.06" Height="39.69" Border.ShadowWidth="1" Border.Lines="All" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[Q_master.dat_ubit] [Trim([Q_master.landu])] [Trim([Q_master.statu])] [Trim([Q_master.townu])] [Trim([Q_master.rajonu])] [Trim([Q_master.npunktu])] [Trim([Q_master.rem_ku])]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt">
+        <Formats>
+          <DateFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <DateFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+        </Formats>
+      </TextObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="195.75" Width="1047.06" Height="113.4">
+      <TextObject Name="Text27" Left="430.92" Top="18.9" Width="268.38" Height="28.35" Text="[dolgnost_pasport]" Padding="20, 0, 2, 0" Format="Date" Format.Format="D" VertAlign="Bottom"/>
+      <TextObject Name="Text29" Left="827.82" Top="18.9" Width="200.34" Height="28.35" Text="[fim_pasportist]" Format="Date" Format.Format="D" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text28" Left="430.92" Top="66.15" Width="268.38" Height="37.8" Text="[dolgnost_nach]" Padding="20, 0, 2, 0" Format="Date" Format.Format="D" VertAlign="Bottom"/>
+      <TextObject Name="Text30" Left="827.82" Top="66.15" Width="200.34" Height="37.8" Text="[fim_nachPus]" Format="Date" Format.Format="D" HorzAlign="Right" VertAlign="Bottom"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

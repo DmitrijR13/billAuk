@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/22/2014 17:28:40" ReportInfo.Modified="12/14/2015 14:32:30" ReportInfo.CreatorVersion="2015.4.2.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="kvar" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_nedop" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="area" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="supp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="ud" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_house" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="фио" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_blag" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="build_year" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="floors" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rsum_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_prih" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_15" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_8" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_8" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="sum_tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="sum_tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column5"/>
+      <Column Name="tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column6"/>
+      <Column Name="sum_tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column7"/>
+      <Column Name="sum_tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="dat_prih" Enabled="false" DataType="System.String" PropName="Column3"/>
+      <Column Name="tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_500" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum_peni" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money_peni" Enabled="false" DataType="System.Decimal" PropName="Column" Format="Number"/>
+      <Column Name="reval_peni" Enabled="false" DataType="System.Decimal" PropName="Column1" Format="Number"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="address" DataType="System.String" PropName="Column"/>
+      <Column Name="date" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_vvod" Enabled="false" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="bank" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_charge_peni" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_prih_peni" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="num_ls" DataType="System.String" PropName="Column"/>
+      <Column Name="one_time" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="t_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1"/>
+    <Total Name="t_rsum_tarif" Expression="[Q_master.rsum_tarif]" Evaluator="Data1"/>
+    <Total Name="t_reval" Expression="[Q_master.reval]" Evaluator="Data1"/>
+    <Total Name="t_sum_charge" Expression="[Q_master.sum_charge]" Evaluator="Data1"/>
+    <Total Name="t_sum_prih" Expression="[Q_master.sum_prih]" Evaluator="Data1"/>
+    <Total Name="t_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1"/>
+    <Total Name="t1_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t1_rsum_tarif" Expression="[Q_master.rsum_tarif]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t1_reval" Expression="[Q_master.reval]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t1_sum_charge" Expression="[Q_master.sum_charge]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t1_sum_prih" Expression="[Q_master.sum_prih]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t1_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t1_sum_nedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+    <Total Name="t1_sum_charge_peni" Expression="[Q_master.sum_charge_peni]" Evaluator="Data1"/>
+    <Total Name="t1_sum_prih_peni" Expression="[Q_master.sum_prih_peni]" Evaluator="Data1" ResetAfterPrint="false"/>
+    <Total Name="t1_one_time" Expression="[Q_master.one_time]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="426">
+    <ReportTitleBand Name="ReportTitle1" Width="1534.68" Height="32.13">
+      <TextObject Name="Text85" Width="1256.85" Height="32.13" Text="Отчет по начислению и оплате за жилое помещение и коммунальные услуги" HorzAlign="Center" Font="Arial, 14pt, style=Bold"/>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader2" Top="36.13" Width="1534.68" Height="102.06" Condition="[Q_master.address]">
+      <TextObject Name="Text114" Width="1483.65" Height="47.25" Border.Lines="All" Text="[Q_master.address]"/>
+      <TextObject Name="Text13" Top="47.25" Width="236.25" Height="41.58" Border.Lines="All" Text="Адрес" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text45" Left="1370.25" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Сальдо на конец периода" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text99" Left="349.65" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Сальдо на начало периода" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text43" Left="689.85" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Перерасчеты" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text44" Left="916.65" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Итого начислено" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text42" Left="463.05" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Начислено 100%" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text102" Left="1143.45" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Оплачено" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text75" Top="88.83" Width="236.25" Height="13.23" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text78" Left="349.65" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="3" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text79" Left="576.45" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="5" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text80" Left="689.85" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="6" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text81" Left="1030.05" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="9" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text100" Left="463.05" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="4" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text103" Left="916.65" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="8" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text123" Left="803.25" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Недопоставки" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text126" Left="1030.05" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Начислено пени" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text127" Left="1256.85" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Оплачено пени" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text128" Left="803.25" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="7" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text129" Left="1143.45" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="10" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text134" Left="236.25" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="№ контракта" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text135" Left="236.25" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="2" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text138" Left="1256.85" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="11" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text140" Left="1370.25" Top="88.83" Width="113.4" Height="13.23" Border.Lines="All" Text="12" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text142" Left="576.45" Top="47.25" Width="113.4" Height="41.58" Border.Lines="All" Text="Разовые снятия" HorzAlign="Center" Font="Arial, 8pt"/>
+      <DataBand Name="Data1" Top="142.19" Width="1534.68" Height="28.35" DataSource="Q_master">
+        <TextObject Name="Text8" Left="463.05" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.rsum_tarif]" HorzAlign="Right"/>
+        <TextObject Name="Text101" Left="349.65" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.sum_insaldo]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+        <TextObject Name="Text6" Width="236.25" Height="28.35" Border.Lines="All" Text="[Q_master.kvar]"/>
+        <TextObject Name="Text136" Left="236.25" Width="113.4" Height="28.35" Border.Lines="All" Text="[IIf(Length(Trim([Q_master.num_ls])) &lt; 7,40005 + PadLeft(Trim([Q_master.num_ls]),6,'0'),Trim([Q_master.num_ls]))]" Format="Number" Format.UseLocale="true" HorzAlign="Right"/>
+        <TextObject Name="Text55" Left="689.85" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.reval]" HorzAlign="Right"/>
+        <TextObject Name="Text57" Left="916.65" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.sum_charge]" HorzAlign="Right"/>
+        <TextObject Name="Text124" Left="803.25" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.sum_nedop]" HorzAlign="Right"/>
+        <TextObject Name="Text59" Left="1370.25" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.sum_outsaldo]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false"/>
+        <TextObject Name="Text104" Left="1143.45" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.sum_prih]" HorzAlign="Right"/>
+        <TextObject Name="Text130" Left="1030.05" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.sum_charge_peni]" HorzAlign="Right"/>
+        <TextObject Name="Text132" Left="1256.85" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.sum_prih_peni]" HorzAlign="Right"/>
+        <TextObject Name="Text139" Left="576.45" Width="113.4" Height="28.35" Border.Lines="All" Text="[Q_master.one_time]" HorzAlign="Right"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter2" Top="174.54" Width="1534.68" Height="28.35">
+        <TextObject Name="Text115" Width="236.25" Height="28.35" Border.Lines="All" Text="Итого"/>
+        <TextObject Name="Text118" Left="463.05" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_rsum_tarif]"/>
+        <TextObject Name="Text117" Left="349.65" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_sum_insaldo]"/>
+        <TextObject Name="Text137" Left="236.25" Width="113.4" Height="28.35" Border.Lines="All"/>
+        <TextObject Name="Text119" Left="689.85" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_reval]"/>
+        <TextObject Name="Text120" Left="916.65" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_sum_charge]"/>
+        <TextObject Name="Text125" Left="803.25" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_sum_nedop]"/>
+        <TextObject Name="Text122" Left="1370.25" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_sum_outsaldo]"/>
+        <TextObject Name="Text121" Left="1143.45" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_sum_prih]"/>
+        <TextObject Name="Text131" Left="1030.05" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_sum_charge_peni]"/>
+        <TextObject Name="Text133" Left="1256.85" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_sum_prih_peni]"/>
+        <TextObject Name="Text141" Left="576.45" Width="113.4" Height="28.35" Border.Lines="All" Text="[t1_one_time]"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cit.ru/gkhrt" version="1.0"
+           xmlns:gkh="http://cit.ru/gkhrt" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:sig="http://www.w3.org/2000/09/xmldsig#">
+
+  <xs:include schemaLocation="building/report_core.xsd"/>
+  <xs:include schemaLocation="building/service_provider.xsd"/>
+  <xs:include schemaLocation="building/multi_apartment_building.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+
+  <xs:element name="report" type="gkh:report"/>
+
+  <xs:complexType name="report">
+    <xs:annotation>
+      <xs:documentation>Отчет</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="month" type="gkh:monthWithYear">
+        <xs:annotation>
+          <xs:documentation>Отчетный месяц</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="managingOrganization" type="gkh:managingOrganization">
+        <xs:annotation>
+          <xs:documentation>Управляющая организация</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="buildings" type="gkh:multiApartmentBuilding">
+        <xs:annotation>
+          <xs:documentation>Многоквартирные дома, находящиеся в управлении</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="sig:Signature"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,94 @@
+---------------------------------------------------------------KERNEL------------------------------------------------------------------------------- 
+database fsaha1_kernel;
+
+CREATE PROCEDURE tshu_drp() on exception return; end exception with resume 
+drop table file_formats;
+END PROCEDURE; EXECUTE PROCEDURE tshu_drp(); DROP PROCEDURE tshu_drp;
+
+CREATE PROCEDURE tshu_drp() on exception return; end exception with resume 
+drop table file_versions;
+END PROCEDURE; EXECUTE PROCEDURE tshu_drp(); DROP PROCEDURE tshu_drp;
+
+
+CREATE PROCEDURE tshu_drp() on exception return; end exception with resume 
+drop table file_statuses;
+END PROCEDURE; EXECUTE PROCEDURE tshu_drp(); DROP PROCEDURE tshu_drp;
+
+
+
+--file_formats - Таблица форматов файлов                               
+CREATE TABLE "are".file_formats(                                     
+	nzp_ff			SERIAL NOT NULL,                       
+	format_name		CHAR(90)
+);                                      
+
+CREATE UNIQUE INDEX "are".ix1_file_formats ON file_formats(nzp_ff);
+ALTER TABLE file_formats ADD CONSTRAINT PRIMARY KEY (nzp_ff) CONSTRAINT "are".pk_file_formats;
+update statistics for table file_formats;
+
+INSERT INTO  file_formats ( nzp_ff, format_name) VALUES (0,'Стандартный');
+
+
+--file_versions - Таблица версий
+CREATE TABLE "are".file_versions(
+	nzp_version		SERIAL NOT NULL,
+	nzp_ff			INTEGER,
+	version_name		CHAR(90)
+);
+CREATE UNIQUE INDEX "are".ix1_file_versions ON file_versions(nzp_version);
+ALTER TABLE file_versions ADD CONSTRAINT PRIMARY KEY (nzp_version) CONSTRAINT "are".pk_file_versions;
+CREATE INDEX "are".ix2_file_versions ON file_versions(nzp_ff);
+ALTER TABLE file_versions ADD CONSTRAINT (FOREIGN KEY (nzp_ff) REFERENCES file_formats(nzp_ff) CONSTRAINT "are".fk_file_versions);
+update statistics for table file_versions;
+
+INSERT INTO   file_versions (nzp_version, nzp_ff, version_name) VALUES (0,1,'1.0');
+
+
+
+--file_statuses - Таблица статусов файлов
+CREATE TABLE "are".file_statuses(
+	nzp_stat 		SERIAL NOT NULL,
+	status_name		CHAR(90)	
+);
+CREATE UNIQUE INDEX "are".ix1_gis_file_statuses ON file_statuses(nzp_stat);
+
+insert into file_statuses (nzp_stat, status_name) values (1, 'Загружается');
+insert into file_statuses (nzp_stat, status_name) values (2, 'Загружен');
+insert into file_statuses (nzp_stat, status_name) values (3, 'Загружен с ошибками');
+insert into file_statuses (nzp_stat, status_name) values (4, 'Учитывается');
+insert into file_statuses (nzp_stat, status_name) values (5, 'Учтен');
+insert into file_statuses (nzp_stat, status_name) values (6, 'Учтен с ошибками');
+insert into file_statuses (nzp_stat, status_name) values (7, 'Удален');
+
+update statistics for table file_statuses;
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------DATA--------------------------------------------------------------------------------
+database fsaha1_data;
+
+CREATE PROCEDURE tshu_drp() on exception return; end exception with resume 
+drop table files_imported;
+drop table file_types_imported;
+END PROCEDURE; EXECUTE PROCEDURE tshu_drp(); DROP PROCEDURE tshu_drp;
+
+
+--files_imported - Таблица загружаемы файлов
+CREATE TABLE "are".files_imported(
+	nzp_file 		SERIAL NOT NULL,
+	nzp_version		INTEGER NOT NULL,
+	loaded_name		CHAR(90),
+	saved_name		CHAR(90),	
+	nzp_status		INTEGER NOT NULL,
+	created_by		INTEGER NOT NULL,
+	created_on		datetime year to second NOT NULL
+);
+CREATE UNIQUE INDEX "are".ix1_files_imported ON files_imported(nzp_file);
+ALTER TABLE files_imported ADD CONSTRAINT PRIMARY KEY (nzp_file) CONSTRAINT "are".pk_files_imported;
+update statistics for table files_imported;
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------

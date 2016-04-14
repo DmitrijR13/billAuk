@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/message_quest_list.ascx" hash="cedb9400c" filehash="ffffc0bfca236169" flags="110000" assembly="App_Web_1snwotzc" type="ASP.reports_message_quest_list_ascx">
+    <filedeps>
+        <filedep name="/none/reports/message_quest_list.ascx" />
+    </filedeps>
+</preserve>

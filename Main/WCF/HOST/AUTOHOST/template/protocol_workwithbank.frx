@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="04/02/2015 09:18:49" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {              
+    bool pg1 =true;
+    bool pg2 =true;
+    bool pg3 =true;
+    bool pg4 =true;
+    bool pg5 =true;
+    bool pg6 =true;
+    bool pg7 =true;
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+      bool pg1 = ((Boolean)Report.GetParameterValue(&quot;pg1&quot;));
+      bool pg2 = ((Boolean)Report.GetParameterValue(&quot;pg2&quot;));
+      bool pg3 =((Boolean)Report.GetParameterValue(&quot;pg3&quot;));
+      bool pg4 =((Boolean)Report.GetParameterValue(&quot;pg4&quot;));
+      bool pg5 =((Boolean)Report.GetParameterValue(&quot;pg5&quot;));
+      bool pg6 =((Boolean)Report.GetParameterValue(&quot;pg6&quot;));
+      bool pg7 =((Boolean)Report.GetParameterValue(&quot;pg7&quot;));
+      Page1.Visible =pg1; 
+      Page2.Visible =pg2;
+      Page3.Visible =pg3;
+      Page4.Visible =pg4;
+      Page5.Visible =pg5;
+      Page6.Visible =pg6;
+      Page7.Visible =pg7;
+    }
+  }
+  
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="ls" ReferenceName="Data.ls" DataType="System.Int32" Enabled="true"/>
+    <TableDataSource Name="uncor" ReferenceName="Data.uncor" DataType="System.Int32" Enabled="true"/>
+    <TableDataSource Name="kom" ReferenceName="Data.kom" DataType="System.Int32" Enabled="true"/>
+    <TableDataSource Name="cnt" ReferenceName="Data.cnt" DataType="System.Int32" Enabled="true"/>
+    <TableDataSource Name="unvalid" ReferenceName="Data.unvalid" DataType="System.Int32" Enabled="true"/>
+    <TableDataSource Name="debt" ReferenceName="Data.debt" DataType="System.Int32" Enabled="true">
+      <Column Name="bank" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="adres" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_money" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_debt" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <Parameter Name="count_rows" DataType="System.String"/>
+    <Parameter Name="count_inserted_rows" DataType="System.String"/>
+    <Parameter Name="sum_plat" DataType="System.String"/>
+    <Parameter Name="branch_name" DataType="System.String"/>
+    <Parameter Name="file_name" DataType="System.String"/>
+    <Parameter Name="status" DataType="System.String"/>
+    <Parameter Name="sum_in_plat" DataType="System.String"/>
+    <Parameter Name="text" DataType="System.String"/>
+    <Parameter Name="count_rows_kvit" DataType="System.String"/>
+    <Parameter Name="sum_plat_kvit" DataType="System.String"/>
+    <Parameter Name="pg6" DataType="System.Boolean"/>
+    <Parameter Name="pg1" DataType="System.Boolean"/>
+    <Parameter Name="pg2" DataType="System.Boolean"/>
+    <Parameter Name="pg3" DataType="System.Boolean"/>
+    <Parameter Name="pg4" DataType="System.Boolean"/>
+    <Parameter Name="pg5" DataType="System.Boolean"/>
+    <Parameter Name="pg7" DataType="System.Boolean"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="179.55,179.55,756" StartPageEvent="Page1_StartPage">
+    <DataBand Name="Data1" Width="756" Height="205.77">
+      <TextObject Name="Text4" Left="0.34" Top="167.97" Width="716.31" Height="37.8" CanGrow="true" GrowToBottom="true" Text="[text]" Padding="1, 1, 1, 1" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text3" Left="-0.04" Top="54.48" Width="396.9" Height="113.4" Text="Имя файла: &lt;b&gt;[file_name]&lt;/b&gt;&#13;&#10;Статус загрузки: &lt;b&gt;[status]&lt;/b&gt;&#13;&#10;Дата загрузки реестра: &lt;b&gt;[Date]&lt;/b&gt;&#13;&#10;Загружен из: &lt;b&gt;[branch_name]&lt;/b&gt;&#13;&#10;" Padding="2, 10, 2, 10" Font="Times New Roman, 9pt" HtmlTags="true"/>
+      <TextObject Name="Text2" Left="396.86" Top="54.48" Width="319.78" Height="113.4" CanGrow="true" Text="Количество строк в квитанции: &lt;b&gt;[count_rows_kvit]&lt;/b&gt;&#13;&#10;Количество строк в реестре: &lt;b&gt;[count_rows]&lt;/b&gt;&#13;&#10;Количество загруженных строк: &lt;b&gt;[count_inserted_rows]&lt;/b&gt;&#13;&#10;Сумма оплат в квитанции: &lt;b&gt;[sum_plat_kvit]&lt;/b&gt;&#13;&#10;Сумма оплат в реестре: &lt;b&gt;[sum_plat]&lt;/b&gt;&#13;&#10;Сумма загруженных оплат: &lt;b&gt;[sum_in_plat]&lt;/b&gt;&#13;&#10;" Padding="2, 10, 2, 10" HorzAlign="Right" Font="Times New Roman, 9pt" HtmlTags="true"/>
+      <TextObject Name="Text1" Left="0.01" Top="13.28" Width="718.19" Height="37.8" Text="Протокол о загрузке реестра в биллинговую систему " HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2" StartPageEvent="Page2_StartPage">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="40.3" Width="718.2" Height="37.8">
+      <TextObject Name="Text10" Left="-0.79" Top="8.69" Width="664.52" Height="18.9" Text="Сообщения загрузчика" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data3" Top="80.6" Width="718.2" Height="16.97" CanGrow="true" DataSource="kom">
+      <TextObject Name="Text5" Width="664.52" Height="15.83" CanGrow="true" GrowToBottom="true" Text="[kom.comment]" Font="Times New Roman, 9pt" HtmlTags="true"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page3" StartPageEvent="Page3_StartPage">
+    <ReportTitleBand Name="ReportTitle3" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader2" Top="40.3" Width="718.2" Height="37.8">
+      <TextObject Name="Text9" Left="0.38" Top="12.05" Width="664.52" Height="18.9" Text="Некорректные строки" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data4" Top="80.6" Width="718.2" Height="18.9" CanGrow="true" DataSource="uncor">
+      <TextObject Name="Text6" Width="664.52" Height="18.9" CanGrow="true" GrowToBottom="true" Text="[uncor.sourceString]" Padding="2, 2, 2, 2" Font="Times New Roman, 9pt"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page4" StartPageEvent="Page4_StartPage">
+    <ReportTitleBand Name="ReportTitle4" Width="718.2" Height="38.2"/>
+    <PageHeaderBand Name="PageHeader3" Top="40.7" Width="718.2" Height="66.55">
+      <TextObject Name="Text7" Left="2.26" Top="10.2" Width="664.52" Height="18.9" Text="Несопоставленные ЛС" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TableObject Name="Table1" Left="-0.11" Top="47.65" Width="664.52" Height="18.9">
+        <TableColumn Name="Column17" Width="308.49"/>
+        <TableColumn Name="Column18" Width="356.03"/>
+        <TableRow Name="Row10">
+          <TableCell Name="Cell64" Border.Lines="All" Border.Width="0.25" Text="Лицевой счет" HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell65" Border.Lines="All" Border.Width="0.25" Text="Сумма к оплате" HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data5" Top="109.75" Width="718.2" Height="18.35" CanGrow="true" DataSource="ls">
+      <TableObject Name="table_ported" Top="0.45" Width="664.53" Height="18.9" Border.Lines="All" Border.Width="0.25">
+        <TableColumn Name="Column13" Width="308.64"/>
+        <TableColumn Name="Column14" Width="355.89"/>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell49" Border.Lines="All" Border.Width="0.25" BeforePrintEvent="Cell49_BeforePrint" Text="[ls.pkod]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell57" Border.Lines="All" Border.Width="0.25" Text="[ls.sum_charge]" Font="Times New Roman, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page5" StartPageEvent="Page5_StartPage">
+    <ReportTitleBand Name="ReportTitle5" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader4" Top="40.3" Width="718.2" Height="37.8">
+      <TextObject Name="Text8" Left="1.12" Top="11.34" Width="664.52" Height="18.9" Text="Несопоставленные ПУ" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="80.6" Width="718.2" Height="37.8" Condition="[cnt.pref]">
+      <TableObject Name="Table9" Width="664.52" Height="18.9" Border.Lines="All" Border.Width="0.25">
+        <TableColumn Name="Column43" Width="309.58"/>
+        <TableColumn Name="Column44" Width="354.94"/>
+        <TableRow Name="Row19">
+          <TableCell Name="Cell95" Border.Lines="All" Border.Width="0.25" Text="[cnt.point]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell96" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table10" Top="18.9" Width="664.52" Height="18.9" Border.Lines="All" Border.Width="0.25">
+        <TableColumn Name="Column45" Width="309.58"/>
+        <TableColumn Name="Column46" Width="354.94"/>
+        <TableRow Name="Row21">
+          <TableCell Name="Cell99" Border.Lines="All" Border.Width="0.25" Text="Платежный код" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell100" Border.Lines="All" Border.Width="0.25" Text="Код счетчика" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <DataBand Name="Data6" Top="120.9" Width="718.2" Height="18.9" CanGrow="true" DataSource="cnt">
+        <TableObject Name="table_unported" Left="-0.12" Width="664.52" Height="18.9" Border.Lines="All" Border.Width="0.25">
+          <TableColumn Name="Column15" Width="309.58"/>
+          <TableColumn Name="Column16" Width="354.94"/>
+          <TableRow Name="Row20">
+            <TableCell Name="Cell97" Border.Lines="All" Border.Width="0.25" Text="[cnt.pkod]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+            <TableCell Name="Cell98" Border.Lines="All" Border.Width="0.25" Text="[cnt.nzp_counter]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          </TableRow>
+        </TableObject>
+      </DataBand>
+    </GroupHeaderBand>
+  </ReportPage>
+  <ReportPage Name="Page6" Guides="708.75" StartPageEvent="Page6_StartPage">
+    <ReportTitleBand Name="ReportTitle2" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader5" Top="40.3" Width="718.2" Height="37.8">
+      <TextObject Name="Text11" Left="-0.02" Top="9.45" Width="664.52" Height="18.9" Text="Невалидные показания ПУ" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader2" Top="80.6" Width="718.2" Height="37.8" Condition="[unvalid.pref]">
+      <TableObject Name="Table8" Left="0.09" Top="3" Width="664.41" Height="34.71" Border.Lines="All" Border.Width="0.25">
+        <TableColumn Name="Column38" Width="115.8"/>
+        <TableColumn Name="Column39" Width="96.9"/>
+        <TableColumn Name="Column40" Width="109.62"/>
+        <TableColumn Name="Column41" Width="100.17"/>
+        <TableColumn Name="Column42" Width="241.92"/>
+        <TableRow Name="Row18">
+          <TableCell Name="Cell90" Text="[unvalid.point]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold" ColSpan="5"/>
+          <TableCell Name="Cell91" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+          <TableCell Name="Cell92" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+          <TableCell Name="Cell93" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+          <TableCell Name="Cell94" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row17" Height="15.81">
+          <TableCell Name="Cell85" Border.Lines="All" Border.Width="0.25" Text="Лицевой счет" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell86" Border.Lines="All" Border.Width="0.25" Text="Код счетчика" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell87" Border.Lines="All" Border.Width="0.25" Text="Название ПУ" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell88" Border.Lines="All" Border.Width="0.25" Text="Показание ПУ" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell89" Border.Lines="All" Border.Width="0.25" Text="Комментарий" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <DataBand Name="Data2" Top="120.9" Width="718.2" Height="15.81" CanGrow="true" DataSource="unvalid">
+        <TableObject Name="Table7" Width="664.41" Height="15.81" Border.Lines="All" Border.Width="0.25">
+          <TableColumn Name="Column33" Width="115.8"/>
+          <TableColumn Name="Column34" Width="96.9"/>
+          <TableColumn Name="Column35" Width="109.62"/>
+          <TableColumn Name="Column36" Width="100.17"/>
+          <TableColumn Name="Column37" Width="241.92"/>
+          <TableRow Name="Row16" Height="15.81">
+            <TableCell Name="Cell80" Border.Lines="All" Border.Width="0.25" Text="[unvalid.pkod]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+            <TableCell Name="Cell81" Border.Lines="All" Border.Width="0.25" Text="[unvalid.nzp_counter]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+            <TableCell Name="Cell82" Border.Lines="All" Border.Width="0.25" Text="[unvalid.num_cnt]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+            <TableCell Name="Cell83" Border.Lines="All" Border.Width="0.25" Text="[unvalid.val_cnt]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+            <TableCell Name="Cell84" Border.Lines="All" Border.Width="0.25" Text="[unvalid.reason]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          </TableRow>
+        </TableObject>
+      </DataBand>
+    </GroupHeaderBand>
+  </ReportPage>
+  <ReportPage Name="Page7">
+    <ReportTitleBand Name="ReportTitle6" Width="718.2" Height="28.35">
+      <TextObject Name="Text12" Width="623.7" Height="28.35" Text="Лицевые счета из загрузки реестра с заведенными делами в ПС &quot;Должники&quot;" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader3" Top="30.85" Width="718.2" Height="28.35" Condition="[debt.bank]">
+      <TextObject Name="Text13" Width="623.7" Height="28.35" Text="[debt.bank]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <DataBand Name="Data7" Top="83.1" Width="718.2" Height="18.9" DataSource="debt">
+        <TextObject Name="Text19" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text20" Left="37.8" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[debt.fio]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text21" Left="189" Width="207.9" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[debt.adres]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text22" Left="396.9" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[debt.sum_money]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text23" Left="491.4" Width="132.3" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[debt.sum_debt]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <DataHeaderBand Name="DataHeader1" Top="61.7" Width="718.2" Height="18.9">
+          <TextObject Name="Text14" Width="37.8" Height="18.9" Border.Lines="All" Text="№ п.п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text15" Left="37.8" Width="151.2" Height="18.9" Border.Lines="All" Text="ФИО" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text16" Left="189" Width="207.9" Height="18.9" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text17" Left="396.9" Width="94.5" Height="18.9" Border.Lines="All" Text="Сумма оплаты" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text18" Left="491.4" Width="132.3" Height="18.9" Border.Lines="All" Text="Сумма задолженности" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        </DataHeaderBand>
+      </DataBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

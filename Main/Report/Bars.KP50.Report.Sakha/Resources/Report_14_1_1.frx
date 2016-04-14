@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2011 15:52:15" ReportInfo.Modified="09/24/2014 11:21:50" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+  }
+
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="nzp_area" DataType="System.Int32" PropName="Column1"/>
+      <Column Name="nzp_agent" DataType="System.Int32" PropName="Column1"/>
+      <Column Name="area" DataType="System.String" PropName="Column1"/>
+      <Column Name="agent" DataType="System.String" PropName="Column1"/>
+      <Column Name="bank" DataType="System.String" PropName="Column1"/>
+      <Column Name="sum" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="peni" DataType="System.Decimal" PropName="Column1"/>
+    </TableDataSource>
+    <Parameter Name="pulica" DataType="System.String" Expression="&quot;&quot;"/>
+    <Parameter Name="pmonth" DataType="System.String" Expression="&quot;&quot;"/>
+    <Parameter Name="pdom" DataType="System.String" Expression="&quot;&quot;"/>
+    <Parameter Name="pservice" DataType="System.String" Expression="&quot;&quot;"/>
+    <Parameter Name="parea" DataType="System.String" Expression="&quot;&quot;"/>
+    <Total Name="total_sum" Expression="[Q_master.sum]" Evaluator="Data1" PrintOn="GroupFooter3"/>
+    <Total Name="total_peni" Expression="[Q_master.peni]" Evaluator="Data1" PrintOn="GroupFooter3"/>
+    <Total Name="total_all_sum" Expression="[Q_master.sum]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="total_all_peni" Expression="[Q_master.peni]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Guides="0,1047.06,1045.17,793.8,406.35,538.65,661.5,567,283.5" ExtraDesignWidth="true" StartPageEvent="Page1_StartPage" FinishPageEvent="Page1_FinishPage">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="253.26" CanGrow="true" CanShrink="true" Guides="1.89,105.84,253.26">
+      <TextObject Name="Text1" Top="1.89" Width="1047.06" Height="103.95" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="14.1.1 Реестр поступлений по агентам&#13;&#10;[pmonth]&#13;&#10;По дате гашения" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text155" Top="105.84" Width="1045.17" Height="147.42" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[headerParam]" Font="Arial, 9pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="257.26" Width="1047.06" Height="18.9" Guides="0,18.9">
+      <TableObject Name="Table2" Width="793.8" Height="18.9" Border.Lines="All">
+        <TableColumn Name="Column5" Width="406.35"/>
+        <TableColumn Name="Column6" Width="132.3"/>
+        <TableColumn Name="Column7" Width="122.85"/>
+        <TableColumn Name="Column8" Width="132.3"/>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell20" Text="Касса" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell21" Border.Lines="All" Text="Поступления" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell22" Border.Lines="All" Text="Пени" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell23" Text="Итого" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="280.16" Width="1047.06" Height="18.9" CanGrow="true" Guides="0,18.9" Condition="[Q_master.area]" SortOrder="None">
+      <TextObject Name="Text3" Width="793.8" Height="18.9" Text="[Q_master.area]" Font="Arial, 10pt, style=Bold"/>
+      <GroupHeaderBand Name="GroupHeader3" Top="303.06" Width="1047.06" Height="18.9" Guides="0,18.9" Condition="[Q_master.agent]" SortOrder="None">
+        <TextObject Name="Text2" Width="793.8" Height="18.9" Border.Lines="All" Text="[Q_master.agent]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <DataBand Name="Data1" Top="325.96" Width="1047.06" Height="18.9" CanGrow="true" AfterDataEvent="Data1_AfterData" Guides="0,18.9" DataSource="Q_master">
+          <TableObject Name="Table1" Width="793.8" Height="18.9" Border.Lines="All">
+            <TableColumn Name="Column1" Width="406.35"/>
+            <TableColumn Name="Column2" Width="132.3"/>
+            <TableColumn Name="Column3" Width="122.85"/>
+            <TableColumn Name="Column4" Width="132.3"/>
+            <TableRow Name="Row1">
+              <TableCell Name="Cell1" Text="[Q_master.bank]"/>
+              <TableCell Name="Cell17" Border.Lines="All" Text="[Q_master.sum]"/>
+              <TableCell Name="Cell18" Border.Lines="All" Text="[Q_master.peni]"/>
+              <TableCell Name="Cell19" Text="[[Q_master.sum]+[Q_master.peni]]"/>
+            </TableRow>
+          </TableObject>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter3" Top="348.86" Width="1047.06" Height="18.9" Guides="0,18.9">
+          <TableObject Name="Table4" Width="793.8" Height="18.9" Border.Lines="All">
+            <TableColumn Name="Column13" Width="406.35"/>
+            <TableColumn Name="Column14" Width="132.3"/>
+            <TableColumn Name="Column15" Width="122.85"/>
+            <TableColumn Name="Column16" Width="132.3"/>
+            <TableRow Name="Row4">
+              <TableCell Name="Cell28" Text="Итого по агенту" HorzAlign="Right"/>
+              <TableCell Name="Cell29" Border.Lines="All" Text="[total_sum]"/>
+              <TableCell Name="Cell30" Border.Lines="All" Text="[total_peni]"/>
+              <TableCell Name="Cell31" Text="[[total_sum]+[total_peni]]"/>
+            </TableRow>
+          </TableObject>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="371.76" Width="1047.06" Height="18.9" Guides="0,18.9">
+        <TableObject Name="Table3" Width="793.8" Height="18.9" Border.Lines="All">
+          <TableColumn Name="Column9" Width="406.35"/>
+          <TableColumn Name="Column10" Width="132.3"/>
+          <TableColumn Name="Column11" Width="122.85"/>
+          <TableColumn Name="Column12" Width="132.3"/>
+          <TableRow Name="Row3">
+            <TableCell Name="Cell24" Text="Итого по управляющей компании" HorzAlign="Right"/>
+            <TableCell Name="Cell25" Border.Lines="All" Text="[total_all_sum]"/>
+            <TableCell Name="Cell26" Border.Lines="All" Text="[total_all_peni]"/>
+            <TableCell Name="Cell27" Text="[[total_all_sum]+[total_all_peni]]"/>
+          </TableRow>
+        </TableObject>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="394.66" Width="1047.06" Height="18.9" Guides="0,18.9">
+      <TextObject Name="Text4" Left="567" Width="226.8" Height="18.9" Text="Отчет сформирован [Date]" HorzAlign="Right"/>
+      <TextObject Name="Text5" Left="283.5" Width="255.15" Height="18.9" Text="Страница [Page#] из [TotalPages#]" HorzAlign="Right"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

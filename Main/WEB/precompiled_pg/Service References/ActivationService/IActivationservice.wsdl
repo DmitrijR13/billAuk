@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="IActivationservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="GetActivationKey0Request">
+    <part name="request_kod" type="xs:string" />
+    <part name="pHost" type="xs:string" />
+  </message>
+  <message name="GetActivationKey0Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="IsConnected1Request" />
+  <message name="IsConnected1Response">
+    <part name="return" type="xs:boolean" />
+  </message>
+  <message name="ConfirmActivation2Request">
+    <part name="pJurr" type="xs:string" />
+    <part name="pState" type="xs:boolean" />
+    <part name="reason_text" type="xs:string" />
+    <part name="pLicense" type="xs:string" />
+    <part name="pCode" type="xs:string" />
+  </message>
+  <message name="ConfirmActivation2Response">
+    <part name="return" type="xs:boolean" />
+  </message>
+  <message name="IsForbiddenKey3Request">
+    <part name="pCode" type="xs:string" />
+  </message>
+  <message name="IsForbiddenKey3Response">
+    <part name="return" type="xs:boolean" />
+  </message>
+  <message name="SetSystemInfo4Request">
+    <part name="pCode" type="xs:string" />
+    <part name="pField1" type="xs:string" />
+    <part name="pField2" type="xs:string" />
+    <part name="pField3" type="xs:string" />
+    <part name="pField4" type="xs:string" />
+    <part name="pField5" type="xs:string" />
+    <part name="pField6" type="xs:string" />
+  </message>
+  <message name="SetSystemInfo4Response">
+    <part name="return" type="xs:boolean" />
+  </message>
+  <message name="GetVersion5Request">
+    <part name="pCode" type="xs:string" />
+    <part name="pNumVersion" type="xs:string" />
+  </message>
+  <message name="GetVersion5Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="TestSendInfo6Request">
+    <part name="pParam" type="xs:string" />
+  </message>
+  <message name="TestSendInfo6Response">
+    <part name="return" type="xs:boolean" />
+  </message>
+  <message name="StartLoadUpdate7Request">
+    <part name="date" type="xs:dateTime" />
+    <part name="license" type="xs:string" />
+    <part name="comp_name" type="xs:string" />
+    <part name="NumVersionOld" type="xs:string" />
+    <part name="user" type="xs:string" />
+  </message>
+  <message name="StartLoadUpdate7Response">
+    <part name="return" type="xs:boolean" />
+  </message>
+  <message name="EndLoadUpdate8Request">
+    <part name="date" type="xs:dateTime" />
+    <part name="license" type="xs:string" />
+    <part name="NumVersionNew" type="xs:string" />
+  </message>
+  <message name="EndLoadUpdate8Response">
+    <part name="return" type="xs:boolean" />
+  </message>
+  <message name="StartLoadHelp9Request">
+    <part name="date" type="xs:dateTime" />
+    <part name="license" type="xs:string" />
+    <part name="comp_name" type="xs:string" />
+    <part name="user" type="xs:string" />
+  </message>
+  <message name="StartLoadHelp9Response">
+    <part name="return" type="xs:int" />
+  </message>
+  <portType name="IActivation">
+    <operation name="GetActivationKey">
+      <input message="tns:GetActivationKey0Request" />
+      <output message="tns:GetActivationKey0Response" />
+    </operation>
+    <operation name="IsConnected">
+      <input message="tns:IsConnected1Request" />
+      <output message="tns:IsConnected1Response" />
+    </operation>
+    <operation name="ConfirmActivation">
+      <input message="tns:ConfirmActivation2Request" />
+      <output message="tns:ConfirmActivation2Response" />
+    </operation>
+    <operation name="IsForbiddenKey">
+      <input message="tns:IsForbiddenKey3Request" />
+      <output message="tns:IsForbiddenKey3Response" />
+    </operation>
+    <operation name="SetSystemInfo">
+      <input message="tns:SetSystemInfo4Request" />
+      <output message="tns:SetSystemInfo4Response" />
+    </operation>
+    <operation name="GetVersion">
+      <input message="tns:GetVersion5Request" />
+      <output message="tns:GetVersion5Response" />
+    </operation>
+    <operation name="TestSendInfo">
+      <input message="tns:TestSendInfo6Request" />
+      <output message="tns:TestSendInfo6Response" />
+    </operation>
+    <operation name="StartLoadUpdate">
+      <input message="tns:StartLoadUpdate7Request" />
+      <output message="tns:StartLoadUpdate7Response" />
+    </operation>
+    <operation name="EndLoadUpdate">
+      <input message="tns:EndLoadUpdate8Request" />
+      <output message="tns:EndLoadUpdate8Response" />
+    </operation>
+    <operation name="StartLoadHelp">
+      <input message="tns:StartLoadHelp9Request" />
+      <output message="tns:StartLoadHelp9Response" />
+    </operation>
+  </portType>
+  <binding name="IActivationbinding" type="tns:IActivation">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="GetActivationKey">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#GetActivationKey" style="rpc" />
+      <input message="tns:GetActivationKey0Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:GetActivationKey0Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="IsConnected">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#IsConnected" style="rpc" />
+      <input message="tns:IsConnected1Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:IsConnected1Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConfirmActivation">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#ConfirmActivation" style="rpc" />
+      <input message="tns:ConfirmActivation2Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:ConfirmActivation2Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="IsForbiddenKey">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#IsForbiddenKey" style="rpc" />
+      <input message="tns:IsForbiddenKey3Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:IsForbiddenKey3Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="SetSystemInfo">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#SetSystemInfo" style="rpc" />
+      <input message="tns:SetSystemInfo4Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:SetSystemInfo4Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetVersion">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#GetVersion" style="rpc" />
+      <input message="tns:GetVersion5Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:GetVersion5Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="TestSendInfo">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#TestSendInfo" style="rpc" />
+      <input message="tns:TestSendInfo6Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:TestSendInfo6Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="StartLoadUpdate">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#StartLoadUpdate" style="rpc" />
+      <input message="tns:StartLoadUpdate7Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:StartLoadUpdate7Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="EndLoadUpdate">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#EndLoadUpdate" style="rpc" />
+      <input message="tns:EndLoadUpdate8Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:EndLoadUpdate8Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="StartLoadHelp">
+      <soap:operation soapAction="urn:ActivationIntf-IActivation#StartLoadHelp" style="rpc" />
+      <input message="tns:StartLoadHelp9Request">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output message="tns:StartLoadHelp9Response">
+        <soap:body use="encoded" namespace="urn:ActivationIntf-IActivation" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IActivationservice">
+    <port name="IActivationPort" binding="tns:IActivationbinding">
+      <soap:address location="http://www.stcline.ru:3071/ActivationWS.dll/soap/IActivation" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,54 @@
+23.10.2015 14:39:28 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:39:42 (ERROR): Поток 7 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:39:45 (ERROR): Поток 7 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:39:53 (ERROR): Поток 8 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:39:54 (ERROR): Поток 8 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:39:55 (ERROR): Поток 8 Ошибка GetOperDay
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:39:56 (ERROR): Поток 8 Ошибка GetArea 
+  The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:39:57 (ERROR): Поток 8 Ошибка GetGeu
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:39:58 (ERROR): Поток 8 Ошибка LoadTown
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:39:59 (ERROR): Поток 8 Ошибка ResYLoad
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:40:01 (ERROR): Поток 6 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:40:02 (ERROR): Поток 12 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:40:03 (ERROR): Поток 12 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:40:04 (ERROR): Поток 12 Ошибка GetOperDay
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:40:05 (ERROR): Поток 12 Ошибка GetArea 
+  The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:40:06 (ERROR): Поток 12 Ошибка GetGeu
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:40:08 (ERROR): Поток 12 Ошибка LoadTown
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+23.10.2015 14:40:09 (ERROR): Поток 12 Ошибка ResYLoad
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 

@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cit.ru/gkhrt" version="1.0"
+           xmlns:gkh="http://cit.ru/gkhrt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="mab_core.xsd"/>
+  <xs:include schemaLocation="mab_parameters.xsd"/>
+  <xs:include schemaLocation="mab_services.xsd"/>
+  <xs:include schemaLocation="personal_account.xsd"/>
+  <xs:include schemaLocation="service_provider.xsd"/>
+
+  <xs:complexType name="multiApartmentBuilding">
+    <xs:annotation>
+      <xs:documentation>Многоквартирный дом</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="uniqueNumber" type="gkh:string">
+        <xs:annotation>
+          <xs:documentation>Уникальный номер</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="addressFiasGuid" type="gkh:fiasAddress">
+        <xs:annotation>
+          <xs:documentation>Адрес - идентификатор fias</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="address">
+        <xs:annotation>
+          <xs:documentation>Адрес</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="300"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="landInventoryNumber">
+        <xs:annotation>
+          <xs:documentation>Инвентарный номер земельного участка</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="landCadastralNumber">
+        <xs:annotation>
+          <xs:documentation>Кадастровый номер земельного участка</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="buildingTotalArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Общая площадь дома, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="projectSeries">
+        <xs:annotation>
+          <xs:documentation>Серия проекта здания</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="projectType">
+        <xs:annotation>
+          <xs:documentation>тип проекта здания</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="commissioningYear" type="gkh:year">
+        <xs:annotation>
+          <xs:documentation>Год ввода в эксплуатацию</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="managingOrganization" type="gkh:mabManagingOrganization">
+        <xs:annotation>
+          <xs:documentation>УО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="resourceSupplyOrganizations" type="gkh:mabResourceSupplyOrganization">
+        <xs:annotation>
+          <xs:documentation>РСО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="housingServiceProviders" type="gkh:mabHousingServiceProvider">
+        <xs:annotation>
+          <xs:documentation>Лица, оказывающие услуги по содержанию и ремонту общего имущества МКД</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="communalServiceProviders" type="gkh:mabCommunalServiceProvider">
+        <xs:annotation>
+          <xs:documentation>Лица, оказывающие коммунальные услуги в МКД</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="parameters" type="gkh:mabParameters">
+        <xs:annotation>
+          <xs:documentation>Общие сведения и техническое состояние МКД</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="accrualParameters" type="gkh:mabAccrualParameters">
+        <xs:annotation>
+          <xs:documentation>Параметры, влияющие на начисления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="nonresidentialPremises" type="gkh:nonresidentialPremise">
+        <xs:annotation>
+          <xs:documentation>Нежилые помещения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="flats" type="gkh:flat">
+        <xs:annotation>
+          <xs:documentation>Жилые помещения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="resourceInputs" type="gkh:resourceInput">
+        <xs:annotation>
+          <xs:documentation>места ввода в здание инженерных систем для подачи ресурсов, необходимых для предоставления коммунальных услуг</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="providedCommunalResources" type="gkh:mabProvidedCommunalResource">
+        <xs:annotation>
+          <xs:documentation>Объем предоставленных жильцам коммунальных ресурсов (с учетом общедомовых нужд)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="consumedCommunalResources" type="gkh:mabConsumedCommunalResource">
+        <xs:annotation>
+          <xs:documentation>Поставленный РО объем коммунального ресурса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="communalResourceCharges" type="gkh:mabCommunalResourceCharge">
+        <xs:annotation>
+          <xs:documentation>Оплата за поставленные коммунальные ресурсы РО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="measurementReadings" type="gkh:measurementReading">
+        <xs:annotation>
+          <xs:documentation>Показания общедомового прибора учета</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="communalShortDeliveries" type="gkh:communalShortDelivery">
+        <xs:annotation>
+          <xs:documentation>Недопоставки коммунальных ресурсов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="housingShortDeliveries" type="gkh:mabHousingShortDelivery">
+        <xs:annotation>
+          <xs:documentation>Недопоставки жилищных услуг</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="shortDeliverySummary" type="gkh:mabShortDeliverySummary">
+        <xs:annotation>
+          <xs:documentation>Общие сведения о недопоставках</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="communalResourceServices" type="gkh:communalResourceServices">
+        <xs:annotation>
+          <xs:documentation>Сведения об оказываемых коммунальных услугах по коммунальному ресурсу с разделением для населения / не для населения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" name="housingServices" type="gkh:housingService">
+        <xs:annotation>
+          <xs:documentation>Оказываемые жилищные услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="providedEmergencyRepairTasks" type="gkh:providedEmergencyRepairTask">
+        <xs:annotation>
+          <xs:documentation>Выполненные работы по аварийному ремонту</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="providedServices" type="gkh:mabProvidedService">
+        <xs:annotation>
+          <xs:documentation>Выполненные работы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="buildingSurveys" type="gkh:buildingSurvey">
+        <xs:annotation>
+          <xs:documentation>Осмотры</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="majorRepairPlanTasks" type="gkh:buildingMajorRepairPlanTask">
+        <xs:annotation>
+          <xs:documentation>работы, включенная в план работ по дому</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="majorRepairDoneTasks" type="gkh:mabMajorRepairDoneTask">
+        <xs:annotation>
+          <xs:documentation>Выполненные работы по кап ремонту</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="majorRepairRefusedTasks" type="gkh:mabMajorRepairRefusedTask">
+        <xs:annotation>
+          <xs:documentation>работы по кап ремонту МКД с отказом выполнения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="residentCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество проживающих</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="personalAccountCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество лицевых счетов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabManagingOrganization">
+    <xs:annotation>
+      <xs:documentation>УО многоквартирного дома</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element name="ownersMeetingNumber" type="gkh:string">
+            <xs:annotation>
+              <xs:documentation>номер общего собрания собственников помещений, на котором было принято решение о выборе способа управления</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ownersMeetingDate" type="gkh:date">
+            <xs:annotation>
+              <xs:documentation>дата проведения общего собрания собственников помещений, на котором было принято решение о выборе способа управления</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:sequence>
+          <xs:element name="tenderRecordNumber" type="gkh:string">
+            <xs:annotation>
+              <xs:documentation>номер протокола открытого конкурса</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="tenderRecordDate" type="gkh:date">
+            <xs:annotation>
+              <xs:documentation>дата протокола открытого конкурса</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:choice>
+      <xs:element name="managingStartDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала обслуживания дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabResourceSupplyOrganization">
+    <xs:annotation>
+      <xs:documentation>РСО</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communalResource" type="gkh:communalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serviceProvider" type="gkh:buildingServiceProvider">
+        <xs:annotation>
+          <xs:documentation>РСО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="supplyStartDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала предоставления ресурсов в дом</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="supplyEndDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата прекращения обслуживания дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabHousingServiceProvider">
+    <xs:annotation>
+      <xs:documentation>Лицо, оказывающее услуги по содержанию и ремонту общего имущества МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="serviceName">
+        <xs:annotation>
+          <xs:documentation>Наименование услуги</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="serviceCode" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Код услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serviceProvider" type="gkh:buildingServiceProvider">
+        <xs:annotation>
+          <xs:documentation>поставщик услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="supplyStartDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала обслуживания дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="supplyEndDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата прекращения обслуживания дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabCommunalServiceProvider">
+    <xs:annotation>
+      <xs:documentation>Лицо, оказывающее коммунальные услуги в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communalResource" type="gkh:communalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serviceProvider" type="gkh:buildingServiceProvider">
+        <xs:annotation>
+          <xs:documentation>поставщик услуги</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="supplyStartDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата начала обслуживания дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="supplyEndDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата прекращения обслуживания дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabProvidedCommunalResource">
+    <xs:annotation>
+      <xs:documentation>Объем предоставленных жильцам коммунальных ресурсов (с учетом общедомовых нужд)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communalResource" type="gkh:communalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="amount" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Объем ресурса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="price" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Оплата поступившая от жильцов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabConsumedCommunalResource">
+    <xs:annotation>
+      <xs:documentation>Поставленный РО объем коммунального ресурса</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communalResource" type="gkh:communalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="amount" type="gkh:indication">
+        <xs:annotation>
+          <xs:documentation>Объем ресурса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabCommunalResourceCharge">
+    <xs:annotation>
+      <xs:documentation>Оплата за поставленные коммунальные ресурсы РО</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communalResource" type="gkh:communalResource">
+        <xs:annotation>
+          <xs:documentation>Коммунальный ресурс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="charged" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Начислено</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="paid" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Оплачено</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="opening_debt" type="gkh:money">
+        <xs:annotation>
+          <xs:documentation>Задолженность / переплата на первое число отчетного месяца</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabShortDeliverySummary">
+    <xs:annotation>
+      <xs:documentation>Общие сведения о недопоставвках по МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="maintenanceShortDeliveryFeeReductionCount" type="gkh:nonNegativeShort">
+        <xs:annotation>
+          <xs:documentation>количество случаев снижения платы за нарушения качества содержания и ремонта общего имущества в многоквартирном доме за отчетный период</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="communalResourceShortDeliveryFeeReductionCount" type="gkh:nonNegativeShort">
+        <xs:annotation>
+          <xs:documentation>количество случаев снижения платы за нарушения качества коммунальных услуг и (или)
+            за превышение установленной продолжительности перерывов в их оказании за отчетный период</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/debitor/all_over.ascx" hash="cedb9400c" filehash="b0a8b6f1abbe2a7e" flags="110000" assembly="App_Web_ct5j2sbj" type="ASP.reports_debitor_all_over_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/reports/debitor/all_over.ascx" />
+    </filedeps>
+</preserve>

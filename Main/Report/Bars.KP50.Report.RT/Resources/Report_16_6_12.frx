@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="10/08/2014 17:50:18" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      Data1.DataSource = Report.GetDataSource(&quot;Q_master&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="town" DataType="System.String"/>
+      <Column Name="rajon" DataType="System.String"/>
+      <Column Name="ulica" DataType="System.String"/>
+      <Column Name="ndom" DataType="System.String"/>
+      <Column Name="nkor" DataType="System.String"/>
+      <Column Name="pl_dom" DataType="System.Decimal"/>
+      <Column Name="kol_etazh" DataType="System.Int32"/>
+      <Column Name="kol_podezd" DataType="System.Int32"/>
+      <Column Name="kol_kv" DataType="System.Int32"/>
+      <Column Name="kol_ls" DataType="System.Int32"/>
+      <Column Name="kolgil" DataType="System.Int32"/>
+    </TableDataSource>
+    <Total Name="Total_pl_dom" Expression="[Q_master.pl_dom]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_kol_kv" Expression="[Q_master.kol_kv]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="Total_kol_ls" Expression="[Q_master.kol_ls]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="Total_kolgil" Expression="[Q_master.kolgil]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="Total_kol_etazh" Expression="[Q_master.kol_etazh]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="Total_kol_podezd" Expression="[Q_master.kol_podezd]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="756" Height="66.15" CanGrow="true" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text20" Width="576.45" Height="47.25" Text="6.12 Список домов с указанием этажей&#13;&#10;[period]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text3" Left="576.45" Width="84.96" Height="47.25" Text="Дата печати&#13;&#10;Время печати" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text4" Left="661.5" Width="94.5" Height="47.25" Text="[printDate]&#13;&#10;[printTime]" Font="Arial, 7pt"/>
+      <TextObject Name="Text8" Top="47.25" Width="756" Height="18.9" CanGrow="true" Text="[headerParam]" VertAlign="Center"/>
+      <ChildBand Name="Child1" Top="69.03" Width="756" Height="37.8">
+        <TextObject Name="Text1" Left="28.35" Width="217.35" Height="37.8" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text41" Left="661.5" Width="94.5" Height="37.8" Border.Lines="All" Text="Кол-во жильцов" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text2" Left="245.7" Width="94.5" Height="37.8" Border.Lines="All" Text="Общая площадь" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text40" Left="576.45" Width="85.05" Height="37.8" Border.Lines="All" Text="Кол-во ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text39" Left="500.85" Width="75.6" Height="37.8" Border.Lines="All" Text="Кол-во квартир" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text6" Left="340.2" Width="75.6" Height="37.8" Border.Lines="All" Text="Кол-во этажей" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text7" Left="415.8" Width="85.05" Height="37.8" Border.Lines="All" Text="Всего подъездов" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text9" Width="28.35" Height="37.8" Border.Lines="All" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="109.71" Width="756" Height="18.9" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" DataSource="Q_master">
+      <TextObject Name="Text38" Left="28.35" Width="217.35" Height="18.9" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="[IIf([Q_master.rajon] == &quot;-&quot;,[Q_master.town],[Q_master.rajon])], ул. [Trim([Q_master.ulica])], дом [Q_master.ndom][IIf([Q_master.nkor] == &quot;-&quot;,&quot;&quot;,&quot;, кор. &quot; + [Q_master.nkor])]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text45" Left="576.45" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.kol_ls]" HideZeros="true" HideValue="0" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text46" Left="661.5" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.kolgil]" HideZeros="true" HideValue="0" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text44" Left="500.85" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.kol_kv]" HideValue="0" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text5" Left="245.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.pl_dom]" HideValue="0" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text57" Left="340.2" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.kol_etazh]" HideValue="0" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text58" Left="415.8" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.kol_podezd]" HideValue="0" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text61" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Row#]" VertAlign="Center" Font="Arial, 8pt"/>
+      <Sort>
+        <Sort Expression="[Q_master.ulica]"/>
+        <Sort Expression="[Q_master.idom]"/>
+        <Sort Expression="[Q_master.nkor]"/>
+      </Sort>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="131.48" Width="756" Height="18.9">
+      <TextObject Name="Text52" Width="245.7" Height="18.9" Border.Lines="All" Border.Width="0.5" CanGrow="true" GrowToBottom="true" Text="Итого:" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text55" Left="576.45" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_kol_ls]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text56" Left="661.5" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_kolgil]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text54" Left="500.85" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_kol_kv]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text53" Left="245.7" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_pl_dom]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text59" Left="340.2" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_kol_etazh]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text60" Left="415.8" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_kol_podezd]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

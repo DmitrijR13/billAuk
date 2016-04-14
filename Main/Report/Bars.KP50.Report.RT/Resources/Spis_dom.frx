@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="12/27/2013 17:27:35" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      Data1.DataSource = Report.GetDataSource(&quot;Q_master&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="rajon" Enabled="false" DataType="System.String"/>
+      <Column Name="town" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_tarif" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="ob_s" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="gil_s" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="propis" DataType="System.Int32" PropName="Column"/>
+      <Column Name="privat" DataType="System.Int32" PropName="Column"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="town" DataType="System.String" PropName="Column"/>
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="TotalOb_s" Expression="[Q_master.ob_s]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="TotalGil_s" Expression="[Q_master.gil_s]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="TotalPropis" Expression="[Q_master.propis]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="TotalPrivat" Expression="[Q_master.privat]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="TotalOb_sAll" Expression="[Q_master.ob_s]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalGil_sAll" Expression="[Q_master.gil_s]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalPropisall" Expression="[Q_master.propis]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="TotalPrivatAll" Expression="[Q_master.privat]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="756" Height="122.85" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text20" Left="164.43" Top="22.68" Width="360.99" Height="56.7" Text="6.5 Список по домам поквартирно&#13;&#10; за период с [dat_s] по [dat_po]" Format="Date" Format.Format="d" HorzAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text1" Left="9.45" Top="85.05" Width="302.4" Height="37.8" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="311.85" Top="85.05" Width="94.5" Height="37.8" Border.Lines="All" Text="Общая площадь" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text39" Left="406.35" Top="85.05" Width="94.5" Height="37.8" Border.Lines="All" Text="Жилая площадь" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text40" Left="500.85" Top="85.05" Width="94.5" Height="37.8" Border.Lines="All" Text="Прописано" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text41" Left="595.35" Top="85.05" Width="94.5" Height="37.8" Border.Lines="All" Text="Приватизи-ровано" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text3" Left="529.2" Top="9.45" Width="75.6" Height="18.9" Text="Дата печати" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text42" Left="529.2" Top="28.35" Width="75.6" Height="18.9" Text="Время печати" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text4" Left="604.8" Top="9.45" Width="103.95" Height="18.9" Text="[printDate]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text43" Left="604.8" Top="28.35" Width="103.95" Height="18.9" Text="[printTime]" VertAlign="Center" Font="Arial, 7pt"/>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="126.05" Width="756" Height="18.9" Condition="[Q_master.town]">
+      <TextObject Name="Text57" Left="9.45" Width="680.4" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Q_master.town]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="148.15" Width="756" Height="18.9" Condition="[Q_master.ndom]">
+        <TextObject Name="Text37" Left="9.45" Width="680.4" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="[Trim([Q_master.area])] [Trim([Q_master.rajon])] Ул. [Trim([Q_master.ulica])] дом [Q_master.ndom]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <DataBand Name="Data1" Top="170.25" Width="756" Height="19.3" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" DataSource="Q_master">
+          <TextObject Name="Text38" Left="9.45" Width="304.29" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="Кв. [Trim([Q_master.nkvar])] [Q_master.fio]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TextObject Name="Text5" Left="311.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master.ob_s]" HideValue="0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text44" Left="406.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master.gil_s]" HideValue="0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text45" Left="500.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master.propis]" HideZeros="true" HideValue="0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text46" Left="595.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master.privat]" HideZeros="true" HideValue="0" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter2" Top="192.75" Width="756" Height="18.9">
+          <TextObject Name="Text47" Left="9.45" Width="304.29" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="Итого по дому [Trim([Q_master.ndom])]:" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TextObject Name="Text48" Left="311.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[TotalOb_s]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text49" Left="406.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[TotalGil_s]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text50" Left="500.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[TotalPropis]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text51" Left="595.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[TotalPrivat]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="214.85" Width="756"/>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="218.05" Width="756" Height="18.9">
+      <TextObject Name="Text52" Left="9.45" Width="304.29" Height="18.9" Border.Lines="All" Border.Width="0.5" Text="Всего:" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text53" Left="311.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[TotalOb_sAll]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text54" Left="406.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[TotalGil_sAll]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text55" Left="500.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[TotalPropisall]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text56" Left="595.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[TotalPrivatAll]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="240.15" Width="756" Height="37.8">
+      <TextObject Name="Text6" Left="18.9" Top="9.45" Width="548.1" Height="18.9" Text="Наименование отчета: 6.5 Поквартирный список" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text7" Left="567" Top="9.45" Width="103.95" Height="18.9" Text="Страница: [Page]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

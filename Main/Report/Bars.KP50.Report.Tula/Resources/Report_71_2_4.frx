@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="11/18/2014 14:37:55" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="Column" DataType="System.Int32" Calculated="true" Expression=""/>
+      <Column Name="Column1" Enabled="false" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="gilTable" ReferenceName="Data.gilTable" DataType="System.Int32" Enabled="true">
+      <Column Name="Column" Enabled="false" DataType="System.Int32" Calculated="true" Expression=""/>
+      <Column Name="Column1" Enabled="false" DataType="System.String"/>
+      <Column Name="fam" DataType="System.String" PropName="Column2"/>
+      <Column Name="ima" DataType="System.String" PropName="Column2"/>
+      <Column Name="otch" DataType="System.String" PropName="Column2"/>
+      <Column Name="type_rod" DataType="System.String" PropName="Column2"/>
+      <Column Name="dat_rog" DataType="System.DateTime" PropName="Column2"/>
+      <Column Name="dat_ofor" DataType="System.DateTime" PropName="Column2"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" StartPageEvent="Page1_StartPage">
+    <ReportTitleBand Name="ReportTitle1" Width="756" Height="54.81">
+      <TextObject Name="Text1" Top="28.35" Width="756" Height="26.46" Text="2.4 Список временно отсутствующих [predost]c [dat_s] по [dat_po]" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text2" Left="595.35" Width="160.65" Height="18.9" Text="дата печати [date]"/>
+      <ChildBand Name="Child1" Top="58.81" Width="756" Height="37.8" CanGrow="true" CanShrink="true">
+        <TextObject Name="Text3" Width="756" Height="37.8" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[headerParam]"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="100.61" Width="756" Height="28.35">
+      <TextObject Name="Text19" Width="56.7" Height="28.35" Border.Lines="All" Text="Район" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text20" Left="56.7" Width="103.95" Height="28.35" Border.Lines="All" Text="Улица" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text21" Left="160.65" Width="37.8" Height="28.35" Border.Lines="All" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text22" Left="198.45" Width="37.8" Height="28.35" Border.Lines="All" Text="Кв.&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text23" Left="236.25" Width="56.7" Height="28.35" Border.Lines="All" Text="ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text24" Left="292.95" Width="103.95" Height="28.35" Border.Lines="All" Text="Фамилия" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text25" Left="396.9" Width="75.6" Height="28.35" Border.Lines="All" Text="Имя" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text26" Left="472.5" Width="56.7" Height="28.35" Border.Lines="All" Text="Отчество" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text27" Left="529.2" Width="56.7" Height="28.35" Border.Lines="All" Text="Дата рожд." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text28" Left="585.9" Width="56.7" Height="28.35" Border.Lines="All" Text="Тип события" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text29" Left="642.6" Width="56.7" Height="28.35" Border.Lines="All" Text="Дата начала" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text30" Left="699.3" Width="56.7" Height="28.35" Border.Lines="All" Text="Дата конца" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="132.96" Width="756" Height="28.35" CanGrow="true" CanShrink="true" BeforePrintEvent="Data1_BeforePrint" Guides="425.25" DataSource="Q_master">
+      <TextObject Name="Text31" Width="56.7" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.rajon]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text32" Left="56.7" Width="103.95" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ulica]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text33" Left="160.65" Width="37.8" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ndom]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text34" Left="198.45" Width="37.8" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nkvar]&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text35" Left="236.25" Width="56.7" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.num_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text36" Left="292.95" Width="103.95" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fam]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text37" Left="396.9" Width="75.6" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ima]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text38" Left="472.5" Width="56.7" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.otch]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text39" Left="529.2" Width="56.7" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_rog]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text40" Left="585.9" Width="56.7" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.cel]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text41" Left="642.6" Width="56.7" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_s]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text42" Left="699.3" Width="56.7" Height="28.35" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_po]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="05/27/2014 10:45:21" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {              
+    public int first=1;
+    public int first1=1;
+    public int  num_p=0;
+    public int  num_p1=0;
+    
+    private void table_ls_ManualBuild(object sender, EventArgs e)
+    {
+      if(first&lt;=1){
+        TableDataSource port = Report.GetDataSource(&quot;ls&quot;) as TableDataSource;
+        table_ported.PrintRow(0);
+        table_ported.PrintColumns(); 
+        table_ported.PrintRow(1);
+        table_ported.PrintColumns(); 
+      
+        while (port.HasMoreRows)
+        {  
+          num_p++;
+          table_ported.PrintRow(2);
+          table_ported.PrintColumns();         
+          port.Next();
+        }
+      }
+      first++;
+    }
+    
+    private void table_ls1_ManualBuild(object sender, EventArgs e)
+    {
+      if(first1&lt;=1){
+        TableDataSource port1 = Report.GetDataSource(&quot;ls1&quot;) as TableDataSource;
+        Table1.PrintRow(0);
+        Table1.PrintColumns(); 
+        Table1.PrintRow(1);
+        Table1.PrintColumns(); 
+      
+        while (port1.HasMoreRows)
+        {  
+          num_p1++;
+          Table1.PrintRow(2);
+          Table1.PrintColumns();         
+          port1.Next();
+        }
+      }
+      first1++;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="ls" ReferenceName="Data.ls" DataType="System.Int32" Enabled="true"/>
+    <TableDataSource Name="ls1" ReferenceName="Data.ls1" DataType="System.Int32" Enabled="true"/>
+    <Parameter Name="up_file_name" DataType="System.String"/>
+    <Parameter Name="down_file_name" DataType="System.String"/>
+    <Parameter Name="up_user_name" DataType="System.String"/>
+    <Parameter Name="down_user_name" DataType="System.String"/>
+    <Parameter Name="up_date" DataType="System.String"/>
+    <Parameter Name="status" DataType="System.String"/>
+    <Parameter Name="down_date" DataType="System.String"/>
+    <Parameter Name="down_count_ls" DataType="System.String"/>
+    <Parameter Name="sync_count_ls" DataType="System.String"/>
+    <Parameter Name="nosync_count_ls" DataType="System.String"/>
+    <Parameter Name="on_date" DataType="System.String"/>
+    <Parameter Name="point" DataType="System.String"/>
+    <Parameter Name="comments" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="179.55,179.55,0">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="756" Height="163.55">
+      <TextObject Name="Text1" Width="746.55" Height="56.7" Text="Протокол выгрузки для обмена с социальной защитой за [on_date] по [point]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text2" Left="463.05" Top="59.6" Width="283.5" Height="103.95" Text="Дата загрузки файла:&lt;b&gt;[up_date]&lt;/b&gt;&#13;&#10;Дата выгрузки файла:&lt;b&gt;[down_date]&lt;/b&gt;&#13;&#10;Количество загруженных ЛС:&lt;b&gt;[down_count_ls]&lt;/b&gt;&#13;&#10;Количество сопоставленных ЛС:&lt;b&gt;[sync_count_ls]&lt;/b&gt;&#13;&#10;Количество несопоставленных ЛС:&lt;b&gt;[nosync_count_ls]&lt;/b&gt;&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 9pt" HtmlTags="true"/>
+      <TextObject Name="Text3" Top="59.6" Width="463.05" Height="103.95" Text="Имя загруженного файла: &lt;b&gt;[up_file_name]&lt;/b&gt;&#13;&#10;Имя выгруженного файла: &lt;b&gt;[down_file_name]&lt;/b&gt;&#13;&#10;Загрузил:  &lt;b&gt;[up_user_name]&lt;/b&gt;&#13;&#10;Выгрузил:  &lt;b&gt;[down_user_name]&lt;/b&gt;&#13;&#10;Статус выгрузки: &lt;b&gt;[status]&lt;/b&gt;&#13;&#10;&#13;&#10;&#13;&#10;" Font="Times New Roman, 9pt" HtmlTags="true"/>
+      <ChildBand Name="Child1" Top="203.55" Width="756" Height="56.7" CanGrow="true">
+        <TextObject Name="Text4" Top="9.45" Width="746.55" Height="37.8" CanGrow="true" Text="[comments]" Font="Times New Roman, 9pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data2" Top="280.25" Width="756" Height="75.6" DataSource="ls">
+      <TableObject Name="table_ported" Width="733.85" Height="66.15" Border.Lines="All" Border.Width="0.25" ManualBuildEvent="table_ls_ManualBuild">
+        <TableColumn Name="Column18" Width="37.8"/>
+        <TableColumn Name="Column13" Width="222.08"/>
+        <TableColumn Name="Column14" Width="77.06"/>
+        <TableColumn Name="Column15" Width="278.78"/>
+        <TableColumn Name="Column16" Width="118.13"/>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell67" Border.Lines="All" Border.Width="0.25" Text="Несопоставленные ЛС" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold" ColSpan="5"/>
+          <TableCell Name="Cell39" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+          <TableCell Name="Cell40" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+          <TableCell Name="Cell58" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+          <TableCell Name="Cell59" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="28.35">
+          <TableCell Name="Cell68" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell44" Border.Lines="All" Border.Width="0.25" Text="ФИО" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell54" Border.Lines="All" Border.Width="0.25" Text="Дата рождения" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell60" Border.Lines="All" Border.Width="0.25" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell61" Border.Lines="All" Border.Width="0.25" Text="Старый номер лицевого счета" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell69" Border.Lines="All" Border.Width="0.25" Text="[num_p]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell49" Border.Lines="All" Border.Width="0.25" Text="[ls.fio]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell57" Border.Lines="All" Border.Width="0.25" Text="[ls.drog]" Format="Date" Format.Format="d" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell62" Border.Lines="All" Border.Width="0.25" Text="[ls.adr]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell63" Border.Lines="All" Border.Width="0.25" Text="[ls.lchet]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <DataBand Name="Data1" Top="375.85" Width="756" Height="75.6" DataSource="ls1">
+      <TableObject Name="Table1" Width="733.85" Height="66.15" Border.Lines="All" Border.Width="0.25" ManualBuildEvent="table_ls1_ManualBuild">
+        <TableColumn Name="Column19" Width="37.8"/>
+        <TableColumn Name="Column20" Width="222.08"/>
+        <TableColumn Name="Column21" Width="77.06"/>
+        <TableColumn Name="Column22" Width="278.78"/>
+        <TableColumn Name="Column23" Width="118.13"/>
+        <TableRow Name="Row7">
+          <TableCell Name="Cell70" Border.Lines="All" Border.Width="0.25" Text="Cопоставленные ЛС" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold" ColSpan="5"/>
+          <TableCell Name="Cell71" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell72" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell73" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell74" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="28.35">
+          <TableCell Name="Cell75" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell76" Border.Lines="All" Border.Width="0.25" Text="ФИО" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell77" Border.Lines="All" Border.Width="0.25" Text="Дата рождения" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell78" Border.Lines="All" Border.Width="0.25" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell79" Border.Lines="All" Border.Width="0.25" Text="Старый номер лицевого счета" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row9">
+          <TableCell Name="Cell80" Border.Lines="All" Border.Width="0.25" Text="[num_p1]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell81" Border.Lines="All" Border.Width="0.25" Text="[ls1.fio]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell82" Border.Lines="All" Border.Width="0.25" Text="[ls1.drog]" Format="Date" Format.Format="d" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell83" Border.Lines="All" Border.Width="0.25" Text="[ls1.adr]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell84" Border.Lines="All" Border.Width="0.25" Text="[ls1.lchet]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+</Report>

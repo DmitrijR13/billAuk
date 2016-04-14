@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2011 15:52:15" ReportInfo.Modified="01/21/2014 14:07:34" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+     string dat_s, dat_po, name, report_name;                                                        
+     string shownumls, showfio, showdat_rog, showpasp, showadr, showdat_reg, sortadr, sortfio;
+     string showmesto_rog,showpol,showgragd,showdat_oprp,showgeu_name;
+
+    private void PageHeader1_BeforePrint(object sender, EventArgs e)
+    {         
+      if ((string)Report.GetParameterValue(&quot;shownumls&quot;) == &quot;1&quot; ) 
+      {
+        tls.Visible = dls.Visible = true;
+        tls.Width = dls.Width = (float)(Units.Centimeters * 0.75); //(float)57;
+      }
+      else 
+      {
+        tls.Visible = dls.Visible = false;
+        tls.Width = dls.Width = 0;
+      }
+      
+      if ((string)Report.GetParameterValue(&quot;showfio&quot;) == &quot;1&quot; ) 
+      {
+        tfio.Visible = dfio.Visible = true;
+        tfio.Width = dfio.Width = (float)(Units.Centimeters * 2.2);//(float)114;
+      }
+      else 
+      {
+        tfio.Visible = dfio.Visible = false;
+        tfio.Width = dfio.Width = 0;
+      }
+      
+      if ((string)Report.GetParameterValue(&quot;showfiokvs&quot;) == &quot;1&quot; ) 
+      {
+        tfiokvs.Visible = dfiokvs.Visible = true;
+        tfiokvs.Width = dfiokvs.Width = (float)(Units.Centimeters * 2.2);//(float)114;
+      }
+      else 
+      {
+        tfiokvs.Visible = dfiokvs.Visible = false;
+        tfiokvs.Width = dfiokvs.Width = 0;
+      }
+
+      if ((string)Report.GetParameterValue(&quot;showobshplosh&quot;) == &quot;1&quot; ) 
+      {
+        tobshplosh.Visible = dobshplosh.Visible = true;
+        tobshplosh.Width = dobshplosh.Width = (float)Units.Centimeters;//(float)114;
+      }
+      else 
+      {
+        tobshplosh.Visible = dobshplosh.Visible = false;
+        tobshplosh.Width = dobshplosh.Width = 0;
+      }
+
+      if ((string)Report.GetParameterValue(&quot;showgilplosh&quot;) == &quot;1&quot; ) 
+      {
+        tgilplosh.Visible = dgilplosh.Visible = true;
+        tgilplosh.Width = dgilplosh.Width = (float)Units.Centimeters;//(float)114;
+      }
+      else 
+      {
+        tgilplosh.Visible = dgilplosh.Visible = false;
+        tgilplosh.Width = dgilplosh.Width = 0;
+      }
+
+      if ((string)Report.GetParameterValue(&quot;showprojiv&quot;) == &quot;1&quot; ) 
+      {
+        tprojiv.Visible = dprojiv.Visible = true;
+        tprojiv.Width = dprojiv.Width = (float)(Units.Centimeters * 0.8);//(float)114;
+      }
+      else 
+      {
+        tprojiv.Visible = dprojiv.Visible = false;
+        tprojiv.Width = dprojiv.Width = 0;
+      }
+
+      if ((string)Report.GetParameterValue(&quot;showpropis&quot;) == &quot;1&quot; ) 
+      {
+        tpropis.Visible = dpropis.Visible = true;
+        tpropis.Width = dpropis.Width = (float)(Units.Centimeters * 0.7);//(float)114;
+      }
+      else 
+      {
+        tpropis.Visible = dpropis.Visible = false;
+        tpropis.Width = dpropis.Width = 0;
+      }
+
+      if ((string)Report.GetParameterValue(&quot;showtipsobst&quot;) == &quot;1&quot; ) 
+      {
+        ttipsobstv.Visible = dtipsobstv.Visible = true;
+        ttipsobstv.Width = dtipsobstv.Width = (float)Units.Centimeters;//(float)114;
+      }
+      else 
+      {
+        ttipsobstv.Visible = dtipsobstv.Visible = false;
+        ttipsobstv.Width = dtipsobstv.Width = 0;
+      }
+
+      if ((string)Report.GetParameterValue(&quot;showkomfortnost&quot;) == &quot;1&quot; ) 
+      {
+        tkomfortnost.Visible = dkomfortnost.Visible = true;
+        tkomfortnost.Width = dkomfortnost.Width = (float)(Units.Centimeters * 0.95);//(float)114;
+      }
+      else 
+      {
+        tkomfortnost.Visible = dkomfortnost.Visible = false;
+        tkomfortnost.Width = dkomfortnost.Width = 0;
+      }
+
+      if ((string)Report.GetParameterValue(&quot;showdat_rog&quot;) == &quot;1&quot; ) 
+      {
+        tdr.Visible = ddr.Visible = true;
+        tdr.Width = ddr.Width = (float)(Units.Centimeters * 0.95);//(float)38;
+      }
+      else 
+      {
+        tdr.Visible = ddr.Visible = false;
+        tdr.Width = ddr.Width = 0;
+      }
+
+      if ((string)Report.GetParameterValue(&quot;showmesto_rog&quot;) == &quot;1&quot; ) 
+      {
+        tmesto_rog.Visible = dmesto_rog.Visible = true;
+        tmesto_rog.Width = dmesto_rog.Width = (float)(Units.Centimeters * 1.4);//(float)65;
+      }
+      else 
+      {
+        tmesto_rog.Visible = dmesto_rog.Visible = false;
+        tmesto_rog.Width = dmesto_rog.Width = 0;
+      }
+      
+      if ((string)Report.GetParameterValue(&quot;showpol&quot;) == &quot;1&quot; ) 
+      {
+        tpol.Visible = dpol.Visible = true;
+        tpol.Width = dpol.Width = (float)(Units.Centimeters * 0.5);//(float)19;
+      }
+      else 
+      {
+        tpol.Visible = dpol.Visible = false;
+        tpol.Width = dpol.Width = 0;
+      }
+      
+      if ((string)Report.GetParameterValue(&quot;showgragd&quot;) == &quot;1&quot; ) 
+      {
+        tgragd.Visible = dgragd.Visible = true;
+        tgragd.Width = dgragd.Width = (float)(Units.Centimeters * 1.3);//(float)68;
+      }
+      else 
+      {
+        tgragd.Visible = dgragd.Visible = false;
+        tgragd.Width = dgragd.Width = 0;
+      }
+      
+      if ((string)Report.GetParameterValue(&quot;showadr&quot;) == &quot;1&quot; ) 
+      {
+        tadr.Visible = dadr.Visible = true;
+        tadr.Width = dadr.Width = (float)(Units.Centimeters * 1.5);//(float)114;
+      }
+      else 
+      {
+        tadr.Visible = dadr.Visible = false;
+        tadr.Width = dadr.Width = 0;
+      }
+      
+      if ((string)Report.GetParameterValue(&quot;showpasp&quot;) == &quot;1&quot; ) 
+      {
+        tviddok.Visible = dviddok.Visible = true;
+        tviddok.Width = dviddok.Width = (float)(Units.Centimeters * 1.5);//(float)57;
+        tseria.Visible = dseria.Visible = true;
+        tseria.Width = dseria.Width = (float)(Units.Centimeters * 1.1);//(float)42;
+        tnum.Visible = dnum.Visible = true;
+        tnum.Width = dnum.Width = (float)(Units.Centimeters * 1.2);//(float)46;
+        tdatvid.Visible = ddatvid.Visible = true;
+        tdatvid.Width = ddatvid.Width = (float)Units.Centimeters;//(float)38;
+        tkemvid.Visible = dkemvid.Visible = true;
+        tkemvid.Width = dkemvid.Width = (float)(Units.Centimeters * 2.0);//(float)137;
+        Text31.Visible =  true;
+        Text31.Width =  (float)(Units.Centimeters * 6.8);//(float)320;
+      }
+      else 
+      {
+        tviddok.Visible = dviddok.Visible = false;
+        tviddok.Width = dviddok.Width = 0;
+        tseria.Visible = dseria.Visible = false;
+        tseria.Width = dseria.Width = 0;
+        tnum.Visible = dnum.Visible = false;
+        tnum.Width = dnum.Width = 0;
+        tdatvid.Visible = ddatvid.Visible = false;
+        tdatvid.Width = ddatvid.Width = 0;
+        tkemvid.Visible = dkemvid.Visible = false;
+        tkemvid.Width = dkemvid.Width = 0;
+        Text31.Visible =  false;
+        Text31.Width =  0;
+      }
+      
+      if ((string)Report.GetParameterValue(&quot;showdat_reg&quot;) == &quot;1&quot; ) 
+      {
+        tdatreg.Visible = ddatreg.Visible = true;
+        tdatreg.Width = ddatreg.Width = (float)Units.Centimeters;//(float)38;
+      }
+      else 
+      {
+        tdatreg.Visible = ddatreg.Visible = false;
+        tdatreg.Width = ddatreg.Width = 0;
+      }
+      
+      if ((string)Report.GetParameterValue(&quot;showdat_oprp&quot;) == &quot;1&quot; ) 
+      {
+        tdatsnyat.Visible = ddatsnyat.Visible = true;
+        tdatsnyat.Width = ddatsnyat.Width = (float)Units.Centimeters;//(float)38;
+      }
+      else 
+      {
+        tdatsnyat.Visible = ddatsnyat.Visible = false;
+        tdatsnyat.Width = ddatsnyat.Width = 0;
+      }
+
+      if ((string)Report.GetParameterValue(&quot;showgeu_name&quot;) == &quot;1&quot; ) 
+      {
+        tgeu.Visible = dgeu_name.Visible = true;
+        tgeu.Width = dgeu_name.Width = (float)(Units.Centimeters * 1.9);//(float)129;
+      }
+      else 
+      {
+        tgeu.Visible = dgeu_name.Visible = false;
+        tgeu.Width = dgeu_name.Width = 0;
+      }
+
+      tls.Left = dls.Left = tn.Left + tn.Width;
+      tfio.Left = dfio.Left = tls.Left + tls.Width;
+      tfiokvs.Left = dfiokvs.Left = tfio.Left + tfio.Width;
+      tobshplosh.Left = dobshplosh.Left = tfiokvs.Left + tfiokvs.Width;
+      tgilplosh.Left = dgilplosh.Left = tobshplosh.Left + tobshplosh.Width;
+      tprojiv.Left = dprojiv.Left = tgilplosh.Left + tgilplosh.Width;
+      tpropis.Left = dpropis.Left = tprojiv.Left + tprojiv.Width;
+      ttipsobstv.Left = dtipsobstv.Left = tpropis.Left + tpropis.Width;
+      tkomfortnost.Left = dkomfortnost.Left = ttipsobstv.Left + ttipsobstv.Width;
+      tdr.Left = ddr.Left = tkomfortnost.Left + tkomfortnost.Width;
+      tmesto_rog.Left = dmesto_rog.Left = tdr.Left + tdr.Width;
+      tpol.Left = dpol.Left = tmesto_rog.Left + tmesto_rog.Width;
+      tgragd.Left = dgragd.Left = tpol.Left + tpol.Width;
+      tadr.Left = dadr.Left = tgragd.Left + tgragd.Width;
+      Text31.Left = tadr.Left + tadr.Width;
+      tviddok.Left = dviddok.Left = tadr.Left + tadr.Width;
+      tseria.Left = dseria.Left = tviddok.Left + tviddok.Width;
+      tnum.Left = dnum.Left = tseria.Left + tseria.Width;
+      tkemvid.Left = dkemvid.Left = tnum.Left + tnum.Width;
+      tdatvid.Left = ddatvid.Left = tkemvid.Left + tkemvid.Width;
+      tdatreg.Left = ddatreg.Left = tdatvid.Left + tdatvid.Width;
+      tdatsnyat.Left = ddatsnyat.Left =  tdatreg.Left + tdatreg.Width;
+      tgeu.Left = dgeu_name.Left =  tdatsnyat.Left + tdatsnyat.Width;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="ls" DataType="System.String"/>
+      <Column Name="fio" DataType="System.String"/>
+      <Column Name="adres" DataType="System.String"/>
+      <Column Name="doc" DataType="System.String"/>
+      <Column Name="seriya" DataType="System.String"/>
+      <Column Name="nomer" DataType="System.String"/>
+      <Column Name="dat_vid" DataType="System.String"/>
+      <Column Name="who_vid" DataType="System.String"/>
+      <Column Name="geu_name" DataType="System.String" PropName="geu"/>
+      <Column Name="gender" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rem_mr" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="gragd" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_rog" DataType="System.String" PropName="Column"/>
+      <Column Name="fio_kvs" DataType="System.String" PropName="Column"/>
+      <Column Name="obshplosh" DataType="System.String" PropName="Column"/>
+      <Column Name="gilplosh" DataType="System.String" PropName="Column"/>
+      <Column Name="projiv" DataType="System.String" PropName="Column"/>
+      <Column Name="propis" DataType="System.String" PropName="Column"/>
+      <Column Name="tipsobstv" DataType="System.String" PropName="Column"/>
+      <Column Name="komfortnost" DataType="System.String" PropName="Column" Calculated="true" Expression=""/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="64.26">
+      <TextObject Name="Text1" Width="1047.06" Height="45.36" CanGrow="true" Text="[report_name]" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text2" Top="45.36" Width="147.42" Height="18.9" Text="[Date]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="67.46" Width="1047.06" Height="83.16" BeforePrintEvent="PageHeader1_BeforePrint">
+      <TextObject Name="tn" Top="18.9" Width="24.57" Height="64.26" Border.Lines="All" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tfio" Left="52.81" Top="18.9" Width="83.16" Height="64.26" Visible="false" Border.Lines="All" BeforePrintEvent="tfio_BeforePrint" Text="Фамилия, имя, отчество жильца" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tls" Left="24.46" Top="18.9" Width="28.35" Height="64.26" Visible="false" Border.Lines="All" Text="Лицевой счет" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tadr" Left="582.12" Top="18.9" Width="56.7" Height="64.26" Visible="false" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tviddok" Left="638.82" Top="41.58" Width="56.7" Height="41.58" Visible="false" Border.Lines="All" Text="Вид документа" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tseria" Left="695.52" Top="41.58" Width="41.58" Height="41.58" Visible="false" Border.Lines="All" Text="Серия" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tnum" Left="737.1" Top="41.58" Width="45.36" Height="41.58" Visible="false" Border.Lines="All" Text="Номер" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tdatvid" Left="782.46" Top="41.58" Width="37.8" Height="41.58" Visible="false" Border.Lines="All" Text="Дата выдачи" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tkemvid" Left="820.26" Top="41.58" Width="75.6" Height="41.58" Visible="false" Border.Lines="All" Text="Кем выдан" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tdr" Left="424.87" Top="18.9" Width="35.91" Height="64.26" Visible="false" Border.Lines="All" Text="Дата рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tdatreg" Left="895.86" Top="18.9" Width="37.8" Height="64.26" Visible="false" Border.Lines="All" Text="Дата регистрации" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tdatsnyat" Left="933.66" Top="18.9" Width="37.8" Height="64.26" Visible="false" Border.Lines="All" Text="Дата снятия с рег. учета" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Text22" Left="888.3" Width="158.76" Height="18.9" Text="Лист [Page#] " HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="tmesto_rog" Left="461.16" Top="18.9" Width="52.92" Height="64.26" Visible="false" Border.Lines="All" Text="Место рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tpol" Left="514.08" Top="18.9" Width="18.9" Height="64.26" Visible="false" Border.Lines="All" Text="П&#13;&#10;о&#13;&#10;л" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tgragd" Left="532.98" Top="18.9" Width="49.14" Height="64.26" Visible="false" Border.Lines="All" Text="Гражданство" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tgeu" Left="971.46" Top="18.9" Width="71.82" Height="64.26" Visible="false" Border.Lines="All" Text="Название УК, ТСЖ" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Text31" Left="638.82" Top="18.9" Width="257.04" Height="22.68" Visible="false" Border.Lines="All" Text="Документ" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tfiokvs" Left="136.08" Top="18.9" Width="83.16" Height="64.26" Visible="false" Border.Lines="All" BeforePrintEvent="tfio_BeforePrint" Text="Фамилия, имя, отчество кв/с" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tobshplosh" Left="219.24" Top="18.9" Width="37.8" Height="64.26" Visible="false" Border.Lines="All" BeforePrintEvent="tfio_BeforePrint" Text="Общ. пло&#13;&#10;щадь" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tgilplosh" Left="257.15" Top="18.9" Width="37.8" Height="64.26" Visible="false" Border.Lines="All" BeforePrintEvent="tfio_BeforePrint" Text="Жил. пло&#13;&#10;щадь" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tprojiv" Left="294.95" Top="18.9" Width="30.24" Height="64.26" Visible="false" Border.Lines="All" BeforePrintEvent="tfio_BeforePrint" Text="Проживает" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tpropis" Left="325.08" Top="18.9" Width="26.46" Height="64.26" Visible="false" Border.Lines="All" BeforePrintEvent="tfio_BeforePrint" Text="Прописано" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="ttipsobstv" Left="351.1" Top="18.9" Width="37.8" Height="64.26" Visible="false" Border.Lines="All" BeforePrintEvent="tfio_BeforePrint" Text="Тип соб&#13;&#10;ствен&#13;&#10;нос&#13;&#10;ти" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="tkomfortnost" Left="388.9" Top="18.9" Width="35.91" Height="64.26" Visible="false" Border.Lines="All" BeforePrintEvent="tfio_BeforePrint" Text="Ком&#13;&#10;форт&#13;&#10;ность" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="153.82" Width="1047.06" Height="20.52" CanGrow="true" Guides="0" DataSource="Q_master">
+      <TextObject Name="dn" Width="24.57" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dfio" Left="52.81" Width="83.16" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fio]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dls" Left="24.46" Width="28.35" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ls]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dadr" Left="582.12" Width="56.7" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.adres]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dviddok" Left="638.82" Width="56.7" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.doc]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="ddatvid" Left="782.46" Width="37.8" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_vid]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dkemvid" Left="820.26" Width="75.6" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.who_vid]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="ddr" Left="424.87" Width="35.91" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_rog]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="ddatreg" Left="895.86" Width="37.8" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_reg]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="ddatsnyat" Left="933.66" Width="37.8" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_snyat]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dmesto_rog" Left="461.16" Width="52.92" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.rem_mr]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dpol" Left="514.08" Width="18.9" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.gender]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dgragd" Left="532.98" Width="49.14" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.gragd]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dseria" Left="695.52" Width="41.58" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.seriya]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dnum" Left="737.1" Width="45.36" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nomer]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dgeu_name" Left="971.46" Width="71.82" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.geu_name]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dfiokvs" Left="136.08" Width="83.16" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fio_kvs]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dobshplosh" Left="219.24" Width="37.8" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.obsh_plosh]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dgilplosh" Left="257.15" Width="37.8" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.gil_plosh]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dprojiv" Left="294.95" Width="30.24" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.projiv]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dpropis" Left="325.08" Width="26.46" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.propis]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dtipsobstv" Left="351.1" Width="37.8" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.tipsobstv]" VertAlign="Center" Font="Arial, 6pt"/>
+      <TextObject Name="dkomfortnost" Left="388.9" Width="35.91" Height="18.9" Visible="false" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.komfortnost]" VertAlign="Center" Font="Arial, 6pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

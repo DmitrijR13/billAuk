@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/admin/files/nebo_reestr.aspx" hash="cedb9400c" filehash="de70e0d646e8cec4" flags="110000" assembly="App_Web_jc1rdmyu" type="ASP.admin_files_nebo_reestr_aspx">
+    <filedeps>
+        <filedep name="/none/admin/files/nebo_reestr.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

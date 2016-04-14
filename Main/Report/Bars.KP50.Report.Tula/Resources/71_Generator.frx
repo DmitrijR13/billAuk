@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" UseFileCache="true" StartReportEvent="_StartReport" FinishReportEvent="_FinishReport" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="05/19/2015 16:13:10" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+    
+
+namespace FastReport
+{
+  public class ReportScript
+  { 
+
+
+    private void Cell6_BeforePrint(object sender, EventArgs e)
+    {
+      try
+      {
+        //decimal total;
+        //if (decimal.TryParse(Cell6.Value.ToString().Substring(0,15), out total))
+        //  Cell6.Text = Cell6.Value.ToString().Substring(0,15); 
+        //else
+          //Cell6.Text = Cell2.Value.ToString();
+      }
+      catch
+      {
+        //Cell6.Text = &quot;&quot;;
+      }        
+    }
+
+
+
+    private void Matrix1_BeforePrint(object sender, EventArgs e)
+    {                                
+      //if (Matrix1.ColumnCount &gt; 5)
+      //Page1.Width = 840 * Units.Millimeters;
+    }
+
+    private void Page1_StartPage(object sender, EventArgs e)
+    {                  
+      //Page1.Width = 840 * Units.Millimeters;      
+    }
+
+    private void Matrix1_AfterData(object sender, EventArgs e)
+    {               
+
+    }
+
+    private void Cell3_BeforePrint(object sender, EventArgs e)
+    {
+      //Row2.
+      //if (Cell3.Value.ToString().Trim() == &quot;Всего&quot;)
+        //Cell4.Border.Width = 5 * Units.Millimeters;
+    }
+
+    private void Child2_BeforePrint(object sender, EventArgs e)
+    {
+
+    }
+
+    private void Page1_FinishPage(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ReportTitle1_AfterData(object sender, EventArgs e)
+    {
+      //float width = 0f;
+      //foreach (TableColumn col in Matrix1.Columns)
+      //{
+      //  width+= col.Width;
+      //}                     
+      //Text1.Width = width;
+      //Text2.Width = width;
+      //Text45.Width = width;
+    }
+  }
+}
+  </ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="area" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="geu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="uch" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="rajon" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="num_ls" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pkod" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="name_supp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="service" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rsum_tarif" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_nedop" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_charge" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="money_to" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="fio" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="propis_count" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="gil_count" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ob_s" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="otop_s" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="c_calc" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="gil_prib" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="gil_ub" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ipu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="odpu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rasch" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="real_insaldo" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="money_from" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="money_supp" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="value" DataType="System.String" PropName="Column"/>
+      <Column Name="head" DataType="System.String" PropName="Column"/>
+      <Column Name="total" DataType="System.String" PropName="Column"/>
+      <Column Name="row" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="1485" PaperHeight="999990" TopMargin="0" BottomMargin="0" Guides="-37.8" ExtraDesignWidth="true" StartPageEvent="Page1_StartPage" FinishPageEvent="Page1_FinishPage">
+    <ReportTitleBand Name="ReportTitle1" Width="5537.7" Height="66.15" CanGrow="true" CanShrink="true" AfterDataEvent="ReportTitle1_AfterData" CanBreak="true">
+      <TextObject Name="Text1" Top="9.45" Width="1122.66" Height="18.9" Text="Генератор по начислениям за [pPeriod]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Width="1122.66" Height="9.45" Text="Дата печати:[dat]   Время печати:[time]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text45" Top="28.35" Width="1122.66" Height="37.8" CanGrow="true" CanShrink="true" GrowToBottom="true" AfterDataEvent="Text45_AfterData" Text="[headerParam]&#13;&#10; " HorzAlign="Justify" VertAlign="Center" Wysiwyg="true"/>
+      <ChildBand Name="Child2" Top="68.76" Width="5537.7" Height="39.12" Fill.Color="White" CanShrink="true" BeforePrintEvent="Child2_BeforePrint" CanBreak="true">
+        <MatrixObject Name="Matrix1" Width="93.65" Height="39.12" ShiftMode="Never" BeforePrintEvent="Matrix1_BeforePrint" AfterDataEvent="Matrix1_AfterData" FixedRows="1" FixedColumns="1" RepeatHeaders="false" WrappedGap="37.8" DataSource="Q_master" MatrixEvenStylePriority="Columns">
+          <MatrixColumns>
+            <Header Expression="[Q_master.head]" Sort="None" Totals="false"/>
+          </MatrixColumns>
+          <MatrixRows>
+            <Header Expression="[Q_master.row]" Sort="None" Totals="false"/>
+          </MatrixRows>
+          <MatrixCells>
+            <Cell Expression="[Q_master.value]"/>
+          </MatrixCells>
+          <TableColumn Name="Column1" Width="43.01" AutoSize="true"/>
+          <TableColumn Name="Column2" Width="50.64" AutoSize="true"/>
+          <TableRow Name="Row1" Height="19.56" AutoSize="true">
+            <TableCell Name="Cell1" Border.Lines="All" HorzAlign="Center" VertAlign="Center"/>
+            <TableCell Name="Cell2" Border.Lines="All" Text="[head]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row2" Height="19.56" AutoSize="true">
+            <TableCell Name="Cell3" Border.Lines="All" BeforePrintEvent="Cell3_BeforePrint" Text="[row]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell4" Border.Lines="All" Text="[value]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center"/>
+          </TableRow>
+        </MatrixObject>
+      </ChildBand>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

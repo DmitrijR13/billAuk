@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D57386BC-5344-4C8C-9D82-9521475A1795}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KP50.DataBase.UpdateAssembly</RootNamespace>
+    <AssemblyName>KP50.DataBase.UpdateAssembly</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\KP50.DataBase.Update.Build\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\KP50.DataBase.Update.Build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="KP50.DataBase.Migrator.Framework">
+      <HintPath>..\..\..\LIBRARIES\KP50.DataBase.Migrator.Framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="2014\2014063\Migration_2014061806301.cs" />
+    <Compile Include="2014\2014063\Migration_2014061806303.cs" />
+    <Compile Include="2014\2014052\Migration_20140514052.cs" />
+    <Compile Include="2014\2014000\Migration_20140305001.cs" />
+    <Compile Include="2014\2014000\Migration_20140305002.cs" />
+    <Compile Include="2014\2014000\Migration_20140305003.cs" />
+    <Compile Include="2014\2014000\Migration_20140305004.cs" />
+    <Compile Include="2014\2014000\Migration_20140305005.cs" />
+    <Compile Include="2014\2014000\Migration_20140305006.cs" />
+    <Compile Include="2014\2014000\Migration_20140305007.cs" />
+    <Compile Include="2014\2014000\Migration_20140305008.cs" />
+    <Compile Include="2014\2014000\Migration_20140305009.cs" />
+    <Compile Include="2014\2014000\Migration_20140305010.cs" />
+    <Compile Include="2014\2014000\Migration_20140305011.cs" />
+    <Compile Include="2014\2014000\Migration_20140305012.cs" />
+    <Compile Include="2014\2014000\Migration_20140305013.cs" />
+    <Compile Include="2014\2014000\Migration_20140305014.cs" />
+    <Compile Include="2014\2014000\Migration_20140305015.cs" />
+    <Compile Include="2014\2014000\Migration_20140305016.cs" />
+    <Compile Include="2014\2014000\Migration_20140305017.cs" />
+    <Compile Include="2014\2014000\Migration_20140305018.cs" />
+    <Compile Include="2014\2014000\Migration_20140305019.cs" />
+    <Compile Include="2014\2014000\Migration_20140305020.cs" />
+    <Compile Include="2014\2014000\Migration_20140305021.cs" />
+    <Compile Include="2014\2014000\Migration_20140305022.cs" />
+    <Compile Include="2014\2014000\Migration_20140305023.cs" />
+    <Compile Include="2014\2014000\Migration_20140305024.cs" />
+    <Compile Include="2014\2014000\Migration_20140328035.cs" />
+    <Compile Include="2014\2014000\Migration_20140429002.cs" />
+    <Compile Include="2014\2014000\Migration_20140429001.cs" />
+    <Compile Include="2014\2014000\Migration_20140425044.cs" />
+    <Compile Include="2014\2014051\Migration_20140505051.cs" />
+    <Compile Include="2014\2014052\Migration_20140516052.cs" />
+    <Compile Include="2014\2014051\Migration_20140517051.cs" />
+    <Compile Include="2014\2014052\Migration_2014052605201.cs" />
+    <Compile Include="2014\2014052\Migration_2014052205201.cs" />
+    <Compile Include="2014\2014052\Migration_2014052105201.cs" />
+    <Compile Include="2014\2014052\Migration_2014052005202.cs" />
+    <Compile Include="2014\2014051\Migration_20140520051.cs" />
+    <Compile Include="2014\2014052\Migration_2014052005201.cs" />
+    <Compile Include="2014\2014052\Migration_2014052805201.cs" />
+    <Compile Include="2014\2014062\Migration_2014061606201.cs" />
+    <Compile Include="2014\2014062\Migration_2014061606202.cs" />
+    <Compile Include="2014\2014063\Migration_2014062006301.cs" />
+    <Compile Include="2014\2014063\Migration_2014062006302.cs" />
+    <Compile Include="2014\2014063\Migration_2014062006303.cs" />
+    <Compile Include="2014\2014063\Migration_2014062406301.cs" />
+    <Compile Include="2014\2014063\Migration_2014062706301.cs" />
+    <Compile Include="2014\2014063\Migration_2014062706302.cs" />
+    <Compile Include="2014\2014063\Migration_2014062706303.cs" />
+    <Compile Include="2014\2014063\Migration_2014062806301.cs" />
+    <Compile Include="2014\2014063\Migration_2014070706301.cs" />
+    <Compile Include="2014\2014071\Migration_2014070907101.cs" />
+    <Compile Include="2014\2014071\Migration_2014071607102.cs" />
+    <Compile Include="2014\2014073\Migration_2014072107301.cs" />
+    <Compile Include="2014\2014073\Migration_2014072107302.cs" />
+    <Compile Include="2014\2014082\Migration_2014080108201.cs" />
+    <Compile Include="2014\2014082\Migration_2014080508201.cs" />
+    <Compile Include="2014\2014082\Migration_2014080608201.cs" />
+    <Compile Include="2014\2014082\Migration_2014080608202.cs" />
+    <Compile Include="2014\2014082\Migration_2014080708201.cs" />
+    <Compile Include="2014\2014082\Migration_2014080708202.cs" />
+    <Compile Include="2014\2014083\Migration_2014080708301.cs" />
+    <Compile Include="2014\2014083\Migration_2014080808302.cs" />
+    <Compile Include="2014\2014084\Migration_2014081508401.cs" />
+    <Compile Include="2014\2014084\Migration_2014081808403.cs" />
+    <Compile Include="2014\2014084\Migration_2014081808402.cs" />
+    <Compile Include="2014\2014084\Migration_2014081808405.cs" />
+    <Compile Include="2014\2014084\Migration_2014082008403.cs" />
+    <Compile Include="2014\2014084\Migration_2014082008404.cs" />
+    <Compile Include="2014\2014084\Migration_2014082208401.cs" />
+    <Compile Include="2014\2014084\Migration_2014082208402.cs" />
+    <Compile Include="2014\2014084\Migration_2014082508401.cs" />
+    <Compile Include="2014\2014084\Migration_2014082608401.cs" />
+    <Compile Include="2014\2014085\Migration_2014082708501.cs" />
+    <Compile Include="2014\2014085\Migration_2014082708502.cs" />
+    <Compile Include="2014\2014085\Migration_2014082708503.cs" />
+    <Compile Include="2014\2014085\Migration_2014082708504.cs" />
+    <Compile Include="2014\2014085\Migration_2014082708505.cs" />
+    <Compile Include="2014\2014085\Migration_2014082908501.cs" />
+    <Compile Include="2014\2014085\Migration_2014082908502.cs" />
+    <Compile Include="2014\2014085\Migration_2014083008501.cs" />
+    <Compile Include="2014\2014085\Migration_2014090208501.cs" />
+    <Compile Include="2014\2014091\Migration_2014090309101.cs" />
+    <Compile Include="2014\2014091\Migration_2014090509101.cs" />
+    <Compile Include="2014\2014091\Migration_2014090609103.cs" />
+    <Compile Include="2014\2014091\Migration_2014090509102.cs" />
+    <Compile Include="2014\2014091\Migration_2014090909101.cs" />
+    <Compile Include="2014\2014092\Migration_2014091209201.cs" />
+    <Compile Include="2014\2014092\Migration_2014091009202.cs" />
+    <Compile Include="2014\2014092\Migration_2014091009201.cs" />
+    <Compile Include="2014\2014092\Migration_2014090909201.cs" />
+    <Compile Include="2014\2014092\Migration_2014091009203.cs" />
+    <Compile Include="2014\2014092\Migration_2014091209202.cs" />
+    <Compile Include="2014\2014092\Migration_2014091509201.cs" />
+    <Compile Include="2014\2014093\Migration_2014092209301.cs" />
+    <Compile Include="2014\2014093\Migration_2014091909302.cs" />
+    <Compile Include="2014\2014093\Migration_2014091509301.cs" />
+    <Compile Include="2014\2014093\Migration_2014092209302.cs" />
+    <Compile Include="2014\2014094\Migration_2014092209401.cs" />
+    <Compile Include="2014\2014094\Migration_2014092309401.cs" />
+    <Compile Include="2014\2014094\Migration_2014092509401.cs" />
+    <Compile Include="2014\2014094\Migration_2014092309402.cs" />
+    <Compile Include="2014\2014101\Migration_2014093010101.cs" />
+    <Compile Include="2014\2014101\Migration_2014092910101.cs" />
+    <Compile Include="2014\2014101\Migration_2014092910102.cs" />
+    <Compile Include="2014\2014101\Migration_2014100110103.cs" />
+    <Compile Include="2014\2014101\Migration_2014100110104.cs" />
+    <Compile Include="2014\2014101\Migration_2014100110106.cs" />
+    <Compile Include="2014\2014101\Migration_2014100110105.cs" />
+    <Compile Include="2014\2014101\Migration_2014100210101.cs" />
+    <Compile Include="2014\2014101\Migration_2014100310102.cs" />
+    <Compile Include="2014\2014101\Migration_2014100710101.cs" />
+    <Compile Include="2014\2014101\Migration_2014100610101.cs" />
+    <Compile Include="2014\2014101\Migration_2014100310101.cs" />
+    <Compile Include="2014\2014102\Migration_2014100710201.cs" />
+    <Compile Include="2014\2014102\Migration_2014100910201.cs" />
+    <Compile Include="2014\2014102\Migration_2014101610201.cs" />
+    <Compile Include="2014\2014102\Migration_2014101110201.cs" />
+    <Compile Include="2014\2014102\Migration_2014101710201.cs" />
+    <Compile Include="2014\2014103\Migration_2014102210301.cs" />
+    <Compile Include="2014\2014103\Migration_2014102210302.cs" />
+    <Compile Include="2014\2014104\Migration_2014103010401.cs" />
+    <Compile Include="2014\2014104\Migration_2014103010402.cs" />
+    <Compile Include="2014\2014104\Migration_2014102710401.cs" />
+    <Compile Include="2014\2014104\Migration_2014102810401.cs" />
+    <Compile Include="2014\2014104\Migration_2014102510403.cs" />
+    <Compile Include="2014\2014104\Migration_2014102210402.cs" />
+    <Compile Include="2014\2014104\Migration_2014102610401.cs" />
+    <Compile Include="2014\2014104\Migration_2014102910401.cs" />
+    <Compile Include="2014\2014104\Migration_2014103010403.cs" />
+    <Compile Include="2014\2014104\Migration_2014103010404.cs" />
+    <Compile Include="2014\2014104\Migration_2014103110401.cs" />
+    <Compile Include="2014\2014104\Migration_2014103110402.cs" />
+    <Compile Include="2014\2014111\Migration_2014111711101.cs" />
+    <Compile Include="2014\2014111\Migration_2014111111103.cs" />
+    <Compile Include="2014\2014111\Migration_2014111111102.cs" />
+    <Compile Include="2014\2014111\Migration_2014111111101.cs" />
+    <Compile Include="2014\2014111\Migration_2014110911101.cs" />
+    <Compile Include="2014\2014111\Migration_2014110711101.cs" />
+    <Compile Include="2014\2014111\Migration_2014110611101.cs" />
+    <Compile Include="2014\2014111\Migration_2014110711102.cs" />
+    <Compile Include="2014\2014111\Migration_2014110711103.cs" />
+    <Compile Include="2014\2014111\Migration_2014110811101.cs" />
+    <Compile Include="2014\2014111\Migration_2014111011101.cs" />
+    <Compile Include="2014\2014111\Migration_2014111411101.cs" />
+    <Compile Include="2014\2014111\Migration_2014111211101.cs" />
+    <Compile Include="2014\2014111\Migration_2014111811101.cs" />
+    <Compile Include="2014\2014111\Migration_2014111911102.cs" />
+    <Compile Include="2014\2014111\Migration_2014111911101.cs" />
+    <Compile Include="2014\2014112\Migration_2014111811201.cs" />
+    <Compile Include="2014\2014112\Migration_2014111811202.cs" />
+    <Compile Include="2014\2014112\Migration_2014112011201.cs" />
+    <Compile Include="2014\2014113\Migration_2014120312101.cs" />
+    <Compile Include="2014\2014113\Migration_2014112711301.cs" />
+    <Compile Include="2014\2014113\Migration_2014112511301.cs" />
+    <Compile Include="2014\2014113\Migration_2014112411301.cs" />
+    <Compile Include="2014\2014113\Migration_2014112511302.cs" />
+    <Compile Include="2014\2014113\Migration_2014120112101.cs" />
+    <Compile Include="2014\2014121\Migration_2014120312101.cs" />
+    <Compile Include="2014\2014121\Migration_2014120512101.cs" />
+    <Compile Include="2014\2014121\Migration_2014120512103.cs" />
+    <Compile Include="2014\2014122\Migration_2014120512201.cs" />
+    <Compile Include="2014\2014122\Migration_2014120612201.cs" />
+    <Compile Include="2014\2014122\Migration_2014120712201.cs" />
+    <Compile Include="2014\2014122\Migration_2014120812201.cs" />
+    <Compile Include="2014\2014122\Migration_2014120912201.cs" />
+    <Compile Include="2014\2014122\Migration_2014120912202.cs" />
+    <Compile Include="2014\2014122\Migration_2014121012201.cs" />
+    <Compile Include="2014\2014123\Migration_2014121512302.cs" />
+    <Compile Include="2014\2014122\Migration_2014121112202.cs" />
+    <Compile Include="2014\2014122\Migration_2014121212201.cs" />
+    <Compile Include="2014\2014122\Migration_2014121212202.cs" />
+    <Compile Include="2014\2014122\Migration_2014121212203.cs" />
+    <Compile Include="2014\2014123\Migration_2014121512301.cs" />
+    <Compile Include="2014\2014123\Migration_2014122012301.cs" />
+    <Compile Include="2014\2014123\Migration_2014121612301.cs" />
+    <Compile Include="2014\2014124\Migration_2014122012401.cs" />
+    <Compile Include="2014\2014124\Migration_2014122012402.cs" />
+    <Compile Include="2014\2014124\Migration_2014122212401.cs" />
+    <Compile Include="2014\2014124\Migration_2014122212402.cs" />
+    <Compile Include="2014\2014124\Migration_2014122312402.cs" />
+    <Compile Include="2014\2014124\Migration_2014122312403.cs" />
+    <Compile Include="2014\2014124\Migration_2014122312406.cs" />
+    <Compile Include="2014\2014124\Migration_2014122312404.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="2014\2014124\Migration_2014122312405.cs" />
+    <Compile Include="2014\2014124\Migration_2014122612404.cs" />
+    <Compile Include="2014\2014124\Migration_2014122512401.cs" />
+    <Compile Include="2014\2014124\Migration_2014122612402.cs" />
+    <Compile Include="2014\2014124\Migration_2014122612401.cs" />
+    <Compile Include="2014\2014124\Migration_2014122612403.cs" />
+    <Compile Include="2014\2014124\Migration_2014122912401.cs" />
+    <Compile Include="2014\2014124\Migration_2014123012401.cs" />
+    <Compile Include="2015\2015011\Migration_2015012101101.cs" />
+    <Compile Include="2015\2015011\Migration_2015011201101.cs" />
+    <Compile Include="2015\2015011\Migration_2015011201103.cs" />
+    <Compile Include="2015\2015011\Migration_2015011201102.cs" />
+    <Compile Include="2015\2015011\Migration_2015011501101.cs" />
+    <Compile Include="2015\2015011\Migration_2015011501102.cs" />
+    <Compile Include="2015\2015011\Migration_2015011501103.cs" />
+    <Compile Include="2015\2015011\Migration_2015012101102.cs" />
+    <Compile Include="2015\2015011\Migration_2015012301103.cs" />
+    <Compile Include="2015\2015011\Migration_2015012301101.cs" />
+    <Compile Include="2015\2015011\Migration_2015012101104.cs" />
+    <Compile Include="2015\2015011\Migration_2015012101103.cs" />
+    <Compile Include="2015\2015011\Migration_2015012101105.cs" />
+    <Compile Include="2015\2015011\Migration_2015012201101.cs" />
+    <Compile Include="2015\2015011\Migration_2015012201102.cs" />
+    <Compile Include="2015\2015011\Migration_2015012301102.cs" />
+    <Compile Include="2015\2015011\Migration_2015012801101.cs" />
+    <Compile Include="2015\2015021\Migration_2015021302101.cs" />
+    <Compile Include="2015\2015021\Migration_2015012802101.cs" />
+    <Compile Include="2015\2015021\Migration_2015013002101.cs" />
+    <Compile Include="2015\2015021\Migration_2015013002102.cs" />
+    <Compile Include="2015\2015021\Migration_2015013002103.cs" />
+    <Compile Include="2015\2015021\Migration_2015020102101.cs" />
+    <Compile Include="2015\2015021\Migration_2015020102102.cs" />
+    <Compile Include="2015\2015021\Migration_2015020402104.cs" />
+    <Compile Include="2015\2015021\Migration_2015020402103.cs" />
+    <Compile Include="2015\2015021\Migration_2015020402102.cs" />
+    <Compile Include="2015\2015021\Migration_2015020402101.cs" />
+    <Compile Include="2015\2015021\Migration_2015020202101.cs" />
+    <Compile Include="2015\2015021\Migration_2015020402105.cs" />
+    <Compile Include="2015\2015021\Migration_2015020502101.cs" />
+    <Compile Include="2015\2015021\Migration_2015020402106.cs" />
+    <Compile Include="2015\2015021\Migration_2015020602101.cs" />
+    <Compile Include="2015\2015021\Migration_2015020902101.cs" />
+    <Compile Include="2015\2015021\Migration_2015020502102.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="2015\2015021\Migration_2015021002101.cs" />
+    <Compile Include="2015\2015021\Migration_2015021002102.cs" />
+    <Compile Include="2015\2015021\Migration_2015021602101.cs" />
+    <Compile Include="2015\2015023\Migration_2015030602302.cs" />
+    <Compile Include="2015\2015023\Migration_2015030602301.cs" />
+    <Compile Include="2015\2015023\Migration_2015030503101.cs" />
+    <Compile Include="2015\2015023\Migration_2015030403101.cs" />
+    <Compile Include="2015\2015021\Migration_2015022002101.cs" />
+    <Compile Include="2015\2015021\Migration_2015021602102.cs" />
+    <Compile Include="2015\2015021\Migration_2015022002102.cs" />
+    <Compile Include="2015\2015022\Migration_2015022602201.cs" />
+    <Compile Include="2015\2015022\Migration_2015022502201.cs" />
+    <Compile Include="2015\2015022\Migration_2015022102201.cs" />
+    <Compile Include="2015\2015022\Migration_2015022102202.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="2015\2015022\Migration_2015022102203.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="2015\2015022\Migration_2015022102204.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="2015\2015022\Migration_2015022102205.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="2015\2015023\Migration_2015030202302.cs" />
+    <Compile Include="2015\2015023\Migration_2015030202301.cs" />
+    <Compile Include="2015\2015023\Migration_2015022802301.cs" />
+    <Compile Include="2015\2015023\Migration_2015030202303.cs" />
+    <Compile Include="2015\2015023\Migration_2015030302301.cs" />
+    <Compile Include="2015\2015023\Migration_2015030202304.cs" />
+    <Compile Include="2015\2015023\Migration_2015030602304.cs" />
+    <Compile Include="2015\2015023\Migration_2015030602303.cs" />
+    <Compile Include="2015\2015032\Migration_2015030703201.cs" />
+    <Compile Include="2015\2015023\Migration_2015030702301.cs" />
+    <Compile Include="2015\2015032\Migration_2015031003201.cs" />
+    <Compile Include="2015\2015032\Migration_2015031103201.cs" />
+    <Compile Include="2015\2015032\Migration_2015031703201.cs" />
+    <Compile Include="2015\2015032\Migration_2015031603201.cs" />
+    <Compile Include="2015\2015032\Migration_2015031703202.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003301.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003302.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003303.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003304.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003305.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003306.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003307.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003308.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003309.cs" />
+    <Compile Include="2015\2015033\Migration_2015040103301.cs" />
+    <Compile Include="2015\2015033\Migration_2015032503301.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003310.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003311.cs" />
+    <Compile Include="2015\2015033\Migration_2015032003312.cs" />
+    <Compile Include="2015\2015033\Migration_2015032103301.cs" />
+    <Compile Include="2015\2015033\Migration_2015032103302.cs" />
+    <Compile Include="2015\2015033\Migration_2015032103303.cs" />
+    <Compile Include="2015\2015033\Migration_2015032403301.cs" />
+    <Compile Include="2015\2015033\Migration_2015032303301.cs" />
+    <Compile Include="2015\2015034\Migration_2015040603401.cs" />
+    <Compile Include="2015\2015034\Migration_2015040703401.cs" />
+    <Compile Include="2015\2015041\Migration_2015040904101.cs" />
+    <Compile Include="2015\2015041\Migration_2015040704101.cs" />
+    <Compile Include="2015\2015041\Migration_2015041004101.cs" />
+    <Compile Include="2015\2015041\Migration_2015041104101.cs" />
+    <Compile Include="2015\2015041\Migration_2015042004101.cs" />
+    <Compile Include="2015\2015041\Migration_2015042104101.cs" />
+    <Compile Include="2015\2015041\Migration_2015042304102.cs" />
+    <Compile Include="2015\2015041\Migration_2015042404101.cs" />
+    <Compile Include="2015\2015042\Migration_2015052204201.cs" />
+    <Compile Include="2015\2015042\Migration_2015050704202.cs" />
+    <Compile Include="2015\2015042\Migration_2015050404201.cs" />
+    <Compile Include="2015\2015042\Migration_2015050704201.cs" />
+    <Compile Include="2015\2015042\Migration_2015050804203.cs" />
+    <Compile Include="2015\2015042\Migration_2015050804202.cs" />
+    <Compile Include="2015\2015042\Migration_2015050804201.cs" />
+    <Compile Include="2015\2015042\Migration_2015051304201.cs" />
+    <Compile Include="2015\2015042\Migration_2015051204201.cs" />
+    <Compile Include="2015\2015042\Migration_2015051304202.cs" />
+    <Compile Include="2015\2015042\Migration_2015051504202.cs" />
+    <Compile Include="2015\2015042\Migration_2015051504201.cs" />
+    <Compile Include="2015\2015042\Migration_2015051404201.cs" />
+    <Compile Include="2015\2015042\Migration_2015051504203.cs" />
+    <Compile Include="2015\2015042\Migration_2015051804202.cs" />
+    <Compile Include="2015\2015042\Migration_2015051804201.cs" />
+    <Compile Include="2015\2015042\Migration_2015051504204.cs" />
+    <Compile Include="2015\2015042\Migration_2015051904201.cs" />
+    <Compile Include="2015\2015042\Migration_2015052104201.cs" />
+    <Compile Include="2015\2015042\Migration_2015052204202.cs" />
+    <Compile Include="2015\2015042\Migration_2015052504201.cs" />
+    <Compile Include="2015\2015042\Migration_2015052704202.cs" />
+    <Compile Include="2015\2015042\Migration_2015052704203.cs" />
+    <Compile Include="2015\2015042\Migration_2015060104201.cs" />
+    <Compile Include="2015\2015042\Migration_2015060304201.cs" />
+    <Compile Include="2015\2015055\Migration_2015060505501.cs" />
+    <Compile Include="2015\2015055\Migration_2015060505502.cs" />
+    <Compile Include="2015\2015055\Migration_2015061105501.cs" />
+    <Compile Include="2015\2015055\Migration_2015061105502.cs" />
+    <Compile Include="2015\2015055\Migration_2015061505501.cs" />
+    <Compile Include="2015\2015055\Migration_2015061705501.cs" />
+    <Compile Include="2015\2015055\Migration_2015061905501.cs" />
+    <Compile Include="2015\2015055\Migration_2015062405501.cs" />
+    <Compile Include="2015\2015055\Migration_2015062005501.cs" />
+    <Compile Include="2015\2015064\Migration_2015122506401.cs" />
+    <Compile Include="2015\2015064\Migration_2015100706402.cs" />
+    <Compile Include="2015\2015064\Migration_2015100306402.cs" />
+    <Compile Include="2015\2015064\Migration_2015100306401.cs" />
+    <Compile Include="2015\2015064\Migration_2015091206402.cs" />
+    <Compile Include="2015\2015064\Migrarion_2015082406401.cs" />
+    <Compile Include="2015\2015064\Migration_2015062406401.cs" />
+    <Compile Include="2015\2015064\Migration_2015062506401.cs" />
+    <Compile Include="2015\2015064\Migration_2015062606401.cs" />
+    <Compile Include="2015\2015064\Migration_2015062606402.cs" />
+    <Compile Include="2015\2015064\Migration_2015062706401.cs" />
+    <Compile Include="2015\2015064\Migration_2015062906401.cs" />
+    <Compile Include="2015\2015064\Migration_2015062906402.cs" />
+    <Compile Include="2015\2015064\Migration_2015062906403.cs" />
+    <Compile Include="2015\2015064\Migration_2015070206401.cs" />
+    <Compile Include="2015\2015064\Migration_2015070206402.cs" />
+    <Compile Include="2015\2015064\Migration_2015071006401.cs" />
+    <Compile Include="2015\2015064\Migration_2015071006403.cs" />
+    <Compile Include="2015\2015064\Migration_2015071006402.cs" />
+    <Compile Include="2015\2015064\Migration_2015071106401.cs" />
+    <Compile Include="2015\2015064\Migration_2015072706401.cs" />
+    <Compile Include="2015\2015064\Migration_2015071406401.cs" />
+    <Compile Include="2015\2015064\Migration_2015072106401.cs" />
+    <Compile Include="2015\2015064\Migration_2015072906401.cs" />
+    <Compile Include="2015\2015064\Migration_2015080506401.cs" />
+    <Compile Include="2015\2015064\Migration_2015080506402.cs" />
+    <Compile Include="2015\2015064\Migration_2015081106401.cs" />
+    <Compile Include="2015\2015064\Migration_2015081206401.cs" />
+    <Compile Include="2015\2015064\Migration_2015081406401.cs" />
+    <Compile Include="2015\2015064\Migration_2015081706401.cs" />
+    <Compile Include="2015\2015064\Migration_2015081706402.cs" />
+    <Compile Include="2015\2015064\Migration_2015081906401.cs" />
+    <Compile Include="2015\2015064\Migration_2015081906402.cs" />
+    <Compile Include="2015\2015064\Migration_2015082606401.cs" />
+    <Compile Include="2015\2015064\Migration_2015081906403.cs" />
+    <Compile Include="2015\2015064\Migration_2015090106401.cs" />
+    <Compile Include="2015\2015064\Migration_2015082806401.cs" />
+    <Compile Include="2015\2015064\Migration_2015090806401.cs" />
+    <Compile Include="2015\2015064\Migration_2015091106401.cs" />
+    <Compile Include="2015\2015064\Migration_2015091206401.cs" />
+    <Compile Include="2015\2015064\Migration_2015092506401.cs" />
+    <Compile Include="2015\2015064\Migration_2015092406401.cs" />
+    <Compile Include="2015\2015064\Migration_2015092806401.cs" />
+    <Compile Include="2015\2015064\Migration_2015092806402.cs" />
+    <Compile Include="2015\2015064\Migration_2015092906401.cs" />
+    <Compile Include="2015\2015064\Migration_2015100706401.cs" />
+    <Compile Include="2015\2015064\Migration_2015101206401.cs" />
+    <Compile Include="2015\2015064\Migration_2015102706401.cs" />
+    <Compile Include="2015\2015064\Migration_2015101506401.cs" />
+    <Compile Include="2015\2015064\Migration_2015102606402.cs" />
+    <Compile Include="2015\2015064\Migration_2015120306401.cs" />
+    <Compile Include="2015\2015064\Migration_2015113006401.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806408.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806407.cs" />
+    <Compile Include="2015\2015064\Migration_2015122906404.cs" />
+    <Compile Include="2015\2015064\Migration_2015122906403.cs" />
+    <Compile Include="2015\2015064\Migration_2015122906402.cs" />
+    <Compile Include="2015\2015064\Migration_2015122906401.cs" />
+    <Compile Include="2015\2015064\Migration_2015111806401.cs" />
+    <Compile Include="2015\2015064\Migration_2015110206401.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806401.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806410.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806402.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806403.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806409.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806406.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806405.cs" />
+    <Compile Include="2015\2015064\Migration_2015122806404.cs" />
+    <Compile Include="Migration_example.cs" />
+    <Compile Include="2014\2014051\Migration_20140519051.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>DEL /F "$(TargetDir)*.pdb"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

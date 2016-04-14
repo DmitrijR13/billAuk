@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/17/2014 12:24:30" ReportInfo.Modified="10/26/2015 17:42:12" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Guides="0">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="40.3">
+      <TextObject Name="Text31" Left="56.7" Width="264.6" Height="28.35" Text="Выписка из домовой книги № &#13;&#10;" VertAlign="Bottom" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text32" Left="519.75" Width="49.47" Height="28.31" Text="дом №" VertAlign="Bottom" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text40" Left="569.27" Width="94.5" Height="28.35" Border.Lines="Bottom" Text="[ndom][nkor]" VertAlign="Bottom" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text47" Left="396.9" Width="122.85" Height="28.35" Border.Lines="Bottom" VertAlign="Bottom" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text48" Left="664.13" Width="25.11" Height="28.35" Text="кв." VertAlign="Bottom" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text49" Left="689.21" Width="94.5" Height="28.35" Border.Lines="Bottom" Text="[nkvar]" VertAlign="Bottom" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text50" Left="783.32" Width="28.35" Height="28.35" Text="по" VertAlign="Bottom" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text51" Left="811.82" Width="235.37" Height="28.35" Border.Lines="Bottom" Text="[address]" AutoShrink="FontSize" VertAlign="Bottom" Font="Arial, 8pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="44.3" Width="1047.06" Height="49.75" Guides="0">
+        <TextObject Name="Text52" Width="28.35" Height="49.75" Border.Lines="Left, Top, Bottom"/>
+        <TextObject Name="Text33" Left="28.35" Width="160.65" Height="49.75" Border.Lines="Right, Top, Bottom" Text="Фамилия, имя, отчество&#13;&#10;(сюда же заносятся дети до 16 лет, прибывшие с прописываемыми)" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text35" Left="340.2" Width="179.55" Height="49.75" Border.Lines="All" Text="Когда и откуда прибыл, если переехал с др. улицы города, указывается название улицы, дома" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text36" Left="519.75" Width="179.55" Height="49.75" Border.Lines="All" Text="Кем, когда, на какой срок выдан паспорт&#13;&#10;№ и серия паспорта" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text37" Left="699.31" Width="160.87" Height="49.75" Border.Lines="All" Text="Отметка органа регистрационного учета о регистрации. &#13;&#10;Дата и подпись" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text38" Left="860.18" Width="187.01" Height="49.75" Border.Lines="All" Text="Когда и куда выбыл, временно или постоянно.&#13;&#10;Дата и подпись" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text34" Left="189" Width="151.2" Height="49.75" Border.Lines="All" Text="Дата и место рождения" VertAlign="Center" Font="Arial, 8pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="98.05" Width="1047.06" Height="18.9" CanGrow="true" Guides="0" DataSource="Q_master">
+      <TextObject Name="Text41" Left="28.35" Width="160.65" Height="18.9" Border.Lines="Right, Top, Bottom" CanGrow="true" GrowToBottom="true" Text="[Q_master.fam] &#13;&#10;[Q_master.ima] &#13;&#10;[Q_master.otch]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text42" Left="189" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_rog]&#13;&#10;[Q_master.rem_mr]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text43" Left="340.2" Width="179.55" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_prib]&#13;&#10;[Q_master.rem_op]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text44" Left="519.75" Width="179.55" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.vid_mes]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text45" Left="699.3" Width="160.88" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_ofor]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text46" Left="860.18" Width="187.01" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_vip]&#13;&#10;[Q_master.rem_ku]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text53" Width="28.35" Height="18.9" Border.Lines="Left, Top, Bottom" CanGrow="true" GrowToBottom="true" Text="[Row#]" VertAlign="Center" Font="Arial, 8pt"/>
+      <LineObject Name="Line1" Top="9.45" Diagonal="true"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="120.95" Width="1047.06" Height="26.4">
+      <TextObject Name="Text39" Top="-1.95" Width="1049.18" Height="18.9" Text="Выписка верна ________________/  Документ выдан от имени [area]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,623 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bars.KP50.Report</name>
+    </assembly>
+    <members>
+        <member name="T:Bars.KP50.Report.Base.BaseFastReport">
+            <summary>
+            Базовый отчета
+            Реализация должна быть зарегестрирована в классе ReportsInstaller 
+            </summary>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.IBaseReport.GetUserFilters">
+            <summary>Получить пользовательские фильтры отчета</summary>
+            <returns>Параметры отчета</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.IBaseReport.GetUserParams">
+            <summary>Получить пользовательские параметры отчета</summary>
+            <returns>Параметры отчета</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.IBaseReport.SetReportParameters(System.Collections.Specialized.NameValueCollection)">
+            <summary>Задать параметры для отчета</summary>
+            <param name="reportParameters">Параметры отчета</param>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.IBaseReport.GenerateReport(System.Collections.Specialized.NameValueCollection)">
+            <summary>Сформировать отчет</summary>
+            <param name="reportParameters">Параметры отчета</param>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.IBaseReport.GetData">
+            <summary>Получить данные отчета</summary>
+            <returns>Данные отчета в виде DataSet</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.IBaseReport.Generate(System.Data.DataSet)">
+            <summary>Сформировать отчет</summary>
+            <param name="ds">Данные отчета в виде DataSet</param>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.IBaseReport.Code">
+            <summary>Уникальный идентификатор отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.IBaseReport.Name">
+            <summary>Название отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.IBaseReport.Description">
+            <summary>Описание отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.IBaseReport.ReportGroups">
+            <summary>Группы отчетов</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.IBaseReport.ReportKinds">
+            <summary>  Уровень выполнения отчетов </summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.IBaseReport.IsPreview">
+            <summary>Выполняется предпросмотр</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.IBaseReport.ReportParams">
+            <summary>Парметры отчета</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.GetState">
+            <summary>Получить состояние отчета</summary>
+            <returns>Состояние отчета</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.Run(Castle.Windsor.IWindsorContainer,Bars.QueueCore.JobArguments)">
+            <summary>Выполнить</summary>
+            <param name="container">IoC контейнер</param>
+            <param name="jobArguments">Параметры выполнения</param>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.GetUserParams">
+            <summary>Получить пользовательские параметры отчета</summary>
+            <returns>Параметры отчета</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.GetUserFilters">
+            <summary>Получить фильтры отчета</summary>
+            <returns>Параметры отчета</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.SetReportParameters(System.Collections.Specialized.NameValueCollection)">
+            <summary>Задать параметры для отчета</summary>
+            <param name="reportParameters">Параметры отчета</param>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.GenerateReport(System.Collections.Specialized.NameValueCollection)">
+            <summary>Сформировать отчет</summary>
+            <param name="reportParameters">Параметры отчета</param>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.GetData">
+            <summary>Получить данные отчета</summary>
+            <returns>Данные отчета в виде DataSet</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.Generate(System.Data.DataSet)">
+            <summary>Сформировать отчет</summary>
+            <param name="ds">Данные отчета в виде DataSet</param>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.SetProccessPercent(System.Decimal)">
+            <summary>Установить процент выполнения отчета</summary>
+            <param name="percent">Процент выполнения</param>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.GetTemplate">
+            <summary>Получить шаблон отчета</summary>
+            <returns>MemoryStream</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.PrepareReport(FastReport.Report)">
+            <summary>Подготовить отчет, например, добавить параметры вызова отчета, произвести другие действия перед сохранением</summary>
+            <param name="report">Отчет</param>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.SaveReport(FastReport.Report)">
+            <summary>Сохранить отчет</summary>
+            <param name="report">Отчет</param>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.BaseFastReport.GetExporter">
+            <summary>Получить экпортер</summary>
+            <returns>Экспортер</returns>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.Code">
+            <summary>Уникальный идентификатор отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.Name">
+            <summary>Название отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.Description">
+            <summary>Описание отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.ReportGroups">
+            <summary>Группы отчетов</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.ReportKinds">
+            <summary>Вид отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.IsPreview">
+            <summary>Выполняется предпросмотр</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.ReportParams">
+            <summary>Парметры отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.JobState">
+            <summary>Состояние работы</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.Template">
+            <summary>Шаблон отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.UserFilterValues">
+            <summary>Пользовательские параметры</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.UserParamValues">
+            <summary>Пользовательские параметры</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.BaseFastReport.SystemParams">
+            <summary>Системные параметры</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.BaseSqlReport">
+            <summary>Базовый отчет, ориентированный на получение данных через sql запросы</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.Run(Castle.Windsor.IWindsorContainer,Bars.QueueCore.JobArguments)">
+            <summary>Выполнить</summary>
+            <param name="container">IoC контейнер</param>
+            <param name="jobArguments">Параметры выполнения</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.GetState">
+            <summary>Получить состояние отчета</summary>
+            <returns>Состояние отчета</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.CreateTempTable">
+            <summary>Создать временные таблицы</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.DropTempTable">
+            <summary>Удалить временные таблицы</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.OpenConnection">
+            <summary>Открыть соединение</summary>
+            <returns>Открытое соединение</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.PrepareParams">
+            <summary>Подготовить параметры отчета</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.CloseConnection">
+            <summary>Закрыть соединение с БД</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.CloseReader(System.Data.IDataReader@)">
+            <summary>Закрыть IDataReader</summary>
+            <param name="reader">Экземпляр IDataReader</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.GetUser">
+            <summary>Получить пользователя</summary>
+            <returns>Пользователь</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.GetUserRoles">
+            <summary>Получить список ролей пользователя</summary>
+            <returns>Список ролей</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.OpenDb(System.Boolean)">
+            <summary>Открыть соединение с БД</summary>
+            <param name="inlog">Логировать да/нет</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecSQL(System.String)">
+            <summary>Выполнить запрос</summary>
+            <param name="sql">Sql запрос</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecSQL(System.String,System.Boolean)">
+            <summary>Выполнить запрос</summary>
+            <param name="sql">Sql запрос</param>
+            <param name="inlog">Логировать да/нет</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecSQL(System.String,System.Boolean,System.Int32)">
+            <summary>Выполнить запрос</summary>
+            <param name="sql">Sql запрос</param>
+            <param name="inlog">Логировать да/нет</param>
+            <param name="timeout">Таймаут</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.TempTableInWebCashe(System.String)">
+            <summary>Проверка на существование таблицы</summary>
+            <param name="sql">Sql запрос</param>
+            <returns>Таблица</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.TempColumnInWebCashe(System.String,System.String)">
+            <summary>Проверка на существование колонки в таблице</summary>
+            <param name="tableName">Название таблицы</param>
+            <param name="columnName">Название колонки</param>
+            <returns>Колонка</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecSQLToTable(System.String)">
+            <summary>Получить результат sql запроса в виде таблицы</summary>
+            <param name="sql">Sql запрос</param>
+            <returns>Таблица</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecSQLToTable(System.String,System.Int32)">
+            <summary>Получить результат sql запроса в виде таблицы</summary>
+            <param name="sql">Sql запрос</param>
+            <param name="time">Время таймаута</param>
+            <returns>Таблица</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecRead(System.Data.IDataReader@,System.String)">
+            <summary>Получить результат sql запроса в виде IDataReader</summary>
+            <param name="reader">IDataReader</param>
+            <param name="sql">Sql запрос</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecScalar(System.String)">
+            <summary>Получить результат sql запроса в виде значения</summary>
+            <param name="sql">Sql запрос</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecRead(System.Data.IDataReader@,System.String,System.Boolean)">
+            <summary>Получить результат sql запроса в виде IDataReader</summary>
+            <param name="reader">IDataReader</param>
+            <param name="sql">Sql запрос</param>
+            <param name="inlog">Логировать да/нет</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecRead(System.Data.IDataReader@,System.String,System.Boolean,System.Int32)">
+            <summary>Получить результат sql запроса в виде IDataReader</summary>
+            <param name="reader">IDataReader</param>
+            <param name="sql">Sql запрос</param>
+            <param name="inlog">Логировать да/нет</param>
+            <param name="timeout">Таймаут</param>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseSqlReport.ExecRead(STCLINE.KP50.DataBase.MyDataReader@,System.String,System.Boolean)">
+            <summary>Получить результат sql запроса в виде IDataReader</summary>
+            <param name="reader">IDataReader</param>
+            <param name="sql">Sql запрос</param>
+            <param name="inlog">Логировать да/нет (по умолчанию да)</param>
+        </member>
+        <member name="T:Bars.KP50.Report.ExportFormat">
+            <summary>Формат экспорта</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.FakeQueue.AddReport(Bars.KP50.Report.Base.IBaseReport,System.Collections.Specialized.NameValueCollection,System.Int32)">
+            <summary>Добавить отчет на выполение</summary>
+            <param name="report">Отчет</param>
+            <param name="parameters">Параметры задачи</param>
+            <param name="nzpExcelUtility">Идентификатор записи в бд</param>
+            <returns>Идентификатор созданной задачи</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.FakeQueue.GetState(System.String)">
+            <summary>Проверить статус задачи</summary>
+            <param name="taskId">Идентификатор задачи</param>
+            <returns>Статус</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.FakeQueue.CloseTask(System.String)">
+            <summary>Закрыть задачу</summary>
+            <param name="taskId">Идентификатор задачи</param>
+        </member>
+        <member name="T:Bars.KP50.Report.AccountParameter">
+            <summary>Параметр расчетного счета из ПС Финансы</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.ComboBoxParameter">
+            <summary>Параметр выбор</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.UserParam">
+            <summary>Параметр отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.UserParam.TypeValue">
+            <summary>Тип значения</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.UserParam.Name">
+            <summary>Наименование параметра</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.UserParam.Code">
+            <summary>Ключ параметра (должен быть уникален в рамках одного отчета)</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.UserParam.Value">
+            <summary>Значение параметра</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.UserParam.DefaultValue">
+            <summary>Значение по умолчанию</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.UserParam.Require">
+            <summary>Является обязательным</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.UserParam.JavascriptClassName">
+            <summary>Класс javascript'а отвечающего за отрисовку параметра</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.BankSupplierParameter">
+            <summary>Параметр адрес</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.FioParameter">
+            <summary>Параметр ФИО жильцов из карты</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.FormingPlaceParameter">
+            <summary>Параметр места формирования из ПС Финансы</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.GeuParameter">
+            <summary>ЖЭУ</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.SupplierRealParameter">
+            <summary>Управляющие компании</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.AgentParameter">
+            <summary>Управляющие компании</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.PrincipalParameter">
+            <summary>Управляющие компании</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.FileNameParameter">
+            <summary>Управляющие компании</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.SupplierAndBankParameter">
+            <summary>Параметр адрес</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.DayParameter">
+            <summary>
+            Параметр день
+            </summary>
+        </member>
+        <member name="T:Bars.KP50.Report.PeriodParameter">
+            <summary>Параметр месяц</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.PeriodParameter.GetValues(System.String,System.DateTime@,System.DateTime@)">
+            <summary>Получить значения периода</summary>
+            <param name="value">Значене строкой</param>
+            <param name="begin">Начало периода</param>
+            <param name="end">Конец периода</param>
+        </member>
+        <member name="M:Bars.KP50.Report.PeriodParameter.GetValues(System.String,System.DateTime@)">
+            <summary>Получить значение даты</summary>
+            <param name="value">Значене строкой</param>
+            <param name="date">Начало периода</param>
+        </member>
+        <member name="M:Bars.KP50.Report.PersonalAccountParameter.#ctor">
+            <summary>
+            Параметр лицевого счета
+            </summary>
+        </member>
+        <member name="T:Bars.KP50.Report.StreetsParameter">
+            <summary>Улицы</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.RaionsParameter">
+            <summary>Районы</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.AddressParameter">
+            <summary>Параметр адрес</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.UchastokParameter">
+            <summary>Участок</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.BankSupplierParameterValue">
+            <summary>Значение параметра адрес</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.BankSupplierParameterValue.Banks">
+            <summary>Районы</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.BankSupplierParameterValue.Agents">
+            <summary>Агенты</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.BankSupplierParameterValue.Principals">
+            <summary>Принципалы</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.BankSupplierParameterValue.Suppliers">
+            <summary>Поставщики</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.SupplierAndBankParameterValue">
+            <summary>Значение параметра адрес</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.SupplierAndBankParameterValue.BanksList">
+            <summary>Банки</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.SupplierAndBankParameterValue.SuppliersList">
+            <summary>Поставщики</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.AddressParameterValue">
+            <summary>Значение параметра адрес</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.AddressParameterValue.Raions">
+            <summary>Районы</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.AddressParameterValue.Streets">
+            <summary>Улицы</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.AddressParameterValue.Houses">
+            <summary>Дома</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.Base.ReportParams">
+            <summary>Параметры отчета</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.ReportParams.GetRolesCondition(System.Int64)">
+            <summary>
+            Ограничения наложенные на пользователя
+            </summary>
+            <param name="typeCondition">Сущности Constants.role_sql_serv и т д.</param>
+            <returns>Список кодов сущностей </returns>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.User">
+            <summary>Идентификатор пользователя</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.NzpExcelUtility">
+            <summary>Идентификатор записи в таблице excel_utility</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.ConnectionString">
+            <summary>Строка соединения</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.PathForSave">
+            <summary>Путь сохранения отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.Pref">
+            <summary>Префикс</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.CalcMonth">
+            <summary>Расчетный месяц</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.CurDateOper">
+            <summary>Префикс</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.NzpObject">
+            <summary>Номер записи жильца/дома/лицевого счета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.CurrentReportKind">
+            <summary> Текущий режим запуска отчета </summary>
+        </member>
+        <member name="P:Bars.KP50.Report.Base.ReportParams.ExportFormat">
+            <summary>Формат экспорта</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.AreaParameter">
+            <summary>Управляющие компании</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.DateTimeParameter">
+            <summary>Параметр дата</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.DecimalParameter">
+            <summary>Денежный параметр</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.ExportFormatParameter">
+            <summary>Параметр Формат печати</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.IntParameter">
+            <summary>Целочимленный параметр</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.MonthParameter">
+            <summary>Параметр месяц</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.SelectedValueParameter">
+            <summary>Параметр выбора</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.ServiceParameter">
+            <summary>Список услуг(недопоставки)</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.StringParameter">
+            <summary>Строковый параметр</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.SupplierParameter">
+            <summary>Поставщики</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.YearParameter">
+            <summary>Параметр год</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.Base.ReportGroup">
+            <summary>Группа отчетов</summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportGroup.Reports">
+            <summary>Подсистема отчетов</summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportGroup.Cards">
+            <summary>Картотека</summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportGroup.Finans">
+            <summary>Финансовые отчеты</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.Base.ReportKind">
+            <summary>
+            Виды отчетов
+            </summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportKind.Person">
+            <summary>
+            Отчеты по одной карточке жильца
+            </summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportKind.LC">
+            <summary>
+            Отчеты по одному лицевому счету
+            </summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportKind.House">
+            <summary>
+            Отчеты по одному дому
+            </summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportKind.ListPerson">
+            <summary>
+            Отчеты по списку карточек жильцов
+            </summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportKind.ListLC">
+            <summary>
+            Отчеты по списку лицевых счетов
+            </summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportKind.ListHouse">
+            <summary>
+            Отчеты по списку домов
+            </summary>
+        </member>
+        <member name="F:Bars.KP50.Report.Base.ReportKind.Base">
+            <summary>
+            Отчеты по всей базе данных
+            </summary>
+        </member>
+        <member name="T:Bars.KP50.Report.UserParamValue">
+            <summary>Значение параметра отчета</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.UserParamValue.GetValue``1">
+            <summary>Получить значение приведенное к типу</summary>
+            <typeparam name="T">Тип приведения</typeparam>
+            <returns>Типизированное значение</returns>
+        </member>
+        <member name="P:Bars.KP50.Report.UserParamValue.Code">
+            <summary>Код параметра</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.UserParamValue.Value">
+            <summary>Значение</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.ReportException">
+            <summary>Ошибка отчетной системы</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.Base.ISoftReport">
+            <summary>
+            Гибкий отчет.
+            Подключается динамически. Данные выбираются непосредственно PgSql функциями.
+            </summary>
+        </member>
+        <member name="M:Bars.KP50.Report.Base.ISoftReport.InitSoftProperties(System.Int32,System.Int32,System.Data.IDbConnection)">
+            <summary>
+            Инициализировать свойства
+            </summary>
+            <param name="id">Идентификатор отчета. Из таблицы report.list</param>
+            <param name="connection">Подключение к базе данных</param>
+        </member>
+        <member name="T:Bars.KP50.Report.BaseReportsInstaller">
+            <summary>Установщик отчетов</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseReportsInstaller.RegisterReports">
+            <summary>Зарегистрировать отчеты</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.BaseReportsInstaller.Register``1">
+            <summary>Зарегистрировать отчет</summary>
+            <typeparam name="T">Тип отчета</typeparam>
+        </member>
+        <member name="T:Bars.KP50.Report.IReportProvider">
+            <summary>Интерфейс провайдера отчетов</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.IReportProvider.RegisterReport(Bars.KP50.Report.Base.IBaseReport)">
+            <summary>Зарегистрировать отчет</summary>
+            <param name="report">Отчет</param>
+        </member>
+        <member name="M:Bars.KP50.Report.IReportProvider.GetReports">
+            <summary>Получить список описаний отчетов</summary>
+            <returns>Список отчетов</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.IReportProvider.GetReport(System.String)">
+            <summary>Получить описание отчета</summary>
+            <param name="code">Код отчета</param>
+            <returns>Описание отчета</returns>
+        </member>
+        <member name="T:Bars.KP50.Report.ReportInfo">
+            <summary>Описание отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.ReportInfo.Code">
+            <summary>Уникальный идентификатор отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.ReportInfo.Name">
+            <summary>Название отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.ReportInfo.Description">
+            <summary>Описание отчета</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.ReportInfo.ReportGroups">
+            <summary>Группы отчетов</summary>
+        </member>
+        <member name="P:Bars.KP50.Report.ReportInfo.IsPreview">
+            <summary>Выполняется предпросмотр</summary>
+        </member>
+        <member name="T:Bars.KP50.Report.ReportProvider">
+            <summary>Провайдер отчетов</summary>
+        </member>
+        <member name="M:Bars.KP50.Report.ReportProvider.RegisterReport(Bars.KP50.Report.Base.IBaseReport)">
+            <summary>Зарегистрировать отчет</summary>
+            <param name="report">Отчет</param>
+        </member>
+        <member name="M:Bars.KP50.Report.ReportProvider.GetReports">
+            <summary>Получить список описаний отчетов</summary>
+            <returns>Список отчетов</returns>
+        </member>
+        <member name="M:Bars.KP50.Report.ReportProvider.GetReport(System.String)">
+            <summary>Получить описание отчета</summary>
+            <param name="code">Код отчета</param>
+            <returns>Описание отчета</returns>
+        </member>
+        <member name="P:Bars.KP50.Report.ReportProvider.Reports">
+            <summary>Список отчетов</summary>
+        </member>
+    </members>
+</doc>

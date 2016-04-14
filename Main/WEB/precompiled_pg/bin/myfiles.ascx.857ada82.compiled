@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/master/templates/MyFiles.ascx" hash="cedb9400c" filehash="73c6a66e32ef24c" flags="110000" assembly="App_Web_wvz3gney" type="ASP.master_templates_myfiles_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/MyFiles.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

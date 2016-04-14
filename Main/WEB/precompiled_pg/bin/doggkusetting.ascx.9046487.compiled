@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/operations/DogGkuSetting.ascx" hash="cedb9400c" filehash="356ed49d5400f61a" flags="110000" assembly="App_Web_ct5ywfx2" type="ASP.finances_operations_doggkusetting_ascx">
+    <filedeps>
+        <filedep name="/none/finances/operations/DogGkuSetting.ascx" />
+        <filedep name="/none/master/templates/AutoCompleteContracts.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

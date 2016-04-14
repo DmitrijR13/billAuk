@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{51D199A0-A5BD-4EB3-A4CF-E5DD004D55F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>STCLINE.KP50.IFMX.Kernel</RootNamespace>
+    <AssemblyName>STCLINE.KP50.IFMX.Kernel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\WCF\HOST\AUTOHOST\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\Castle.Core.3.3.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Packages\Castle.Windsor.3.3.0\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="SevenZipSharp">
+      <HintPath>..\..\..\Libraries\SevenZipSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="source\CommonType\BaseListTypes.cs" />
+    <Compile Include="source\CommonType\CalcTypes.cs" />
+    <Compile Include="source\CommonType\WorkTempKvar.cs" />
+    <Compile Include="source\CreateNewBank\BankCreator.cs" />
+    <Compile Include="source\global\DataBaseHeadServer.db.cs" />
+    <Compile Include="source\global\IntervalBase.kernel.db.cs" />
+    <Compile Include="source\global\PointLoad.ifmx.cs" />
+    <Compile Include="source\global\RevalReason.cs" />
+    <Compile Include="source\global\Saver.kernel.db.cs" />
+    <Compile Include="source\global\MustCalc.kernel.db.cs" />
+    <Compile Include="source\global\intervaldata.kernel.db.cs" />
+    <Compile Include="source\global\Fon.ifmx.cs" />
+    <Compile Include="source\global\tables.kernel.db.cs" />
+    <Compile Include="source\global\user.kernel.db.cs" />
+    <Compile Include="source\kart\counter.kernel.db.cs" />
+    <Compile Include="source\kart\payer.kernel.db.cs" />
+    <Compile Include="source\kart\serv.kernel.db.cs" />
+    <Compile Include="source\kart\sprav.kernel.db.cs" />
+    <Compile Include="source\kart\supplier.kernel.db.cs" />
+    <Compile Include="source\kart\supplier_new.kernel.db.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Admin\Bars.KP50.CLI.Admin\Bars.KP50.CLI.Admin.csproj">
+      <Project>{699fd7dc-5c99-4036-998e-a8b9ab62dbf3}</Project>
+      <Name>Bars.KP50.CLI.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Counters\Bars.KP50.CLI.Counters\Bars.KP50.CLI.Counters.csproj">
+      <Project>{9db13ed3-0df1-4760-83ec-784dc6b54ec8}</Project>
+      <Name>Bars.KP50.CLI.Counters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.CLI.Report\Bars.KP50.CLI.Report.csproj">
+      <Project>{d79794ee-cfaa-4103-81b0-ab2fa8c16dfd}</Project>
+      <Name>Bars.KP50.CLI.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sprav\Bars.KP50.CLI.Sprav\Bars.KP50.CLI.Sprav.csproj">
+      <Project>{b96681f0-0674-4123-89c4-c88930b12e21}</Project>
+      <Name>Bars.KP50.CLI.Sprav</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj">
+      <Project>{A09E0051-6B16-42B5-9840-8CB60B0729C7}</Project>
+      <Name>STCLINE.KP50.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Client\STCLINE.KP50.IFMX.Client.csproj">
+      <Project>{2AB80CEA-D131-4E93-9B35-8F86DD474080}</Project>
+      <Name>STCLINE.KP50.IFMX.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\STCLINE.KP50.IFMX.Common.csproj">
+      <Project>{13FAA6D8-DA11-4392-BAD2-C1640C172E01}</Project>
+      <Name>STCLINE.KP50.IFMX.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

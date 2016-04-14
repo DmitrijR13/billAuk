@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/29/2014 10:13:19" ReportInfo.Modified="09/13/2014 09:13:52" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="dat_uchet" DataType="System.DateTime"/>
+      <Column Name="dat_uchet_p" DataType="System.DateTime" PropName="dat_pack"/>
+      <Column Name="g_sum_ls" DataType="System.Decimal" PropName="real_sum"/>
+      <Column Name="count_kv" DataType="System.Int32" PropName="real_count"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master2" ReferenceName="Data.Q_master2" DataType="System.Int32" Enabled="true">
+      <Column Name="nzp_pack" DataType="System.Int32"/>
+      <Column Name="num_pack" DataType="System.Int32"/>
+      <Column Name="dat_pack" DataType="System.DateTime"/>
+      <Column Name="dat_uchet" DataType="System.DateTime"/>
+      <Column Name="sum_pack" DataType="System.Decimal" PropName="real_sum"/>
+      <Column Name="count_kv" DataType="System.Int32" PropName="real_count"/>
+      <Column Name="bank" DataType="System.String" PropName="Column"/>
+      <Column Name="pack_type" DataType="System.String" PropName="Column"/>
+      <Column Name="file_name" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master3" ReferenceName="Data.Q_master3" DataType="System.Int32" Enabled="true">
+      <Column Name="nzp_pack" DataType="System.Int32"/>
+      <Column Name="g_sum_ls" DataType="System.Decimal"/>
+      <Column Name="sum_oplat" DataType="System.Decimal" PropName="sum_ls"/>
+      <Column Name="dat_vvod" DataType="System.DateTime"/>
+      <Column Name="dat_uchet" DataType="System.DateTime"/>
+      <Column Name="pkod" DataType="System.Decimal"/>
+      <Column Name="info_num" DataType="System.Int32" PropName="Column"/>
+      <Column Name="kod_sum" DataType="System.Int16" PropName="Column"/>
+    </TableDataSource>
+    <Relation Name="pack_pack_ls" ParentDataSource="null" ChildDataSource="null" ParentColumns="nzp_pack" ChildColumns="nzp_pack" Enabled="true"/>
+    <Total Name="ta_g_sum_ls" Expression="[Q_master1.g_sum_ls]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_count_kv" Expression="[Q_master1.count_kv]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="va_g_sum_ls" Expression="[Q_master1.g_sum_ls]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="v_count_kv" Expression="[Q_master1.count_kv]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="t_g_sum_ls" Expression="[Q_master3.g_sum_ls]" Evaluator="Data3" PrintOn="DataFooter2" ResetOnReprint="true"/>
+    <Total Name="t_sum_oplat" Expression="[Q_master3.sum_oplat]" Evaluator="Data3" PrintOn="DataFooter2" ResetOnReprint="true"/>
+    <Total Name="v_g_sum_ls" Expression="[Q_master3.g_sum_ls]" Evaluator="Data3"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="66.15" CanGrow="true" CanBreak="true">
+      <TextObject Name="Text1" Width="548.1" Height="37.8" Text="Сводный отчет по распределениям по опердням&#13;&#10;[period]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text2" Left="633.15" Width="85.05" Height="37.8" Text="[date]&#13;&#10;[time]" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="548.1" Width="85.05" Height="37.8" Text="Дата:&#13;&#10;Время:" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text67" Top="37.8" Width="718.58" Height="28.35" CanGrow="true" AfterDataEvent="Text45_AfterData" Text="[headerParam]&#13;&#10; " HorzAlign="Justify" VertAlign="Center" Wysiwyg="true"/>
+      <ChildBand Name="Child3" Top="70.64" Width="718.2" Height="18.9">
+        <TextObject Name="Text12" Width="378" Height="18.9" Text="Расшифровка по распределениям ЛС." VertAlign="Center" Font="Arial, 9pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="126.88" Width="718.2" Condition="[Q_master1.dat_uchet]" SortOrder="None">
+      <DataHeaderBand Name="DataHeader2" Top="94.04" Width="718.2" Height="28.35" Guides="28.35">
+        <TextObject Name="Text4" Width="94.5" Height="28.35" Border.Lines="All" Text="Опердень" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text5" Left="94.5" Width="189" Height="28.35" Border.Lines="All" Text="Дата распределения пачки" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text6" Left="283.5" Width="94.5" Height="28.35" Border.Lines="All" Text="руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text7" Left="378" Width="94.5" Height="28.35" Border.Lines="All" Text="шт." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      </DataHeaderBand>
+      <DataBand Name="Data1" Top="131.38" Width="718.2" Height="18.9" CanGrow="true" DataSource="Q_master1">
+        <TextObject Name="Text8" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master1.dat_uchet]" Format="Date" Format.Format="d" Duplicates="Merge" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text57" Left="94.5" Width="189" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master1.dat_uchet_p]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text58" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master1.g_sum_ls]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text59" Left="378" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master1.count_kv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="154.77" Width="718.2" Height="18.9">
+        <TextObject Name="Text13" Width="283.5" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="Итого за [Q_master1.dat_uchet]" Format="Date" Format.Format="d" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text14" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[ta_g_sum_ls]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text15" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[t_count_kv]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      </GroupFooterBand>
+      <DataFooterBand Name="DataFooter1" Top="178.17" Width="718.2" Height="18.9">
+        <TextObject Name="Text16" Width="283.5" Height="18.9" CanGrow="true" GrowToBottom="true" Text="Всего" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text17" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[va_g_sum_ls]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text18" Left="378" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[v_count_kv]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      </DataFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+  <ReportPage Name="Page2">
+    <ReportTitleBand Name="ReportTitle2" Width="718.2" Height="37.8">
+      <TextObject Name="Text64" Width="548.1" Height="37.8" Text="Сводный отчет по распределениям по опердням&#13;&#10;[period]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text65" Left="633.15" Width="85.05" Height="37.8" Text="[date]&#13;&#10;[time]" Font="Arial, 8pt"/>
+      <TextObject Name="Text66" Left="548.1" Width="85.05" Height="37.8" Text="Дата:&#13;&#10;Время:" HorzAlign="Right" Font="Arial, 8pt"/>
+      <ChildBand Name="Child2" Top="40.68" Width="718.2" Height="18.9">
+        <TextObject Name="Text19" Width="472.5" Height="18.9" Text="Расшифровка распределения пачек по опердням" VertAlign="Center" Font="Arial, 9pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader2" Top="62.46" Width="718.2" Height="28.35" KeepWithData="true" Condition="[Q_master2.num_pack]" SortOrder="None">
+      <TextObject Name="Text20" Width="66.15" Height="28.35" Border.Lines="All" Fill.Color="Gainsboro" Text="Номер пачки" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text23" Left="198.45" Width="85.05" Height="28.35" Border.Lines="All" Fill.Color="Gainsboro" Text="Сумма" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text24" Left="283.5" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="Gainsboro" Text="Количество оплат" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text25" Left="378" Width="94.5" Height="28.35" Border.Lines="All" Fill.Color="Gainsboro" Text="Платежный агент" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text21" Left="66.15" Width="56.7" Height="28.35" Border.Lines="All" Fill.Color="Gainsboro" Text="Дата пачки" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text22" Left="122.85" Width="75.6" Height="28.35" Border.Lines="All" Fill.Color="Gainsboro" Text="Опердень пачки" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text26" Left="472.5" Width="75.6" Height="28.35" Border.Lines="All" Fill.Color="Gainsboro" Text="Тип платежа" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text27" Left="548.1" Width="170.1" Height="28.35" Border.Lines="All" Fill.Color="Gainsboro" Text="Имя файла" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <DataBand Name="Data2" Top="93.68" Width="718.2" Height="18.9" CanGrow="true" DataSource="Q_master2">
+        <TextObject Name="Text28" Width="66.15" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[Q_master2.num_pack]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text29" Left="66.15" Width="56.7" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[Q_master2.dat_pack]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text30" Left="122.85" Width="75.6" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[Q_master2.dat_uchet]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text31" Left="198.45" Width="85.05" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[Q_master2.sum_pack]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" ProcessAt="GroupFinished" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text32" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[Q_master2.count_kv]" ProcessAt="DataFinished" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text33" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[Q_master2.bank]" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text34" Left="472.5" Width="75.6" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[Q_master2.pack_type]" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text35" Left="548.1" Width="170.1" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[Q_master2.file_name]" VertAlign="Center" Font="Arial, 7pt"/>
+        <DataBand Name="Data3" Top="156.14" Width="718.2" Height="18.9" DataSource="Q_master3" Filter="[Q_master2.nzp_pack] == [Q_master3.nzp_pack]">
+          <TextObject Name="Text42" Width="66.15" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text43" Left="66.15" Width="132.3" Height="18.9" Border.Lines="All" Text="[Q_master3.pkod]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text44" Left="198.45" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master3.dat_vvod]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text45" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master3.dat_uchet]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text46" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master3.g_sum_ls]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text47" Left="472.5" Width="75.6" Height="18.9" Border.Lines="All" Text="[Q_master3.sum_oplat]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text61" Left="548.1" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master3.info_num]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TextObject Name="Text63" Left="633.15" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master3.kod_sum]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <DataHeaderBand Name="DataHeader1" Top="115.46" Width="718.2" Height="37.8" KeepWithData="true">
+            <TextObject Name="Text36" Width="66.15" Height="37.8" Border.Lines="All" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text37" Left="66.15" Width="132.3" Height="37.8" Border.Lines="All" Text="Платежный номер" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text38" Left="198.45" Width="85.05" Height="37.8" Border.Lines="All" Text="Дата оплаты" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text39" Left="283.5" Width="94.5" Height="37.8" Border.Lines="All" Text="Опердень квитанции" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text40" Left="378" Width="94.5" Height="37.8" Border.Lines="All" Text="Сумма" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text41" Left="472.5" Width="75.6" Height="37.8" Border.Lines="All" Text="В том числе указано жильцом" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text60" Left="548.1" Width="85.05" Height="37.8" Border.Lines="All" Text="Номер квитанции" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text62" Left="633.15" Width="85.05" Height="37.8" Border.Lines="All" Text="Код квитанции" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          </DataHeaderBand>
+          <DataFooterBand Name="DataFooter2" Top="177.92" Width="718.2" Height="37.8">
+            <TextObject Name="Text51" Width="378" Height="18.9" Text="Итого" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text52" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Text="[t_g_sum_ls]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+            <TextObject Name="Text53" Left="472.5" Width="75.6" Height="18.9" Border.Lines="All" Text="[t_sum_oplat]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          </DataFooterBand>
+        </DataBand>
+      </DataBand>
+      <DataFooterBand Name="DataFooter3" Top="218.59" Width="718.2" Height="18.9">
+        <TextObject Name="Text54" Width="378" Height="18.9" Text="Итого по всем квитанциям" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text55" Left="378" Width="94.5" Height="18.9" Border.Lines="All" Text="[v_g_sum_ls]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      </DataFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

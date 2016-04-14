@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="09/24/2013 15:25:47" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String" PropName="fam"/>
+      <Column Name="dat_rog" DataType="System.String"/>
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="dat_prop" Enabled="false" DataType="System.String" PropName="dat_prib"/>
+      <Column Name="dat_vip" DataType="System.String"/>
+      <Column Name="prib" DataType="System.String" PropName="Column"/>
+      <Column Name="tprp" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" Guides="408.24,699.3,26.46,226.8,1028.16,759.78,1028.16,7.56,204.12,287.28,430.92,563.22,827.82,926.1">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="378" BeforePrintEvent="ReportTitle1_BeforePrint" Guides="15.12,34.02,49.14,68.04">
+      <TextObject Name="Text1" Left="308.28" Top="15.12" Width="253.64" Height="18.9" Text="ВЫПИСКА ИЗ ЛИЦЕВОГО СЧЕТА №" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text21" Left="26.46" Top="68.04" Width="64.26" Height="18.9" Text="Адрес:" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text22" Left="90.72" Top="68.04" Width="75.6" Height="18.9" Border.Lines="Bottom" Text="[adres]" AutoWidth="true" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text25" Left="226.8" Top="47.25" Width="60.48" Height="18.9" Border.Lines="Bottom" Text="[fio]" AutoWidth="true" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text26" Left="25.67" Top="47.25" Width="196.56" Height="18.9" Text="Наниматель (собственник):" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text27" Left="563.22" Top="15.12" Width="75.6" Height="18.9" Border.Lines="Bottom" Text="[numls]" AutoWidth="true" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text28" Left="26.46" Top="359.1" Width="956.34" Height="18.9" Text="Список всех жильцов, включая нанимателя (собственника)" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text31" Left="827.82" Top="68.04" Width="98.28" Height="18.9" Text="Телефон:" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text32" Left="926.1" Top="68.04" Width="45.36" Height="18.9" Border.Lines="Bottom" Text="[tel]" AutoWidth="true" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TableObject Name="Table3" Left="6.43" Top="96.39" Width="1021.73" Height="234.36" Border.Lines="All">
+        <TableColumn Name="Column15" Width="137.57"/>
+        <TableColumn Name="Column16" Width="215.09"/>
+        <TableColumn Name="Column17" Width="156.04"/>
+        <TableColumn Name="Column18" Width="133.79"/>
+        <TableColumn Name="Column19" Width="92.78"/>
+        <TableColumn Name="Column20" Width="286.46"/>
+        <TableRow Name="Row3" Height="22.68">
+          <TableCell Name="Cell35" Border.Lines="All" Text="УДОБСТВА" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell36" Border.Lines="All"/>
+          <TableCell Name="Cell37" Border.Lines="All" Text="[kol_komnat] ([privat])" VertAlign="Center" ColSpan="4"/>
+          <TableCell Name="Cell38" Border.Lines="All"/>
+          <TableCell Name="Cell39" Border.Lines="All"/>
+          <TableCell Name="Cell60" Border.Lines="All"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="22.68">
+          <TableCell Name="Cell40" Text="Отопление" VertAlign="Center"/>
+          <TableCell Name="Cell41" Border.Lines="Right" Text="[otopl]" VertAlign="Center"/>
+          <TableCell Name="Cell42" Border.Lines="Bottom" Text="ДОКУМЕНТЫ НА ЖИЛПЛОЩАДЬ" HorzAlign="Center" VertAlign="Center" ColSpan="4"/>
+          <TableCell Name="Cell43"/>
+          <TableCell Name="Cell44"/>
+          <TableCell Name="Cell61"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="22.68">
+          <TableCell Name="Cell45" Text="Водопровод" VertAlign="Center"/>
+          <TableCell Name="Cell46" Border.Lines="Right" Text="[vod]" VertAlign="Center"/>
+          <TableCell Name="Cell47" Border.Lines="Right, Bottom" Text="вид документа" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell48" Border.Lines="Right, Bottom" Text="серия, №" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell49" Border.Lines="Right, Bottom" Text="дата" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell62" Border.Lines="Bottom" Text="кем выдан" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="22.68">
+          <TableCell Name="Cell50" Text="Канализация" VertAlign="Center"/>
+          <TableCell Name="Cell51" Border.Lines="Right" Text="[kan]" VertAlign="Center"/>
+          <TableCell Name="Cell52" Border.Lines="Right, Bottom" Text="[dok_sv]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell53" Border.Lines="Right, Bottom" Text="[serij_sv] [nomer_sv]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell54" Border.Lines="Right, Bottom" Text="[vid_dat_sv]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell63" Border.Lines="Bottom" Text="[vid_mes_sv]" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="22.68">
+          <TableCell Name="Cell55" Text="Электроосвещение" VertAlign="Center"/>
+          <TableCell Name="Cell56" Border.Lines="Right" Text="[electr]" VertAlign="Center"/>
+          <TableCell Name="Cell57" Border.Lines="Bottom" Text="ЗАНИМАЕМАЯ ПЛОЩАДЬ" HorzAlign="Center" VertAlign="Center" ColSpan="4"/>
+          <TableCell Name="Cell58" Border.Lines="Bottom"/>
+          <TableCell Name="Cell59" Border.Lines="Bottom"/>
+          <TableCell Name="Cell64" Border.Lines="Bottom"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="22.68">
+          <TableCell Name="Cell65" Text="Ванна" VertAlign="Center"/>
+          <TableCell Name="Cell66" Border.Lines="Right" Text="[vanna]" VertAlign="Center"/>
+          <TableCell Name="Cell67" Border.Lines="Right, Bottom" Text="общая" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell68" Border.Lines="Right, Bottom" Text="жилая" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell69" Border.Lines="Right, Bottom" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell70" Border.Lines="Bottom" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row9" Height="22.68">
+          <TableCell Name="Cell71" Text="Газ" VertAlign="Center"/>
+          <TableCell Name="Cell72" Border.Lines="Right" Text="[gas]" VertAlign="Center"/>
+          <TableCell Name="Cell73" Border.Lines="Right, Bottom" Text="[pl_all]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell74" Border.Lines="Right, Bottom" Text="[pl_gil]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell75" Border.Lines="Right, Bottom"/>
+          <TableCell Name="Cell76" Border.Lines="Bottom"/>
+        </TableRow>
+        <TableRow Name="Row10">
+          <TableCell Name="Cell77" Text="Горячая вода" VertAlign="Center"/>
+          <TableCell Name="Cell78" Border.Lines="Right" Text="[tip_gvs]" VertAlign="Center"/>
+          <TableCell Name="Cell79"/>
+          <TableCell Name="Cell80"/>
+          <TableCell Name="Cell81"/>
+          <TableCell Name="Cell82"/>
+        </TableRow>
+        <TableRow Name="Row11">
+          <TableCell Name="Cell83" Text="Лифт" VertAlign="Center"/>
+          <TableCell Name="Cell84" Border.Lines="Right" Text="[lift]" VertAlign="Center"/>
+          <TableCell Name="Cell85"/>
+          <TableCell Name="Cell86"/>
+          <TableCell Name="Cell87"/>
+          <TableCell Name="Cell88"/>
+        </TableRow>
+        <TableRow Name="Row12">
+          <TableCell Name="Cell89" Text="Этажность" VertAlign="Center"/>
+          <TableCell Name="Cell90" Border.Lines="Right" Text="[etag]" VertAlign="Center"/>
+          <TableCell Name="Cell91"/>
+          <TableCell Name="Cell92"/>
+          <TableCell Name="Cell93"/>
+          <TableCell Name="Cell94"/>
+        </TableRow>
+        <TableRow Name="Row13">
+          <TableCell Name="Cell95" Text="Год постройки" VertAlign="Center"/>
+          <TableCell Name="Cell96" Border.Lines="Right" Text="[build]" VertAlign="Center"/>
+          <TableCell Name="Cell97"/>
+          <TableCell Name="Cell98"/>
+          <TableCell Name="Cell99"/>
+          <TableCell Name="Cell100"/>
+        </TableRow>
+      </TableObject>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="382" Width="1047.06" Height="49.28" Guides="0,49.14">
+      <TableObject Name="Table1" Left="6.56" Top="0.14" Width="1031.4" Height="49.14" Border.Lines="All">
+        <TableColumn Name="Column1" Width="95.58"/>
+        <TableColumn Name="Column2" Width="185.22"/>
+        <TableColumn Name="Column3" Width="140.94"/>
+        <TableColumn Name="Column4" Width="103.68"/>
+        <TableColumn Name="Column5" Width="283.5"/>
+        <TableColumn Name="Column6" Width="81.54"/>
+        <TableColumn Name="Column7" Width="140.94"/>
+        <TableRow Name="Row1" Height="49.14">
+          <TableCell Name="Cell1" Border.Lines="All" Text="Дата регистрации" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="Когда и откуда прибыл" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="Тип прописки" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="Дата выбытия" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="Фамилия, имя, отчество" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="Дата рождения" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="Родственные отношения" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+      </TableObject>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="435.28" Width="1047.06" Height="49.14" CanGrow="true" Guides="-0.38,48.76,47.25" DataSource="Q_master">
+      <TableObject Name="Table2" Left="6.46" Width="1031.4" Height="49.14" Border.Lines="All">
+        <TableColumn Name="Column8" Width="95.58"/>
+        <TableColumn Name="Column9" Width="185.22"/>
+        <TableColumn Name="Column10" Width="140.94"/>
+        <TableColumn Name="Column11" Width="103.68"/>
+        <TableColumn Name="Column12" Width="283.5"/>
+        <TableColumn Name="Column13" Width="81.54"/>
+        <TableColumn Name="Column14" Width="140.94"/>
+        <TableRow Name="Row2" Height="49.14">
+          <TableCell Name="Cell28" Border.Lines="All" Text="[Q_master.dat_prop]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="[Q_master.prib]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="[Q_master.tprp]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell31" Border.Lines="All" Text="[Q_master.dat_vip]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="[Q_master.fio]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell33" Border.Lines="All" Text="[Q_master.dat_rog]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell34" Border.Lines="All" Text="[Q_master.rod]" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="488.42" Width="1047.06" Height="75.6">
+      <TextObject Name="Text23" Left="26.46" Top="37.42" Width="200.34" Height="18.9" Text="[get_date]" Format="Date" Format.Format="dd.MM.yyyy" AutoWidth="true"/>
+      <TextObject Name="Text24" Left="433.09" Top="9.45" Width="126.63" Height="18.9" Text="[dolgnost_pasport]" AutoWidth="true"/>
+      <TextObject Name="Text33" Left="782.72" Top="9.45" Width="126.63" Height="18.9" Text="[fim_pasportist]" AutoWidth="true"/>
+      <TextObject Name="Text34" Left="433.09" Top="56.7" Width="126.63" Height="18.9" Text="[dolgnost_nach]" AutoWidth="true"/>
+      <TextObject Name="Text35" Left="782.72" Top="56.7" Width="126.63" Height="18.9" Text="[fim_nachPus]" AutoWidth="true"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

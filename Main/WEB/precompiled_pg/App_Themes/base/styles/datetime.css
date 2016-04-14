@@ -1,0 +1,33 @@
+﻿.datetime
+{
+	position: relative;
+	display: inline-block;
+	/*z-index:100100;*/
+}
+
+.datetime div
+{
+	display: inline-block;
+}
+
+.datetime table
+{
+	display: inline-table;
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+	border-spacing: 0;
+}
+
+.datetime td
+{
+	margin: 0;
+	padding: 0;
+}
+
+.datetime .calendar input
+{
+    margin-bottom: 1px;
+    vertical-align: middle;
+}
+

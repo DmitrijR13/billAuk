@@ -1,0 +1,253 @@
+@echo off
+setlocal ENABLEDELAYEDEXPANSION
+
+chcp 1251>nul
+
+SET cnt=1
+
+call :parameters %*
+goto :body
+
+:parameters
+
+  if !cnt!==1 (
+  SET schema=%~1
+  ) else if !cnt!==2 (
+  SET pg_dir=%~1
+  ) else if !cnt!==3 (
+  SET work_dir=%~1
+  ) else if !cnt!==4 (
+  SET host=%~1
+  ) else if !cnt!==5 (
+  SET port=%~1
+  ) else if !cnt!==6 (
+  SET db=%~1
+  ) else if !cnt!==7 (
+  SET user_name=%~1
+  ) else if !cnt!==8 (
+  SET PGPASSWORD=%~1
+  ) else if !cnt!==9 (
+  SET nzp=%~1
+  ) else if !cnt!==10 (
+  SET dat_calc=%~1
+  )
+
+  shift
+  set /a cnt=!cnt!+1
+
+  if not "%~1"=="" goto :parameters
+
+goto :EOF
+
+:body
+             
+SET year=%dat_calc:~6,4%
+
+@for /f "tokens=* delims=" %%A in (%work_dir%\constraints.txt) do (
+
+  SET table_name=%%A
+    
+  SET file_type=%work_dir%\t_%nzp%_%%A.unl
+
+  if "!table_name!" == "counters_ord" ( 
+    SET par=nzp_ck
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_01" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_02" ( 
+    SET par=nzp_charge
+  )
+    
+  if "!table_name!" == "recalc_!year!_charge_03" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_04" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_05" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_06" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_07" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_08" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_09" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_10" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_11" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "recalc_!year!_charge_12" ( 
+    SET par=nzp_charge
+  )
+
+  if "!table_name!" == "counters_domspis" ( 
+    SET par=nzp_counter
+  )
+
+  if "!table_name!" == "counters" ( 
+    SET par=nzp_cr
+  )
+
+  if "!table_name!" == "counters_dom" ( 
+    SET par=nzp_crd
+  )
+
+  if "!table_name!" == "counters_group" ( 
+    SET par=nzp_cg
+  )
+
+  if "!table_name!" == "gil_periods" ( 
+    SET par=nzp_glp
+  )
+
+  if "!table_name!" == "nedop_kvar" ( 
+    SET par=nzp_nedop
+  )
+
+  if "!table_name!" == "prm_1" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_2" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_3" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_4" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_5" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_6" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_7" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_8" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_9" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_10" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_11" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_12" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_13" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_14" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_15" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_16" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prm_17" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "prmt_m" ( 
+    SET par=nzp_key
+  )
+
+  if "!table_name!" == "tarif" ( 
+    SET par=nzp_tarif
+  )
+
+  if "!table_name!" == "gil_sums" ( 
+    SET par=nzp_sums
+  )
+
+  if "!table_name!" == "pack" ( 
+    SET par=nzp_pack
+  )
+
+  if "!table_name!" == "pack_ls" ( 
+    SET par=nzp_pack_ls
+  )
+                                  
+  echo --------------------------------------------------------------------------------
+  echo Âûáğàíà òàáëèöà: !table_name!
+  echo Âûïîëíåíû ñëåäóşùèå îïåğàöèè:
+
+  echo t_!table_name!_%nzp%
+
+  	"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table t_!table_name!_%nzp% add column additionaly character(1)";
+
+		if ERRORLEVEL 1 (
+    			echo ÂÍÈÌÀÍÈÅ.ÏĞÎÈÇÎØËÀ ÎØÈÁÊÀ ÏĞÈ ÂÛÏÎËÍÅÍÈÈ ÑÊĞÈÏÒÀ.
+    			exit
+    		)
+
+  	type "!file_type!" | "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "copy t_!table_name!_%nzp% from STDIN  with delimiter as '|' null as '' encoding 'WIN-1251'";
+
+  		if ERRORLEVEL 1 (
+    			echo ÂÍÈÌÀÍÈÅ.ÏĞÎÈÇÎØËÀ ÎØÈÁÊÀ ÏĞÈ ÂÛÏÎËÍÅÍÈÈ ÑÊĞÈÏÒÀ. 
+    			exit
+  		)
+
+  	"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table t_!table_name!_%nzp% drop column additionaly";
+	
+	SET aa=recalc_!year!_
+	call SET result_string=%%table_name:!aa!=%%
+
+  	"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "delete from %schema%.!result_string! d where exists (select 1 from t_!table_name!_%nzp% s where s.!par! = d.!par!)";
+   
+  		if ERRORLEVEL 1 (
+    			echo ÂÍÈÌÀÍÈÅ.ÏĞÎÈÇÎØËÀ ÎØÈÁÊÀ ÏĞÈ ÂÛÏÎËÍÅÍÈÈ ÑÊĞÈÏÒÀ. 
+    			exit
+  		) 
+
+  echo Ñêğèïò óñïåøíî çàâåğøåí äëÿ òàáëèöû: !table_name!
+  echo --------------------------------------------------------------------------------
+  )
+
+goto :EOF
+

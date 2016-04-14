@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/mustcalc/disableperiodsmustcalc.aspx" hash="cedb9400c" filehash="f56de3f82551e858" flags="110000" assembly="App_Web_y11jw1zn" type="ASP.kart_mustcalc_disableperiodsmustcalc_aspx">
+    <filedeps>
+        <filedep name="/none/kart/mustcalc/disableperiodsmustcalc.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressTemplate.ascx" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

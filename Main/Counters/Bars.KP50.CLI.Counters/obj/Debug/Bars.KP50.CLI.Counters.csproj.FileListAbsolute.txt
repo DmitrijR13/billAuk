@@ -1,0 +1,104 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.csprojResolveAssemblyReference.cache
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.CliKart.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.Globals.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Client.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Common.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Windsor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\NLog.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\SevenZipSharp.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.Utils.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Core.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Newtonsoft.Json.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.Globals.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.CliKart.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Windsor.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\NLog.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Core.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.QTask.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.QTask.pdb
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.CliKart.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.Globals.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Client.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Common.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Windsor.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\NLog.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\SevenZipSharp.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.Utils.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Core.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Npgsql.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Newtonsoft.Json.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Mono.Security.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.Globals.pdb
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.CliKart.pdb
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Windsor.xml
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\NLog.xml
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Core.xml
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.csprojResolveAssemblyReference.cache
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.dll
+C:\VisualStudioProg\Main\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.CliKart.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.Globals.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Client.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Common.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Windsor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\NLog.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\SevenZipSharp.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.Utils.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Core.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Npgsql.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Newtonsoft.Json.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Mono.Security.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.Globals.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.CliKart.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Windsor.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\NLog.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Core.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.csprojResolveAssemblyReference.cache
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.pdb
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.CliKart.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.Globals.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Client.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Common.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Windsor.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\NLog.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\SevenZipSharp.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.Utils.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Core.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Npgsql.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Newtonsoft.Json.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Mono.Security.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.Globals.pdb
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\KP50.CliKart.pdb
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Windsor.xml
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\NLog.xml
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\bin\Debug PG\Castle.Core.xml
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.csprojResolveAssemblyReference.cache
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.dll
+C:\billTest\Main - копия\Main\Counters\Bars.KP50.CLI.Counters\obj\Debug\Bars.KP50.CLI.Counters.pdb

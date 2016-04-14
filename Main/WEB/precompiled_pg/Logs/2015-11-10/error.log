@@ -1,0 +1,15 @@
+10.11.2015 13:04:26 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+10.11.2015 16:43:33 (ERROR): Поток 18 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9579976'.
+. 
+10.11.2015 16:44:02 (ERROR): Поток 19 Ошибка MakeProtCalc() 
+ Could not connect to net.tcp://localhost:8008/srv/charge. The connection attempt lasted for a time span of 00:00:01.0750615. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+10.11.2015 16:44:03 (ERROR): Поток 19 Ошибка CalcChargeLs  
+ There was no endpoint listening at net.tcp://localhost:8008/srv/charge that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+. 
+10.11.2015 16:53:20 (ERROR): Поток 9 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9990000'.
+. 

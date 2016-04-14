@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/07/2013 13:06:20" ReportInfo.Modified="11/15/2013 22:47:40" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string dat_s, dat_po;
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String"/>
+      <Column Name="adr" DataType="System.String"/>
+      <Column Name="fam" DataType="System.String"/>
+      <Column Name="ima" DataType="System.String"/>
+      <Column Name="otch" DataType="System.String"/>
+      <Column Name="dat_ofor" DataType="System.String"/>
+      <Column Name="dat_oprp" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" TopMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="41.58">
+      <TextObject Name="Text1" Width="1047.06" Height="41.58" Text="Информация о временно зарегистрированных жителях.&#13;&#10;начало периода:[dat_s]  окончание периода:[dat_po]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="44.34" Width="1047.06" Height="37.8" PrintOn="FirstPage">
+      <TextObject Name="Text2" Width="238.14" Height="37.8" Border.Lines="All" Text="ФИО&#13;&#10;нанимателя/собственника" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text3" Left="238.14" Width="321.3" Height="37.8" Border.Lines="All" Text="Адрес регистрации" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="559.44" Width="253.26" Height="37.8" Border.Lines="All" Text="ФИО временно&#13;&#10;зарегистрированного" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="812.7" Width="234.36" Height="37.8" Border.Lines="All" Text="Период регистрации" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="84.9" Width="1047.06" Height="18.9" DataSource="Q_master">
+      <TextObject Name="Text6" Width="238.14" Height="18.9" Border.Lines="All" Text="[Q_master.fio]" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="238.14" Width="321.3" Height="18.9" Border.Lines="All" Text="[Q_master.adr]" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="559.44" Width="253.26" Height="18.9" Border.Lines="All" Text="[Q_master.fam] [Q_master.ima] [Q_master.otch]" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="812.7" Width="113.4" Height="18.9" Border.Lines="Left, Top, Bottom" Text="[Q_master.dat_ofor]" Format="Date" Format.Format="d" HorzAlign="Right" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="926.1" Width="15.12" Height="18.9" Border.Lines="Top, Bottom" Text="-" HorzAlign="Center"/>
+      <TextObject Name="Text11" Left="941.22" Width="105.84" Height="18.9" Border.Lines="Right, Top, Bottom" Text="[Q_master.dat_oprp]" Format="Date" Format.Format="d" VertAlign="Center"/>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,67 @@
+﻿namespace Bars.KP50.Report.Tula
+{
+    public class ReportsInstaller : BaseReportsInstaller
+    {
+        protected override void RegisterReports()
+        {
+            Register<Reports.Report7111>();
+            Register<Reports.Report7112>();
+            Register<Reports.Report7113>();
+            Register<Reports.Report71331>();
+            Register<Reports.Report7114>();
+            Register<Reports.Report7115>();
+            Register<Reports.Report7116>();
+            Register<Reports.Report7121>();
+            Register<Reports.Report7103001>();
+            Register<Reports.Report7132>();
+            Register<Reports.Report7133>();
+            Register<Reports.Report71510>();
+            Register<Reports.Report715101>();
+            Register<Reports.Report7103004>();
+            Register<Reports.Report71122>();
+            //непроверенные отчеты
+            Register<Reports.Report71132>();
+            Register<Reports.Report7122>();
+            Register<Reports.Report7117>();
+            Register<Reports.Report7118>();
+            Register<Reports.Report7105020>();
+            Register<Reports.Report7105003>();
+            Register<Reports.Report71050031>();
+            Register<Reports.Report71GenNach>();
+            Register<Reports.Report71GenNach2>();
+            Register<Reports.Report71011015>();
+            Register<Reports.Report7123>();
+            Register<Reports.Report71015019>();
+            Register<Reports.Report71004016>();
+            Register<Reports.Report71004018>();
+            Register<Reports.Report71001010>();
+            Register<Reports.Report71001012>();
+            Register<Reports.Report71001015_2>();
+            Register<Reports.Report71001015_1>();
+            Register<Reports.Report71001015_3>();
+            Register<Reports.Report71113>();
+            Register<Reports.Report7136>();
+            Register<Reports.Report71211>();
+            Register<Reports.Report7124>();
+            Register<Reports.Report71001016>();
+            Register<Reports.Report71001017>();
+            Register<Reports.Report710205>();
+            Register<Reports.Report710206>();
+            Register<Reports.Report710118>();
+            Register<Reports.Report710207>();
+            Register<Reports.Report710307>();
+            Register<Reports.Report71119>();
+            Register<Reports.Report710120>();
+            Register<Reports.Report710123>();
+            Register<Reports.Report710124>();
+            Register<Reports.Report71125>();
+            Register<Reports.Report71126>();
+            Register<Reports.Report71Generator>();
+            Register<Reports.Report710209>();
+            Register<Reports.Report710128>();
+            Register<Reports.Report7111051>();
+            Register<Reports.Report71generatorPoIPU>();
+            Register<Reports.Report71050033>();
+        }
+    }
+}

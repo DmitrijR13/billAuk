@@ -1,0 +1,1 @@
+delete from public.role_actions where nzp_act=168 and nzp_role in (919,950) and nzp_page=220;

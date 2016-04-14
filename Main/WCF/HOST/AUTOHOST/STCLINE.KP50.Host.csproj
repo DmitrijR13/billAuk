@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F90D3E55-6F08-49D9-B897-6CDC43A1FF69}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>STCLINE.KP50.Host</RootNamespace>
+    <AssemblyName>KP50.Host</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>true</GenerateManifests>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartupObject>
+    </StartupObject>
+    <ManifestCertificateThumbprint>79E86722094F2E14F0E37C11CCEFD882056DB966</ManifestCertificateThumbprint>
+    <ManifestKeyFile>STCLINE.KP50.Host_TemporaryKey.pfx</ManifestKeyFile>
+    <SignManifests>false</SignManifests>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">.\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Castle.Core.3.3.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\..\packages\Castle.Windsor.3.3.0\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="IBM.Data.Informix, Version=3.0.0.2, Culture=neutral, PublicKeyToken=7c307b91aa13d208, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIBRARIES\IBM.Data.Informix.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIBRARIES\Mono.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\..\packages\NLog.2.0.1.2\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.0.13.91, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIBRARIES\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nlog.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KP50.Host.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DATA\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj">
+      <Project>{A09E0051-6B16-42B5-9840-8CB60B0729C7}</Project>
+      <Name>STCLINE.KP50.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DATA\IFMX\Bars.KP50.Faktura\Bars.KP50.DB.Faktura.csproj">
+      <Project>{494311d1-9d4c-4667-bd49-624dbf4d8b85}</Project>
+      <Name>Bars.KP50.DB.Faktura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Exchange\Bars.KP50.Load.Obninsk\Bars.KP50.Load.Obninsk.csproj">
+      <Project>{7248744f-e6a6-4604-adb9-0aef5f937e6a}</Project>
+      <Name>Bars.KP50.Load.Obninsk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Faktura\Bars.KP50.Faktura.MariEl\Bars.KP50.Faktura.MariEl.csproj">
+      <Project>{b86352fd-883b-4e6c-8286-203fc4da533a}</Project>
+      <Name>Bars.KP50.Faktura.MariEl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Faktura\Bars.KP50.Faktura.Tula\Bars.KP50.Faktura.Kaluga.csproj">
+      <Project>{1f35056d-63c6-4675-a032-a0a88e67efab}</Project>
+      <Name>Bars.KP50.Faktura.Kaluga</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Report.Astra\Bars.KP50.Report.Astra.csproj">
+      <Project>{fa06e7ac-51c1-4127-bc12-deb8019a333c}</Project>
+      <Name>Bars.KP50.Report.Astra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Report.Main\Bars.KP50.Report.Main.csproj">
+      <Project>{e8a9cd44-f53f-4913-9b53-63098a152231}</Project>
+      <Name>Bars.KP50.Report.Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Report.MariEl\Bars.KP50.Report.MariEl.csproj">
+      <Project>{65a42595-b39c-4753-b84c-634d367c6b94}</Project>
+      <Name>Bars.KP50.Report.MariEl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Report.Obninsk\Bars.KP50.Report.Obninsk.csproj">
+      <Project>{86cb7493-71ef-4a03-8134-d066fb82260f}</Project>
+      <Name>Bars.KP50.Report.Obninsk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Report.Samara\Bars.KP50.Report.Samara.csproj">
+      <Project>{085d4230-7543-4842-a82e-5aac0c5e9f45}</Project>
+      <Name>Bars.KP50.Report.Samara</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Report.Tula\Bars.KP50.Report.Tula.csproj">
+      <Project>{fb9e151a-adda-4981-bb26-a42f85c1da67}</Project>
+      <Name>Bars.KP50.Report.Tula</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Report\Bars.KP50.Report.csproj">
+      <Project>{9932da32-9b1b-4fb2-bd7f-8d457ade13d7}</Project>
+      <Name>Bars.KP50.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.Utils\Bars.KP50.Utils.csproj">
+      <Project>{ee6f5a3b-8667-4fd3-8445-51b5ea6e4b57}</Project>
+      <Name>Bars.KP50.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.Report.Soft\Bars.Report.Soft.csproj">
+      <Project>{2512a5c9-811d-4e32-a867-39f11d2f1279}</Project>
+      <Name>Bars.Report.Soft</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Tests\Bars.KP50.Test\Bars.KP50.Test.csproj">
+      <Project>{a5ee8370-45cc-41cf-9566-8aba7d42224a}</Project>
+      <Name>Bars.KP50.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WIN\KP50.Migrator\KP50.DataBase.UpdateAssemly\KP50.DataBase.UpdateAssembly.csproj">
+      <Project>{d57386bc-5344-4c8c-9d82-9521475a1795}</Project>
+      <Name>KP50.DataBase.UpdateAssembly</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CLIENT\CliKart\STCLINE.KP50.CliKart.csproj">
+      <Project>{bb38a0bd-a169-4bd5-8756-7f8682f235d8}</Project>
+      <Name>STCLINE.KP50.CliKart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CLIENT\SrvKart\STCLINE.KP50.SrvKart.csproj">
+      <Project>{265a2cbc-4b37-43b8-8fa5-43b557dbc21b}</Project>
+      <Name>STCLINE.KP50.SrvKart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CLIENT\Test\STCLINE.KP50.Test\STCLINE.KP50.Test.csproj">
+      <Project>{400f81e6-980f-4bd0-ab08-5629313447ad}</Project>
+      <Name>STCLINE.KP50.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bars.KP50.DataImport\Bars.KP50.DataImport.csproj">
+      <Project>{f6a6f0e5-2b4b-4ece-890f-21baea35339d}</Project>
+      <Name>Bars.KP50.DataImport</Name>
+    </ProjectReference>
+    <ProjectReference Include="STCLINE.KP50.Broker.csproj">
+      <Project>{9aa5692f-de0b-4a8b-b92a-6bf54be59195}</Project>
+      <Name>STCLINE.KP50.Broker</Name>
+    </ProjectReference>
+    <ProjectReference Include="STCLINE.KP50.HostMan.csproj">
+      <Project>{f7387d33-7209-48b1-a8c6-99e3c844c1e0}</Project>
+      <Name>STCLINE.KP50.HostMan</Name>
+    </ProjectReference>
+    <ProjectReference Include="STCLINE.KP50.WinServ.csproj">
+      <Project>{6d3321a4-ead4-43cf-9cca-07abc2cd5bd2}</Project>
+      <Name>STCLINE.KP50.WinServ</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="2014123\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>IF NOT "$(ConfigurationName)" == "Debug" IF NOT "$(ConfigurationName)" == "Debug PG" SET PLATFORM=Release
+IF NOT "$(ConfigurationName)" == "Release" IF NOT "$(ConfigurationName)" == "Release PG" SET PLATFORM=Debug
+
+XCOPY /Y "$(SolutionDir)..\..\..\Libraries\KP50.DataBase.*" "$(TargetDir)"
+
+if "$(TargetName)"=="KP50.Host" (
+    xcopy "$(SolutionDir)template" "$(TargetDir)Template\"  /e
+
+    copy /y "$(SolutionDir)..\..\..\Libraries\7z.dll" "$(TargetDir)7z.dll"
+    copy /y "$(SolutionDir)..\..\..\Libraries\7z64.dll" "$(TargetDir)7z64.dll"
+    copy /y "$(SolutionDir)..\..\..\Libraries\CryptDES.dll" "$(TargetDir)CryptDES.dll"
+
+    if not "$(ConfigurationName)"=="Debug PG" if not "$(ConfigurationName)"=="Release PG" (
+        if exist "$(SolutionDir)..\..\..\configs\ifmx\host.user.config" (
+            copy /y "$(SolutionDir)..\..\..\configs\ifmx\host.user.config" "$(TargetDir)host.config"
+        ) else (
+            copy /y "$(SolutionDir)..\..\..\configs\ifmx\host.config" "$(TargetDir)host.config"
+        )
+        del "$(TargetDir)Npgsql.dll"
+        del "$(TargetDir)KP50.DataBase.Migrator.Providers.PostgreSQL.dll"
+        del "$(TargetDir)Mono.Security.dll"
+        copy /y "$(SolutionDir)..\..\..\Libraries\IfxDotNetIntrinsicModule.dll" "$(TargetDir)IfxDotNetIntrinsicModule.dll"
+    ) 
+
+    if not "$(ConfigurationName)"=="Debug" if not "$(ConfigurationName)"=="Release" (
+        if exist "$(SolutionDir)..\..\..\configs\pg\host.user.config" (
+            copy /y "$(SolutionDir)..\..\..\configs\pg\host.user.config" "$(TargetDir)host.config"
+        ) else (
+            copy /y "$(SolutionDir)..\..\..\configs\pg\host.config" "$(TargetDir)host.config"
+        )
+        del "$(TargetDir)IBM.Data.Informix.dll"
+        del "$(TargetDir)KP50.DataBase.Migrator.Providers.Informix.dll"
+        del "$(TargetDir)IfxDotNetIntrinsicModule.dll"
+    )
+)
+
+DEL "$(TargetDir)*.pdb"
+DEL "$(TargetDir)*.application"
+DEL "$(TargetDir)*.manifest"
+DEL "$(TargetDir)*.vshost.exe"
+</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>rd /s /q "$(TargetDir)Template\"
+rd /s /q "$(TargetDir)Patches\"
+</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <Updater Include="$(SolutionDir)..\..\..\DATA\CLASS\UPDATER\bin\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(Updater)" DestinationFolder="$(TargetDir)updater_exe\" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+</Project>

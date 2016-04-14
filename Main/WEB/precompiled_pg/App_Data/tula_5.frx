@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/12/2014 14:52:37" ReportInfo.Modified="11/22/2014 18:38:28" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="num_ls" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="town" DataType="System.String" PropName="Column"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="idom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="gil" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <Parameter Name="DATE" DataType="System.String"/>
+    <Parameter Name="TIME" DataType="System.String"/>
+    <Parameter Name="period" DataType="System.String"/>
+    <Total Name="t_gil" Expression="[Q_master.gil]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="t_sum_charge" Expression="[Q_master.sum_charge]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="t_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="t_dolg" Expression="[Q_master.dolg]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="0" OtherPagesSource="0" Guides="0,1047.19,94.5,349.65,593.3,933.79,820.39,706.48,819.88,592.71,706.11" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="113.4" CanGrow="true" Guides="0.22,38.02,0,37.8,56.92,56.7,75.6,94.5,113.4,132.3"/>
+  </ReportPage>
+</Report>

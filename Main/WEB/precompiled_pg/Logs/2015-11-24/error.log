@@ -1,0 +1,19 @@
+24.11.2015 13:50:52 (ERROR): Поток 21 Ошибка открытия Proxy _cli_Fon по адресу net.tcp://localhost:8008/srv/fon. Сервер <локально> (Код РЦ 0) (Код сервера 0): Could not connect to net.tcp://localhost:8008/srv/fon. The connection attempt lasted for a time span of 00:00:01.5750901. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+24.11.2015 13:50:53 (ERROR): Поток 21 Ошибка GetState  
+ The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+24.11.2015 13:51:00 (ERROR): Поток 21 Ошибка открытия Proxy _cli_Fon по адресу net.tcp://localhost:8008/srv/fon. Сервер <локально> (Код РЦ 0) (Код сервера 0): Could not connect to net.tcp://localhost:8008/srv/fon. The connection attempt lasted for a time span of 00:00:01.0320590. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+24.11.2015 13:51:00 (ERROR): Поток 21 Ошибка GetState  
+ The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+24.11.2015 14:44:33 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+24.11.2015 14:44:45 (ERROR): Поток 11 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+24.11.2015 18:38:58 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 

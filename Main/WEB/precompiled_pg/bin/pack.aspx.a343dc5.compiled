@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/pack.aspx" hash="cedb9400c" filehash="b1ae0bf739aee9b4" flags="110000" assembly="App_Web_ukq12j5d" type="ASP.finances_pack_aspx">
+    <filedeps>
+        <filedep name="/none/finances/pack.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressSelect.ascx" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

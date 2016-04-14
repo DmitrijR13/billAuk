@@ -1,0 +1,5 @@
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\KP50.DataBase.Update.Build\Debug\KP50.DataBase.Migrator.Providers.Informix.dll
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\KP50.DataBase.Update.Build\Debug\KP50.DataBase.Migrator.Providers.Informix.pdb
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\ECM7.Migrator.Providers.Informix\obj\Debug\KP50.DataBase.Migrator.Providers.Informix.csprojResolveAssemblyReference.cache
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\ECM7.Migrator.Providers.Informix\obj\Debug\KP50.DataBase.Migrator.Providers.Informix.dll
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\ECM7.Migrator.Providers.Informix\obj\Debug\KP50.DataBase.Migrator.Providers.Informix.pdb

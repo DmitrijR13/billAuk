@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2011 10:52:50" ReportInfo.Modified="11/25/2011 15:22:53" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String"/>
+      <Column Name="adres" DataType="System.String"/>
+      <Column Name="dat_birth" DataType="System.String"/>
+      <Column Name="dat_reg" DataType="System.String"/>
+      <Column Name="dat_snyat" DataType="System.String"/>
+      <Column Name="geu" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="718.2" Height="124.74">
+      <TextObject Name="Text8" Left="11.34" Top="22.68" Width="695.52" Height="102.06" Text="СВЕДЕНИЯ О&#13;&#10;РЕГИСТРАЦИИ ГРАЖДАН И СНЯТИИ С РЕГИСТРАЦИОННОГО УЧЕТА&#13;&#10;ЗА ПЕРИОД: с [dat_s] по [dat_po]&#13;&#10;[name]&#13;&#10;на &lt;u&gt;[Date]&lt;/u&gt;" HorzAlign="Center" Font="Arial, 10pt, style=Bold" HtmlTags="true"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="164.74" Width="718.2" Height="49.14">
+      <TextObject Name="Text1" Left="11.34" Top="18.9" Width="49.14" Height="30.24" Border.Lines="All" Text="№ п/п" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text2" Left="60.48" Top="18.9" Width="170.1" Height="30.24" Border.Lines="All" Text="Фамилия И. О." HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text3" Left="230.58" Top="18.9" Width="177.66" Height="30.24" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="408.24" Top="18.9" Width="86.94" Height="30.24" Border.Lines="All" Text="Дата рождения" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="495.18" Top="18.9" Width="94.5" Height="30.24" Border.Lines="All" Text="Дата регистрации" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="589.68" Top="18.9" Width="117.18" Height="30.24" Border.Lines="All" Text="Дата снятия с регистрац.учета" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="612.36" Width="94.5" Height="18.9" Text="Лист [Page#]" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="233.88" Width="718.2" Height="18.9" Condition="[Q_master.geu]">
+      <TextObject Name="Text9" Left="11.34" Width="695.52" Height="18.9" Text="[[Q_master.geu]]" Font="Arial, 10pt, style=Bold"/>
+      <DataBand Name="Data1" Top="272.78" Width="718.2" Height="18.9" CanGrow="true" DataSource="Q_master">
+        <TextObject Name="Text10" Left="11.34" Width="49.14" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Right" VertAlign="Center"/>
+        <TextObject Name="Text11" Left="60.48" Width="170.1" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fio]" VertAlign="Center"/>
+        <TextObject Name="Text12" Left="230.58" Width="177.66" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.adres]" VertAlign="Center"/>
+        <TextObject Name="Text13" Left="408.24" Width="86.94" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_birth]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text14" Left="495.18" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_reg]" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text15" Left="589.68" Width="117.18" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_snyat]" HorzAlign="Center" VertAlign="Center"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="311.68" Width="718.2"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="331.68" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

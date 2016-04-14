@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/master/templates/SupgCallForwarding.ascx" hash="cedb9400c" filehash="ffffe5df2998eb23" flags="110000" assembly="App_Web_5guolbxp" type="ASP.master_templates_supgcallforwarding_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/SupgCallForwarding.ascx" />
+    </filedeps>
+</preserve>

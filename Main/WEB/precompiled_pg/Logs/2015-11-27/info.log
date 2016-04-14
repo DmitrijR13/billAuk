@@ -1,0 +1,18 @@
+27.11.2015 11:05:13 (INFO): Поток 1 Старт web-приложения
+.
+27.11.2015 11:05:14 (INFO): Поток 1 Старт web-приложения
+
+Хост-адрес: net.tcp://localhost:8008/srv
+Кэш: localhost@tlt_131015  ()
+Логин: Administrator
+Директория с отчетами: C:\PROJECTS\Billing.GKH.KP50\Dev\WEB\WebKomplat5\files\reports/
+Версия сборки: 2015.064.1127.1105 от 02.11.2015(104).
+27.11.2015 16:03:10 (INFO): Поток 1 Старт web-приложения
+.
+27.11.2015 16:03:11 (INFO): Поток 1 Старт web-приложения
+
+Хост-адрес: net.tcp://localhost:8008/srv
+Кэш: localhost@tlt_131015  ()
+Логин: Administrator
+Директория с отчетами: C:\PROJECTS\Billing.GKH.KP50\Dev\WEB\WebKomplat5\files\reports/
+Версия сборки: 2015.064.1127.1603 от 02.11.2015(104).

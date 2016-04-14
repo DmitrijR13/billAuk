@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/15/2014 15:14:58" ReportInfo.Modified="02/19/2014 11:18:02" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void Text27_BeforePrint(object sender, EventArgs e)
+    {
+      decimal sum_insaldo = Report.GetTotalValue(&quot;t_insaldo&quot;);
+      decimal sum_real = Report.GetTotalValue(&quot;t_real&quot;);
+      decimal izm = Report.GetTotalValue(&quot;t_izm&quot;);
+      decimal sum_money = Report.GetTotalValue(&quot;t_money&quot;);
+      if (sum_insaldo+sum_real+izm==0m) Text27.Text=&quot;0&quot;;
+      else 
+      {
+            Text27.Text=((sum_money/(sum_insaldo+sum_real+izm))*100).ToString(&quot;0.0&quot;); 
+      }
+    }
+
+    private void Text35_BeforePrint(object sender, EventArgs e)
+    {
+      decimal sum_insaldo = Report.GetTotalValue(&quot;tt_insaldo&quot;);
+      decimal sum_real = Report.GetTotalValue(&quot;tt_real&quot;);
+      decimal izm = Report.GetTotalValue(&quot;tt_izm&quot;);
+      decimal sum_money = Report.GetTotalValue(&quot;tt_money&quot;);
+      if (sum_insaldo+sum_real+izm==0m) Text27.Text=&quot;0&quot;;
+      else 
+      {
+        Text35.Text=((sum_money/(sum_insaldo+sum_real+izm))*100).ToString(&quot;0.0&quot;); 
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_real" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="idom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="nzp_dom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="uch" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_real" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="izm" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="per_sent" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="t_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_real" Expression="[Q_master.sum_real]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_izm" Expression="[Q_master.izm]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_money" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="t_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="tt_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="tt_real" Expression="[Q_master.sum_real]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="tt_izm" Expression="[Q_master.izm]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="tt_money" Expression="[Q_master.sum_money]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="tt_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="t_per_sent" Expression="[Q_master.per_sent]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="tt_per_sent" Expression="[Q_master.per_sent]" Evaluator="Data1" PrintOn="DataFooter1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Guides="718.2">
+    <GroupHeaderBand Name="GroupHeader1" Width="718.2" Height="66.15" CanGrow="true" Condition="[Q_master.area]" SortOrder="None">
+      <TextObject Name="Text1" Width="481.95" Height="66.15" CanGrow="true" Text="[Trim([Q_master.area])]&#13;&#10;10.21.Ведомость начислений и оплат по домам&#13;&#10;[IIf([dates]==[datepo],&quot;за &quot;+[dates]+&quot; г.&quot;,&quot;за период с &quot;+[dates]+&quot; г. по &quot; +[datepo]+&quot; г.&quot;)]" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text2" Left="481.95" Width="236.25" Height="66.15" Text="Дата печати: [DATE]&#13;&#10;Время печати: [TIME]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <ChildBand Name="Child1" Top="69.66" Width="718.2" Height="18.9" CanGrow="true" CanShrink="true">
+        <TextObject Name="Text3" Width="481.95" Height="18.9" CanGrow="true" CanShrink="true" Text="[IIf(Trim([supplier])==&quot;&quot;,&quot;&quot;,&quot;Поставщик: &quot;+Trim([supplier])+&quot;\n&quot;)][IIf(Trim([service])==&quot;&quot;,&quot;&quot;,&quot;Услуги: &quot;+Trim([service])+&quot;\n&quot;)][IIf(Trim([geu])==&quot;&quot;,&quot;&quot;,&quot;Территория: &quot;+Trim([geu]))]" Font="Arial, 8pt"/>
+        <ChildBand Name="Child2" Top="92.07" Width="718.2" Height="28.35" CanGrow="true">
+          <TextObject Name="Text4" Width="198.45" Height="28.35" Border.Lines="All" Text="Адрес дома" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text5" Left="198.45" Width="47.25" Height="28.35" Border.Lines="All" Text="Участок" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text6" Left="245.7" Width="75.6" Height="28.35" Border.Lines="All" Text="Входящее сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text7" Left="321.3" Width="75.6" Height="28.35" Border.Lines="All" Text="Начислено" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text8" Left="396.9" Width="85.05" Height="28.35" Border.Lines="All" Text="Изменения" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text9" Left="481.95" Width="94.5" Height="28.35" Border.Lines="All" Text="Оплата" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text10" Left="576.45" Width="85.05" Height="28.35" Border.Lines="All" Text="Исходящее сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TextObject Name="Text11" Left="661.5" Width="56.7" Height="28.35" Border.Lines="All" Text="Процент оплаты" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        </ChildBand>
+      </ChildBand>
+      <DataBand Name="Data1" Top="123.93" Width="718.2" Height="18.9" DataSource="Q_master">
+        <TextObject Name="Text12" Width="198.45" Height="18.9" Border.Lines="All" CanGrow="true" Text="ул. [Trim([Q_master.ulica])] дом [Trim([Q_master.ndom])] [IIf(Trim([Q_master.nkor])==&quot;-&quot;,&quot;&quot;,Trim([Q_master.nkor]))]" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text13" Left="198.45" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" Text="[Q_master.uch]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text14" Left="245.7" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" Text="[Q_master.sum_insaldo]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text15" Left="321.3" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" Text="[Q_master.sum_real]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text16" Left="396.9" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" Text="[Q_master.izm]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text17" Left="481.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" Text="[Q_master.sum_money]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text18" Left="576.45" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" Text="[Q_master.sum_outsaldo]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text19" Left="661.5" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" Text="[Q_master.per_sent]" Format="Percent" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.PercentSymbol="" Format.PositivePattern="1" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="146.34" Width="718.2" Height="18.9">
+        <TextObject Name="Text27" Left="661.5" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" BeforePrintEvent="Text27_BeforePrint" Format="Percent" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.PercentSymbol="" Format.PositivePattern="1" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text20" Width="198.45" Height="18.9" Border.Lines="All" CanGrow="true" Text="Итого: [Trim([Q_master.area])]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text21" Left="198.45" Width="47.25" Height="18.9" Border.Lines="All" CanGrow="true" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text22" Left="245.7" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" Text="[t_insaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text23" Left="321.3" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" Text="[t_real]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text24" Left="396.9" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" Text="[t_izm]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text25" Left="481.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" Text="[t_money]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text26" Left="576.45" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" Text="[t_outsaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      </GroupFooterBand>
+      <DataFooterBand Name="DataFooter1" Top="168.74" Width="718.2" Height="18.9">
+        <TextObject Name="Text28" Width="198.45" Height="18.9" Border.Lines="All" CanGrow="true" Text="Итого: " VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text29" Left="198.45" Width="47.25" Height="18.9" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text30" Left="245.7" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" Text="[tt_insaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text31" Left="321.3" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" Text="[tt_real]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text32" Left="396.9" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" Text="[tt_izm]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text33" Left="481.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" Text="[tt_money]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text34" Left="576.45" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" Text="[tt_outsaldo]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text35" Left="661.5" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" BeforePrintEvent="Text35_BeforePrint" Format="Percent" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.PercentSymbol="" Format.PositivePattern="1" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      </DataFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="191.15" Width="718.2" Height="18.9">
+      <TextObject Name="Text36" Width="576.45" Height="18.9" Text="Наименование отчета: 10.21. Ведомость начислений и плат по домам" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text37" Left="576.45" Width="141.75" Height="18.9" Text="Страница [Page]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

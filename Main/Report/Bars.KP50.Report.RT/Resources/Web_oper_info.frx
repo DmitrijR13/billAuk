@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/25/2013 15:19:00" ReportInfo.Modified="12/26/2013 18:31:37" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_real" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="Supplier" Alias="supplier" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+      <Column Name="supplier" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_money" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="94.5">
+      <TextObject Name="Text1" Width="1048.95" Height="56.7" Text="Оперативная информация &#13;&#10;о перечислениях денежных средств поставщикам коммунальных услуг &#13;&#10;за период с [dats] по [datpo]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="831.6" Top="56.7" Width="141.75" Height="37.8" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Right" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text3" Left="973.35" Top="56.7" Width="75.6" Height="37.8" Text="[DATE]&#13;&#10;[TIME]" Font="Arial, 8.25pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="98.01" Width="1047.06" Height="30.24">
+      <MatrixObject Name="Matrix1" Width="319.55" Height="30.78" Anchor="Top, Bottom, Left, Right" Border.Lines="All" FixedRows="1" FixedColumns="1" AutoSize="false" DataSource="Q_master">
+        <MatrixColumns>
+          <Header Expression="[Q_master.supplier]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Q_master.area]" Sort="None" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Q_master.sum_money]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" MinWidth="206.01" MaxWidth="378" Width="206.15" AutoSize="true"/>
+        <TableColumn Name="Column2" MinWidth="113.4" MaxWidth="226.8" Width="113.4" AutoSize="true"/>
+        <TableRow Name="Row1" MinHeight="15.12" MaxHeight="60.48" Height="15.39" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" Text="Управляющие организации" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="[supplier]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row2" MinHeight="15.12" MaxHeight="151.2" Height="15.39" AutoSize="true">
+          <TableCell Name="Cell3" Border.Lines="All" Text="[area]" VertAlign="Center" Font="Arial, 7pt">
+            <Highlight>
+              <Condition Expression="Matrix1.RowIndex==3" Fill.Color="Gainsboro" ApplyFill="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TableCell>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[sum_money]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+            <Highlight>
+              <Condition Expression="Matrix1.RowIndex==3" Fill.Color="Gainsboro" ApplyFill="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TableCell>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="131.76" Width="1047.06" Height="18.9">
+      <TextObject Name="Text6" Left="954.45" Width="94.5" Height="18.9" Text="Страница [Page]" AutoWidth="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 8.25pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

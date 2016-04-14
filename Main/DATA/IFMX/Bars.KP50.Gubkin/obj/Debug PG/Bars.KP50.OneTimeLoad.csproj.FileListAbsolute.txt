@@ -1,0 +1,572 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\SevenZipSharp.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QTask.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Newtonsoft.Json.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Bars.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Editor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Gma.QrCodeNet.Encoding.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QTask.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.OneTimeLoad.csprojResolveAssemblyReference.cache
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\SevenZipSharp.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Npgsql.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Newtonsoft.Json.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Bars.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Editor.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Mono.Security.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.xml
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.xml
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.xml
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.pdb
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.OneTimeLoad.csprojResolveAssemblyReference.cache
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.dll
+C:\VisualStudioProg\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\SevenZipSharp.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Ionic.Zip.Reduced.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Npgsql.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Newtonsoft.Json.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Bars.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Editor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Mono.Security.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.OneTimeLoad.csprojResolveAssemblyReference.cache
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\SevenZipSharp.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Npgsql.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Newtonsoft.Json.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Bars.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Editor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Mono.Security.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.OneTimeLoad.csprojResolveAssemblyReference.cache
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\SevenZipSharp.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Npgsql.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Newtonsoft.Json.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Bars.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Editor.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Mono.Security.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.xml
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.xml
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.xml
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.pdb
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.OneTimeLoad.csprojResolveAssemblyReference.cache
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.dll
+C:\billTest\Main - копия\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Gubkin.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\SevenZipSharp.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Ionic.Zip.Reduced.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Npgsql.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Newtonsoft.Json.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Bars.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\FastReport.Editor.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Mono.Security.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Microsoft.Office.Interop.Excel.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Admin.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.OneTimeLoad.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Report.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.CliKart.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DataImport.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.Globals.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Client.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Common.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\STCLINE.KP50.IFMX.Kernel.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Report.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\KP50.IFMX.Server.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Adres.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Debitor.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Supg.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.DataImport.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Finans.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Utils.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Admin.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\NLog.xml
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Windsor.xml
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Castle.Core.xml
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Counters.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Parameters.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Sprav.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Supg.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Faktura.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Faktura.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Exchange.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Calc.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Adres.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.SzExchange.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Analiz.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Counters.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.DB.Charge.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Db.Moneys.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.CLI.Exchange.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Load.Obninsk.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.QueueCore.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\bin\Debug PG\Bars.KP50.Report.pdb
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.OneTimeLoad.csprojResolveAssemblyReference.cache
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.dll
+D:\projects\billAuk\Main\DATA\IFMX\Bars.KP50.Gubkin\obj\Debug PG\Bars.KP50.Gubkin.pdb

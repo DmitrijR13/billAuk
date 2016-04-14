@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="09/04/2015 14:45:13" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    public string text=&quot;&quot;;
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      Data1.DataSource = Report.GetDataSource(&quot;Q_master&quot;);
+      System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo(&quot;de-de&quot;);
+      culture.NumberFormat.NumberDecimalSeparator = &quot;.&quot;; 
+      culture.DateTimeFormat.ShortDatePattern = &quot;dd.MM.yyyy&quot;;
+      culture.DateTimeFormat.ShortTimePattern = &quot;HH:mm:ss&quot;;
+      culture.NumberFormat.NumberDecimalDigits = 2; 
+      culture.NumberFormat.PercentDecimalDigits = 2;
+      System.Threading.Thread.CurrentThread.CurrentUICulture = culture; 
+      System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+    }
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+      if(Table1.RowCount==0){
+        text= &quot;Нет данных&quot;;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="nzp_kvar" DataType="System.Int32" PropName="Column"/>
+      <Column Name="address" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+      <Column Name="rashod" DataType="System.Decimal" PropName="Column" Format="Number"/>
+      <Column Name="Column" Enabled="false" DataType="System.Int32" Calculated="true" Expression=""/>
+      <Column Name="initial_reading" DataType="System.Decimal" PropName="Column1" Format="Number"/>
+      <Column Name="ending_reading" DataType="System.Decimal" PropName="Column1" Format="Number"/>
+      <Column Name="Column1" Enabled="false" DataType="System.Int32" Calculated="true" Expression=""/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="756" Height="28.35" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text24" Left="519.75" Top="9.45" Width="160.65" Height="18.9" Text="Дата печати:[dat]" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text26" Left="680.4" Top="9.45" Width="66.15" Height="18.9" Text="[time]" Font="Arial, 7pt"/>
+      <ChildBand Name="Child1" Top="30.85" Width="756" Height="37.8">
+        <TextObject Name="Text1" Width="746.55" Height="37.8" Text="Контроль больших расходов по ИПУ на [pMonth] [pYear]г." HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+        <ChildBand Name="Child2" Top="71.15" Width="756" Height="28.35">
+          <TextObject Name="Text2" Width="28.35" Height="28.35" Border.Lines="All" Text="# п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text3" Left="85.05" Width="151.2" Height="28.35" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text4" Left="359.1" Width="85.05" Height="28.35" Border.Lines="All" Text="Услуга&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text41" Left="28.35" Width="56.7" Height="28.35" Border.Lines="All" Text="ЛС" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text42" Left="236.25" Width="122.85" Height="28.35" Border.Lines="All" Text="ФИО" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text43" Left="519.75" Width="75.6" Height="28.35" Border.Lines="All" Text="Расход" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text44" Left="595.35" Width="75.6" Height="28.35" Border.Lines="All" Text="Начальное показание" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text45" Left="670.95" Width="75.6" Height="28.35" Border.Lines="All" Text="Конечное показание" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text6" Left="444.15" Width="75.6" Height="28.35" Border.Lines="All" Text="Номер счетчика" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="102" Width="756" Height="37.8" CanGrow="true" CanShrink="true" BeforePrintEvent="Data1_BeforePrint" CanBreak="true" DataSource="Q_master">
+      <TableObject Name="Table1" Width="746.55" Height="37.8">
+        <TableColumn Name="Column1" Width="28.35"/>
+        <TableColumn Name="Column2" Width="56.7"/>
+        <TableColumn Name="Column3" Width="151.2"/>
+        <TableColumn Name="Column4" Width="122.85"/>
+        <TableColumn Name="Column5" Width="85.05"/>
+        <TableColumn Name="Column9" Width="75.6"/>
+        <TableColumn Name="Column6" Width="75.6"/>
+        <TableColumn Name="Column7" Width="75.6"/>
+        <TableColumn Name="Column8" Width="75.6"/>
+        <TableRow Name="Row1" Height="37.8" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" Border.Width="0.25" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell2" Border.Lines="All" Border.Width="0.25" Text="[Q_master.nzp_kvar]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Border.Width="0.25" Text="[Q_master.town] [Q_master.rajon] [Q_master.ulica] [Q_master.ulicareg] д.[Q_master.ndom] [Q_master.nkor] [Q_master.nkvar] [Q_master.nkvar_n] " HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell4" Border.Lines="All" Border.Width="0.25" Text="[Q_master.fio]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell5" Border.Lines="All" Border.Width="0.25" Text="[Q_master.service]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell29" Border.Lines="All" Border.Width="0.25" Text="[Q_master.num_cnt]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell26" Border.Lines="All" Border.Width="0.25" Text="[Q_master.rashod]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="3" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell27" Border.Lines="All" Border.Width="0.25" Text="[Q_master.initial_reading]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="3" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell28" Border.Lines="All" Border.Width="0.25" Text="[Q_master.ending_reading]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="3" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="142.3" Width="756" Height="18.9">
+      <TextObject Name="Text5" Left="274.05" Width="255.15" Height="18.9" Text="[text]" HorzAlign="Center" Font="Times New Roman, 14pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

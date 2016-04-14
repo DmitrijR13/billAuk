@@ -1,0 +1,56 @@
+﻿-------------------------------------------------------------------------------
+		таблица отчетов
+-------------------------------------------------------------------------------
+DROP TABLE "webdb".user_reports;
+
+CREATE TABLE "webdb".user_reports(
+   nzp_exc SERIAL NOT NULL,
+   nzp_user INTEGER NOT NULL,
+   prms TEXT,
+   status INTEGER default 0,
+   dat_in DATETIME YEAR to SECOND,
+   dat_start DATETIME YEAR to SECOND,
+   dat_out DATETIME YEAR to SECOND,
+   priority INTEGER default 0 NOT NULL,
+   rep_name CHAR(100),
+   rep_path CHAR(200),
+   rep_comment CHAR(200))
+EXTENT SIZE 208 NEXT SIZE 20 LOCK MODE PAGE;
+
+CREATE UNIQUE INDEX "webdb".ur_rec_1 ON "webdb".user_reports(nzp_exc);
+
+CREATE INDEX "webdb".ur_rec_2 ON "webdb".user_reports(nzp_user);
+
+GRANT select, update, insert, delete, index ON user_reports TO public AS webdb;
+
+-------------------------------------------------------------------------------
+		вспомогательная таблица к reports
+-------------------------------------------------------------------------------
+--для хранения пармаметров отчета в строке для отображения справочников
+DROP TABLE "informix".report_utils;
+
+CREATE TABLE "informix".report_utils(
+   nzp_act INTEGER,
+   prms TEXT);
+
+ALTER TABLE report_utils lock mode (row);
+CREATE INDEX rru_rec_1 ON report_utils(nzp_act);
+UPDATE STATISTICS FOR TABLE report_utils;
+
+
+-------------------------------------------------------------------------------
+		таблица справочников
+-------------------------------------------------------------------------------
+DROP TABLE "informix".report_catalog;
+
+CREATE TABLE "informix".report_catalog(
+   nzp_cat SERIAL NOT NULL,
+   name CHAR(50),
+   short_name CHAR(50))
+EXTENT SIZE 32 NEXT SIZE 32 LOCK MODE ROW;
+
+ALTER TABLE report_catalog lock mode (row);
+CREATE INDEX rrc_rec_1 ON report_catalog(nzp_cat);
+UPDATE STATISTICS FOR TABLE report_catalog;
+
+GRANT select, update, insert, delete, index ON report_catalog TO public AS informix;

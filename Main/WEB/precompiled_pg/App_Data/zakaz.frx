@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="10/16/2012 15:35:47" ReportInfo.Modified="09/27/2013 11:01:30" ReportInfo.CreatorVersion="2013.1.11.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+      System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo(&quot;ru-RU&quot;);
+      culture.NumberFormat.NumberDecimalSeparator = &quot;.&quot;;
+      culture.NumberFormat.CurrencyDecimalSeparator = &quot;.&quot;;
+      culture.DateTimeFormat.ShortDatePattern = &quot;dd.MM.yyyy&quot;;
+      System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
+      System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" DataType="System.Int32"/>
+      <Column Name="val_prm" DataType="System.Int32"/>
+      <Column Name="act_s" DataType="System.String"/>
+      <Column Name="territory" DataType="System.String"/>
+      <Column Name="adress" DataType="System.String"/>
+      <Column Name="nedop_s" DataType="System.String"/>
+      <Column Name="ned_name" DataType="System.String"/>
+      <Column Name="act_ned_name" DataType="System.String"/>
+      <Column Name="act_po" DataType="System.String"/>
+      <Column Name="fact_date" DataType="System.String"/>
+      <Column Name="service" DataType="System.String"/>
+      <Column Name="nzp_zk" DataType="System.Int32"/>
+      <Column Name="order_date" DataType="System.DateTime"/>
+      <Column Name="supplier" DataType="System.String"/>
+      <Column Name="dest_name" DataType="System.String"/>
+      <Column Name="exec_date" DataType="System.String"/>
+      <Column Name="p_kod" DataType="System.Int32"/>
+      <Column Name="demand_name" DataType="System.String"/>
+      <Column Name="phone" DataType="System.String"/>
+      <Column Name="comment" DataType="System.String"/>
+      <Column Name="Column" Enabled="false" DataType="System.Int32" Calculated="true" Expression=""/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <DataBand Name="Data1" Width="718.2" Height="330.75" Guides="47.25" DataSource="Q_master">
+      <TextObject Name="Text1" Left="18.9" Top="9.45" Width="151.2" Height="18.9" Text="[Q_master.val_prm]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="56.7" Top="36.25" Width="557.55" Height="18.9" Text="Наряд-заказ № [Q_master.nzp_zk] от [FormatDateTime([Q_master.order_date])]" HorzAlign="Center" Font="Times New Roman, 11pt, style=Bold"/>
+      <TextObject Name="Text6" Left="122.85" Top="58.15" Width="434.7" Height="18.9" Text="на устранение претензии, выполнение заявки" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 11pt, style=Bold"/>
+      <TextObject Name="Text7" Left="18.9" Top="94.5" Width="85.05" Height="18.9" Text="ЖУ (ЖКУ)" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text8" Left="321.3" Top="94.5" Width="368.55" Height="18.9" Text="[Q_master.territory]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="18.9" Top="122.85" Width="283.5" Height="18.9" Text="Наименование организации-исполнителя" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text10" Left="321.3" Top="122.85" Width="368.55" Height="18.9" Text="[Q_master.supplier]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="18.9" Top="151.2" Width="132.3" Height="18.9" Text="Претензия, заявка" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text12" Left="18.9" Top="174.55" Width="198.45" Height="37.8" Text="Срок устранения претензии, выполнения заявки" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text13" Left="18.9" Top="216.8" Width="160.65" Height="18.9" Text="Номер лицевого счета" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text14" Left="18.9" Top="245.15" Width="122.85" Height="18.9" Text="Адрес заявителя" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text15" Left="18.9" Top="271.5" Width="85.05" Height="18.9" Text="Заявитель" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text16" Left="18.9" Top="298.85" Width="85.05" Height="18.9" Text="Телефон" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text18" Left="321.3" Top="151.2" Width="368.55" Height="18.9" Text="[Q_master.dest_name]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text19" Left="321.3" Top="174.55" Width="368.55" Height="37.8" Text="[Q_master.exec_date]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text20" Left="321.3" Top="216.8" Width="368.55" Height="18.9" Text="[Q_master.num_ls]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text21" Left="321.3" Top="245.15" Width="368.55" Height="18.9" Text="[Q_master.adress]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text22" Left="321.3" Top="271.5" Width="368.55" Height="18.9" Text="[Q_master.demand_name]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text23" Left="321.3" Top="298.85" Width="368.55" Height="18.9" Text="[Q_master.phone]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="334.23" Width="718.2" Height="28.35" CanGrow="true" Guides="56.7">
+        <TextObject Name="Text17" Left="18.9" Top="5.9" Width="217.35" Height="18.9" Text="Содержание претензии, заявки" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        <TextObject Name="Text24" Left="321.3" Top="5.9" Width="368.55" Height="18.9" CanGrow="true" GrowToBottom="true" Text="[Q_master.comment]" Font="Times New Roman, 10pt, style=Bold"/>
+        <ChildBand Name="Child2" Top="366.06" Width="718.2" Height="463.05" CanGrow="true">
+          <TextObject Name="Text25" Left="56.7" Top="18.9" Width="198.45" Height="18.9" Text="Заявление зарегистрировал" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TextObject Name="Text27" Left="567" Top="18.9" Width="37.8" Height="18.9" Text="М.П." VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <LineObject Name="Line1" Left="18.9" Top="56.7" Width="689.85" Diagonal="true"/>
+          <TextObject Name="Text28" Left="37.8" Top="66.15" Width="642.6" Height="18.9" Text="Акт о непредоставлении коммунальных услуг или предоставлении коммунальных" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          <TextObject Name="Text29" Left="207.9" Top="85.05" Width="274.05" Height="18.9" Text="услуг ненадлежащего качества" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          <TableObject Name="Table1" Left="18.9" Top="113.4" Width="680.4" Height="132.3" Border.Lines="All">
+            <TableColumn Name="Column1" Width="171.99"/>
+            <TableColumn Name="Column2" Width="370.44"/>
+            <TableColumn Name="Column3" Width="77.49"/>
+            <TableColumn Name="Column4" Width="30.24"/>
+            <TableColumn Name="Column5" Width="30.24"/>
+            <TableRow Name="Row1" Height="37.8">
+              <TableCell Name="Cell1" Border.Lines="Right, Bottom" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+              <TableCell Name="Cell2" Border.Lines="Right, Bottom" Text="Наименование недопоставки" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+              <TableCell Name="Cell3" Text="Дата начала недопоставки" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt" ColSpan="3"/>
+              <TableCell Name="Cell4"/>
+              <TableCell Name="Cell5"/>
+            </TableRow>
+            <TableRow Name="Row2">
+              <TableCell Name="Cell6" Border.Lines="Right" Text="[Q_master.service]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold" RowSpan="5"/>
+              <TableCell Name="Cell29" Border.Lines="Right, Bottom" Text="[Q_master.ned_name]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold" RowSpan="2"/>
+              <TableCell Name="Cell8" Border.Lines="Top" Text="[Q_master.nedop_s]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold" ColSpan="3"/>
+              <TableCell Name="Cell9"/>
+              <TableCell Name="Cell10"/>
+            </TableRow>
+            <TableRow Name="Row3">
+              <TableCell Name="Cell11"/>
+              <TableCell Name="Cell28"/>
+              <TableCell Name="Cell13" Border.Lines="Top, Bottom" Font="Times New Roman, 10pt" ColSpan="3" RowSpan="3">
+                <TextObject Name="Text51" Left="9.45" Top="18.9" Width="122.85" Height="18.9" Text="[Q_master.act_s]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+              </TableCell>
+              <TableCell Name="Cell14"/>
+              <TableCell Name="Cell15"/>
+            </TableRow>
+            <TableRow Name="Row4">
+              <TableCell Name="Cell16"/>
+              <TableCell Name="Cell27" Border.Lines="Right, Bottom" Text="[Q_master.act_ned_name]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold" RowSpan="2"/>
+              <TableCell Name="Cell18"/>
+              <TableCell Name="Cell19"/>
+              <TableCell Name="Cell20"/>
+            </TableRow>
+            <TableRow Name="Row5">
+              <TableCell Name="Cell21"/>
+              <TableCell Name="Cell35"/>
+              <TableCell Name="Cell23" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell24" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell25" HorzAlign="Center" VertAlign="Center"/>
+            </TableRow>
+            <TableRow Name="Row6">
+              <TableCell Name="Cell30"/>
+              <TableCell Name="Cell31" Text="Заполняется исполнителем при согласии заявителя" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt" ColSpan="4"/>
+              <TableCell Name="Cell32"/>
+              <TableCell Name="Cell33"/>
+              <TableCell Name="Cell34"/>
+            </TableRow>
+          </TableObject>
+          <TextObject Name="Text30" Left="18.9" Top="264.6" Width="94.5" Height="18.9" Text="Заявитель" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TextObject Name="Text31" Left="18.9" Top="304.85" Width="94.5" Height="18.9" Text="Исполнитель" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TextObject Name="Text32" Left="330.75" Top="283.5" Width="56.7" Height="9.45" Text="(подпись)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TextObject Name="Text33" Left="330.75" Top="323.75" Width="56.7" Height="9.45" Text="(подпись)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TextObject Name="Text34" Left="18.9" Top="342.65" Width="245.7" Height="18.9" Text="Председатель жилищной инспекции" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TextObject Name="Text35" Left="283.5" Top="304.85" Width="151.2" Height="18.9" Text="           ______________________" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt"/>
+          <TextObject Name="Text36" Left="283.5" Top="264.6" Width="151.2" Height="18.9" Text="           ______________________" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt"/>
+          <TextObject Name="Text37" Left="330.75" Top="361.55" Width="56.7" Height="9.45" CanBreak="false" Text="(подпись)" AllowExpressions="false" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 7pt"/>
+          <TextObject Name="Text38" Left="283.5" Top="342.65" Width="151.2" Height="18.9" Text="           ______________________" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt"/>
+          <TextObject Name="Text39" Left="330.75" Top="37.8" Width="56.7" Height="9.45" Text="(подпись)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          <TextObject Name="Text40" Left="283.5" Top="18.9" Width="151.2" Height="18.9" Text="           ______________________" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt"/>
+          <LineObject Name="Line2" Left="18.9" Top="389.9" Width="689.85" Diagonal="true"/>
+          <TextObject Name="Text26" Left="75.6" Top="406.35" Width="604.8" Height="18.9" Text="Акт об устранении претензии (выполнении заявки)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          <TextObject Name="Text52" Left="37.8" Top="432.15" Width="642.6" Height="18.9" CanGrow="true" Text="[Q_master.comment_n]" HorzAlign="Justify" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <ChildBand Name="Child3" Top="832.58" Width="718.2" Height="132.3">
+            <TextObject Name="Text41" Left="53.85" Top="8.6" Width="189" Height="18.9" Text="Дата конца недопоставки" VertAlign="Center" Font="Times New Roman, 10pt"/>
+            <TextObject Name="Text42" Left="53.85" Top="41.4" Width="189" Height="18.9" Text="Исполнитель" VertAlign="Center" Font="Times New Roman, 10pt"/>
+            <TextObject Name="Text45" Left="271.2" Top="41.4" Width="151.2" Height="18.9" Text="           ______________________" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt"/>
+            <TextObject Name="Text48" Left="488.55" Top="41.4" Width="47.25" Height="18.9" Text="Дата" VertAlign="Center" Font="Times New Roman, 10pt"/>
+            <TextObject Name="Text49" Left="554.7" Top="41.4" Width="141.75" Height="18.9" Text="[Q_master.fact_date]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+            <TextObject Name="Text50" Left="271.2" Top="8.6" Width="151.2" Height="18.9" Text="[Q_master.act_po]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+            <TextObject Name="Text44" Left="318.45" Top="60.3" Width="56.7" Height="9.45" Text="(подпись)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+            <TextObject Name="Text43" Left="53.85" Top="75.2" Width="189" Height="18.9" Text="Работу принял (заявитель)" VertAlign="Center" Font="Times New Roman, 10pt"/>
+            <TextObject Name="Text47" Left="271.2" Top="75.2" Width="151.2" Height="18.9" Text="           ______________________" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 10pt"/>
+            <TextObject Name="Text46" Left="318.45" Top="94.1" Width="56.7" Height="9.45" Text="(подпись)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+          </ChildBand>
+        </ChildBand>
+      </ChildBand>
+    </DataBand>
+  </ReportPage>
+</Report>

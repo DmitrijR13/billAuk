@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.stcline.ru" elementFormDefault="qualified" targetNamespace="http://www.stcline.ru" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.stcline.ru:81/bars/about.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="GetAboutCompany">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAboutCompanyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAboutCompanyResult" nillable="true" type="tns:AboutResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AboutResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="aboutCompany" nillable="true" type="tns:AboutCompany" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AboutResult" nillable="true" type="tns:AboutResult" />
+  <xs:complexType name="ServiceResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="retcode" type="tns:Retcode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResult" nillable="true" type="tns:ServiceResult" />
+  <xs:complexType name="Retcode">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="result" type="xs:boolean" />
+      <xs:element minOccurs="0" name="text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tag" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Retcode" nillable="true" type="tns:Retcode" />
+  <xs:complexType name="AdresResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="adres" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdresResult" nillable="true" type="tns:AdresResult" />
+  <xs:complexType name="CounterResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="counters" nillable="true" type="tns:ArrayOfCounter" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CounterResult" nillable="true" type="tns:CounterResult" />
+  <xs:complexType name="ArrayOfCounter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Counter" nillable="true" type="tns:Counter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCounter" nillable="true" type="tns:ArrayOfCounter" />
+  <xs:complexType name="Counter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AdresID">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="counterID" type="xs:long" />
+          <xs:element minOccurs="0" name="worksNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="typeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="dimension" type="xs:int" />
+          <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="scaleMultiplier" type="xs:int" />
+          <xs:element minOccurs="0" name="values" nillable="true" type="tns:ArrayOfCounterVal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Counter" nillable="true" type="tns:Counter" />
+  <xs:complexType name="AdresID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="numID" type="xs:long" />
+      <xs:element minOccurs="0" name="numFlat" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdresID" nillable="true" type="tns:AdresID" />
+  <xs:complexType name="ArrayOfCounterVal">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CounterVal" nillable="true" type="tns:CounterVal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCounterVal" nillable="true" type="tns:ArrayOfCounterVal" />
+  <xs:complexType name="CounterVal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="val" type="xs:decimal" />
+      <xs:element minOccurs="0" name="valDate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CounterVal" nillable="true" type="tns:CounterVal" />
+  <xs:complexType name="AboutCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nameCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nameSoft" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="version" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AboutCompany" nillable="true" type="tns:AboutCompany" />
+</xs:schema>

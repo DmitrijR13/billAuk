@@ -1,0 +1,81 @@
+04.12.2015 09:32:29 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 09:39:59 (ERROR): Поток 7 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:06:03 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:06:11 (ERROR): Поток 5 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:06:14 (ERROR): Поток 5 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:06:24 (ERROR): Поток 8 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:06:26 (ERROR): Поток 8 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:06:29 (ERROR): Поток 8 Ошибка GetOperDay
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:41:44 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:41:52 (ERROR): Поток 10 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:41:56 (ERROR): Поток 8 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:41:57 (ERROR): Поток 8 Ошибка RemoveUserLock
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:42:02 (ERROR): Поток 12 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 10:43:28 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 11:16:34 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 11:16:55 (ERROR): Поток 6 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 11:28:15 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 11:50:51 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 12:02:10 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 12:48:16 (ERROR): Поток 8 Ошибка MakeProtCalc() 
+ Could not connect to net.tcp://localhost:8008/srv/charge. The connection attempt lasted for a time span of 00:00:01.0210584. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+04.12.2015 13:09:11 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 13:44:44 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 13:53:14 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 14:35:02 (ERROR): Поток 13 Ошибка SaveCounter
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+04.12.2015 16:11:12 (ERROR): Поток 7 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+04.12.2015 16:36:26 (ERROR): Поток 7 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9599977'.
+. 
+04.12.2015 21:27:47 (ERROR): Поток 13 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9559975'.
+. 

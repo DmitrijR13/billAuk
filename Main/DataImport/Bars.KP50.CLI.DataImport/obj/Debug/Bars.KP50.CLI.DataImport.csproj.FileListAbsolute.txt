@@ -1,0 +1,1 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\DataImport\Bars.KP50.CLI.DataImport\obj\Debug\Bars.KP50.CLI.DataImport.csprojResolveAssemblyReference.cache

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/25/2011 11:08:27" ReportInfo.Modified="03/20/2013 19:23:23" ReportInfo.CreatorVersion="1.5.1.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string gil_fam = &quot;&quot;;              //Фамилия
+    string gil_ima = &quot;&quot;;                //Имя
+    string gil_otch = &quot;&quot;;           //Отчество
+    string b_date = &quot;&quot;;           //дата рождения
+    string dat_prib = &quot;&quot;;         //дата регистрации
+    string town = &quot;&quot;;                 //город
+    string area = &quot;&quot;;            //район
+    string ulica = &quot;&quot;;         //улица
+    string ndom = &quot;&quot;;                     //дом
+    string nkvar =&quot;&quot;;                    //квартира
+    string get_date = &quot;&quot;;         //дата выдачи
+    string fim_pasportist = &quot;&quot;;//ФИО паспортиста
+    string rajon = &quot;&quot;; 
+    
+    string dolgnost_pasport = &quot;&quot;;
+   
+
+    private void Text15_BeforePrint(object sender, EventArgs e)
+    {      
+           
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fam" DataType="System.String"/>
+      <Column Name="ima" DataType="System.String"/>
+      <Column Name="otch" DataType="System.String"/>
+      <Column Name="dat_prib" DataType="System.String"/>
+      <Column Name="dat_rog" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="30" FirstPageSource="15" OtherPagesSource="15" Guides="238.14,642.6,0,230.58,30.24,79.38,419.58">
+    <ReportTitleBand Name="ReportTitle1" Width="642.6" Height="151.2" CanGrow="true" Guides="28.35,132.3,1.89,24.57,0,15.12,68.04,83.16,98.28001,151.2">
+      <TextObject Name="Text1" Left="238.14" Top="28.35" Width="404.46" Height="103.95" CanGrow="true" Text="Выдана гр.  [gil_fam] [gil_ima] [gil_otch],&#13;&#10;[b_date] г.р., дата регистрации [dat_prib],&#13;&#10;[town],[rajon]  &#13;&#10;[ulica], д. [ndom], кв. [nkvar]&#13;&#10;&#13;&#10;Состав семьи:&#13;&#10;&#13;&#10;" AutoWidth="true"/>
+      <TextObject Name="Text2" Left="238.14" Top="1.89" Width="404.46" Height="22.68" Text="СПРАВКА" HorzAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text47" Width="230.58" Height="15.12" CanGrow="true" BeforePrintEvent="Text25_BeforePrint" Text="МП городского округа Самара" HorzAlign="Center" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text48" Top="15.12" Width="230.58" Height="52.92" CanGrow="true" BeforePrintEvent="Text25_BeforePrint" Text="&quot;Единый информационно-расчетный центр&quot;&#13;&#10;Служба по учету потребителей жилищно-&#13;&#10;коммунальных услуг&#13;&#10;Октябрьского р-на" HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text49" Top="68.04" Width="230.58" Height="15.12" CanGrow="true" BeforePrintEvent="Text25_BeforePrint" Text="443096, г. Самара, ул. Мичурина, 46а" HorzAlign="Center" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text50" Top="83.16" Width="230.58" Height="15.12" CanGrow="true" BeforePrintEvent="Text25_BeforePrint" Text="тел. 263-88-93" HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text51" Top="98.28" Width="230.58" Height="52.92" CanGrow="true" BeforePrintEvent="Text25_BeforePrint" Text="&#13;&#10;&quot;_____&quot; ______________20___г.&#13;&#10;&#13;&#10;№_____" HorzAlign="Center" Font="Times New Roman, 8pt" HtmlTags="true"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="153.7" Width="642.6" Height="37.8" CanGrow="true" Guides="0,37.8" DataSource="Q_master">
+      <TextObject Name="Text7" Width="642.6" Height="37.8" CanGrow="true" GrowToBottom="true" Text="[Row#]. [Q_master.fam] [Q_master.ima] [Q_master.otch], [Q_master.dat_rog] г.р., &#13;&#10;дата регистрации  [Q_master.dat_prib] г."/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="194" Width="642.6" Height="132.3" Guides="9.45,28.35,103.95,122.85,49.14,68.04">
+      <TextObject Name="Text12" Top="9.45" Width="642.6" Height="18.9" Text="по месту требования"/>
+      <TextObject Name="Text13" Left="30.24" Top="103.95" Width="200.34" Height="18.9" Text="[get_date]"/>
+      <TextObject Name="Text14" Left="30.24" Top="49.14" Width="49.14" Height="18.9" Text="М. П."/>
+      <TextObject Name="Text18" Left="419.58" Top="49.14" Width="223.02" Height="18.9" Text="/[fim_pasportist]/" AutoWidth="true"/>
+      <TextObject Name="Text15" Left="79.38" Top="49.14" Width="340.2" Height="18.9" CanGrow="true" BeforePrintEvent="Text15_BeforePrint" Text="[dolgnost_pasport]" HorzAlign="Right"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="328.8" Width="642.6" Height="47.25"/>
+  </ReportPage>
+</Report>

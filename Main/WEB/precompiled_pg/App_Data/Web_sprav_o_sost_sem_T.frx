@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/25/2011 11:08:27" ReportInfo.Modified="05/15/2015 16:19:54" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string gil_fam ;              //Фамилия
+    string gil_ima;                //Имя
+    string gil_otch;           //Отчество
+    string b_date ;           //дата рождения
+    string dat_prib;         //дата прописки
+    string dat_vip ;          //дата выписки
+    string d_day;                    //день смерти
+    string d_mon;                    //месяц смерти
+    string d_year;                 //год смерти
+    string town;                 //город
+    string area;            //район
+    string ulica ;         //улица
+    string ndom ;                     //дом
+    string nkvar;                    //квартира
+    //int c_room = 2;                         //занимаемые комнаты
+    //int tot_c_room = 2;                     //всего комнат
+    double  pl_all;                   //Общая площадь
+    double  pl_gil;                   //Жилая площадь 
+    string get_date;         //дата выдачи
+    string fim_nachPus;   //ФИО Начальника ПУС
+    string fim_pasportist;//ФИО паспортиста
+    string komf;//комфортность
+    string vl_fio;         //ответственный квартиросъемщик
+    string rooms=&quot;&quot;;
+  
+    
+    string kol_kom;
+    
+    string dolgnost_nach;
+    string dolgnost_pasport ;
+  
+    string text;          
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fam" DataType="System.String"/>
+      <Column Name="ima" DataType="System.String"/>
+      <Column Name="otch" DataType="System.String"/>
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="dat_rog" DataType="System.String"/>
+      <Column Name="dat_prib" DataType="System.String"/>
+      <Column Name="type_prop" DataType="System.String"/>
+      <Column Name="mesto_rog" DataType="System.String"/>
+    </TableDataSource>
+    <Parameter Name="demo" DataType="System.String"/>
+    <Parameter Name="isSmr" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="30" FirstPageSource="15" OtherPagesSource="15" Guides="5.67,642.6,0,213.57,534.87,633.15,39.69,9.45,383.67,387.45" StartPageEvent="Page1_StartPage">
+    <ReportTitleBand Name="ReportTitle1" Width="642.6" Height="122.85" BeforePrintEvent="ReportTitle1_BeforePrint" Guides="100.17,119.07,9.45,37.8,94.5">
+      <TextObject Name="Text20" Left="5.67" Top="100.17" Width="636.93" Height="18.9" Text="совместно с ним(ней) зарегистрирован(ы):"/>
+      <TextObject Name="Text1" Top="9.45" Width="642.6" Height="28.35" Text="Справка о составе семьи № [pNumber] от [pDate]" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text2" Top="37.8" Width="642.6" Height="56.7" Text="Дана в том, что [fio] [date_rog]г.р.&#13;&#10;Действительно [ne]зарегистрирован по адресу:&#13;&#10;[pAdres]"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="126.85" Width="642.6" Height="47.25" Guides="0,47.25">
+      <TextObject Name="Text3" Left="213.57" Width="321.3" Height="47.25" Border.Lines="All" Text="Фамилия, Имя, Отчество" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="534.87" Width="98.28" Height="47.25" Border.Lines="All" Text="Дата&#13;&#10;рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text26" Width="39.69" Height="47.25" Border.Lines="All" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="39.69" Width="173.88" Height="47.25" Border.Lines="All" Text="Родственные&#13;&#10;отношения" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="178.1" Width="642.6" Height="47.25" CanGrow="true" CanShrink="true" Guides="0,47.25" DataSource="Q_master">
+      <TextObject Name="Text7" Left="213.57" Width="321.3" Height="47.25" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[Q_master.fam] [Q_master.ima] [Q_master.otch]&#13;&#10;" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="534.87" Width="98.28" Height="47.25" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[Q_master.dat_rog]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text27" Width="39.69" Height="47.25" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="39.69" Width="173.88" Height="47.25" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="[IIf (Trim([Q_master.rod])==&quot;&quot;,&quot;Не указано&quot;, [Q_master.rod])]" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="229.35" Width="642.6" Height="47.25" CanGrow="true" CanShrink="true" CanBreak="true" Guides="0,18.9,94.5,113.4,49.14,68.04,37.8">
+      <TextObject Name="Text11" Width="642.6" Height="18.9" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="Основание: [osnovanie]"/>
+      <TextObject Name="Text23" Top="18.9" Width="642.6" Height="18.9" CanGrow="true" CanShrink="true" GrowToBottom="true" Text="Выдана для представления: [prim]&#13;&#10;[po_obr]&#13;&#10;[tb_Prim]"/>
+      <ChildBand Name="Child1" Top="280.6" Width="642.6" Height="113.4">
+        <TextObject Name="Text18" Left="387.45" Top="73.71" Width="245.7" Height="18.9" Text="[fim_pasportist]" AutoWidth="true"/>
+        <TextObject Name="Text30" Left="9.45" Top="73.71" Width="374.22" Height="18.9" Text="Специалист"/>
+        <TextObject Name="Text29" Left="9.45" Top="18.9" Width="374.22" Height="18.9" Text="[dolgnost_nach]"/>
+        <TextObject Name="Text28" Left="387.45" Top="18.9" Width="245.7" Height="18.9" Text="[fim_nachPus]" AutoWidth="true"/>
+      </ChildBand>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

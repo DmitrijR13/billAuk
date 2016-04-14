@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="08/25/2011 11:08:27" ReportInfo.Modified="09/09/2014 13:11:49" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+   // DateTime d = DateTime.Now;
+    //int currentDay = d.Day; 
+    //int currentMonth = d.Month; 
+    //int currentYear = d.Year;
+    string d1 = &quot;&quot;;
+    string d2 = &quot;&quot;;
+    string d3 = &quot;&quot;;
+    
+  
+    private void TextBeforePrint(object sender, EventArgs e)
+    {
+      Font font = new Font(&quot;Times New Roman&quot;, 8.0F, FontStyle.Bold | FontStyle.Underline );
+      string[] prichinas = new string[] {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;};
+      foreach(string item in prichinas)
+      {
+        if (sender == Report.FindObject(&quot;textPrichinaPereselenia&quot; + item) &amp;&amp; Report.GetParameterValue(&quot;prichina_pereselenia_kod&quot;).ToString() == item)
+          ((TextObject)Report.FindObject(&quot;textPrichinaPereselenia&quot; + item)).Font = font;
+      }
+      
+      string[] zanyatiya = new string[] {&quot;100&quot;, &quot;200&quot;, &quot;500&quot;, &quot;600&quot;, &quot;700&quot;, &quot;820&quot;, &quot;915&quot;, &quot;920&quot;, &quot;930&quot;, &quot;950&quot;, &quot;960&quot;, &quot;970&quot;, &quot;999&quot;, &quot;001&quot;, &quot;002&quot;, &quot;003&quot;};
+      foreach(string item in zanyatiya)
+      {
+        if (sender == Report.FindObject(&quot;textZanyatie&quot; + item) &amp;&amp; Report.GetParameterValue(&quot;zanyatie&quot;).ToString() == item)
+          ((TextObject)Report.FindObject(&quot;textZanyatie&quot; + item)).Font = font;
+      }
+      
+      string[] status = new string[] {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;};
+      foreach(string item in status)
+      {
+        if (sender == Report.FindObject(&quot;textStatus&quot; + item) &amp;&amp; Report.GetParameterValue(&quot;status&quot;).ToString() == item)
+          ((TextObject)Report.FindObject(&quot;textStatus&quot; + item)).Font = font;
+      }
+      
+      string[] soc_obesp = new string[] {&quot;1&quot;, &quot;2&quot;, &quot;4&quot;, &quot;12&quot;, &quot;7&quot;};
+      foreach(string item in soc_obesp)
+      {
+        if (sender == Report.FindObject(&quot;textSocObesp&quot; + item) &amp;&amp; Report.GetParameterValue(&quot;soc_obesp&quot;).ToString() == item)
+          ((TextObject)Report.FindObject(&quot;textSocObesp&quot; + item)).Font = font;
+      }
+      
+      string[] education = new string[] {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;};
+      foreach(string item in education)
+      {
+        if (sender == Report.FindObject(&quot;textEducation&quot; + item) &amp;&amp; Report.GetParameterValue(&quot;education&quot;).ToString() == item)
+          ((TextObject)Report.FindObject(&quot;textEducation&quot; + item)).Font = font;
+      }
+      
+      string[] brak = new string[] {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;};
+      foreach(string item in brak)
+      {
+        if (sender == Report.FindObject(&quot;textBrak&quot; + item) &amp;&amp; Report.GetParameterValue(&quot;brak&quot;).ToString() == item)
+          ((TextObject)Report.FindObject(&quot;textBrak&quot; + item)).Font = font;
+      }
+      
+      string[] skempribil = new string[] {&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;};
+      foreach(string item in skempribil)
+      {
+        if (sender == Report.FindObject(&quot;textPribil&quot; + item) &amp;&amp; Report.GetParameterValue(&quot;s_kem_pribil&quot;).ToString() == item)
+          ((TextObject)Report.FindObject(&quot;textPribil&quot; + item)).Font = font;
+      }
+      
+      string[] semya_on_new_place = new string[] {&quot;1&quot;, &quot;2&quot;};
+      foreach(string item in semya_on_new_place)
+      {
+        if (sender == Report.FindObject(&quot;textSemyaOnNewPlace&quot; + item) &amp;&amp; Report.GetParameterValue(&quot;semya_on_new_place&quot;).ToString() == item)
+          ((TextObject)Report.FindObject(&quot;textSemyaOnNewPlace&quot; + item)).Font = font;
+      }
+      
+      switch (((TextObject)sender).Name)
+      {   
+        case &quot;textPol1&quot;:
+        case &quot;textPol2&quot;:
+          if (Report.GetParameterValue(&quot;pol&quot;).ToString() == &quot;1&quot;) { textPol1.Font = font; }
+          else if (Report.GetParameterValue(&quot;pol&quot;).ToString() == &quot;2&quot;) {  textPol2.Font = font;  }
+          break;
+      }
+      }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String" PropName="fam"/>
+      <Column Name="ima" Enabled="false" DataType="System.String"/>
+      <Column Name="otch" Enabled="false" DataType="System.String"/>
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="dat_rog" DataType="System.String"/>
+      <Column Name="dat_prib" DataType="System.String"/>
+      <Column Name="type_prop1" Enabled="false" DataType="System.String"/>
+      <Column Name="dat_oprp" Enabled="false" DataType="System.String"/>
+    </TableDataSource>
+    <Parameter Name="dat_prib" DataType="System.String"/>
+    <Parameter Name="dat_vip" DataType="System.String"/>
+    <Parameter Name="month_prib" DataType="System.String"/>
+    <Parameter Name="month_vip" DataType="System.String"/>
+    <Parameter Name="fam" DataType="System.String"/>
+    <Parameter Name="ima" DataType="System.String"/>
+    <Parameter Name="otch" DataType="System.String"/>
+    <Parameter Name="dat_rog" DataType="System.String"/>
+    <Parameter Name="month_rog" DataType="System.String"/>
+    <Parameter Name="place_born_state" DataType="System.String"/>
+    <Parameter Name="place_born_region" DataType="System.String"/>
+    <Parameter Name="place_born_rajon" DataType="System.String"/>
+    <Parameter Name="place_born_city" DataType="System.String"/>
+    <Parameter Name="place_born_nas_punkt" DataType="System.String"/>
+    <Parameter Name="pol" DataType="System.String"/>
+    <Parameter Name="gragd" DataType="System.String"/>
+    <Parameter Name="gragd2" DataType="System.String"/>
+    <Parameter Name="prev_gragd" DataType="System.String"/>
+    <Parameter Name="new_place_region" DataType="System.String"/>
+    <Parameter Name="new_place_rajon" DataType="System.String"/>
+    <Parameter Name="new_place_city" DataType="System.String"/>
+    <Parameter Name="new_place_nas_punkt" DataType="System.String"/>
+    <Parameter Name="last_place_state" DataType="System.String"/>
+    <Parameter Name="last_place_region" DataType="System.String"/>
+    <Parameter Name="last_place_rajon" DataType="System.String"/>
+    <Parameter Name="last_place_city" DataType="System.String"/>
+    <Parameter Name="last_place_nas_punkt" DataType="System.String"/>
+    <Parameter Name="prichina_pereselenia" DataType="System.String"/>
+    <Parameter Name="zanyatie" DataType="System.String"/>
+    <Parameter Name="status" DataType="System.String"/>
+    <Parameter Name="soc_obesp" DataType="System.String"/>
+    <Parameter Name="education" DataType="System.String"/>
+    <Parameter Name="brak" DataType="System.String"/>
+    <Parameter Name="s_kem_pribil" DataType="System.String"/>
+    <Parameter Name="semya_on_new_place" DataType="System.String"/>
+    <Parameter Name="prichina_pereselenia_kod" DataType="System.String"/>
+    <Parameter Name="new_place_land" DataType="System.String"/>
+    <Parameter Name="date_prozhiv" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page3" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Guides="24.69,119.07,0,510.22,304.3,247.58" Border.Lines="Right, Bottom" Border.RightLine.Style="Dash" Border.RightLine.Width="4" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle3" Width="1047.06" Height="652.2" Guides="19.54,80.08,869.4">
+      <TextObject Name="Text294" Left="24.69" Top="334.56" Width="279.61" Height="15.12" Border.Lines="Left, Bottom" Text="Если имеет двойное гражданство, указать государство" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text295" Left="24.69" Top="319.27" Width="279.61" Height="15.12" Border.Lines="Left" Text="Гражданство (указать государство)" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text296" Width="56.7" Height="80.08" Text="В" HorzAlign="Center" VertAlign="Center" Font="Arial Rounded MT Bold, 28pt, style=Bold"/>
+      <TextObject Name="Text297" Left="56.7" Top="19.54" Width="453.52" Height="18.9" Text="Отрывной талон к листку статического учета мигранта" HorzAlign="Center" VertAlign="Center" Font="Courier New, 9pt, style=Bold" TextFill.Color="DarkBlue"/>
+      <TextObject Name="Text299" Left="56.7" Top="38.44" Width="453.52" Height="41.64" Text="(к документам о снятии с регистрационного учета с последнего места жительства)" HorzAlign="Center" Font="Courier New, 8pt, style=Bold" TextFill.Color="DarkBlue"/>
+      <TextObject Name="Text300" Top="79.38" Width="510.22" Height="38.43" Text="Записи в отрывном талоне к листку статистического учета мигранта подлежат использованию только для получения сводных данных о численности и составе мигрантов и относятся к категории конфиденциальной информации." Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 8.5pt, style=Italic"/>
+      <TextObject Name="Text333" Left="304.3" Top="319.27" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[gragd]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text334" Left="304.3" Top="334.56" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[gragd2]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text372" Left="24.69" Top="168.21" Width="94.38" Height="15.12" Border.Lines="All" Text="Фамилия" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text373" Left="24.69" Top="183.33" Width="94.38" Height="15.12" Border.Lines="All" Text="Имя" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text374" Left="24.69" Top="198.45" Width="94.38" Height="15.12" Border.Lines="All" Text="Отчество" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text375" Left="119.07" Top="168.07" Width="391.23" Height="15.12" Border.Lines="All" Text="[fam]" VertAlign="Center" Font="Times New Roman, 8.25pt, style=Bold"/>
+      <TextObject Name="Text376" Left="119.07" Top="183.33" Width="391.23" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[ima]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text377" Left="119.07" Top="198.45" Width="391.23" Height="15.12" Border.Lines="All" Text="[otch]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text378" Left="24.69" Top="213.57" Width="94.38" Height="15.12" Border.Lines="All" Text="Дата рождения" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text380" Left="119.07" Top="213.57" Width="56.7" Height="15.12" Border.Lines="Bottom" Text="[[dat_rog].Substring(0,2)]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text382" Left="237.98" Top="213.57" Width="66.15" Height="15.12" Border.Lines="Bottom" Text="[month_rog]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text385" Left="372.33" Top="213.57" Width="71.82" Height="15.12" Border.Lines="Bottom" Text="[[dat_rog].Substring(6,1)][[dat_rog].Substring(7,1)][[dat_rog].Substring(8,1)][[dat_rog].Substring(9,1)]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text389" Left="175.77" Top="213.57" Width="62.39" Height="15.12" Border.Lines="Bottom" Text="(число)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text390" Left="304.29" Top="213.57" Width="68.04" Height="15.12" Border.Lines="Bottom" Text="(месяц)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text391" Left="444.15" Top="213.57" Width="66.25" Height="15.12" Border.Lines="Right, Bottom" Text="(год)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text392" Left="24.69" Top="228.69" Width="94.38" Height="75.6" Border.Lines="All" Text="Место рождения:" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text405" Left="119.07" Top="228.69" Width="185.23" Height="15.12" Text="государство" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text406" Left="119.08" Top="243.79" Width="185.22" Height="15.12" Text="республика, край, область, округ" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text407" Left="119.03" Top="258.83" Width="185.27" Height="15.12" Text="район, городской район (округ)" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text408" Left="119.03" Top="273.9" Width="185.27" Height="15.12" Text="город, поселок городского типа" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text409" Left="119.03" Top="289.05" Width="185.27" Height="15.12" Border.Lines="Bottom" Text="сельский населенный пункт" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text410" Left="304.3" Top="228.69" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[place_born_state]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text411" Left="304.3" Top="243.67" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[place_born_region]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text412" Left="304.3" Top="258.82" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[place_born_rajon]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text413" Left="304.3" Top="273.97" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[place_born_city]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text414" Left="304.3" Top="289.04" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[place_born_nas_punkt]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text415" Left="24.69" Top="304.18" Width="94.38" Height="15.12" Border.Lines="Left, Right, Bottom" Text="Пол (подчеркнуть):" VertAlign="Center" Font="Times New Roman, 7.6pt"/>
+      <TextObject Name="textPol1" Left="119.07" Top="304.35" Width="119.13" Height="15.12" Border.Lines="Bottom" BeforePrintEvent="TextBeforePrint" Text="мужской - 1;" Padding="0, 0, 0, 0" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="textPol2" Left="238.14" Top="304.12" Width="272.08" Height="15.12" Border.Lines="Right, Top, Bottom" BeforePrintEvent="TextBeforePrint" Text="женский - 2" Padding="0, 0, 0, 0" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text442" Left="24.69" Top="531.16" Width="94.38" Height="120.96" Border.Lines="All" Text="Основное обстоятельство,&#13;&#10;вызвавшее необходимость&#13;&#10;переселения (подчеркнуть)" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text443" Left="119.02" Top="636.96" Width="128.56" Height="15.12" Border.Lines="Bottom" BeforePrintEvent="TextBeforePrint" Text="иная причина (указать)" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textPrichinaPereselenia1" Left="119.07" Top="531.13" Width="128.51" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="в связи с учебой - 1;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textPrichinaPereselenia2" Left="247.58" Top="531.13" Width="262.64" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="в связи с работой - 2;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textPrichinaPereselenia3" Left="119.07" Top="546.2" Width="391.15" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="возвращение к прежнему месту жительства - 3;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textPrichinaPereselenia4" Left="119.07" Top="561.35" Width="391.15" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="из-за обострения межнациональных отношений - 4;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textPrichinaPereselenia5" Left="119.07" Top="576.48" Width="391.15" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="из-за обострения криминогенной обстановки - 5;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textPrichinaPereselenia6" Left="119.07" Top="591.6" Width="391.15" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="экологическое неблагополучие - 6;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textPrichinaPereselenia7" Left="119.07" Top="606.74" Width="391.15" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="несоответствие природо-климатическим условиям - 7;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textPrichinaPereselenia8" Left="119.07" Top="621.81" Width="391.15" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="причины личного, семейного характера - 8," Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text458" Top="168.21" Width="24.69" Height="15.12" Border.Lines="All" Text="1." VertAlign="Center" Font="Courier New, 8pt"/>
+      <TextObject Name="Text459" Top="183.35" Width="24.57" Height="15.12" Border.Lines="All" Text="2." VertAlign="Center" Font="Courier New, 8pt"/>
+      <TextObject Name="Text460" Top="198.45" Width="24.69" Height="15.12" Border.Lines="Left, Right, Top" Text="3." VertAlign="Center" Font="Courier New, 8pt"/>
+      <TextObject Name="Text461" Top="213.57" Width="24.69" Height="15.12" Border.Lines="All" Text="4." VertAlign="Center" Font="Courier New, 8pt"/>
+      <TextObject Name="Text462" Left="0.02" Top="228.69" Width="24.67" Height="75.6" Border.Lines="All" Text="5." Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text463" Top="304.2" Width="24.69" Height="15.12" Border.Lines="Left, Right, Bottom" Text="6." VertAlign="Center" Font="Courier New, 8pt"/>
+      <TextObject Name="Text464" Top="319.27" Width="24.69" Height="30.24" Border.Lines="All" Text="7." Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text465" Left="0.02" Top="349.64" Width="24.67" Height="15.12" Border.Lines="Left, Right, Bottom" Text="8." VertAlign="Center" Font="Courier New, 8pt"/>
+      <TextObject Name="Text466" Left="24.69" Top="349.74" Width="279.61" Height="15.12" Border.Lines="All" Text="Национальность(указать):" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text468" Top="364.79" Width="24.69" Height="75.6" Border.Lines="All" Text="9." Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text469" Left="24.69" Top="364.81" Width="94.38" Height="75.6" Border.Lines="Left, Right, Bottom" Text="Последнее место жительства" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text471" Left="119.03" Top="364.79" Width="185.27" Height="15.12" Text="государство" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text472" Left="119.03" Top="379.93" Width="185.27" Height="15.12" Text="республика, край, область, округ" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text473" Left="119.03" Top="394.96" Width="185.27" Height="15.12" Text="район, городской район (округ)" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text474" Left="119.03" Top="410.02" Width="185.27" Height="15.12" Text="город, поселок городского типа" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text475" Left="119.03" Top="425.31" Width="185.27" Height="15.12" Border.Lines="Bottom" Text="сельский населенный пункт" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text476" Left="304.3" Top="455.49" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[new_place_land]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text477" Left="304.3" Top="470.61" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[new_place_region]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text478" Left="304.3" Top="485.73" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[new_place_rajon]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text479" Left="304.3" Top="500.85" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[new_place_city]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text480" Left="304.3" Top="515.97" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[new_place_nas_punkt]" HideZeros="true" HideValue="-" NullValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text481" Left="0.02" Top="455.49" Width="24.67" Height="75.6" Border.Lines="All" Text="11." Padding="0, 2, 0, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text482" Left="24.69" Top="455.49" Width="94.38" Height="75.6" Border.Lines="Left, Right, Bottom" Text="Новое место жительства" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text484" Left="119.03" Top="455.49" Width="185.27" Height="15.12" Text="государство" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text485" Left="119.08" Top="470.61" Width="185.22" Height="15.12" Text="республика, край, область, округ" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text486" Left="119.03" Top="485.73" Width="185.27" Height="15.12" Text="район, городской район (округ)" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text487" Left="119.03" Top="500.85" Width="185.27" Height="15.12" Text="город, поселок городского типа" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text488" Left="119.03" Top="515.97" Width="185.27" Height="15.12" Border.Lines="Bottom" Text="сельский населенный пункт" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text489" Left="304.3" Top="364.89" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[last_place_state]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text490" Left="304.3" Top="379.93" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[last_place_region]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text491" Left="304.3" Top="395.01" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[last_place_rajon]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text492" Left="304.3" Top="410.16" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[last_place_city]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text493" Left="304.3" Top="425.33" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[last_place_nas_punkt]" HideZeros="true" HideValue="-" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text494" Left="0.02" Top="440.39" Width="24.67" Height="15.12" Border.Lines="All" Text="10." Padding="0, 0, 0, 0" VertAlign="Center" Font="Courier New, 8pt"/>
+      <TextObject Name="Text495" Left="24.69" Top="440.38" Width="279.61" Height="15.12" Border.Lines="Left, Right, Bottom" Text="Проживал по последнему месту жительства с " VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text496" Left="304.3" Top="349.72" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text497" Left="304.3" Top="440.38" Width="205.92" Height="15.12" Border.Lines="Left, Right, Bottom" Text="[date_prozhiv]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text498" Left="0.02" Top="531.03" Width="24.67" Height="120.96" Border.Lines="All" Text="12." Padding="0, 0, 0, 0" VertAlign="Center" Font="Courier New, 8pt"/>
+      <TextObject Name="textPrichinaPereselenia9" Left="247.58" Top="637.08" Width="262.64" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="[prichina_pereselenia]" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <LineObject Name="Line2" Left="523.53" Height="650.16" Border.Style="Dot" Border.Width="1.5"/>
+    </ReportTitleBand>
+  </ReportPage>
+  <ReportPage Name="Page4" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" BottomMargin="7" FirstPageSource="15" OtherPagesSource="15" Guides="1047.18" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle4" Width="1047.06" Height="727.65">
+      <TextObject Name="Text500" Left="561.31" Top="33.99" Width="94.5" Height="166.32" Border.Lines="All" Text="Занятие по последнему&#13;&#10;месту жительства" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text501" Left="655.65" Top="34.02" Width="391.23" Height="15.12" Border.Lines="Right, Top" BeforePrintEvent="TextBeforePrint" Text="До переселения работал в отрасли экономики" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text502" Left="561.31" Top="200.34" Width="94.34" Height="45.36" Border.Lines="All" Text="Вид деятельности (подчеркнуть)" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text503" Left="655.91" Top="200.34" Width="177.57" Height="15.12" Text="работа по найму в качестве:" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text504" Left="561.31" Top="245.7" Width="94.34" Height="64.26" Border.Lines="All" Text="Вид социального обеспечения по последнему месту жительства (подчеркнуть)" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text505" Left="655.91" Top="245.7" Width="51.03" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="получал:" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text506" Left="561.31" Top="309.96" Width="94.34" Height="60.48" Border.Lines="Left, Right, Bottom" Text="Образование&#13;&#10;(подчеркнуть)" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textEducation1" Left="655.65" Top="309.96" Width="132.43" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="высшее - 1," Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text508" Left="561.31" Top="370.44" Width="94.54" Height="37.8" Border.Lines="Left, Right, Bottom" Text="Состояние в браке&#13;&#10;(подчеркнуть)" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text510" Left="561.31" Top="408.24" Width="485.87" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="Если до переселения проживал с семьей, то прибыл (подчеркнуть):" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text511" Left="561.31" Top="453.6" Width="321.3" Height="15.12" Border.Lines="Bottom" BeforePrintEvent="TextBeforePrint" Text="Часть членов семьи уже проживает по новому месту жительства" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text513" Left="561.31" Top="687.96" Width="378" Height="15.12" Border.Lines="Top" Text="(фамилия и должность ответственного за регистрацию)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text514" Left="536.74" Top="710.64" Width="15.12" Height="15.12" Text="&quot;" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text515" Left="551.52" Top="710.64" Width="35.91" Height="15.12" Border.Lines="Bottom" Border.Width="1.5" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text516" Left="587.82" Top="710.64" Width="15.12" Height="15.12" Text="&quot;" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text517" Left="616.26" Top="710.64" Width="102.06" Height="15.12" Border.Lines="Bottom" Border.Width="1.5" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text518" Left="757.89" Top="710.64" Width="13.23" Height="15.12" Border.Lines="Bottom" Border.Width="1.5" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text519" Left="771.42" Top="710.64" Width="18.9" Height="15.12" Text="г." VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text520" Left="858" Top="710.64" Width="117.18" Height="15.12" Border.Lines="Bottom" Border.Width="1.5" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text521" Left="975.36" Top="710.64" Width="71.82" Height="15.12" Text="(Подпись)" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie100" Left="655.65" Top="49.21" Width="177.57" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="промышленность-100;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie200" Left="833.49" Top="49.14" Width="213.69" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="сельское хозяйство - 200;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie700" Left="655.65" Top="79.38" Width="391.23" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="торговля и общественное питание - 700; " Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie820" Left="655.65" Top="94.46" Width="391.23" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="информационно-вычислительное обслуживание - 820;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie930" Left="655.91" Top="124.79" Width="177.57" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="культура и искусство - 930;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie950" Left="833.48" Top="124.86" Width="213.7" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="наука и научное обслуживание - 950;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie960" Left="655.65" Top="139.93" Width="391.23" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="финансы, кредит, страхование - 9**;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textStatus1" Left="833.48" Top="200.34" Width="213.7" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text=" руководителя - 1;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textStatus2" Left="655.85" Top="215.46" Width="132.23" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="специалиста - 2;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textStatus3" Left="788.08" Top="215.46" Width="259.1" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="иного служащего (технического исполнителя) - 3;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textStatus4" Left="655.85" Top="230.44" Width="132.23" Height="15.12" Border.Lines="Bottom" BeforePrintEvent="TextBeforePrint" Text="рабочего - 4;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textStatus5" Left="788.08" Top="230.44" Width="259.1" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="самостоятельно обеспечивал себя работой - 5" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textSocObesp1" Left="706.86" Top="245.7" Width="126.62" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="пенсию по старости - 1;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textSocObesp2" Left="833.48" Top="245.7" Width="105.86" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="по инвалидности - 2;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" TabWidth="50"/>
+      <TextObject Name="textSocObesp4" Left="939.33" Top="245.7" Width="107.85" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="за выслугу лет - 4;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textSocObesp12" Left="655.91" Top="260.82" Width="177.57" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="пособие по безработице - 12;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textSocObesp7" Left="833.48" Top="260.82" Width="213.7" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="иные пенсии и пособия - 7" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textEducation2" Left="788.08" Top="309.96" Width="259.1" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text=" в том числе имеет ученую степень: доктора наук - 2;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textEducation8" Left="655.65" Top="355.4" Width="391.53" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="начальное и ниже - 6" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textEducation3" Left="655.65" Top="324.9" Width="132.43" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="кандидата наук - 3;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textEducation4" Left="788.08" Top="324.9" Width="259.1" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="незаконченное высшее -4;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textEducation5" Left="655.85" Top="340.2" Width="132.23" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="среднее спец.- 5;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textPribil1" Left="561.31" Top="423.36" Width="94.34" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="со всей семьей - 1;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textPribil2" Left="655.65" Top="423.45" Width="177.83" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="с частью членов семьи - 2;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textPribil3" Left="833.48" Top="423.36" Width="213.7" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="один (одна) - 3;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textPribil4" Left="561.31" Top="438.36" Width="485.87" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="Проживал без семьи - 4" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text570" Left="536.77" Top="33.92" Width="24.54" Height="166.32" Border.Lines="All" Text="13." Padding="0, 2, 0, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="textZanyatie500" Left="655.65" Top="64.26" Width="177.57" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="транспорт и связь - 500;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie600" Left="833.61" Top="64.26" Width="213.57" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="строительство - 600;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie915" Left="655.91" Top="109.62" Width="177.57" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="здравоохранение - 915;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie920" Left="833.48" Top="109.62" Width="213.7" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="образование - 920;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie970" Left="655.65" Top="155.1" Width="226.8" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="аппарат органов управления - 970;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie999" Left="882.63" Top="155.07" Width="164.55" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="иная отрасль - 999;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie001" Left="655.65" Top="170.24" Width="132.3" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="Учился - 001," Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie002" Left="788.13" Top="170.23" Width="259.05" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="в том числе в ВУЗе - 002" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textZanyatie003" Left="655.65" Top="185.31" Width="391.23" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="Не работал - 003" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text580" Left="536.77" Top="200.34" Width="24.54" Height="45.36" Border.Lines="All" Text="14." Padding="0, 2, 0, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text581" Left="536.77" Top="245.79" Width="24.54" Height="64.26" Border.Lines="All" Text="15." Padding="0, 2, 0, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text1" Left="655.65" Top="276.12" Width="391.53" Height="34.11" Border.Lines="Right, Bottom" Padding="2, 2, 2, 0" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text582" Left="536.77" Top="309.96" Width="24.54" Height="60.48" Border.Lines="All" Text="16." Padding="0, 2, 0, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="textEducation6" Left="788.08" Top="340.2" Width="94.5" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="среднее общее - 4;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textEducation7" Left="882.63" Top="340.2" Width="164.55" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="неполно-среднее - 5;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text585" Left="536.77" Top="370.44" Width="24.54" Height="37.8" Border.Lines="All" Text="17." Padding="0, 2, 0, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="textBrak1" Left="655.65" Top="370.44" Width="132.43" Height="18.9" BeforePrintEvent="TextBeforePrint" Text="женат (замужем) - 1;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textBrak3" Left="655.85" Top="389.34" Width="132.23" Height="18.9" Border.Lines="Bottom" BeforePrintEvent="TextBeforePrint" Text="разведен (а) -3;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="textBrak2" Left="788.08" Top="370.44" Width="259.1" Height="18.9" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="никогда не был женат (замужем) - 2;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textBrak4" Left="788.08" Top="389.34" Width="259.1" Height="18.9" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="вдовец (вдова) - 4;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text590" Left="536.77" Top="408.24" Width="24.54" Height="45.42" Border.Lines="Left, Right, Bottom" Text="18." Padding="0, 2, 0, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text591" Left="536.77" Top="453.6" Width="24.54" Height="15.12" Border.Lines="All" Text="19." Padding="0, 2, 0, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="textSemyaOnNewPlace1" Left="882.63" Top="453.6" Width="64.33" Height="15.12" Border.Lines="Bottom" BeforePrintEvent="TextBeforePrint" Text="   да- 1;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="textSemyaOnNewPlace2" Left="946.74" Top="453.69" Width="100.44" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="нет - 2;" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text594" Left="536.77" Top="468.72" Width="24.54" Height="45.36" Border.Lines="All" Text="20." Padding="0, 2, 0, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text595" Left="561.31" Top="468.9" Width="485.87" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="Вместе с ним (ней) прибыли дети до 14 лет, указать сколько -" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text596" Left="561.31" Top="483.84" Width="485.87" Height="15.12" Border.Lines="Right" BeforePrintEvent="TextBeforePrint" Text="Количество детей и их поименный список указывается в листке одного из родителей" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text597" Left="561.31" Top="498.96" Width="485.87" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="(опекунов, попечителей)." Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text598" Left="561.31" Top="514.08" Width="226.77" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="Имя" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text599" Left="788.08" Top="513.96" Width="94.54" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="Пол (подчеркнуть)" Padding="0, 2, 0, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text600" Left="882.62" Top="513.95" Width="164.56" Height="15.12" Border.Lines="Left, Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="Месяц и год рождения" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text601" Left="536.77" Top="514.08" Width="24.54" Height="15.12" Border.Lines="Left, Top, Bottom" Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text602" Left="561.31" Top="529.2" Width="226.77" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text603" Left="788.08" Top="529.2" Width="45.4" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="муж.-1" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text604" Left="882.62" Top="529.2" Width="164.56" Height="15.12" Border.Lines="Left, Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text605" Left="536.77" Top="529.2" Width="24.54" Height="15.12" Border.Lines="Left, Top, Bottom" Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text606" Left="833.54" Top="529.2" Width="49.08" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="жен.-2" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text607" Left="561.19" Top="544.32" Width="226.8" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text608" Left="788.16" Top="544.32" Width="45.32" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="муж.-1" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text609" Left="882.62" Top="544.32" Width="164.56" Height="15.12" Border.Lines="Left, Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text610" Left="536.77" Top="544.32" Width="24.54" Height="15.12" Border.Lines="Left, Top, Bottom" Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text611" Left="833.54" Top="544.32" Width="49.08" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="жен.-2" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text612" Left="561.31" Top="559.44" Width="226.77" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text613" Left="788.08" Top="559.44" Width="45.4" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="муж.-1" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text614" Left="882.62" Top="559.44" Width="164.56" Height="15.12" Border.Lines="Left, Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text615" Left="536.77" Top="559.53" Width="24.54" Height="15.12" Border.Lines="Left, Top, Bottom" Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text616" Left="833.54" Top="559.44" Width="49.08" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="жен.-2" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text617" Left="561.31" Top="574.56" Width="226.77" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text618" Left="788.08" Top="574.56" Width="45.4" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="муж.-1" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text619" Left="882.62" Top="574.56" Width="164.56" Height="15.12" Border.Lines="Left, Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text620" Left="536.77" Top="574.56" Width="24.54" Height="15.12" Border.Lines="Left, Top, Bottom" Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text621" Left="833.54" Top="574.56" Width="49.08" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="жен.-2" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text622" Left="561.31" Top="589.68" Width="226.89" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text623" Left="788.08" Top="589.68" Width="45.4" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="муж.-1" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text624" Left="882.62" Top="589.68" Width="164.56" Height="15.12" Border.Lines="Left, Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text625" Left="536.77" Top="589.68" Width="24.54" Height="15.12" Border.Lines="Left, Top, Bottom" Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text626" Left="833.54" Top="589.68" Width="49.08" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="жен.-2" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text627" Left="561.31" Top="604.8" Width="226.77" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text628" Left="788.08" Top="604.8" Width="45.4" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="муж.-1" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text629" Left="882.62" Top="604.8" Width="164.56" Height="15.12" Border.Lines="Left, Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text630" Left="536.77" Top="604.72" Width="24.54" Height="15.12" Border.Lines="Left, Top, Bottom" Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text631" Left="833.54" Top="604.8" Width="49.08" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="жен.-2" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text632" Left="561.31" Top="619.74" Width="226.77" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text633" Left="788.08" Top="619.74" Width="45.4" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="муж.-1" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text634" Left="882.62" Top="619.74" Width="164.56" Height="15.12" Border.Lines="Left, Right, Bottom" BeforePrintEvent="TextBeforePrint" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text635" Left="536.77" Top="620.01" Width="24.54" Height="15.12" Border.Lines="Left, Top, Bottom" Padding="2, 2, 2, 0" Font="Courier New, 8pt"/>
+      <TextObject Name="Text636" Left="833.54" Top="619.74" Width="49.08" Height="15.12" Border.Lines="Right, Bottom" BeforePrintEvent="TextBeforePrint" Text="жен.-2" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text637" Left="561.31" Top="653.94" Width="485.87" Height="15.12" BeforePrintEvent="TextBeforePrint" Text="     Сведения проверил, и регистрацию оформил" Padding="2, 2, 2, 0" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <LineObject Name="Line3" Left="523.53" Height="725.76" Border.Style="Dot" Border.Width="1.5"/>
+      <TextObject Name="Text638" Left="536.77" Width="510.41" Height="34.02" Text="Форма № 12 (оборотная сторона)" HorzAlign="Right" Font="Times New Roman, 9pt" TextFill.Color="DarkBlue"/>
+      <TextObject Name="Text2" Left="737.1" Top="710.64" Width="20.79" Height="15.12" Text="200" Padding="0, 0, 0, -2" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

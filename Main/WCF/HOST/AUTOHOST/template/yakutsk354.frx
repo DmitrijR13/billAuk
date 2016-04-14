@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" UseFileCache="true" ReportInfo.Created="09/24/2014 13:12:01" ReportInfo.Modified="12/11/2014 15:00:29" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="number" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="rsum_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rsum_tarif_all" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="number" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master2" ReferenceName="Data.Q_master2" DataType="System.Int32" Enabled="true">
+      <Column Name="rsum_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="number" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master3" ReferenceName="Data.Q_master3" DataType="System.Int32" Enabled="true">
+      <Column Name="number" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master4" ReferenceName="Data.Q_master4" DataType="System.Int32" Enabled="true">
+      <Column Name="number" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="t1_rsum_tarif" Expression="[Q_master1.rsum_tarif]" Evaluator="Data6" PrintOn="DataFooter3" ResetOnReprint="true"/>
+    <Total Name="t1_reval" Expression="[Q_master1.reval]" Evaluator="Data6" ResetOnReprint="true"/>
+    <Total Name="t1_rsum_tarif_all" Expression="[Q_master1.rsum_tarif_all]" Evaluator="Data6" PrintOn="DataFooter3" ResetOnReprint="true"/>
+    <Total Name="t2_rsum_tarif" Expression="[Q_master2.rsum_tarif]" Evaluator="Data7" PrintOn="DataFooter4" ResetOnReprint="true"/>
+    <Total Name="t2_reval" Expression="[Q_master2.reval]" Evaluator="Data7" PrintOn="DataFooter4" ResetOnReprint="true"/>
+    <Total Name="t2_sum_charge" Expression="[Q_master2.sum_charge]" Evaluator="Data7" PrintOn="DataFooter4" ResetOnReprint="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="3" RightMargin="5" BottomMargin="0">
+    <GroupHeaderBand Name="GroupHeader1" Width="756" StartNewPage="true" Condition="[Q_master.number]">
+      <DataBand Name="Data1" Top="72.6" Width="756" Height="141.75" CanGrow="true" DataSource="Q_master">
+        <ShapeObject Name="Shape1" Top="9.45" Width="359.1" Height="122.85" CanGrow="true"/>
+        <TextObject Name="Text26" Left="9.45" Width="349.65" Height="9.45" Text="Раздел 1. Сведения о плательщике и исполнителе услуг" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text27" Left="378" Width="236.25" Height="9.45" Text="Раздел 2. Общие сведения по квартире" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text28" Left="9.45" Top="11.34" Width="32.13" Height="9.45" Text="Адрес:" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text29" Left="9.45" Top="20.79" Width="340.2" Height="9.45" Text="Собственни/Наниматель (заполняется плательщиком):" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text30" Left="9.45" Top="30.24" Width="340.2" Height="9.45" Border.Lines="Bottom" VertAlign="Bottom" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text31" Left="9.45" Top="39.69" Width="83.16" Height="9.45" Text="Исполнитель услуг:" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text32" Left="9.45" Top="56.7" Width="88.83" Height="9.45" Text="Адрес, телефон, факс:" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text33" Left="9.45" Top="66.15" Width="340.2" Height="9.45" Border.Lines="Bottom" Text="[Q_master.phone] [Q_master.fax]" VertAlign="Bottom" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text34" Left="9.45" Top="75.6" Width="66.15" Height="9.45" Text="Режим работы:" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text35" Left="9.45" Top="85.05" Width="98.28" Height="9.45" Text="Банковские реквизиты:" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text36" Left="378" Top="11.34" Width="378" Height="9.45" Text="Площадь квартиры: &lt;u&gt;[Q_master.kvar_s]&lt;/u&gt; кв.м., Площадь нежилых помещений: &lt;u&gt;[Q_master.dom_negil_s]&lt;/u&gt; кв.м.," VertAlign="Center" Font="Times New Roman, 6pt, style=Bold" HtmlTags="true"/>
+        <TextObject Name="Text37" Left="378" Top="20.79" Width="378" Height="9.45" Text="Площадь жилых и нежилых помещений в доме: &lt;u&gt;[Q_master.dom_s]&lt;/u&gt; кв.м.," VertAlign="Center" Font="Times New Roman, 6pt, style=Bold" HtmlTags="true"/>
+        <TextObject Name="Text38" Left="378" Top="30.24" Width="378" Height="9.45" CanGrow="true" Text="Площадь МОП: &lt;u&gt;[Q_master.common_use_s]&lt;/u&gt; кв.м., Доля квартиры на ОДН: &lt;u&gt;[Q_master.kvar_part_odn]&lt;/u&gt;, Доля ОДН: &lt;u&gt;[Q_master.part_odn]&lt;/u&gt; кв.м.," VertAlign="Bottom" Font="Times New Roman, 6pt, style=Bold" HtmlTags="true"/>
+        <TextObject Name="Text39" Left="378" Top="39.69" Width="378" Height="9.45" Text="Кол-во зарег.:&lt;u&gt;[Q_master.count_reg]&lt;/u&gt;чел., Кол-во вр/безрег:&lt;u&gt;[Q_master.count_unreg]&lt;/u&gt;чел., Кол-во вр/отсутств.:&lt;u&gt;[Q_master.count_ub]&lt;/u&gt;чел., Кол-во прож.:&lt;u&gt;[Q_master.count_gil]&lt;/u&gt;чел." VertAlign="Center" Font="Times New Roman, 6pt, style=Bold" HtmlTags="true"/>
+        <TextObject Name="Text40" Left="378" Top="51.03" Width="378" Height="9.45" Text="Степень благоустройства:" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text41" Left="37.8" Top="11.34" Width="311.85" Height="9.45" Border.Lines="Bottom" Text="[Q_master.address]" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text42" Left="94.5" Top="39.69" Width="255.15" Height="9.45" Border.Lines="Bottom" Text="[Q_master.executer]" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text43" Left="94.5" Top="56.7" Width="255.15" Height="9.45" Border.Lines="Bottom" Text="[Q_master.address2]" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text44" Left="75.6" Top="75.6" Width="274.05" Height="9.45" Border.Lines="Bottom" Text="[Q_master.worktime]" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TextObject Name="Text45" Left="9.45" Top="94.5" Width="343.98" Height="37.8" CanGrow="true" Text="&lt;u&gt;[Q_master.remark]&lt;/u&gt;" Font="Times New Roman, 6pt, style=Bold" HtmlTags="true"/>
+        <TextObject Name="Text46" Left="378" Top="66.15" Width="236.25" Height="9.45" Text="Раздел 3. Состояние лицевого счета в расчетном месяце" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <TableObject Name="Table1" Left="368.55" Top="75.6" Width="387.45" Height="56.7">
+          <TableColumn Name="Column1" Width="47.25"/>
+          <TableColumn Name="Column2" Width="85.05"/>
+          <TableColumn Name="Column3" Width="85.05"/>
+          <TableColumn Name="Column4" Width="85.05"/>
+          <TableColumn Name="Column5" Width="85.05"/>
+          <TableRow Name="Row1">
+            <TableCell Name="Cell1" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell2" Border.Lines="All" Text="Сальдо на начало расчетного месяца" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+            <TableCell Name="Cell3" Border.Lines="All" Text="Поступило в расчетном месяце" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+            <TableCell Name="Cell4" Border.Lines="All" Text="Всего к оплате за расчетный месяц" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+            <TableCell Name="Cell5" Border.Lines="All" Text="Сальдо на конец расчетного месяца" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row2" Height="9.45">
+            <TableCell Name="Cell6" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell7" Border.Lines="All" Text="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell8" Border.Lines="All" Text="3" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell9" Border.Lines="All" Text="4" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell10" Border.Lines="All" Text="5" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+          </TableRow>
+          <TableRow Name="Row3" Height="9.45">
+            <TableCell Name="Cell11" Border.Lines="All" Text="Итого" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+            <TableCell Name="Cell12" Border.Lines="All" Text="[Q_master.insaldo]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell13" Border.Lines="All" Text="[Q_master.tarif]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell14" Border.Lines="All" Text="[Q_master.charge]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell15" Border.Lines="All" Text="[Q_master.outsaldo]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+          </TableRow>
+          <TableRow Name="Row4" Height="9.45">
+            <TableCell Name="Cell16" Border.Lines="All" Text="Пени" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+            <TableCell Name="Cell17" Border.Lines="All" Text="[Q_master.insaldo_peni]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell18" Border.Lines="All" Text="[Q_master.tarif_peni]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell19" Border.Lines="All" Text="[Q_master.charge_peni]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell20" Border.Lines="All" Text="[Q_master.outsaldo_peni]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+          </TableRow>
+          <TableRow Name="Row5" Height="9.45">
+            <TableCell Name="Cell21" Border.Lines="All" Text="Всего" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+            <TableCell Name="Cell22" Border.Lines="All" Text="[Q_master.insaldo_all]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell23" Border.Lines="All" Text="[Q_master.tarif_all]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell24" Border.Lines="All" Text="[Q_master.charge_all]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+            <TableCell Name="Cell25" Border.Lines="All" Text="[Q_master.outsaldo_all]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 6pt"/>
+          </TableRow>
+        </TableObject>
+        <TextObject Name="Text47" Left="9.45" Top="132.3" Width="746.55" Height="9.45" Text="Раздел 4. Расчет размера платы за предоставленные коммунальные услуги в расчетном месяце" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        <DataHeaderBand Name="DataHeader5" Top="3.23" Width="756" Height="66.15" RepeatOnEveryPage="true">
+          <TextObject Name="Text25" Top="47.25" Width="756" Height="18.9" Text="Расчетный месяц: &lt;u&gt;[Q_master.account_month]&lt;/u&gt;" HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold" HtmlTags="true"/>
+          <TextObject Name="Text24" Top="37.8" Width="756" Height="9.45" Text="для внесения платы за содержание и ремонт жилого помещения и предоставления коммунальных услуг" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 8pt, style=Bold"/>
+          <TextObject Name="Text3" Left="283.5" Top="18.9" Width="198.45" Height="18.9" Text="ПЛАТЕЖНЫЙ ДОКУМЕНТ" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+          <TextObject Name="Text4" Left="9.45" Top="18.9" Width="274.05" Height="18.9" Text="Лицевой счет: [Q_master.pkod]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <BarcodeObject Name="Barcode1" Left="567" Top="-1.89" Width="187.25" Height="37.8" AutoSize="false" Expression="[Q_master.vars]" Text="00000000000000" Barcode="Code128" Barcode.AutoEncode="true"/>
+        </DataHeaderBand>
+        <DataBand Name="Data6" Top="269.94" Width="756" Height="7.56" CanGrow="true" DataSource="Q_master1" Filter="[Q_master.number] == [Q_master1.number]">
+          <TextObject Name="Text72" Width="226.8" Height="7.56" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master1.service]" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text73" Left="226.8" Width="85.05" Height="7.56" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master1.name_supp]" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text74" Left="311.85" Width="28.35" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.measure]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text75" Left="340.2" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.rash_norm_one]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text76" Left="529.2" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.tarif_nds]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text77" Left="576.45" Width="37.8" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.tarif_benefit]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text78" Left="614.25" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.rsum_tarif]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text79" Left="661.5" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.reval]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text80" Left="708.75" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.rsum_tarif_all]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text81" Left="387.45" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.vol_norm]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text82" Left="434.7" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.vol_over]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text83" Left="481.95" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master1.vol_ipu]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <DataHeaderBand Name="DataHeader6" Top="217.58" Width="756" Height="49.14">
+            <TextObject Name="Text52" Left="387.45" Top="9.45" Width="47.25" Height="32.13" Border.Lines="All" Text="По нормативу" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text53" Left="434.7" Top="9.45" Width="47.25" Height="32.13" Border.Lines="All" Text="По повыш. коэфф." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text54" Left="481.95" Top="9.45" Width="47.25" Height="32.13" Border.Lines="All" Text="По приборам учета/среднемес.показаниям" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text1" Width="226.8" Height="41.58" Border.Lines="All" Text="Наименование услуги" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text48" Left="226.8" Width="85.05" Height="41.58" Border.Lines="All" Text="Поставщик" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text49" Left="311.85" Width="28.35" Height="41.58" Border.Lines="All" Text="Ед.изм." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text50" Left="340.2" Width="47.25" Height="41.58" Border.Lines="All" Text="Норма-тив на единицу" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text51" Left="387.45" Width="141.75" Height="9.45" Border.Lines="All" Text="Объем потребления коммунальных услуг" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text55" Left="529.2" Width="47.25" Height="41.58" Border.Lines="All" Text="Справочно: эконом. обосн. тариф с НДС,руб." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text56" Left="576.45" Width="37.8" Height="41.58" Border.Lines="All" Text="Льгот-ный тариф руб." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text57" Left="614.25" Width="47.25" Height="41.58" Border.Lines="All" Text="Итого начислено за расчетный месяц, руб." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text58" Left="661.5" Width="47.25" Height="41.58" Border.Lines="All" Text="Перерасче-ты, руб." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text59" Left="708.75" Width="47.25" Height="41.58" Border.Lines="All" Text="Всего начислено за расчетный месяц, руб." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text60" Top="41.58" Width="226.8" Height="7.56" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text61" Left="226.8" Top="41.58" Width="85.05" Height="7.56" Border.Lines="All" Text="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text62" Left="311.85" Top="41.58" Width="28.35" Height="7.56" Border.Lines="All" Text="3" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text63" Left="340.2" Top="41.58" Width="47.25" Height="7.56" Border.Lines="All" Text="4" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text67" Left="529.2" Top="41.58" Width="47.25" Height="7.56" Border.Lines="All" Text="8" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text68" Left="576.45" Top="41.58" Width="37.8" Height="7.56" Border.Lines="All" Text="9" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text69" Left="614.25" Top="41.58" Width="47.25" Height="7.56" Border.Lines="All" Text="10" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text70" Left="661.5" Top="41.58" Width="47.25" Height="7.56" Border.Lines="All" Text="11" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text71" Left="708.75" Top="41.58" Width="47.25" Height="7.56" Border.Lines="All" Text="12" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text64" Left="387.45" Top="41.58" Width="47.25" Height="7.56" Border.Lines="All" Text="5" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text65" Left="434.7" Top="41.58" Width="47.25" Height="7.56" Border.Lines="All" Text="6" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text66" Left="481.95" Top="41.58" Width="47.25" Height="7.56" Border.Lines="All" Text="7" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          </DataHeaderBand>
+          <DataFooterBand Name="DataFooter3" Top="280.73" Width="756" Height="7.56">
+            <TextObject Name="Text182" Width="614.25" Height="7.56" Border.Lines="All" Text="Итого:" VertAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text188" Left="614.25" Width="47.25" Height="7.56" Border.Lines="All" Text="[t1_rsum_tarif]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text189" Left="661.5" Width="47.25" Height="7.56" Border.Lines="All" Text="[t1_reval]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text190" Left="708.75" Width="47.25" Height="7.56" Border.Lines="All" Text="[t1_rsum_tarif_all]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+          </DataFooterBand>
+        </DataBand>
+        <DataBand Name="Data7" Top="336.32" Width="756" Height="7.56" CanGrow="true" DataSource="Q_master2" Filter="[Q_master.number] == [Q_master2.number]">
+          <TextObject Name="Text112" Width="226.8" Height="7.56" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master2.service]" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text113" Left="226.8" Width="85.05" Height="7.56" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master2.name_supp]" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text114" Left="311.85" Width="28.35" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master2.measure]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text115" Left="340.2" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master2.tarif]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text116" Left="387.45" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master2.rsum_tarif]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text117" Left="444.15" Width="47.25" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master2.reval]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text118" Left="491.4" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master2.sum_charge]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <DataHeaderBand Name="DataHeader7" Top="291.51" Width="756" Height="41.58">
+            <TextObject Name="Text100" Top="34.02" Width="226.8" Height="7.56" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text101" Left="226.8" Top="34.02" Width="85.05" Height="7.56" Border.Lines="All" Text="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text102" Left="311.85" Top="34.02" Width="28.35" Height="7.56" Border.Lines="All" Text="3" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text103" Left="340.2" Top="34.02" Width="47.25" Height="7.56" Border.Lines="All" Text="4" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text109" Left="387.45" Top="34.02" Width="56.7" Height="7.56" Border.Lines="All" Text="5" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text110" Left="444.15" Top="34.02" Width="47.25" Height="7.56" Border.Lines="All" Text="6" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text111" Left="491.4" Top="34.02" Width="56.7" Height="7.56" Border.Lines="All" Text="7" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text88" Top="9.45" Width="226.8" Height="24.57" Border.Lines="All" Text="Наименование услуги" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text89" Left="226.8" Top="9.45" Width="85.05" Height="24.57" Border.Lines="All" Text="Поставщик" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text90" Left="311.85" Top="9.45" Width="28.35" Height="24.57" Border.Lines="All" Text="Ед.изм." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text91" Left="340.2" Top="9.45" Width="47.25" Height="24.57" Border.Lines="All" Text="Тариф для населения, руб." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text92" Left="387.45" Top="9.45" Width="56.7" Height="24.57" Border.Lines="All" Text="Итого начислено за расчетный месяц, руб." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text93" Left="444.15" Top="9.45" Width="47.25" Height="24.57" Border.Lines="All" Text="Перерасче-ты, руб." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text94" Left="491.4" Top="9.45" Width="56.7" Height="24.57" Border.Lines="All" Text="Итого к оплате за расчетный месяц, руб." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text2" Left="548.1" Top="9.45" Width="207.9" Height="32.13" CanGrow="true" Text="Справочно:&#13;&#10;Нормативы потребления коммунальных услуг установлены:&#13;&#10;1.На газ – постановление Правительства РС (Я) от 22.11.1999 №630&#13;&#10;2.На остальные виды коммунальных услуг – постановление Правительства РС (Я) от 13 октября 2012 г. №446&#13;&#10;" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text84" Left="9.45" Width="746.55" Height="9.45" Text="Раздел 5. Расчет размера платы за наем, капитальный ремонт, за содержание и текущий ремонт общего имущества жилого дома в расчетном месяце" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+          </DataHeaderBand>
+          <DataFooterBand Name="DataFooter4" Top="347.11" Width="756" Height="7.56">
+            <TextObject Name="Text194" Width="387.45" Height="7.56" Border.Lines="All" Text="Итого:" VertAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text198" Left="387.45" Width="56.7" Height="7.56" Border.Lines="All" Text="[t2_rsum_tarif]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text199" Left="444.15" Width="47.25" Height="7.56" Border.Lines="All" Text="[t2_reval]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text200" Left="491.4" Width="56.7" Height="7.56" Border.Lines="All" Text="[t2_sum_charge]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+          </DataFooterBand>
+        </DataBand>
+        <DataBand Name="Data8" Top="408.37" Width="756" Height="7.56" CanGrow="true" DataSource="Q_master3" Filter="[Q_master.number] == [Q_master3.number]">
+          <TextObject Name="Text152" Left="699.3" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master3.odpu_date]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text144" Width="302.4" Height="7.56" Border.Lines="All" CanGrow="true" Text="[Q_master3.service]" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text145" Left="302.4" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master3.ipu_prev]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text146" Left="359.1" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master3.ipu_curr]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text147" Left="415.8" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master3.ipu_rash]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text148" Left="472.5" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master3.ipu_date]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text149" Left="529.2" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master3.odpu_prev]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text150" Left="585.9" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master3.odpu_curr]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text151" Left="642.6" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master3.odpu_rash]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <DataHeaderBand Name="DataHeader8" Top="357.89" Width="756" Height="47.25">
+            <TextObject Name="Text85" Left="9.45" Width="746.55" Height="9.45" Text="Раздел 6. Сведения о показаниях приборов учета в расчетном месяце" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+            <TextObject Name="Text119" Top="9.45" Width="302.4" Height="30.24" Border.Lines="All" Text="Наименование услуги" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text120" Left="302.4" Top="9.45" Width="226.8" Height="15.12" Border.Lines="All" Text="Квартирный прибор учета" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text123" Left="529.2" Top="9.45" Width="226.8" Height="15.12" Border.Lines="All" Text="Общедомовой прибор учета" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text121" Top="39.69" Width="302.4" Height="7.56" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text132" Left="302.4" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="2" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text133" Left="359.1" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="3" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text134" Left="415.8" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="4" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text135" Left="472.5" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="5" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text136" Left="529.2" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="6" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text137" Left="585.9" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="7" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text138" Left="642.6" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="8" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text139" Left="699.3" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="9" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text143" Left="699.3" Top="24.57" Width="56.7" Height="15.12" Border.Lines="All" Text="Дата снятия показаний" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text124" Left="302.4" Top="24.57" Width="56.7" Height="15.12" Border.Lines="All" Text="Пред. показания" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text125" Left="359.1" Top="24.57" Width="56.7" Height="15.12" Border.Lines="All" Text="Текущее показание" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text126" Left="415.8" Top="24.57" Width="56.7" Height="15.12" Border.Lines="All" Text="Расход" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text127" Left="472.5" Top="24.57" Width="56.7" Height="15.12" Border.Lines="All" Text="Дата снятия показаний" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text140" Left="529.2" Top="24.57" Width="56.7" Height="15.12" Border.Lines="All" Text="Пред. показания" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text141" Left="585.9" Top="24.57" Width="56.7" Height="15.12" Border.Lines="All" Text="Текущее показание" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text142" Left="642.6" Top="24.57" Width="56.7" Height="15.12" Border.Lines="All" Text="Расход" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+          </DataHeaderBand>
+        </DataBand>
+        <DataBand Name="Data9" Top="469.63" Width="756" Height="7.56" CanGrow="true" DataSource="Q_master4" Filter="[Q_master.number] == [Q_master4.number]">
+          <TextObject Name="Text173" Width="302.4" Height="7.56" Border.Lines="All" CanGrow="true" Text="[Q_master4.service]" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text174" Left="302.4" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master4.measure]" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text175" Left="359.1" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master4.odpu_all]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text176" Left="415.8" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master4.odpu_negil]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text177" Left="472.5" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master4.odpu_ipu]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text178" Left="529.2" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master4.odpu_norm]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text179" Left="585.9" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master4.odpu_rash]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text180" Left="642.6" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master4.odn_kvar_part]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TextObject Name="Text181" Left="699.3" Width="56.7" Height="7.56" Border.Lines="All" GrowToBottom="true" Text="[Q_master4.odn_kvar_rash]" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <DataHeaderBand Name="DataHeader9" Top="419.15" Width="756" Height="47.25">
+            <TextObject Name="Text153" Top="9.45" Width="302.4" Height="30.24" Border.Lines="All" Text="Наименование услуги" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text154" Left="359.1" Top="9.45" Width="283.5" Height="9.45" Border.Lines="All" Text="Объем потребления коммунальных услуг в доме" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text157" Left="302.4" Top="9.45" Width="56.7" Height="30.24" Border.Lines="All" Text="Ед.изм." HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text158" Left="359.1" Top="18.9" Width="56.7" Height="20.79" Border.Lines="All" Text="Всего по показанияем ОДПУ" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text159" Left="415.8" Top="18.9" Width="56.7" Height="20.79" Border.Lines="All" Text="нежилые помещения" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text160" Left="472.5" Top="18.9" Width="56.7" Height="20.79" Border.Lines="All" Text="по показаниям ИПУ" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text169" Left="529.2" Top="18.9" Width="56.7" Height="20.79" Border.Lines="All" Text="по нормативу" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text170" Left="585.9" Top="18.9" Width="56.7" Height="20.79" Border.Lines="All" Text="расход на ОДН" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text171" Left="642.6" Top="9.45" Width="56.7" Height="30.24" Border.Lines="All" Text="Доля квартиры на ОДН" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text172" Left="699.3" Top="9.45" Width="56.7" Height="30.24" Border.Lines="All" Text="Расход на ОДН на квартиру" HorzAlign="Center" Font="Times New Roman, 5pt, style=Bold"/>
+            <TextObject Name="Text86" Left="9.45" Width="746.55" Height="9.45" Text="Раздел 7. Справочно: Объемы потребления на общедомовые нужды в расчетном месяце" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+            <TextObject Name="Text155" Top="39.69" Width="302.4" Height="7.56" Border.Lines="All" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text161" Left="302.4" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="2" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text162" Left="359.1" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="3" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text163" Left="415.8" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="4" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text164" Left="472.5" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="5" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text165" Left="529.2" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="6" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text166" Left="585.9" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="7=(3-4-5-6)" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text167" Left="642.6" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="8" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+            <TextObject Name="Text168" Left="699.3" Top="39.69" Width="56.7" Height="7.56" Border.Lines="All" Text="9" HorzAlign="Center" Font="Times New Roman, 5pt"/>
+          </DataHeaderBand>
+        </DataBand>
+        <DataFooterBand Name="DataFooter1" Top="480.42" Width="756" Height="28.35">
+          <TextObject Name="Text87" Left="66.15" Top="9.45" Width="434.7" Height="9.45" Text="Подпись плательщика_______________________________________" VertAlign="Center" Font="Times New Roman, 6pt, style=Bold"/>
+        </DataFooterBand>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="511.99" Width="756"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,39 @@
+20.11.2015 13:46:29 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+20.11.2015 13:48:31 (ERROR): Поток 7 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+20.11.2015 14:04:47 (ERROR): Поток 6 Ошибка открытия Proxy _cli_Fon по адресу net.tcp://localhost:8008/srv/fon. Сервер <локально> (Код РЦ 0) (Код сервера 0): Could not connect to net.tcp://localhost:8008/srv/fon. The connection attempt lasted for a time span of 00:00:01.1010629. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+20.11.2015 14:04:47 (ERROR): Поток 6 Ошибка GetState  
+ The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+20.11.2015 14:11:49 (ERROR): Поток 15 Ошибка GetArea 
+  The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+20.11.2015 14:11:50 (ERROR): Поток 15 Ошибка открытия Proxy _cli_Fon по адресу net.tcp://localhost:8008/srv/fon. Сервер <локально> (Код РЦ 0) (Код сервера 0): Could not connect to net.tcp://localhost:8008/srv/fon. The connection attempt lasted for a time span of 00:00:01.0150581. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+20.11.2015 14:11:51 (ERROR): Поток 15 Ошибка GetState  
+ The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+20.11.2015 14:11:59 (ERROR): Поток 11 Ошибка открытия Proxy _cli_Fon по адресу net.tcp://localhost:8008/srv/fon. Сервер <локально> (Код РЦ 0) (Код сервера 0): Could not connect to net.tcp://localhost:8008/srv/fon. The connection attempt lasted for a time span of 00:00:01.0180583. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+20.11.2015 14:11:59 (ERROR): Поток 11 Ошибка GetState  
+ The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+20.11.2015 17:26:38 (ERROR): Поток 10 Ошибка открытия Proxy _cli_Fon по адресу net.tcp://localhost:8008/srv/fon. Сервер <локально> (Код РЦ 0) (Код сервера 0): Could not connect to net.tcp://localhost:8008/srv/fon. The connection attempt lasted for a time span of 00:00:01.0220585. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+20.11.2015 17:26:38 (ERROR): Поток 10 Ошибка GetState  
+ The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+20.11.2015 17:26:45 (ERROR): Поток 8 Ошибка открытия Proxy _cli_Fon по адресу net.tcp://localhost:8008/srv/fon. Сервер <локально> (Код РЦ 0) (Код сервера 0): Could not connect to net.tcp://localhost:8008/srv/fon. The connection attempt lasted for a time span of 00:00:01.0200584. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+20.11.2015 17:26:45 (ERROR): Поток 8 Ошибка GetState  
+ The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+20.11.2015 17:26:54 (ERROR): Поток 8 Ошибка открытия Proxy _cli_Fon по адресу net.tcp://localhost:8008/srv/fon. Сервер <локально> (Код РЦ 0) (Код сервера 0): Could not connect to net.tcp://localhost:8008/srv/fon. The connection attempt lasted for a time span of 00:00:01.0280588. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+20.11.2015 17:26:54 (ERROR): Поток 8 Ошибка GetState  
+ The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/param/baseview.ascx" hash="cedb9400c" filehash="9276023ba033625a" flags="110000" assembly="App_Web_40ovgwmb" type="ASP.reports_param_baseview_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/reports/param/baseview.ascx" />
+    </filedeps>
+</preserve>

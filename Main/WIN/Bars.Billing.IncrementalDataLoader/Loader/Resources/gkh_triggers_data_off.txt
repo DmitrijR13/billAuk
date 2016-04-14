@@ -1,0 +1,97 @@
+@echo off
+setlocal ENABLEDELAYEDEXPANSION
+
+chcp 1251>nul
+                  
+SET cnt=1
+
+call :parameters %*
+goto :body
+
+:parameters
+
+echo parapaparam
+
+  if !cnt!==1 (
+  SET schema=%~1
+  ) else if !cnt!==2 (
+  SET pg_dir=%~1
+  ) else if !cnt!==3 (
+  SET host=%~1
+  ) else if !cnt!==4 (
+  SET port=%~1
+  ) else if !cnt!==5 (
+  SET db=%~1
+  ) else if !cnt!==6 (
+  SET user_name=%~1
+  ) else if !cnt!==7 (
+  SET PGPASSWORD=%~1
+  )
+
+  shift
+  set /a cnt=!cnt!+1
+
+  if not "%~1"=="" goto :parameters
+
+goto :EOF
+
+:body
+
+  echo --------------------------------------------------------------------------------
+  echo бШОНКМЪЕРЯЪ НРЙКЧВЕМХЕ РПХЦЦЕПНБ
+
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.kart disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.counters disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.counters_dom disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.counters_group disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.gil_periods disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.nedop_kvar disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.prm_1 disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.prm_2 disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.prm_3 disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+  "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table %schema%.tarif disable trigger all";
+  if ERRORLEVEL 1 (
+    	   echo бмхлюмхе.опнхгнькю ньхайю опх нрйкчвемхх рпхццепнб.
+    	   exit
+   )
+
+  echo рПХЦЦЕПШ СЯОЕЬМН НРЙКЧВЕМШ  
+  echo --------------------------------------------------------------------------------
+
+goto :EOF

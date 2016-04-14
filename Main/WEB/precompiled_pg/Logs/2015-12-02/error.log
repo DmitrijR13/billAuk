@@ -1,0 +1,35 @@
+02.12.2015 10:52:41 (ERROR): Поток 5 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+02.12.2015 11:08:56 (ERROR): Поток 6 Ошибка GetOperDay
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+02.12.2015 11:08:58 (ERROR): Поток 6 Ошибка GetLs (SrvLoad) 
+  The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+02.12.2015 11:08:59 (ERROR): Поток 6 Ошибка открытия Proxy _cli_MustCalc по адресу net.tcp://localhost:8008/srv/mustcalc. Сервер <локально> (Код РЦ 0) (Код сервера 0): Could not connect to net.tcp://localhost:8008/srv/mustcalc. The connection attempt lasted for a time span of 00:00:01.0200583. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+02.12.2015 11:08:59 (ERROR): Поток 6 Ошибка LoadMustCalc()
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+02.12.2015 11:35:55 (ERROR): Поток 5 Ошибка GetLs (SrvLoad) 
+  The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+02.12.2015 11:44:31 (ERROR): Поток 11 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+02.12.2015 12:12:46 (ERROR): Поток 11 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9549975'.
+. 
+02.12.2015 13:03:58 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+02.12.2015 13:04:10 (ERROR): Поток 10 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+02.12.2015 17:20:04 (ERROR): Поток 18 Ошибка CalcChargeLs  
+ This request operation sent to net.tcp://localhost:8008/srv/charge did not receive a reply within the configured timeout (00:25:00).  The time allotted to this operation may have been a portion of a longer timeout.  This may be because the service is still processing the operation or because the service was unable to send a reply message.  Please consider increasing the operation timeout (by casting the channel/proxy to IContextChannel and setting the OperationTimeout property) and ensure that the service is able to connect to the client.
+. 
+02.12.2015 18:05:26 (ERROR): Поток 10 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9479970'.
+. 

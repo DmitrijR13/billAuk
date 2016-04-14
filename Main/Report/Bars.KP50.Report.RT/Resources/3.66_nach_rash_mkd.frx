@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="03/27/2014 13:15:28" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      Data1.DataSource = Report.GetDataSource(&quot;Q_master&quot;);
+      System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo(&quot;de-de&quot;);
+      culture.NumberFormat.NumberDecimalSeparator = &quot;.&quot;; 
+      culture.DateTimeFormat.ShortDatePattern = &quot;dd.MM.yyyy&quot;;
+      culture.DateTimeFormat.ShortTimePattern = &quot;HH:mm:ss&quot;;
+      culture.NumberFormat.NumberDecimalDigits = 2; 
+      culture.NumberFormat.PercentDecimalDigits = 2;
+      System.Threading.Thread.CurrentThread.CurrentUICulture = culture; 
+      System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="idom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pl" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_pu" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_pu" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_odn" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_odn" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_dom" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_dom" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="type_sh" Enabled="false" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="idom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pl" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_pu" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_pu" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_odn" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_odn" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_dom" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_dom" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="type_sh" Enabled="false" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master2" ReferenceName="Data.Q_master2" DataType="System.Int32" Enabled="true">
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="idom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pl" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_pu" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_pu" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_odn" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_odn" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_dom" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_dom" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="type_sh" Enabled="false" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master3" ReferenceName="Data.Q_master3" DataType="System.Int32" Enabled="true">
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="idom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pl" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_pu" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_pu" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_odn" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_odn" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="r_dom" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="n_dom" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="ttype" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="Total_pl" Expression="[Q_master.pl]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_r_pu" Expression="[Q_master.r_pu]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_n_pu" Expression="[Q_master.n_pu]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_r" Expression="[Q_master.r]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_n" Expression="[Q_master.n]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_r_odn" Expression="[Q_master.r_odn]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_n_odn" Expression="[Q_master.n_odn]" Evaluator="Data1" ResetOnReprint="true"/>
+    <Total Name="Total_r_pu_1" Expression="[Q_master1.r_pu]" Evaluator="Data2"/>
+    <Total Name="Total_n_pu_1" Expression="[Q_master1.n_pu]" Evaluator="Data2"/>
+    <Total Name="Total_r_1" Expression="[Q_master1.r]" Evaluator="Data2"/>
+    <Total Name="Total_n_1" Expression="[Q_master1.n]" Evaluator="Data2"/>
+    <Total Name="Total_r_odn_1" Expression="[Q_master1.r_odn]" Evaluator="Data2"/>
+    <Total Name="Total_n_odn_1" Expression="[Q_master1.n_odn]" Evaluator="Data2"/>
+    <Total Name="Total_r_pu_2" Expression="[Q_master2.r_pu]" Evaluator="Data3"/>
+    <Total Name="Total_n_pu_2" Expression="[Q_master2.n_pu]" Evaluator="Data3"/>
+    <Total Name="Total_r_2" Expression="[Q_master2.r]" Evaluator="Data3"/>
+    <Total Name="Total_n_2" Expression="[Q_master2.n]" Evaluator="Data3"/>
+    <Total Name="Total_r_odn_2" Expression="[Q_master2.r_odn]" Evaluator="Data3"/>
+    <Total Name="Total_n_odn_2" Expression="[Q_master2.n_odn]" Evaluator="Data3"/>
+    <Total Name="Total_r_pu_3" Expression="[Q_master3.r_pu]" Evaluator="Data4"/>
+    <Total Name="Total_n_pu_3" Expression="[Q_master3.n_pu]" Evaluator="Data4"/>
+    <Total Name="Total_r_3" Expression="[Q_master3.r]" Evaluator="Data4"/>
+    <Total Name="Total_n_3" Expression="[Q_master3.n]" Evaluator="Data4"/>
+    <Total Name="Total_r_odn_3" Expression="[Q_master3.r_odn]" Evaluator="Data4"/>
+    <Total Name="Total_n_odn_3" Expression="[Q_master3.n_odn]" Evaluator="Data4"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1084.86" Height="47.25" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="151.2" Top="9.45" Width="746.55" Height="37.8" Text="3.66 [rep_name] за [month][year] г." HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text24" Left="897.75" Top="9.45" Width="94.5" Height="18.9" Text="Дата печати:" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text26" Left="992.25" Top="9.45" Width="66.15" Height="18.9" Text="[dat]" Font="Arial, 7pt"/>
+      <TextObject Name="Text38" Left="897.75" Top="28.35" Width="94.5" Height="18.9" Text="Время печати:" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text39" Left="992.25" Top="28.35" Width="66.15" Height="18.9" Text="[time]" Font="Arial, 7pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader2" Top="50.45" Width="1084.86" Height="56.7">
+      <TextObject Name="Text45" Left="472.5" Top="18.9" Width="85.05" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <RichObject Name="Rich1" Left="387.45" Top="18.9" Width="85.05" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich3" Left="557.55" Top="18.9" Width="85.05" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich4" Left="727.65" Top="18.9" Width="85.05" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich5" Left="897.75" Top="18.9" Width="85.05" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <TextObject Name="Text46" Left="642.6" Top="18.9" Width="85.05" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text47" Left="812.7" Top="18.9" Width="85.05" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text48" Left="982.8" Top="18.9" Width="85.05" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text2" Left="18.9" Width="37.8" Height="56.7" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text3" Left="56.7" Width="255.15" Height="56.7" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text40" Left="387.45" Width="170.1" Height="18.9" Border.Lines="All" Text="ЛС и ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text41" Left="557.55" Width="170.1" Height="18.9" Border.Lines="All" Text="ЛС без ПУ-норма" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text42" Left="727.65" Width="170.1" Height="18.9" Border.Lines="All" Text="ОДН" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text43" Left="897.75" Width="170.1" Height="18.9" Border.Lines="All" Text="Всего по дому" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <RichObject Name="Rich2" Left="311.85" Width="75.6" Height="56.7" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs18\par&#13;&#10;\fs16\'cf\'eb\'ee\'f9\'e0\'e4\'fc\par&#13;&#10;\'e4\'ee\'ec\'e0 \'ec\up6 2\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="110.35" Width="1084.86" Height="18.9" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" CanBreak="true" DataSource="Q_master">
+      <TextObject Name="Text50" Left="18.9" Width="37.8" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text51" Left="56.7" Width="255.15" Height="18.9" Border.Lines="All" Text="ул. [Trim([Q_master.ulica])] д.[Q_master.idom][Q_master.nkor]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text88" Left="472.5" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.n_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text89" Left="387.45" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.r_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text90" Left="311.85" Width="75.6" Height="18.9" Border.Lines="All" Text="[Q_master.pl]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text91" Left="557.55" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.r]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text92" Left="642.6" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.n]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text93" Left="727.65" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.r_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text94" Left="812.7" Width="85.05" Height="18.9" Border.Lines="All" Text="[Q_master.n_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text95" Left="897.75" Width="85.05" Height="18.9" Border.Lines="All" Text="[ToDecimal([Q_master.r_pu]+[Q_master.r]+[Q_master.r_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text96" Left="982.8" Width="85.05" Height="18.9" Border.Lines="All" Text="[ToDecimal([Q_master.n_pu]+[Q_master.n]+[Q_master.n_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="132.45" Width="1084.86" Height="18.9">
+      <TextObject Name="Text31" Left="18.9" Width="292.95" Height="18.9" Border.Lines="All" Text="Итого:" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text97" Left="472.5" Width="85.05" Height="18.9" Border.Lines="All" Text="[Total_n_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text98" Left="387.45" Width="85.05" Height="18.9" Border.Lines="All" Text="[Total_r_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text99" Left="311.85" Width="75.6" Height="18.9" Border.Lines="All" Text="[Total_pl]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text100" Left="557.55" Width="85.05" Height="18.9" Border.Lines="All" Text="[Total_r]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text101" Left="642.6" Width="85.05" Height="18.9" Border.Lines="All" Text="[Total_n]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text102" Left="727.65" Width="85.05" Height="18.9" Border.Lines="All" Text="[Total_r_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text103" Left="812.7" Width="85.05" Height="18.9" Border.Lines="All" Text="[Total_n_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text104" Left="897.75" Width="85.05" Height="18.9" Border.Lines="All" Text="[ToDecimal([Total_r_pu]+[Total_r]+[Total_r_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text105" Left="982.8" Width="85.05" Height="18.9" Border.Lines="All" Text="[ToDecimal([Total_n_pu]+[Total_n]+[Total_n_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="154.55" Width="1084.86" Height="37.8">
+      <TextObject Name="Text4" Left="963.9" Top="9.45" Width="94.5" Height="18.9" Text="[Page#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text49" Left="28.35" Top="9.45" Width="935.55" Height="18.9" Text="Наименование отчета: 3.66 [rep_name]" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle2" Width="1084.86" Height="47.25">
+      <TextObject Name="Text60" Left="151.2" Top="9.45" Width="746.55" Height="37.8" Text="3.66 [rep_name1] за [month][year] г." HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text63" Left="897.75" Top="9.45" Width="94.5" Height="18.9" Text="Дата печати:" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text64" Left="992.25" Top="9.45" Width="66.15" Height="18.9" Text="[dat]" Font="Arial, 7pt"/>
+      <TextObject Name="Text65" Left="897.75" Top="28.35" Width="94.5" Height="18.9" Text="Время печати:" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text66" Left="992.25" Top="28.35" Width="66.15" Height="18.9" Text="[time]" Font="Arial, 7pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="50.45" Width="1084.86" Height="56.7">
+      <TextObject Name="Text61" Left="18.9" Width="37.8" Height="56.7" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text62" Left="56.7" Width="255.15" Height="56.7" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text67" Left="311.85" Width="189" Height="18.9" Border.Lines="All" Text="ЛС и ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text68" Left="500.85" Width="189" Height="18.9" Border.Lines="All" Text="ЛС без ПУ-норма" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text69" Left="689.85" Width="189" Height="18.9" Border.Lines="All" Text="ОДН" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text70" Left="878.85" Width="189" Height="18.9" Border.Lines="All" Text="Всего по дому" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text71" Left="406.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <RichObject Name="Rich16" Left="311.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich18" Left="500.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich19" Left="689.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich20" Left="878.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <TextObject Name="Text72" Left="595.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text73" Left="784.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text74" Left="973.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data2" Top="110.35" Width="1084.86" Height="18.9" DataSource="Q_master1">
+      <TextObject Name="Text106" Left="18.9" Width="37.8" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text107" Left="56.7" Width="255.15" Height="18.9" Border.Lines="All" Text="ул. [Q_master1.ulica] д.[Q_master1.idom][Q_master1.nkor]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text108" Left="406.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master1.n_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text109" Left="311.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master1.r_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text111" Left="500.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master1.r]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text112" Left="595.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master1.n]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text113" Left="689.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master1.r_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text114" Left="784.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master1.n_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text201" Left="878.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Q_master1.r_pu]+[Q_master1.r]+[Q_master1.r_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text202" Left="973.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Q_master1.n_pu]+[Q_master1.n]+[Q_master1.n_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary2" Top="132.45" Width="1084.86" Height="18.9">
+      <TextObject Name="Text117" Left="18.9" Width="292.95" Height="18.9" Border.Lines="All" Text="Итого:" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text118" Left="406.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_n_pu_1]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text119" Left="311.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_r_pu_1]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text121" Left="500.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_r_1]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text122" Left="595.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_n_1]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text123" Left="689.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_r_odn_1]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text124" Left="784.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_n_odn_1]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text203" Left="878.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Total_r_pu_1]+[Total_r_1]+[Total_r_odn_1])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text204" Left="973.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Total_n_pu_1]+[Total_n_1]+[Total_n_odn_1])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter2" Top="154.55" Width="1084.86" Height="37.8">
+      <TextObject Name="Text127" Left="963.9" Top="9.45" Width="94.5" Height="18.9" Text="[Page#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text128" Left="28.35" Top="9.45" Width="935.55" Height="18.9" Text="Наименование отчета: 3.66 [rep_name]" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page3" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle3" Width="1084.86" Height="47.25">
+      <TextObject Name="Text129" Left="151.2" Top="9.45" Width="746.55" Height="37.8" Text="3.66 [rep_name2] за [month][year] г." HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text130" Left="897.75" Top="9.45" Width="94.5" Height="18.9" Text="Дата печати:" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text131" Left="992.25" Top="9.45" Width="66.15" Height="18.9" Text="[dat]" Font="Arial, 7pt"/>
+      <TextObject Name="Text132" Left="897.75" Top="28.35" Width="94.5" Height="18.9" Text="Время печати:" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text133" Left="992.25" Top="28.35" Width="66.15" Height="18.9" Text="[time]" Font="Arial, 7pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader3" Top="50.45" Width="1084.86" Height="56.7">
+      <TextObject Name="Text140" Left="406.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <RichObject Name="Rich21" Left="311.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich22" Left="500.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich23" Left="689.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich24" Left="878.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <TextObject Name="Text141" Left="595.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text142" Left="784.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text143" Left="973.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text134" Left="18.9" Width="37.8" Height="56.7" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text135" Left="56.7" Width="255.15" Height="56.7" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text136" Left="311.85" Width="189" Height="18.9" Border.Lines="All" Text="ЛС и ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text137" Left="500.85" Width="189" Height="18.9" Border.Lines="All" Text="ЛС без ПУ-норма" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text138" Left="689.85" Width="189" Height="18.9" Border.Lines="All" Text="ОДН" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text139" Left="878.85" Width="189" Height="18.9" Border.Lines="All" Text="Всего по дому" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data3" Top="110.35" Width="1084.86" Height="18.9" DataSource="Q_master2">
+      <TextObject Name="Text144" Left="18.9" Width="37.8" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text145" Left="56.7" Width="255.15" Height="18.9" Border.Lines="All" Text="ул. [Q_master2.ulica] д.[Q_master2.idom][Q_master2.nkor]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text146" Left="406.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master2.n_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text147" Left="311.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master2.r_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text148" Left="500.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master2.r]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text149" Left="595.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master2.n]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text150" Left="689.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master2.r_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text151" Left="784.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master2.n_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text205" Left="878.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Q_master2.r_pu]+[Q_master2.r]+[Q_master2.r_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text206" Left="973.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Q_master2.n_pu]+[Q_master2.n]+[Q_master2.n_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary3" Top="132.45" Width="1084.86" Height="19.05">
+      <TextObject Name="Text155" Left="18.9" Top="0.15" Width="292.95" Height="18.9" Border.Lines="All" Text="Итого:" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text156" Left="406.35" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_n_pu_2]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text157" Left="311.85" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_r_pu_2]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text158" Left="500.85" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_r_2]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text159" Left="595.35" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_n_2]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text160" Left="689.85" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_r_odn_2]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text161" Left="784.35" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_n_odn_2]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text207" Left="878.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Total_r_pu_2]+[Total_r_2]+[Total_r_odn_2])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text208" Left="973.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Total_n_pu_2]+[Total_n_2]+[Total_n_odn_2])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter3" Top="154.7" Width="1084.86" Height="37.8">
+      <TextObject Name="Text163" Left="963.9" Top="9.45" Width="94.5" Height="18.9" Text="[Page#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text164" Left="28.35" Top="9.45" Width="935.55" Height="18.9" Text="Наименование отчета: 3.66 [rep_name]" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page4" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle4" Width="1084.86" Height="47.25">
+      <TextObject Name="Text165" Left="151.2" Top="9.45" Width="746.55" Height="37.8" Text="3.66 [rep_name3] за [month][year] г." HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text166" Left="897.75" Top="9.45" Width="94.5" Height="18.9" Text="Дата печати:" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text167" Left="992.25" Top="9.45" Width="66.15" Height="18.9" Text="[dat]" Font="Arial, 7pt"/>
+      <TextObject Name="Text168" Left="897.75" Top="28.35" Width="94.5" Height="18.9" Text="Время печати:" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text169" Left="992.25" Top="28.35" Width="66.15" Height="18.9" Text="[time]" Font="Arial, 7pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader4" Top="50.45" Width="1084.86" Height="56.7">
+      <TextObject Name="Text170" Left="18.9" Width="37.8" Height="56.7" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text171" Left="56.7" Width="255.15" Height="56.7" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text172" Left="311.85" Width="189" Height="18.9" Border.Lines="All" Text="ЛС и ПУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text173" Left="500.85" Width="189" Height="18.9" Border.Lines="All" Text="ЛС без ПУ-норма" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text174" Left="689.85" Width="189" Height="18.9" Border.Lines="All" Text="ОДН" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text175" Left="878.85" Width="189" Height="18.9" Border.Lines="All" Text="Всего по дому" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text176" Left="406.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <RichObject Name="Rich25" Left="311.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich26" Left="500.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich27" Left="689.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich28" Left="878.85" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fnil\fcharset204{\*\fname Arial;}Arial CYR;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;\viewkind4\uc1\pard\qc\b\f0\fs10\par&#13;&#10;\fs16\'d0\'e0\'f1\'f5\'ee\'e4 \'ec\up6 3\b0\up0\f1\fs28\par&#13;&#10;}&#13;&#10;"/>
+      <TextObject Name="Text177" Left="595.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text178" Left="784.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text179" Left="973.35" Top="18.9" Width="94.5" Height="37.8" Border.Lines="All" Text="Начисленно руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data4" Top="110.35" Width="1084.86" Height="18.9" DataSource="Q_master3">
+      <TextObject Name="Text180" Left="18.9" Width="37.8" Height="18.9" Border.Lines="All" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text181" Left="56.7" Width="255.15" Height="18.9" Border.Lines="All" Text="[Q_master3.ttype]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text182" Left="406.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master3.n_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text183" Left="311.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master3.r_pu]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text184" Left="500.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master3.r]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text185" Left="595.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master3.n]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text186" Left="689.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master3.r_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text187" Left="784.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[Q_master3.n_odn]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text209" Left="878.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Q_master3.r_pu]+[Q_master3.r]+[Q_master3.r_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text210" Left="973.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Q_master3.n_pu]+[Q_master3.n]+[Q_master3.n_odn])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary4" Top="132.45" Width="1084.86" Height="19.05">
+      <TextObject Name="Text191" Left="18.9" Top="0.15" Width="292.95" Height="18.9" Border.Lines="All" Text="Итого:" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text192" Left="406.35" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_n_pu_3]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text193" Left="311.85" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_r_pu_3]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text194" Left="500.85" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_r_3]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text195" Left="595.35" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_n_3]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text196" Left="689.85" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_r_odn_3]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text197" Left="784.35" Top="0.15" Width="94.5" Height="18.9" Border.Lines="All" Text="[Total_n_odn_3]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text211" Left="878.85" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Total_r_pu_3]+[Total_r_3]+[Total_r_odn_3])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text212" Left="973.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[ToDecimal([Total_n_pu_3]+[Total_n_3]+[Total_n_odn_3])]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter4" Top="154.7" Width="1084.86" Height="37.8">
+      <TextObject Name="Text199" Left="963.9" Top="9.45" Width="94.5" Height="18.9" Text="[Page#]" Font="Arial, 8pt"/>
+      <TextObject Name="Text200" Left="28.35" Top="9.45" Width="935.55" Height="18.9" Text="Наименование отчета: 3.66 [rep_name]" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

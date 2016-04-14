@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormatLibrary", "FormatLibrary\FormatLibrary.csproj", "{751C8FCA-2D97-4BAD-BCD6-7C05DDFDB016}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F7B16652-F7ED-4997-9141-608FEABA9778}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Format.Load", "Format.Load\Format.Load.csproj", "{2747414E-FE7F-4CDC-B760-574930C92B7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormatForm", "FormatForm\FormatForm.csproj", "{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template", "Template\Template.csproj", "{B2EB480A-4B0B-4CE5-A068-1354A5C7919B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpandableGridView", "TreeGridView\ExpandableGridView.csproj", "{2EFE526F-79B3-49BC-9575-A7B258C59BB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BF8A05C4-ECF2-429E-B8B1-AD0070438CBC}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{751C8FCA-2D97-4BAD-BCD6-7C05DDFDB016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751C8FCA-2D97-4BAD-BCD6-7C05DDFDB016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751C8FCA-2D97-4BAD-BCD6-7C05DDFDB016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751C8FCA-2D97-4BAD-BCD6-7C05DDFDB016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2747414E-FE7F-4CDC-B760-574930C92B7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2747414E-FE7F-4CDC-B760-574930C92B7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2747414E-FE7F-4CDC-B760-574930C92B7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2747414E-FE7F-4CDC-B760-574930C92B7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE639A75-F34B-4A3D-A7EC-E4449CFC160C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2EB480A-4B0B-4CE5-A068-1354A5C7919B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2EB480A-4B0B-4CE5-A068-1354A5C7919B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2EB480A-4B0B-4CE5-A068-1354A5C7919B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2EB480A-4B0B-4CE5-A068-1354A5C7919B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EFE526F-79B3-49BC-9575-A7B258C59BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EFE526F-79B3-49BC-9575-A7B258C59BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EFE526F-79B3-49BC-9575-A7B258C59BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EFE526F-79B3-49BC-9575-A7B258C59BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

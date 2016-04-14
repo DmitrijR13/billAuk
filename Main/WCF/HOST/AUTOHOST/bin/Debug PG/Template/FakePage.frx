@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="07/24/2014 13:07:57" ReportInfo.CreatorVersion="2014.1.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+      
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {  
+      
+   
+              
+    }
+    
+
+  
+    
+    
+    
+    
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="0" BottomMargin="0" FirstPageSource="15" OtherPagesSource="15" Guides="1115.1,1115.1,1115.1,1115.1,1115.1">
+    <DataBand Name="Data1" Width="1103.76" Height="756" Border.Lines="All" BeforePrintEvent="Data1_BeforePrint">
+      <TextObject Name="Text1" Left="242.69" Top="287.71" Width="645.01" Height="240.1" Text="По выбранным ЛС отсутствуют начисления&#13;&#10;[header]" HorzAlign="Center" Font="Arial, 16pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/17/2010 10:22:58" ReportInfo.Modified="04/28/2011 11:27:19" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+   
+
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+    }
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5">
+    <DataBand Name="Data1" Width="1084.86" Height="723.98" Fill.Color="White" BeforePrintEvent="Data1_BeforePrint">
+      <TextObject Name="Text2" Left="839.16" Top="3.78" Width="103.95" Height="9.45" Text="[numkvit]" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text3" Left="980.91" Top="3.78" Width="75.6" Height="9.45" Text="[kindkvit]" Font="Times New Roman, 6pt"/>
+      <TextObject Name="Text4" Left="839.16" Top="13.23" Width="236.25" Height="18.9" Text="СЧЕТ-ИЗВЕЩЕНИЕ от [Data_print] г." Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text5" Left="831.89" Top="216.21" Width="56.7" Height="18.9" Text="Кассир" Font="Times New Roman, 10pt"/>
+      <BarcodeObject Name="Barcode1" Left="864.05" Top="145.13" Width="126.25" Height="49.5" Expression="[vars_small]" Text="123456789012" ShowText="false" Barcode="Code128" Barcode.AutoEncode="true"/>
+      <TextObject Name="Text16" Left="839.27" Top="32.13" Width="238.14" Height="107.35" Text="[sb1]&#13;&#10;" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text58" Left="831.6" Top="240.03" Width="240.03" Height="150.47" Text="Получатель:&#13;&#10;[poluch] &#13;&#10;&#13;&#10;Лицевой счет: [Lschet] от [Data_print] г.&#13;&#10;Адрес: [Adres]&#13;&#10;Плательщик:&#13;&#10;[Platelchik]" Font="Times New Roman, 9pt" HtmlTags="true"/>
+      <TextObject Name="Text60" Left="829.71" Top="393.91" Width="117.18" Height="54.81" Text="Сумма к оплате : &#13;&#10;[sum_charge] руб  за [months] г.&#13;&#10;" Font="Times New Roman, 9pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text24" Left="832.36" Top="689.07" Width="170.1" Height="18.9" Text="Подпись _______________" VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <BarcodeObject Name="Barcode2" Left="832" Top="484.6" Width="46" Height="54.81" Expression="[vars]" Text="0" ShowText="false" Zoom="0.8" Barcode="Code128" Barcode.AutoEncode="true"/>
+      <TextObject Name="Text11" Left="13.99" Top="7.56" Width="309.96" Height="18.9" Text="СЧЕТ-КВИТАНЦИЯ от [Data_print] г.   [kindkvit] ПСС [pss]" VertAlign="Bottom" Font="Times New Roman, 7pt, style=Bold"/>
+      <TextObject Name="Text15" Left="15.12" Top="32.13" Width="803.25" Height="34.02" Text="Лицевой счет &lt;b&gt;[Lschet]&lt;/b&gt; Начислено: &lt;b&gt;[sum_charge]&lt;/b&gt; руб. за &lt;b&gt;[months] г.&lt;/b&gt; Этаж: &lt;b&gt;[et]&lt;/b&gt;  Подъезд:  &lt;b&gt;[pod]&lt;/b&gt;    Квартир на лестничной площадке: &lt;b&gt;[kvonl]&lt;/b&gt;&#13;&#10;Плательщик &lt;b&gt;[Platelchik]&lt;/b&gt; Количество жильцов: &lt;b&gt;[kolgil]&lt;/b&gt; Временно выбывших: &lt;b&gt;[kolvgil]&lt;/b&gt; Общая площадь: &lt;b&gt;[kv_pl]&lt;/b&gt; кв.м.  Комфортность: &lt;b&gt;[komf]&lt;/b&gt;" Font="Times New Roman, 8pt" HtmlTags="true"/>
+      <TextObject Name="Text98" Left="324.35" Top="7.2" Width="45.36" Height="18.9" Text="Адрес: " HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text99" Left="369.71" Top="7.2" Width="370.44" Height="18.9" Text="[Adres]" VertAlign="Bottom" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text19" Left="32.02" Top="73.26" Width="193.47" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Услуги&#13;&#10;&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text101" Left="225.92" Top="73.25" Width="68.8" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Долг(+), переплата(-) (руб.)&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text102" Left="294.72" Top="73.25" Width="56.7" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Оплаты (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text103" Left="426.92" Top="73.25" Width="37.8" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Тариф (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text104" Left="525.06" Top="73.25" Width="69.93" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Недопоставка услуг  в текущем месяце (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text105" Left="464.58" Top="73.25" Width="60.48" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Начислено за месяц (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text106" Left="595.23" Top="73.25" Width="71.82" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Начислено за месяц, с учетом недопоставки (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text107" Left="666.95" Top="73.25" Width="64.26" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Перерасчет (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text108" Left="731.21" Top="73.25" Width="60.48" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Начислено к оплате (руб.)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text109" Left="32.02" Top="115.4" Width="193.47" Height="430.92" Border.Lines="All" Border.Width="0.25" CanBreak="false" Text="[digmas_1]&#13;&#10;[digmas_15]&#13;&#10;[digmas_29]&#13;&#10;[digmas_43]&#13;&#10;[digmas_57]&#13;&#10;[digmas_71]&#13;&#10;[digmas_85]&#13;&#10;[digmas_99]&#13;&#10;[digmas_113]&#13;&#10;[digmas_127]&#13;&#10;[digmas_141]&#13;&#10;[digmas_155]&#13;&#10;[digmas_169]&#13;&#10;[digmas_183]&#13;&#10;[digmas_197]&#13;&#10;[digmas_211]&#13;&#10;[digmas_225]&#13;&#10;[digmas_239]&#13;&#10;[digmas_253]&#13;&#10;[digmas_267]&#13;&#10;[digmas_281]&#13;&#10;[digmas_295]&#13;&#10;[digmas_309]&#13;&#10;[digmas_323]&#13;&#10;[digmas_337]&#13;&#10;[digmas_351]&#13;&#10;[digmas_365]&#13;&#10;[digmas_379]&#13;&#10;[digmas_393]&#13;&#10;[digmas_407]&#13;&#10;[digmas_421]&#13;&#10;[digmas_435]&#13;&#10;[digmas_449]&#13;&#10;[digmas_463]&#13;&#10;[digmas_477]&#13;&#10;" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text110" Left="225.92" Top="115.39" Width="68.8" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_2]&#13;&#10;[digmas_16]&#13;&#10;[digmas_30]&#13;&#10;[digmas_44]&#13;&#10;[digmas_58]&#13;&#10;[digmas_72]&#13;&#10;[digmas_86]&#13;&#10;[digmas_100]&#13;&#10;[digmas_114]&#13;&#10;[digmas_128]&#13;&#10;[digmas_142]&#13;&#10;[digmas_156]&#13;&#10;[digmas_170]&#13;&#10;[digmas_184]&#13;&#10;[digmas_198]&#13;&#10;[digmas_212]&#13;&#10;[digmas_226]&#13;&#10;[digmas_240]&#13;&#10;[digmas_254]&#13;&#10;[digmas_268]&#13;&#10;[digmas_282]&#13;&#10;[digmas_296]&#13;&#10;[digmas_310]&#13;&#10;[digmas_324]&#13;&#10;[digmas_338]&#13;&#10;[digmas_352]&#13;&#10;[digmas_366]&#13;&#10;[digmas_380]&#13;&#10;[digmas_394]&#13;&#10;[digmas_408]&#13;&#10;[digmas_422]&#13;&#10;[digmas_436]&#13;&#10;[digmas_450]&#13;&#10;[digmas_464]&#13;&#10;[digmas_478]&#13;&#10;" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 7pt">
+        <Formats>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text111" Left="294.72" Top="115.39" Width="56.7" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_3]&#13;&#10;[digmas_17]&#13;&#10;[digmas_31]&#13;&#10;[digmas_45]&#13;&#10;[digmas_59]&#13;&#10;[digmas_73]&#13;&#10;[digmas_87]&#13;&#10;[digmas_101]&#13;&#10;[digmas_115]&#13;&#10;[digmas_129]&#13;&#10;[digmas_143]&#13;&#10;[digmas_157]&#13;&#10;[digmas_171]&#13;&#10;[digmas_185]&#13;&#10;[digmas_199]&#13;&#10;[digmas_213]&#13;&#10;[digmas_227]&#13;&#10;[digmas_241]&#13;&#10;[digmas_255]&#13;&#10;[digmas_269]&#13;&#10;[digmas_283]&#13;&#10;[digmas_297]&#13;&#10;[digmas_311]&#13;&#10;[digmas_325]&#13;&#10;[digmas_339]&#13;&#10;[digmas_353]&#13;&#10;[digmas_367]&#13;&#10;[digmas_381]&#13;&#10;[digmas_395]&#13;&#10;[digmas_409]&#13;&#10;[digmas_423]&#13;&#10;[digmas_437]&#13;&#10;[digmas_451]&#13;&#10;[digmas_465]&#13;&#10;[digmas_479]&#13;&#10;" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 7pt">
+        <Formats>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text112" Left="426.92" Top="115.39" Width="37.8" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_5]&#13;&#10;[digmas_19]&#13;&#10;[digmas_33]&#13;&#10;[digmas_47]&#13;&#10;[digmas_61]&#13;&#10;[digmas_75]&#13;&#10;[digmas_89]&#13;&#10;[digmas_103]&#13;&#10;[digmas_117]&#13;&#10;[digmas_131]&#13;&#10;[digmas_145]&#13;&#10;[digmas_159]&#13;&#10;[digmas_173]&#13;&#10;[digmas_187]&#13;&#10;[digmas_201]&#13;&#10;[digmas_215]&#13;&#10;[digmas_229]&#13;&#10;[digmas_243]&#13;&#10;[digmas_257]&#13;&#10;[digmas_271]&#13;&#10;[digmas_285]&#13;&#10;[digmas_299]&#13;&#10;[digmas_313]&#13;&#10;[digmas_327]&#13;&#10;[digmas_341]&#13;&#10;[digmas_355]&#13;&#10;[digmas_369]&#13;&#10;[digmas_383]&#13;&#10;[digmas_397]&#13;&#10;[digmas_411]&#13;&#10;[digmas_425]&#13;&#10;[digmas_439]&#13;&#10;[digmas_453]&#13;&#10;[digmas_467]&#13;&#10;[digmas_481]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text113" Left="525.06" Top="115.39" Width="69.93" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_6]&#13;&#10;[digmas_20]&#13;&#10;[digmas_34]&#13;&#10;[digmas_48]&#13;&#10;[digmas_62]&#13;&#10;[digmas_76]&#13;&#10;[digmas_90]&#13;&#10;[digmas_104]&#13;&#10;[digmas_118]&#13;&#10;[digmas_132]&#13;&#10;[digmas_146]&#13;&#10;[digmas_160]&#13;&#10;[digmas_174]&#13;&#10;[digmas_188]&#13;&#10;[digmas_202]&#13;&#10;[digmas_216]&#13;&#10;[digmas_230]&#13;&#10;[digmas_244]&#13;&#10;[digmas_258]&#13;&#10;[digmas_272]&#13;&#10;[digmas_286]&#13;&#10;[digmas_300]&#13;&#10;[digmas_314]&#13;&#10;[digmas_328]&#13;&#10;[digmas_342]&#13;&#10;[digmas_356]&#13;&#10;[digmas_370]&#13;&#10;[digmas_384]&#13;&#10;[digmas_398]&#13;&#10;[digmas_412]&#13;&#10;[digmas_426]&#13;&#10;[digmas_440]&#13;&#10;[digmas_454]&#13;&#10;[digmas_468]&#13;&#10;[digmas_482]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text114" Left="464.58" Top="115.39" Width="60.48" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_7]&#13;&#10;[digmas_21]&#13;&#10;[digmas_35]&#13;&#10;[digmas_49]&#13;&#10;[digmas_63]&#13;&#10;[digmas_77]&#13;&#10;[digmas_91]&#13;&#10;[digmas_105]&#13;&#10;[digmas_119]&#13;&#10;[digmas_133]&#13;&#10;[digmas_147]&#13;&#10;[digmas_161]&#13;&#10;[digmas_175]&#13;&#10;[digmas_189]&#13;&#10;[digmas_203]&#13;&#10;[digmas_217]&#13;&#10;[digmas_231]&#13;&#10;[digmas_245]&#13;&#10;[digmas_259]&#13;&#10;[digmas_273]&#13;&#10;[digmas_287]&#13;&#10;[digmas_301]&#13;&#10;[digmas_315]&#13;&#10;[digmas_329]&#13;&#10;[digmas_343]&#13;&#10;[digmas_357]&#13;&#10;[digmas_371]&#13;&#10;[digmas_385]&#13;&#10;[digmas_399]&#13;&#10;[digmas_413]&#13;&#10;[digmas_427]&#13;&#10;[digmas_441]&#13;&#10;[digmas_455]&#13;&#10;[digmas_469]&#13;&#10;[digmas_483]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text115" Left="595.23" Top="115.39" Width="71.82" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_12]&#13;&#10;[digmas_26]&#13;&#10;[digmas_40]&#13;&#10;[digmas_54]&#13;&#10;[digmas_68]&#13;&#10;[digmas_82]&#13;&#10;[digmas_96]&#13;&#10;[digmas_110]&#13;&#10;[digmas_124]&#13;&#10;[digmas_138]&#13;&#10;[digmas_152]&#13;&#10;[digmas_166]&#13;&#10;[digmas_180]&#13;&#10;[digmas_194]&#13;&#10;[digmas_208]&#13;&#10;[digmas_222]&#13;&#10;[digmas_236]&#13;&#10;[digmas_250]&#13;&#10;[digmas_264]&#13;&#10;[digmas_278]&#13;&#10;[digmas_292]&#13;&#10;[digmas_306]&#13;&#10;[digmas_320]&#13;&#10;[digmas_334]&#13;&#10;[digmas_348]&#13;&#10;[digmas_362]&#13;&#10;[digmas_376]&#13;&#10;[digmas_390]&#13;&#10;[digmas_404]&#13;&#10;[digmas_418]&#13;&#10;[digmas_432]&#13;&#10;[digmas_446]&#13;&#10;[digmas_460]&#13;&#10;[digmas_474]&#13;&#10;[digmas_488]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text116" Left="666.95" Top="115.39" Width="64.26" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_11]&#13;&#10;[digmas_25]&#13;&#10;[digmas_39]&#13;&#10;[digmas_53]&#13;&#10;[digmas_67]&#13;&#10;[digmas_81]&#13;&#10;[digmas_95]&#13;&#10;[digmas_109]&#13;&#10;[digmas_123]&#13;&#10;[digmas_137]&#13;&#10;[digmas_151]&#13;&#10;[digmas_165]&#13;&#10;[digmas_179]&#13;&#10;[digmas_193]&#13;&#10;[digmas_207]&#13;&#10;[digmas_221]&#13;&#10;[digmas_235]&#13;&#10;[digmas_249]&#13;&#10;[digmas_263]&#13;&#10;[digmas_277]&#13;&#10;[digmas_291]&#13;&#10;[digmas_305]&#13;&#10;[digmas_319]&#13;&#10;[digmas_333]&#13;&#10;[digmas_347]&#13;&#10;[digmas_361]&#13;&#10;[digmas_375]&#13;&#10;[digmas_389]&#13;&#10;[digmas_403]&#13;&#10;[digmas_417]&#13;&#10;[digmas_431]&#13;&#10;[digmas_445]&#13;&#10;[digmas_459]&#13;&#10;[digmas_473]&#13;&#10;[digmas_487]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text117" Left="731.21" Top="115.39" Width="60.48" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_14]&#13;&#10;[digmas_28]&#13;&#10;[digmas_42]&#13;&#10;[digmas_56]&#13;&#10;[digmas_70]&#13;&#10;[digmas_84]&#13;&#10;[digmas_98]&#13;&#10;[digmas_112]&#13;&#10;[digmas_126]&#13;&#10;[digmas_140]&#13;&#10;[digmas_154]&#13;&#10;[digmas_168]&#13;&#10;[digmas_182]&#13;&#10;[digmas_196]&#13;&#10;[digmas_210]&#13;&#10;[digmas_224]&#13;&#10;[digmas_238]&#13;&#10;[digmas_252]&#13;&#10;[digmas_266]&#13;&#10;[digmas_280]&#13;&#10;[digmas_294]&#13;&#10;[digmas_308]&#13;&#10;[digmas_322]&#13;&#10;[digmas_336]&#13;&#10;[digmas_350]&#13;&#10;[digmas_364]&#13;&#10;[digmas_378]&#13;&#10;[digmas_392]&#13;&#10;[digmas_406]&#13;&#10;[digmas_420]&#13;&#10;[digmas_434]&#13;&#10;[digmas_448]&#13;&#10;[digmas_462]&#13;&#10;[digmas_476]&#13;&#10;[digmas_490]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text154" Left="15.12" Top="73.15" Width="17.01" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text155" Left="15.12" Top="115.29" Width="17.01" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[num_1]&#13;&#10;[num_2]&#13;&#10;[num_3]&#13;&#10;[num_4]&#13;&#10;[num_5]&#13;&#10;[num_6]&#13;&#10;[num_7]&#13;&#10;[num_8]&#13;&#10;[num_9]&#13;&#10;[num_10]&#13;&#10;[num_11]&#13;&#10;[num_12]&#13;&#10;[num_13]&#13;&#10;[num_14]&#13;&#10;[num_15]&#13;&#10;[num_16]&#13;&#10;[num_17]&#13;&#10;[num_18]&#13;&#10;[num_19]&#13;&#10;[num_20]&#13;&#10;[num_21]&#13;&#10;[num_22]&#13;&#10;[num_23]&#13;&#10;[num_24]&#13;&#10;[num_25]&#13;&#10;[num_26]&#13;&#10;[num_27]&#13;&#10;[num_28]&#13;&#10;[num_29]&#13;&#10;[num_30]&#13;&#10;[num_31]&#13;&#10;[num_32]&#13;&#10;[num_33]&#13;&#10;[num_34]&#13;&#10;[num_35]" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text156" Left="351.42" Top="73.14" Width="75.6" Height="42.3" Border.Lines="All" Border.Width="0.25" Text="Единица измерения (по нормативу / приборам учета)" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text157" Left="351.42" Top="115.28" Width="75.6" Height="430.92" Border.Lines="All" Border.Width="0.25" Text="[digmas_4]&#13;&#10;[digmas_18]&#13;&#10;[digmas_32]&#13;&#10;[digmas_46]&#13;&#10;[digmas_60]&#13;&#10;[digmas_74]&#13;&#10;[digmas_88]&#13;&#10;[digmas_102]&#13;&#10;[digmas_116]&#13;&#10;[digmas_130]&#13;&#10;[digmas_144]&#13;&#10;[digmas_158]&#13;&#10;[digmas_172]&#13;&#10;[digmas_186]&#13;&#10;[digmas_200]&#13;&#10;[digmas_214]&#13;&#10;[digmas_228]&#13;&#10;[digmas_242]&#13;&#10;[digmas_256]&#13;&#10;[digmas_270]&#13;&#10;[digmas_284]&#13;&#10;[digmas_298]&#13;&#10;[digmas_312]&#13;&#10;[digmas_326]&#13;&#10;[digmas_340]&#13;&#10;[digmas_354]&#13;&#10;[digmas_368]&#13;&#10;[digmas_382]&#13;&#10;[digmas_396]&#13;&#10;[digmas_410]&#13;&#10;[digmas_424]&#13;&#10;[digmas_438]&#13;&#10;[digmas_452]&#13;&#10;[digmas_466]&#13;&#10;[digmas_480]&#13;&#10;" Format="Number" Format.UseLocale="false" Format.DecimalDigits="3" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text158" Left="32.02" Top="546.21" Width="193.09" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="Итого" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text159" Left="225.92" Top="546.2" Width="68.8" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[sum_dolg]" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text160" Left="294.83" Top="546.2" Width="56.7" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[sum_money]" Format="Number" Format.UseLocale="true" HorzAlign="Center" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text162" Left="525.17" Top="546.2" Width="69.93" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[sum_nedop]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text163" Left="464.69" Top="546.2" Width="60.48" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[rsum_tarif]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text164" Left="595.34" Top="546.2" Width="71.82" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[sum_tarif]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text165" Left="667.06" Top="546.2" Width="64.26" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[reval]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text166" Left="731.32" Top="546.2" Width="60.48" Height="15.12" Border.Lines="All" Border.Width="0.25" Text="[sum_charge]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt"/>
+      <LineObject Name="Line1" Left="822.15" Height="708.75" Border.Color="DarkGray" Border.Style="DashDot" Border.Width="1.5"/>
+      <LineObject Name="Line2" Left="831.6" Top="236.25" Width="245.7" Border.Width="0.5"/>
+      <TextObject Name="Text1" Left="951" Top="413.03" Width="122.85" Height="37.8" Border.Lines="All" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text6" Left="965.9" Top="394.13" Width="94.5" Height="18.9" Text="Оплачиваю" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="549.23" Top="592.71" Width="173.88" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text167" Left="549.23" Top="611.61" Width="173.88" Height="57.43" Border.Lines="All" Border.Width="0.25" Text="1. Горячая вода (Куб.метр)&#13;&#10;2. Отопление (Гкал)&#13;&#10;3. Холодная вода (Куб.метр)&#13;&#10;4. Электроснабжение (Квт/ч)&#13;&#10;5. Ноч. электроснаб. (Квт/ч)" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text168" Left="723.22" Top="611.61" Width="69.17" Height="57.43" Border.Lines="All" Border.Width="0.25" Text="[gv]&#13;&#10;[otop]&#13;&#10;[hv]&#13;&#10;[el]&#13;&#10;[ni]" HorzAlign="Right" Font="Times New Roman, 7pt">
+        <Formats>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+          <NumberFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text169" Left="723.1" Top="592.71" Width="69.17" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="Расход" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text8" Left="40.8" Top="633.91" Width="34.76" Height="16.24" Text="М.П." HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text9" Left="9.05" Top="656.97" Width="147.38" Height="18.9" Text="Подпись ______________" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text10" Left="832.39" Top="540.15" Width="225.29" Height="20.03" Text="[vars]" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text170" Left="863.7" Top="195.41" Width="128.08" Height="18.9" Text="[vars_small]" HorzAlign="Center" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text12" Left="548.45" Top="575.33" Width="243.44" Height="15.49" Text="Фактическое потребление" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+</Report>

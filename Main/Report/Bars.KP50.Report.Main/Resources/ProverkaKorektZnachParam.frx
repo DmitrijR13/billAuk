@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/22/2014 17:15:09" ReportInfo.Modified="12/23/2014 16:28:51" ReportInfo.CreatorVersion="2013.1.3.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="name_prm" DataType="System.String" PropName="Column"/>
+      <Column Name="type_prm" DataType="System.String" PropName="Column"/>
+      <Column Name="val_prm" DataType="System.String" PropName="Column"/>
+      <Column Name="name_table_prm" DataType="System.String" PropName="Column"/>
+      <Column Name="nzp_prm" DataType="System.Int32" PropName="Column"/>
+      <Column Name="nzp" DataType="System.Int32" PropName="Column"/>
+      <Column Name="nzp_key" DataType="System.Int32" PropName="Column"/>
+      <Column Name="error" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="0" OtherPagesSource="0" Guides="1047.5" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="56.7" CanGrow="true">
+      <TextObject Name="Text1" Width="859.95" Height="37.8" Text="Проверка корректности значений параметров в БД" HorzAlign="Center" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <TextObject Name="Text2" Left="859.95" Width="94.5" Height="37.8" Text="Дата:&#13;&#10;Время:" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="954.45" Width="93.05" Height="37.8" Text="[DATE]&#13;&#10;[TIME]" Font="Arial, 8pt"/>
+      <TextObject Name="Text4" Top="37.8" Width="1047.5" Height="18.9" CanGrow="true" Text="[headerParams]" VertAlign="Center"/>
+      <ChildBand Name="Child1" Top="59.9" Width="1047.06" Height="37.8">
+        <TextObject Name="Text5" Width="160.65" Height="37.8" Border.Lines="All" Text="Название параметра" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text6" Left="160.65" Width="94.5" Height="37.8" Border.Lines="All" Text="Тип параметра" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text7" Left="255.15" Width="198.45" Height="37.8" Border.Lines="All" Text="Значение параметра" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text8" Left="453.6" Width="122.85" Height="37.8" Border.Lines="All" Text="Полное название таблицы" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text9" Left="576.45" Width="94.5" Height="37.8" Border.Lines="All" Text="ID параметра" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text10" Left="670.95" Width="94.5" Height="37.8" Border.Lines="All" Text="ID объекта" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text11" Left="765.45" Width="94.5" Height="37.8" Border.Lines="All" Text="ID записи" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text12" Left="859.95" Width="187.55" Height="37.8" Border.Lines="All" Text="Тип ошибки" HorzAlign="Center" VertAlign="Center"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="100.9" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text13" Width="160.65" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.name_prm]" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="160.65" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.type_prm]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text15" Left="255.15" Width="198.45" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.val_prm]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text16" Left="453.6" Width="122.85" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.name_table_prm]" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="576.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nzp_prm]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text18" Left="670.95" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nzp]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text19" Left="765.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nzp_key]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text20" Left="859.95" Width="187.55" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.error]" VertAlign="Center"/>
+    </DataBand>
+  </ReportPage>
+</Report>

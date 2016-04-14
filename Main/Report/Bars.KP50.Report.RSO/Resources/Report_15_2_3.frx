@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/04/2014 16:56:45" ReportInfo.Modified="04/07/2014 16:05:06" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary/>
+  <ReportPage Name="Page1">
+    <DataBand Name="Data1" Width="718.2" Height="198.45">
+      <TextObject Name="Text1" Width="718.2" Height="66.15" Text="Справка" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 16pt, style=Bold"/>
+      <TextObject Name="Text2" Top="66.15" Width="718.2" Height="85.05" Text="	Выдана гр. [name_person], дата рождения [birthday], в том, что он(она) зарегистрирован(а) с [dat_reg] по адресу: [adress]." Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text3" Top="151.2" Width="718.2" Height="28.35" Text="[date]" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text4" Top="179.55" Width="170.1" Height="18.9" Text="[post_pasport]" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text5" Left="170.1" Top="179.55" Width="103.95" Height="18.9" Border.Lines="Bottom" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text6" Left="274.05" Top="179.55" Width="444.15" Height="18.9" Text="[name_pasport]" Padding="10, 0, 2, 0" Font="Times New Roman, 12pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8F1F604-033C-4C83-ABC5-7996065E3240}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bars.KP50.DB.Nebo</RootNamespace>
+    <AssemblyName>Bars.KP50.DB.Nebo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\NeboSaldo.ifmx.cs" />
+    <Compile Include="Source\NeboSaldoDataConverter.cs" />
+    <Compile Include="Source\NeboSprav.ifmx.cs" />
+    <Compile Include="Source\NeboSpravDataConverter.cs" />
+    <Compile Include="Source\NeboUtils.cs" />
+    <Compile Include="Srv\NeboSaldo.srv.cs" />
+    <Compile Include="Srv\NeboSprav.srv.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DATA\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj">
+      <Project>{a09e0051-6b16-42b5-9840-8cb60b0729c7}</Project>
+      <Name>STCLINE.KP50.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\IFMX\Client\STCLINE.KP50.IFMX.Client.csproj">
+      <Project>{2ab80cea-d131-4e93-9b35-8f86dd474080}</Project>
+      <Name>STCLINE.KP50.IFMX.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\IFMX\Common\STCLINE.KP50.IFMX.Common.csproj">
+      <Project>{13faa6d8-da11-4392-bad2-c1640c172e01}</Project>
+      <Name>STCLINE.KP50.IFMX.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\IFMX\Kernel\STCLINE.KP50.IFMX.Kernel.csproj">
+      <Project>{51d199a0-a5bd-4eb3-a4cf-e5dd004d55f7}</Project>
+      <Name>STCLINE.KP50.IFMX.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WCF\CLIENT\CliKart\STCLINE.KP50.CliKart.csproj">
+      <Project>{bb38a0bd-a169-4bd5-8756-7f8682f235d8}</Project>
+      <Name>STCLINE.KP50.CliKart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bars.KP50.CLI.Nebo\Bars.KP50.CLI.Nebo.csproj">
+      <Project>{90821db0-d5cf-4247-82eb-e3d6ef2d5908}</Project>
+      <Name>Bars.KP50.CLI.Nebo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

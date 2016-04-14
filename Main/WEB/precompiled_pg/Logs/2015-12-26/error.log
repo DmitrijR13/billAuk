@@ -1,0 +1,144 @@
+26.12.2015 09:56:45 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 09:57:46 (ERROR): Поток 12 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 09:57:49 (ERROR): Поток 7 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 09:57:56 (ERROR): Поток 5 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 09:57:57 (ERROR): Поток 5 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 09:57:58 (ERROR): Поток 5 Ошибка GetOperDay
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 09:57:59 (ERROR): Поток 5 Ошибка GetArea 
+  The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 09:58:01 (ERROR): Поток 5 Ошибка GetGeu
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 09:58:02 (ERROR): Поток 5 Ошибка LoadTown
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 09:58:03 (ERROR): Поток 5 Ошибка ResYLoad
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 12:06:01 (ERROR): Поток 7 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 13:49:20 (ERROR): Поток 7 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.8969942'.
+. 
+26.12.2015 14:03:33 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:03:41 (ERROR): Поток 11 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:03:45 (ERROR): Поток 11 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:03:46 (ERROR): Поток 13 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:03:47 (ERROR): Поток 13 Ошибка GetUser
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:03:49 (ERROR): Поток 13 Ошибка GetOperDay
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:03:50 (ERROR): Поток 13 Ошибка GetArea 
+  The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:03:51 (ERROR): Поток 13 Ошибка GetGeu
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:03:52 (ERROR): Поток 13 Ошибка LoadTown
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:03:53 (ERROR): Поток 13 Ошибка ResYLoad
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:25:56 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+26.12.2015 14:33:14 (ERROR): Поток 17 Ошибка MakeOperation(CloseCalcMonth)
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9299960'.
+. 
+26.12.2015 14:33:15 (ERROR): Поток 17 Ошибка LoadCheckChMon 
+Could not connect to net.tcp://localhost:8008/srv/charge. The connection attempt lasted for a time span of 00:00:01.0250587. TCP error code 10061: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:8008. 
+. 
+26.12.2015 16:11:55 (ERROR): Поток 19 Ошибка MakeProtCalc() 
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9669982'.
+. 
+26.12.2015 16:13:52 (ERROR): Поток 18 Ошибка MakeProtCalc() 
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 16:17:35 (ERROR): Поток 5 Ошибка MakeProtCalc() 
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9649980'.
+. 
+26.12.2015 16:18:40 (ERROR): Поток 15 Ошибка MakeProtCalc() 
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9990000'.
+. 
+26.12.2015 16:19:39 (ERROR): Поток 15 Ошибка MakeProtCalc() 
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 16:20:42 (ERROR): Поток 8 Ошибка MakeProtCalc() 
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 16:30:06 (ERROR): Поток 13 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9689982'.
+. 
+26.12.2015 16:33:58 (ERROR): Поток 18 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 17:32:55 (ERROR): Поток 19 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9990000'.
+. 
+26.12.2015 18:47:29 (ERROR): Поток 8 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9990000'.
+. 
+26.12.2015 19:25:10 (ERROR): Поток 19 Ошибка MakeProtCalc() 
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9649980'.
+. 
+26.12.2015 19:28:30 (ERROR): Поток 11 Ошибка MakeProtCalc() 
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 19:33:25 (ERROR): Поток 19 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 20:14:22 (ERROR): Поток 14 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9609977'.
+. 
+26.12.2015 20:16:59 (ERROR): Поток 8 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 20:47:38 (ERROR): Поток 18 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9579975'.
+. 
+26.12.2015 20:48:51 (ERROR): Поток 18 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9969998'.
+. 
+26.12.2015 21:19:19 (ERROR): Поток 13 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9939996'.
+. 
+26.12.2015 21:22:45 (ERROR): Поток 9 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:25:00'.
+. 
+26.12.2015 21:33:50 (ERROR): Поток 14 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 21:41:15 (ERROR): Поток 19 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9989999'.
+. 
+26.12.2015 21:42:18 (ERROR): Поток 19 Ошибка MakeProtCalc() 
+ There was no endpoint listening at net.tcp://localhost:8008/srv/charge that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+. 
+26.12.2015 21:42:18 (ERROR): Поток 19 Ошибка CalcChargeLs  
+ There was no endpoint listening at net.tcp://localhost:8008/srv/charge that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+. 

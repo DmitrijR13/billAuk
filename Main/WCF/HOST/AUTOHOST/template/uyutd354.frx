@@ -1,0 +1,1014 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="10/19/2013 13:46:16" ReportInfo.CreatorVersion="2013.3.1.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+      int kommItogIndex =0;
+      int gilItogIndex =0;
+      
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {  
+       kommItogIndex = (int)Report.GetColumnValue(&quot;Q_master.kommItogIndex&quot;);
+       gilItogIndex = (int)Report.GetColumnValue(&quot;Q_master.gilItogIndex&quot;);
+      if ((kommItogIndex &gt; 0 )&amp; (kommItogIndex&lt;24))
+      {
+        TableRow tr = Table1.Rows[kommItogIndex+2];
+        for (int i = 1; i &lt; Table1.ColumnCount; i++) {
+          tr[i].Border.Lines = BorderLines.Bottom | BorderLines.Left | BorderLines.Right;
+          tr[i].Border.LeftLine.Width =(float)0.25;
+          tr[i].Border.RightLine.Width =(float)0.25;
+          tr[i].Border.BottomLine.Width =(float)0.25;
+        }
+          
+        
+      }
+   
+      if ((gilItogIndex &gt; 0 )&amp; (gilItogIndex&lt;24))
+      {
+        TableRow  tr = Table1.Rows[gilItogIndex+2];
+        for (int i = 1; i &lt; Table1.ColumnCount; i++) {
+          tr[i].Border.Lines = BorderLines.Bottom | BorderLines.Left | BorderLines.Right;
+          tr[i].Border.LeftLine.Width =(float)0.25;
+          tr[i].Border.RightLine.Width =(float)0.25;
+          tr[i].Border.BottomLine.Width =(float)0.25;
+        }
+      }
+              
+    }
+    
+
+  
+    
+    
+    
+    
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <DataBand Name="Data1" Width="1084.86" Height="748.44" BeforePrintEvent="Data1_BeforePrint" DataSource="Q_master">
+      <BarcodeObject Name="Barcode1" Left="850.83" Top="466.96" Width="112" Height="75.74" Expression="[Q_master.vars]" Text="00000000000000" Zoom="0.8" Barcode="Code128" Barcode.AutoEncode="true"/>
+      <TextObject Name="Text8" Left="41.58" Top="8" Width="869.4" Height="18.9" Text="С Ч Е Т действителен до [Q_master.datedestv] г." HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TableObject Name="Table1" Left="41.58" Top="26.46" Width="793.8" Height="428.7" ShiftMode="Never" CanBreak="false">
+        <TableColumn Name="Column84" Width="24.57"/>
+        <TableColumn Name="Column1" Width="175.77"/>
+        <TableColumn Name="Column85" Width="58.59"/>
+        <TableColumn Name="Column86" Width="43.47"/>
+        <TableColumn Name="Column87" Width="47.25"/>
+        <TableColumn Name="Column2" Width="47.25"/>
+        <TableColumn Name="Column88" Width="47.25"/>
+        <TableColumn Name="Column3" Width="35.91"/>
+        <TableColumn Name="Column4" Width="39.69"/>
+        <TableColumn Name="Column6" Width="49.14"/>
+        <TableColumn Name="Column7" Width="43.47"/>
+        <TableColumn Name="Column8" Width="39.69"/>
+        <TableColumn Name="Column83" Width="35.91"/>
+        <TableColumn Name="Column89" Width="51.03"/>
+        <TableColumn Name="Column11" Width="54.81"/>
+        <TableRow Name="Row150" Height="45.36">
+          <TableCell Name="Cell2896" Text="выписан за  &lt;b&gt;[Q_master.months]&lt;/b&gt; балансодержателем жилого помещения, расположенного в квартире №&lt;b&gt;[Q_master.kvnum]&lt;/b&gt;  дома № &lt;b&gt;[Q_master.numdom]&lt;/b&gt; &#13;&#10;по ул. &lt;b&gt;[Q_master.ulica]&lt;/b&gt; общей площадью &lt;b&gt;[Q_master.kv_pl]&lt;/b&gt; кв.м.  с количеством проживающих &lt;b&gt;[Q_master.kolgil]&lt;/b&gt; &#13;&#10;на квартиросъемщика (ответственного собственника) &lt;b&gt;[Q_master.fio]&lt;/b&gt;  , которому присвоен счет № &lt;b&gt;[Q_master.pkod]&lt;/b&gt;  за услуги:&#13;&#10;" Font="Times New Roman, 9pt" HtmlTags="true" ColSpan="15"/>
+          <TableCell Name="Cell2897" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2898" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2899" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2900" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2901" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2902" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2903" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2904" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2905" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2906" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2907" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2908" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2909" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell2910" Font="Times New Roman, 9pt"/>
+        </TableRow>
+        <TableRow Name="Row1" Height="22.68">
+          <TableCell Name="Cell2491" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell1" Border.Lines="All" Border.Width="0.25" Text="Краткое наименование услуги" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell2517" Border.Lines="All" Border.Width="0.25" Text="Оплаты&#13;&#10;поступившие в&#13;&#10;предыдущем &#13;&#10;месяце  (руб.)&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell2542" Border.Lines="All" Border.Width="0.25" Text="Перерасчет&#13;&#10;за предыду-&#13;&#10;щий период&#13;&#10;(руб.)&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell2606" Border.Lines="All" Border.Width="0.25" Text="Долг (+),&#13;&#10;переплата (-)&#13;&#10;(руб.)&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell842" Border.Lines="Left, Right, Top" Border.Width="0.25" Text="Единица измерения &#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell2649" Border.Lines="All" Border.Width="0.25" Text="Тариф руб./ед. изм. руб." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell933" Border.Lines="All" Border.Width="0.25" Text="Объем ресурса" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell934" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell936" Border.Lines="All" Border.Width="0.25" Text="Начислено за&#13;&#10;месяц  (руб.)&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell937" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell728" Border.Lines="All" Border.Width="0.25" Text="Недопоставка" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell2029" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2667" Border.Lines="All" Border.Width="0.25" Text="Стоимость услуг в пределах СН" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell731" Border.Lines="All" Border.Width="0.25" Text="Начислено к&#13;&#10;оплате с учетом&#13;&#10;недопоставки&#13;&#10;(руб.)&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="22.68">
+          <TableCell Name="Cell2492" Border.Lines="All" Border.Width="0.25"/>
+          <TableCell Name="Cell6" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2518" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2543" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2607" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell847" Border.Lines="Left, Right" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2650" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell938" Border.Lines="All" Border.Width="0.25" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell939" Border.Lines="All" Border.Width="0.25" Text="в т.ч. на общедом. нужды&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell941" Border.Lines="All" Border.Width="0.25" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell942" Border.Lines="All" Border.Width="0.25" Text="общедом. нужды" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell734" Border.Lines="All" Border.Width="0.25" Text="руб." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2030" Border.Lines="All" Border.Width="0.25" Text="дни" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2668" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell737" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="11.34">
+          <TableCell Name="Cell2494" Border.Lines="All" Border.Width="0.25" Text="1" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell16" Border.Lines="All" Border.Width="0.25" Text="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2519" Border.Lines="All" Border.Width="0.25" Text="3" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2544" Border.Lines="All" Border.Width="0.25" Text="4" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2608" Border.Lines="All" Border.Width="0.25" Text="5" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell857" Border.Lines="All" Border.Width="0.25" Text="6" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2651" Border.Lines="All" Border.Width="0.25" Text="7" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell948" Border.Lines="All" Border.Width="0.25" Text="8" Format="Number" Format.UseLocale="true" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell949" Border.Lines="All" Border.Width="0.25" Text="9" Format="Number" Format.UseLocale="true" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell951" Border.Lines="All" Border.Width="0.25" Text="10" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell952" Border.Lines="All" Border.Width="0.25" Text="11" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell746" Border.Lines="All" Border.Width="0.25" Text="12" Format="Number" Format.UseLocale="true" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2032" Border.Lines="All" Border.Width="0.25" Text="13" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2669" Border.Lines="All" Border.Width="0.25" Text="14" HorzAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell749" Border.Lines="All" Border.Width="0.25" Text="15" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="13.61">
+          <TableCell Name="Cell2496" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num1]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell21" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv1]" WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2521" Text="[Q_master.sum_money1]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2567" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval1]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2610" Text="[Q_master.sum_dolg1]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell862" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure1]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2653" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif1]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell953" Border.Lines="Left, Right, Top" Border.Width="0.25" Text="[Q_master.c_calc_all1]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell954" Text="[Q_master.c_calc_odn1]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell956" Border.Lines="Left, Right, Top" Border.Width="0.25" Text="[Q_master.rsum_tarif_all1]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell957" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn1]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell752" Text="[Q_master.sum_nedop1]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2033" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop1]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2671" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn1]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell755" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all1]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="13.61">
+          <TableCell Name="Cell2497" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num2]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell61" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv2] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2522" Text="[Q_master.sum_money2]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2568" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval2]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2611" Text="[Q_master.sum_dolg2]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell867" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure2]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2654" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif2]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell958" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all2]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell959" Text="[Q_master.c_calc_odn2]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell961" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all2]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell962" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn2]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell758" Text="[Q_master.sum_nedop2]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2034" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop2]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2672" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn2]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell761" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all2]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="13.61">
+          <TableCell Name="Cell2498" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num3]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell73" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv3] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2523" Text="[Q_master.sum_money3]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2569" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval3]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2612" Text="[Q_master.sum_dolg3]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell872" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure3]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2655" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif3]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell963" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all3]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell964" Text="[Q_master.c_calc_odn3]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell966" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all3]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell967" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn3]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell764" Text="[Q_master.sum_nedop3]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2035" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop3]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2673" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn3]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell767" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all3]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="13.61">
+          <TableCell Name="Cell2499" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num4]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell85" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv4] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2524" Text="[Q_master.sum_money4]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2570" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval4]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2613" Text="[Q_master.sum_dolg4]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell877" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure4]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2656" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif4]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell968" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all4]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell969" Text="[Q_master.c_calc_odn4]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell971" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all4]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell972" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn4]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell770" Text="[Q_master.sum_nedop4]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2036" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop4]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2674" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn4]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell773" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all4]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row9" Height="13.61">
+          <TableCell Name="Cell2501" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num5]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell97" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv5] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2526" Text="[Q_master.sum_money5]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2572" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval5]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2615" Text="[Q_master.sum_dolg5]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell882" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure5]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2658" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif5]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell973" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all5]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell974" Text="[Q_master.c_calc_odn5]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell976" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all5]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell977" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn5]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell776" Text="[Q_master.sum_nedop5]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2037" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop5]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2676" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn5]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell779" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all5]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row10" Height="13.61">
+          <TableCell Name="Cell2502" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num6]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell109" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv6] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2527" Text="[Q_master.sum_money6]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2573" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval6]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2616" Text="[Q_master.sum_dolg6]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell887" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure6]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2659" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif6]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell978" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all6]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell979" Text="[Q_master.c_calc_odn6]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell981" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all6]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell982" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn6]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell782" Text="[Q_master.sum_nedop6]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2038" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop6]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2677" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn6]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell785" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all6]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row11" Height="13.61">
+          <TableCell Name="Cell2503" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num7]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell121" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv7] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2528" Text="[Q_master.sum_money7]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2574" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval7]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2617" Text="[Q_master.sum_dolg7]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell892" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure7]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2660" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif7]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell983" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all7]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell984" Text="[Q_master.c_calc_odn7]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell986" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all7]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell987" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn7]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell788" Text="[Q_master.sum_nedop7]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2039" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop7]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2678" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn7]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell791" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all7]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row12" Height="13.61">
+          <TableCell Name="Cell2504" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num8]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell133" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv8] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2529" Text="[Q_master.sum_money8]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2575" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval8]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2618" Text="[Q_master.sum_dolg8]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell897" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure8]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2661" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif8]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell988" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all8]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell989" Text="[Q_master.c_calc_odn8]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell991" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all8]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell992" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn8]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell794" Text="[Q_master.sum_nedop8]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2040" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop8]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2679" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn8]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell797" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all8]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row13" Height="13.61">
+          <TableCell Name="Cell2505" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num9]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell145" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv9] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2530" Text="[Q_master.sum_money9]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2576" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval9]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2619" Text="[Q_master.sum_dolg9]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell902" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure9]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2662" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif9]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell993" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all9]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell994" Text="[Q_master.c_calc_odn9]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell996" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.rsum_tarif_all9]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell997" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn9]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell800" Text="[Q_master.sum_nedop9]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2041" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop9]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2680" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn9]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell803" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all9]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row14" Height="13.61">
+          <TableCell Name="Cell2506" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num10]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell157" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv10] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2531" Text="[Q_master.sum_money10]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2577" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval10]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2620" Text="[Q_master.sum_dolg10]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell907" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure10]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2663" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif10]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell998" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all10]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell999" Text="[Q_master.c_calc_odn10]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell1001" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.rsum_tarif_all10]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell1002" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn10]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell806" Text="[Q_master.sum_nedop10]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2042" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop10]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2681" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn10]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell809" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all10]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row15" Height="13.61">
+          <TableCell Name="Cell2883" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num11]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell169" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv11] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2747" Text="[Q_master.sum_money11]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2578" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval11]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2621" Text="[Q_master.sum_dolg11]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell912" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure11]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2664" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif11]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2800" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.c_calc_all11]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell1004" Text="[Q_master.c_calc_odn11]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2820" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all11]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell1007" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn11]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2840" Text="[Q_master.sum_nedop11]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2043" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop11]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2863" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn11]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell815" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all11]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row16" Height="13.61">
+          <TableCell Name="Cell2884" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num12]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell181" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv12] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2748" Text="[Q_master.sum_money12]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2579" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval12]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2622" Text="[Q_master.sum_dolg12]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell917" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure12]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2665" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif12]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2801" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all12]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell1009" Text="[Q_master.c_calc_odn12]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2821" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all12]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell1012" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn12]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2841" Text="[Q_master.sum_nedop12]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2044" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop12]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2864" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn12]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell821" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all12]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row17" Height="13.61">
+          <TableCell Name="Cell2885" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num13]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell193" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv13] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2749" Text="[Q_master.sum_money13]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2580" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval13]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2623" Text="[Q_master.sum_dolg13]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell922" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure13]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2666" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif13]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2802" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all13]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell1014" Text="[Q_master.c_calc_odn13]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2822" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all13]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell1017" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn13]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2842" Text="[Q_master.sum_nedop13]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2045" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop13]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2865" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn13]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell827" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all13]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row100" Height="13.61">
+          <TableCell Name="Cell2886" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num14]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2737" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv14] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2750" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.sum_money14]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2760" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval14]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2770" Text="[Q_master.sum_dolg14]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2780" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure14]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2790" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif14]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2803" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all14]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2810" Text="[Q_master.c_calc_odn14]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2823" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all14]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2830" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn14]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2843" Text="[Q_master.sum_nedop14]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2853" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop14]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2866" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn14]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2873" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all14]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row141" Height="13.61">
+          <TableCell Name="Cell2887" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num15]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2738" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv15] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2751" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.sum_money15]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2761" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval15]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2771" Text="[Q_master.sum_dolg15]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2781" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure15]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2791" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif15]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2804" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all15]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2811" Text="[Q_master.c_calc_odn15]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2824" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all15]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2831" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn15]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2844" Text="[Q_master.sum_nedop15]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2854" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop15]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2867" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn15]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2874" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all15]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row142" Height="13.61">
+          <TableCell Name="Cell2888" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num16]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2739" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv16] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2752" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.sum_money16]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2762" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval16]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2772" Text="[Q_master.sum_dolg16]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2782" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure16]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2792" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif16]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2805" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all16]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2812" Text="[Q_master.c_calc_odn16]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2825" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all16]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2832" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn16]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2845" Text="[Q_master.sum_nedop16]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2855" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop16]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2868" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn16]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2875" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all16]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row143" Height="13.61">
+          <TableCell Name="Cell2889" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num17]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2740" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv17] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2753" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.sum_money17]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2763" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval17]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2773" Text="[Q_master.sum_dolg17]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2783" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure17]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2793" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif17]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2806" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all17]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2813" Text="[Q_master.c_calc_odn17]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2826" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all17]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2833" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn17]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2846" Text="[Q_master.sum_nedop17]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2856" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop17]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2869" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn17]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2876" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all17]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row144" Height="13.61">
+          <TableCell Name="Cell2890" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num18]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2741" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv18] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2754" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.sum_money18]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2764" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval18]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2774" Text="[Q_master.sum_dolg18]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2784" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure18]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2794" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif18]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2807" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all18]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2814" Text="[Q_master.c_calc_odn18]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2827" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_all18]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2834" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn18]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2847" Text="[Q_master.sum_nedop18]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2857" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop18]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2870" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn18]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2877" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all18]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row145" Height="13.61">
+          <TableCell Name="Cell2891" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num19]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2742" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv19] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2755" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.sum_money19]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2765" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval19]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2775" Text="[Q_master.sum_dolg19]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2785" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure19]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2795" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif19]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2808" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all19]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2815" Text="[Q_master.c_calc_odn19]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2828" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.rsum_tarif_all19]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2835" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn19]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2848" Text="[Q_master.sum_nedop19]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2858" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop19]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2871" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn19]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2878" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all19]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row146" Height="13.61">
+          <TableCell Name="Cell2892" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num20]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2743" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv20] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2756" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.sum_money20]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2766" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval20]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2776" Text="[Q_master.sum_dolg20]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2786" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure20]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2796" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif20]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2809" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.c_calc_all20]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2816" Text="[Q_master.c_calc_odn20]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2829" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.rsum_tarif_all20]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2836" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn20]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2849" Text="[Q_master.sum_nedop20]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2859" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop20]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2872" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn20]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2879" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all20]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row147" Height="13.61">
+          <TableCell Name="Cell2893" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num21]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2744" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv21] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2757" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.sum_money21]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2767" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval21]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2777" Text="[Q_master.sum_dolg21]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2787" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure21]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2797" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif21]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2699" Text="[Q_master.c_calc_all21]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2817" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.c_calc_odn21]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2701" Text="[Q_master.rsum_tarif_all21]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2837" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn21]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2850" Text="[Q_master.sum_nedop21]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2860" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop21]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2705" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn21]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2880" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all21]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row148" Height="13.61">
+          <TableCell Name="Cell2894" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.num22]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2745" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.name_serv22] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2758" Border.Lines="Right" Border.Width="0.25" Text="[Q_master.sum_money22]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2768" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.reval22]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2778" Text="[Q_master.sum_dolg22]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2788" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.measure22]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2798" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.tarif22]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2714" Text="[Q_master.c_calc_all22]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2818" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.c_calc_odn22]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2716" Text="[Q_master.rsum_tarif_all22]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2838" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn22]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2851" Text="[Q_master.sum_nedop22]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2861" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.day_nedop22]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2720" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_sn22]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2881" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.sum_charge_all22]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row149" Height="13.61">
+          <TableCell Name="Cell2895" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.num23]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2746" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.name_serv23] " WordWrap="false" Font="Times New Roman, 8pt" Trimming="Character" HtmlTags="true"/>
+          <TableCell Name="Cell2759" Border.Lines="Right, Bottom" Border.Width="0.25" Text="[Q_master.sum_money23]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2769" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.reval23]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2779" Border.Lines="Bottom" Border.Width="0.25" Text="[Q_master.sum_dolg23]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2789" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.measure23]" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2799" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.tarif23]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2729" Border.Lines="Bottom" Border.Width="0.25" Text="[Q_master.c_calc_all23]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2819" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.c_calc_odn23]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2731" Border.Lines="Bottom" Border.Width="0.25" Text="[Q_master.rsum_tarif_all23]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2839" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn23]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2852" Border.Lines="Bottom" Border.Width="0.25" Text="[Q_master.sum_nedop23]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2862" Border.Lines="Left, Bottom" Border.Width="0.25" Text="[Q_master.day_nedop23]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2735" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.sum_sn23]" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+          <TableCell Name="Cell2882" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.sum_charge_all23]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="Times New Roman, 8pt" HtmlTags="true"/>
+        </TableRow>
+        <TableRow Name="Row186" Height="13.61">
+          <TableCell Name="Cell3128"/>
+          <TableCell Name="Cell3129" Text="Итого" HorzAlign="Right" Font="Times New Roman, 9pt"/>
+          <TableCell Name="Cell3130" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_money]" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell3131"/>
+          <TableCell Name="Cell3132"/>
+          <TableCell Name="Cell3133"/>
+          <TableCell Name="Cell3134"/>
+          <TableCell Name="Cell3135"/>
+          <TableCell Name="Cell3136"/>
+          <TableCell Name="Cell3137" Border.Lines="All" Border.Width="0.25" Text="[Q_master.rsum_tarif_all]" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell3138" Border.Lines="All" Border.Width="0.25" Text="[Q_master.rsum_tarif_odn]" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell3139" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_nedop]" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell3140" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell3141" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_sn]" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+          <TableCell Name="Cell3142" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_charge_all]" HorzAlign="Right" Font="Times New Roman, 7pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text2" Left="7.56" Top="18.9" Width="18.9" Height="710.64" Text="Адрес: [Q_master.ulica]  д. [Q_master.numdom], кв. [Q_master.kvnum] " VertAlign="Center" Angle="270" Font="Times New Roman, 8pt, style=Bold"/>
+      <TableObject Name="Table2" Left="94.5" Top="457.38" Width="270.19" Height="109.62" CanBreak="false">
+        <TableColumn Name="Column90" Width="89.57"/>
+        <TableColumn Name="Column91" Width="21.53"/>
+        <TableColumn Name="Column92" Width="59.33"/>
+        <TableColumn Name="Column93" Width="55.55"/>
+        <TableColumn Name="Column94" Width="44.21"/>
+        <TableRow Name="Row151" Height="11.34">
+          <TableCell Name="Cell2911" Border.Lines="All" Border.Width="0.25" Text="Коммунальные услуги" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell2912" Border.Lines="All" Border.Width="0.25" Text="ед. измер." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell2913" Border.Lines="All" Border.Width="0.25" Text="Расход по дому" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="3"/>
+          <TableCell Name="Cell2914" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2915" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row152" Height="11.34">
+          <TableCell Name="Cell2916" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2917" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2918" Border.Lines="All" Border.Width="0.25" Text="Всего" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2919" Border.Lines="All" Border.Width="0.25" Text="в т.ч. ОДН" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2920" Border.Lines="All" Border.Width="0.25" Text="в т.ч. аренд." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row153" Height="11.34">
+          <TableCell Name="Cell2921" Border.Lines="All" Border.Width="0.25" Text="Электроэнергия &#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2922" Border.Lines="All" Border.Width="0.25" Text="Квт/ч&#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2923" Border.Lines="All" Border.Width="0.25" Text="[Q_master.el_dpu]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2924" Border.Lines="All" Border.Width="0.25" Text="[Q_master.el_dpu_odn]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2925" Border.Lines="All" Border.Width="0.25" Text="[Q_master.el_arend]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row154" Height="11.34">
+          <TableCell Name="Cell2926" Border.Lines="All" Border.Width="0.25" Text="Ночное электроснабжение" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2927" Border.Lines="All" Border.Width="0.25" Text="Квт/ч&#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2928" Border.Lines="All" Border.Width="0.25" Text="[Q_master.ni_dpu]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2929" Border.Lines="All" Border.Width="0.25" Text="[Q_master.ni_dpu_odn]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2930" Border.Lines="All" Border.Width="0.25" Text="[Q_master.ni_arend]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row155" Height="11.34">
+          <TableCell Name="Cell2931" Border.Lines="All" Border.Width="0.25" Text="Холодная вода&#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2932" Border.Lines="All" Border.Width="0.25" Text="Куб.м&#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2933" Border.Lines="All" Border.Width="0.25" Text="[Q_master.hv_dpu]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2934" Border.Lines="All" Border.Width="0.25" Text="[Q_master.hv_dpu_odn]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2935" Border.Lines="All" Border.Width="0.25" Text="[Q_master.hv_arend]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row156" Height="11.34">
+          <TableCell Name="Cell2936" Border.Lines="All" Border.Width="0.25" Text="Горячая вода " Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2937" Border.Lines="All" Border.Width="0.25" Text="Куб.м&#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2938" Border.Lines="All" Border.Width="0.25" Text="[Q_master.gv_dpu]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2939" Border.Lines="All" Border.Width="0.25" Text="[Q_master.gv_dpu_odn]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2940" Border.Lines="All" Border.Width="0.25" Text="[Q_master.gv_arend]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row157" Height="11.34">
+          <TableCell Name="Cell2941" Border.Lines="All" Border.Width="0.25" Text="Подогрев воды&#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2942" Border.Lines="All" Border.Width="0.25" Text="Гкал&#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2943" Border.Lines="All" Border.Width="0.25" Text="[Q_master.gv_dpu_gkal]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2944" Border.Lines="All" Border.Width="0.25" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2945" Border.Lines="All" Border.Width="0.25" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row158" Height="11.34">
+          <TableCell Name="Cell2946" Border.Lines="All" Border.Width="0.25" Text="Отопление &#13;&#10;&#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2947" Border.Lines="All" Border.Width="0.25" Text="Гкал&#13;&#10;" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2948" Border.Lines="All" Border.Width="0.25" Text="[Q_master.otop_dpu]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2949" Border.Lines="All" Border.Width="0.25" Text="[Q_master.otop_dpu_odn]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2950" Border.Lines="All" Border.Width="0.25" Text="[Q_master.otop_arend]&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row169">
+          <TableCell Name="Cell3011" Text="Коэфф. расч. ОДН: Электр - [Q_master.k_el]     Хол. вода - [Q_master.k_hv]    Гор. вода - [Q_master.k_gv]" Font="Times New Roman, 5pt" ColSpan="5"/>
+          <TableCell Name="Cell3012" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3013" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3014" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3015" Font="Times New Roman, 5pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table3" Left="468.72" Top="457.38" Width="362.88" Height="113.4" Border.Lines="All" Border.Width="0.25" CanBreak="false">
+        <TableColumn Name="Column95" Width="63"/>
+        <TableColumn Name="Column96" Width="63"/>
+        <TableColumn Name="Column97" Width="63"/>
+        <TableColumn Name="Column98" Width="51.66"/>
+        <TableColumn Name="Column99" Width="59.22"/>
+        <TableColumn Name="Column100" Width="63"/>
+        <TableRow Name="Row159" Height="11.34">
+          <TableCell Name="Cell2951" Border.Lines="All" Border.Width="0.25" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell2952" Border.Lines="All" Border.Width="0.25" Text="Номер счетчика" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell2953" Border.Lines="All" Border.Width="0.25" Text="Предыдущее показание" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell2954" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2955" Border.Lines="All" Border.Width="0.25" Text="Текущее показание" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell3001" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row160" Height="11.34">
+          <TableCell Name="Cell2956" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2957" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2958" Border.Lines="All" Border.Width="0.25" Text="Дата" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2959" Border.Lines="All" Border.Width="0.25" Text="Значение" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell2960" Border.Lines="All" Border.Width="0.25" Text="Дата" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3002" Border.Lines="All" Border.Width="0.25" Text="Значение" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row161" Height="11.34">
+          <TableCell Name="Cell2961" Text="[Q_master.lsserv1]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2962" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt1]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2963" Text="[Q_master.lsdatuchet1_1]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2964" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsvalcnt1_1]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2965" Text="[Q_master.lsdatuchet2_1]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3003" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsvalcnt2_1]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row162" Height="11.34">
+          <TableCell Name="Cell2966" Text="[Q_master.lsserv2]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2967" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt2]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2968" Text="[Q_master.lsdatuchet1_2]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2969" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsvalcnt1_2]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2970" Text="[Q_master.lsdatuchet2_2]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3004" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsvalcnt2_2]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row163" Height="11.34">
+          <TableCell Name="Cell2971" Text="[Q_master.lsserv3]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2972" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt3]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2973" Text="[Q_master.lsdatuchet1_3]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2974" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsvalcnt1_3]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2975" Text="[Q_master.lsdatuchet2_3]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3005" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsvalcnt2_3]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row164" Height="11.34">
+          <TableCell Name="Cell2976" Text="[Q_master.lsserv4]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2977" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt4]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2978" Text="[Q_master.lsdatuchet1_4]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2979" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsvalcnt1_4]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2980" Text="[Q_master.lsdatuchet2_4]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3006" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsvalcnt2_4]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row165" Height="11.34">
+          <TableCell Name="Cell2981" Text="[Q_master.lsserv5]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2982" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt5]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2983" Text="[Q_master.lsdatuchet1_5]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2984" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsvalcnt1_5]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2985" Text="[Q_master.lsdatuchet2_5]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3007" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsvalcnt2_5]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row166" Height="11.34">
+          <TableCell Name="Cell2986" Text="[Q_master.lsserv6]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2987" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt6]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2988" Text="[Q_master.lsdatuchet1_6]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2989" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsvalcnt1_6]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2990" Text="[Q_master.lsdatuchet2_6]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3008" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsvalcnt2_6]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row167" Height="11.34">
+          <TableCell Name="Cell2991" Text="[Q_master.lsserv7]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2992" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt7]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2993" Text="[Q_master.lsdatuchet1_7]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2994" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsvalcnt1_7]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2995" Text="[Q_master.lsdatuchet2_7]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3009" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsvalcnt2_7]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row168" Height="11.34">
+          <TableCell Name="Cell2996" Text="[Q_master.lsserv8]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2997" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt8]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2998" Text="[Q_master.lsdatuchet1_8]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell2999" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsvalcnt1_8]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3000" Text="[Q_master.lsdatuchet2_8]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3010" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsvalcnt2_8]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table4" Left="94.5" Top="604.8" Width="360.99" Height="90.72" Border.Lines="All" Border.Width="0.25" ShiftMode="Never" CanBreak="false">
+        <TableColumn Name="Column101" Width="81.9"/>
+        <TableColumn Name="Column107" Width="28.35"/>
+        <TableColumn Name="Column102" Width="47.88"/>
+        <TableColumn Name="Column103" Width="51.66"/>
+        <TableColumn Name="Column104" Width="44.1"/>
+        <TableColumn Name="Column105" Width="55.44"/>
+        <TableColumn Name="Column106" Width="51.66"/>
+        <TableRow Name="Row170" Height="11.34">
+          <TableCell Name="Cell3016" Border.Lines="All" Border.Width="0.25" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell3064" Border.Lines="Bottom" Border.Width="0.25" Text="ед.&#13;&#10;изм.&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell3017" Border.Lines="All" Border.Width="0.25" Text="Номер счетчика" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell3018" Border.Lines="All" Border.Width="0.25" Text="Предыдущее показание" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell3019" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3020" Border.Lines="All" Border.Width="0.25" Text="Текущее показание" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell3021" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row171" Height="11.34">
+          <TableCell Name="Cell3022" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3065" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3023" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3024" Border.Lines="All" Border.Width="0.25" Text="Дата" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3025" Border.Lines="All" Border.Width="0.25" Text="Значение" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3026" Border.Lines="All" Border.Width="0.25" Text="Дата" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3027" Border.Lines="All" Border.Width="0.25" Text="Значение" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row172" Height="11.34">
+          <TableCell Name="Cell3028" Text="[Q_master.domserv1]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3066" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure1]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3029" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt1]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3030" Text="[Q_master.domdatuchet1_1]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3031" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_1]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3032" Text="[Q_master.domdatuchet2_1]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3033" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_1]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row173" Height="11.34">
+          <TableCell Name="Cell3034" Text="[Q_master.domserv2]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3067" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure2]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3035" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt2]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3036" Text="[Q_master.domdatuchet1_2]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3037" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_2]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3038" Text="[Q_master.domdatuchet2_2]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3039" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_2]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row174" Height="11.34">
+          <TableCell Name="Cell3040" Text="[Q_master.domserv3]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3068" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure3]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3041" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt3]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3042" Text="[Q_master.domdatuchet1_3]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3043" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_3]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3044" Text="[Q_master.domdatuchet2_3]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3045" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_3]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row175" Height="11.34">
+          <TableCell Name="Cell3046" Text="[Q_master.domserv4]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3069" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure4]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3047" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt4]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3048" Text="[Q_master.domdatuchet1_4]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3049" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_4]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3050" Text="[Q_master.domdatuchet2_4]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3051" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_4]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row176" Height="11.34">
+          <TableCell Name="Cell3052" Text="[Q_master.domserv5]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3070" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure5]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3053" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt5]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3054" Text="[Q_master.domdatuchet1_5]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3055" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_5]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3056" Text="[Q_master.domdatuchet2_5]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3057" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_5]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row177" Height="11.34">
+          <TableCell Name="Cell3058" Text="[Q_master.domserv6]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3071" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure6]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3059" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt6]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3060" Text="[Q_master.domdatuchet1_6]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3061" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_6]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3062" Text="[Q_master.domdatuchet2_6]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3063" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_6]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table5" Left="476.28" Top="604.8" Width="357.21" Height="90.72" Border.Lines="All" Border.Width="0.25" ShiftMode="Never" CanBreak="false">
+        <TableColumn Name="Column108" Width="81.9"/>
+        <TableColumn Name="Column109" Width="28.35"/>
+        <TableColumn Name="Column110" Width="59.22"/>
+        <TableColumn Name="Column111" Width="47.88"/>
+        <TableColumn Name="Column112" Width="51.66"/>
+        <TableColumn Name="Column113" Width="47.88"/>
+        <TableColumn Name="Column114" Width="40.32"/>
+        <TableRow Name="Row178" Height="11.34">
+          <TableCell Name="Cell3072" Border.Lines="All" Border.Width="0.25" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell3073" Border.Lines="Bottom" Border.Width="0.25" Text="ед.&#13;&#10;изм.&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell3074" Border.Lines="All" Border.Width="0.25" Text="Номер счетчика" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell3075" Border.Lines="All" Border.Width="0.25" Text="Предыдущее показание" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell3076" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3077" Border.Lines="All" Border.Width="0.25" Text="Текущее показание" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" ColSpan="2"/>
+          <TableCell Name="Cell3078" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row179" Height="11.34">
+          <TableCell Name="Cell3079" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3080" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3081" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3082" Border.Lines="All" Border.Width="0.25" Text="Дата" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3083" Border.Lines="All" Border.Width="0.25" Text="Значение" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3084" Border.Lines="All" Border.Width="0.25" Text="Дата" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3085" Border.Lines="All" Border.Width="0.25" Text="Значение" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row180" Height="11.34">
+          <TableCell Name="Cell3086" Text="[Q_master.domserv7]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3087" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure7]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3088" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt7]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3089" Text="[Q_master.domdatuchet1_7]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3090" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_7]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3091" Text="[Q_master.domdatuchet2_7]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3092" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_7]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row181" Height="11.34">
+          <TableCell Name="Cell3093" Text="[Q_master.domserv8]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3094" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure8]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3095" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt8]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3096" Text="[Q_master.domdatuchet1_8]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3097" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_8]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3098" Text="[Q_master.domdatuchet2_8]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3099" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_8]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row182" Height="11.34">
+          <TableCell Name="Cell3100" Text="[Q_master.domserv9]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3101" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure9]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3102" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt9]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3103" Text="[Q_master.domdatuchet1_9]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3104" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_9]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3105" Text="[Q_master.domdatuchet2_9]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3106" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_9]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row183" Height="11.34">
+          <TableCell Name="Cell3107" Text="[Q_master.domserv10]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3108" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure10]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3109" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt10]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3110" Text="[Q_master.domdatuchet1_10]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3111" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_10]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3112" Text="[Q_master.domdatuchet2_10]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3113" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_10]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row184" Height="11.34">
+          <TableCell Name="Cell3114" Text="[Q_master.domserv11]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3115" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure11]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3116" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt11]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3117" Text="[Q_master.domdatuchet1_11]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3118" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_11]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3119" Text="[Q_master.domdatuchet2_11]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3120" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_11]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row185" Height="11.34">
+          <TableCell Name="Cell3121" Text="[Q_master.domserv12]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3122" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.dommeasure12]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3123" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domnumcnt12]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3124" Text="[Q_master.domdatuchet1_12]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3125" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.domvalcnt1_12]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3126" Text="[Q_master.domdatuchet2_12]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3127" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.domvalcnt2_12]" HorzAlign="Right" Font="Times New Roman, 6pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text1" Left="94.5" Top="567" Width="355.32" Height="30.24" Border.Lines="All" Border.Width="0.25" CanBreak="false" Text="Выплачено в [Q_master.months_sz]:&#13;&#10;как льгота [Q_master.ls_lgota] руб. как ЕДВ [Q_master.ls_edv]  руб. &#13;&#10;как малообеспеченным [Q_master.ls_smo]  руб.  как компенсация за тепло [Q_master.ls_tepl]  руб.&#13;&#10;" VertAlign="Center" Font="Times New Roman, 6pt"/>
+      <TableObject Name="Table6" Left="79.38" Top="699.3" Width="748.44" Height="45.36">
+        <TableColumn Name="Column115" Width="395.01"/>
+        <TableColumn Name="Column116" Width="353.43"/>
+        <TableRow Name="Row187">
+          <TableCell Name="Cell3143" Text="Информация о мерах социальной поддержки  за текущий месяц будет размещена в счет-фактуре следующего месяца" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3144" Text="Номера для заявок : тел. 123 - для стационар. телефонов, 236-4-123 - для сотовых &#13;&#10;Заявка-Online: http://open.kzn.ru&#13;&#10;" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row188" Height="26.46">
+          <TableCell Name="Cell3148" Text="[Q_master.areaDirectorPost]:&#13;&#10;Старший по дому:&#13;&#10;[Q_master.geuPref]:&#13;&#10;" HorzAlign="Right" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3149" Text="[Q_master.areaDirectorFio] [Q_master.areaAdsPhone]&#13;&#10;[Q_master.upravDom]&#13;&#10;[Q_master.geuName]&#13;&#10;" Font="Times New Roman, 5pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table7" Left="854.28" Top="26.46" Width="221.13" Height="431.46" ShiftMode="Never">
+        <TableColumn Name="Column117" Width="107.73"/>
+        <TableColumn Name="Column118" Width="113.4"/>
+        <TableRow Name="Row189" Height="20.52">
+          <TableCell Name="Cell3150" Text="Заполняется плательщиком" Font="Arial, 7pt" ColSpan="2"/>
+          <TableCell Name="Cell3174"/>
+        </TableRow>
+        <TableRow Name="Row208" Height="11.34">
+          <TableCell Name="Cell3244" Text="[Q_master.numkvit]" Font="Arial, 4pt" ColSpan="2"/>
+          <TableCell Name="Cell3245"/>
+        </TableRow>
+        <TableRow Name="Row190" Height="16.74">
+          <TableCell Name="Cell3155" Text="КВИТАНЦИЯ" HorzAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell3175"/>
+        </TableRow>
+        <TableRow Name="Row191" Height="126.36">
+          <TableCell Name="Cell3160" Text="[Q_master.poluch] [Q_master.poluch_bank] .[Q_master.poluch_rs] [Q_master.poluch_ks] &#13;&#10;[Q_master.poluch_bik] [Q_master.poluch_inn] [Q_master.poluch_phone] [Q_master.poluch_adres] [Q_master.pm_note] [Q_master.poluch2] [Q_master.poluch2_bank] " HorzAlign="Center" Font="Times New Roman, 8pt" ColSpan="2"/>
+          <TableCell Name="Cell3176"/>
+        </TableRow>
+        <TableRow Name="Row192" Height="58.32">
+          <TableCell Name="Cell3165" ColSpan="2">
+            <PictureObject Name="Picture1" Width="66.15" Height="58.32" Dock="Left" Border.Lines="Bottom" Border.Width="0.25" Image="iVBORw0KGgoAAAANSUhEUgAAANgAAADYBAMAAAB7DjDeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQAAAP///6XZn90AAAAJcEhZcwAAJOUAACTlAYtTaI8AAASNSURBVHja7ZxtctswDESJG4D3v2zbSdIQFJbYFWVPMyX/OSbwgKcPKwyd1s444/8d1t8w/MAOjIHNg5kTZ3X4jnQpkNdLqImqNZlNNhaLsnfCGvhxpYi0CD0SsKbDco+ExW8YbRF4ZFh/S+Mbyz2+BWaCxa/SBIvpQSNhpsMSjxzrEyZYzDySjX2UJjWWeHwXrAkWP0qTLCYHjYY1HTZ7pC3+gYkWLx551u/S1MZmj2+EmWCxNdnidNDESh8dfmAHxsDWl9veUC626SEblm2PwxzCuJuKZNFhTnhXuQ9rKKdTnzqiRQRr1OepaBHlbKiMLYt5Tm+ojNsWb8D2LOY5Gypj02IGcwjbtJjldFjGbdiXEoMpH7eYwBzCti1eczosY9viFdYQ7L5FhzmBCbExA5GwftuAISUwpaEqblucc6LyHjjxly0vQqDr1ww/sANjYPPJCc9zLhP6nTOH+R5Muk/B1WU8YoDzLFvcLyiLyi3Y8Co9Z1FcR1I9zvG8xyxaOmRCa5Z50SzysPSIaxZ5j0CMZFFbiZY8Zhruw4rWEjFka1iNYJGE2apc3iLn0dYpSlhXYGs5tEXKo+U5Vh6dia9gfgfWFVitZ2lR+zsuk4WzeJ6ID+wHwOirAQ8YXjHwEzFekMa1Vr2gC3WxIA0LL2F4c4fpsLVHW+23kC2KMNuAWS9u/7MWG1PmHleFL1uzS/SY0qTGij+trx6/pyNIWlx6vIqxMWXW2rrwVWtJ/PgjExord5VYMiHwdViv3sf7La6tVYVrsLaElY3BGZZOCHQd1qv3QwqjFqRh4SUMb+4wHebF+4v9FrJFUBCChc9TuTEwCWUJMNNhXrxP7j2hLC4W/18z/MB+LGx1HlEBOwN2iiPGMqQF6V2YKEC2ONYhLUhj2EoFeHHf42r+dzddhKn7LUIl8lkrNzb90Xzf43r2Vzddhmn7LUItN67+2zC7AUs8VnN9rHITVjUWYZseS1j4/W3TYz3TxxdbsLqxuAlsyyMB6+KCNIYxCsQFaeyRmeflEzfXGmMxrm1teOQEGBFyOc1fMfzADoyBLa9t7qQPY5wlXW4dvhhhcYc0DClhPqaPbw3pAwyHFBZjZJASegEw8dsxHbyYPk+Ax67ckcc6rXfgsaElBFNgNkfmHiepi5AKFje4Zh49Sp1CaFio8wJrEOZjNUpjMTLzOEldhlSwkMyv7/sVhkMKi1PlRedVSAkLx+TqcZpdhBQW46l98egZDIcUjU3XEYQZgmn7NRw+6/bp3pSHKBYXD9bTXTfAeh5SNDbd1WNBPr5gQkpY+HCMkxqA4ZDCYox0BGudCAkVvWr4gR0YA2utMXPIa7IOwc3BEIfhaNb91gzeO+onYhnGfqEki5c9sl+VeQJm9PdyHvBoYxoYYgAmtjbmNBiCitVgxsP2PdqYBoYYhJkC6xSsKpbzaGMagyGL4yB4tDENDLFnYF2CbXoccxoMWR10vjUbc8KQMOs+rIuwLY9jToMhfQnj/mMFvTEQF6t4HPNzX/jf8Njl4QzjweEHdmAM7IwzzjjjjDPO+EfHL5nMyrgUzshgAAAAAElFTkSuQmCC"/>
+            <BarcodeObject Name="Barcode2" Left="122.38" Width="98.75" Height="58.32" Dock="Right" Border.Lines="Bottom" Border.Width="0.25" Expression="[Q_master.vars2]" Barcode="Code128" Barcode.AutoEncode="true"/>
+          </TableCell>
+          <TableCell Name="Cell3177"/>
+        </TableRow>
+        <TableRow Name="Row193" Height="103.68">
+          <TableCell Name="Cell3170" Border.Lines="Top" Text="Получатель:&#13;&#10;[Q_master.poluch_rs]&#13;&#10;&#13;&#10;Платежный код: [Q_master.pkod]&#13;&#10;Плательщик:[Q_master.fio]&#13;&#10;Адрес: [Q_master.adress]" Font="Times New Roman, 9pt" ColSpan="2"/>
+          <TableCell Name="Cell3178"/>
+        </TableRow>
+        <TableRow Name="Row194">
+          <TableCell Name="Cell3171" Text="Счет от [Q_master.Date_Print] за  [Q_master.months]" Font="Times New Roman, 10pt" ColSpan="2"/>
+          <TableCell Name="Cell3179" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row195">
+          <TableCell Name="Cell3172" Text="Сумма:  " Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell3180" Text="[Q_master.sum_ticket] руб." Font="Times New Roman, 10pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row196" Height="37.8">
+          <TableCell Name="Cell3173" Text="Оплачено плательщиком:" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell3181" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row207">
+          <TableCell Name="Cell3242" Text="Подпись" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell3243" Border.Lines="Bottom" Font="Times New Roman, 10pt"/>
+        </TableRow>
+      </TableObject>
+      <TableObject Name="Table8" Left="850.5" Top="551.88" Width="221.76" Height="143.64" ShiftMode="Never" CanBreak="false">
+        <TableColumn Name="Column119" Width="59.22"/>
+        <TableColumn Name="Column120" Width="63"/>
+        <TableColumn Name="Column123" Width="44.1"/>
+        <TableColumn Name="Column124" Width="55.44"/>
+        <TableRow Name="Row197" Height="11.34">
+          <TableCell Name="Cell3182" Border.Lines="All" Border.Width="0.25" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell3183" Border.Lines="All" Border.Width="0.25" Text="Номер счетчика" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell3186" Border.Lines="All" Border.Width="0.25" Text="Предыдущее показание" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+          <TableCell Name="Cell3187" Border.Lines="All" Border.Width="0.25" Text="Текущее показание" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt" RowSpan="2"/>
+        </TableRow>
+        <TableRow Name="Row198" Height="11.34">
+          <TableCell Name="Cell3188" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3189" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3192" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+          <TableCell Name="Cell3193" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row199" Height="15.12">
+          <TableCell Name="Cell3194" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsserv1]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3195" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt1]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3198" Text="[Q_master.lsdatuchet2_1]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3199" Border.Lines="Left, Right" Border.Width="0.25" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row200" Height="15.12">
+          <TableCell Name="Cell3200" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsserv2]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3201" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt2]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3204" Text="[Q_master.lsdatuchet2_2]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3205" Border.Lines="Left, Right" Border.Width="0.25" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row201" Height="15.12">
+          <TableCell Name="Cell3206" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsserv3]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3207" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt3]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3210" Text="[Q_master.lsdatuchet2_3]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3211" Border.Lines="Left, Right" Border.Width="0.25" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row202" Height="15.12">
+          <TableCell Name="Cell3212" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsserv4]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3213" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt4]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3216" Text="[Q_master.lsdatuchet2_4]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3217" Border.Lines="Left, Right" Border.Width="0.25" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row203" Height="15.12">
+          <TableCell Name="Cell3218" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsserv5]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3219" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt5]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3222" Text="[Q_master.lsdatuchet2_5]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3223" Border.Lines="Left, Right" Border.Width="0.25" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row204" Height="15.12">
+          <TableCell Name="Cell3224" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsserv6]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3225" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt6]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3228" Text="[Q_master.lsdatuchet2_6]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3229" Border.Lines="Left, Right" Border.Width="0.25" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row205" Height="15.12">
+          <TableCell Name="Cell3230" Border.Lines="Left" Border.Width="0.25" Text="[Q_master.lsserv7]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3231" Border.Lines="Left, Right" Border.Width="0.25" Text="[Q_master.lsnumcnt7]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3234" Text="[Q_master.lsdatuchet2_7]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3235" Border.Lines="Left, Right" Border.Width="0.25" Font="Times New Roman, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row206" Height="15.12">
+          <TableCell Name="Cell3236" Border.Lines="Left, Bottom" Border.Width="0.25" Text="[Q_master.lsserv8]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3237" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Text="[Q_master.lsnumcnt8]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3240" Border.Lines="Bottom" Border.Width="0.25" Text="[Q_master.lsdatuchet2_8]" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell3241" Border.Lines="Left, Right, Bottom" Border.Width="0.25" Font="Times New Roman, 6pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+</Report>

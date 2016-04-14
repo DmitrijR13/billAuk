@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/adres/changearea.aspx" hash="cedb9400c" filehash="a236fc4b46eb3d15" flags="110000" assembly="App_Web_uilktl5t" type="ASP.kart_adres_changearea_aspx">
+    <filedeps>
+        <filedep name="/none/kart/adres/changearea.aspx" />
+        <filedep name="/none/kart/adres/SelectInfo.ascx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/adres/group.aspx" hash="cedb9400c" filehash="17e4c3819ef83dc5" flags="110000" assembly="App_Web_vw4pl3gw" type="ASP.kart_adres_group_aspx">
+    <filedeps>
+        <filedep name="/none/kart/adres/group.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

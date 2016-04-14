@@ -1,0 +1,6 @@
+C:\PROJECTS\KP50 History\Report\Bars.KP50.Utils\bin\Debug\Bars.KP50.Utils.dll
+C:\PROJECTS\KP50 History\Report\Bars.KP50.Utils\bin\Debug\Bars.KP50.Utils.pdb
+C:\PROJECTS\KP50 History\Report\Bars.KP50.Utils\bin\Debug\Newtonsoft.Json.dll
+C:\PROJECTS\KP50 History\Report\Bars.KP50.Utils\obj\Debug\Bars.KP50.Utils.csprojResolveAssemblyReference.cache
+C:\PROJECTS\KP50 History\Report\Bars.KP50.Utils\obj\Debug\Bars.KP50.Utils.dll
+C:\PROJECTS\KP50 History\Report\Bars.KP50.Utils\obj\Debug\Bars.KP50.Utils.pdb

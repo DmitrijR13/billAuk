@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/30/2015 13:58:04" ReportInfo.Modified="11/30/2015 17:28:47" ReportInfo.CreatorVersion="2015.3.1.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void Child1_BeforePrint(object sender, EventArgs e)
+    {
+      bool ExcessForExcel = Convert.ToBoolean(Report.GetParameterValue(&quot;excess_row&quot;));
+      Child1.Visible = ExcessForExcel;   
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+      <Column Name="ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="address" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_real" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="c_calc" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="is_device" DataType="System.String" PropName="Column"/>
+      <Column Name="measure" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="45.36">
+      <TextObject Name="Text1" Width="1047.06" Height="45.36" Text="Отчет в Соцзащиту&#13;&#10;[period]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="48.93" Width="1047.06" Height="18.9" Visible="false" BeforePrintEvent="Child1_BeforePrint">
+        <TextObject Name="Text2" Width="1047.06" Height="18.9" Text="Предупреждение. Превышено максимальное кол-во строк в 65000 для формата &quot;excel&quot;. Сформируйте отчет в другом формат для отображение всех строк." VertAlign="Bottom" Font="Arial, 8pt, style=Italic" TextFill.Color="Red"/>
+        <ChildBand Name="Child2" Top="71.4" Width="1047.06" Height="45.36">
+          <TextObject Name="Text22" Width="154.98" Height="45.36" Border.Lines="All" Text="Услуга" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text23" Left="627.48" Width="94.5" Height="45.36" Border.Lines="All" Text="Общая сумма начисленная за услугу" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text24" Left="154.98" Width="75.6" Height="45.36" Border.Lines="All" Text="Лицевой счет абонента" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text25" Left="721.98" Width="94.5" Height="45.36" Border.Lines="All" Text="Общий объем потребления услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text26" Left="230.58" Width="151.2" Height="45.36" Border.Lines="All" Text="ФИО получателя услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text27" Left="816.48" Width="79.38" Height="45.36" Border.Lines="All" Text="Тариф за потребление услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text28" Left="381.78" Width="245.7" Height="45.36" Border.Lines="All" Text="Адрес прописки льготника в формате КЛАДР" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text29" Left="895.86" Width="83.16" Height="45.36" Border.Lines="All" Text="Предостав-&#13;&#10;ление услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text30" Left="979.02" Width="68.04" Height="45.36" Border.Lines="All" Text="Единица измере-&#13;&#10;ния услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="120.33" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text12" Width="154.98" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.service]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="154.98" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="230.58" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fio]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="381.78" Width="245.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.address]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="627.48" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_real]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text18" Left="721.98" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.c_calc]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Left="816.48" Width="79.38" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Left="895.86" Width="83.16" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.is_device]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text21" Left="979.02" Width="68.04" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.measure]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/pasp/gil/vip_kvar.ascx" hash="cedb9400c" filehash="b0a8ad413e9a9a80" flags="110000" assembly="App_Web_vyzqhgnj" type="ASP.reports_pasp_gil_vip_kvar_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/reports/pasp/gil/vip_kvar.ascx" />
+    </filedeps>
+</preserve>

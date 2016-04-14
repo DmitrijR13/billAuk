@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/operations/overpaymentmanager.aspx" hash="cedb9400c" filehash="86400df905de7b71" flags="110000" assembly="App_Web_vry4jvkg" type="ASP.finances_operations_overpaymentmanager_aspx">
+    <filedeps>
+        <filedep name="/none/finances/operations/DogGkuSetting.ascx" />
+        <filedep name="/none/finances/operations/OverpaymentDistribution.ascx" />
+        <filedep name="/none/finances/operations/overpaymentmanager.aspx" />
+        <filedep name="/none/finances/operations/OverpaymentSelection.ascx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AutoCompleteContracts.ascx" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

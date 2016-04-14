@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13383EA0-8911-48EF-87DB-15FE969388EC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bars.KP50.DB.Finans</RootNamespace>
+    <AssemblyName>Bars.KP50.DB.Finans</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastReport, Version=2014.1.5.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LIBRARIES\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\LIBRARIES\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LIBRARIES\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pack\CalcCommission.cs" />
+    <Compile Include="Pack\CalcPack.ifmx.cs" />
+    <Compile Include="Pack\CalcTransferBalance.cs" />
+    <Compile Include="Pack\FnDistribOld.cs" />
+    <Compile Include="Pack\UpdateFnDistribDomXX.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsPack\DBSettingPack.cs" />
+    <Compile Include="Source\Distrib.db.cs" />
+    <Compile Include="Source\DistribNew.db.cs" />
+    <Compile Include="Source\FinUtils.cs" />
+    <Compile Include="Source\FnReval.ifmx.cs" />
+    <Compile Include="Source\FnReval.orm.cs" />
+    <Compile Include="Source\LastGoodValPuFromCountersTab.cs" />
+    <Compile Include="Source\LoadPackFromBank.cs" />
+    <Compile Include="Source\LoadPackFromBankBFT.cs" />
+    <Compile Include="Source\LoadPackFromBankBFTIssrpF112.cs" />
+    <Compile Include="Source\OperationsWithContracts.cs" />
+    <Compile Include="Source\Pack.ifmx.cs" />
+    <Compile Include="Source\Pack2.ifmx.cs" />
+    <Compile Include="Source\Pack3.ifmx.cs" />
+    <Compile Include="Source\Pack4.ifmx.cs" />
+    <Compile Include="Source\Pack5.ifmx.cs" />
+    <Compile Include="Source\RepContrDistribPay.cs" />
+    <Compile Include="Source\StandartFormat.cs" />
+    <Compile Include="Source\PackLoad.ifmx.cs" />
+    <Compile Include="Source\WWBFeature\DbFtrPaymentsFromBank.cs" />
+    <Compile Include="Source\WWBFeature\DbFtrReestrFromBank.cs" />
+    <Compile Include="Source\WWBFeature\DbFtrSaveReestr.cs" />
+    <Compile Include="Source\WWBFeature\DbFtrSaveReestrCounters.cs" />
+    <Compile Include="Srv\Distrib.srv.cs" />
+    <Compile Include="Srv\Pack.srv.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Admin\Bars.KP50.CLI.Admin\Bars.KP50.CLI.Admin.csproj">
+      <Project>{699fd7dc-5c99-4036-998e-a8b9ab62dbf3}</Project>
+      <Name>Bars.KP50.CLI.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Admin\Bars.KP50.DB.Admin\Bars.KP50.DB.Admin.csproj">
+      <Project>{5cc37a0e-5ce4-4926-8153-2832354a9982}</Project>
+      <Name>Bars.KP50.DB.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adres\Bars.KP50.CLI.Adres\Bars.KP50.CLI.Adres.csproj">
+      <Project>{00370877-76ce-4c58-813d-6105b994ebaf}</Project>
+      <Name>Bars.KP50.CLI.Adres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Adres\Bars.KP50.DB.Adres\Bars.KP50.DB.Adres.csproj">
+      <Project>{13daaf47-d4bb-416f-87f9-4873c6ea717f}</Project>
+      <Name>Bars.KP50.DB.Adres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Calc\Bars.KP50.Calc\Bars.KP50.DB.Calc.csproj">
+      <Project>{3ea662e6-7c17-446f-972c-1bb059bd6e58}</Project>
+      <Name>Bars.KP50.DB.Calc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Counters\Bars.KP50.CLI.Counters\Bars.KP50.CLI.Counters.csproj">
+      <Project>{9db13ed3-0df1-4760-83ec-784dc6b54ec8}</Project>
+      <Name>Bars.KP50.CLI.Counters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj">
+      <Project>{a09e0051-6b16-42b5-9840-8cb60b0729c7}</Project>
+      <Name>STCLINE.KP50.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\IFMX\Client\STCLINE.KP50.IFMX.Client.csproj">
+      <Project>{2ab80cea-d131-4e93-9b35-8f86dd474080}</Project>
+      <Name>STCLINE.KP50.IFMX.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\IFMX\Common\STCLINE.KP50.IFMX.Common.csproj">
+      <Project>{13faa6d8-da11-4392-bad2-c1640c172e01}</Project>
+      <Name>STCLINE.KP50.IFMX.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\IFMX\Kernel\STCLINE.KP50.IFMX.Kernel.csproj">
+      <Project>{51d199a0-a5bd-4eb3-a4cf-e5dd004d55f7}</Project>
+      <Name>STCLINE.KP50.IFMX.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Faktura\Bars.KP50.CLI.Faktura\Bars.KP50.CLI.Faktura.csproj">
+      <Project>{cc4cbb82-2287-4c00-8010-366b0645b860}</Project>
+      <Name>Bars.KP50.CLI.Faktura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Parametrs\Bars.KP50.DB.Charge\Bars.KP50.DB.Charge.csproj">
+      <Project>{818f9c47-af80-4bce-8f79-d8e32a3cd5f9}</Project>
+      <Name>Bars.KP50.DB.Charge</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Parametrs\Bars.KP50.DB.Parameters\Bars.KP50.DB.Parameters.csproj">
+      <Project>{31c8e9f2-3d11-4d7e-aa34-eb16553221d0}</Project>
+      <Name>Bars.KP50.DB.Parameters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QUEUE\Bars.QueueCore\Bars.QueueCore.csproj">
+      <Project>{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}</Project>
+      <Name>Bars.QueueCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Report\Bars.KP50.CLI.Report\Bars.KP50.CLI.Report.csproj">
+      <Project>{d79794ee-cfaa-4103-81b0-ab2fa8c16dfd}</Project>
+      <Name>Bars.KP50.CLI.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sprav\Bars.KP50.CLI.Sprav\Bars.KP50.CLI.Sprav.csproj">
+      <Project>{b96681f0-0674-4123-89c4-c88930b12e21}</Project>
+      <Name>Bars.KP50.CLI.Sprav</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sprav\Bars.KP50.DB.Sprav\Bars.KP50.DB.Sprav.csproj">
+      <Project>{139dd0b8-47dd-47f7-a1af-880034ffb31e}</Project>
+      <Name>Bars.KP50.DB.Sprav</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WCF\CLIENT\CliKart\STCLINE.KP50.CliKart.csproj">
+      <Project>{bb38a0bd-a169-4bd5-8756-7f8682f235d8}</Project>
+      <Name>STCLINE.KP50.CliKart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bars.KP50.CLI.Finans\Bars.KP50.CLI.Finans.csproj">
+      <Project>{b72c22eb-d313-4fa3-8a0c-fcebdb1456e1}</Project>
+      <Name>Bars.KP50.CLI.Finans</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

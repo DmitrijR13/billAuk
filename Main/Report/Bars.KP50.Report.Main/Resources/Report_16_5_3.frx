@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="06/02/2014 17:32:30" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {  
+         
+
+    private void Cell91_BeforePrint(object sender, EventArgs e)
+    {
+      decimal isum_real = Report.GetTotalValue(&quot;isum_real&quot;);
+      decimal icredit = Report.GetTotalValue(&quot;icredit&quot;) ;
+      if (isum_real == 0) {Cell91.Text=&quot;0.00&quot;;return;}        
+      Cell91.Text= String.Format(&quot;{0:f2}&quot;, ((icredit-isum_real )/isum_real)*100);
+
+    }
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="Column" Enabled="false" DataType="System.Int32" Calculated="true" Expression=""/>
+      <Column Name="sum_insaldo" Alias="s1" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="s2" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="s3" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="s4" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="s5" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="s6" DataType="System.Decimal" PropName="Column5"/>
+      <Column Name="s7" DataType="System.Decimal" PropName="Column6"/>
+      <Column Name="s8" DataType="System.Decimal" PropName="Column7"/>
+      <Column Name="s9" DataType="System.Decimal" PropName="Column8"/>
+      <Column Name="s10" DataType="System.Decimal" PropName="Column9"/>
+      <Column Name="s11" DataType="System.Decimal" PropName="Column10"/>
+      <Column Name="adr" DataType="System.String" PropName="Column1"/>
+      <Column Name="c1" DataType="System.String" PropName="Column1"/>
+      <Column Name="bank_name" DataType="System.String" PropName="Column1"/>
+      <Column Name="su" DataType="System.String" PropName="Column1"/>
+      <Column Name="ar" DataType="System.String" PropName="Column1"/>
+      <Column Name="gr" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="se" DataType="System.String" PropName="Column1"/>
+      <Column Name="uch" Enabled="false" DataType="System.String" PropName="Column1"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column1"/>
+    </TableDataSource>
+    <Total Name="isum_insaldo" Expression="[Q_master.s1]" Evaluator="Data1"/>
+    <Total Name="ipayment" Expression="[Q_master.s2]" Evaluator="Data1"/>
+    <Total Name="ibenefit" Expression="[Q_master.s3]" Evaluator="Data1"/>
+    <Total Name="isum_real" Expression="[Q_master.s4]" Evaluator="Data1"/>
+    <Total Name="ichanges" Expression="[Q_master.s5]" Evaluator="Data1"/>
+    <Total Name="isum_money" Expression="[Q_master.s6]" Evaluator="Data1"/>
+    <Total Name="icredit" Expression="[Q_master.s7]" Evaluator="Data1"/>
+    <Total Name="idebit" Expression="[Q_master.s8]" Evaluator="Data1"/>
+    <Total Name="isum_outsaldo" Expression="[Q_master.s9]" Evaluator="Data1"/>
+    <Total Name="idebts" Expression="[Q_master.s10]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1084.86" Height="134.98" CanGrow="true">
+      <TextObject Name="Text2" Left="209.03" Top="28.71" Width="595.35" Height="37.8" Text="5.3 Сальдовая ведомость по домам за [month] [year] года" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text3" Left="804.38" Top="28.73" Width="170.1" Height="37.8" Text="Дата печать: &#13;&#10;Время печати: " HorzAlign="Right" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text4" Left="974.48" Top="28.73" Width="94.5" Height="37.8" Text="[DATE]&#13;&#10;[TIME]" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text5" Left="8.99" Top="66.15" Width="844.65" Height="18.9" Text="Поставщик: [su]"/>
+      <TextObject Name="Text13" Left="8.99" Top="105.09" Width="844.89" Height="18.12" GrowToBottom="true" Text="[se]"/>
+      <TextObject Name="Text6" Left="8.99" Top="85.43" Width="845.31" Height="18.9" Text="Балансодержатель: [ar]"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="136.52" Width="1084.86" Height="47.25" Guides="47.25">
+      <TableObject Name="Table1" Left="9.45" Top="9.45" Width="1061.06" Height="37.77">
+        <TableColumn Name="Column1" Width="166.69"/>
+        <TableColumn Name="Column2" Width="81.64"/>
+        <TableColumn Name="Column3" Width="81.64"/>
+        <TableColumn Name="Column4" Width="85.32"/>
+        <TableColumn Name="Column5" Width="91.09"/>
+        <TableColumn Name="Column6" Width="77.89"/>
+        <TableColumn Name="Column7" Width="77.89"/>
+        <TableColumn Name="Column8" Width="77.89"/>
+        <TableColumn Name="Column9" Width="77.89"/>
+        <TableColumn Name="Column10" Width="87.34"/>
+        <TableColumn Name="Column11" Width="77.89"/>
+        <TableColumn Name="Column12" Width="77.89"/>
+        <TableRow Name="Row1" Height="37.77">
+          <TableCell Name="Cell1" Border.Lines="All" Text="Адрес дома" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="Входящее сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="Расчёт" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="Льгота" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="Начислено" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell61" Border.Lines="All" Text="Изменения" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell62" Border.Lines="All" Text="Оплата" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell63" Border.Lines="All" Text="Кредит" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell64" Border.Lines="All" Text="Дебет" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell65" Border.Lines="All" Text="Исходящее сальдо" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell66" Border.Lines="All" Text="Задол-&#13;&#10;женность" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+          <TableCell Name="Cell67" Border.Lines="All" Text="Процент" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="185.31" Width="1084.86" Height="18.87" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" Guides="746.55" DataSource="Q_master">
+      <TableObject Name="Table2" Left="9.45" Width="1061.06" Height="18.87" GrowToBottom="true">
+        <TableColumn Name="Column13" Width="166.69"/>
+        <TableColumn Name="Column14" Width="81.64"/>
+        <TableColumn Name="Column15" Width="81.64"/>
+        <TableColumn Name="Column16" Width="85.32"/>
+        <TableColumn Name="Column17" Width="91.09"/>
+        <TableColumn Name="Column18" Width="77.89"/>
+        <TableColumn Name="Column19" Width="77.89"/>
+        <TableColumn Name="Column20" Width="77.89"/>
+        <TableColumn Name="Column21" Width="77.89"/>
+        <TableColumn Name="Column22" Width="87.34"/>
+        <TableColumn Name="Column23" Width="77.89"/>
+        <TableColumn Name="Column24" Width="77.89"/>
+        <TableRow Name="Row2" Height="18.87" AutoSize="true">
+          <TableCell Name="Cell68" Border.Lines="All" Text="[Trim([Q_master.rajon])] [Trim([Q_master.adr])]" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell69" Border.Lines="All" Text="[Q_master.s1]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell70" Border.Lines="All" Text="[Q_master.s2]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell71" Border.Lines="All" Text="[Q_master.s3]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell72" Border.Lines="All" Text="[Q_master.s4]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell73" Border.Lines="All" Text="[Q_master.s5]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell74" Border.Lines="All" Text="[Q_master.s6]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell75" Border.Lines="All" Text="[Q_master.s7]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell76" Border.Lines="All" Text="[Q_master.s8]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell77" Border.Lines="All" Text="[Q_master.s9]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell78" Border.Lines="All" Text="[Q_master.s10]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt"/>
+          <TableCell Name="Cell79" Border.Lines="All" Text="[Q_master.s11]" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Arial, 8.25pt"/>
+        </TableRow>
+      </TableObject>
+      <DataFooterBand Name="DataFooter1" Top="205.72" Width="1084.86" Height="18.9">
+        <TableObject Name="Table3" Left="9.45" Top="0.03" Width="1061.06" Height="18.87">
+          <TableColumn Name="Column25" Width="166.69"/>
+          <TableColumn Name="Column26" Width="81.64"/>
+          <TableColumn Name="Column27" Width="81.64"/>
+          <TableColumn Name="Column28" Width="85.32"/>
+          <TableColumn Name="Column29" Width="91.09"/>
+          <TableColumn Name="Column30" Width="77.89"/>
+          <TableColumn Name="Column31" Width="77.89"/>
+          <TableColumn Name="Column32" Width="77.89"/>
+          <TableColumn Name="Column33" Width="77.89"/>
+          <TableColumn Name="Column34" Width="87.34"/>
+          <TableColumn Name="Column35" Width="77.89"/>
+          <TableColumn Name="Column36" Width="77.89"/>
+          <TableRow Name="Row3" Height="18.87">
+            <TableCell Name="Cell80" Border.Lines="All" Text="Итого:" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell81" Border.Lines="All" Text="[isum_insaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell82" Border.Lines="All" Text="[ipayment]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell83" Border.Lines="All" Text="[ibenefit]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell84" Border.Lines="All" Text="[isum_real]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell85" Border.Lines="All" Text="[ichanges]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell86" Border.Lines="All" Text="[isum_money]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell87" Border.Lines="All" Text="[icredit]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell88" Border.Lines="All" Text="[idebit]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell89" Border.Lines="All" Text="[isum_outsaldo]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell90" Border.Lines="All" Text="[idebts]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+            <TableCell Name="Cell91" Border.Lines="All" Hyperlink.Kind="Custom" BeforePrintEvent="Cell91_BeforePrint" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Arial, 8.25pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </DataFooterBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="226.15" Width="1084.86" Height="37.8">
+      <TextObject Name="Text14" Left="9.45" Top="9.45" Width="425.25" Height="18.9" Text="Наименование отчёта: 5.3. Сальдовая ведомость по домам" VertAlign="Center" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text15" Left="935.55" Top="9.45" Width="132.3" Height="18.9" Text="Страница [Page]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8.25pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

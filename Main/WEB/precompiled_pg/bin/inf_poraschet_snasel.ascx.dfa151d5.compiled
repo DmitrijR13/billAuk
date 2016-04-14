@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/Inf_PoRaschet_SNasel.ascx" hash="cedb9400c" filehash="6d89f28839b83e4b" flags="110000" assembly="App_Web_macr1xxk" type="ASP.reports_inf_poraschet_snasel_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/reports/Inf_PoRaschet_SNasel.ascx" />
+    </filedeps>
+</preserve>

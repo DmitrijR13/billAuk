@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/master/templates/SimpleLoad.ascx" hash="cedb9400c" filehash="d6e7df6cd5639057" flags="110000" assembly="App_Web_wvz3gney" type="ASP.master_templates_simpleload_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/Navigator.ascx" />
+        <filedep name="/none/master/templates/SimpleLoad.ascx" />
+    </filedeps>
+</preserve>

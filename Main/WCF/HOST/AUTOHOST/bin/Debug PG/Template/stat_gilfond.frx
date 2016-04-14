@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="06/21/2013 15:18:05" ReportInfo.Modified="07/30/2013 14:48:16" ReportInfo.CreatorVersion="2013.1.11.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void _StartReport(object sender, EventArgs e)
+    {
+      using (System.IO.StreamWriter file = new System.IO.StreamWriter(@&quot;C:\ReportServer\ReportLog.txt&quot;))
+      {
+        file.WriteLine(@&quot;//////////////////////////////////////////////&quot;);
+        file.WriteLine(&quot;Отчет: Статистика состояния жилищного фонда&quot;);
+        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo(&quot;ru-RU&quot;);
+        culture.NumberFormat.NumberDecimalSeparator = &quot;.&quot;;
+        culture.NumberFormat.CurrencyDecimalSeparator = &quot;.&quot;;
+        culture.DateTimeFormat.ShortDatePattern = &quot;dd.MM.yyyy&quot;;
+        System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
+        System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+        
+        string year = ((String)Report.GetParameterValue(&quot;year_from&quot;));
+        file.WriteLine(&quot;Parameter year: &quot; + year);
+        string month = ((String)Report.GetParameterValue(&quot;month_from&quot;));
+        file.WriteLine(&quot;Parameter month: &quot; + month);
+        string nzp_user = ((String)Report.GetParameterValue(&quot;nzp_user&quot;));
+        file.WriteLine(&quot;Parameter nzp_user: &quot; + nzp_user);
+        string lastDay = string.Format(&quot;{0:00}&quot;, DateTime.DaysInMonth(Convert.ToInt32(year), Convert.ToInt32(month)));
+      
+        string prefix0 = ((String)Report.GetParameterValue(&quot;prefix0&quot;));
+        file.WriteLine(&quot;Parameter prefix0: &quot; + prefix0);
+        string prefix1 = ((String)Report.GetParameterValue(&quot;prefix1&quot;));
+        file.WriteLine(&quot;Parameter prefix1: &quot; + prefix1);
+        string prefix2 = ((String)Report.GetParameterValue(&quot;prefix2&quot;));
+        string prefix3 = prefix1.Replace(&quot;kernel&quot;, &quot;data&quot;);
+        file.WriteLine(&quot;Parameter prefix2: &quot; + prefix2);
+        
+        int m = Convert.ToInt32(month);
+        //месяц в шапке
+        HeaderMonth.Text = GetMonthStr(m);
+        HeaderYear.Text = year;      
+      
+        string s_period = &quot;'01.&quot; + month + &quot;.&quot; + year + &quot;'&quot;;
+        string po_period = &quot;'&quot; + lastDay + &quot;.&quot; + month + &quot;.&quot; + year + &quot;'&quot;;
+      
+        //название вспомогательной таблицы
+        string pre = &quot;prepare_&quot; + nzp_user;
+        //название результирующей таблицы
+        string res = &quot;result_&quot; + nzp_user;
+        
+        //получаем список префиксов для цикла
+        TableDataSource loop = Report.GetDataSource(&quot;looptables&quot;) as TableDataSource;
+        loop.SelectCommand =
+          &quot;SELECT bd_kernel FROM &quot; + prefix1 + &quot;: s_point WHERE nzp_graj = 1;&quot;;
+        file.WriteLine(&quot;sql1: &quot; + loop.SelectCommand);
+        loop.Init();
+      
+        //создание временной результирующей таблицы
+        TableDataSource tb = Report.GetDataSource(&quot;result&quot;) as TableDataSource;
+        try
+        {
+          tb.SelectCommand = &quot;drop table &quot; + res;
+          tb.Init();
+        }
+        catch(Exception exc){}
+      
+        tb.SelectCommand =
+          &quot;create table &quot; + res + &quot; &quot; +
+          &quot;(nzp_dom integer,&quot; +
+          &quot;uch integer,&quot; + 
+          &quot;ulica char(100),&quot; +  
+          &quot;dom char(10),&quot; +
+          &quot;gilcov integer,&quot; + 
+          &quot;lgotkov integer,&quot; + 
+          &quot;kvtov integer,&quot; + 
+          &quot;kvlgot integer,&quot; + 
+          &quot;vrvib integer,&quot; + 
+          &quot;allpl decimal(15,2),&quot; + 
+          &quot;jilpl decimal(15,2),&quot; + 
+          &quot;lgotpl integer,&quot; + 
+          &quot;lgotplot integer,&quot; + 
+          &quot;plprivat decimal(15,2),&quot; + 
+          &quot;komnat integer,&quot; + 
+          &quot;schetov integer,&quot; + 
+          &quot;kvartir integer,&quot; + 
+          &quot;privkvartir integer, &quot; + 
+          &quot;jlprkv integer,&quot; + 
+          &quot;kvprkv integer) &quot;;// + 
+          //&quot;with no log&quot;;
+        file.WriteLine(&quot;sql2: &quot; + tb.SelectCommand);
+        tb.Init();
+      
+        //вспомогательная таблица
+        TableDataSource tb1 = Report.GetDataSource(&quot;prepare&quot;) as TableDataSource;
+        try
+        {
+          tb1.SelectCommand = &quot;drop table &quot; + pre;
+          tb1.Init();
+        }
+        catch(Exception exc){}
+      
+        tb1.SelectCommand =
+          &quot;create table &quot; + pre + &quot; &quot; +
+          &quot;(nzp_dom integer,&quot; +
+          &quot;nzp_kvar integer,&quot; +
+          &quot;nkvar char(10),&quot; + 
+          &quot;nkvar_n integer,&quot; + 
+          &quot;uch integer,&quot; + 
+          &quot;ulica char(100),&quot; +  
+          &quot;dom char(10),&quot; +
+          &quot;gilcov integer,&quot; + 
+          &quot;lgotkov integer,&quot; + 
+          &quot;kvtov integer,&quot; + 
+          &quot;kvlgot integer,&quot; + 
+          &quot;vrvib integer,&quot; + 
+          &quot;allpl decimal(15,2),&quot; + 
+          &quot;jilpl decimal(15,2),&quot; + 
+          &quot;lgotpl integer,&quot; + 
+          &quot;lgotplot integer,&quot; + 
+          &quot;plprivat decimal(15,2),&quot; + 
+          &quot;komnat integer,&quot; + 
+          &quot;schetov integer,&quot; + 
+          &quot;kvartir integer,&quot; + 
+          &quot;privkvartir integer, &quot; + 
+          &quot;jlprkv integer,&quot; + 
+          &quot;kvprkv integer) &quot;;// + 
+          //&quot;with no log&quot;;
+        file.WriteLine(&quot;sql3: &quot; + tb1.SelectCommand);
+        tb1.Init();
+      
+        if(loop.Table.Rows.Count &gt; 0)
+        {
+          for(int i = 0; i &lt; loop.Table.Rows.Count; i++)
+          {
+            string item = loop.Table.Rows[i][&quot;bd_kernel&quot;].ToString().Trim();
+            //уч, улица, дом
+            tb1.SelectCommand = &quot;insert into &quot; + pre + &quot; (nzp_dom, nzp_kvar, nkvar_n, uch, ulica, dom) &quot; +
+              &quot;SELECT &quot; +
+              &quot;k.nzp_dom,&quot; + 
+              &quot;k.nzp_kvar, &quot; + 
+              &quot;k.nkvar_n, &quot; + 
+              &quot;k.uch, &quot; + 
+              &quot;trim(ul.ulica)||' УЛ.' as ulica, &quot; + 
+              &quot;dom.ndom &quot; + 
+              &quot;FROM &quot; + 
+              item + &quot;_data: s_ulica ul, &quot; + 
+              item + &quot;_data: dom dom, &quot; + 
+              item + &quot;_data: kvar k, &quot; + 
+              prefix0 + &quot;@&quot; + prefix2 + &quot;: t&quot; + nzp_user + &quot;_spls spls &quot; + 
+              &quot;WHERE &quot; +  
+              &quot;spls.nzp_dom = dom.nzp_dom &quot; +  
+              &quot;AND dom.nzp_ul = ul.nzp_ul &quot; + 
+              &quot;AND spls.nzp_kvar = k.nzp_kvar&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //уч, улица, дом
+            tb1.SelectCommand = &quot;insert into &quot; + pre + &quot; (nzp_dom, uch, ulica, dom) &quot;+
+              &quot;SELECT &quot; + 
+              &quot;k.nzp_dom, &quot; +
+              &quot;k.uch, &quot; + 
+              &quot;trim(ul.ulica)||' УЛ.' as ulica, &quot; + 
+              &quot;dom.ndom &quot; + 
+              &quot;FROM &quot; + 
+              item + &quot;_data: s_ulica ul, &quot; + 
+              item + &quot;_data: dom dom, &quot; + 
+              item + &quot;_data: kvar k, &quot; + 
+              prefix0 + &quot;@&quot; + prefix2 + &quot;: t&quot; + nzp_user + &quot;_spls spls &quot; + 
+              &quot;WHERE &quot; +  
+              &quot;spls.nzp_dom = dom.nzp_dom &quot; +  
+              &quot;AND dom.nzp_ul = ul.nzp_ul &quot; + 
+              &quot;AND spls.nzp_kvar = k.nzp_kvar&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //количество жильцов
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set gilcov = &quot; + prefix3 + &quot;: get_kol_gil(&quot; + 
+              s_period + &quot;,&quot; + 
+              po_period + &quot;,&quot; +
+              &quot;15,&quot; +
+              &quot;nzp_kvar,&quot; +
+              &quot;0);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //льготники
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set lgotkov = 0;&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //количество квартирантов - временно прибывшие 
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set &quot; +
+              &quot;kvtov = (select sum(cast(nvl(a.val_prm,0) as decimal(14,2))) from &quot; + item + &quot;_data: prm_1 a &quot; +
+              &quot;where a.nzp_prm in(131) and a.nzp = &quot; + pre + &quot;.nzp_kvar and a.is_actual&lt;&gt;100 &quot; + 
+              &quot;and dat_s &lt; &quot; + s_period + &quot; and dat_po &gt; &quot; + po_period + &quot;);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+            
+            //кв. льг.
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set kvlgot = 0;&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //временно выбывшие 
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set vrvib = &quot; + prefix3 + &quot;:get_kol_gil(&quot; + s_period + &quot;,&quot; + po_period + &quot;, 15, nzp_kvar, 0) - &quot; + 
+              prefix3 + &quot;:get_kol_gil(&quot; + s_period + &quot;,&quot; + po_period + &quot;, 15, nzp_kvar, 3);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //общая площадь
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set allpl  = &quot; +
+              &quot;(select sum(cast(nvl(a.val_prm,0) as decimal(14,2))) &quot; +
+              &quot;from &quot; + item + &quot;_data: prm_1 a &quot; +
+              &quot;where a.nzp_prm = 4 and a.nzp = &quot; + pre + &quot;.nzp_kvar and a.is_actual &lt;&gt; 100 &quot; +
+              &quot;and a.nzp in (select b.nzp from &quot; + item + &quot;_data: prm_1 b where b.nzp_prm = 3 and b.val_prm = 1 and b.nzp = &quot; + pre + &quot;.nzp_kvar) &quot; +
+              &quot;and dat_s &lt; &quot; + s_period + &quot; and dat_po &gt; &quot; + po_period + &quot;);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();                  
+                        
+                                            
+            //жилая площадь                            
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set jilpl = &quot; +
+              &quot;(select sum(cast(nvl(a.val_prm,0) as decimal(14,2))) &quot; +
+              &quot;from &quot; + item + &quot;_data: prm_1 a &quot; +
+              &quot;where a.nzp_prm in(6) and a.nzp = &quot; + pre + &quot;.nzp_kvar and a.is_actual &lt;&gt; 100 &quot; + 
+              &quot;and dat_s &lt; &quot; + s_period + &quot; and dat_po &gt; &quot; + po_period + &quot;);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //льг.пл.
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set lgotpl = 0;&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //льг.пл.от.
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set lgotplot = 0;&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //площадь приватизированных квартир
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set plprivat = &quot; +
+              &quot;(select sum(cast(nvl(a.val_prm,0) as decimal(14,2))) from &quot; + item + &quot;_data: prm_1 a where a.nzp_prm in(6) and a.nzp = &quot; + pre + &quot;.nzp_kvar  &quot; +
+              &quot;and a.nzp in (select b.nzp from &quot; + item + &quot;_data: prm_1 b where b.nzp_prm =8 and b.val_prm=1 and b.nzp=&quot; + pre + &quot;.nzp_kvar) &quot; +
+              &quot;and dat_s &lt; &quot; + s_period + &quot; and dat_po &gt; &quot; + po_period + &quot; and a.is_actual &lt;&gt; 100);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //количество комнат                           
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set komnat = &quot; +
+              &quot;(select sum(cast(nvl(a.val_prm,0) as decimal(14,2))) from &quot; + item + &quot;_data: prm_1 a where a.nzp_prm = 107 and a.nzp = &quot; + pre + &quot;.nzp_kvar &quot; +
+              &quot;and dat_s &lt; &quot; + s_period + &quot; and dat_po &gt; &quot; + po_period + &quot; and a.is_actual &lt;&gt; 100);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //количество счетов                           
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set schetov = 1&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //количество квартир
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set kvartir  = 0;&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set kvartir  = &quot; + prefix3 + &quot;:sortnum(nkvar) + 1 where length(trim(replace(nvl(nkvar_n,'-'),'-','')))&gt;0;&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //количество  приватизированных квартир                           
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set privkvartir  = 1 where nzp_kvar in &quot; +
+              &quot;(select b.nzp from &quot; + item + &quot;_data: prm_1 b where b.nzp_prm = 8 and b.val_prm=1 and b.nzp=&quot; + pre + &quot;.nzp_kvar);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //количество жильцов в  приватизированных квартирах                           
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set jlprkv = &quot; + prefix3 + &quot;:get_kol_gil(&quot; + s_period + &quot;,&quot; + po_period + &quot;, 15, nzp_kvar, 0) &quot; + 
+              &quot;where nzp_kvar in (select b.nzp from &quot; + item + &quot;_data: prm_1 b where b.nzp_prm = 8 and b.val_prm = 1 and b.nzp = &quot; + pre + &quot;.nzp_kvar);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          
+            //количество квартирантов в  приватизированных квартирах                           
+            tb1.SelectCommand = &quot;update &quot; + pre + &quot; set kvprkv  = ( select sum(cast(nvl(a.val_prm,0) as decimal(14,2))) from &quot; + item + &quot;_data: prm_1 a &quot; +
+              &quot;where a.nzp_prm in(131) and a.nzp=&quot; + pre + &quot;.nzp_kvar &quot; + 
+              &quot;and dat_s &lt; &quot; + s_period + &quot; and dat_po &gt; &quot; + po_period + &quot;) &quot; + 
+              &quot;where nzp_kvar in (select b.nzp from &quot; + item + &quot;_data: prm_1 b where b.nzp_prm = 8 and b.val_prm = 1 and b.nzp = &quot; + pre + &quot;.nzp_kvar);&quot;;
+            file.WriteLine(&quot;sql: &quot; + tb1.SelectCommand);
+            tb1.Init();
+          }
+        
+          //получение данных в результирующую таблицу
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set gilcov  = (select sum(nvl(gilcov,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set lgotkov  = (select sum(nvl(lgotkov,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set kvtov  = (select sum(nvl(kvtov,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set kvlgot  = (select sum(nvl(kvlgot,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set vrvib  = (select sum(nvl(vrvib,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set allpl  = (select sum(nvl(allpl,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set jilpl  = (select sum(nvl(jilpl,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set lgotpl  = (select sum(nvl(lgotpl,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set lgotplot  = (select sum(nvl(lgotplot,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set plprivat  = (select sum(nvl(plprivat,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set komnat  = (select sum(nvl(komnat,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set schetov  = (select sum(nvl(schetov,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set kvartir  = (select sum(nvl(kvartir,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set privkvartir  = (select sum(nvl(privkvartir,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set jlprkv  = (select sum(nvl(jlprkv,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set kvprkv  = (select sum(nvl(kvprkv,0)) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+          tb.SelectCommand = &quot;update &quot; + res + &quot; set kvartir = schetov - (select count(distinct a.kvartir) from &quot; + pre + &quot; a where a.nzp_dom = &quot; + res + &quot;.nzp_dom);&quot;;
+          file.WriteLine(&quot;sql: &quot; + tb.SelectCommand);
+          tb.Init();
+        
+          //выгрузка данных
+          System.Data.DataTable dt = new System.Data.DataTable();
+          dt.TableName = &quot;statistics&quot;;
+          dt.Columns.Add(&quot;p1&quot;, typeof(string));
+          dt.Columns.Add(&quot;p2&quot;, typeof(string));
+          dt.Columns.Add(&quot;p3&quot;, typeof(string));
+          dt.Columns.Add(&quot;p4&quot;, typeof(string));
+          dt.Columns.Add(&quot;p5&quot;, typeof(string));
+          dt.Columns.Add(&quot;p6&quot;, typeof(string));
+          dt.Columns.Add(&quot;p7&quot;, typeof(string));
+          dt.Columns.Add(&quot;p8&quot;, typeof(string));
+          dt.Columns.Add(&quot;p9&quot;, typeof(string));
+          dt.Columns.Add(&quot;p10&quot;, typeof(string));
+          dt.Columns.Add(&quot;p11&quot;, typeof(string));
+          dt.Columns.Add(&quot;p12&quot;, typeof(string));
+          dt.Columns.Add(&quot;p13&quot;, typeof(string));
+          dt.Columns.Add(&quot;p14&quot;, typeof(string));
+          dt.Columns.Add(&quot;p15&quot;, typeof(string));
+          dt.Columns.Add(&quot;p16&quot;, typeof(string));
+          dt.Columns.Add(&quot;p17&quot;, typeof(string));
+          dt.Columns.Add(&quot;p18&quot;, typeof(string));
+          dt.Columns.Add(&quot;p19&quot;, typeof(string));
+          System.Data.DataRow dr;
+        
+          tb.SelectCommand = &quot;select * from &quot; + res + &quot;;&quot;;
+          tb.Init();
+        
+          //цикл по всем записям
+          for(int i = 0; i &lt; tb.Table.Rows.Count;i++)
+          {
+            dr = dt.Rows.Add();
+            dr[&quot;p1&quot;] = tb.Table.Rows[i][&quot;uch&quot;].ToString();
+            dr[&quot;p2&quot;] = tb.Table.Rows[i][&quot;ulica&quot;].ToString();
+            dr[&quot;p3&quot;] = tb.Table.Rows[i][&quot;dom&quot;].ToString();
+            dr[&quot;p4&quot;] = tb.Table.Rows[i][&quot;gilcov&quot;].ToString();
+            dr[&quot;p5&quot;] = tb.Table.Rows[i][&quot;lgotkov&quot;].ToString();
+            dr[&quot;p6&quot;] = tb.Table.Rows[i][&quot;kvtov&quot;].ToString();
+            dr[&quot;p7&quot;] = tb.Table.Rows[i][&quot;kvlgot&quot;].ToString();
+            dr[&quot;p8&quot;] = tb.Table.Rows[i][&quot;vrvib&quot;].ToString();
+            dr[&quot;p9&quot;] = tb.Table.Rows[i][&quot;allpl&quot;].ToString();
+            dr[&quot;p10&quot;] = tb.Table.Rows[i][&quot;jilpl&quot;].ToString();
+            dr[&quot;p11&quot;] = tb.Table.Rows[i][&quot;lgotpl&quot;].ToString();
+            dr[&quot;p12&quot;] = tb.Table.Rows[i][&quot;lgotplot&quot;].ToString();
+            dr[&quot;p13&quot;] = tb.Table.Rows[i][&quot;plprivat&quot;].ToString();
+            dr[&quot;p14&quot;] = tb.Table.Rows[i][&quot;komnat&quot;].ToString();
+            dr[&quot;p15&quot;] = tb.Table.Rows[i][&quot;schetov&quot;].ToString();
+            dr[&quot;p16&quot;] = tb.Table.Rows[i][&quot;kvartir&quot;].ToString();
+            dr[&quot;p17&quot;] = tb.Table.Rows[i][&quot;privkvartir&quot;].ToString();
+            dr[&quot;p18&quot;] = tb.Table.Rows[i][&quot;jlprkv&quot;].ToString();
+            dr[&quot;p19&quot;] = tb.Table.Rows[i][&quot;kvprkv&quot;].ToString();
+          }
+        
+          //вывод результата в таюлице
+          System.Data.DataSet fDataSet = new System.Data.DataSet();
+          fDataSet.Tables.Add(dt);
+          Report.RegisterData(fDataSet.Tables[&quot;statistics&quot;], &quot;statistics&quot;);
+          Report.GetDataSource(&quot;statistics&quot;).Enabled = true;
+          Data1.DataSource = Report.GetDataSource(&quot;statistics&quot;);
+          Cellp1.Text = &quot;[statistics.p1]&quot;;
+          Cellp2.Text = &quot;[statistics.p2]&quot;;
+          Cellp3.Text = &quot;[statistics.p3]&quot;;
+          Cellp4.Text = &quot;[statistics.p4]&quot;;
+          Cellp5.Text = &quot;[statistics.p5]&quot;;
+          Cellp6.Text = &quot;[statistics.p6]&quot;;
+          Cellp7.Text = &quot;[statistics.p7]&quot;;
+          Cellp8.Text = &quot;[statistics.p8]&quot;;
+          Cellp9.Text = &quot;[statistics.p9]&quot;;
+          Cellp10.Text = &quot;[statistics.p10]&quot;;
+          Cellp11.Text = &quot;[statistics.p11]&quot;;
+          Cellp12.Text = &quot;[statistics.p12]&quot;;
+          Cellp13.Text = &quot;[statistics.p13]&quot;;
+          Cellp14.Text = &quot;[statistics.p14]&quot;;
+          Cellp15.Text = &quot;[statistics.p15]&quot;;
+          Cellp16.Text = &quot;[statistics.p16]&quot;;
+          Cellp17.Text = &quot;[statistics.p17]&quot;;
+          Cellp18.Text = &quot;[statistics.p18]&quot;;
+          Cellp19.Text = &quot;[statistics.p19]&quot;;
+        }
+      }
+    }
+    
+    //процедура получения названия месяца
+    public string GetMonthStr(int month)
+    {
+      string month_name = &quot;&quot;;
+      switch(month)
+      {
+        case 1:
+        {
+          month_name = &quot;январь&quot;; break;
+        }
+        case 2:
+        {
+          month_name = &quot;февраль&quot;; break;
+        }
+        case 3:
+        {
+          month_name = &quot;март&quot;; break;
+        }
+        case 4:
+        {
+          month_name = &quot;апрель&quot;; break;
+        }
+        case 5:
+        {
+          month_name = &quot;май&quot;; break;
+        }
+        case 6:
+        {
+          month_name = &quot;июнь&quot;; break;
+        }
+        case 7:
+        {
+          month_name = &quot;июль&quot;; break;
+        }
+        case 8:
+        {
+          month_name = &quot;август&quot;; break;
+        }
+        case 9:
+        {
+          month_name = &quot;сентябрь&quot;; break;
+        }
+        case 10:
+        {
+          month_name = &quot;октябрь&quot;; break;
+        }
+        case 11:
+        {
+          month_name = &quot;ноябрь&quot;; break;
+        }
+        case 12:
+        {
+          month_name = &quot;декабрь&quot;; break;
+        }      
+      }
+      return month_name;
+    }
+  }
+}</ScriptText>
+  <Dictionary>
+    <IfxDataConnection Name="Connection" ConnectionString="rijcmlqAR3exEBj6tIvVLrEX2VWHGYanPB2g9vK3J94VC+//g8SAHkrFF0SG6Z/7aANdrkiGnDPbrOZxxLm1H04krop80g8g2or7lHWuGxmGmbmmwxvgGpkCK37G3YDjR7tcqPjb2CPcO9PdYQl2acNLmwo0X+Q/9UD50/WOjCgZ+j/QIc=">
+      <TableDataSource Name="Table" Alias="result" DataType="System.Int32" Enabled="true" SelectCommand="select&#13;&#10;0 uch, &#13;&#10;'' ulica, &#13;&#10;0 dom,&#13;&#10;0 gilcov,&#13;&#10;0 lgotkov,&#13;&#10;0 kvtov,&#13;&#10;0 kvlgot,&#13;&#10;0 vrvib,&#13;&#10;0 allpl,&#13;&#10;0 jilpl,&#13;&#10;0 lgotpl,&#13;&#10;0 lgotplot,&#13;&#10;0 plprivat,&#13;&#10;0 komnat,&#13;&#10;0 schetov,&#13;&#10;0 kvartir,&#13;&#10;0 privkvartir,&#13;&#10;0 jlprkv,&#13;&#10;0 kvprkv&#13;&#10;from fgub_data: kvar">
+        <Column Name="uch" DataType="System.Int32"/>
+        <Column Name="ulica" DataType="System.String"/>
+        <Column Name="dom" DataType="System.Int32"/>
+        <Column Name="gilcov" DataType="System.Int32"/>
+        <Column Name="lgotkov" DataType="System.Int32"/>
+        <Column Name="kvtov" DataType="System.Int32"/>
+        <Column Name="kvlgot" DataType="System.Int32"/>
+        <Column Name="vrvib" DataType="System.Int32"/>
+        <Column Name="allpl" DataType="System.Int32"/>
+        <Column Name="jilpl" DataType="System.Int32"/>
+        <Column Name="lgotpl" DataType="System.Int32"/>
+        <Column Name="lgotplot" DataType="System.Int32"/>
+        <Column Name="plprivat" DataType="System.Int32"/>
+        <Column Name="komnat" DataType="System.Int32"/>
+        <Column Name="schetov" DataType="System.Int32"/>
+        <Column Name="kvartir" DataType="System.Int32"/>
+        <Column Name="privkvartir" DataType="System.Int32"/>
+        <Column Name="jlprkv" DataType="System.Int32"/>
+        <Column Name="kvprkv" DataType="System.Int32"/>
+      </TableDataSource>
+      <TableDataSource Name="Table2" Alias="looptables" DataType="System.Int32" Enabled="true" SelectCommand="SELECT bd_kernel FROM fgub_kernel: s_point WHERE nzp_graj = 1;">
+        <Column Name="bd_kernel" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table3" Alias="prepare" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;0 nzp_kvar,&#13;&#10;0 uch, &#13;&#10;'' ulica, &#13;&#10;0 dom,&#13;&#10;0 gilcov,&#13;&#10;0 lgotkov,&#13;&#10;0 kvtov,&#13;&#10;0 kvlgot,&#13;&#10;0 vrvib,&#13;&#10;0 allpl,&#13;&#10;0 jilpl,&#13;&#10;0 lgotpl,&#13;&#10;0 lgotplot,&#13;&#10;0 plprivat,&#13;&#10;0 komnat,&#13;&#10;0 schetov,&#13;&#10;0 kvartir,&#13;&#10;0 privkvartir,&#13;&#10;0 jlprkv,&#13;&#10;0 kvprkv&#13;&#10;from fgub_data: kvar">
+        <Column Name="nzp_kvar" DataType="System.Int32"/>
+        <Column Name="uch" DataType="System.Int32"/>
+        <Column Name="ulica" DataType="System.String"/>
+        <Column Name="dom" DataType="System.Int32"/>
+        <Column Name="gilcov" DataType="System.Int32"/>
+        <Column Name="lgotkov" DataType="System.Int32"/>
+        <Column Name="kvtov" DataType="System.Int32"/>
+        <Column Name="kvlgot" DataType="System.Int32"/>
+        <Column Name="vrvib" DataType="System.Int32"/>
+        <Column Name="allpl" DataType="System.Int32"/>
+        <Column Name="jilpl" DataType="System.Int32"/>
+        <Column Name="lgotpl" DataType="System.Int32"/>
+        <Column Name="lgotplot" DataType="System.Int32"/>
+        <Column Name="plprivat" DataType="System.Int32"/>
+        <Column Name="komnat" DataType="System.Int32"/>
+        <Column Name="schetov" DataType="System.Int32"/>
+        <Column Name="kvartir" DataType="System.Int32"/>
+        <Column Name="privkvartir" DataType="System.Int32"/>
+        <Column Name="jlprkv" DataType="System.Int32"/>
+        <Column Name="kvprkv" DataType="System.Int32"/>
+      </TableDataSource>
+    </IfxDataConnection>
+    <Parameter Name="month_from" DataType="System.String"/>
+    <Parameter Name="year_from" DataType="System.String"/>
+    <Parameter Name="prefix1" DataType="System.String"/>
+    <Parameter Name="nzp_user" DataType="System.String"/>
+    <Parameter Name="prefix0" DataType="System.String"/>
+    <Parameter Name="prefix2" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <PageHeaderBand Name="PageHeader1" Width="1047.06" Height="18.9">
+      <TextObject Name="Text1" Left="9.45" Width="283.5" Height="18.9" Text="Статистика состояния жилфонда за" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="HeaderMonth" Left="292.95" Width="103.95" Height="18.9" HorzAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="HeaderYear" Left="406.35" Width="47.25" Height="18.9" Text="[year_from]" HorzAlign="Center" Font="Arial, 11pt, style=Bold"/>
+    </PageHeaderBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="22.9" Width="1047.06" Height="18.9" Guides="0,0">
+      <TableObject Name="Table1" Left="9.45" Width="1029.95" Height="18.9">
+        <TableColumn Name="Column1" Width="36.8"/>
+        <TableColumn Name="Column2" Width="102.95"/>
+        <TableColumn Name="Column3" Width="46.25"/>
+        <TableColumn Name="Column4" Width="55.7"/>
+        <TableColumn Name="Column5" Width="46.25"/>
+        <TableColumn Name="Column6" Width="46.25"/>
+        <TableColumn Name="Column7" Width="46.25"/>
+        <TableColumn Name="Column8" Width="46.25"/>
+        <TableColumn Name="Column9" Width="55.7"/>
+        <TableColumn Name="Column10" Width="46.25"/>
+        <TableColumn Name="Column11" Width="46.25"/>
+        <TableColumn Name="Column12" Width="55.7"/>
+        <TableColumn Name="Column13" Width="55.7"/>
+        <TableColumn Name="Column14" Width="46.25"/>
+        <TableColumn Name="Column15" Width="46.25"/>
+        <TableColumn Name="Column16" Width="55.7"/>
+        <TableColumn Name="Column17" Width="65.15"/>
+        <TableColumn Name="Column18" Width="65.15"/>
+        <TableColumn Name="Column19" Width="65.15"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Text="Уч" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell2" Text="Улица" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell3" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell4" Text="Жильцов" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell5" Text="Льг-ков" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell26" Text="Кв-тов" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell27" Text="Кв. льг." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell28" Text="Вр.выб." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell29" Text="Общ.пл." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell30" Text="Жил.пл." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell31" Text="Льг.пл." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell32" Text="Льг.пл.от." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell33" Text="Пл.прив." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell34" Text="Комнат" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell35" Text="Счетов" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell36" Text="Квартир" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell37" Text="Прив.кварт." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell38" Text="Жл.пр.кв." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cell39" Text="Кв.пр.кв." HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="45.8" Width="1047.06" Height="18.9">
+      <TableObject Name="Table6" Left="9.45" Width="1029.95" Height="18.9">
+        <TableColumn Name="Column20" Width="36.8"/>
+        <TableColumn Name="Column21" Width="102.95"/>
+        <TableColumn Name="Column22" Width="46.25"/>
+        <TableColumn Name="Column23" Width="55.7"/>
+        <TableColumn Name="Column24" Width="46.25"/>
+        <TableColumn Name="Column25" Width="46.25"/>
+        <TableColumn Name="Column26" Width="46.25"/>
+        <TableColumn Name="Column27" Width="46.25"/>
+        <TableColumn Name="Column28" Width="55.7"/>
+        <TableColumn Name="Column29" Width="46.25"/>
+        <TableColumn Name="Column30" Width="46.25"/>
+        <TableColumn Name="Column31" Width="55.7"/>
+        <TableColumn Name="Column32" Width="55.7"/>
+        <TableColumn Name="Column33" Width="46.25"/>
+        <TableColumn Name="Column34" Width="46.25"/>
+        <TableColumn Name="Column35" Width="55.7"/>
+        <TableColumn Name="Column36" Width="65.15"/>
+        <TableColumn Name="Column37" Width="65.15"/>
+        <TableColumn Name="Column38" Width="65.15"/>
+        <TableRow Name="Row2">
+          <TableCell Name="Cellp1" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp2" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp3" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp4" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp5" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp6" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp7" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp8" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp9" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp10" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp11" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp12" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp13" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp14" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp15" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp16" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp17" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp18" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+          <TableCell Name="Cellp19" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,40 @@
+Для корректной работы КП 5.0 под Informix надо:
+
+Требования к структуре БД:
+
+-------------------------------------------------------------------
+|     Таблица                 |     Поля
+-------------------------------------------------------------------
+  XXX_data:kvar                 pkod10		 integer default 0
+-------------------------------------------------------------------                              
+  XXX_data:counters_spis        is_pl 		 integer 
+			        cnt_ls 		 integer 
+-------------------------------------------------------------------			                                
+  XXX_charge_XX:counters_vals   nzp_cv           serial not null
+                                nzp              integer not null, 
+                                nzp_type         integer not null, 
+                                nzp_counter      integer not null, 
+                                month_           integer not null, 
+                                dat_uchet        date, 
+                                val_cnt          float, 
+                                ngp_cnt          decimal(14,7) default 0.0000000, 
+                                ngp_lift         decimal(14,7) default 0.0000000, 
+                                nzp_user         integer, 
+                                dat_when         date, 
+                                ist              integer default 0, 
+                                is_new           integer
+-------------------------------------------------------------------
+  XXX_data:counters_arx         nzp_arx      serial not null, 
+                                nzp_counter  integer not null, 
+                                pole         char(40),
+                                val_old      char(20),
+                                val_new      char(20),
+                                nzp_user     integer, 
+                                dat_calc     date, 
+                                dat_when     date
+
+Требования к содержанию БД:
+
+1. При добавлении новых домов и лицевых счетов возникают проблемы с уникальными ключами, таблица series
+2. Для шаблона поиска по показаниям ПУ требуется, чтобы в центральном банке была заполнена таблица XXX_kernel:s_counts.
+3. При добавлении ЛС считывается erc_kod = -9999.... из таблицы s_erck.

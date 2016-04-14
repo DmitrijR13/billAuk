@@ -1,0 +1,224 @@
+function go(nmbd);
+
+-- CENTRAL_KERNEL
+database #nmbd_kernel;
+
+try
+drop table s_kind_handl;
+drop table s_form_sobs;
+drop table s_form_gil;
+drop table th_status_links;
+drop table s_th_status;
+except
+
+--Справочник способов управления
+CREATE TABLE "are".s_kind_handl(
+   nzp_handl  SERIAL NOT NULL,
+   name_handl CHAR(90) NOT NULL
+);
+
+insert into s_kind_handl(nzp_handl, name_handl) values (1, 'УК    ');
+insert into s_kind_handl(nzp_handl, name_handl) values (2, 'ТСЖ   ');
+insert into s_kind_handl(nzp_handl, name_handl) values (3, 'непоср');
+
+CREATE UNIQUE INDEX "are".ix1_kind_handl ON s_kind_handl(nzp_handl);
+update statistics for table s_kind_handl;
+
+--Справочник форм собственности
+CREATE TABLE "are".s_form_sobs(
+   nzp_fs    SERIAL NOT NULL,
+   name_fs   CHAR(90) NOT NULL
+);
+
+insert into s_form_sobs(nzp_fs, name_fs) values (1, 'муниципальный');
+insert into s_form_sobs(nzp_fs, name_fs) values (2, 'частный      ');
+
+CREATE UNIQUE INDEX "are".ix1_form_sobs ON s_form_sobs(nzp_fs);
+update statistics for table s_form_sobs;
+
+--Справочник форм жилья
+CREATE TABLE "are".s_form_gil(
+   nzp_fg    SERIAL NOT NULL,
+   name_fg   CHAR(90) NOT NULL
+);
+
+insert into s_form_gil(nzp_fg, name_fg) values (1, 'МКД  ');
+insert into s_form_gil(nzp_fg, name_fg) values (2, 'жилой');
+
+CREATE UNIQUE INDEX "are".ix1_form_gil ON s_form_gil(nzp_fg);
+update statistics for table s_form_gil;
+
+--статусы тех характеристик
+create table "are".s_th_status
+(
+nzp_status integer not null,
+status char(30)
+);
+
+create unique index ix_s_th_status_1 on s_th_status(nzp_status);
+ALTER TABLE s_th_status ADD CONSTRAINT PRIMARY KEY (nzp_status) CONSTRAINT "are".pk_s_th_status;
+
+insert into "are".s_th_status (nzp_status, status) values (1, 'Генерируется');
+insert into "are".s_th_status (nzp_status, status) values (2, 'Сгенерирован');
+insert into "are".s_th_status (nzp_status, status) values (3, 'Загружается');
+insert into "are".s_th_status (nzp_status, status) values (4, 'Загружен');
+insert into "are".s_th_status (nzp_status, status) values (5, 'В процессе учета');
+insert into "are".s_th_status (nzp_status, status) values (6, 'Учтен');
+insert into "are".s_th_status (nzp_status, status) values (7, 'Удален');
+insert into "are".s_th_status (nzp_status, status) values (8, 'Учтен с ошибками');
+
+
+CREATE TABLE "are".th_status_links(
+   nzp_link SERIAL NOT NULL,
+   nzp_status_from INTEGER NOT NULL,
+   nzp_status_to INTEGER NOT NULL,
+   is_active INTEGER NOT NULL)
+EXTENT SIZE 32 NEXT SIZE 32 LOCK MODE ROW;
+
+CREATE UNIQUE INDEX "are".ix_th_status_links_1 ON "are".th_status_links(nzp_link);
+CREATE UNIQUE INDEX "are".ix_th_status_links_2 ON "are".th_status_links(nzp_status_from, nzp_status_to);
+CREATE INDEX "are".ix_th_status_links_3 ON "are".th_status_links(nzp_status_from);
+CREATE INDEX "are".ix_th_status_links_4 ON "are".th_status_links(nzp_status_to);
+ALTER TABLE th_status_links ADD CONSTRAINT (FOREIGN KEY (nzp_status_from) REFERENCES s_th_status CONSTRAINT "are".fk_th_status_links_1);
+ALTER TABLE th_status_links ADD CONSTRAINT (FOREIGN KEY (nzp_status_to) REFERENCES s_th_status CONSTRAINT "are".fk_th_status_links_2);
+
+insert into "are".th_status_links (nzp_status_from, nzp_status_to, is_active) values (1, 2, 1);
+insert into "are".th_status_links (nzp_status_from, nzp_status_to, is_active) values (2, 7, 1);
+insert into "are".th_status_links (nzp_status_from, nzp_status_to, is_active) values (3, 4, 1);
+insert into "are".th_status_links (nzp_status_from, nzp_status_to, is_active) values (4, 5, 1);
+insert into "are".th_status_links (nzp_status_from, nzp_status_to, is_active) values (4, 7, 1);
+insert into "are".th_status_links (nzp_status_from, nzp_status_to, is_active) values (5, 6, 1);
+insert into "are".th_status_links (nzp_status_from, nzp_status_to, is_active) values (5, 8, 1);
+
+
+-- CENTRAL_FIN_YY
+database #nmbd_fin_12;
+
+try
+drop table zg_th_gd;
+drop table subs_th_gd;
+drop table subs_th_gd_details;
+except
+
+create table subs_th_gd
+(
+  nzp_zgt   serial,                   -- сериал
+  nzp_ev    integer not null,         -- ссылка на событие загрузки
+  nzp_contract   integer not null,         -- ссылка на контракт  
+  num_th    integer not null,         -- № ТХ ЖД
+  dat_th    date not null,            -- дата ТХ ЖД
+  nzp_status INTEGER NOT NULL,        -- состояние
+  name_org char(100) not null,       -- Поставщик услуги / УК                                                     
+  name_podr char(100) not null,       -- Подразделение поставщика услуги / УК                                                     
+  raj_prefix char(100) not null,       -- префикс района
+  rajon char(100) not null,       -- Город Район  
+  inn       decimal(12,0) not null,   -- ИНН поставщика услуги / УК                                                
+  kpp       decimal(10,0) not null,   -- КПП поставщика услуги / УК                                                
+  nzp_vill  decimal(13,0),            -- Код муниципального образования
+  date_begin date,
+  date_end date,                                          
+  created_by INTEGER NOT NULL,
+  created_on datetime year to second NOT NULL,
+  changed_by INTEGER,
+  changed_on datetime year to second
+);
+
+
+create unique index ix1_th_gd on subs_th_gd(nzp_zgt);
+create        index ix2_th_gd on subs_th_gd(nzp_ev);
+update statistics for table subs_th_gd;
+
+drop table subs_th_gd_details;
+create table subs_th_gd_details
+(
+  nzp_zgd   serial,                   -- сериал
+  nzp_zgt   integer not null,         -- ссылка на subs_th_gd
+  ricgd     decimal(13,0) not null,   -- уникальный код дома РС(Я) - РИКЖД
+  nzp_handl integer not null,         -- Способ управления.Значение кода из справочника.
+  name_uk   char(100) not null,       -- Наименование УК                                                     
+  adr_np    char(20) not null,       -- Населенный пункт
+  adr_ul    char(20) not null,       -- Улица	                                                     
+  adr_ndom  char(20) not null,       -- № дома	                                                     
+  adr_nkor  char(20) not null,       -- корпус	                                                     
+  adr_nkvar char(20) not null,       -- квартиры                                                     
+  nzp_fg    integer not null,         -- Форма жилья.Значение кода из справочника.
+  nzp_fs    integer not null,         -- Форма собственности.Значение кода из справочника.
+  kol_kv    integer not null,         -- Количество квартир
+  etag      integer not null,         -- Этажность
+  dat_vv_gd date,                     -- Дата ввода
+  ostkl     integer not null,         -- Остекление окон
+  sob_gd       decimal(14,2) not null,   -- Общая площадь дома                                                     
+  sob_gd_kv    decimal(14,2) not null,   -- В том числе, общая площадь квартир                                     
+  sob_gd_kv_kp decimal(14,2) not null,   -- В том числе, общая площадь по начисляемой квартплате                   
+  sob_gd_kv_py decimal(14,2),            -- В том числе, общая площадь пустующих квартир                           
+  sob_gd_kv_np decimal(14,2),            -- В том числе, общая площадь нежилых помещений (занимаемых предприятиями)
+  sob_gd_kv_ot decimal(14,2),            -- В том числе, общая площадь отключенных квартир                         
+  sob_gd_mop   decimal(14,2) not null,   -- В том числе, площадь мест общего пользования                           
+  kol_gil    integer not null,        -- Кол-во проживающих
+  ot_name_kot   char(100) ,       -- Наименование котельной                                                     
+  ot_name_supp  char(100) ,       -- Поставщик услуги
+  ot_supp_inn   decimal(12,0) ,   -- ИНН поставщика услуги
+  ot_supp_kpp   decimal(10,0) ,   -- КПП поставщика услуги
+  ot_is_odpu    integer not null,                  -- Наличие приборов учета
+  ot_is_prosyh  integer not null,         -- Наличие просушки
+  ot_klimat_zn  integer not null,         -- Климатическая зона
+  gv_typv       integer not null,         -- Степень благоустройства по ГВС
+  gv_kold       integer not null,         -- Кол-во дней подачи воды       
+  gv_kolg       integer not null,         -- Кол-во потребителей           
+  gv_name_supp  char(100) ,       -- Поставщик услуги
+  gv_supp_inn   decimal(12,0) ,   -- ИНН поставщика услуги
+  gv_supp_kpp   decimal(10,0) ,   -- КПП поставщика услуги
+  gv_is_odpu    integer not null,         -- Наличие приборов учета
+  gvo_typv       integer not null,         -- Степень благоустройства по ГВС из открытой системы отопления
+  gvo_kold       integer not null,         -- Кол-во дней подачи воды из открытой системы отопления
+  gvo_kolg       integer not null,         -- Кол-во потребителей из открытой системы отопления
+  gvo_name_supp  char(100) ,       -- Поставщик услуги
+  gvo_supp_inn   decimal(12,0) ,   -- ИНН поставщика услуги
+  gvo_supp_kpp   decimal(10,0) ,   -- КПП поставщика услуги
+  gvo_is_odpu    integer not null,         -- Наличие приборов учета
+  to_typv         integer not null,         -- Степень благоустройства по ТО
+  to_kold         integer not null,         -- Кол-во дней подачи воды       
+  to_kolg         integer not null,         -- Кол-во потребителей           
+  to_namete_supp  char(100) ,       -- Поставщик услуги ТЭ
+  to_suppte_inn   decimal(12,0) ,   -- ИНН поставщика услуги ТЭ
+  to_suppte_kpp   decimal(10,0) ,   -- КПП поставщика услуги ТЭ
+  to_namegv_supp  char(100) ,       -- Поставщик услуги ХВС для ГВС
+  to_suppgv_inn   decimal(12,0) ,   -- ИНН поставщика услуги ХВС для ГВС
+  to_suppgv_kpp   decimal(10,0) ,   -- КПП поставщика услуги ХВС для ГВС
+  to_is_odpu      integer not null,         -- Наличие приборов учета
+  hv_typv       integer not null,         -- Степень благоустройства по ХВС
+  hv_kold       integer not null,         -- Кол-во дней подачи воды       
+  hv_kolg       integer not null,         -- Кол-во потребителей           
+  hv_name_supp  char(100),       -- Поставщик услуги
+  hv_supp_inn   decimal(12,0) ,   -- ИНН поставщика услуги
+  hv_supp_kpp   decimal(10,0) ,   -- КПП поставщика услуги
+  hv_is_odpu    integer not null,         -- Наличие приборов учета
+  hv_kolg_dop   integer not null,         -- Иное (чел)
+  kn_kolg         integer not null,         -- Кол-во потребителей           
+  kn_kolgc        integer not null,         -- Кол-во потребителей при централизованном подключении          
+  kn_kolgv        integer not null,         -- Кол-во потребителей с вывозом ЖБО          
+  kn_namete_supp  char(100) ,       -- Поставщик услуги ВО
+  kn_suppte_inn   decimal(12,0) ,   -- ИНН поставщика услуги ВО
+  kn_suppte_kpp   decimal(10,0) ,   -- КПП поставщика услуги ВО
+  kn_septic       char(100),                -- Наименование (номер) септика
+  kn_is_st        integer not null,         -- Наличие очистки стоков
+  kn_namest_supp  char(100) ,       -- Поставщик услуги очистки стоков
+  kn_suppst_inn   decimal(12,0) ,   -- ИНН поставщика услуги очистки стоков
+  kn_suppst_kpp   decimal(10,0) ,   -- КПП поставщика услуги очистки стоков
+  created_by INTEGER NOT NULL,
+  created_on datetime year to second NOT NULL,
+  changed_by INTEGER,
+  changed_on datetime year to second
+);
+create unique index ix1_th_gdd on subs_th_gd_details(nzp_zgd);
+create        index ix2_th_gdd on subs_th_gd_details(nzp_zgt);
+create        index ix3_th_gdd on subs_th_gd_details(ricgd);
+update statistics for table subs_th_gd_details;
+
+end function;
+
+-- fsaha!!!
+go(#pref);
+
+--go(fsaha);
+--go(fsaha2);

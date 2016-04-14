@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/debitor/address_dept.ascx" hash="cedb9400c" filehash="b0a8cd099a4331e9" flags="110000" assembly="App_Web_ct5j2sbj" type="ASP.reports_debitor_address_dept_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/reports/debitor/address_dept.ascx" />
+    </filedeps>
+</preserve>

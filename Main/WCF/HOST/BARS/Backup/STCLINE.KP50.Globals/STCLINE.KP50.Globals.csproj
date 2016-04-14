@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A09E0051-6B16-42B5-9840-8CB60B0729C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Globals</RootNamespace>
+    <AssemblyName>KP50.Globals</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastReport">
+      <HintPath>..\..\..\LIBRARIES\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\..\LIBRARIES\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="SevenZipSharp">
+      <HintPath>..\..\..\LIBRARIES\SevenZipSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SOURCE\INTF\Admin.intf.cs" />
+    <Compile Include="SOURCE\INTF\Archive.intf.cs" />
+    <Compile Include="SOURCE\INTF\Calcs.intf.cs" />
+    <Compile Include="SOURCE\INTF\EditInterData.intf.cs" />
+    <Compile Include="SOURCE\INTF\ExcelRep.intf.cs" />
+    <Compile Include="SOURCE\INTF\Faktura.intf.cs" />
+    <Compile Include="SOURCE\INTF\FnReval.intf.cs" />
+    <Compile Include="SOURCE\INTF\Fon.intf.cs" />
+    <Compile Include="SOURCE\BARS\IAdres.cs" />
+    <Compile Include="SOURCE\BARS\ICounter.cs" />
+    <Compile Include="SOURCE\CERT\intf_Cert.cs" />
+    <Compile Include="SOURCE\CRYPT\Encryptor.cs" />
+    <Compile Include="SOURCE\CRYPT\RandomText.cs" />
+    <Compile Include="SOURCE\CRYPT\RNG.cs" />
+    <Compile Include="SOURCE\GLOBAL\Globals.cs" />
+    <Compile Include="SOURCE\GLOBAL\MonitorLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SOURCE\INTF\Adres.intf.cs" />
+    <Compile Include="SOURCE\INTF\Charge.intf.cs" />
+    <Compile Include="SOURCE\INTF\Counter.intf.cs" />
+    <Compile Include="SOURCE\INTF\Gilec.intf.cs" />
+    <Compile Include="SOURCE\INTF\License.intf.cs" />
+    <Compile Include="SOURCE\INTF\Message.intf.cs" />
+    <Compile Include="SOURCE\INTF\Money.intf.cs" />
+    <Compile Include="SOURCE\INTF\MustCalc.intf.cs" />
+    <Compile Include="SOURCE\INTF\Nedop.intf.cs" />
+    <Compile Include="SOURCE\INTF\Odn.intf.cs" />
+    <Compile Include="SOURCE\INTF\Pack.intf.cs" />
+    <Compile Include="SOURCE\INTF\Patch.intf.cs" />
+    <Compile Include="SOURCE\INTF\Prm.intf.cs" />
+    <Compile Include="SOURCE\INTF\Analiz.intf.cs" />
+    <Compile Include="SOURCE\INTF\Subsidy.intf.cs" />
+    <Compile Include="SOURCE\INTF\Serv.intf.cs" />
+    <Compile Include="SOURCE\INTF\MultiHost.intf.cs" />
+    <Compile Include="SOURCE\INTF\Sprav.intf.cs" />
+    <Compile Include="SOURCE\INTF\Supg.intf.cs" />
+    <Compile Include="SOURCE\INTF\Sz.intf.cs" />
+    <Compile Include="SOURCE\INTF\_EPasp\classes\building_report.cs" />
+    <Compile Include="SOURCE\INTF\_EPasp\classes\custom_EPasp.cs" />
+    <Compile Include="SOURCE\INTF\_EPasp\I_EPasp.cs" />
+    <Compile Include="SOURCE\INTF\_Nebo\I_Nebo.cs" />
+    <Compile Include="SOURCE\INTF\_Nebo\NeboSpravContract.cs" />
+    <Compile Include="SOURCE\INTF\_Nebo\Nebo_DataContracts.cs" />
+    <Compile Include="SOURCE\INTF\_Request\_IntfRequest.Model.cs" />
+    <Compile Include="SOURCE\INTF\_Result\_IntfResult.Model.cs" />
+    <Compile Include="SOURCE\INTF\SubsidyRequest.intf.cs" />
+    <Compile Include="SOURCE\JSONP\JSONPBehavior.cs" />
+    <Compile Include="SOURCE\JSONP\JSONPBindingElement.cs" />
+    <Compile Include="SOURCE\JSONP\JSONPBindingExtension.cs" />
+    <Compile Include="SOURCE\JSONP\JSONPEncoderFactory.cs" />
+    <Compile Include="SOURCE\Utility\ArchiveUtility.cs" />
+    <Compile Include="SOURCE\Utility\ConvertUtility.cs" />
+    <Compile Include="SOURCE\Utility\DbfUtility.cs" />
+    <Compile Include="SOURCE\Utility\ExceptionUtility.cs" />
+    <Compile Include="SOURCE\Utility\FileUtility.cs" />
+    <Compile Include="SOURCE\Utility\LogUtility.cs" />
+    <Compile Include="SOURCE\Utility\MathUtility.cs" />
+    <Compile Include="SOURCE\Utility\OrmUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\mab_core.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\mab_parameters.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\mab_services.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\multi_apartment_building.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\personal_account.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\report_core.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building\service_provider.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\building_report.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SOURCE\INTF\_EPasp\xsd\epasp_offline\request_core.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="11/21/2013 13:47:00" ReportInfo.Modified="06/06/2014 15:46:32" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+      System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo(&quot;de-de&quot;);
+      culture.NumberFormat.NumberDecimalSeparator = &quot;.&quot;;         
+      culture.DateTimeFormat.ShortDatePattern = &quot;dd.MM.yyyy&quot;;
+      culture.DateTimeFormat.ShortTimePattern = &quot;HH:mm:ss&quot;;
+      culture.NumberFormat.NumberDecimalDigits = 2; 
+      culture.NumberFormat.PercentDecimalDigits = 2;
+      System.Threading.Thread.CurrentThread.CurrentUICulture = culture; 
+      System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="area" Enabled="false" DataType="System.String"/>
+      <Column Name="name_supp" Enabled="false" DataType="System.String"/>
+      <Column Name="service" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_rasp" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_ud" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="mkd" DataType="System.String" PropName="Column"/>
+      <Column Name="gil" DataType="System.Int32" PropName="Column"/>
+      <Column Name="vod_m3" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="vod_rub" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="kan_m3" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="kan_rub" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="Total_gil" Expression="[Q_master.gil]" Evaluator="Data1"/>
+    <Total Name="Total_vod_m3" Expression="[Q_master.vod_m3]" Evaluator="Data1"/>
+    <Total Name="Total_vod_rub" Expression="[Q_master.vod_rub]" Evaluator="Data1"/>
+    <Total Name="Total_kan_m3" Expression="[Q_master.kan_m3]" Evaluator="Data1"/>
+    <Total Name="Total_kan_rub" Expression="[Q_master.kan_rub]" Evaluator="Data1"/>
+    <Total Name="Total_sum" Expression="[Q_master.sum_money]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="86.8" CanGrow="true" CanBreak="true">
+      <TextObject Name="Text1" Left="18.9" Top="5.67" Width="945" Height="52.92" CanGrow="true" Text="1.5 Отчет по начислениям и оплатам по МКД и частному сектору&#13;&#10;за [period]" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text45" Left="18.9" Top="58.45" Width="945.35" Height="28.35" CanGrow="true" AfterDataEvent="Text45_AfterData" Text="[headerParam]&#13;&#10; " HorzAlign="Justify" VertAlign="Center" Wysiwyg="true"/>
+      <ChildBand Name="Child1" Top="90.31" Width="1047.06" Height="47.25" CanGrow="true">
+        <TextObject Name="Text7" Left="396.9" Top="18.9" Width="94.5" Height="28.35" Border.Lines="All" Text="м3" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text8" Left="491.4" Top="18.9" Width="94.5" Height="28.35" Border.Lines="All" Text="руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text9" Left="585.9" Top="18.9" Width="94.5" Height="28.35" Border.Lines="All" Text="м3" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text10" Left="680.4" Top="18.9" Width="94.5" Height="28.35" Border.Lines="All" Text="руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text2" Left="18.9" Width="189" Height="47.25" Border.Lines="All" Text="Наименование" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text3" Left="207.9" Width="189" Height="47.25" Border.Lines="All" Text="Кол-во зарегистрированных лиц" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text4" Left="396.9" Width="189" Height="18.9" Border.Lines="All" Text="Начисленно за водоснабжение" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text5" Left="585.9" Width="189" Height="18.9" Border.Lines="All" Text="Начисленно за водоотведение" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text6" Left="774.9" Width="189" Height="47.25" Border.Lines="All" Text="Сумма оплаты, руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="141.07" Width="1047.06" Height="28.35" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text11" Left="18.9" Width="189" Height="28.35" Border.Lines="All" Text="[Q_master.mkd]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="207.9" Width="189" Height="28.35" Border.Lines="All" Text="[Q_master.gil]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="774.9" Width="189" Height="28.35" Border.Lines="All" Text="[Q_master.sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="396.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Q_master.vod_m3]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="491.4" Width="94.5" Height="28.35" Border.Lines="All" Text="[Q_master.vod_rub]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="585.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Q_master.kan_m3]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="680.4" Width="94.5" Height="28.35" Border.Lines="All" Text="[Q_master.kan_rub]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="172.93" Width="1047.06" Height="66.15">
+      <TextObject Name="Text25" Left="18.9" Width="189" Height="28.35" Border.Lines="All" Text="Всего:    " HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text26" Left="207.9" Width="189" Height="28.35" Border.Lines="All" Text="[Total_gil]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text27" Left="774.9" Width="189" Height="28.35" Border.Lines="All" Text="[Total_sum]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text28" Left="396.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Total_vod_m3]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text29" Left="491.4" Width="94.5" Height="28.35" Border.Lines="All" Text="[Total_vod_rub]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text30" Left="585.9" Width="94.5" Height="28.35" Border.Lines="All" Text="[Total_kan_m3]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text31" Left="680.4" Width="94.5" Height="28.35" Border.Lines="All" Text="[Total_kan_rub]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text18" Left="28.35" Top="37.8" Width="916.65" Height="18.9" Text="Признак МКД определяется параметром 2030 из таблицы параметров №2" Font="Arial, 7pt, style=Italic"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,51 @@
+1) Создать директорию C:\reportServer
+2) Поместить config-файлы в данную директорию
+_____________________________________________________________________________________________________________________________________________________________________
+				.CONFIG ФАЙЛ
+_____________________________________________________________________________________________________________________________________________________________________
+	
+	//путь к веб базе
+	W1 = connWeb = Client Locale=ru_ru.CP1251;Database=webgub;Database Locale=ru_ru.915;Server=ol_gubkinas;UID = webdb;Pwd = d5g#fH4V
+	
+	//порт для работы с сокетами
+	W2 = port = 4304 
+	
+	//ip-адрес для работы с сокетами
+	W3 = ipString = 127.0.0.1
+	
+	//путь к основной БД
+	W4 = connKernel = Database=fgub_kernel;Client Locale=ru_ru.CP1251;Database Locale=ru_ru.915;Connection Timeout=31;Server=ol_gubkin;UID = informix;Pwd = sQ-Em2qN
+
+	//путь к сохраненным отчетам
+	W6 = exportPath = \\GUBKINWEB\files\reports\              
+
+	//путь к шаблонам отчетов (.frx)
+	W5 = templatePath = C:\webhost\TEMPLATE\
+_____________________________________________________________________________________________________________________________________________________________________
+
+	Путь к отчёту D:\Work.CS\Komplat 5.0\WCF\HOST\AUTOHOST\bin\Debug\TEMPLATE
+
+_____________________________________________________________________________________________________________________________________________________________________
+
+IP-адрес: 46.61.225.61
+
+Сервера:
+192.168.1.2        GUBKINWEB        # web-сервер
+192.168.2.2        GUBKINAS        # сервер приложений
+192.168.2.3        GUBKIN                # сервер баз данных (БД)
+
+Пользователи:
+Для доступа по RDP (на всех серверах):        Administrator/Qwert!2345
+Для IIS (на web-сервере):                webadmin/fT1y!s9h
+Для host (на сервере приложений):        webdb/d5g#fH4V
+Informix (на серверах приложений и БД):        Informix/sQ-Em2qN
+
+Извне по RDP (порт стандартный, можно не указывать) попадаем на web-сервер.
+Вход по RDP на сервер приложений и на сервер БД - через web-сервер.
+
+
+Client Locale=ru_ru.CP1251;Database=webgub;Database Locale=ru_ru.915;Server=ol_mars;UID = webdb;Pwd = webdb
+
+Database=fgub_kernel;Client Locale=ru_ru.CP1251;Database Locale=ru_ru.915;Connection Timeout=31;Server=ol_mars;UID = informix;Pwd = info
+
+

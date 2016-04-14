@@ -1,0 +1,25 @@
+DROP TABLE nftul_kernel.serv_norm_koef;
+CREATE TABLE nftul_kernel.serv_norm_koef
+(
+  nzp_serv      integer,
+  nzp_serv_link integer,
+  nzp_frm       integer,
+  nzp_prm       integer
+);
+
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010038,201,1000546,1628);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010039,202,1000547,1629);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010040,  9,1000548,1558);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010041,  7,1000549,1557);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010043,  8,1000551,1556);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010044,324,1000552,1557);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010045,200,1000553,1627);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010046,374,1000554,1557);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010047,  6,1000555,1557);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010048, 14,1000556,1558);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010049, 25,1000557,1559);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010051,353,1000559,1557);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010042,515,1000550,1559);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010050,510,1000558,1557);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010052,513,1000560,1558);
+insert into nftul_kernel.serv_norm_koef (nzp_serv,nzp_serv_link,nzp_frm,nzp_prm) values (1010053,514,1000561,1558);

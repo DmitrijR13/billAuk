@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/15/2012 15:26:22" ReportInfo.Modified="12/28/2015 16:53:30" ReportInfo.CreatorVersion="2015.3.13.0" PrintSettings.PrintOnSheetHeight="148">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string ulica = &quot;&quot;;
+    string dom = &quot;&quot;;
+    string korp = &quot;&quot;;
+    string kv = &quot;&quot;;
+    string stat = &quot;&quot;;
+    string rajon = &quot;&quot;;
+    string npunkt = &quot;&quot;;
+    string geu = &quot;&quot;;
+    string tel = &quot;&quot;;
+    string gil_pl = &quot;&quot;;
+    string vlad_fio = &quot;&quot;;
+    
+    string n1 = &quot;&quot;;
+    string n2 = &quot;&quot;;
+    string n3 = &quot;&quot;;
+    string n4 = &quot;&quot;;    
+    string n5 = &quot;&quot;;
+    string n6 = &quot;&quot;;
+    string n7 = &quot;&quot;;
+    string n8 = &quot;&quot;;
+    string n9 = &quot;&quot;;    
+    string n10 = &quot;&quot;;
+    string n11 = &quot;&quot;;
+    string n12 = &quot;&quot;;
+    string n13 = &quot;&quot;;
+    string n14 = &quot;&quot;;
+    
+    string rod1 = &quot;&quot;;
+    string rod2 = &quot;&quot;;
+    string rod3 = &quot;&quot;;
+    string rod4 = &quot;&quot;;
+    string rod5 = &quot;&quot;;
+    string rod6 = &quot;&quot;;
+    string rod7 = &quot;&quot;;
+    string rod8 = &quot;&quot;;
+    string rod9 = &quot;&quot;;
+    string rod10 = &quot;&quot;;
+        string rod11 = &quot;&quot;;
+        string rod12 = &quot;&quot;;
+        string rod13 = &quot;&quot;;
+        string rod14 = &quot;&quot;;
+    
+    string fio1 = &quot;&quot;;
+    string fio2 = &quot;&quot;;
+    string fio3 = &quot;&quot;;
+    string fio4 = &quot;&quot;;
+    string fio5 = &quot;&quot;;
+    string fio6 = &quot;&quot;;
+    string fio7 = &quot;&quot;;
+    string fio8 = &quot;&quot;;
+    string fio9 = &quot;&quot;;
+    string fio10 = &quot;&quot;;
+        string fio11 = &quot;&quot;;
+        string fio12 = &quot;&quot;;
+        string fio13 = &quot;&quot;;
+        string fio14 = &quot;&quot;;
+    
+    string dat_rod1 = &quot;&quot;;
+    string dat_rod2 = &quot;&quot;;
+    string dat_rod3 = &quot;&quot;;
+    string dat_rod4 = &quot;&quot;;
+    string dat_rod5 = &quot;&quot;;
+    string dat_rod6 = &quot;&quot;;
+    string dat_rod7 = &quot;&quot;;
+    string dat_rod8 = &quot;&quot;;
+    string dat_rod9 = &quot;&quot;;
+    string dat_rod10 = &quot;&quot;;
+        string dat_rod11 = &quot;&quot;;
+        string dat_rod12 = &quot;&quot;;
+        string dat_rod13 = &quot;&quot;;
+        string dat_rod14 = &quot;&quot;;
+    
+    string dat_registr1 = &quot;&quot;;
+    string dat_registr2 = &quot;&quot;;
+    string dat_registr3 = &quot;&quot;;
+    string dat_registr4 = &quot;&quot;;
+    string dat_registr5 = &quot;&quot;;
+    string dat_registr6 = &quot;&quot;;
+    string dat_registr7 = &quot;&quot;;
+    string dat_registr8 = &quot;&quot;;
+    string dat_registr9 = &quot;&quot;;
+    string dat_registr10 = &quot;&quot;;
+        string dat_registr11 = &quot;&quot;;
+        string dat_registr12 = &quot;&quot;;
+        string dat_registr13 = &quot;&quot;;
+        string dat_registr14 = &quot;&quot;;
+    
+    
+    string dat_snyat1 = &quot;&quot;;
+    string dat_snyat2 = &quot;&quot;;
+    string dat_snyat3 = &quot;&quot;;
+    string dat_snyat4 = &quot;&quot;;
+    string dat_snyat5 = &quot;&quot;;
+    string dat_snyat6 = &quot;&quot;;
+    string dat_snyat7 = &quot;&quot;;
+    string dat_snyat8 = &quot;&quot;;
+    string dat_snyat9 = &quot;&quot;;
+    string dat_snyat10 = &quot;&quot;;
+        string dat_snyat11 = &quot;&quot;;
+        string dat_snyat12 = &quot;&quot;;
+        string dat_snyat13 = &quot;&quot;;
+        string dat_snyat14 = &quot;&quot;;
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="fio" DataType="System.String"/>
+      <Column Name="dat_rod" DataType="System.String"/>
+      <Column Name="dat_registr" DataType="System.String"/>
+      <Column Name="dat_snyat" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="210.1" PaperHeight="148.1" RawPaperSize="11" FirstPageSource="15" OtherPagesSource="15" Guides="708.75">
+    <PageHeaderBand Name="PageHeader1" Width="718.58" Height="179.55">
+      <ShapeObject Name="Shape1" Left="371.55" Top="30.8" Width="347.2" Height="99.5"/>
+      <TextObject Name="Text2" Left="-11.61" Top="11.34" Width="729.81" Height="18.9" Text="ПОКВАРТИРНАЯ КАРТОЧКА" HorzAlign="Center" Font="Courier New, 11pt"/>
+      <TextObject Name="Text4" Top="35.91" Width="54.81" Height="18.9" Text="Улица" VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text5" Left="54.81" Top="35.91" Width="306.45" Height="18.9" Border.Lines="Bottom" Text="[ulica]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text6" Top="54.81" Width="34.02" Height="18.9" Text="дом" VertAlign="Bottom" Font="Courier New, 10pt"/>
+      <TextObject Name="Text7" Left="34.02" Top="54.81" Width="58.59" Height="18.9" Border.Lines="Bottom" Text="[dom]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text8" Left="98.28" Top="54.81" Width="11.34" Height="18.9" Text="," VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text9" Left="109.62" Top="54.81" Width="45.36" Height="18.9" Text="корп." VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text10" Left="170.1" Top="54.81" Width="58.59" Height="18.9" Border.Lines="Bottom" Text="[korp]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text11" Left="234.36" Top="54.81" Width="11.34" Height="18.9" Text="," VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text12" Left="245.7" Top="54.81" Width="34.02" Height="18.9" Text="кв." VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text14" Left="285.39" Top="54.81" Width="75.6" Height="18.9" Border.Lines="Bottom" Text="[kv]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text15" Left="378" Top="35.91" Width="197.06" Height="18.9" Text="Область, край, республика" VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text16" Left="577.58" Top="35.91" Width="132.72" Height="18.9" Border.Lines="Bottom" Text="[stat]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text17" Left="378" Top="54.81" Width="66.15" Height="18.9" Text="район" VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text18" Left="444.15" Top="54.81" Width="268.05" Height="18.9" Border.Lines="Bottom" Text="[rajon]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text19" Top="73.71" Width="69.93" Height="18.9" Text="Телефон" VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text20" Left="69.93" Top="73.71" Width="291.33" Height="18.9" Border.Lines="Bottom" Text="[tel]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text21" Left="378" Top="73.71" Width="151.2" Height="18.9" Text="город, пгт" VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text22" Left="459.52" Top="73.71" Width="252.68" Height="18.9" Border.Lines="Bottom" Text="[npunkt]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text23" Top="92.61" Width="134.19" Height="18.9" Text="Жилая площадь" VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text24" Left="134.19" Top="92.61" Width="227.07" Height="18.9" Border.Lines="Bottom" Text="[gil_pl]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text27" Top="120.96" Width="198.45" Height="18.9" Text="Наниматель (владелец):" VertAlign="Bottom" Font="Courier New, 9pt"/>
+      <TextObject Name="Text28" Left="190.4" Top="111.51" Width="170.86" Height="28.35" Border.Lines="Bottom" BreakTo="Text116" Text="[vlad_fio]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text29" Left="190.89" Top="139.48" Width="132.57" Height="18.9" Text="Ф.И.О." HorzAlign="Center" Font="Courier New, 9pt"/>
+      <TextObject Name="Text30" Left="587.65" Top="97.06" Width="124.1" Height="16.9" Border.Lines="Bottom" Text="[area]" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text116" Top="149.31" Width="361.26" Height="18.9" Border.Lines="Bottom" VertAlign="Bottom" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text26" Left="380" Top="97.51" Width="205.9" Height="16.9" Text="ЖЭС, ЖСК, домоуправление №" VertAlign="Bottom" Font="Courier New, 9pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="183" Width="718.58" Height="52.16">
+      <TextObject Name="Text3" Width="37.8" Height="52.16" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text37" Left="37.8" Width="132.3" Height="52.16" Border.Lines="All" Text="Отношение к&#13;&#10;нанимателю&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text38" Left="170.1" Width="170.1" Height="52.16" Border.Lines="All" Text="Фамилия, имя,&#13;&#10;отчество (при наличии)" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text39" Left="340.2" Width="132.3" Height="52.16" Border.Lines="All" Text="День, месяц и&#13;&#10;год рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text41" Left="585.9" Width="132.3" Height="52.16" Border.Lines="All" Text="Дата снятия с регистрац. учета" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text40" Left="472.5" Width="113.4" Height="52.16" Border.Lines="All" Text="Дата регистрации" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <ChildBand Name="Child1" Top="238.61" Width="718.58" Height="43.47" CanGrow="true" Guides="9.45">
+        <TextObject Name="Text42" Width="37.8" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n1]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text47" Left="37.8" Width="132.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod1]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text52" Left="170.1" Width="170.1" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio1]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text57" Left="340.2" Width="132.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod1]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text62" Left="472.5" Width="113.4" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr1]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text67" Left="585.9" Width="132.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat1]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <ChildBand Name="Child2" Top="285.52" Width="718.58" Height="43.47" CanGrow="true">
+          <TextObject Name="Text43" Width="37.8" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text48" Left="38.07" Width="132.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod2]" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text53" Left="170.2" Width="170" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio2]" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text58" Left="340.32" Width="132.27" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text63" Left="472.68" Width="113.22" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text68" Left="585.95" Width="132.58" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <ChildBand Name="Child3" Top="332.44" Width="718.58" Height="43.47" CanGrow="true">
+            <TextObject Name="Text44" Left="0.27" Width="37.8" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n3]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text49" Left="37.8" Width="132.57" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod3]" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text54" Left="170.2" Width="170" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio3]" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text59" Left="340.32" Width="132.27" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod3]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text64" Left="472.68" Width="113.22" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr3]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text69" Left="585.95" Width="132.58" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat3]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <ChildBand Name="Child4" Top="379.36" Width="718.58" Height="43.47" CanGrow="true">
+              <TextObject Name="Text45" Left="0.27" Width="37.8" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n4]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text50" Left="37.8" Width="132.57" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod4]" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text55" Left="170.2" Width="170" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio4]" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text60" Left="340.32" Width="132.27" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod4]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text65" Left="472.68" Width="113.22" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr4]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text70" Left="585.95" Width="132.58" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat4]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <ChildBand Name="Child5" Top="426.28" Width="718.58" Height="43.47" CanGrow="true">
+                <TextObject Name="Text51" Left="37.8" Width="132.57" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod5]" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text46" Width="37.8" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n5]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text56" Left="170.2" Width="170" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio5]" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text61" Left="340.32" Width="132.27" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod5]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text66" Left="472.68" Width="113.22" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr5]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text71" Left="585.95" Width="132.58" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat5]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              </ChildBand>
+            </ChildBand>
+          </ChildBand>
+        </ChildBand>
+      </ChildBand>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="210.1" PaperHeight="148.1" RawPaperSize="11" FirstPageSource="15" OtherPagesSource="15" Guides="587.96,39.96,166.41,335.88,335.79,474.66,718.2,0">
+    <ReportTitleBand Name="ReportTitle2" Width="718.58" Height="39.69">
+      <TextObject Name="Text72" Left="540.54" Width="177.66" Height="37.8" Text="Форма № 10&#13;&#10;(Оборотная сторона)" HorzAlign="Right" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data2" Top="43.14" Width="718.58" Height="52.16">
+      <TextObject Name="Text73" Width="39.96" Height="52.16" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text74" Left="39.96" Width="126.45" Height="52.16" Border.Lines="All" Text="Отношение к&#13;&#10;нанимателю&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text75" Left="166.41" Width="169.47" Height="52.16" Border.Lines="All" Text="Фамилия, имя,&#13;&#10;отчество" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text76" Left="335.88" Width="138.78" Height="52.16" Border.Lines="All" Text="День, месяц и&#13;&#10;год рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text78" Left="587.96" Width="130.24" Height="52.16" Border.Lines="All" Text="Дата снятия с регистрационного учета" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text77" Left="474.66" Width="113.3" Height="52.16" Border.Lines="All" Text="Дата регистрации" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <ChildBand Name="Child6" Top="98.75" Width="718.58" Height="43.47" CanGrow="true">
+        <TextObject Name="Text110" Width="39.96" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n6]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text111" Left="39.96" Width="126.45" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod6]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text112" Left="165.78" Width="170.1" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio6]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text113" Left="335.79" Width="138.87" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod6]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text114" Left="474.56" Width="113.4" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr6]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text115" Left="587.96" Width="130.24" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat6]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <ChildBand Name="Child7" Top="145.66" Width="718.58" Height="43.47" CanGrow="true">
+          <TextObject Name="Text80" Width="39.96" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n7]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text85" Left="39.96" Width="126.45" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod7]" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text90" Left="166.41" Width="169.47" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio7]" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text95" Left="335.79" Width="138.87" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod7]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text100" Left="474.66" Width="113.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr7]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text105" Left="587.96" Width="130.24" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat7]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <ChildBand Name="Child8" Top="192.58" Width="718.58" Height="43.47" CanGrow="true">
+            <TextObject Name="Text81" Width="39.96" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n8]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text86" Left="39.96" Width="126.45" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod8]" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text91" Left="166.41" Width="169.47" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio8]" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text96" Left="335.79" Width="138.87" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod8]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text101" Left="474.66" Width="113.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr8]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <TextObject Name="Text106" Left="587.96" Width="130.24" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat8]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+            <ChildBand Name="Child9" Top="239.5" Width="718.58" Height="43.47" CanGrow="true">
+              <TextObject Name="Text82" Width="39.96" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n9]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text87" Left="39.96" Width="126.45" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod9]" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text92" Left="166.41" Width="169.47" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio9]" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text97" Left="335.88" Width="138.78" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod9]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text102" Left="474.66" Width="113.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr9]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <TextObject Name="Text107" Left="587.96" Width="130.24" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat9]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+              <ChildBand Name="Child10" Top="286.42" Width="718.58" Height="43.47" CanGrow="true">
+                <TextObject Name="Text83" Width="39.96" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n10]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text88" Left="39.96" Width="126.45" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod10]" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text93" Left="166.41" Width="169.47" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio10]" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text98" Left="335.88" Width="138.78" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod10]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text103" Left="474.66" Width="113.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr10]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                <TextObject Name="Text108" Left="587.96" Width="130.24" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat10]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                <ChildBand Name="Child11" Top="333.34" Width="718.58" Height="43.47">
+                  <TextObject Name="Text117" Width="39.96" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n11]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                  <TextObject Name="Text118" Left="39.96" Width="126.45" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod11]" VertAlign="Center" Font="Arial, 8pt"/>
+                  <TextObject Name="Text119" Left="166.41" Width="169.47" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio11]" VertAlign="Center" Font="Arial, 8pt"/>
+                  <TextObject Name="Text120" Left="335.88" Width="138.78" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod11]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                  <TextObject Name="Text121" Left="474.66" Width="113.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr11]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                  <TextObject Name="Text122" Left="587.96" Width="130.24" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat11]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                  <ChildBand Name="Child12" Top="380.26" Width="718.58" Height="43.47">
+                    <TextObject Name="Text135" Width="39.96" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n12]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                    <TextObject Name="Text136" Left="39.96" Width="126.45" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod12]" VertAlign="Center" Font="Arial, 8pt"/>
+                    <TextObject Name="Text137" Left="166.41" Width="169.47" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio12]" VertAlign="Center" Font="Arial, 8pt"/>
+                    <TextObject Name="Text138" Left="335.88" Width="138.78" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod12]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                    <TextObject Name="Text139" Left="474.66" Width="113.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr12]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                    <TextObject Name="Text140" Left="587.96" Width="130.24" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat12]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                    <ChildBand Name="Child13" Top="427.17" Width="718.58" Height="43.47">
+                      <TextObject Name="Text141" Width="39.96" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n13]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                      <TextObject Name="Text142" Left="39.96" Width="126.45" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod13]" VertAlign="Center" Font="Arial, 8pt"/>
+                      <TextObject Name="Text143" Left="166.41" Width="169.47" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio13]" VertAlign="Center" Font="Arial, 8pt"/>
+                      <TextObject Name="Text144" Left="335.88" Width="138.78" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod13]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                      <TextObject Name="Text145" Left="474.66" Width="113.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr13]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                      <TextObject Name="Text146" Left="587.96" Width="130.24" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat13]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                      <ChildBand Name="Child14" Top="474.09" Width="718.58" Height="43.47">
+                        <TextObject Name="Text147" Width="39.96" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[n14]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                        <TextObject Name="Text148" Left="39.96" Width="126.45" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[rod14]" VertAlign="Center" Font="Arial, 8pt"/>
+                        <TextObject Name="Text149" Left="166.41" Width="169.47" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[fio14]" VertAlign="Center" Font="Arial, 8pt"/>
+                        <TextObject Name="Text150" Left="335.88" Width="138.78" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_rod14]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                        <TextObject Name="Text151" Left="474.66" Width="113.3" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_registr14]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                        <TextObject Name="Text152" Left="587.96" Width="130.24" Height="43.47" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[dat_snyat14]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+                      </ChildBand>
+                    </ChildBand>
+                  </ChildBand>
+                </ChildBand>
+              </ChildBand>
+            </ChildBand>
+          </ChildBand>
+        </ChildBand>
+      </ChildBand>
+    </DataBand>
+  </ReportPage>
+</Report>

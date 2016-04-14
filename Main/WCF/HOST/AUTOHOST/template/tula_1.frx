@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/21/2013 13:47:00" ReportInfo.Modified="11/24/2013 21:06:09" ReportInfo.CreatorVersion="2013.3.1.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="name_supp" DataType="System.String"/>
+      <Column Name="service" DataType="System.String"/>
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="sum_nach"/>
+    </TableDataSource>
+    <Parameter Name="reportHeader" DataType="System.String"/>
+    <Parameter Name="sumHeader" DataType="System.String"/>
+    <Parameter Name="principal" DataType="System.String"/>
+    <Parameter Name="ercName" DataType="System.String"/>
+    <Parameter Name="month" DataType="System.String"/>
+    <Parameter Name="year" DataType="System.String"/>
+    <Total Name="TotalCharge" Expression="[Q_master.sum_charge]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7">
+      <TextObject Name="Text1" Left="98.28" Top="15.12" Width="468.72" Height="18.9" Text="[reportHeader]" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="98.28" Top="34.02" Width="468.72" Height="18.9" Text="за [month] [year] г." HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="59.73" Width="718.2" Height="49.14" CanGrow="true" CanShrink="true">
+        <TextObject Name="Text3" Left="26.46" Top="3.78" Width="94.5" Height="18.9" CanShrink="true" Text="Принципал:&#13;&#10;" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text5" Left="120.96" Top="3.78" Width="446.04" Height="41.58" CanGrow="true" CanShrink="true" Text="[principal]&#13;&#10;" Font="Times New Roman, 8pt, style=Bold"/>
+        <ChildBand Name="Child2" Top="111.9" Width="718.2" Height="34.02">
+          <TextObject Name="Text4" Left="26.46" Top="3.78" Width="94.5" Height="30.24" Text="Агент:&#13;&#10;Договор:" Font="Times New Roman, 8pt, style=Bold"/>
+          <TextObject Name="Text6" Left="120.96" Top="3.78" Width="446.04" Height="30.24" Text="[ercName]&#13;&#10;№ ____ от &quot;___&quot; ___________ 20__ г." Font="Times New Roman, 8pt, style=Bold"/>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="186" Width="718.2" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text11" Left="26.46" Width="18.9" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text12" Left="45.36" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="[Q_master.service]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text13" Left="260.82" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="[Q_master.name_supp]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text14" Left="476.28" Width="90.72" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" Text="[Q_master.sum_charge]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <DataHeaderBand Name="DataHeader1" Top="148.95" Width="718.2" Height="34.02" CanGrow="true" KeepWithData="true" RepeatOnEveryPage="true">
+        <TextObject Name="Text7" Left="26.46" Top="3.12" Width="18.9" Height="30.24" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text8" Left="45.36" Top="3.12" Width="215.46" Height="30.24" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Наименование услуги" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text9" Left="260.82" Top="3.12" Width="215.46" Height="30.24" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Поставщик услуги" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text10" Left="476.28" Top="3.12" Width="90.72" Height="30.24" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[sumHeader]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      </DataHeaderBand>
+      <DataFooterBand Name="DataFooter1" Top="207.93" Width="718.2" Height="75.6">
+        <TextObject Name="Text15" Left="26.46" Width="18.9" Height="18.9" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text16" Left="45.36" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="Итого" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text17" Left="260.82" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text18" Left="476.28" Width="90.72" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" Text="[TotalCharge]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text19" Left="26.46" Top="30.24" Width="234.36" Height="18.9" Text="Генеральный директор" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        <TextObject Name="Text20" Left="260.82" Top="30.24" Width="215.46" Height="18.9" Border.Lines="Bottom" Border.Width="0.25" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      </DataFooterBand>
+    </DataBand>
+  </ReportPage>
+</Report>

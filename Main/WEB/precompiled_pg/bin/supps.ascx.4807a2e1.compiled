@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/contracts/Supps.ascx" hash="cedb9400c" filehash="a31d341da72feb62" flags="110000" assembly="App_Web_3zouibww" type="ASP.finances_contracts_supps_ascx">
+    <filedeps>
+        <filedep name="/none/finances/contracts/Supps.ascx" />
+        <filedep name="/none/master/templates/AutoCompleteContracts.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

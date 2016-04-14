@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/09/2014 10:04:03" ReportInfo.Modified="08/08/2014 17:41:16" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="town" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="count_payment" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_payment" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="count_payment_sbank" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_payment_sbank" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="count_payment_nosbank" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_payment_nosbank" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="comment" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="t_sum_ls" Expression="[Q_master.sum_ls]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="t_count_payment" Expression="[Q_master.count_payment]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="t_sum_payment" Expression="[Q_master.sum_payment]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="t_count_payment_sbank" Expression="[Q_master.count_payment_sbank]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="t_sum_payment_sbank" Expression="[Q_master.sum_payment_sbank]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="t_count_payment_nosbank" Expression="[Q_master.count_payment_nosbank]" Evaluator="Data1" PrintOn="DataFooter1"/>
+    <Total Name="t_sum_payment_nosbank" Expression="[Q_master.sum_payment_nosbank]" Evaluator="Data1" PrintOn="DataFooter1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="85.05" CanGrow="true" CanBreak="true">
+      <TextObject Name="Text31" Width="841.05" Height="56.7" Text="1.7 Еженедельный отчет по платежам для Сбербанка&#13;&#10;[period_param] [period]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text32" Left="954.45" Width="94.5" Height="56.7" Text="[date]&#13;&#10;[time]" Font="Arial, 8pt"/>
+      <TextObject Name="Text33" Left="841.05" Width="113.4" Height="56.7" Text="Дата:&#13;&#10;Время:" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text45" Top="56.7" Width="1047.97" Height="28.35" CanGrow="true" AfterDataEvent="Text45_AfterData" Text="[headerParam]&#13;&#10; " HorzAlign="Justify" VertAlign="Center" Wysiwyg="true"/>
+      <ChildBand Name="Child1" Top="88.56" Width="1047.06" Height="47.25" CanGrow="true">
+        <TextObject Name="Text1" Width="28.35" Height="47.25" Border.Lines="All" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text2" Left="28.35" Width="170.1" Height="47.25" Border.Lines="All" Text="Район" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text3" Left="198.45" Width="103.95" Height="47.25" Border.Lines="All" Text="Количество лицевых счетов, шт." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text4" Left="302.4" Width="103.95" Height="47.25" Border.Lines="All" Text="Количество платежей всего, шт." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text5" Left="614.25" Width="103.95" Height="47.25" Border.Lines="All" Text="Сумма платежей через Сбербанк, руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text6" Left="510.3" Width="103.95" Height="47.25" Border.Lines="All" Text="Количество платежей через Сбербанк, шт." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text7" Left="718.2" Width="122.85" Height="47.25" Border.Lines="All" Text="Количество платежей через другие пункты приема, шт." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text8" Left="841.05" Width="113.4" Height="47.25" Border.Lines="All" Text="Сумма платежей через другие пункты приема, руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text9" Left="954.45" Width="94.5" Height="47.25" Border.Lines="All" Text="Комментарий" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text11" Left="406.35" Width="103.95" Height="47.25" Border.Lines="All" Text="Сумма платежей, руб." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="139.32" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text10" Width="28.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="28.35" Width="170.1" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.town]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="198.45" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="302.4" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.count_payment]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="406.35" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_payment]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="510.3" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.count_payment_sbank]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="614.25" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_payment_sbank]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text18" Left="718.2" Width="122.85" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.count_payment_nosbank]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Left="841.05" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_payment_nosbank]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Left="954.45" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.comment])]&#13;&#10;" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataFooterBand Name="DataFooter1" Top="161.73" Width="1047.06" Height="18.9" CanGrow="true" Guides="0">
+        <TextObject Name="Text22" Width="198.45" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="Итого:" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text23" Left="198.45" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text24" Left="302.4" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_count_payment]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text25" Left="406.35" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_payment]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text26" Left="510.3" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_count_payment_sbank]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text27" Left="614.25" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_payment_sbank]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text28" Left="718.2" Width="122.85" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_count_payment_nosbank]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text29" Left="841.05" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_payment_nosbank]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      </DataFooterBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="184.14" Width="1047.06" Height="47.25" CanGrow="true">
+      <TextObject Name="Text34" Width="198.45" Height="47.25" CanGrow="true" Text="[post_director]" VertAlign="Bottom"/>
+      <TextObject Name="Text35" Left="198.45" Width="103.95" Height="47.25" Border.Lines="Bottom" GrowToBottom="true" VertAlign="Center"/>
+      <TextObject Name="Text36" Left="302.4" Width="311.85" Height="47.25" GrowToBottom="true" Text="[name_director]" Padding="5, 0, 2, 0" VertAlign="Bottom"/>
+      <ChildBand Name="Child2" Top="234.89" Width="1047.06" Height="37.8" CanGrow="true">
+        <TextObject Name="Text37" Width="198.45" Height="37.8" CanGrow="true" Text="[post_passport]" VertAlign="Bottom"/>
+        <TextObject Name="Text40" Left="198.45" Width="103.95" Height="37.8" Border.Lines="Bottom" GrowToBottom="true" VertAlign="Center"/>
+        <TextObject Name="Text39" Left="302.4" Width="311.85" Height="37.8" GrowToBottom="true" Text="[name_passport]" Padding="5, 0, 2, 0" VertAlign="Bottom"/>
+      </ChildBand>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

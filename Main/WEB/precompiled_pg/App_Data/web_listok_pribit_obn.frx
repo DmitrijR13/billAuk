@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/02/2011 13:09:43" ReportInfo.Modified="10/21/2015 16:33:27" ReportInfo.CreatorVersion="2013.1.3.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string tprp = &quot;&quot;;
+    string fam = &quot;&quot;;
+    string ima = &quot;&quot;;
+    string otch = &quot;&quot;;
+    string dat_rog = &quot;&quot;;
+    string pol = &quot;&quot;;
+    string mr_country = &quot;&quot;;
+    string mr_region = &quot;&quot;;
+    string mr_rajon = &quot;&quot;;
+    string mr_city = &quot;&quot;;
+    string mr_nas_punkt = &quot;&quot;;
+    
+    string grazhd = &quot;&quot;;
+    string reg_zit = &quot;&quot;;
+    string reg_preb = &quot;&quot;;    
+    string reg_region = &quot;&quot;;
+    string reg_rajon = &quot;&quot;;
+    string reg_city = &quot;&quot;;
+    string reg_nas_punkt = &quot;&quot;;
+    string reg_adres = &quot;&quot;;
+    string organ_reg_uchet = &quot;&quot;;
+    string kod_podrazd = &quot;&quot;;
+    string vid_doc = &quot;&quot;;
+    string dat_vid = &quot;&quot;;
+    string who_vid = &quot;&quot;;
+    string kod_who_vid = &quot;&quot;;
+    
+    string from_country = &quot;&quot;;
+    string from_region = &quot;&quot;;
+    string from_rajon = &quot;&quot;;
+    string from_city = &quot;&quot;;
+    string from_nas_punkt = &quot;&quot;;
+    string from_adres = &quot;&quot;;  
+               
+    string ulica = &quot;&quot;;
+    string dom = &quot;&quot;;
+    string kvar = &quot;&quot;;
+    string new_fam = &quot;&quot;;
+    string new_ima = &quot;&quot;;
+    string new_otch = &quot;&quot;;
+    string new_day_rog = &quot;&quot;;
+    string new_month_rog = &quot;&quot;;
+    string new_year_rog = &quot;&quot;;    
+    
+    string prichini = &quot;&quot;;
+    string dat_sost = &quot;&quot;;
+    string dat_oform = &quot;&quot;;    
+    string seria = &quot;&quot;;
+    string nomer = &quot;&quot;;
+    string new_pol = &quot;&quot;;
+    string kod_organ, tkrt, rem_p,fio_sost, fio_oform;
+    
+    
+    private void ChangeFontGender(object sender, EventArgs e)
+    {
+      TextObject gender = (TextObject)sender;
+      if (gender.Text.ToUpper().Trim() != &quot;МУЖ/ЖЕН&quot;) 
+      {
+        Font font = new Font(&quot;Arial&quot;, 8, FontStyle.Bold | FontStyle.Italic);
+        gender.Font = font;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="0" OtherPagesSource="0" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle1" Width="756" Height="542.43" FirstRowStartsNewPage="true">
+      <TextObject Name="Text167" Top="355.32" Width="166.32" Height="15.12" CanBreak="false" Text="орган, выдавший документ" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text159" Top="294.84" Width="192.78" Height="15.12" CanBreak="false" Text="9. Орган регистрационного  учета:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text7" Top="68.04" Width="102.06" Height="15.12" CanBreak="false" Text="4. Дата рождения" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text8" Top="83.16" Width="151.2" Height="15.12" CanBreak="false" Text="6. Место рождения: страна" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text10" Top="98.28" Width="49.14" Height="15.12" CanBreak="false" Text="регион" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text11" Top="113.4" Width="49.14" Height="15.12" CanBreak="false" Text="район" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Top="128.52" Width="49.14" Height="15.12" CanBreak="false" Text="город" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Top="143.64" Width="102.06" Height="15.12" CanBreak="false" Text="населенный пункт" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Top="158.76" Width="102.06" Height="15.12" CanBreak="false" Text="7. Гражданство" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Top="173.88" Width="359.1" Height="15.12" CanBreak="false" Text="8. Зарегистрирован по месту жительства" Padding="2, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text18" Top="219.24" Width="49.14" Height="15.12" CanBreak="false" Text="регион" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Top="234.36" Width="49.14" Height="15.12" CanBreak="false" Text="район" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Top="249.48" Width="49.14" Height="15.12" CanBreak="false" Text="город" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text21" Top="264.6" Width="109.62" Height="15.12" CanBreak="false" Text="населенный пункт" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text25" Top="325.08" Width="196.56" Height="15.12" CanBreak="false" Text="10. Документ, удост. личность: вид" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text26" Top="340.2" Width="45.36" Height="15.12" CanBreak="false" Text="серия" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text28" Top="385.56" Width="151.2" Height="15.12" CanBreak="false" Text="11. Откуда прибыл: страна" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text29" Top="400.68" Width="49.14" Height="15.12" CanBreak="false" Text="регион" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text30" Top="415.8" Width="49.14" Height="15.12" CanBreak="false" Text="район" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text31" Top="430.92" Width="49.14" Height="15.12" CanBreak="false" Text="город" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text32" Top="446.04" Width="102.06" Height="15.12" CanBreak="false" Text="населенный пункт" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text41" Top="204.12" Width="151.2" Height="15.12" CanBreak="false" Text="по адресу пребывания до" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text163" Left="105.84" Top="340.2" Width="45.36" Height="15.12" CanBreak="false" Text="номер" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text165" Left="207.9" Top="340.2" Width="49.14" Height="15.12" CanBreak="false" Text="выдан:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text1" Width="30.24" Height="22.68" CanBreak="false" Text="[tkrt]" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text2" Left="30.24" Width="268.38" Height="22.68" CanBreak="false" Text="АДРЕСНЫЙ ЛИСТОК ПРИБЫТИЯ" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="298.62" Width="60.48" Height="22.68" CanBreak="false" Text="Форма № 2" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text4" Top="22.68" Width="64.26" Height="15.12" CanBreak="false" Text="1. Фамилия" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text5" Top="37.8" Width="45.36" Height="15.12" CanBreak="false" Text="2. Имя" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text6" Top="52.92" Width="68.04" Height="15.12" CanBreak="false" Text="3. Отчество" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text178" Top="189" Width="30.24" Height="15.12" CanBreak="false" Text="c" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text268" Left="238.14" Top="68.04" Width="41.58" Height="15.12" CanBreak="false" Text="5. Пол" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text550" Left="217.35" Top="309.96" Width="30.24" Height="15.12" ShiftMode="WhenOverlapped" CanBreak="false" Text="код" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text561" Left="215.46" Top="370.44" Width="30.24" Height="15.12" ShiftMode="WhenOverlapped" CanBreak="false" Text="код" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text33" Top="461.16" Width="359.1" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_adres] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text172" Left="102.06" Top="446.04" Width="257.04" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_nas_punkt] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text171" Left="49.14" Top="430.92" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_city] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text170" Left="49.14" Top="415.8" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_rajon] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text169" Left="49.14" Top="400.68" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_region] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text168" Left="151.2" Top="385.56" Width="207.9" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_country] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text560" Left="245.7" Top="370.44" Width="113.4" Height="15.12" Border.Lines="Bottom" ShiftMode="WhenOverlapped" CanBreak="false" Text="[kod_who_vid]" Padding="0, 0, 0, 0" AutoShrink="FontSize" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text559" Top="370.44" Width="215.46" Height="15.12" Border.Lines="Bottom" CanBreak="false" Padding="0, 0, 0, 0" AutoShrink="FontSize" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text563" Left="166.32" Top="355.32" Width="192.78" Height="15.12" Border.Lines="Bottom" CanBreak="false" BreakTo="Text559" Text="[who_vid]" Padding="0, 0, 0, 0" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text166" Left="257.04" Top="340.2" Width="102.06" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[dat_vid] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text164" Left="151.2" Top="340.2" Width="56.7" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[nomer] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text162" Left="45.36" Top="340.2" Width="60.48" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[seria] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text161" Left="196.56" Top="325.08" Width="162.54" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[vid_doc] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text549" Left="247.59" Top="309.96" Width="111.51" Height="15.12" Border.Lines="Bottom" ShiftMode="WhenOverlapped" CanBreak="false" Text="[kod_organ]" Padding="0, 0, 0, 0" AutoShrink="FontSize" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text548" Top="309.96" Width="217.35" Height="15.12" Border.Lines="Bottom" CanBreak="false" Padding="0, 0, 0, 0" AutoShrink="FontSize" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text562" Left="192.78" Top="294.84" Width="166.32" Height="15.12" Border.Lines="Bottom" CanBreak="false" BreakTo="Text548" Text="[organ_reg_uchet]" Padding="0, 0, 0, 0" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text22" Top="279.72" Width="359.1" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_adres] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text35" Left="151.2" Top="204.12" Width="207.9" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_preb] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text34" Left="30.24" Top="189" Width="328.86" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_zit] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text154" Left="102.06" Top="158.76" Width="257.04" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[grazhd] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text153" Left="102.06" Top="143.64" Width="257.04" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_nas_punkt] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text152" Left="49.14" Top="128.52" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_city] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text151" Left="49.14" Top="113.4" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_rajon] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text150" Left="49.14" Top="98.28" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_region] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text149" Left="151.2" Top="83.16" Width="207.9" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_country]  " Padding="0, 0, 0, 0" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text147" Left="102.06" Top="68.04" Width="136.08" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[dat_rog] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text177" Left="68.04" Top="52.92" Width="291.06" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[otch]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text146" Left="45.36" Top="37.8" Width="313.74" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[ima]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text145" Left="64.26" Top="22.68" Width="294.84" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[fam]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text158" Left="109.62" Top="264.6" Width="249.48" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_nas_punkt] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text157" Left="49.14" Top="249.48" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_city] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text156" Left="49.14" Top="234.74" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_rajon] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text155" Left="49.14" Top="219.24" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_region] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text564" Left="396.9" Top="355.32" Width="166.32" Height="15.12" CanBreak="false" Text="орган, выдавший документ" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text565" Left="396.9" Top="294.84" Width="192.78" Height="15.12" CanBreak="false" Text="9. Орган регистрационного  учета:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text566" Left="396.9" Top="68.04" Width="102.06" Height="15.12" CanBreak="false" Text="4. Дата рождения" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text567" Left="396.9" Top="83.16" Width="151.2" Height="15.12" CanBreak="false" Text="6. Место рождения: страна" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text568" Left="396.9" Top="98.28" Width="49.14" Height="15.12" CanBreak="false" Text="регион" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text569" Left="396.9" Top="113.4" Width="49.14" Height="15.12" CanBreak="false" Text="район" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text570" Left="396.9" Top="128.52" Width="49.14" Height="15.12" CanBreak="false" Text="город" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text571" Left="396.9" Top="143.64" Width="102.06" Height="15.12" CanBreak="false" Text="населенный пункт" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text572" Left="396.9" Top="158.76" Width="102.06" Height="15.12" CanBreak="false" Text="7. Гражданство" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text573" Left="396.9" Top="173.88" Width="359.1" Height="15.12" CanBreak="false" Text="8. Зарегистрирован по месту жительства" Padding="2, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text574" Left="396.9" Top="219.24" Width="49.14" Height="15.12" CanBreak="false" Text="регион" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text575" Left="396.9" Top="234.36" Width="49.14" Height="15.12" CanBreak="false" Text="район" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text576" Left="396.9" Top="249.48" Width="49.14" Height="15.12" CanBreak="false" Text="город" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text577" Left="396.9" Top="264.6" Width="109.62" Height="15.12" CanBreak="false" Text="населенный пункт" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text578" Left="396.9" Top="325.08" Width="196.56" Height="15.12" CanBreak="false" Text="10. Документ, удост. личность: вид" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text579" Left="396.9" Top="340.2" Width="45.36" Height="15.12" CanBreak="false" Text="серия" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text580" Left="396.9" Top="385.56" Width="151.2" Height="15.12" CanBreak="false" Text="11. Откуда прибыл: страна" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text581" Left="396.9" Top="400.68" Width="49.14" Height="15.12" CanBreak="false" Text="регион" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text582" Left="396.9" Top="415.8" Width="49.14" Height="15.12" CanBreak="false" Text="район" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text583" Left="396.9" Top="430.92" Width="49.14" Height="15.12" CanBreak="false" Text="город" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text584" Left="396.9" Top="446.04" Width="102.06" Height="15.12" CanBreak="false" Text="населенный пункт" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text585" Left="396.9" Top="204.12" Width="151.2" Height="15.12" CanBreak="false" Text="по адресу пребывания до" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text586" Left="502.74" Top="340.2" Width="45.36" Height="15.12" CanBreak="false" Text="номер" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text587" Left="604.8" Top="340.2" Width="49.14" Height="15.12" CanBreak="false" Text="выдан:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text588" Left="396.9" Width="30.24" Height="22.68" CanBreak="false" Text="[tkrt]" Font="Times New Roman, 14pt, style=Bold"/>
+      <TextObject Name="Text589" Left="427.14" Width="268.38" Height="22.68" CanBreak="false" Text="АДРЕСНЫЙ ЛИСТОК ПРИБЫТИЯ" HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text590" Left="695.52" Width="60.48" Height="22.68" CanBreak="false" Text="Форма № 2" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text591" Left="396.9" Top="22.68" Width="64.26" Height="15.12" CanBreak="false" Text="1. Фамилия" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text592" Left="396.9" Top="37.8" Width="45.36" Height="15.12" CanBreak="false" Text="2. Имя" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text593" Left="396.9" Top="52.92" Width="68.04" Height="15.12" CanBreak="false" Text="3. Отчество" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text594" Left="396.9" Top="189" Width="30.24" Height="15.12" CanBreak="false" Text="c" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text595" Left="635.04" Top="68.04" Width="41.58" Height="15.12" CanBreak="false" Text="5. Пол" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text596" Left="614.25" Top="309.96" Width="30.24" Height="15.12" ShiftMode="WhenOverlapped" CanBreak="false" Text="код" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text597" Left="612.36" Top="370.44" Width="30.24" Height="15.12" ShiftMode="WhenOverlapped" CanBreak="false" Text="код" Padding="0, 0, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text598" Left="396.9" Top="461.16" Width="359.1" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_adres] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text599" Left="498.96" Top="446.04" Width="257.04" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_nas_punkt] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text600" Left="446.04" Top="430.92" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_city] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text601" Left="446.04" Top="415.8" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_rajon] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text602" Left="446.04" Top="400.68" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_region] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text603" Left="548.1" Top="385.56" Width="207.9" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[from_country] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text604" Left="642.6" Top="370.44" Width="113.4" Height="15.12" Border.Lines="Bottom" ShiftMode="WhenOverlapped" CanBreak="false" Text="[kod_who_vid]" Padding="0, 0, 0, 0" AutoShrink="FontSize" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text605" Left="396.9" Top="370.44" Width="215.46" Height="15.12" Border.Lines="Bottom" CanBreak="false" Padding="0, 0, 0, 0" AutoShrink="FontSize" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text606" Left="563.22" Top="355.32" Width="192.78" Height="15.12" Border.Lines="Bottom" CanBreak="false" BreakTo="Text605" Text="[who_vid]" Padding="0, 0, 0, 0" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text607" Left="653.94" Top="340.2" Width="102.06" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[dat_vid] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text608" Left="548.1" Top="340.2" Width="56.7" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[nomer] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text609" Left="442.26" Top="340.2" Width="60.48" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[seria] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text610" Left="593.46" Top="325.08" Width="162.54" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[vid_doc] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text611" Left="644.49" Top="309.96" Width="111.51" Height="15.12" Border.Lines="Bottom" ShiftMode="WhenOverlapped" CanBreak="false" Text="[kod_organ]" Padding="0, 0, 0, 0" AutoShrink="FontSize" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text612" Left="396.9" Top="309.96" Width="217.35" Height="15.12" Border.Lines="Bottom" CanBreak="false" Padding="0, 0, 0, 0" AutoShrink="FontSize" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text613" Left="589.68" Top="294.84" Width="166.32" Height="15.12" Border.Lines="Bottom" CanBreak="false" BreakTo="Text612" Text="[organ_reg_uchet]" Padding="0, 0, 0, 0" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text614" Left="396.9" Top="279.72" Width="359.1" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_adres] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text615" Left="548.1" Top="204.12" Width="207.9" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_preb] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text616" Left="427.14" Top="189" Width="328.86" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_zit] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text617" Left="498.96" Top="158.76" Width="257.04" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[grazhd] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text618" Left="498.96" Top="143.64" Width="257.04" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_nas_punkt] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text619" Left="446.04" Top="128.52" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_city] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text620" Left="446.04" Top="113.4" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_rajon] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text621" Left="446.04" Top="98.28" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_region] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text622" Left="548.1" Top="83.16" Width="207.9" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[mr_country]  " Padding="0, 0, 0, 0" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text623" Left="498.96" Top="68.04" Width="136.08" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[dat_rog] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text624" Left="464.94" Top="52.92" Width="291.06" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[otch]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text625" Left="442.26" Top="37.8" Width="313.74" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[ima]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text626" Left="461.16" Top="22.68" Width="294.84" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[fam]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text627" Left="506.52" Top="264.6" Width="249.48" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_nas_punkt] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text628" Left="446.04" Top="249.48" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_city] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text629" Left="446.04" Top="234.74" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_rajon] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text630" Left="446.04" Top="219.24" Width="309.96" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[reg_region] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text631" Left="279.72" Top="68.04" Width="79.38" Height="15.12" AfterDataEvent="ChangeFontGender" CanBreak="false" Text="[pol]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text632" Left="676.62" Top="68.04" Width="79.38" Height="15.12" AfterDataEvent="ChangeFontGender" CanBreak="false" Text="[pol]" VertAlign="Center" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+  </ReportPage>
+  <ReportPage Name="Page2" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="0" OtherPagesSource="0" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle2" Width="756" Height="542.43" FirstRowStartsNewPage="true">
+      <TextObject Name="Text82" Left="0.11" Width="359.1" Height="26.46" Text="Форма № 2&#13;&#10;(оборотная сторона)" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text93" Left="0.11" Top="26.46" Width="359.1" Height="15.12" CanBreak="false" Text="12. Переехал(а) в том же населенном пункте с:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text94" Left="0.11" Top="41.58" Width="359.1" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[rem_p]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text97" Left="0.11" Top="56.7" Width="359.1" Height="15.12" CanBreak="false" Text="13. Переменил(а) Ф.И.О. и прочие сведения с:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text109" Left="0.11" Top="241.92" Width="359.1" Height="15.12" Text="Блок машиночитаемых данных" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text110" Left="0.11" Top="257.04" Width="359.1" Height="132.3" Border.Lines="All" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text112" Left="226.91" Top="393.12" Width="56.7" Height="18.9" Text="Ф.И.О." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text122" Left="0.11" Top="71.82" Width="56.7" Height="15.12" CanBreak="false" Text="фамилия" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text123" Left="56.81" Top="71.82" Width="302.4" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[new_fam]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text124" Left="0.11" Top="86.94" Width="34.02" Height="15.12" CanBreak="false" Text="имя" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text125" Left="34.13" Top="86.94" Width="325.08" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[new_ima]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text126" Left="0.11" Top="102.06" Width="56.7" Height="15.12" CanBreak="false" Text="отчество" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text127" Left="56.81" Top="102.06" Width="302.4" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[new_otch]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text128" Left="87.05" Top="117.18" Width="170.1" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[new_day_rog] [new_month_rog] [new_year_rog]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text135" Left="0.11" Top="132.3" Width="124.74" Height="15.12" CanBreak="false" Text="14. Прочие причины:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text136" Left="124.85" Top="132.3" Width="234.36" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[prichini]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text137" Left="0.11" Top="147.42" Width="124.74" Height="22.68" CanBreak="false" Text="15. Документ составил" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text138" Left="124.85" Top="147.42" Width="86.94" Height="22.68" Border.Lines="Bottom" CanBreak="false" Text="[dat_sost] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text139" Left="211.79" Top="147.42" Width="52.92" Height="22.68" CanBreak="false" Text="Подпись" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text140" Left="264.71" Top="147.42" Width="94.5" Height="22.68" Border.Lines="Bottom" CanBreak="false" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text141" Left="0.11" Top="170.1" Width="124.74" Height="22.68" CanBreak="false" Text="16. Зарегистрировал" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text142" Left="124.85" Top="170.1" Width="86.94" Height="22.68" Border.Lines="Bottom" CanBreak="false" Text="[dat_oform]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text143" Top="192.78" Width="52.92" Height="22.68" CanBreak="false" Text="Подпись" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text144" Left="53.03" Top="192.78" Width="306.18" Height="22.68" Border.Lines="Bottom" CanBreak="false" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <LineObject Name="Line3" Left="0.11" Top="393.12" Width="359.1" Border.Style="Dot"/>
+      <TextObject Name="Text173" Left="0.11" Top="117.18" Width="86.94" Height="15.12" CanBreak="false" Text="дата рождения" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text174" Left="257.04" Top="117.18" Width="102.06" Height="15.12" CanBreak="false" Text="пол муж/жен" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text330" Left="211.79" Top="170.1" Width="52.92" Height="22.68" CanBreak="false" Text="Подпись" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text331" Left="264.71" Top="170.1" Width="94.5" Height="22.68" Border.Lines="Bottom" CanBreak="false" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text633" Left="397.01" Width="359.1" Height="26.46" Text="Форма № 2&#13;&#10;(оборотная сторона)" HorzAlign="Right" Font="Arial, 7pt"/>
+      <TextObject Name="Text634" Left="397.01" Top="26.46" Width="359.1" Height="15.12" CanBreak="false" Text="12. Переехал(а) в том же населенном пункте с:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text635" Left="397.01" Top="41.58" Width="359.1" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[rem_p]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text636" Left="397.01" Top="56.7" Width="359.1" Height="15.12" CanBreak="false" Text="13. Переменил(а) Ф.И.О. и прочие сведения с:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text637" Left="397.01" Top="241.92" Width="359.1" Height="15.12" Text="Блок машиночитаемых данных" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text638" Left="397.01" Top="257.04" Width="359.1" Height="132.3" Border.Lines="All" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text639" Left="623.81" Top="393.12" Width="56.7" Height="18.9" Text="Ф.И.О." HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text640" Left="397.01" Top="71.82" Width="56.7" Height="15.12" CanBreak="false" Text="фамилия" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text641" Left="453.71" Top="71.82" Width="302.4" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[new_fam]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text642" Left="397.01" Top="86.94" Width="34.02" Height="15.12" CanBreak="false" Text="имя" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text643" Left="431.03" Top="86.94" Width="325.08" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[new_ima]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text644" Left="397.01" Top="102.06" Width="56.7" Height="15.12" CanBreak="false" Text="отчество" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text645" Left="453.71" Top="102.06" Width="302.4" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[new_otch]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text646" Left="483.95" Top="117.18" Width="170.1" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[new_day_rog] [new_month_rog] [new_year_rog]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text647" Left="397.01" Top="132.3" Width="124.74" Height="15.12" CanBreak="false" Text="14. Прочие причины:" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text648" Left="521.75" Top="132.3" Width="234.36" Height="15.12" Border.Lines="Bottom" CanBreak="false" Text="[prichini]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text649" Left="397.01" Top="147.42" Width="124.74" Height="22.68" CanBreak="false" Text="15. Документ составил" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text650" Left="521.75" Top="147.42" Width="86.94" Height="22.68" Border.Lines="Bottom" CanBreak="false" Text="[dat_sost] " AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text651" Left="608.69" Top="147.42" Width="52.92" Height="22.68" CanBreak="false" Text="Подпись" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text652" Left="661.61" Top="147.42" Width="94.5" Height="22.68" Border.Lines="Bottom" CanBreak="false" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text653" Left="397.01" Top="170.1" Width="124.74" Height="22.68" CanBreak="false" Text="16. Зарегистрировал" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text654" Left="521.75" Top="170.1" Width="86.94" Height="22.68" Border.Lines="Bottom" CanBreak="false" Text="[dat_oform]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Arial, 8pt, style=Bold, Italic"/>
+      <TextObject Name="Text655" Left="396.9" Top="192.78" Width="52.92" Height="22.68" CanBreak="false" Text="Подпись" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text656" Left="449.93" Top="192.78" Width="306.18" Height="22.68" Border.Lines="Bottom" CanBreak="false" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <LineObject Name="Line4" Left="397.01" Top="393.12" Width="359.1" Border.Style="Dot"/>
+      <TextObject Name="Text657" Left="397.01" Top="117.18" Width="86.94" Height="15.12" CanBreak="false" Text="дата рождения" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text658" Left="653.94" Top="117.18" Width="102.06" Height="15.12" CanBreak="false" Text="пол муж/жен" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text659" Left="608.69" Top="170.1" Width="52.92" Height="22.68" CanBreak="false" Text="Подпись" VertAlign="Bottom" Font="Arial, 8pt"/>
+      <TextObject Name="Text660" Left="661.61" Top="170.1" Width="94.5" Height="22.68" Border.Lines="Bottom" CanBreak="false" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

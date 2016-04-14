@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="01/21/2014 09:31:19" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="month_" Enabled="false" DataType="System.Int32"/>
+      <Column Name="year_" Enabled="false" DataType="System.Int32"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_tarif" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="num_ls" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="fio" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="Column" Alias="pass" DataType="System.String" Calculated="true" Expression=""/>
+      <Column Name="Column1" Enabled="false" DataType="System.Int32" Calculated="true" Expression=""/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="51.76" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="133.57" Top="13.96" Width="470.19" Height="18.9" Text="Тестовый отчет" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="55.76" Width="718.2" Height="49.14">
+      <TextObject Name="Text11" Left="321.3" Width="83.16" Height="49.14" Border.ShadowWidth="1" Border.Lines="All" Text="Pass&#13;&#10;&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="108.9" Width="718.2" Height="18.9" DataSource="Q_master">
+      <TextObject Name="Text20" Left="321.3" Width="83.16" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.pass]" HorzAlign="Right" VertAlign="Center" WordWrap="false" Font="Arial, 9pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="131.8" Width="718.2" Height="47.25"/>
+  </ReportPage>
+</Report>

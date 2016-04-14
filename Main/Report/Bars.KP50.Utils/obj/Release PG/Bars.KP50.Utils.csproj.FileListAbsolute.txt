@@ -1,0 +1,6 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Utils\bin\Release PG\Bars.KP50.Utils.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Utils\bin\Release PG\Bars.KP50.Utils.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Utils\bin\Release PG\Newtonsoft.Json.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Utils\obj\Release PG\Bars.KP50.Utils.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Utils\obj\Release PG\Bars.KP50.Utils.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Report\Bars.KP50.Utils\obj\Release PG\Bars.KP50.Utils.csprojResolveAssemblyReference.cache

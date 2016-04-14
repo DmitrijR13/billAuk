@@ -1,0 +1,1 @@
+alter table ftul_fin_14:fn_sended_dom modify nzp_send integer not null;

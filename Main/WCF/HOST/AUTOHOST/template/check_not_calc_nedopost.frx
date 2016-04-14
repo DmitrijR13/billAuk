@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/13/2014 10:34:51" ReportInfo.Modified="12/10/2014 11:03:05" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="37.8">
+      <TextObject Name="Text1" Left="9.45" Top="9.45" Width="1020.6" Height="18.9" Text="Проверка по выставленным недопоставкам текущего месяца, но не рассчитанным в текущем месяце" Font="Arial, 11pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="61.7" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text12" Left="9.45" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.num_ls]" Font="Arial, 8pt"/>
+      <TextObject Name="Text13" Left="66.15" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.pkod]" Font="Arial, 8pt"/>
+      <TextObject Name="Text14" Left="160.65" Width="141.75" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.adr]" Font="Arial, 8pt"/>
+      <TextObject Name="Text15" Left="302.4" Width="132.3" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.serv]" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="434.7" Width="122.85" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.contractor]" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="557.55" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_s]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text18" Left="633.15" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_po]" Format="Date" Format.Format="d" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Left="708.75" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.time_length]" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Left="822.15" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.type_nedopost]" Font="Arial, 8pt"/>
+      <TextObject Name="Text21" Left="935.55" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.percent]" Font="Arial, 8pt"/>
+      <DataHeaderBand Name="DataHeader1" Top="40.3" Width="1047.06" Height="18.9">
+        <TextObject Name="Text2" Left="9.45" Width="56.7" Height="18.9" Border.Lines="All" Text="№ л. сч." Font="Arial, 8pt"/>
+        <TextObject Name="Text3" Left="66.15" Width="94.5" Height="18.9" Border.Lines="All" Text="Платежный код" Font="Arial, 8pt"/>
+        <TextObject Name="Text4" Left="160.65" Width="141.75" Height="18.9" Border.Lines="All" Text="Адрес" Font="Arial, 8pt"/>
+        <TextObject Name="Text5" Left="302.4" Width="132.3" Height="18.9" Border.Lines="All" Text="Услуга" Font="Arial, 8pt"/>
+        <TextObject Name="Text6" Left="434.7" Width="122.85" Height="18.9" Border.Lines="All" Text="Подрядчик" Font="Arial, 8pt"/>
+        <TextObject Name="Text7" Left="935.55" Width="94.5" Height="18.9" Border.Lines="All" Text="Темп./% снятия" Font="Arial, 8pt"/>
+        <TextObject Name="Text8" Left="822.15" Width="113.4" Height="18.9" Border.Lines="All" Text="Тип недопоставки" Font="Arial, 8pt"/>
+        <TextObject Name="Text9" Left="708.75" Width="113.4" Height="18.9" Border.Lines="All" Text="Продолжительность" Font="Arial, 8pt"/>
+        <TextObject Name="Text10" Left="633.15" Width="75.6" Height="18.9" Border.Lines="All" Text="Дата по" Font="Arial, 8pt"/>
+        <TextObject Name="Text11" Left="557.55" Width="75.6" Height="18.9" Border.Lines="All" Text="Дата с" Font="Arial, 8pt"/>
+      </DataHeaderBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="83.1" Width="1047.06" Height="37.8">
+      <TextObject Name="Text22" Left="9.45" Top="9.45" Width="1020.6" Height="18.9" Text="[report_name]" VertAlign="Center" Font="Arial, 9pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

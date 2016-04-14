@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleJob", "SimpleJobTest\SimpleJob.csproj", "{E3EBFF3F-4184-4CA3-8C15-25EF8BE3B7DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.Worker", "..\..\Bars.Job\Bars.Worker.csproj", "{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6DB32969-796B-4C42-8096-814E5CE61030}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.KP50.Report", "..\..\..\Report\Bars.KP50.Report\Bars.KP50.Report.csproj", "{9932DA32-9B1B-4FB2-BD7F-8D457ADE13D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.KP50.Report.Test", "..\..\..\Report\Bars.KP50.Report.Test\Bars.KP50.Report.Test.csproj", "{6835C974-C8DB-45D5-BFAA-66919F3F5773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.KP50.Utils", "..\..\..\Report\Bars.KP50.Utils\Bars.KP50.Utils.csproj", "{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = ..\\..\\..\\Report\\Bars.KP50.Report\\Bars.KP50.Report.csproj
+		SccProjectName0 = ../../../Report/Bars.KP50.Report
+		SccAuxPath0 = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccLocalPath0 = ..\\..\\..\\Report\\Bars.KP50.Report
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = ..\\..\\..\\Report\\Bars.KP50.Utils\\Bars.KP50.Utils.csproj
+		SccProjectName1 = ../../../Report/Bars.KP50.Utils
+		SccAuxPath1 = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccLocalPath1 = ..\\..\\..\\Report\\Bars.KP50.Utils
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug PG|Any CPU = Debug PG|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release PG|Any CPU = Release PG|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3EBFF3F-4184-4CA3-8C15-25EF8BE3B7DF}.Debug PG|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3EBFF3F-4184-4CA3-8C15-25EF8BE3B7DF}.Debug PG|Any CPU.Build.0 = Debug|Any CPU
+		{E3EBFF3F-4184-4CA3-8C15-25EF8BE3B7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3EBFF3F-4184-4CA3-8C15-25EF8BE3B7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3EBFF3F-4184-4CA3-8C15-25EF8BE3B7DF}.Release PG|Any CPU.ActiveCfg = Release|Any CPU
+		{E3EBFF3F-4184-4CA3-8C15-25EF8BE3B7DF}.Release PG|Any CPU.Build.0 = Release|Any CPU
+		{E3EBFF3F-4184-4CA3-8C15-25EF8BE3B7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3EBFF3F-4184-4CA3-8C15-25EF8BE3B7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Debug PG|Any CPU.ActiveCfg = Debug|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Debug PG|Any CPU.Build.0 = Debug|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Release PG|Any CPU.ActiveCfg = Release|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Release PG|Any CPU.Build.0 = Release|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9932DA32-9B1B-4FB2-BD7F-8D457ADE13D7}.Debug PG|Any CPU.ActiveCfg = Debug PG|Any CPU
+		{9932DA32-9B1B-4FB2-BD7F-8D457ADE13D7}.Debug PG|Any CPU.Build.0 = Debug PG|Any CPU
+		{9932DA32-9B1B-4FB2-BD7F-8D457ADE13D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9932DA32-9B1B-4FB2-BD7F-8D457ADE13D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9932DA32-9B1B-4FB2-BD7F-8D457ADE13D7}.Release PG|Any CPU.ActiveCfg = Release PG|Any CPU
+		{9932DA32-9B1B-4FB2-BD7F-8D457ADE13D7}.Release PG|Any CPU.Build.0 = Release PG|Any CPU
+		{9932DA32-9B1B-4FB2-BD7F-8D457ADE13D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9932DA32-9B1B-4FB2-BD7F-8D457ADE13D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6835C974-C8DB-45D5-BFAA-66919F3F5773}.Debug PG|Any CPU.ActiveCfg = Debug|Any CPU
+		{6835C974-C8DB-45D5-BFAA-66919F3F5773}.Debug PG|Any CPU.Build.0 = Debug|Any CPU
+		{6835C974-C8DB-45D5-BFAA-66919F3F5773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6835C974-C8DB-45D5-BFAA-66919F3F5773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6835C974-C8DB-45D5-BFAA-66919F3F5773}.Release PG|Any CPU.ActiveCfg = Release|Any CPU
+		{6835C974-C8DB-45D5-BFAA-66919F3F5773}.Release PG|Any CPU.Build.0 = Release|Any CPU
+		{6835C974-C8DB-45D5-BFAA-66919F3F5773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6835C974-C8DB-45D5-BFAA-66919F3F5773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Debug PG|Any CPU.ActiveCfg = Debug PG|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Debug PG|Any CPU.Build.0 = Debug PG|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Release PG|Any CPU.ActiveCfg = Release PG|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Release PG|Any CPU.Build.0 = Release PG|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

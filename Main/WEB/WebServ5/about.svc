@@ -1,0 +1,2 @@
+<%@ServiceHost Service="STCLINE.KP50.Bars.Services.SrvAboutCompany" %>
+

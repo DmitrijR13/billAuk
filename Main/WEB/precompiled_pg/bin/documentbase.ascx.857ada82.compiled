@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/master/templates/DocumentBase.ascx" hash="cedb9400c" filehash="b0a88ca24a662cbe" flags="110000" assembly="App_Web_wvz3gney" type="ASP.master_templates_documentbase_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/DocumentBase.ascx" />
+    </filedeps>
+</preserve>

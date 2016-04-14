@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/counter/fastpu.aspx" hash="cedb9400c" filehash="482ae5780de1c34b" flags="110000" assembly="App_Web_ugb5kbjg" type="ASP.kart_counter_fastpu_aspx">
+    <filedeps>
+        <filedep name="/none/kart/counter/fastpu.aspx" />
+        <filedep name="/none/kart/counter/inputvalpu.ascx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressTemplate.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

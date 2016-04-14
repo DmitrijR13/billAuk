@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="09/27/2014 09:35:39" ReportInfo.CreatorVersion="2014.1.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  { 
+                                            
+      
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="uncorrect" ReferenceName="Data.uncorrect" DataType="System.Int32" Enabled="true">
+      <Column Name="sourceString" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="unrecog" ReferenceName="Data.unrecog" DataType="System.Int32" Enabled="true">
+      <Column Name="sourceString" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="comment" ReferenceName="Data.comment" DataType="System.Int32" Enabled="true">
+      <Column Name="sourceString" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Parameter Name="count_rows" DataType="System.String"/>
+    <Parameter Name="file_name" DataType="System.String"/>
+    <Parameter Name="status" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" Guides="179.55,179.55,756">
+    <ReportTitleBand Name="ReportTitle2" Width="756" Height="175.4">
+      <TextObject Name="Text2" Left="5.78" Top="122.62" Width="601.14" Height="22.62" Text="Сообщения загрузчика:" Font="Arial, 10pt, style=Bold"/>
+      <TableObject Name="Table1" Left="5.78" Top="19.63" Width="601.36" Height="99.06">
+        <TableColumn Name="Column1" Width="191.77"/>
+        <TableColumn Name="Column2" Width="409.59"/>
+        <TableRow Name="Row1" Height="23.46">
+          <TableCell Name="Cell1" Text="Протокол о загрузке реестра в биллинговую систему " HorzAlign="Center" Font="Arial, 12pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell22"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6" Text="Имя файла: "/>
+          <TableCell Name="Cell23" Text="[file_name]" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell11" Text="Количество строк в реестре: "/>
+          <TableCell Name="Cell24" Text="[count_rows]" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell16" Text="Статус загрузки: "/>
+          <TableCell Name="Cell25" Text="[status]" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row5">
+          <TableCell Name="Cell21" Text="Дата загрузки реестра: "/>
+          <TableCell Name="Cell26" Text="[Date]" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text10" Left="52.41" Top="162.17" Width="554.58" Height="13.2" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Текст сообщения&#13;&#10;&#13;&#10;" HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold" HtmlTags="true"/>
+      <TextObject Name="Text11" Left="5.78" Top="162.17" Width="46.52" Height="13.23" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="176.28" Width="756" Height="13.23" CanGrow="true" DataSource="comment">
+      <TextObject Name="Text5" Left="52.41" Width="554.58" Height="13.2" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" CanBreak="false" Text="[comment.sourceString]&#13;&#10;&#13;&#10;" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text1" Left="5.78" Width="46.52" Height="13.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page4">
+    <ReportTitleBand Name="ReportTitle4" Width="718.2" Height="28.72">
+      <TextObject Name="Text7" Left="2.26" Top="10.2" Width="343.18" Height="18.52" Text="Несопоставленные записи" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data5" Top="30.41" Width="718.2" Height="12.82" CanGrow="true" DataSource="unrecog">
+      <TextObject Name="Text8" Left="1.88" Width="704.66" Height="12.82" Text="[unrecog.sourceString]" Font="Times New Roman, 8pt"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page3">
+    <ReportTitleBand Name="ReportTitle3" Width="718.2" Height="21.5">
+      <TextObject Name="Text9" Left="0.38" Top="2.6" Width="361.07" Height="18.9" Text="Некорректные строки" HorzAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data4" Top="23.19" Width="718.2" Height="18.9" CanGrow="true" DataSource="uncorrect">
+      <TextObject Name="Text6" Left="0.38" Top="-0.38" Width="709.16" Height="18.9" CanGrow="true" GrowToBottom="true" Text="[uncorrect.sourceString]" Padding="2, 2, 2, 2" Font="Times New Roman, 9pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

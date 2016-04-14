@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/22/2014 17:28:40" ReportInfo.Modified="12/15/2015 11:43:54" ReportInfo.CreatorVersion="2015.4.2.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="area" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="supp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="ud" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_house" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="фио" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_blag" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="build_year" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="floors" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="prm_5" DataType="System.Int32" PropName="Column"/>
+      <Column Name="num_ls" DataType="System.Int64" PropName="Column"/>
+      <Column Name="prm_107" DataType="System.Int32" PropName="Column"/>
+      <Column Name="days_count" Enabled="false" DataType="System.UInt32" PropName="Column"/>
+      <Column Name="norm" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="withIPU" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="withoutIPU" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="sum_tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="sum_tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column5"/>
+      <Column Name="tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column6"/>
+      <Column Name="sum_tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column7"/>
+      <Column Name="sum_tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="dat_prih" Enabled="false" DataType="System.String" PropName="Column3"/>
+      <Column Name="tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_500" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum_peni" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money_peni" Enabled="false" DataType="System.Decimal" PropName="Column" Format="Number"/>
+      <Column Name="reval_peni" Enabled="false" DataType="System.Decimal" PropName="Column1" Format="Number"/>
+    </TableDataSource>
+    <Total Name="t_sum_prm_5" Expression="[Q_master.prm_5]" Evaluator="Data1"/>
+    <Total Name="t_sum_withIPU" Expression="[Q_master.withIPU]" Evaluator="Data1"/>
+    <Total Name="t_sum_withoutIPU" Expression="[Q_master.withoutIPU]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="298">
+    <ReportTitleBand Name="ReportTitle1" Width="1050.84" Height="113.4">
+      <TextObject Name="Text73" Width="784.35" Height="47.25" Text="Протокол расчета общедомового поправочного коэффициента  &#13;&#10;за [period]" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text127" Left="822.15" Width="122.85" Height="18.9" Text="[date]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text136" Top="66.15" Width="784.35" Height="47.25" Text="[Q_master2.address] - Электроснабжение" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="117.4" Width="1050.84" Height="75.6" PrintOn="FirstPage">
+      <TextObject Name="Text104" Width="56.7" Height="75.6" Border.Lines="All" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text105" Left="56.7" Width="66.15" Height="75.6" Border.Lines="All" Text="Л/счет" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text106" Left="122.85" Width="75.6" Height="75.6" Border.Lines="All" Text="Квартира" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text108" Left="198.45" Width="444.15" Height="75.6" Border.Lines="All" Text="Квартиросъемщик" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text110" Left="642.6" Width="75.6" Height="75.6" Border.Lines="All" Text="Жильцов" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text113" Left="878.85" Top="37.8" Width="85.05" Height="37.8" Border.Lines="All" Text="с ИПУ" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text109" Left="963.9" Top="37.8" Width="85.05" Height="37.8" Border.Lines="All" Text="без ИПУ" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text111" Left="718.2" Width="66.15" Height="75.6" Border.Lines="All" Text="Комнат" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text112" Left="784.35" Width="94.5" Height="75.6" Border.Lines="All" Text="Норматив потребления" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text129" Left="878.85" Width="170.1" Height="37.8" Border.Lines="All" Text="Показатель для расчета коэффициента" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="197" Width="1050.84" Height="37.8" DataSource="Q_master">
+      <TextObject Name="Text53" Width="56.7" Height="37.8" Border.Lines="All" Text="[Row#]"/>
+      <TextObject Name="Text114" Left="56.7" Width="66.15" Height="37.8" Border.Lines="All" Text="[Q_master.num_ls]"/>
+      <TextObject Name="Text117" Left="198.45" Width="444.15" Height="37.8" Border.Lines="All" Text="[Q_master.fio]"/>
+      <TextObject Name="Text122" Left="878.85" Width="85.05" Height="37.8" Border.Lines="All" Text="[Q_master.withIPU]"/>
+      <TextObject Name="Text119" Left="642.6" Width="75.6" Height="37.8" Border.Lines="All" Text="[Q_master.prm_5]"/>
+      <TextObject Name="Text118" Left="963.9" Width="85.05" Height="37.8" Border.Lines="All" Text="[Q_master.withoutIPU]"/>
+      <TextObject Name="Text115" Left="122.85" Width="75.6" Height="37.8" Border.Lines="All" Text="[Q_master.nkvar]"/>
+      <TextObject Name="Text120" Left="718.2" Width="66.15" Height="37.8" Border.Lines="All" Text="[Q_master.prm_107]"/>
+      <TextObject Name="Text121" Left="784.35" Width="94.5" Height="37.8" Border.Lines="All" Text="[Q_master.norm]"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="242.8" Width="1050.84" Height="132.3">
+      <TextObject Name="Text125" Left="718.2" Width="66.15" Height="18.9" Border.Lines="All" Text="[t_sum_prm_5]"/>
+      <TextObject Name="Text123" Left="963.9" Width="85.05" Height="18.9" Border.Lines="All" Text="[t_sum_withoutIPU]"/>
+      <TextObject Name="Text124" Left="878.85" Width="85.05" Height="18.9" Border.Lines="All" Text="[t_sum_withIPU]"/>
+      <TextObject Name="Text128" Left="9.45" Top="18.9" Width="548.1" Height="91.48" Text="&#13;&#10;&#13;&#10;Выполнил                     _________________ Волков С.Б.&#13;&#10;&#13;&#10;&#13;&#10;Генеральный директор _________________ Гордиевский П.А." Font="Arial, 9pt"/>
+      <TextObject Name="Text130" Left="642.6" Width="75.6" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text131" Left="784.35" Width="94.5" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text132" Width="56.7" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text133" Left="56.7" Width="66.15" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text134" Left="122.85" Width="75.6" Height="18.9" Border.Lines="All"/>
+      <TextObject Name="Text135" Left="198.45" Width="444.15" Height="18.9" Border.Lines="All"/>
+    </ReportSummaryBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="238.8" Width="1050.84" PrintOn="FirstPage, SinglePage"/>
+  </ReportPage>
+</Report>

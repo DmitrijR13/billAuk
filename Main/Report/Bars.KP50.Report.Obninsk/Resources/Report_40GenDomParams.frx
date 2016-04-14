@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" UseFileCache="true" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="12/21/2015 16:44:46" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+    
+
+namespace FastReport
+{
+  public class ReportScript
+  {           
+
+
+    private void Page1_FinishPage(object sender, EventArgs e)
+    {
+      Page1.PaperWidth = Matrix1.Width+2;
+    }
+  }
+}
+  </ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ulicareg" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="name_prm" DataType="System.String" PropName="Column"/>
+      <Column Name="val_prm" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="1000" PaperHeight="1000" FirstPageSource="15" OtherPagesSource="15" FinishPageEvent="Page1_FinishPage">
+    <ReportTitleBand Name="ReportTitle1" Width="3704.4" Height="61.21" CanGrow="true" CanBreak="true">
+      <TextObject Name="Text1" Top="42.31" Width="1525.82" Height="18.9" Text="40. Генератор по домовым паратметрам за [pPeriod]" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Top="18.9" Width="1512" Height="18.9" Text="Дата печати:[dat]   Время печати:[time]" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text6" Width="1512" Height="18.9" Text="[excel]" Font="Times New Roman, 7pt, style=Italic" TextFill.Color="Red"/>
+      <ChildBand Name="Child1" Top="64.41" Width="3704.4" Height="37.8">
+        <TextObject Name="Text63" Left="0.69" Width="1512.74" Height="28.35" CanGrow="true" Text="[headerParam]&#13;&#10; " HorzAlign="Justify" VertAlign="Center" Font="Times New Roman, 9pt" Wysiwyg="true"/>
+        <ChildBand Name="Child2" Top="105.41" Width="3704.4" Height="39.12" Guides="18.9">
+          <MatrixObject Name="Matrix1" Width="277.17" Height="39.12" FixedRows="1" FixedColumns="4" DataSource="Q_master">
+            <MatrixColumns>
+              <Header Expression="[Q_master.name_prm]" Sort="None" Totals="false"/>
+            </MatrixColumns>
+            <MatrixRows>
+              <Header Expression="[Q_master.area]" Sort="None" Totals="false"/>
+              <Header Expression="[Q_master.rajon]" Sort="None" Totals="false"/>
+              <Header Expression="[Q_master.ulica]" Sort="None" Totals="false"/>
+              <Header Expression="[Q_master.ndom]" Sort="None" Totals="false"/>
+            </MatrixRows>
+            <MatrixCells>
+              <Cell Expression="[Q_master.val_prm]"/>
+            </MatrixCells>
+            <TableColumn Name="Column1" Width="44.56" AutoSize="true"/>
+            <TableColumn Name="Column2" Width="49.13" AutoSize="true"/>
+            <TableColumn Name="Column3" Width="49.35" AutoSize="true"/>
+            <TableColumn Name="Column4" Width="51.42" AutoSize="true"/>
+            <TableColumn Name="Column5" Width="82.71" AutoSize="true"/>
+            <TableRow Name="Row1" Height="19.56" AutoSize="true">
+              <TableCell Name="Cell1" Border.Lines="All" Text="УК" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell2" Border.Lines="All" Text="Район" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell7" Border.Lines="All" Text="Улица" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell10" Border.Lines="All" Text="Дом" HorzAlign="Center" VertAlign="Center"/>
+              <TableCell Name="Cell17" Border.Lines="All" Text="[name_prm]" HorzAlign="Center" VertAlign="Center"/>
+            </TableRow>
+            <TableRow Name="Row2" Height="19.56" AutoSize="true">
+              <TableCell Name="Cell3" Border.Lines="All" Text="[area]" VertAlign="Center"/>
+              <TableCell Name="Cell4" Border.Lines="All" Text="[rajon]" VertAlign="Center"/>
+              <TableCell Name="Cell8" Border.Lines="All" Text="[ulica]" VertAlign="Center"/>
+              <TableCell Name="Cell11" Border.Lines="All" Text="[ndom]" HorzAlign="Right" VertAlign="Center"/>
+              <TableCell Name="Cell18" Border.Lines="All" Text="[val_prm]" HorzAlign="Right" VertAlign="Center"/>
+            </TableRow>
+          </MatrixObject>
+        </ChildBand>
+      </ChildBand>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7387D33-7209-48B1-A8C6-99E3C844C1E0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>STCLINE.KP50.HostMan</RootNamespace>
+    <AssemblyName>KP50.HostMan</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">.\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bars.CloudRoster.ClientProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIBRARIES\Bars.CloudRoster.ClientProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Bars.CloudRoster.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIBRARIES\Bars.CloudRoster.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="IBM.Data.Informix">
+      <HintPath>..\..\..\LIBRARIES\IBM.Data.Informix.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIBRARIES\Mono.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIBRARIES\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.0.13.91, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIBRARIES\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SevenZipSharp, Version=0.64.4367.27703, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\LIBRARIES\SevenZipSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\WIN\SOURCE\LOGIN\FrmLogin.cs">
+      <Link>SOURCE\FrmLogin.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\..\WIN\SOURCE\LOGIN\FrmLogin.designer.cs">
+      <Link>SOURCE\FrmLogin.designer.cs</Link>
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\BasePointsManager\FrmRenameBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\BasePointsManager\FrmRenameBank.Designer.cs">
+      <DependentUpon>FrmRenameBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\ClearBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\ClearBank.Designer.cs">
+      <DependentUpon>ClearBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmAddressService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmAddressService.Designer.cs">
+      <DependentUpon>FrmAddressService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\BasePointsManager\FrmBasePointsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\BasePointsManager\FrmBasePointsManager.Designer.cs">
+      <DependentUpon>FrmBasePointsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmConfigManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmConfigManager.Designer.cs">
+      <DependentUpon>FrmConfigManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmCreateNewBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmCreateNewBank.Designer.cs">
+      <DependentUpon>FrmCreateNewBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmDataUnload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmDataUnload.Designer.cs">
+      <DependentUpon>FrmDataUnload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmEnterPwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmEnterPwd.Designer.cs">
+      <DependentUpon>FrmEnterPwd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmHostMan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmHostMan.Designer.cs">
+      <DependentUpon>FrmHostMan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmKLADR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmKLADR.Designer.cs">
+      <DependentUpon>FrmKLADR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmLoading.Designer.cs">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\BasePointsManager\FrmNewBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\BasePointsManager\FrmNewBank.Designer.cs">
+      <DependentUpon>FrmNewBank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\BasePointsManager\FrmNewBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\BasePointsManager\FrmNewBase.Designer.cs">
+      <DependentUpon>FrmNewBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmSelectDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmSelectDataBase.Designer.cs">
+      <DependentUpon>FrmSelectDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\FrmUploadInFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SOURCE\FrmUploadInFile.Designer.cs">
+      <DependentUpon>FrmUploadInFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SOURCE\objConfigManager.cs" />
+    <Compile Include="SOURCE\SrcHostMan.cs" />
+    <Compile Include="SOURCE\ProgramHostMan.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\..\..\WIN\SOURCE\LOGIN\FrmLogin.resx">
+      <Link>SOURCE\FrmLogin.resx</Link>
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\BasePointsManager\FrmRenameBank.resx">
+      <DependentUpon>FrmRenameBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\ClearBank.resx">
+      <DependentUpon>ClearBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\FrmAddressService.resx">
+      <DependentUpon>FrmAddressService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\BasePointsManager\FrmBasePointsManager.resx">
+      <DependentUpon>FrmBasePointsManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\FrmConfigManager.resx">
+      <DependentUpon>FrmConfigManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\FrmCreateNewBank.resx">
+      <DependentUpon>FrmCreateNewBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\FrmDataUnload.resx">
+      <DependentUpon>FrmDataUnload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\FrmEnterPwd.resx">
+      <DependentUpon>FrmEnterPwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\FrmHostMan.resx">
+      <DependentUpon>FrmHostMan.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SOURCE\FrmKLADR.resx">
+      <DependentUpon>FrmKLADR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\FrmLoading.resx">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\BasePointsManager\FrmNewBank.resx">
+      <DependentUpon>FrmNewBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\BasePointsManager\FrmNewBase.resx">
+      <DependentUpon>FrmNewBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\FrmSelectDataBase.resx">
+      <DependentUpon>FrmSelectDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SOURCE\FrmUploadInFile.resx">
+      <DependentUpon>FrmUploadInFile.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Admin\Bars.KP50.CLI.Admin\Bars.KP50.CLI.Admin.csproj">
+      <Project>{699fd7dc-5c99-4036-998e-a8b9ab62dbf3}</Project>
+      <Name>Bars.KP50.CLI.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Admin\Bars.KP50.DB.Admin\Bars.KP50.DB.Admin.csproj">
+      <Project>{5cc37a0e-5ce4-4926-8153-2832354a9982}</Project>
+      <Name>Bars.KP50.DB.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Adres\Bars.KP50.CLI.Adres\Bars.KP50.CLI.Adres.csproj">
+      <Project>{00370877-76ce-4c58-813d-6105b994ebaf}</Project>
+      <Name>Bars.KP50.CLI.Adres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Adres\Bars.KP50.DB.Adres\Bars.KP50.DB.Adres.csproj">
+      <Project>{13daaf47-d4bb-416f-87f9-4873c6ea717f}</Project>
+      <Name>Bars.KP50.DB.Adres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Calc\Bars.KP50.Calc\Bars.KP50.DB.Calc.csproj">
+      <Project>{3ea662e6-7c17-446f-972c-1bb059bd6e58}</Project>
+      <Name>Bars.KP50.DB.Calc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Counters\Bars.KP50.CLI.Counters\Bars.KP50.CLI.Counters.csproj">
+      <Project>{9db13ed3-0df1-4760-83ec-784dc6b54ec8}</Project>
+      <Name>Bars.KP50.CLI.Counters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Counters\Bars.KP50.DB.Counters\Bars.KP50.DB.Counters.csproj">
+      <Project>{f7d4ec12-5ea5-4448-846e-adbd328c416c}</Project>
+      <Name>Bars.KP50.DB.Counters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataImport\Bars.KP50.CLI.DataImport\Bars.KP50.CLI.DataImport.csproj">
+      <Project>{19f9e4b8-b08f-4951-b4b2-8b28a92f3480}</Project>
+      <Name>Bars.KP50.CLI.DataImport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataImport\Bars.KP50.CLI.OneTimeLoad\Bars.KP50.CLI.OneTimeLoad.csproj">
+      <Project>{761151c5-13a2-40f7-b1f8-3258efa11e7b}</Project>
+      <Name>Bars.KP50.CLI.OneTimeLoad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DATA\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj">
+      <Project>{A09E0051-6B16-42B5-9840-8CB60B0729C7}</Project>
+      <Name>STCLINE.KP50.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DATA\IFMX\Bars.KP50.Faktura\Bars.KP50.DB.Faktura.csproj">
+      <Project>{494311d1-9d4c-4667-bd49-624dbf4d8b85}</Project>
+      <Name>Bars.KP50.DB.Faktura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DATA\IFMX\Bars.KP50.Gubkin\Bars.KP50.OneTimeLoad.csproj">
+      <Project>{ec95edad-338a-4753-82eb-84935f82775c}</Project>
+      <Name>Bars.KP50.OneTimeLoad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DATA\IFMX\Client\STCLINE.KP50.IFMX.Client.csproj">
+      <Project>{2AB80CEA-D131-4E93-9B35-8F86DD474080}</Project>
+      <Name>STCLINE.KP50.IFMX.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DATA\IFMX\Common\STCLINE.KP50.IFMX.Common.csproj">
+      <Project>{13FAA6D8-DA11-4392-BAD2-C1640C172E01}</Project>
+      <Name>STCLINE.KP50.IFMX.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DATA\IFMX\Kernel\STCLINE.KP50.IFMX.Kernel.csproj">
+      <Project>{51D199A0-A5BD-4EB3-A4CF-E5DD004D55F7}</Project>
+      <Name>STCLINE.KP50.IFMX.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DATA\IFMX\Report\STCLINE.KP50.IFMX.Report.csproj">
+      <Project>{4CA4459F-8492-4E26-92F0-76592A13030F}</Project>
+      <Name>STCLINE.KP50.IFMX.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DATA\IFMX\Server\STCLINE.KP50.IFMX.Server.csproj">
+      <Project>{5D6DEEA7-1486-4088-8ECE-9B73306181AC}</Project>
+      <Name>STCLINE.KP50.IFMX.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Debitor\Bars.KP50.CLI.Debitor\Bars.KP50.CLI.Debitor.csproj">
+      <Project>{2bfbabe7-467c-4f78-beda-5975cd27ab5b}</Project>
+      <Name>Bars.KP50.CLI.Debitor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Exchange\Bars.KP50.CLI.Exchange\Bars.KP50.CLI.Exchange.csproj">
+      <Project>{f7a19a4d-9532-4792-bfa3-465a902b337e}</Project>
+      <Name>Bars.KP50.CLI.Exchange</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Exchange\Bars.KP50.SzExchange\Bars.KP50.SzExchange.csproj">
+      <Project>{ca3ec7ac-520a-4d42-9819-12db9fab5abc}</Project>
+      <Name>Bars.KP50.SzExchange</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Faktura\Bars.KP50.CLI.Faktura\Bars.KP50.CLI.Faktura.csproj">
+      <Project>{cc4cbb82-2287-4c00-8010-366b0645b860}</Project>
+      <Name>Bars.KP50.CLI.Faktura</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Finans\Bars.KP50.CLI.Finans\Bars.KP50.CLI.Finans.csproj">
+      <Project>{b72c22eb-d313-4fa3-8a0c-fcebdb1456e1}</Project>
+      <Name>Bars.KP50.CLI.Finans</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Finans\Bars.KP50.DB.Finans\Bars.KP50.DB.Finans.csproj">
+      <Project>{13383ea0-8911-48ef-87db-15fe969388ec}</Project>
+      <Name>Bars.KP50.DB.Finans</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Nebo\Bars.KP50.CLI.Nebo\Bars.KP50.CLI.Nebo.csproj">
+      <Project>{90821db0-d5cf-4247-82eb-e3d6ef2d5908}</Project>
+      <Name>Bars.KP50.CLI.Nebo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Parametrs\Bars.KP50.DB.Analiz\Bars.KP50.DB.Analiz.csproj">
+      <Project>{e7e57dd3-9bb3-427c-9073-cb8da6fb6f9a}</Project>
+      <Name>Bars.KP50.DB.Analiz</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Report\Bars.KP50.CLI.Report\Bars.KP50.CLI.Report.csproj">
+      <Project>{d79794ee-cfaa-4103-81b0-ab2fa8c16dfd}</Project>
+      <Name>Bars.KP50.CLI.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sprav\Bars.KP50.CLI.Sprav\Bars.KP50.CLI.Sprav.csproj">
+      <Project>{b96681f0-0674-4123-89c4-c88930b12e21}</Project>
+      <Name>Bars.KP50.CLI.Sprav</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Sprav\Bars.KP50.DB.Sprav\Bars.KP50.DB.Sprav.csproj">
+      <Project>{139dd0b8-47dd-47f7-a1af-880034ffb31e}</Project>
+      <Name>Bars.KP50.DB.Sprav</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Supg\Bars.KP50.CLI.Supg\Bars.KP50.CLI.Supg.csproj">
+      <Project>{a2a78c22-9249-46d7-915c-251a71594269}</Project>
+      <Name>Bars.KP50.CLI.Supg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CLIENT\CliKart\STCLINE.KP50.CliKart.csproj">
+      <Project>{BB38A0BD-A169-4BD5-8756-7F8682F235D8}</Project>
+      <Name>STCLINE.KP50.CliKart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CLIENT\SrvKart\STCLINE.KP50.SrvKart.csproj">
+      <Project>{265A2CBC-4B37-43B8-8FA5-43B557DBC21B}</Project>
+      <Name>STCLINE.KP50.SrvKart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bars.KP50.DataImport\Bars.KP50.DataImport.csproj">
+      <Project>{f6a6f0e5-2b4b-4ece-890f-21baea35339d}</Project>
+      <Name>Bars.KP50.DataImport</Name>
+    </ProjectReference>
+    <ProjectReference Include="Bars.KP50.DB.SqAdmin\Bars.KP50.DB.SqAdmin.csproj">
+      <Project>{558c6114-a315-4526-841b-39c5296b2f4d}</Project>
+      <Name>Bars.KP50.DB.SqAdmin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="KP50.HostMan.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Bars.CloudRoster.Contracts.Data.RosterCompareResult.datasource" />
+    <None Include="Properties\DataSources\STCLINE.KP50.HostMan.KLADR.KLADR.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if "$(TargetName)"=="KP50.HostMan" (
+    xcopy "$(SolutionDir)template" "$(TargetDir)Template\"  /e
+
+    copy /y "$(SolutionDir)..\..\..\Libraries\7z.dll" "$(TargetDir)7z.dll"
+    copy /y "$(SolutionDir)..\..\..\Libraries\7z64.dll" "$(TargetDir)7z64.dll"
+    copy /y "$(SolutionDir)..\..\..\Libraries\CryptDES.dll" "$(TargetDir)CryptDES.dll"
+
+    if not "$(ConfigurationName)"=="Debug PG" if not "$(ConfigurationName)"=="Release PG" (
+        if exist "$(SolutionDir)configs\ifmx\host.user.config" (
+            copy "$(SolutionDir)configs\ifmx\host.user.config" "$(TargetDir)host.config"
+        ) else (
+            copy "$(SolutionDir)configs\ifmx\host.config" "$(TargetDir)host.config"
+        )
+        del "$(TargetDir)Npgsql.dll"
+        del "$(TargetDir)Mono.Security.dll"
+        copy /y "$(SolutionDir)..\..\..\Libraries\IfxDotNetIntrinsicModule.dll" "$(TargetDir)IfxDotNetIntrinsicModule.dll"
+    ) 
+
+    if not "$(ConfigurationName)"=="Debug" if not "$(ConfigurationName)"=="Release" (
+        if exist "$(SolutionDir)configs\pg\host.user.config" (
+            copy "$(SolutionDir)configs\pg\host.user.config" "$(TargetDir)host.config"
+        ) else (
+            copy "$(SolutionDir)configs\pg\host.config" "$(TargetDir)host.config"
+        )
+        del "$(TargetDir)IBM.Data.Informix.dll"
+        del "$(TargetDir)IfxDotNetIntrinsicModule.dll"
+    )
+)</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

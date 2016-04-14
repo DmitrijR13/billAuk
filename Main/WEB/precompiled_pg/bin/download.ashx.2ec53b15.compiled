@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/none/general/download.ashx" hash="635865ff" filehash="ffffd4a568efa9c7" flags="130000" assembly="STCLINE.KP50.WebKomplat" type="STCLINE.KP50.WebKomplat.DownloadHttpHandler">
+    <filedeps>
+        <filedep name="/none/general/download.ashx" />
+    </filedeps>
+</preserve>

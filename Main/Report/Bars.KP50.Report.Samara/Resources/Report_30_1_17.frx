@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="04/16/2014 10:47:50" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+    
+     
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fam" Enabled="false" DataType="System.String"/>
+      <Column Name="ima" Enabled="false" DataType="System.String"/>
+      <Column Name="otch" Enabled="false" DataType="System.String"/>
+      <Column Name="dat_rog" Enabled="false" DataType="System.String"/>
+      <Column Name="cel" Enabled="false" DataType="System.String"/>
+      <Column Name="rod" Enabled="false" DataType="System.String"/>
+      <Column Name="landp" Enabled="false" DataType="System.String" PropName="landop"/>
+      <Column Name="statp" Enabled="false" DataType="System.String" PropName="statop"/>
+      <Column Name="townp" Enabled="false" DataType="System.String" PropName="twnop"/>
+      <Column Name="rajonp" Enabled="false" DataType="System.String" PropName="rajonop"/>
+      <Column Name="rem_op" Enabled="false" DataType="System.String"/>
+      <Column Name="serij" Enabled="false" DataType="System.String"/>
+      <Column Name="nomer" Enabled="false" DataType="System.String"/>
+      <Column Name="vid_dat" Enabled="false" DataType="System.String"/>
+      <Column Name="vid_mes" Enabled="false" DataType="System.String"/>
+      <Column Name="jobname" Enabled="false" DataType="System.String"/>
+      <Column Name="jobpost" Enabled="false" DataType="System.String"/>
+      <Column Name="dat_prib" Enabled="false" DataType="System.String"/>
+      <Column Name="dat1" Enabled="false" DataType="System.String"/>
+      <Column Name="dat_ubit" Enabled="false" DataType="System.String" PropName="dat_vip"/>
+      <Column Name="m_ku" Enabled="false" DataType="System.String"/>
+      <Column Name="type_prop" Enabled="false" DataType="System.String" PropName="type_prop1"/>
+      <Column Name="dat_prop" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="tprp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="landu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="statu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rajonu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="townu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="grgd" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_svu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="who_pvu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_pvu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="npunktp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rem_op" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="npunktu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rem_ku" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="kod_podrazd" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="town" DataType="System.String" PropName="Column"/>
+      <Column Name="count_priv_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pl_priv" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="count_npriv_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pl_npriv" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="count_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pl_all" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="et" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <Parameter Name="privat" DataType="System.String"/>
+    <Total Name="icount_ls_priv" Expression="[Q_master.count_priv_ls]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="iicount_ls_priv" Expression="[Q_master.count_priv_ls]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="ipl_priv" Expression="[Q_master.pl_priv]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="iipl_priv" Expression="[Q_master.pl_priv]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="icount_ls_npriv" Expression="[Q_master.count_npriv_ls]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="iicount_ls_npriv" Expression="[Q_master.count_npriv_ls]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="ipl_npriv" Expression="[Q_master.pl_npriv]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="iipl_npriv" Expression="[Q_master.pl_npriv]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="icount_ls" Expression="[Q_master.count_ls]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="iicount_ls" Expression="[Q_master.count_ls]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="ipl_all" Expression="[Q_master.pl_all]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="iipl_all" Expression="[Q_master.pl_all]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="43.83" CanGrow="true" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="-0.11" Width="744" Height="37.8" Text="30.1.17 Информация по домам&#13;&#10;за [month] [year] г." HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="902.66" Width="145.07" Height="18.9" Text="[Date]" VertAlign="Center" Font="Arial, 6pt"/>
+      <ChildBand Name="Child1" Top="47.91" Width="1047.06" Height="41.64" CanGrow="true">
+        <TextObject Name="Text32" Left="149.1" Top="2.66" Width="172.37" Height="38.23" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="Населенный пункт" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text7" Left="321.42" Top="2.66" Width="158.45" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Улица" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text8" Left="479.77" Top="2.66" Width="56.7" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Номер дома" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text9" Left="536.47" Top="2.66" Width="51.41" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Этажность" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text10" Left="587.62" Top="2.66" Width="79.38" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Количество приватизиро- ванных л. счетов" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text12" Left="743.77" Top="2.66" Width="78.11" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Количество неприватизиро- ванных л. счетов" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text13" Left="821.72" Top="2.66" Width="81.15" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Площадь неприватизиро- ванных л. счетов" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text15" Left="960.62" Top="2.66" Width="86.47" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Всего общая площадь" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text14" Left="902.67" Top="2.66" Width="57.97" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Всего лицевых счетов" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text11" Left="667.17" Top="2.66" Width="76.73" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Площадь приватизиро- ванных л.счетов" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        <TextObject Name="Text6" Left="0.24" Top="2.66" Width="148.76" Height="38.23" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Административно-территориальное деление Самарской области" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="93.63" Width="1047.06" Condition="[Q_master.rajon]">
+      <DataBand Name="Data1" Top="97.71" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+        <TextObject Name="Text16" Left="0.24" Top="-0.76" Width="148.76" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.town])]" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text17" Left="321.42" Top="-0.76" Width="158.45" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.ulica])]" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text18" Left="479.77" Top="-0.76" Width="56.7" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.ndom])][Q_master.nkor]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text19" Left="536.47" Top="-0.76" Width="51.41" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Q_master.et]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text20" Left="587.62" Top="-0.76" Width="79.38" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Q_master.count_priv_ls]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text21" Left="743.77" Top="-0.76" Width="78.11" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[Q_master.count_npriv_ls]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text22" Left="821.72" Top="-0.76" Width="81.15" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[Q_master.pl_npriv]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text23" Left="960.62" Top="-0.76" Width="86.47" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[Q_master.pl_all]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text24" Left="902.67" Top="-0.76" Width="57.97" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[Q_master.count_ls]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text25" Left="667.17" Top="-0.76" Width="76.73" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[Q_master.pl_priv]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text33" Left="149.1" Top="-0.76" Width="172.37" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.rajon])] " VertAlign="Center" Font="Arial, 7pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="120.7" Width="1047.06" Height="19.24">
+        <TextObject Name="Text34" Left="587.62" Width="79.38" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[icount_ls_priv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text35" Left="743.77" Width="78.11" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[icount_ls_npriv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text36" Left="821.72" Width="81.15" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[ipl_npriv]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text37" Left="960.62" Width="86.47" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[ipl_all]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text38" Left="902.67" Width="57.97" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[icount_ls]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text39" Left="667.17" Width="76.73" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[ipl_priv]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text40" Left="0.24" Width="148.76" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text41" Left="321.42" Width="158.45" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text42" Left="479.77" Width="56.7" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text43" Left="536.47" Width="51.41" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" VertAlign="Center" Font="Arial, 7pt"/>
+        <TextObject Name="Text44" Left="149.1" Width="172.37" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.rajon])]  Итого" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="144.02" Width="1047.06" Height="19.26">
+      <TextObject Name="Text45" Left="587.62" Top="0.36" Width="79.38" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[iicount_ls_priv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text46" Left="743.77" Top="0.36" Width="78.11" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[iicount_ls_npriv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text47" Left="821.72" Top="0.36" Width="81.15" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[iipl_npriv]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text48" Left="960.62" Top="0.36" Width="86.47" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[iipl_all]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text49" Left="902.67" Top="0.36" Width="57.97" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[iicount_ls]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text50" Left="667.17" Top="0.36" Width="76.73" Height="18.9" Border.Lines="All" Border.Width="0.25" GrowToBottom="true" Text="[iipl_priv]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text51" Left="0.38" Top="0.36" Width="587.14" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

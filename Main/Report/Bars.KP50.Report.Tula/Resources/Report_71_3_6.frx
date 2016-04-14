@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/04/2014 10:44:51" ReportInfo.Modified="09/04/2014 16:29:17" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="dat_s" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="dat_po" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+      <Column Name="nzp_area" DataType="System.Int32" PropName="Column"/>
+      <Column Name="geu" DataType="System.String" PropName="Column"/>
+      <Column Name="nzp_geu" DataType="System.Int32" PropName="Column"/>
+      <Column Name="supplier" DataType="System.String" PropName="Column"/>
+      <Column Name="nzp_supp" DataType="System.Int32" PropName="Column"/>
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+      <Column Name="nzp_serv" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_prih" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="nzp_bank" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Guides="1046.71,151.2,264.6" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="56.7">
+      <TextObject Name="Text1" Width="75.6" Height="56.7" Border.Lines="All" Text="Дата бланка начальная" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text2" Left="75.6" Width="75.6" Height="56.7" Border.Lines="All" Text="Дата бланка конечная" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="151.2" Width="113.4" Height="56.7" Border.Lines="All" Text="Наименование Управляющей компании" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text4" Left="264.6" Width="75.6" Height="56.7" Border.Lines="All" Text="Код Управ- ляющей компании" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text5" Left="340.2" Width="113.4" Height="56.7" Border.Lines="All" Text="Наименование ЖЭУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text6" Left="453.6" Width="75.6" Height="56.7" Border.Lines="All" Text="Код ЖЭУ" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text7" Left="529.2" Width="113.4" Height="56.7" Border.Lines="All" Text="Наименование поставщика" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text8" Left="642.6" Width="75.6" Height="56.7" Border.Lines="All" Text="Код поставщика" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text9" Left="718.2" Width="94.5" Height="56.7" Border.Lines="All" Text="Наименование услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text10" Left="812.7" Width="75.6" Height="56.7" Border.Lines="All" Text="Код услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text11" Left="888.3" Width="75.6" Height="56.7" Border.Lines="All" Text="Распреде- ленная сумма" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="963.9" Width="82.81" Height="56.7" Border.Lines="All" Text="Место формиро- вания" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="60.21" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text13" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_s]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text14" Left="75.6" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_po]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text15" Left="264.6" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nzp_area]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text16" Left="453.6" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nzp_geu]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text17" Left="642.6" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nzp_supp]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text18" Left="812.7" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nzp_serv]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text19" Left="151.2" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.area]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text20" Left="340.2" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.geu]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text21" Left="529.2" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.supplier]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text22" Left="718.2" Width="94.5" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.service]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text23" Left="888.3" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_prih]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text24" Left="963.9" Width="82.81" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nzp_bank]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

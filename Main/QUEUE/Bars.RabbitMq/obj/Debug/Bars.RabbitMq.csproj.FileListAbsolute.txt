@@ -1,0 +1,132 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\SevenZipSharp.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Ionic.Zip.Reduced.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Newtonsoft.Json.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.csprojResolveAssemblyReference.cache
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.pdb
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.pdb
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\SevenZipSharp.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Ionic.Zip.Reduced.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Newtonsoft.Json.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.pdb
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.pdb
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.xml
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.xml
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.xml
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.pdb
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.xml
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.csprojResolveAssemblyReference.cache
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.dll
+C:\VisualStudioProg\Main\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\SevenZipSharp.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Ionic.Zip.Reduced.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Newtonsoft.Json.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.csprojResolveAssemblyReference.cache
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\SevenZipSharp.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Ionic.Zip.Reduced.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.csprojResolveAssemblyReference.cache
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.pdb
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.pdb
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\SevenZipSharp.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Ionic.Zip.Reduced.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Newtonsoft.Json.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.pdb
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.pdb
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.xml
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.xml
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.xml
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.pdb
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.xml
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.csprojResolveAssemblyReference.cache
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.dll
+C:\billTest\Main - копия\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.pdb
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.RabbitMq.pdb
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\SevenZipSharp.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Ionic.Zip.Reduced.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Newtonsoft.Json.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\KP50.Globals.pdb
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.QueueCore.pdb
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\RabbitMQ.Client.xml
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\NLog.xml
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Windsor.xml
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Castle.Core.xml
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\bin\Debug\Bars.KP50.Utils.pdb
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.csprojResolveAssemblyReference.cache
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.dll
+D:\projects\billAuk\Main\QUEUE\Bars.RabbitMq\obj\Debug\Bars.RabbitMq.pdb

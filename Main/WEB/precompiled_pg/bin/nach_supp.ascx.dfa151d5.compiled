@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/nach_supp.ascx" hash="cedb9400c" filehash="b0a89172d16fed86" flags="110000" assembly="App_Web_macr1xxk" type="ASP.reports_nach_supp_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/reports/nach_supp.ascx" />
+    </filedeps>
+</preserve>

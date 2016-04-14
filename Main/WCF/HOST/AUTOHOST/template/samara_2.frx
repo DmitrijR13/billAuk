@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/21/2013 13:47:00" ReportInfo.Modified="12/04/2013 22:24:15" ReportInfo.CreatorVersion="2013.3.1.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      Data1.DataSource = Report.GetDataSource(&quot;Q_master&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <Parameter Name="month" DataType="System.String"/>
+    <Parameter Name="year" DataType="System.String"/>
+    <Total Name="TotalCount" Expression="[Q_master.count_ls]" Evaluator="Data1"/>
+    <Total Name="TotalC" TotalType="Count" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="98.28" Top="15.12" Width="468.72" Height="34.02" Text="     РЕЕСТР ПЕРЕДАЧИ-ПРИЕМА СЧЕТОВ-КВИТАНЦИЙ&#13;&#10;МП городского округа Самара &quot;ЕИРЦ&quot; за [month] [year] г." HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="58.42" Width="718.2" Height="49.14" CanGrow="true" CanShrink="true">
+        <TextObject Name="Text3" Left="26.46" Top="30.24" Width="204.12" Height="15.12" CanShrink="true" Text="Дата печати: [Date]&#13;&#10;" Font="Times New Roman, 8pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="145.03" Width="718.2" Height="18.9" CanGrow="true">
+      <TextObject Name="Text11" Left="26.46" Width="18.9" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text12" Left="45.36" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="[Q_master.ulica]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text13" Left="260.82" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="[Q_master.ndom] [Q_master.nkor]" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <TextObject Name="Text14" Left="476.28" Width="90.72" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" Text="[Q_master.count_ls]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      <DataHeaderBand Name="DataHeader1" Top="109.29" Width="718.2" Height="34.02" CanGrow="true" KeepWithData="true" RepeatOnEveryPage="true">
+        <TextObject Name="Text7" Left="26.46" Top="3.12" Width="18.9" Height="30.24" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text8" Left="45.36" Top="3.12" Width="215.46" Height="30.24" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Улица" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text9" Left="260.82" Top="3.12" Width="215.46" Height="30.24" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text10" Left="476.28" Top="3.12" Width="90.72" Height="30.24" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="Кол-во квитанций" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+      </DataHeaderBand>
+      <DataFooterBand Name="DataFooter1" Top="165.66" Width="718.2" Height="75.6">
+        <TextObject Name="Text15" Left="26.46" Width="18.9" Height="18.9" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text16" Left="45.36" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="Итого" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text17" Left="260.82" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" Text="[TotalC]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text18" Left="476.28" Width="90.72" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" Text="[TotalCount]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        <TextObject Name="Text19" Left="26.46" Top="30.24" Width="234.36" Height="18.9" Text="Передал" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        <TextObject Name="Text20" Left="260.82" Top="30.24" Width="215.46" Height="18.9" Border.Lines="Bottom" Border.Width="0.25" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        <TextObject Name="Text21" Left="26.46" Top="49.14" Width="234.36" Height="18.9" Text="Начальник" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        <TextObject Name="Text22" Left="260.82" Top="49.14" Width="215.46" Height="18.9" Border.Lines="Bottom" Border.Width="0.25" VertAlign="Center" Font="Times New Roman, 8pt"/>
+      </DataFooterBand>
+    </DataBand>
+  </ReportPage>
+</Report>

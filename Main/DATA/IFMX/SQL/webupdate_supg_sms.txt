@@ -1,0 +1,75 @@
+DROP TABLE "are".s_message_status;
+
+CREATE TABLE "are".s_message_status(
+   message_status_id SERIAL NOT NULL,
+   message_status VARCHAR(60) NOT NULL)
+EXTENT SIZE 32 NEXT SIZE 32 LOCK MODE PAGE;
+
+CREATE UNIQUE INDEX "are".ix_message_status ON "are".s_message_status(message_status_id);
+
+ALTER TABLE "are".s_message_status ADD CONSTRAINT PRIMARY KEY (message_status_id) CONSTRAINT "are".xpk_message_status;
+
+GRANT select, update, insert, delete, index ON s_message_status TO public AS are;
+
+insert into s_message_status (message_status_id, message_status) values (210, 'Отправлено');
+insert into s_message_status (message_status_id, message_status) values (212, 'Ошибка отправки');
+
+DROP TABLE "are".s_receiver;
+
+CREATE TABLE "are".s_receiver(
+   receiver_id SERIAL NOT NULL,
+   receiver VARCHAR(120) NOT NULL,
+   mobile_phone VARCHAR(20) NOT NULL,
+   post VARCHAR(200))
+EXTENT SIZE 32 NEXT SIZE 32 LOCK MODE PAGE;
+
+CREATE UNIQUE INDEX "are".ix_receiver ON "are".s_receiver(receiver_id);
+
+ALTER TABLE "are".s_receiver ADD CONSTRAINT PRIMARY KEY (receiver_id) CONSTRAINT "are".xpk_receiver;
+
+GRANT select, update, insert, delete, index ON s_receiver TO public AS are;
+
+DROP TABLE "are".message_outbound;
+
+CREATE TABLE "are".message_outbound(
+   message_id SERIAL NOT NULL,
+   message_status_id INTEGER NOT NULL,
+
+   receiver_id INTEGER NOT NULL,
+   message_type_id SMALLINT NOT NULL,
+   supg_message_type_id SMALLINT NOT NULL,
+   
+
+   sended_on DATETIME YEAR to SECOND,
+   sended_by INTEGER,
+   
+
+   outbound_address VARCHAR(20) NOT NULL,
+   message_text VARCHAR(255) NOT NULL,
+
+   created_on DATETIME YEAR to SECOND NOT NULL,
+   created_by INTEGER NOT NULL,
+
+   status_message VARCHAR(255),
+   outbound_id INTEGER, 
+
+   scheduled_on DATE default Today NOT NULL,
+   valid_thru DATE)
+
+EXTENT SIZE 120 NEXT SIZE 16 LOCK MODE PAGE;
+
+CREATE INDEX "are".xi1_message_outbound ON "are".message_outbound(created_by);
+CREATE INDEX "are".xi2_message_outbound ON "are".message_outbound(sended_by);
+CREATE INDEX "are".xi3_message_outbound ON "are".message_outbound(message_status_id);
+CREATE INDEX "are".xi4_message_outbound ON "are".message_outbound(receiver_id);
+CREATE UNIQUE INDEX "are".ix_message_outbound ON "are".message_outbound(message_id);
+
+ALTER TABLE "are".message_outbound ADD CONSTRAINT PRIMARY KEY (message_id) CONSTRAINT "are".xpk_message_outbound;
+
+ALTER TABLE "are".message_outbound ADD CONSTRAINT (FOREIGN KEY 
+   (receiver_id) REFERENCES "are".s_receiver CONSTRAINT "are".fk1_message_outbound);
+
+ALTER TABLE "are".message_outbound ADD CONSTRAINT (FOREIGN KEY 
+   (message_status_id) REFERENCES "are".s_message_status CONSTRAINT "are".fk2_message_outbound);
+
+GRANT select, update, insert, delete, index ON message_outbound TO public AS are; 

@@ -1,0 +1,88 @@
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.DB.SqAdmin.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.DB.SqAdmin.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.Globals.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.IFMX.Common.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\STCLINE.KP50.IFMX.Kernel.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Castle.Windsor.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\NLog.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\SevenZipSharp.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.Utils.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Castle.Core.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Ionic.Zip.Reduced.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Counters.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Sprav.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.IFMX.Client.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Report.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Newtonsoft.Json.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.CliKart.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\FastReport.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Admin.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Adres.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Debitor.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Supg.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\FastReport.Bars.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\FastReport.Editor.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.Globals.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.IFMX.Common.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\STCLINE.KP50.IFMX.Kernel.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Castle.Windsor.xml
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\NLog.xml
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.Utils.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Castle.Core.xml
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Counters.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Sprav.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.IFMX.Client.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Report.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.CliKart.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Admin.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Adres.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Debitor.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Supg.pdb
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\obj\Debug\Bars.KP50.DB.SqAdmin.csprojResolveAssemblyReference.cache
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\obj\Debug\Bars.KP50.DB.SqAdmin.dll
+C:\PROJECTS\KP50 History\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\obj\Debug\Bars.KP50.DB.SqAdmin.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.DB.SqAdmin.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.DB.SqAdmin.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.Globals.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.IFMX.Common.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\STCLINE.KP50.IFMX.Kernel.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\SevenZipSharp.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Ionic.Zip.Reduced.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\NLog.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Castle.Windsor.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Castle.Core.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.Utils.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Npgsql.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Sprav.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.IFMX.Client.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Report.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Counters.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Newtonsoft.Json.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Mono.Security.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.CliKart.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Admin.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\FastReport.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Adres.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Debitor.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Supg.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\FastReport.Bars.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\FastReport.Editor.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.Globals.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.IFMX.Common.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\STCLINE.KP50.IFMX.Kernel.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\NLog.xml
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Castle.Windsor.xml
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Castle.Core.xml
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.Utils.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Sprav.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.IFMX.Client.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Report.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Counters.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\KP50.CliKart.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Admin.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Adres.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Debitor.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\bin\Debug\Bars.KP50.CLI.Supg.pdb
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\obj\Debug\Bars.KP50.DB.SqAdmin.csprojResolveAssemblyReference.cache
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\obj\Debug\Bars.KP50.DB.SqAdmin.dll
+D:\projects\billAuk\Main\WCF\HOST\AUTOHOST\Bars.KP50.DB.SqAdmin\obj\Debug\Bars.KP50.DB.SqAdmin.pdb

@@ -1,0 +1,2 @@
+Добавление страницы Ответственный 
+public const int page_responsible = 27;   // otvetstv.aspx

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/operations/payment_bank.aspx" hash="cedb9400c" filehash="bd6cd967e008ac02" flags="110000" assembly="App_Web_ct5ywfx2" type="ASP.finances_operations_payment_bank_aspx">
+    <filedeps>
+        <filedep name="/none/finances/operations/payment_bank.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

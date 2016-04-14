@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/kart/svod_nach_tula.ascx" hash="cedb9400c" filehash="7360941097695cb5" flags="110000" assembly="App_Web_541drs00" type="ASP.reports_kart_svod_nach_tula_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/reports/kart/svod_nach_tula.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/exchange/upload/supp_charges.aspx" hash="cedb9400c" filehash="2b0aa70e81df0d8f" flags="110000" assembly="App_Web_ltn0vtip" type="ASP.exchange_upload_supp_charges_aspx">
+    <filedeps>
+        <filedep name="/none/exchange/upload/supp_charges.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+        <filedep name="/none/master/templates/SimpleLoad.ascx" />
+    </filedeps>
+</preserve>

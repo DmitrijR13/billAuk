@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/none/kart/charge/Handler2.ashx" hash="635865ff" filehash="ffffd477bf7d245e" flags="130000" assembly="STCLINE.KP50.WebKomplat" type="STCLINE.KP50.WebKomplat.Handler2">
+    <filedeps>
+        <filedep name="/none/kart/charge/Handler2.ashx" />
+    </filedeps>
+</preserve>

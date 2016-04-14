@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/operations/OverpaymentDistribution.ascx" hash="cedb9400c" filehash="24e1a29a76a5e466" flags="110000" assembly="App_Web_ct5ywfx2" type="ASP.finances_operations_overpaymentdistribution_ascx">
+    <filedeps>
+        <filedep name="/none/finances/operations/OverpaymentDistribution.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

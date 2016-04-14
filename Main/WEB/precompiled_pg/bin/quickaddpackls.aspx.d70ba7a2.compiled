@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/pack/quickaddpackls.aspx" hash="cedb9400c" filehash="d132e0aece19d022" flags="110000" assembly="App_Web_kzlzihww" type="ASP.finances_pack_quickaddpackls_aspx">
+    <filedeps>
+        <filedep name="/none/finances/pack/listpackls.ascx" />
+        <filedep name="/none/finances/pack/quickaddpackls.aspx" />
+        <filedep name="/none/kart/counter/inputvalpu.ascx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressTemplate.ascx" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

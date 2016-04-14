@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA3EC7AC-520A-4D42-9819-12DB9FAB5ABC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bars.KP50.SzExchange</RootNamespace>
+    <AssemblyName>Bars.KP50.SzExchange</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug PG|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug PG\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release PG|AnyCPU'">
+    <OutputPath>bin\Release PG\</OutputPath>
+    <DefineConstants>TRACE;PG</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\IUnlSz.intf.cs" />
+    <Compile Include="LoadFromSz\LoadFileFromSz.cs" />
+    <Compile Include="LoadFromSz\LoadFileFromSz_PSS.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Srv\UnlPassport.srv.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UnloadForSZ\BaseUnloadClass.cs" />
+    <Compile Include="UnloadForSZ\RepeatedlyUnload_UnlPassport.cs" />
+    <Compile Include="UnloadForSZ\StartUnl.cs" />
+    <Compile Include="UnloadForSZ\UnlAccruedBenefit.cs" />
+    <Compile Include="UnloadForSZ\UnlHead.cs" />
+    <Compile Include="UnloadForSZ\UnlListOfServ.cs" />
+    <Compile Include="UnloadForSZ\UnlListOfSupp.cs" />
+    <Compile Include="UnloadForSZ\UnlPassport.cs" />
+    <Compile Include="UnloadForSZ\UnlPrm_5.cs" />
+    <Compile Include="UnloadForSZ\UnlRecalcBenefit.cs" />
+    <Compile Include="UnloadForSZ\UnlRecalcServ.cs" />
+    <Compile Include="UnloadForSZ\UnlServ.cs" />
+    <Compile Include="UnloadForSZ\UnlExempt.cs" />
+    <Compile Include="UnloadForSZ\UnlHousehold.cs" />
+    <Compile Include="UnloadForSZ\WriteInFile.cs" />
+    <Compile Include="Unload_OLD\NizhnServ.cs" />
+    <Compile Include="Unload_OLD\PrepareTables.cs" />
+    <Compile Include="Unload_OLD\StartExport.cs" />
+    <Compile Include="Unload_OLD\StartUnload.cs" />
+    <Compile Include="Unload_OLD\Utilits.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Admin\Bars.KP50.CLI.Admin\Bars.KP50.CLI.Admin.csproj">
+      <Project>{699FD7DC-5C99-4036-998E-A8B9AB62DBF3}</Project>
+      <Name>Bars.KP50.CLI.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj">
+      <Project>{A09E0051-6B16-42B5-9840-8CB60B0729C7}</Project>
+      <Name>STCLINE.KP50.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\IFMX\Client\STCLINE.KP50.IFMX.Client.csproj">
+      <Project>{2ab80cea-d131-4e93-9b35-8f86dd474080}</Project>
+      <Name>STCLINE.KP50.IFMX.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\IFMX\Common\STCLINE.KP50.IFMX.Common.csproj">
+      <Project>{13FAA6D8-DA11-4392-BAD2-C1640C172E01}</Project>
+      <Name>STCLINE.KP50.IFMX.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DATA\IFMX\Kernel\STCLINE.KP50.IFMX.Kernel.csproj">
+      <Project>{51D199A0-A5BD-4EB3-A4CF-E5DD004D55F7}</Project>
+      <Name>STCLINE.KP50.IFMX.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WCF\CLIENT\CliKart\STCLINE.KP50.CliKart.csproj">
+      <Project>{BB38A0BD-A169-4BD5-8756-7F8682F235D8}</Project>
+      <Name>STCLINE.KP50.CliKart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WCF\HOST\Bars.KP50.DataImport\Bars.KP50.DataImport.csproj">
+      <Project>{F6A6F0E5-2B4B-4ECE-890F-21BAEA35339D}</Project>
+      <Name>Bars.KP50.DataImport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bars.KP50.CLI.Exchange\Bars.KP50.CLI.Exchange.csproj">
+      <Project>{F7A19A4D-9532-4792-BFA3-465A902B337E}</Project>
+      <Name>Bars.KP50.CLI.Exchange</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

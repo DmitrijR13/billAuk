@@ -1,0 +1,12 @@
+07.12.2015 09:33:04 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+07.12.2015 10:28:31 (ERROR): Поток 9 Ошибка GetOperDay
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+07.12.2015 10:28:32 (ERROR): Поток 9 Ошибка GetLs (SrvLoad) 
+  The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+07.12.2015 10:28:33 (ERROR): Поток 9 Ошибка GetPu
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 

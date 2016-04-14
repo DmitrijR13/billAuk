@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="08/20/2013 16:40:01" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="dat_rog" DataType="System.String"/>
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="doli" DataType="System.String" PropName="Column"/>
+      <Column Name="pasp" DataType="System.String" PropName="Column"/>
+      <Column Name="prop" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="vibit" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_a" ReferenceName="Data.Q_a" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_b" ReferenceName="Data.Q_b" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_c" ReferenceName="Data.Q_c" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" Guides="408.24,699.3,26.46,226.8,1028.16,759.78,1028.16,7.56,204.12,287.28,430.92,563.22,827.82,926.1,151.2">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="175.77" Guides="15.12,34.02,49.14,68.04">
+      <TextObject Name="Text1" Left="29.78" Top="25.24" Width="1001.7" Height="18.9" Text="З А Я В Л Е Н И Е" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text27" Left="29.78" Top="2.22" Width="1001.7" Height="18.9" Text="[komu]" AutoWidth="true" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="33.56" Top="50.14" Width="173.88" Height="18.9" Text="1.Просим(шу) передать в" VertAlign="Center"/>
+      <TextObject Name="Text28" Left="207.44" Top="50.14" Width="173.88" Height="18.9" Border.Lines="Bottom" Text="[sobst]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text29" Left="383.66" Top="50.14" Width="398.79" Height="18.9" Text="собственность занимаемое на основании договора найма от" VertAlign="Center"/>
+      <TextObject Name="Text30" Left="781.89" Top="50.14" Width="68.26" Height="18.9" Border.Lines="Bottom" Text="[dat]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text33" Left="850.82" Top="50.14" Width="28.35" Height="18.9" Text="№" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text34" Left="881.17" Top="50.14" Width="68.26" Height="18.9" Border.Lines="Bottom" Text="[nomer]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text35" Left="10.88" Top="75.6" Width="219.24" Height="18.9" Text="жилое помещение в количестве" VertAlign="Center"/>
+      <TextObject Name="Text36" Left="230.14" Top="75.6" Width="21.01" Height="18.9" Border.Lines="Bottom" Text="[kol_kom]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text37" Left="254.47" Top="75.6" Width="263.37" Height="18.9" Text="жилых комнат, находящееся по адресу:" VertAlign="Center"/>
+      <TextObject Name="Text38" Left="10.88" Top="98.28" Width="279.72" Height="18.9" Border.Lines="Bottom" Text="[town] [rajon] [ulica] [ndom] [nkvar]." AutoWidth="true" VertAlign="Center"/>
+      <TextObject Name="Text39" Left="32.56" Top="123.85" Width="998.92" Height="18.9" Text="Договор на передачу в собственность жилого помещения и договор на обслуживание приватизированной квартиры, жилого дома и придомовой" VertAlign="Center"/>
+      <TextObject Name="Text40" Left="10.88" Top="147.42" Width="279.72" Height="18.9" Text="территории уполномочиваем подписать" VertAlign="Center"/>
+      <TextObject Name="Text41" Left="290.6" Top="147.42" Width="92.61" Height="18.9" Border.Lines="Bottom" Text="[fio_sobst]." AutoWidth="true" VertAlign="Center"/>
+    </ReportTitleBand>
+    <DataBand Name="Data2" Top="179.77" Width="1047.06" Height="32.13" DataSource="Q_a">
+      <TextObject Name="Text47" Left="7.56" Width="92.61" Height="18.9" Text="[Q_a.fio]" AutoWidth="true" VertAlign="Center"/>
+      <TextObject Name="Text48" Left="7.56" Top="18.9" Width="733.32" Height="13.23" Border.Lines="Top" Text="(Ф.И.О. и подпись члена семьи при выборе общей собственности)" Format="Date" Format.Format="dd.MM.yyyy" Font="Arial, 8pt, style=Italic"/>
+    </DataBand>
+    <DataBand Name="Data3" Top="215.9" Width="1047.06" Height="40.13">
+      <TextObject Name="Text49" Left="26.46" Top="8" Width="381.78" Height="18.9" Text="2. С приватизацией жилого помещения в собственность" VertAlign="Center"/>
+      <TextObject Name="Text50" Left="26.46" Top="26.9" Width="357.21" Height="13.23" Text="(Ф.И.О. членов семьи, приватизирующих жилое  помещение)" Format="Date" Format.Format="dd.MM.yyyy" AutoWidth="true" Font="Arial, 8pt, style=Italic"/>
+    </DataBand>
+    <DataBand Name="Data4" Top="260.03" Width="1047.06" Height="18.9" DataSource="Q_b">
+      <TextObject Name="Text53" Left="7.56" Width="92.61" Height="18.9" Border.Lines="Bottom" Text="[Q_b.fio]" AutoWidth="true" VertAlign="Center"/>
+    </DataBand>
+    <DataBand Name="Data5" Top="282.93" Width="1047.06" Height="18.9">
+      <TextObject Name="Text51" Left="8.46" Width="71.19" Height="18.9" Text="согласны" VertAlign="Center"/>
+      <TextObject Name="Text52" Left="80.06" Top="5" Width="660.82" Height="13.23" Text="(ниже проставляются Ф.И.О. и подписи членов семьи в возрасте 14-ти лет и старше,  не участвующие в приватизации)" Format="Date" Format.Format="dd.MM.yyyy" AutoWidth="true" Font="Arial, 8pt, style=Italic"/>
+    </DataBand>
+    <DataBand Name="Data6" Top="305.83" Width="1047.06" Height="18.9" DataSource="Q_c">
+      <TextObject Name="Text54" Left="7.56" Width="733.32" Height="18.9" Border.Lines="Bottom" Text="[Q_c.fio]" VertAlign="Center"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <PageHeaderBand Name="PageHeader1" Width="1047.06" Height="37.8">
+      <TextObject Name="Text46" Width="1039.19" Height="28.35" Text="    3. В данной таблице указываются данные на всех членов семьи согласно данным регистрационного учета и домовой книги и проставляются подписи членов семьи в возрасте от 14-ти лет и старше:" Format="Date" Format.Format="dd.MM.yyyy"/>
+    </PageHeaderBand>
+    <ColumnHeaderBand Name="ColumnHeader2" Top="41.8" Width="1047.06" Height="94.5" Guides="66.15,75.6,66.15,66.15,56.7,47.25,151.2,141.75">
+      <TableObject Name="Table2" Width="1043.28" Height="94.5" Border.Lines="All">
+        <TableColumn Name="Column11" Width="130.41"/>
+        <TableColumn Name="Column12" Width="83.16"/>
+        <TableColumn Name="Column13" Width="124.74"/>
+        <TableColumn Name="Column14" Width="94.5"/>
+        <TableColumn Name="Column15" Width="164.43"/>
+        <TableColumn Name="Column16" Width="90.72"/>
+        <TableColumn Name="Column17" Width="98.28"/>
+        <TableColumn Name="Column18" Width="56.7"/>
+        <TableColumn Name="Column19" Width="102.06"/>
+        <TableColumn Name="Column20" Width="98.28"/>
+        <TableRow Name="Row2" Height="75.6">
+          <TableCell Name="Cell31" Border.Lines="Right" Text="Фамилия, имя, отчество (включая доверенное лицо)" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell32" Border.Lines="Right" Text="Дата рождения (число, месяц, год)" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell33" Border.Lines="Right" Text="Данные регистрации места жительства с 07 июля 1991 г." HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell34" Border.Lines="Right" Text="Родственные отношения" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell35" Border.Lines="Right" Text="Паспорт (указать серию, номер, кем и когда выдан)" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell56" Border.Lines="Right" Text="Дата и вид регистрации" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell57" Border.Lines="Right" Text="Когда и куда выбыл. Срок выбытия" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell58" Border.Lines="Right" Text="Размер доли" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell59" Border.Lines="Right" Text="Подписи членов семьи от 14 лет и старше" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell60" Text="Отметка об участии в приватизации ранее" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell36" Border.Lines="Right, Top" Text="1" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell37" Border.Lines="Right, Top" Text="2" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell38" Border.Lines="Right, Top" Text="3" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell39" Border.Lines="Right, Top" Text="4" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell40" Border.Lines="Right, Top" Text="5" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell61" Border.Lines="Right, Top" Text="6" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell62" Border.Lines="Right, Top" Text="7" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell63" Border.Lines="Right, Top" Text="8" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell64" Border.Lines="Right, Top" Text="9" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell65" Border.Lines="Top" Text="10" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+      </TableObject>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="140.3" Width="1047.06" Height="19.01" CanGrow="true" Guides="0" DataSource="Q_master">
+      <TableObject Name="Table1" Width="1043.28" Height="18.9" Border.Lines="All" GrowToBottom="true">
+        <TableColumn Name="Column1" Width="130.41"/>
+        <TableColumn Name="Column2" Width="83.16"/>
+        <TableColumn Name="Column3" Width="124.74"/>
+        <TableColumn Name="Column4" Width="94.5"/>
+        <TableColumn Name="Column5" Width="164.43"/>
+        <TableColumn Name="Column6" Width="90.72"/>
+        <TableColumn Name="Column7" Width="98.28"/>
+        <TableColumn Name="Column8" Width="56.7"/>
+        <TableColumn Name="Column9" Width="102.06"/>
+        <TableColumn Name="Column10" Width="98.28"/>
+        <TableRow Name="Row1" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="Right" Text="[Q_master.fio]" VertAlign="Center"/>
+          <TableCell Name="Cell2" Border.Lines="Right" Text="[Q_master.dat_rog]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell3" Border.Lines="Right" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell4" Border.Lines="Right" Text="[Q_master.rod]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell5" Border.Lines="Right" Text="[Q_master.pasp]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell26" Border.Lines="Right" Text="[Q_master.prop]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell27" Border.Lines="Right" Text="[Q_master.vibit]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell28" Border.Lines="Right" Text="[Q_master.doli]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell29" Border.Lines="Right" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell30" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="163.31" Width="1047.06" Height="167.59">
+      <TextObject Name="Text42" Top="35.29" Width="1020.6" Height="37.8" Text="     Заявление принято _______________________20__г. и зарегистрировано в книге учета приема заявлений и выдачи документов по приватизации жилья за №__________________." Format="Date" Format.Format="dd.MM.yyyy"/>
+      <TextObject Name="Text43" Top="75.54" Width="841.05" Height="18.9" Text="Данные заявителей проверены и соответствуют документам, удостоверящим их личности, и данным, имеющимся в организации" Format="Date" Format.Format="dd.MM.yyyy"/>
+      <TextObject Name="Text21" Left="1" Top="94.44" Width="94.5" Height="18.9" Border.Lines="Bottom" Text="[geu_name]." AutoWidth="true" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="18.9" Top="129.41" Width="64.26" Height="18.9" Text="[dolg]" Format="Date" Format.Format="dd.MM.yyyy" AutoWidth="true"/>
+      <TextObject Name="Text44" Left="861.84" Top="148.69" Width="56.7" Height="18.9" Border.Lines="Top" Text="[fio]" AutoWidth="true" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text45" Left="1.9" Width="595.04" Height="18.9" Text="Примечание. Графа 8 заполняется при приобретении жилого помещения в общую долевую собственность." Format="Date" Format.Format="dd.MM.yyyy" AutoWidth="true" Font="Arial, 8pt, style=Italic"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

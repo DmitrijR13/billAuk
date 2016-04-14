@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/21/2013 13:47:00" ReportInfo.Modified="02/19/2014 11:44:35" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="wp_supp" DataType="System.String" PropName="area"/>
+      <Column Name="name_supp" Enabled="false" DataType="System.String"/>
+      <Column Name="service" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_charge" Enabled="false" DataType="System.Decimal"/>
+    </TableDataSource>
+    <Parameter Name="reportHeader" DataType="System.String"/>
+    <Parameter Name="sumHeader" DataType="System.String"/>
+    <Parameter Name="principal" DataType="System.String"/>
+    <Parameter Name="ercName" DataType="System.String"/>
+    <Parameter Name="month" DataType="System.String"/>
+    <Parameter Name="year" DataType="System.String"/>
+    <Parameter Name="ispolnitel" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="81.27" CanGrow="true" CanShrink="true">
+      <TextObject Name="Text1" Left="37.8" Top="47.25" Width="623.7" Height="18.9" Text="handler testing" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="84.47" Width="718.2" Height="28.35" DataSource="Q_master">
+      <TextObject Name="Text2" Left="189" Width="506.52" Height="28.35" Border.Lines="All" Text="[Q_master.name_supp]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text3" Left="9.45" Width="179.55" Height="28.35" Border.Lines="All" Text="[Q_master.pref]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+</Report>

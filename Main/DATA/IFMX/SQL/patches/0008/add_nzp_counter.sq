@@ -1,0 +1,3 @@
+--xxx_charge_13
+
+alter table counters_ord add nzp_counter integer default 0;

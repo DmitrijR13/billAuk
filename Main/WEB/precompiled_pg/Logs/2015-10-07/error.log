@@ -1,0 +1,51 @@
+07.10.2015 14:57:45 (ERROR): Ошибка при попытке вытащить текущий расчетный день. Npgsql.NpgsqlException:
+???????????? "postgres" ?? ?????? ???????? ??????????? (?? ??????)
+Severity: ?????
+Code: 28P01
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.NpgsqlState.IterateThroughAllResponses(IEnumerable`1 ienum)
+   at Npgsql.NpgsqlState.ProcessBackendResponses(NpgsqlConnector context)
+   at Npgsql.NpgsqlConnectedState.Startup(NpgsqlConnector context)
+   at Npgsql.NpgsqlConnector.Open()
+   at Npgsql.NpgsqlConnectorPool.GetPooledConnector(NpgsqlConnection Connection)
+   at Npgsql.NpgsqlConnectorPool.RequestPooledConnectorInternal(NpgsqlConnection Connection)
+   at Npgsql.NpgsqlConnectorPool.RequestConnector(NpgsqlConnection Connection)
+   at Npgsql.NpgsqlConnection.Open()
+   at Bars.KP50.Report.BaseSqlReportWithDates.GetCurSaldoDay() in c:\PROJECTS\KP50 History\Report\Bars.KP50.Report\Base\BaseSqlReportWithDates.cs:line 45
+07.10.2015 14:57:46 (ERROR): Ошибка при попытке вытащить текущий расчетный день. Npgsql.NpgsqlException:
+???????????? "postgres" ?? ?????? ???????? ??????????? (?? ??????)
+Severity: ?????
+Code: 28P01
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.NpgsqlState.IterateThroughAllResponses(IEnumerable`1 ienum)
+   at Npgsql.NpgsqlState.ProcessBackendResponses(NpgsqlConnector context)
+   at Npgsql.NpgsqlConnectedState.Startup(NpgsqlConnector context)
+   at Npgsql.NpgsqlConnector.Open()
+   at Npgsql.NpgsqlConnectorPool.GetPooledConnector(NpgsqlConnection Connection)
+   at Npgsql.NpgsqlConnectorPool.RequestPooledConnectorInternal(NpgsqlConnection Connection)
+   at Npgsql.NpgsqlConnectorPool.RequestConnector(NpgsqlConnection Connection)
+   at Npgsql.NpgsqlConnection.Open()
+   at Bars.KP50.Report.BaseSqlReportWithDates.GetCurSaldoDay() in c:\PROJECTS\KP50 History\Report\Bars.KP50.Report\Base\BaseSqlReportWithDates.cs:line 45
+07.10.2015 14:57:46 (ERROR): Поток 1 Ошибка доступа к базе.  
+   БД tula_test: ?????: 28P01: ???????????? "postgres" ?? ?????? ???????? ??????????? (?? ??????)
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.NpgsqlState.IterateThroughAllResponses(IEnumerable`1 ienum)
+   at Npgsql.NpgsqlState.ProcessBackendResponses(NpgsqlConnector context)
+   at Npgsql.NpgsqlConnectedState.Startup(NpgsqlConnector context)
+   at Npgsql.NpgsqlConnector.Open()
+   at Npgsql.NpgsqlConnectorPool.GetPooledConnector(NpgsqlConnection Connection)
+   at Npgsql.NpgsqlConnectorPool.RequestPooledConnectorInternal(NpgsqlConnection Connection)
+   at Npgsql.NpgsqlConnectorPool.RequestConnector(NpgsqlConnection Connection)
+   at Npgsql.NpgsqlConnection.Open()
+   at STCLINE.KP50.DataBase.MyDbConnection.Open() in c:\PROJECTS\KP50 History\DATA\IFMX\Common\SOURCE\GLOBAL\MyDbConnection.cs:line 144
+   at STCLINE.KP50.DataBase.DBManager.OpenDb(IDbConnection connection, Boolean inlog) in c:\PROJECTS\KP50 History\DATA\IFMX\Common\SOURCE\DB\DbManager.cs:line 468
+. 
+07.10.2015 15:21:45 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 
+07.10.2015 16:15:43 (ERROR): Поток 16 Ошибка CalcChargeLs  
+ The socket connection was aborted. This could be caused by an error processing your message or a receive timeout being exceeded by the remote host, or an underlying network resource issue. Local socket timeout was '00:24:59.9559974'.
+. 
+07.10.2015 20:00:52 (ERROR): Поток 1 Ошибка CreateExcelReport_host
+The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+. 

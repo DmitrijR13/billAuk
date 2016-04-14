@@ -1,0 +1,5 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\WIN\KP50.Migrator\KP50.DataBase.Update.Build\Release\KP50.DataBase.UpdateAssembly.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\WIN\KP50.Migrator\KP50.DataBase.Update.Build\Release\KP50.DataBase.UpdateAssembly.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\WIN\KP50.Migrator\KP50.DataBase.UpdateAssemly\obj\Release\KP50.DataBase.UpdateAssembly.csprojResolveAssemblyReference.cache
+C:\PROJECTS\Billing.GKH.KP50\Main\WIN\KP50.Migrator\KP50.DataBase.UpdateAssemly\obj\Release\KP50.DataBase.UpdateAssembly.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\WIN\KP50.Migrator\KP50.DataBase.UpdateAssemly\obj\Release\KP50.DataBase.UpdateAssembly.pdb

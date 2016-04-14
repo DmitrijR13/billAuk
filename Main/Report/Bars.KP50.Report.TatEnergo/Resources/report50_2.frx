@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="02/08/2014 09:52:42" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true"/>
+    <Parameter Name="month" DataType="System.String"/>
+    <Parameter Name="year" DataType="System.String"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="services" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1084.86" Height="129.43">
+      <TableObject Name="Table1" Left="13.23" Top="12.89" Width="858.46" Height="116.54" BeforePrintEvent="Table1_BeforePrint">
+        <TableColumn Name="Column1" Width="21.61"/>
+        <TableColumn Name="Column2" Width="103.95"/>
+        <TableColumn Name="Column3" Width="226.8"/>
+        <TableColumn Name="Column4" Width="113.4"/>
+        <TableColumn Name="Column5" Width="75.6"/>
+        <TableColumn Name="Column6" Width="75.6"/>
+        <TableColumn Name="Column7" Width="75.6"/>
+        <TableColumn Name="Column8" Width="75.6"/>
+        <TableColumn Name="Column9" Width="90.3"/>
+        <TableRow Name="Row5">
+          <TableCell Name="Cell963" Text="[ercName]" Font="Times New Roman, 10pt, style=Bold" ColSpan="9"/>
+          <TableCell Name="Cell964" Font="Times New Roman, 10pt, style=Bold"/>
+          <TableCell Name="Cell965" Font="Times New Roman, 10pt, style=Bold"/>
+          <TableCell Name="Cell966" Font="Times New Roman, 10pt, style=Bold"/>
+          <TableCell Name="Cell967" Font="Times New Roman, 10pt, style=Bold"/>
+          <TableCell Name="Cell968" Font="Times New Roman, 10pt, style=Bold"/>
+          <TableCell Name="Cell969" Font="Times New Roman, 10pt, style=Bold"/>
+          <TableCell Name="Cell970" Font="Times New Roman, 10pt, style=Bold"/>
+          <TableCell Name="Cell971" Font="Times New Roman, 10pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="47.25">
+          <TableCell Name="Cell954" Text="Информация по задолженности населения перед Управляющей компанией&#13;&#10;по периодам возникновения на 01.[month].[year]г.&#13;&#10;Учитываются ЛС, по которым задолженность более одного месяца" Font="Times New Roman, 8pt" ColSpan="4"/>
+          <TableCell Name="Cell955"/>
+          <TableCell Name="Cell956"/>
+          <TableCell Name="Cell957"/>
+          <TableCell Name="Cell958" Text="[services]" Font="Times New Roman, 8pt" ColSpan="5"/>
+          <TableCell Name="Cell959"/>
+          <TableCell Name="Cell960"/>
+          <TableCell Name="Cell961"/>
+          <TableCell Name="Cell962"/>
+        </TableRow>
+        <TableRow Name="Row1" Height="22.36">
+          <TableCell Name="Cell1" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell842" Border.Lines="All" Border.Width="0.25" Text="Лицевой счет" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell933" Border.Lines="All" Border.Width="0.25" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell934" Border.Lines="All" Border.Width="0.25" Text="Всего задолженность&#13;&#10;на 01.[month].[year]г." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell935" Border.Lines="All" Border.Width="0.25" Text="в том числе" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold" ColSpan="5"/>
+          <TableCell Name="Cell936" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell937" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell728" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell943" Border.Lines="All"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="28.03">
+          <TableCell Name="Cell6" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell847" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell938" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell939" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell940" Border.Lines="All" Border.Width="0.25" Text="до 6 месяцев" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell941" Border.Lines="All" Border.Width="0.25" Text="от 6 месяцев до 1 года" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell942" Border.Lines="All" Border.Width="0.25" Text="от 1 года до 2 лет" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell734" Border.Lines="All" Border.Width="0.25" Text="от 2-х до 3- лет" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+          <TableCell Name="Cell944" Border.Lines="All" Border.Width="0.25" Text="свыше" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="131.22" Width="1084.86" Height="16.69" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" DataSource="Q_master">
+      <TableObject Name="Table2" Left="13.23" Width="858.46" Height="16.69" BeforePrintEvent="Table1_BeforePrint">
+        <TableColumn Name="Column10" Width="21.61"/>
+        <TableColumn Name="Column11" Width="103.95"/>
+        <TableColumn Name="Column12" Width="226.8"/>
+        <TableColumn Name="Column13" Width="113.4"/>
+        <TableColumn Name="Column14" Width="75.6"/>
+        <TableColumn Name="Column15" Width="75.6"/>
+        <TableColumn Name="Column16" Width="75.6"/>
+        <TableColumn Name="Column17" Width="75.6"/>
+        <TableColumn Name="Column18" Width="90.3"/>
+        <TableRow Name="Row3" Height="16.69">
+          <TableCell Name="Cell945" Border.Lines="All" Border.Width="0.25" Text="[Row#]" HorzAlign="Center" Font="Times New Roman, 6pt"/>
+          <TableCell Name="Cell946" Border.Lines="All" Border.Width="0.25" Text="[Q_master.num_ls]" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell947" Border.Lines="All" Border.Width="0.25" Text="[Q_master.adr]" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell948" Border.Lines="All" Border.Width="0.25" AfterDataEvent="Cell948_AfterData" Text="[Q_master.sum_insaldo]" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell949" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_in6]" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell950" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_in12]" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell951" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_in24]" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell952" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_in36]" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell953" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_in]" Format="Number" Format.UseLocale="true" HorzAlign="Right" Font="Times New Roman, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="149.69" Width="1084.86" Height="56.7">
+      <TextObject Name="Text1" Left="13.45" Top="9.45" Width="982.8" Height="47.25" Text="Под задолженностью понимается входящее сальдо по услугам лицевого счета на начало месяца&#13;&#10;В задолженности не учтены оплаты, поступившие в месяце [month] [year] и погашающие задолжность." Font="Times New Roman, 10pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

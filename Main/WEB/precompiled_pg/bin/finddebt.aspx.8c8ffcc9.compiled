@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/debitor/find/finddebt.aspx" hash="cedb9400c" filehash="f4f8d6c2d7112409" flags="110000" assembly="App_Web_x5kl12yz" type="ASP.debitor_find_finddebt_aspx">
+    <filedeps>
+        <filedep name="/none/debitor/find/finddebt.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+    </filedeps>
+</preserve>

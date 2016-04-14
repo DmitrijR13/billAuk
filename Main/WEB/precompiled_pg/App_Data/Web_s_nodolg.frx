@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="06/27/2011 11:32:13" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+ 
+
+    string pasp_string = &quot;&quot;;
+   
+      
+
+
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="178.55" Top="13.94" Width="337.87" Height="18.9" Text="СПРАВКА" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="40.36" Width="718.2" Height="337.91">
+      <TextObject Name="Text2" Left="58.62" Top="104.7" Width="588.49" Height="155.75" BeforePrintEvent="Text2_BeforePrint" Text="являющемуся (ейся) квартиросъемщиком жилой площади по адресу: [Adres], в том, что он (она) [ne] по оплате услуг технического обслуживания и ремонта, в том числе, капитального дома его инженерного оборудования, придомной территории, а также коммунальных и прочих услуг.&#13;&#10;Справка дана для представления в организацию, оформляющую сделку, для регистрации и нотариального оформления договора купли-продажи, дарения и т.д.&#13;&#10;&#13;&#10;&#13;&#10;Дата печати [Date]" HorzAlign="Justify" HtmlTags="true"/>
+      <TextObject Name="Text3" Left="97.21" Top="18.12" Width="55.93" Height="18.9" Text="Дана "/>
+      <TextObject Name="Text4" Left="169.07" Top="18.92" Width="409.06" Height="18.9" Border.Lines="Bottom" Text="[fio]" HorzAlign="Center"/>
+      <TextObject Name="Text5" Left="239.34" Top="40.62" Width="204.88" Height="12.44" Text="фамилия, имя, отчество " HorzAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text6" Left="96.85" Top="61.22" Width="480.45" Height="18.9" Border.Lines="Bottom" Text="[pasp_string]" HorzAlign="Center"/>
+      <TextObject Name="Text7" Left="136.89" Top="83.91" Width="405.58" Height="12.82" Text="паспортные данные или реквизиты организации" HorzAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="380.84" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

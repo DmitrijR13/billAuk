@@ -1,0 +1,139 @@
+---------------------------------------
+--0. Пересоздать kvar_pkodes
+DROP TABLE fbill_data.kvar_pkodes;
+
+CREATE TABLE fbill_data.kvar_pkodes
+(
+  id serial NOT NULL,
+  nzp_kvar integer NOT NULL,
+  area_code integer,
+  pkod10 integer,
+  pkod numeric(13,0) NOT NULL,
+  dat_s date,
+  dat_po date,
+  is_actual integer,
+  changed_by integer NOT NULL,
+  changed_on timestamp without time zone,
+  nzp_payer integer,
+  is_princip integer,
+  is_default integer
+)
+WITH (
+  OIDS=FALSE
+);
+
+--1. обновить таблицу f_data.area_codes
+--определить наиболее часто встречающегося контрагента
+SELECT nzp_payer_agent, count(*)
+FROM fbill_kernel.supplier		--заменить префикс
+WHERE nzp_payer_agent is not null 
+GROUP BY 1
+ORDER BY 2 desc limit 1
+--nzp_payer_agent=154110
+
+--проверить, если записи в f_data.area_codes, 
+--у которых не заполнен конртагент
+SELECT count(*) FROM fbill_data.area_codes --заменить префикс
+WHERE nzp_payer is null
+--=0
+
+--если есть такие записи
+UPDATE fbill_data.area_codes --заменить префикс
+SET nzp_payer = 154110	--nzp_payer_agent
+WHERE nzp_payer is null
+
+--2. перенсти pkod из f_data.kvar в f_data.kvar_pkodes
+--установить is_default = 1 записям в f_data.kvar_pkodes,
+--у которых pkod совпадает с f_data.kvar.pkod по nzp_kvar
+UPDATE fbill_data.kvar_pkodes --заменить префикс
+SET is_default = 1, is_princip = 0,
+ nzp_payer = 154110	--nzp_payer_agent
+WHERE id = 
+(SELECT kp.id FROM fbill_data.kvar_pkodes kp, fbill_data.kvar k --заменить префикс
+WHERE kp.nzp_kvar = k.nzp_kvar and kp.pkod = k.pkod and kp.id =  fbill_data.kvar_pkodes.id)
+
+--проверить, что в f_data.kvar нет повторяющихся pkod для разных nzp_kvar
+SELECT nzp_kvar INTO temppkod FROM fbill_data.kvar mk WHERE  --заменить префикс
+(SELECT count(*) FROM fbill_data.kvar k WHERE mk.pkod = k.pkod and (pkod IS NOT NULL OR pkod > 1) --заменить префикс
+GROUP BY pkod) > 1
+
+DROP TABLE temptable
+
+--в таблицу temptable попадают все pkod которых нет в f_data.kvar_pkodes
+SELECT pkod, nzp_kvar, area_code, pkod10 INTO temptable
+FROM fbill_data.kvar k  --заменить префикс
+WHERE pkod NOT IN (SELECT pkod FROM fbill_data.kvar_pkodes) and  --заменить префикс
+nzp_kvar NOT iN (SELECT nzp_kvar FROM temppkod)
+
+--добавление pkod в f_data.kvar_pkodes
+INSERT INTO fbill_data.kvar_pkodes  --заменить префикс
+(nzp_kvar, nzp_payer, is_princip, area_code, pkod10, pkod, is_default, changed_on, changed_by)
+SELECT nzp_kvar, 154110, 0, area_code, pkod10, pkod, 1, now(), 1      --nzp_payer_agent
+FROM temptable
+
+--3. Финансовые банки. В таблицу pack_ls для каждой квитанции об оплате добавить платежный код
+
+--определить какие финансовые банки есть в БД
+select * from fbill_kernel.s_baselist where idtype=4
+--fbill_fin_13
+--fbill_fin_14
+
+--fbill_fin_13
+UPDATE fbill_fin_13.pack_ls SET pkod = --заменить БД
+(SELECT pkod FROM fbill_data.kvar WHERE num_ls = fbill_fin_13.pack_ls.num_ls) --заменить префикс и БД
+WHERE pkod IS NULL OR pkod < 1
+
+--fbill_fin_14
+UPDATE fbill_fin_14.pack_ls SET pkod =  --заменить БД
+(SELECT pkod FROM fbill_data.kvar WHERE num_ls = fbill_fin_14.pack_ls.num_ls) --заменить префикс и БД
+WHERE pkod IS NULL OR pkod < 1
+
+-------------------------
+Прописать страницу настройки уникальных кодов
+
+
+set search_path to public;
+INSERT INTO pages (nzp_page, page_url, page_menu, page_name, hlp, up_kod, group_id) VALUES (9, '~/admin/settings/newcodes.aspx', 'Настройка уникальных кодов', 'Настройка уникальных кодов', 'отображает форму для настройки уникальных кодов объектов учета', 270, 270);
+
+INSERT INTO actions_show (cur_page, nzp_act, act_tip, act_dd, sort_kod) VALUES (9, 1, 0, 0, 1);
+INSERT INTO actions_show (cur_page, nzp_act, act_tip, act_dd, sort_kod) VALUES (9, 158, 0, 0, 3);
+INSERT INTO actions_show (cur_page, nzp_act, act_tip, act_dd, sort_kod) VALUES (9, 169, 0, 0, 2);
+INSERT INTO actions_show (cur_page, nzp_act, act_tip, act_dd, sort_kod) VALUES (9, 170, 0, 0, 5);
+INSERT INTO actions_show (cur_page, nzp_act, act_tip, act_dd, sort_kod) VALUES (9, 196, 0, 0, 4);
+
+INSERT INTO actions_lnk (cur_page, nzp_act, page_url) VALUES (9, 196, 9);
+INSERT INTO actions_lnk (cur_page, nzp_act, page_url) VALUES (9, 158, 9);
+INSERT INTO actions_lnk (cur_page, nzp_act, page_url) VALUES (9, 170, 9);
+INSERT INTO actions_lnk (cur_page, nzp_act, page_url) VALUES (9, 169, 9);
+INSERT INTO actions_lnk (cur_page, nzp_act, page_url) VALUES (9, 1, 9);
+
+INSERT INTO pages_show (cur_page,page_url,up_kod,sort_kod)
+SELECT DISTINCT a.nzp_page, b.nzp_page, COALESCE(b.up_kod,0), b.nzp_page
+FROM pages a, pages b, page_links  pl
+WHERE (pl.page_from = a.nzp_page or pl.group_from = a.group_id or (pl.page_from is null and pl.group_from is null))
+and (pl.page_to = b.nzp_page or pl.group_to = b.group_id)
+and (select count(*) from pages_show ps where ps.cur_page = a.nzp_page and ps.page_url = b.nzp_page) = 0;
+
+--добавить недостающие пункты меню, у которых есть подменю
+CREATE temp table ps (cur_page integer, up_kod integer);
+insert into ps select distinct cur_page, up_kod from pages_show a where up_kod > 0 and not exists (select 1 from pages_show where cur_page = a.cur_page and page_url = a.up_kod);
+insert into pages_show (cur_page, page_url, up_kod, sort_kod) select cur_page, ps.up_kod, 0, 0 from ps, pages Where ps.up_kod=pages.nzp_page;
+drop table ps;
+
+INSERT INTO role_pages (nzp_role, nzp_page) VALUES (12, 9);
+
+INSERT INTO role_actions (nzp_role, nzp_page, nzp_act, mod_act) VALUES (12, 9, 1, null);
+INSERT INTO role_actions (nzp_role, nzp_page, nzp_act, mod_act) VALUES (12, 9, 158, null);
+INSERT INTO role_actions (nzp_role, nzp_page, nzp_act, mod_act) VALUES (12, 9, 196, null);
+INSERT INTO role_actions (nzp_role, nzp_page, nzp_act, mod_act) VALUES (12, 9, 170, null);
+INSERT INTO role_actions (nzp_role, nzp_page, nzp_act, mod_act) VALUES (12, 9, 169, null);
+
+--Шифрование данных
+update pages_show set sign = sort_kod::varchar||up_kod::varchar||page_url||cur_page||'-'||nzp_psh||'pages_show';
+update actions_show set sign = sort_kod::varchar||act_dd::varchar||act_tip::varchar||nzp_act::varchar||cur_page||'-'||nzp_ash||'actions_show';
+update role_pages set sign = nzp_role::varchar||nzp_page::varchar||'-'||id::varchar||'role_pages'
+where nzp_role >= 10 and nzp_role < 1000;
+update role_actions set sign = nzp_role::varchar||nzp_page::varchar||nzp_act::varchar||'-'||id::varchar||'role_actions'
+where nzp_role >= 10 and nzp_role < 1000;
+
+delete from role_pages where nzp_page=320 and nzp_role=12;

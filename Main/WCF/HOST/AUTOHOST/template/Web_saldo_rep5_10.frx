@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="10/29/2013 15:26:51" ReportInfo.CreatorVersion="2013.3.1.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  
+
+  public class ReportScript
+  {
+     
+       
+    string month_  =&quot;&quot;;
+    string year_ = &quot;&quot;;
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" DataType="System.String"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_k" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_d" DataType="System.Decimal"/>
+      <Column Name="sum_real" DataType="System.Decimal"/>
+      <Column Name="reval" DataType="System.Decimal"/>
+      <Column Name="real_charge" DataType="System.Decimal"/>
+      <Column Name="sum_money" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_k" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_d" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal"/>
+    </TableDataSource>
+    <Total Name="isum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1"/>
+    <Total Name="isum_insaldo_k" Expression="[Q_master.sum_insaldo_k]" Evaluator="Data1"/>
+    <Total Name="isum_insaldo_d" Expression="[Q_master.sum_insaldo_d]" Evaluator="Data1"/>
+    <Total Name="isum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1"/>
+    <Total Name="isum_outsaldo_k" Expression="[Q_master.sum_outsaldo_k]" Evaluator="Data1"/>
+    <Total Name="isum_outsaldo_d" Expression="[Q_master.sum_outsaldo_d]" Evaluator="Data1"/>
+    <Total Name="isum_real" Expression="[Q_master.sum_real]" Evaluator="Data1"/>
+    <Total Name="ireval" Expression="[Q_master.reval]" Evaluator="Data1"/>
+    <Total Name="isum_money" Expression="[Q_master.sum_money]" Evaluator="Data1"/>
+    <Total Name="ireal_charge" Expression="[Q_master.real_charge]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="1047.06" Height="42.34">
+      <TextObject Name="Text1" Left="29.78" Top="15.12" Width="877.44" Height="18.9" Text="5.10 Сальдовая ведомость по услугам за [month_].[year_]г." Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="906.8" Top="15.54" Width="107" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="82.34" Width="1047.06" Height="34.02">
+      <TextObject Name="Text4" Left="30.24" Width="177.66" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" Text="Услуга" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="207.9" Width="71.82" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" Text="С-" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="279.72" Width="79.38" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" Text="С+" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="359.1" Width="94.5" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" Text="Входящее сальдо" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="453.6" Width="94.5" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" Text="Изменения" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="548.1" Width="94.5" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" Text="Начислено" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="642.6" Width="94.5" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" Text="Оплата" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="737.1" Width="94.5" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" CanBreak="false" Text="С-" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text23" Left="831.6" Width="94.5" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" CanBreak="false" Text="С+" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="926.1" Width="105.84" Height="34.02" Border.ShadowWidth="1" Border.Lines="All" CanBreak="false" Text="Исходящее сальдо" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="136.36" Width="1047.06" Height="18.91" DataSource="Q_master">
+      <TextObject Name="Text13" Left="30.24" Width="177.66" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.service]" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text14" Left="207.9" Width="71.82" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_insaldo_k]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text15" Left="279.72" Width="79.38" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text=" [Q_master.sum_insaldo_d]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text16" Left="359.1" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_insaldo]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text17" Left="453.6" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.reval]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text18" Left="548.1" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_real]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text19" Left="642.6" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_money]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text20" Left="737.1" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_outsaldo_k]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text24" Left="831.6" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_outsaldo_d]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text26" Left="926.1" Width="105.84" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[Q_master.sum_outsaldo]&#13;&#10;" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      <DataFooterBand Name="DataFooter1" Top="175.27" Width="1047.06" Height="22.68">
+        <TextObject Name="Text27" Left="30.24" Top="3.78" Width="177.66" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="Итого" VertAlign="Center" WordWrap="false"/>
+        <TextObject Name="Text28" Left="207.9" Top="3.78" Width="71.82" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[isum_insaldo_k]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+        <TextObject Name="Text29" Left="279.72" Top="3.78" Width="79.38" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[isum_insaldo_d]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+        <TextObject Name="Text30" Left="359.1" Top="3.78" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[isum_insaldo]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+        <TextObject Name="Text31" Left="453.6" Top="3.78" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[ireval]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+        <TextObject Name="Text32" Left="548.1" Top="3.78" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[isum_real]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+        <TextObject Name="Text33" Left="642.6" Top="3.78" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[isum_money]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+        <TextObject Name="Text34" Left="737.1" Top="3.78" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[isum_outsaldo_k]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+        <TextObject Name="Text35" Left="831.6" Top="3.78" Width="94.5" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[isum_outsaldo_d]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+        <TextObject Name="Text36" Left="926.1" Top="3.78" Width="105.84" Height="18.9" Border.ShadowWidth="1" Border.Lines="All" Text="[isum_outsaldo]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+      </DataFooterBand>
+    </DataBand>
+  </ReportPage>
+</Report>

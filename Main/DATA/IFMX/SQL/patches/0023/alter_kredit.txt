@@ -1,0 +1,2 @@
+-- local _data
+alter table kredit add sum_real_p decimal(14,2) default 0.00;

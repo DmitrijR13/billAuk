@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/23/2014 14:57:56" ReportInfo.Modified="09/24/2014 14:07:28" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="nzp_dom" DataType="System.Int32" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_reestr" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="u_sum_reestr" Expression="[Q_master.sum_reestr]" Evaluator="Data1" PrintOn="GroupFooter3" ResetOnReprint="true"/>
+    <Total Name="d_sum_reestr" Expression="[Q_master.sum_reestr]" Evaluator="Data1" PrintOn="GroupFooter2" ResetOnReprint="true"/>
+    <Total Name="t_sum_reestr" Expression="[Q_master.sum_reestr]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Width="718.2" Height="37.8" Text="1.7 Реестр снятий&#13;&#10;[period]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="40.68" Width="718.2" Height="28.35" CanGrow="true">
+        <TextObject Name="Text14" Width="718.2" Height="18.9" CanGrow="true" Text="[headerParam]"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="93.68" Width="718.2" Height="18.9" Condition="[Q_master.ulica]" SortOrder="None">
+      <TextObject Name="Text4" Width="718.2" Height="18.9" Border.Lines="All" Fill.Color="Gray" Text="[Q_master.ulica]" VertAlign="Center"/>
+      <DataHeaderBand Name="DataHeader1" Top="71.91" Width="718.2" Height="18.9">
+        <TextObject Name="Text2" Width="548.1" Height="18.9" Border.Lines="All" Text="Услуга" HorzAlign="Center" VertAlign="Center"/>
+        <TextObject Name="Text3" Left="548.1" Width="170.1" Height="18.9" Border.Lines="All" Text="Сумма" HorzAlign="Center" VertAlign="Center"/>
+      </DataHeaderBand>
+      <GroupHeaderBand Name="GroupHeader2" Top="115.46" Width="718.2" Condition="[Q_master.nzp_dom]" SortOrder="None">
+        <GroupHeaderBand Name="GroupHeader3" Top="118.34" Width="718.2" Height="18.9" Condition="[Q_master.service]" SortOrder="None">
+          <TextObject Name="Text6" Width="718.2" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" Text="[Q_master.service]" VertAlign="Center"/>
+          <DataBand Name="Data1" Top="140.12" Width="718.2" Height="18.9" CanGrow="true" DataSource="Q_master">
+            <TextObject Name="Text5" Width="548.1" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ulica], д. [Q_master.ndom][IIf([Q_master.nkor] != &quot;-&quot;,&quot;кор. &quot; + [Q_master.nkor],&quot;&quot;)] [IIf([Q_master.nkvar] != &quot;-&quot;,&quot;кв. &quot; + [Q_master.nkvar],&quot;&quot;)] " VertAlign="Center"/>
+            <TextObject Name="Text7" Left="548.1" Width="170.1" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_reestr]" VertAlign="Center"/>
+          </DataBand>
+          <GroupFooterBand Name="GroupFooter3" Top="161.89" Width="718.2" Height="18.9" CanGrow="true">
+            <TextObject Name="Text8" Width="548.1" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="Итого по услуге [Q_master.service]:" HorzAlign="Right" VertAlign="Center"/>
+            <TextObject Name="Text9" Left="548.1" Width="170.1" Height="18.9" Border.Lines="All" Fill.Color="Gainsboro" CanGrow="true" GrowToBottom="true" Text="[u_sum_reestr]" VertAlign="Center"/>
+          </GroupFooterBand>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="183.67" Width="718.2" Height="18.9" CanGrow="true">
+          <TextObject Name="Text10" Left="548.1" Width="170.1" Height="18.9" Border.Lines="All" Fill.Color="DarkGray" CanGrow="true" GrowToBottom="true" Text="[d_sum_reestr]" VertAlign="Center"/>
+          <TextObject Name="Text11" Width="548.1" Height="18.9" Border.Lines="All" Fill.Color="DarkGray" CanGrow="true" GrowToBottom="true" Text="Итого по дому [Q_master.ulica], д. [Q_master.ndom][IIf([Q_master.nkor] != &quot;-&quot;,&quot;кор. &quot; + [Q_master.nkor],&quot;&quot;)]:" HorzAlign="Right" VertAlign="Center"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="205.45" Width="718.2" Height="18.9" CanGrow="true">
+      <TextObject Name="Text12" Width="548.1" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="Итого:" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="548.1" Width="170.1" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_sum_reestr]" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

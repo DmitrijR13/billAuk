@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/28/2013 10:26:05" ReportInfo.Modified="11/29/2013 20:46:16" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary/>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="245.7">
+      <TextObject Name="Text1" Left="349.65" Top="66.15" Width="160.65" Height="18.9" Text="Адрес: г. [is_town]," VertAlign="Center"/>
+      <TextObject Name="Text2" Left="349.65" Top="85.05" Width="349.65" Height="18.9" Text="ул. [street], д. [dom] кв. [kvnum]." VertAlign="Center"/>
+      <TextObject Name="Text15" Left="349.65" Top="18.9" Width="349.65" Height="18.9" Text="Мировому судье судебного участка № [area]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text16" Left="406.35" Top="47.25" Width="292.95" Height="18.9" Text="ООО УК ЖКХ «[dir]»"/>
+      <TextObject Name="Text17" Left="349.65" Top="47.25" Width="56.7" Height="18.9" Text="Истец: " VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text18" Left="349.65" Top="141.75" Width="160.65" Height="18.9" Text="Адрес: г. [town]," VertAlign="Center"/>
+      <TextObject Name="Text19" Left="349.65" Top="160.65" Width="349.65" Height="18.9" Text="ул. [ulica], д. [ndom] кв. [nkvar]." VertAlign="Center"/>
+      <TextObject Name="Text20" Left="434.7" Top="122.85" Width="264.6" Height="18.9" Text="[fio]"/>
+      <TextObject Name="Text21" Left="349.65" Top="122.85" Width="85.05" Height="18.9" Text="Ответчик: " VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text22" Left="463.05" Top="198.45" Width="198.45" Height="18.9" Text="[lawsuit_price] руб." VertAlign="Center"/>
+      <TextObject Name="Text24" Left="387.45" Top="198.45" Width="85.05" Height="18.9" Text="Цена иска: " VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text25" Left="387.45" Top="226.8" Width="103.95" Height="18.9" Text="Госпошлина: " VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text26" Left="481.95" Top="226.8" Width="198.45" Height="18.9" Text="[tax] руб." VertAlign="Center"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="248.9" Width="718.2" Height="28.35">
+      <TextObject Name="Text6" Top="9.45" Width="727.65" Height="18.9" Text="Исковое заявление" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="280.45" Width="718.2" Height="406.35">
+      <TextObject Name="Text9" Left="9.45" Width="699.3" Height="311.85" CanBreak="false" Text="	Ответчик является нанимателем жилого помещения № [nkvar] в многоквартирном доме № [ndom] по ул. [ulica] в гор. [town].&#13;&#10;	В соответствии со ст. 153 Жилищного кодекса РФ: «Граждане обязаны своевременно и полностью вносить плату за жилое помещение и коммунальные услуги. Обязанность по внесению платы за жилое помещение и коммунальные услуги возникает у нанимателя жилого помещения по договору найма жилого помещения государственного или муниципального жилищного фонда с момента заключения такого договора».&#13;&#10;	На основании ст. 154 Жилищного кодекса РФ: «Плата за жилое помещение и коммунальные услуги для нанимателя жилого помещения включает в себя:&#13;&#10;	- плату за пользование жилым помещением (плата за наем);&#13;&#10;	- плату за содержание и ремонт жилого помещения, включающую в себя плату за услугии работы по управлению многоквартирным домом, содержанию и текущему ремонту общего имущества в многоквартирном доме;&#13;&#10;	- плату за коммунальные услуги».&#13;&#10;	Ответчик не вносит плату за наем и жилищно-коммунальные услуги в связи с чем, на 1 [month] [year] года образовалась задолженность в размере [rub] руб. [kop]коп.&#13;&#10;	На основании изложенного и руководствуясь ст. 3, 131 ГПГ РФ." HorzAlign="Justify" VertAlign="Center" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text27" Top="321.3" Width="718.2" Height="18.9" CanBreak="false" Text="ПРОШУ:" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text28" Left="9.45" Top="340.2" Width="699.3" Height="56.7" CanBreak="false" Text="	5. Взыскать с ответчика в пользу Истца задолженность по оплате найма и жилищно-коммунальных услуг в размере [rub] руб.&#13;&#10;	6. Взыскать с ответчика в пользу Истца оплаченную госпошлину в размере [tax] руб." VertAlign="Center" Font="Times New Roman, 12pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="690" Width="718.2" Height="236.25" Border.Lines="Top">
+      <TextObject Name="Text13" Left="9.45" Top="189" Width="330.75" Height="18.9" Text="Представитель ООО УК ЖКХ «[presenter]»" VertAlign="Center" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text14" Left="9.45" Top="207.9" Width="236.25" Height="18.9" Text="по доверенности:" VertAlign="Center" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text29" Left="9.45" Top="9.45" Width="330.75" Height="151.2" Text="Приложение:&#13;&#10;      1. Исковое заявление (копия);&#13;&#10;      2. Доверенность (копия);&#13;&#10;      3. Платежное поручение об оплате госпошлины;&#13;&#10;      4. Справка по начислениям;&#13;&#10;      5. Финансово-лицевой счет (копия);&#13;&#10;      6. Выписка из домовой книги." VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text30" Left="378" Top="189" Width="311.85" Height="18.9" Text="___________(_____________________)" VertAlign="Center" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text31" Left="434.7" Top="207.9" Width="255.15" Height="18.9" Text="«___»_______________20___г." VertAlign="Center" Font="Times New Roman, 12pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

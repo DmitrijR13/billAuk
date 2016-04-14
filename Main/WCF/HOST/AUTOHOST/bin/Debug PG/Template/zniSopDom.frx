@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="03/17/2015 16:19:53" ReportInfo.Modified="04/24/2015 14:45:36" ReportInfo.CreatorVersion="2013.1.3.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+       DataSourceBase ds = Report.GetDataSource(&quot;Q_master1&quot;);
+       ds.Init();
+       if (ds.RowCount == 0) Page2.Visible = false;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="town_f" DataType="System.String" PropName="Column"/>
+      <Column Name="rajon_f" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica_f" DataType="System.String" PropName="Column1"/>
+      <Column Name="ndom_f" DataType="System.String" PropName="Column1"/>
+      <Column Name="nkor_f" DataType="System.String" PropName="Column1"/>
+      <Column Name="town" DataType="System.String" PropName="Column"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="square_f" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="square" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="address_f" DataType="System.String"/>
+      <Column Name="address_d" DataType="System.String"/>
+      <Column Name="address_k" DataType="System.String"/>
+    </TableDataSource>
+    <Total Name="t_square_f" Expression="[Q_master.square_f]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="t_square" Expression="[Q_master.square]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="0" OtherPagesSource="0" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="37.8">
+      <TextObject Name="Text1" Width="737.1" Height="37.8" Text="Отчет по сопоставленным домам [period]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text2" Left="737.1" Width="151.2" Height="37.8" Text="Дата:&#13;&#10;Время:" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="888.3" Width="159.2" Height="37.8" Text="[DATE]&#13;&#10;[TIME]" Font="Arial, 8pt"/>
+      <ChildBand Name="Child1" Top="41" Width="1047.06" Height="37.8">
+        <TextObject Name="Text4" Width="85.05" Height="37.8" Border.Lines="All" Text="Город (файл)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text6" Left="737.1" Width="151.2" Height="37.8" Border.Lines="All" Text="Общая площадь (файл)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text7" Left="888.3" Width="159.2" Height="37.8" Border.Lines="All" Text="Общая площадь (система)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text15" Left="85.05" Width="85.05" Height="37.8" Border.Lines="All" Text="Район (файл)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text17" Left="170.1" Width="85.05" Height="37.8" Border.Lines="All" Text="Улица (файл)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text19" Left="255.15" Width="56.7" Height="37.8" Border.Lines="All" Text="Дом (файл)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text20" Left="311.85" Width="56.7" Height="37.8" Border.Lines="All" Text="Корпус (файл)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text23" Left="368.55" Width="85.05" Height="37.8" Border.Lines="All" Text="Город (система)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text24" Left="453.6" Width="85.05" Height="37.8" Border.Lines="All" Text="Район (система)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text25" Left="538.65" Width="85.05" Height="37.8" Border.Lines="All" Text="Улица (система)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text26" Left="623.7" Width="56.7" Height="37.8" Border.Lines="All" Text="Дом (система)" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        <TextObject Name="Text27" Left="680.4" Width="56.7" Height="37.8" Border.Lines="All" Text="Корпус (система)" Padding="0, 0, 0, 0" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="82" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text8" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.town_f]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text10" Left="737.1" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.square_f]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text11" Left="888.3" Width="159.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.square]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text16" Left="85.05" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.rajon_f]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text18" Left="170.1" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ulica_f]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text21" Left="255.15" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ndom_f]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text22" Left="311.85" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nkor_f]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text28" Left="368.55" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.town]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text29" Left="453.6" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.rajon]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text30" Left="538.65" Width="85.05" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ulica]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text31" Left="623.7" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ndom]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text32" Left="680.4" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nkor]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="104.1" Width="1047.06" Height="18.9" CanGrow="true">
+      <TextObject Name="Text12" Left="888.3" Width="159.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_square]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text13" Left="737.1" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[t_square_f]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text14" Width="737.1" Height="18.9" CanGrow="true" GrowToBottom="true" Text="Итого" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" FirstPageSource="0" OtherPagesSource="0" ExtraDesignWidth="true">
+    <ReportTitleBand Name="ReportTitle2" Width="1047.06" Height="47.25">
+      <TextObject Name="Text33" Top="9.45" Width="1047.35" Height="37.8" Text="Не верно сопоставлненные дома" HorzAlign="Center" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+      <ChildBand Name="Child2" Top="50.45" Width="1047.06" Height="28.35">
+        <TextObject Name="Text36" Width="311.85" Height="28.35" Border.Lines="All" Text="Адрес из файла" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text34" Left="311.85" Width="368.55" Height="28.35" Border.Lines="All" Text="Адрес из система (домовая сылка)" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text35" Left="680.4" Width="366.95" Height="28.35" Border.Lines="All" Text="Адрес из файла (квартирная сылка)" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data2" Top="82" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master1">
+      <TextObject Name="Text39" Width="311.85" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master1.address_f]" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text37" Left="311.85" Width="368.55" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master1.address_d]" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text38" Left="680.4" Width="366.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master1.address_k]" VertAlign="Center" Font="Arial, 9pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

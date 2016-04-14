@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/30/2014 15:43:14" ReportInfo.Modified="05/05/2014 16:33:38" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void Page1_StartPage(object sender, EventArgs e)
+    {
+      int countPayer10 = Convert.ToInt32(Report.GetParameterValue(&quot;count_payers10&quot;));
+      float widthMatrix =  (Column1.Width + Column2.Width * countPayer10 + Column3.Width) / Units.Millimeters; 
+      if (widthMatrix &gt; Page1.PaperWidth)
+      { 
+        if (widthMatrix &gt; Page1.PaperHeight)
+        {
+            if (widthMatrix &gt; 420) Matrix1.Width = 420;
+            Page1.PaperWidth = 420;
+            Page1.PaperHeight = 297;
+        }else
+        { 
+          Page1.PaperWidth = 297;
+          Page1.PaperHeight = 210;
+        }
+      }
+      
+      int countPayer20 = Convert.ToInt32(Report.GetParameterValue(&quot;count_payers20&quot;));
+      widthMatrix =  (Column4.Width + Column5.Width * countPayer20 + Column6.Width) / Units.Millimeters; 
+      if (widthMatrix &gt; Page2.PaperWidth)
+      { 
+        if (widthMatrix &gt; Page2.PaperHeight)
+        {
+          if (widthMatrix &gt; 420) Matrix2.Width = 420;
+          Page2.PaperWidth = 420;
+          Page2.PaperHeight = 297;
+        }else
+        { 
+          Page2.PaperWidth = 297;
+          Page2.PaperHeight = 210;
+        }
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="dat_pack" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="payer" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_pack" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master2" ReferenceName="Data.Q_master2" DataType="System.Int32" Enabled="true">
+      <Column Name="dat_pack" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="payer" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_pack" DataType="System.Decimal" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" StartPageEvent="Page1_StartPage">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text2" Width="472.5" Height="37.8" Text="Сводная ведомасть сборов" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text3" Left="472.5" Width="132.3" Height="37.8" Text="Дата:&#13;&#10;Время:" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text4" Left="604.8" Width="113.4" Height="37.8" Text="[date]&#13;&#10;[time]" Font="Arial, 8pt"/>
+      <ChildBand Name="Child1" Top="40.68" Width="718.2" Height="18.9">
+        <TextObject Name="Text1" Width="321.3" Height="18.9" Text="Поступление на расчетный счет"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="62.46" Width="718.2" Height="75.6">
+      <MatrixObject Name="Matrix1" Width="321.3" Height="75.6" AfterPrintEvent="Matrix1_AfterPrint" FixedRows="2" FixedColumns="1" AutoSize="false" DataSource="Q_master1" ShowTitle="true">
+        <MatrixColumns>
+          <Header Expression="[Q_master1.payer]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Q_master1.dat_pack]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Q_master1.sum_pack]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" Width="94.5"/>
+        <TableColumn Name="Column2" Width="113.4"/>
+        <TableColumn Name="Column3" Width="113.4"/>
+        <TableRow Name="Row1" MinHeight="18.9" MaxHeight="94.5" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="All" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="Организации, принявшие платежи" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell7"/>
+        </TableRow>
+        <TableRow Name="Row2" MinHeight="18.9" MaxHeight="94.5" AutoSize="true">
+          <TableCell Name="Cell3" Border.Lines="All" Text="Дата оплаты" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[payer]" VertAlign="Center"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="Итого" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row3" MinHeight="18.9" MaxHeight="94.5" AutoSize="true">
+          <TableCell Name="Cell5" Border.Lines="All" Text="[dat_pack]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell6" Border.Lines="All" Text="[sum_pack]" NullValue="0.00" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell9" Border.Lines="All" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row4" MinHeight="18.9" MaxHeight="94.5" AutoSize="true">
+          <TableCell Name="Cell10" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell11" Border.Lines="All" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell12" Border.Lines="All" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="140.93" Width="718.2" Height="18.9" CanGrow="true">
+      <TextObject Name="Text6" Width="718.2" Height="18.9" CanGrow="true" Font="Arial, 8pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+  <ReportPage Name="Page2">
+    <ReportTitleBand Name="ReportTitle2" Width="718.2" Height="18.9">
+      <TextObject Name="Text5" Width="321.3" Height="18.9" Text="Средства сторонних организаций"/>
+    </ReportTitleBand>
+    <DataBand Name="Data2" Top="21.78" Width="718.2" Height="78.24">
+      <MatrixObject Name="Matrix2" Width="321.3" Height="75.6" FixedRows="2" FixedColumns="1" AutoSize="false" DataSource="Q_master2" ShowTitle="true">
+        <MatrixColumns>
+          <Header Expression="[Q_master2.payer]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[Q_master2.dat_pack]"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[Q_master2.sum_pack]"/>
+        </MatrixCells>
+        <TableColumn Name="Column4" Width="94.5"/>
+        <TableColumn Name="Column5" Width="113.4"/>
+        <TableColumn Name="Column6" Width="113.4"/>
+        <TableRow Name="Row5" MinHeight="18.9" MaxHeight="94.5" AutoSize="true">
+          <TableCell Name="Cell13" Border.Lines="All" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell14" Border.Lines="All" Text="Организации, принявшие платежи" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell23"/>
+        </TableRow>
+        <TableRow Name="Row6" MinHeight="18.9" MaxHeight="94.5" AutoSize="true">
+          <TableCell Name="Cell16" Border.Lines="All" Text="Дата оплаты" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell17" Border.Lines="All" Text="[payer]" VertAlign="Center"/>
+          <TableCell Name="Cell24" Border.Lines="All" Text="Итого" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row7" MinHeight="18.9" MaxHeight="94.5" AutoSize="true">
+          <TableCell Name="Cell19" Border.Lines="All" Text="[dat_pack]" Format="Date" Format.Format="d" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell20" Border.Lines="All" Text="[sum_pack]" NullValue="0.00" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell25" Border.Lines="All" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row8" MinHeight="18.9" MaxHeight="94.5" AutoSize="true">
+          <TableCell Name="Cell21" Border.Lines="All" Text="Всего" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell22" Border.Lines="All" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell26" Border.Lines="All" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+  </ReportPage>
+</Report>

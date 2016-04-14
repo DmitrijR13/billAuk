@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/counter/counterreadings.aspx" hash="cedb9400c" filehash="bb67019b48c3cde" flags="110000" assembly="App_Web_xjboctcf" type="ASP.kart_counter_counterreadings_aspx">
+    <filedeps>
+        <filedep name="/none/kart/counter/counterreadings.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressSelect.ascx" />
+        <filedep name="/none/master/templates/AddressTemplate.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

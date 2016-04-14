@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/none/kart/adres/map.ashx" hash="635865ff" filehash="1fd1ffba5269" flags="130000" assembly="STCLINE.KP50.WebKomplat" type="STCLINE.KP50.WebKomplat.map">
+    <filedeps>
+        <filedep name="/none/kart/adres/map.ashx" />
+    </filedeps>
+</preserve>

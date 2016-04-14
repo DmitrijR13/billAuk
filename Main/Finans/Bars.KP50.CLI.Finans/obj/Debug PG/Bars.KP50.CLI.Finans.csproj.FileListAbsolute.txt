@@ -1,0 +1,168 @@
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\SevenZipSharp.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Newtonsoft.Json.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.xml
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.csprojResolveAssemblyReference.cache
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.QTask.dll
+C:\PROJECTS\Billing.GKH.KP50\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.QTask.pdb
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\SevenZipSharp.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Npgsql.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Newtonsoft.Json.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Mono.Security.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.pdb
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.pdb
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.xml
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.xml
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.xml
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.csprojResolveAssemblyReference.cache
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\VisualStudioProg\Main\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\SevenZipSharp.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Ionic.Zip.Reduced.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Npgsql.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Newtonsoft.Json.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Mono.Security.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.pdb
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.xml
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.csprojResolveAssemblyReference.cache
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.dll
+E:\FROM_HP\visual_studio_prog\Main\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\SevenZipSharp.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Npgsql.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Newtonsoft.Json.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Mono.Security.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.xml
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.csprojResolveAssemblyReference.cache
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\Users\SAMSUNG\Desktop\Main\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\SevenZipSharp.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Ionic.Zip.Reduced.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Npgsql.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Newtonsoft.Json.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Mono.Security.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.pdb
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.pdb
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.pdb
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.pdb
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.xml
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.xml
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.pdb
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.xml
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.dll
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.pdb
+C:\billTest\Main - копия\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.csprojResolveAssemblyReference.cache
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Finans.pdb
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\SevenZipSharp.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Ionic.Zip.Reduced.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Npgsql.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Newtonsoft.Json.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Mono.Security.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.Globals.pdb
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Client.pdb
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.IFMX.Common.pdb
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.CLI.Sprav.pdb
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\KP50.CliKart.pdb
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\NLog.xml
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Windsor.xml
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Castle.Core.xml
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\bin\Debug PG\Bars.KP50.Utils.pdb
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.csprojResolveAssemblyReference.cache
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.dll
+D:\projects\billAuk\Main\Finans\Bars.KP50.CLI.Finans\obj\Debug PG\Bars.KP50.CLI.Finans.pdb

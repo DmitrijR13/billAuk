@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/25/2011 11:08:27" ReportInfo.Modified="09/17/2013 11:48:22" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string point = &quot;&quot;;
+    string service=&quot;&quot;;
+    string month = &quot;&quot;;
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="num" DataType="System.String"/>
+      <Column Name="name" DataType="System.String"/>
+      <Column Name="ed_izm" DataType="System.String"/>
+      <Column Name="val" DataType="System.String"/>
+    </TableDataSource>
+    <Parameter Name="demo" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="30" FirstPageSource="15" OtherPagesSource="15" Guides="264.6,642.6,0,230.58,446.04,544.32,37.8,362.88,102.06,136.08,185.22,510.3">
+    <ReportTitleBand Name="ReportTitle1" Width="642.6" Height="102.06" Guides="26.46,192.78,0,15.12,211.68,68.04,83.16,98.28001,151.2">
+      <TextObject Name="Text2" Width="642.6" Height="15.12" Text="ТАРИФЫ" HorzAlign="Center" Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text1" Top="34.02" Width="124.74" Height="18.9" Text="Банк данных"/>
+      <TextObject Name="Text4" Left="124.74" Top="34.02" Width="506.52" Height="18.9" Text="[point]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text29" Top="52.92" Width="124.74" Height="18.9" Text="Услуга"/>
+      <TextObject Name="Text30" Left="124.74" Top="52.92" Width="506.52" Height="18.9" Text="[service]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text31" Top="71.82" Width="124.74" Height="18.9" Text="Расчетный месяц"/>
+      <TextObject Name="Text32" Left="124.74" Top="71.82" Width="506.52" Height="18.9" Text="[month]" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="105.39" Width="642.6" Height="41.58" Guides="22.68,56.7,0">
+      <TextObject Name="Text3" Left="52.92" Width="321.3" Height="41.58" Border.Lines="All" GrowToBottom="true" Text="Наименование" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text27" Left="476.28" Width="166.32" Height="41.58" Border.Lines="All" GrowToBottom="true" Text="Значение в выбранном расчетном месяце" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="374.22" Width="102.06" Height="41.58" Border.Lines="All" GrowToBottom="true" Text="Единица измерения" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text26" Width="52.92" Height="41.58" Border.Lines="All" GrowToBottom="true" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="150.31" Width="642.6" Height="18.9" CanGrow="true" Guides="0,34.02" DataSource="Q_master">
+      <TextObject Name="Text7" Left="52.92" Width="321.3" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.name]" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="476.28" Width="166.32" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.val]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text9" Left="374.22" Width="102.06" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.ed_izm]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text28" Width="52.92" Height="18.9" Border.Lines="All" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/adres/gendomls.aspx" hash="cedb9400c" filehash="798ef8bacb6f12a1" flags="110000" assembly="App_Web_m3duyr5l" type="ASP.kart_adres_gendomls_aspx">
+    <filedeps>
+        <filedep name="/none/kart/adres/gendomls.aspx" />
+        <filedep name="/none/kart/counter/genpu.ascx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressSelect.ascx" />
+        <filedep name="/none/master/templates/AddressTemplate.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+    </filedeps>
+</preserve>

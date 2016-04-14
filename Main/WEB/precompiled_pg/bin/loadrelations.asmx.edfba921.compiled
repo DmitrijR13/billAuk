@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/none/kart/gil/LoadRelations.asmx" hash="635865ff" filehash="ffffd0258e1a88c5" flags="130000" assembly="STCLINE.KP50.WebKomplat" type="STCLINE.KP50.WebKomplat.kart.gil.LoadRelations">
+    <filedeps>
+        <filedep name="/none/kart/gil/LoadRelations.asmx" />
+    </filedeps>
+</preserve>

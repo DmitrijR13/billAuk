@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/pack/autoaddpackls.aspx" hash="cedb9400c" filehash="26d2fc14f9dbe1a7" flags="110000" assembly="App_Web_kzlzihww" type="ASP.finances_pack_autoaddpackls_aspx">
+    <filedeps>
+        <filedep name="/none/finances/pack/autoaddpackls.aspx" />
+        <filedep name="/none/finances/pack/listpackls.ascx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

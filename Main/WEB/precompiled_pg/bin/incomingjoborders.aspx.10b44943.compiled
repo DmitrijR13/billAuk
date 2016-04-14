@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/supg/incomingjoborders.aspx" hash="cedb9400c" filehash="ef84bba2b07cb5e4" flags="110000" assembly="App_Web_2p5ymokg" type="ASP.supg_incomingjoborders_aspx">
+    <filedeps>
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+        <filedep name="/none/supg/incomingjoborders.aspx" />
+    </filedeps>
+</preserve>

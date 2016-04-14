@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="02/04/2014 17:00:09" ReportInfo.Modified="02/10/2014 17:23:59" ReportInfo.CreatorVersion="2013.3.1.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <DataBand Name="Data1" Width="718.2" Height="680.4" Guides="396.9,396.9,396.9,396.9,396.9">
+      <TableObject Name="Table1" Left="38.7" Top="49.8" Width="633.15" Height="97.65">
+        <TableColumn Name="Column1" Width="211.05"/>
+        <TableColumn Name="Column2" Width="211.05"/>
+        <TableColumn Name="Column3" Width="211.05"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Border.Width="0.25" Text="[Q_master.inn]" Font="Times New Roman, 10pt" ColSpan="2"/>
+          <TableCell Name="Cell2" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Border.Width="0.25" Text="[Q_master.rs]" VertAlign="Bottom" Font="Times New Roman, 10pt" RowSpan="2"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="40.95">
+          <TableCell Name="Cell6" Border.Lines="All" Border.Width="0.25" Text="Получатель:&#13;&#10;&lt;b&gt;[Q_master.poluch]&lt;/b&gt;" Font="Times New Roman, 10pt" HtmlTags="true" ColSpan="2"/>
+          <TableCell Name="Cell7" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell8" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell11" Border.Lines="All" Border.Width="0.25" Text="Банк получителя&#13;&#10;&lt;b&gt;[Q_master.bank]&lt;/b&gt;" Font="Times New Roman, 10pt" HtmlTags="true" ColSpan="2" RowSpan="2"/>
+          <TableCell Name="Cell12" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell13" Border.Lines="All" Border.Width="0.25" Text="[Q_master.bik]" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell14" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell15" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell16" Border.Lines="All" Border.Width="0.25" Text="[Q_master.ks]" Font="Times New Roman, 10pt"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text1" Left="38.7" Top="12" Width="189" Height="18.9" Text="ООО УК &quot;Уютный дом&quot;" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="38.7" Top="30.9" Width="245.7" Height="18.9" Text="Адрес: [Q_master.adress]" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text3" Left="38.7" Top="153.75" Width="633.15" Height="18.9" Text="СЧЕТ № [Q_master.num_arend] от [Q_master.dat_arend] г." HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold">
+        <Formats>
+          <GeneralFormat/>
+          <DateFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text4" Left="38.7" Top="172.65" Width="633.15" Height="56.7" Text="Выписан за [Q_master.months] по нежилому помещению общедомовое имущество, расположенного в доме № [Q_master.numdom] по ул. [Q_master.ulica], общей площадью [Q_master.kv_pl] на арендатора [Q_master.fio], которому присвоен счет № [Q_master.pkod] за услуги:" HorzAlign="Justify" Font="Times New Roman, 10pt"/>
+      <TableObject Name="Table2" Left="37.8" Top="236.25" Width="633.15" Height="94.5" Border.Lines="Top" Border.Width="0.25">
+        <TableColumn Name="Column4" Width="18.9"/>
+        <TableColumn Name="Column5" Width="274.05"/>
+        <TableColumn Name="Column6" Width="75.6"/>
+        <TableColumn Name="Column7" Width="85.05"/>
+        <TableColumn Name="Column8" Width="85.05"/>
+        <TableColumn Name="Column9" Width="94.5"/>
+        <TableRow Name="Row5">
+          <TableCell Name="Cell17" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell18" Border.Lines="All" Border.Width="0.25" Text="Наименование товара" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell19" Border.Lines="All" Border.Width="0.25" Text="Ед.изм." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell20" Border.Lines="All" Border.Width="0.25" Text="Количество" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell21" Border.Lines="All" Border.Width="0.25" Text="Цена" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell47" Border.Lines="All" Border.Width="0.25" Text="Сумма, РУБ." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="28.35">
+          <TableCell Name="Cell22" Border.Lines="All" Border.Width="0.25" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell23" Border.Lines="All" Border.Width="0.25" Text="Использование общедомового имущества" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell24" Border.Lines="All" Border.Width="0.25" Text="месяц" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell25" Border.Lines="All" Border.Width="0.25" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell26" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_imu]&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell56" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_imu]&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="28.35">
+          <TableCell Name="Cell27" Border.Lines="All" Border.Width="0.25" Text="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell28" Border.Lines="All" Border.Width="0.25" Text="Возмещение коммунальных расходов" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell29" Border.Lines="All" Border.Width="0.25" Text="месяц" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell30" Border.Lines="All" Border.Width="0.25" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell31" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_komm]&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell57" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_komm]&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row8">
+          <TableCell Name="Cell50" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell51" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell52" Text="Итого:" HorzAlign="Right" Font="Times New Roman, 10pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell53" HorzAlign="Right" Font="Times New Roman, 10pt, style=Bold"/>
+          <TableCell Name="Cell54" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell55" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_charge]" HorzAlign="Right" Font="Times New Roman, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text6" Left="94.5" Top="425.25" Width="160.65" Height="18.9" Text="Генеральный директор" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="94.5" Top="463.05" Width="160.65" Height="18.9" Text="Главный бухгалтер" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text8" Left="368.55" Top="425.25" Width="160.65" Height="18.9" Text="[Q_master.gen_dir]" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="368.55" Top="463.05" Width="160.65" Height="18.9" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text10" Left="94.5" Top="519.75" Width="567" Height="56.7" Text="Подрядная организация [Q_master.dom_remark] [Q_master.remark]" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="37.8" Top="340.2" Width="633.15" Height="56.7" Text="[UpperCase([Q_master.sum_propislift])]&#13;&#10;НДС не облагается" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2">
+    <DataBand Name="Data2" Width="718.2" Height="680.4">
+      <TextObject Name="Text11" Left="29.25" Top="9.45" Width="330.75" Height="18.9" Text="ООО Управляющая компания &quot;Уютный дом&quot;" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="29.25" Top="28.35" Width="245.7" Height="18.9" Text="[Q_master.adress]" Font="Times New Roman, 10pt, style=Bold"/>
+      <TableObject Name="Table4" Left="28.35" Top="165.4" Width="633.15" Height="94.5" Border.Lines="Top" Border.Width="0.25">
+        <TableColumn Name="Column13" Width="18.9"/>
+        <TableColumn Name="Column14" Width="274.05"/>
+        <TableColumn Name="Column15" Width="75.6"/>
+        <TableColumn Name="Column16" Width="85.05"/>
+        <TableColumn Name="Column17" Width="85.05"/>
+        <TableColumn Name="Column18" Width="94.5"/>
+        <TableRow Name="Row13">
+          <TableCell Name="Cell70" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell71" Border.Lines="All" Border.Width="0.25" Text="Наименование товара" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell72" Border.Lines="All" Border.Width="0.25" Text="Ед.изм." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell73" Border.Lines="All" Border.Width="0.25" Text="Количество" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell74" Border.Lines="All" Border.Width="0.25" Text="Цена" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell75" Border.Lines="All" Border.Width="0.25" Text="Сумма, РУБ." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row14" Height="28.35">
+          <TableCell Name="Cell76" Border.Lines="All" Border.Width="0.25" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell77" Border.Lines="All" Border.Width="0.25" Text="Использование общедомового имущества" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell78" Border.Lines="All" Border.Width="0.25" Text="месяц" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell79" Border.Lines="All" Border.Width="0.25" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell80" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_imu]&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell81" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_imu]&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row15" Height="28.35">
+          <TableCell Name="Cell82" Border.Lines="All" Border.Width="0.25" Text="2" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell83" Border.Lines="All" Border.Width="0.25" Text="Возмещение коммунальных расходов" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell84" Border.Lines="All" Border.Width="0.25" Text="месяц" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell85" Border.Lines="All" Border.Width="0.25" Text="1" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell86" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_komm]&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell87" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_komm]&#13;&#10;" HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row16">
+          <TableCell Name="Cell88" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell89" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell90" Text="Итого:" HorzAlign="Right" Font="Times New Roman, 10pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell91" HorzAlign="Right" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell92" Font="Times New Roman, 10pt"/>
+          <TableCell Name="Cell93" Border.Lines="All" Border.Width="0.25" Text="[Q_master.sum_charge]" HorzAlign="Right" Font="Times New Roman, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text16" Left="29.05" Top="374.5" Width="160.65" Height="18.9" Text="Исполнитель:" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text17" Left="29.05" Top="422.3" Width="160.65" Height="18.9" Text="М.П." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text18" Left="189.7" Top="403.4" Width="132.3" Height="18.9" Text="[Q_master.gen_dir]" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text15" Left="28.35" Top="285.45" Width="633.15" Height="37.8" Text="[UpperCase([Q_master.sum_propislift])]&#13;&#10;НДС не облагается" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text21" Left="29.35" Top="47.25" Width="245.7" Height="18.9" Text="[Q_master.inn]" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text22" Left="28.35" Top="66.15" Width="633.15" Height="18.9" Text="АКТ № [Q_master.num_arend] от [Q_master.dat_arend] г." HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 10pt, style=Bold">
+        <Formats>
+          <GeneralFormat/>
+          <DateFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text23" Left="28.35" Top="85.05" Width="633.15" Height="75.6" Text="Мы, нижеподписавшиеся от лица ООО &quot;УК &quot;Уютный дом&quot; Ген.директор [Q_master.gen_dir], действующий на основании Устава с одной стороны, и от лица &quot;Собственника&quot; [Q_master.fio] с другой стороны, составили настоящий акт о том, что Управляющая Компания сдала, а &quot;Собственник&quot; принял работы (услуги)." Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text13" Left="28.35" Top="261.8" Width="311.85" Height="18.9" Text="Всего оказано услуг на сумму:" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text14" Left="28.35" Top="322.95" Width="633.15" Height="37.8" Text="Вышеперечисленные услуги выполнены полностью и в срок. Заказчик притензий по объему, качеству и срокам оказания услуг не имеет." VertAlign="Bottom" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text20" Left="29.05" Top="403.8" Width="160.65" Height="18.9" Text="______________________________"/>
+      <TextObject Name="Text24" Left="368.55" Top="417.45" Width="160.65" Height="18.9" Text="М.П." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text25" Left="529.2" Top="370.2" Width="151.2" Height="66.15" Text="[Q_master.fio]" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text26" Left="368.55" Top="398.95" Width="160.65" Height="18.9" Text="______________________________"/>
+      <TextObject Name="Text27" Left="368.55" Top="369.65" Width="160.65" Height="18.9" Text="Заказчик:" VertAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+</Report>

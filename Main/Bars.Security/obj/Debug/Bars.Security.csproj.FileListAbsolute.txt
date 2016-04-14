@@ -1,0 +1,64 @@
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Bars.Security.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Bars.Security.pdb
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\KP50.Globals.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\KP50.IFMX.Common.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Castle.Windsor.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\NLog.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\SevenZipSharp.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Bars.KP50.Utils.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Castle.Core.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Ionic.Zip.Reduced.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Newtonsoft.Json.dll
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\KP50.Globals.pdb
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\KP50.IFMX.Common.pdb
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Castle.Windsor.xml
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\NLog.xml
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Bars.KP50.Utils.pdb
+C:\PROJECTS\KP50 History\Bars.Security\bin\Debug\Castle.Core.xml
+C:\PROJECTS\KP50 History\Bars.Security\obj\Debug\Bars.Security.csprojResolveAssemblyReference.cache
+C:\PROJECTS\KP50 History\Bars.Security\obj\Debug\Bars.Security.dll
+C:\PROJECTS\KP50 History\Bars.Security\obj\Debug\Bars.Security.pdb
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Bars.Security.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Bars.Security.pdb
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\KP50.Globals.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\KP50.IFMX.Common.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Castle.Windsor.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\NLog.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\SevenZipSharp.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Bars.KP50.Utils.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Castle.Core.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Ionic.Zip.Reduced.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Npgsql.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Newtonsoft.Json.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Mono.Security.dll
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\KP50.Globals.pdb
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\KP50.IFMX.Common.pdb
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Castle.Windsor.xml
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\NLog.xml
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Bars.KP50.Utils.pdb
+C:\billTest\Main - копия\Main\Bars.Security\bin\Debug\Castle.Core.xml
+C:\billTest\Main - копия\Main\Bars.Security\obj\Debug\Bars.Security.csprojResolveAssemblyReference.cache
+C:\billTest\Main - копия\Main\Bars.Security\obj\Debug\Bars.Security.dll
+C:\billTest\Main - копия\Main\Bars.Security\obj\Debug\Bars.Security.pdb
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Bars.Security.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Bars.Security.pdb
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\KP50.Globals.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\KP50.IFMX.Common.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\SevenZipSharp.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Ionic.Zip.Reduced.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\NLog.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Castle.Windsor.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Castle.Core.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Bars.KP50.Utils.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Npgsql.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Newtonsoft.Json.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Mono.Security.dll
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\KP50.Globals.pdb
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\KP50.IFMX.Common.pdb
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\NLog.xml
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Castle.Windsor.xml
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Castle.Core.xml
+D:\projects\billAuk\Main\Bars.Security\bin\Debug\Bars.KP50.Utils.pdb
+D:\projects\billAuk\Main\Bars.Security\obj\Debug\Bars.Security.csprojResolveAssemblyReference.cache
+D:\projects\billAuk\Main\Bars.Security\obj\Debug\Bars.Security.dll
+D:\projects\billAuk\Main\Bars.Security\obj\Debug\Bars.Security.pdb

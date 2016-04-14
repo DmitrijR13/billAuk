@@ -1,0 +1,53 @@
+﻿.navigator 
+{
+	position: relative;
+	/*height: 31px;*/
+}
+
+.navigator div
+{
+	display: block;
+}
+
+.navigator table
+{
+	display: table;
+}
+
+.navigator td
+{
+	vertical-align: middle;
+	height: 24px;
+}
+
+.navigator .caption
+{
+	float: left;
+	width: 180px;
+}
+
+.navigator .records-per-page
+{
+    display: inline-block;
+	float: right;
+    margin-right: 4px;
+}
+
+.navigator .sorting
+{
+    display: inline-block;
+	float: right;
+    margin-right: 10px;
+	vertical-align: middle;
+}
+
+.navigator .pages
+{
+	
+}
+
+.navigator .pages .page-select
+{
+	padding-left: 4px;
+    padding-right: 4px;
+}

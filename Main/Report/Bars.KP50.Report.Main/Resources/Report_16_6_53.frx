@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/19/2013 18:09:45" ReportInfo.Modified="12/23/2013 20:02:40" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" Enabled="false" DataType="System.String"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_insaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_real" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="real_charge" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_k" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo_d" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal"/>
+      <Column Name="town" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="num_cnt" DataType="System.String" PropName="Column"/>
+      <Column Name="name_type" DataType="System.String" PropName="Column"/>
+      <Column Name="cnt_stage" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_prov" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="dat_provnext" DataType="System.DateTime" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="sumCounter" TotalType="Count" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="103.95">
+      <TextObject Name="Text1" Left="7.56" Top="9.45" Width="699.3" Height="47.25" Text="6.53 Отчёт по датам поверки счетчиков по услуге: [service] &#13;&#10;за период с [dats] по [datpo]" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text2" Left="9.45" Top="66.15" Width="960.12" Height="37.8" Text="Балансодержатель: [area]&#13;&#10;Тип счетчика: [t_counter]" Font="Arial, 8.25pt, style=Italic"/>
+      <TextObject Name="Text4" Left="491.4" Top="66.15" Width="141.75" Height="37.8" Text="Дата печати:&#13;&#10;Время печати:" HorzAlign="Right" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text3" Left="633.15" Top="66.15" Width="75.6" Height="37.8" Text="[DATE]&#13;&#10;[TIME]" Font="Arial, 8.25pt"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="106.83" Width="718.2" Height="47.25">
+      <TableObject Name="Table2" Left="9.45" Width="698.53" Height="47.25">
+        <TableColumn Name="Column7" Width="283.25"/>
+        <TableColumn Name="Column8" Width="84.92"/>
+        <TableColumn Name="Column9" Width="103.85"/>
+        <TableColumn Name="Column10" Width="75.5"/>
+        <TableColumn Name="Column11" Width="75.5"/>
+        <TableColumn Name="Column12" Width="75.51"/>
+        <TableRow Name="Row2" Height="47.25">
+          <TableCell Name="Cell7" Border.Lines="All" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="Номер счетчика" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="Тип счетчика" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell10" Border.Lines="All" Text="Разрядность" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell11" Border.Lines="All" Text="Дата поверки" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="Дата следующей поверки" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+        </TableRow>
+      </TableObject>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="156.96" Width="718.2" Height="15.12" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text8" Left="9.45" Width="283.12" Height="15.12" Border.Lines="All" CanGrow="true" Text="[IIf(Trim([Q_master.town])==&quot;&quot;,&quot;&quot;,Trim([Q_master.town]))][IIf(Trim([Q_master.ulica])==&quot;&quot;,&quot;&quot;,&quot; ул. &quot; + Trim([Q_master.ulica]) )][IIf(Trim([Q_master.ndom])==&quot;&quot;,&quot;&quot;,&quot; д. &quot; + Trim([Q_master.ndom]) )][IIf(Trim([Q_master.nkor])==&quot;-&quot;,&quot;&quot;,IIf(Trim([Q_master.nkor])==&quot;&quot;,&quot;&quot;,&quot; корп. &quot;+Trim([Q_master.nkor])))][IIf(Trim([Q_master.nkvar])==&quot;&quot;,&quot;&quot;,&quot; кв. &quot; + Trim([Q_master.nkvar]) )]" Font="Times New Roman, 7pt" Trimming="Character"/>
+      <TextObject Name="Text10" Left="292.57" Width="85.05" Height="15.12" Border.Lines="All" Text="[Q_master.num_cnt]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text11" Left="377.62" Width="103.95" Height="15.12" Border.Lines="All" CanGrow="true" Text="[Q_master.name_type]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text12" Left="481.57" Width="75.6" Height="15.12" Border.Lines="All" Text="[Q_master.cnt_stage]" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text14" Left="632.39" Width="75.6" Height="15.12" Border.Lines="All" Text="[Q_master.dat_provnext] " Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text13" Left="556.79" Width="75.6" Height="15.12" Border.Lines="All" Text="[Q_master.dat_prov] " Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 7pt"/>
+      <DataFooterBand Name="DataFooter1" Top="174.95" Width="718.2" Height="15.12">
+        <TextObject Name="Text7" Left="9.45" Width="622.94" Height="15.12" Border.Lines="All" Text="Итого счетчиков: " Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text9" Left="632.39" Width="75.6" Height="15.12" Border.Lines="All" Text="[sumCounter]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      </DataFooterBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="192.95" Width="718.2" Height="18.9">
+      <TextObject Name="Text5" Left="9.45" Width="604.8" Height="18.9" Text="Услуга [service] Версия 1.00" VertAlign="Center" Font="Arial, 8.25pt"/>
+      <TextObject Name="Text6" Left="614.25" Width="94.5" Height="18.9" Text="Страница [Page]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8.25pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

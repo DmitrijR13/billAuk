@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/settings/settingcreatepack.aspx" hash="cedb9400c" filehash="ce26271504da75a" flags="110000" assembly="App_Web_mefqdwwk" type="ASP.finances_settings_settingcreatepack_aspx">
+    <filedeps>
+        <filedep name="/none/finances/settings/settingcreatepack.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

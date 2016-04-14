@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="02/17/2014 11:18:18" ReportInfo.Modified="04/21/2014 17:22:45" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="type_rod" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_rog" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="dat_ofor" DataType="System.DateTime" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Width="718.2" Height="37.8" Text="Лицевой счет № [pers_acc]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="41.31" Width="718.2" Height="113.4" CanGrow="true">
+        <TextObject Name="Text2" Width="718.2" Height="28.35" Text="ФИО : [fio]" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text3" Top="28.35" Width="585.9" Height="28.35" Text="Адрес : [address]" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text4" Left="585.9" Top="28.35" Width="132.3" Height="28.35" Text="Квартира : [kvar]" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text5" Top="56.7" Width="236.25" Height="28.35" Text="Количество жильцов : [num_gil]" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text6" Left="236.25" Top="56.7" Width="198.45" Height="28.35" Text="Общая площадь : [ob_pl]" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text7" Left="434.7" Top="56.7" Width="283.5" Height="28.35" Text="Количество комнат : [num_kom]" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text8" Top="85.05" Width="718.2" Height="28.35" CanGrow="true" GrowToBottom="true" Text="Основание: [osnovan]" VertAlign="Center" Font="Arial, 11pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="199.53" Width="718.2" Height="18.9" CanGrow="true" Guides="0" DataSource="Q_master">
+      <TextObject Name="Text14" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt"/>
+      <TextObject Name="Text15" Left="37.8" Width="359.1" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fio]" VertAlign="Center" Font="Arial, 11pt"/>
+      <TextObject Name="Text16" Left="396.9" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.type_rod]" VertAlign="Center" Font="Arial, 11pt"/>
+      <TextObject Name="Text17" Left="500.85" Width="113.4" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_rog]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt"/>
+      <TextObject Name="Text18" Left="614.25" Width="103.95" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_ofor]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt"/>
+      <DataHeaderBand Name="DataHeader1" Top="158.22" Width="718.2" Height="37.8">
+        <TextObject Name="Text9" Width="37.8" Height="37.8" Border.Lines="All" Text="NN&#13;&#10;пп" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text10" Left="37.8" Width="359.1" Height="37.8" Border.Lines="All" Text="Фамилия, имя, отчество проживающего" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text11" Left="396.9" Width="103.95" Height="37.8" Border.Lines="All" Text="Родственные отношения" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text12" Left="500.85" Width="113.4" Height="37.8" Border.Lines="All" Text="Дата рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt"/>
+        <TextObject Name="Text13" Left="614.25" Width="103.95" Height="37.8" Border.Lines="All" Text="Дата приб.&#13;&#10;Дата убыт." HorzAlign="Center" VertAlign="Center" Font="Arial, 11pt"/>
+      </DataHeaderBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="221.94" Width="718.2" Height="37.8" CanGrow="true">
+      <TextObject Name="Text24" Width="264.6" Height="37.8" Text="[post_user] " VertAlign="Bottom"/>
+      <TextObject Name="Text23" Left="264.6" Width="94.5" Height="37.8" Border.Lines="Bottom" VertAlign="Bottom"/>
+      <TextObject Name="Text25" Left="359.1" Width="189" Height="37.8" Text="[user]" Padding="10, 0, 2, 0" VertAlign="Bottom"/>
+      <ChildBand Name="Child2" Top="263.24" Width="718.2" Height="37.8">
+        <TextObject Name="Text19" Width="264.6" Height="37.8" Text="Дата выдачи [DATE]" VertAlign="Bottom"/>
+      </ChildBand>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

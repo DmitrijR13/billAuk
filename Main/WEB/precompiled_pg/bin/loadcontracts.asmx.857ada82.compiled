@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/none/master/templates/LoadContracts.asmx" hash="635865ff" filehash="1ca182035e59" flags="130000" assembly="STCLINE.KP50.WebKomplat" type="STCLINE.KP50.WebKomplat.kart.sprav.LoadContracts">
+    <filedeps>
+        <filedep name="/none/master/templates/LoadContracts.asmx" />
+    </filedeps>
+</preserve>

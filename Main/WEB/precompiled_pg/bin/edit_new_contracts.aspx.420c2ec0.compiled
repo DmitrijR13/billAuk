@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/sprav/edit_new_contracts.aspx" hash="cedb9400c" filehash="db9b19dae56fedf2" flags="110000" assembly="App_Web_abg01uhg" type="ASP.kart_sprav_edit_new_contracts_aspx">
+    <filedeps>
+        <filedep name="/none/kart/sprav/edit_new_contracts.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressScope.ascx" />
+        <filedep name="/none/master/templates/AutoCompleteContragents.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/MultiSelectDropDown.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

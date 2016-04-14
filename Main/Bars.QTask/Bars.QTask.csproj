@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D2EAEDC3-8026-442E-9959-B1EB8774D191}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bars.QTask</RootNamespace>
+    <AssemblyName>Bars.QTask</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\MefExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queue\QueueScheduler.cs" />
+    <Compile Include="Queue\QueueServiceExecuting.cs" />
+    <Compile Include="Queue\QueueServiceManagment.cs" />
+    <Compile Include="Queue\QueueServiceResources.cs" />
+    <Compile Include="Queue\QueueServiceUserInterface.cs" />
+    <Compile Include="Queue\UpdateStateStrategy\CancelStateStrategy.cs" />
+    <Compile Include="Queue\UpdateStateStrategy\IUpdateStrategy.cs" />
+    <Compile Include="Queue\UpdateStateStrategy\IUpdateStrategyMetadata.cs" />
+    <Compile Include="Queue\UpdateStateStrategy\ResumeStateStrategy.cs" />
+    <Compile Include="Queue\UpdateStateStrategy\SuspendStateStrategy.cs" />
+    <Compile Include="SampleParameter.cs" />
+    <Compile Include="Tasks\ExecutableTask.cs" />
+    <Compile Include="Tasks\IExecutableTask.cs" />
+    <Compile Include="Tasks\IExecutableTaskMetadata.cs" />
+    <Compile Include="SampleTask.cs" />
+    <Compile Include="Tasks\StatusTask.cs" />
+    <Compile Include="Tasks\TaskContainer.cs" />
+    <Compile Include="Tasks\TaskExportAttribute.cs" />
+    <Compile Include="Tasks\TaskPriority.cs" />
+    <Compile Include="Tasks\TaskState.cs" />
+    <Compile Include="Tasks\TaskType.cs" />
+    <Compile Include="Tasks\ThreadValidationToken.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DATA\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj">
+      <Project>{a09e0051-6b16-42b5-9840-8cb60b0729c7}</Project>
+      <Name>STCLINE.KP50.Globals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DATA\IFMX\Common\STCLINE.KP50.IFMX.Common.csproj">
+      <Project>{13faa6d8-da11-4392-bad2-c1640c172e01}</Project>
+      <Name>STCLINE.KP50.IFMX.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

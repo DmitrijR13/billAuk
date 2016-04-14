@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/29/2012 10:49:59" ReportInfo.Modified="10/10/2014 14:54:20" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;         
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+  
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String" PropName="fam"/>
+      <Column Name="dat_rog" DataType="System.String"/>
+      <Column Name="rod" DataType="System.String"/>
+      <Column Name="dat_mg" DataType="System.String"/>
+      <Column Name="dat_pr" DataType="System.String"/>
+      <Column Name="dat_vip" DataType="System.String"/>
+    </TableDataSource>
+    <Parameter Name="gil_fam" DataType="System.String"/>
+    <Parameter Name="town" DataType="System.String"/>
+    <Parameter Name="rajon" DataType="System.String"/>
+    <Parameter Name="ulica" DataType="System.String"/>
+    <Parameter Name="ndom" DataType="System.String"/>
+    <Parameter Name="nkvar" DataType="System.String"/>
+    <Parameter Name="gil_ima" DataType="System.String"/>
+    <Parameter Name="gil_otch" DataType="System.String"/>
+    <Parameter Name="dolgnost_pasport" DataType="System.String"/>
+    <Parameter Name="dolgnost_nach" DataType="System.String"/>
+    <Parameter Name="fim_pasportist" DataType="System.String"/>
+    <Parameter Name="fim_nachPus" DataType="System.String"/>
+    <Parameter Name="b_date" DataType="System.String"/>
+    <Parameter Name="dat_prib" DataType="System.String"/>
+    <Parameter Name="dat_smert" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Guides="283.5,425.25,18.9,122.85,708.75,321.3,415.8,226.8,75.6,170.1,340.2,434.7,349.65,481.95,623.7,9.45,198.45,207.9,396.9,510.3,699.3">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="43.47" Guides="18.9,37.8">
+      <TextObject Name="Text1" Left="207.9" Top="18.9" Width="141.75" Height="18.9" Text="СПРАВКА" HorzAlign="Center" Font="Arial, 12pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="46.7" Width="718.2" Height="75.6" Guides="0,18.9,37.8,56.7,56.7,75.6">
+      <TextObject Name="Text2" Left="18.9" Width="103.95" Height="18.9" Text="Выдана" VertAlign="Center" HtmlTags="true"/>
+      <TextObject Name="Text9" Left="85.05" Width="623.7" Height="18.9" Border.Lines="Bottom" Text="[gil_fam] [gil_ima] [gil_otch]">
+        <Formats>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <GeneralFormat/>
+          <DateFormat/>
+        </Formats>
+      </TextObject>
+      <TextObject Name="Text3" Left="170.1" Top="18.9" Width="538.65" Height="18.9" Border.Lines="Bottom" Text="[who_is_dead]  [fio_of_the_dead]"/>
+      <LineObject Name="Line1" Left="122.85" Top="18.9" Width="585.9" Border.Width="0.25"/>
+      <LineObject Name="Line10" Left="18.9" Top="37.8" Width="689.85" Border.Width="0.25"/>
+      <TextObject Name="Text5" Left="18.9" Top="37.8" Width="264.6" Height="18.9" Text="была(а) постоянно прописан(а) по адресу:" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="283.5" Top="37.8" Width="425.25" Height="18.9" Border.Lines="Bottom" Border.Width="0.25" Text="[town] [ulica]" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="18.9" Top="56.7" Width="56.7" Height="18.9" Text="дом №"/>
+      <TextObject Name="Text12" Left="75.6" Top="56.7" Width="141.75" Height="18.9" Border.Lines="Bottom" Border.Width="0.25" Text="[ndom]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="217.35" Top="56.7" Width="75.6" Height="18.9" Text="кв. №" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text14" Left="292.95" Top="56.7" Width="132.3" Height="18.9" Border.Lines="Bottom" Border.Width="0.25" Text="[nkvar]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text24" Left="425.25" Top="56.7" Width="283.5" Height="18.9" Text="и проживал(а) там по день смерти." VertAlign="Center"/>
+      <TextObject Name="Text4" Left="18.9" Top="18.9" Width="151.2" Height="18.9" Text="В том, что ее (его)"/>
+    </DataBand>
+    <DataBand Name="Data2" Top="147.65" Width="718.2" Height="18.9" Guides="0,18.9" DataSource="Q_master">
+      <TextObject Name="Text7" Left="18.9" Width="689.85" Height="18.9" Border.Lines="Bottom" Border.Width="0.25" Text="[Q_master.fam] [Q_master.ima] [Q_master.otch], [Q_master.dat_rog]" VertAlign="Center"/>
+      <DataHeaderBand Name="DataHeader1" Top="125.52" Width="718.2" Height="18.9" Guides="0,18.9">
+        <TextObject Name="Text17" Left="18.9" Width="689.85" Height="18.9" Text="Вместе с ним (ней) проживали и проживают в настоящее время:" VertAlign="Center"/>
+      </DataHeaderBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="169.77" Width="718.2" Height="94.5" Guides="47.25,66.15,9.45,28.35">
+      <TextObject Name="Text11" Left="75.6" Top="47.25" Width="122.85" Height="18.9" Text="[Date]" Format="Date" Format.Format="D" VertAlign="Center"/>
+      <TextObject Name="Text22" Left="349.65" Top="28.35" Width="359.1" Height="18.9" Border.Lines="Bottom" Text="[fim_pasportist]" Format="Date" Format.Format="D" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text8" Left="75.6" Top="9.45" Width="633.15" Height="18.9" Text="Справка выдана на основании [osnovanie]" VertAlign="Center"/>
+      <TextObject Name="Text25" Left="75.6" Top="28.35" Width="264.6" Height="18.9" Text="Специалист отдела регистрации граждан" VertAlign="Center"/>
+      <TextObject Name="Text26" Left="9.45" Top="66.15" Width="472.5" Height="18.9" Text="Документ выдан от имени [area]" Format="Date" Format.Format="D" VertAlign="Center"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/none/supg/plan/LoadNode.ashx" hash="635865ff" filehash="3a49265aff3f" flags="130000" assembly="STCLINE.KP50.WebKomplat" type="STCLINE.KP50.WebKomplat.supg.plan.LoadNode">
+    <filedeps>
+        <filedep name="/none/supg/plan/LoadNode.ashx" />
+    </filedeps>
+</preserve>

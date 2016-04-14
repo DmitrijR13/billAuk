@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="04/11/2014 14:36:43" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string nkvar_n = &quot;&quot;;
+    string nkvar = &quot;&quot;;    
+    string nkor = &quot;&quot;;
+    string ndom = &quot;&quot;;    
+    string ulica = &quot;&quot;;        
+    string town = &quot;&quot;;    
+    string pl_gil = &quot;&quot;;
+    string pl_all = &quot;&quot;;    
+    string sum_real = &quot;&quot;;
+    string privat = &quot;&quot;;    
+    string kolgil = &quot;&quot;;
+    string fio = &quot;&quot;;    
+    string komn = &quot;&quot;;
+    string korp = &quot;&quot;;    
+    string kind_priv = &quot;&quot;;        
+    string Lschet = &quot;&quot;;        
+    
+    
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      
+      if (nkvar_n == &quot;-&quot;)
+         komn = &quot;&quot;;
+      else  
+         komn = &quot;Комната&quot;;
+      
+      if (nkor == &quot;-&quot;) 
+          korp = &quot;&quot;;
+      else
+          korp = &quot;Корпус&quot;;
+      
+      if (nkvar_n == &quot;-&quot;) 
+          kind_priv = &quot;Квартира&quot;;
+      else 
+          kind_priv = &quot;Комната&quot;;
+      }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fam" Enabled="false" DataType="System.String"/>
+      <Column Name="ima" Enabled="false" DataType="System.String"/>
+      <Column Name="otch" Enabled="false" DataType="System.String"/>
+      <Column Name="dat_rog" Enabled="false" DataType="System.String"/>
+      <Column Name="cel" Enabled="false" DataType="System.String"/>
+      <Column Name="rod" Enabled="false" DataType="System.String"/>
+      <Column Name="landp" Enabled="false" DataType="System.String" PropName="landop"/>
+      <Column Name="statp" Enabled="false" DataType="System.String" PropName="statop"/>
+      <Column Name="townp" Enabled="false" DataType="System.String" PropName="twnop"/>
+      <Column Name="rajonp" Enabled="false" DataType="System.String" PropName="rajonop"/>
+      <Column Name="rem_op" Enabled="false" DataType="System.String"/>
+      <Column Name="serij" Enabled="false" DataType="System.String"/>
+      <Column Name="nomer" Enabled="false" DataType="System.String"/>
+      <Column Name="vid_dat" Enabled="false" DataType="System.String"/>
+      <Column Name="vid_mes" Enabled="false" DataType="System.String"/>
+      <Column Name="jobname" Enabled="false" DataType="System.String"/>
+      <Column Name="jobpost" Enabled="false" DataType="System.String"/>
+      <Column Name="dat_prib" Enabled="false" DataType="System.String"/>
+      <Column Name="dat1" Enabled="false" DataType="System.String"/>
+      <Column Name="dat_ubit" Enabled="false" DataType="System.String" PropName="dat_vip"/>
+      <Column Name="m_ku" Enabled="false" DataType="System.String"/>
+      <Column Name="type_prop" Enabled="false" DataType="System.String" PropName="type_prop1"/>
+      <Column Name="dat_prop" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="tprp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="landu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="statu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rajonu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="townu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="grgd" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_svu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="who_pvu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_pvu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="npunktp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rem_op" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="npunktu" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rem_ku" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="kod_podrazd" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="debt" DataType="System.Int32" PropName="Column"/>
+    </TableDataSource>
+    <Parameter Name="privat" DataType="System.String"/>
+    <Total Name="t_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1"/>
+    <Total Name="t_sum_tarif" Expression="[Q_master.sum_tarif]" Evaluator="Data1"/>
+    <Total Name="t_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1"/>
+    <Total Name="t_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9">
+    <ReportTitleBand Name="ReportTitle1" Width="1047.06" Height="39.69" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <TextObject Name="Text1" Left="313.74" Width="432.81" Height="37.8" Text="Список домов по [area] &#13;&#10;на [main_date]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="793.8" Width="94.5" Height="18.9" Text="Дата печати:" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text3" Left="793.8" Top="18.9" Width="94.5" Height="18.9" Text="Время печати:" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text4" Left="888.3" Width="160.65" Height="18.9" Text="[date]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text5" Left="888.3" Top="18.9" Width="160.65" Height="18.9" Text="[time]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text32" Width="311.85" Height="37.8" Text="[excel]" Font="Arial, 6pt, style=Italic" TextFill.Color="Red"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="42.89" Width="1047.06" Height="28.35">
+      <TextObject Name="Text6" Width="37.8" Height="28.35" Border.Lines="All" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text7" Left="37.8" Width="217.35" Height="28.35" Border.Lines="All" Text="Улица" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text8" Left="255.15" Width="56.7" Height="28.35" Border.Lines="All" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text9" Left="311.85" Width="66.15" Height="28.35" Border.Lines="All" Text="Квартира" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text10" Left="378" Width="151.2" Height="28.35" Border.Lines="All" Text="ФИО" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text12" Left="633.15" Width="103.95" Height="28.35" Border.Lines="All" Text="Начислено" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text13" Left="737.1" Width="103.95" Height="28.35" Border.Lines="All" Text="Оплачено" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text15" Left="945" Width="103.95" Height="28.35" Border.Lines="All" Text="Срок долга, мес" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text14" Left="841.05" Width="103.95" Height="28.35" Border.Lines="All" Text="Сальдо на конец" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text11" Left="529.2" Width="103.95" Height="28.35" Border.Lines="All" Text="Сальдо на начало" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="74.44" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text16" Width="37.8" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Row#]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text17" Left="37.8" Width="217.35" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.rajon])] / [Trim([Q_master.ulica])]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text18" Left="255.15" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.ndom])][Q_master.nkor]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text19" Left="311.85" Width="66.15" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nkvar]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Left="378" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fio]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text21" Left="633.15" Width="103.95" Height="18.9" Border.Lines="All" GrowToBottom="true" Text="[Q_master.sum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text22" Left="737.1" Width="103.95" Height="18.9" Border.Lines="All" GrowToBottom="true" Text="[Q_master.sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text23" Left="945" Width="103.95" Height="18.9" Border.Lines="All" GrowToBottom="true" Text="[Q_master.debt]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text24" Left="841.05" Width="103.95" Height="18.9" Border.Lines="All" GrowToBottom="true" Text="[Q_master.sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text25" Left="529.2" Width="103.95" Height="18.9" Border.Lines="All" GrowToBottom="true" Text="[Q_master.sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="96.54" Width="1047.06" Height="18.9">
+      <TextObject Name="Text26" Width="529.2" Height="18.9" Border.Lines="All" Text="Всего:" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text27" Left="633.15" Width="103.95" Height="18.9" Border.Lines="All" Text="[t_sum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text28" Left="737.1" Width="103.95" Height="18.9" Border.Lines="All" Text="[t_sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text29" Left="945" Width="103.95" Height="18.9" Border.Lines="All" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text30" Left="841.05" Width="103.95" Height="18.9" Border.Lines="All" Text="[t_sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text31" Left="529.2" Width="103.95" Height="18.9" Border.Lines="All" Text="[t_sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.CurrencySymbol="" Format.PositivePattern="1" Format.NegativePattern="5" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

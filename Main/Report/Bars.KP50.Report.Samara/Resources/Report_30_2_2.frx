@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="02/26/2014 11:10:01" ReportInfo.Modified="04/22/2014 17:50:02" ReportInfo.CreatorVersion="1.6.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="fio" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_rog" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="town_rog" DataType="System.String" PropName="Column"/>
+      <Column Name="type_rod" DataType="System.String" PropName="Column"/>
+      <Column Name="type_reg" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_ofor" DataType="System.DateTime" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="189" CanGrow="true" CanShrink="true">
+      <TextObject Name="Text1" Width="368.55" Height="132.3" Text="   ГУП Самарской области &quot;ЕИРРЦ&quot;&#13;&#10;Служба по учету потребителей&#13;&#10;жилищно-коммунальных услуг&#13;&#10;[IIf([rajon]==&quot;-&quot;,&quot;_______________&quot;,[rajon])] района&#13;&#10;443____, г._________________,&#13;&#10;ул._________,тел.___________&#13;&#10;" Font="Arial, 12pt"/>
+      <TextObject Name="Text2" Left="368.55" Width="349.65" Height="37.8" Text="СПРАВКА" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text3" Top="132.3" Width="368.55" Height="56.7" CanGrow="true" GrowToBottom="true" Text="	«[day]» [month] [year] г." Font="Arial, 12pt"/>
+      <TextObject Name="Text4" Left="368.55" Top="37.8" Width="349.65" Height="151.2" CanGrow="true" GrowToBottom="true" Text="Выдана гр. [fio]&#13;&#10;дата рождения [dat_rog] в том, что он (она) зарегистрирован(а) постоянно с [dat_reg] по адресу :&#13;&#10;[address]&#13;&#10;квартира [status] " Font="Arial, 12pt"/>
+      <ChildBand Name="Child1" Top="192.51" Width="718.2" Height="37.8">
+        <TextObject Name="Text5" Width="368.55" Height="37.8" Text="№ [pers_acc]" VertAlign="Bottom" Font="Arial, 12pt"/>
+      </ChildBand>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="303.48" Width="718.2" Height="47.25" CanGrow="true" DataSource="Q_master">
+      <TextObject Name="Text12" Width="283.5" Height="47.25" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.fio]&#13;&#10;уроженец(-ка) г. [IIf([Q_master.town_rog]==&quot;&quot;,&quot;____________&quot;,[Q_master.town_rog])]" Font="Arial, 12pt"/>
+      <TextObject Name="Text13" Left="283.5" Width="113.4" Height="47.25" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.type_rod]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text14" Left="396.9" Width="94.5" Height="47.25" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_rog]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text15" Left="491.4" Width="113.4" Height="47.25" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.dat_ofor]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text16" Left="604.8" Width="113.4" Height="47.25" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.type_reg]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <DataHeaderBand Name="DataHeader1" Top="233.82" Width="718.2" Height="66.15">
+        <TextObject Name="Text6" Top="18.9" Width="283.5" Height="47.25" Border.Lines="All" Text="Фамилия, Имя, Отчество" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+        <TextObject Name="Text7" Left="283.5" Top="18.9" Width="113.4" Height="47.25" Border.Lines="All" Text="Родственные отношения" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+        <TextObject Name="Text8" Left="396.9" Top="18.9" Width="94.5" Height="47.25" Border.Lines="All" Text="Дата рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+        <TextObject Name="Text9" Left="491.4" Top="18.9" Width="113.4" Height="47.25" Border.Lines="All" Text="Дата регистрации" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+        <TextObject Name="Text10" Left="604.8" Top="18.9" Width="113.4" Height="47.25" Border.Lines="All" Text="Вид регистрации" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+        <TextObject Name="Text11" Left="283.5" Width="198.45" Height="18.9" Text="Состав семьи: " HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      </DataHeaderBand>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="354.24" Width="718.2" Height="37.8" Guides="37.8">
+      <ChildBand Name="Child2" Top="395.54" Width="718.2" Height="141.75" CanGrow="true" CanShrink="true">
+        <TextObject Name="Text17" Width="718.2" Height="66.15" Text="семья занимает жилую площадь из [num_kom] комнат в [total_kom] комнатной&#13;&#10;квартире метраж жилой площади: [gpl] кв.м. метраж общей площади:&#13;&#10;[ob_pl] кв.м.    " VertAlign="Center" Font="Arial, 12pt"/>
+        <TextObject Name="Text18" Top="66.15" Width="718.2" Height="75.6" CanGrow="true" CanShrink="true" Text="Ответственный квартиросъемщик: [fio]&#13;&#10;Основание: __________________&#13;&#10;Примечание: [primech]" VertAlign="Center" Font="Arial, 12pt"/>
+      </ChildBand>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

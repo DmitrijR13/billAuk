@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/exchange/bank/upload_vtb24.aspx" hash="cedb9400c" filehash="fdba0a2732e3aa2a" flags="110000" assembly="App_Web_tj0a12lk" type="ASP.exchange_bank_upload_vtb24_aspx">
+    <filedeps>
+        <filedep name="/none/exchange/bank/upload_vtb24.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+        <filedep name="/none/master/templates/Navigator.ascx" />
+    </filedeps>
+</preserve>

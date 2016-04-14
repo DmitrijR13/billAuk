@@ -1,0 +1,5 @@
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\KP50.DataBase.Update.Build\Debug\KP50.DataBase.Migrator.Providers.PostgreSQL.dll
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\KP50.DataBase.Update.Build\Debug\KP50.DataBase.Migrator.Providers.PostgreSQL.pdb
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\ECM7.Migrator.Providers.PostgreSQL\obj\Debug\KP50.DataBase.Migrator.Providers.PostgreSQL.csprojResolveAssemblyReference.cache
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\ECM7.Migrator.Providers.PostgreSQL\obj\Debug\KP50.DataBase.Migrator.Providers.PostgreSQL.dll
+C:\PROJECTS\KP50 History\WIN\KP50.Migrator\ECM7.Migrator.Providers.PostgreSQL\obj\Debug\KP50.DataBase.Migrator.Providers.PostgreSQL.pdb

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/24/2011 14:17:51" ReportInfo.Modified="10/08/2014 12:58:26" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string fio = &quot;&quot;;
+    string fio_predst = &quot;&quot;;
+    string pasp_predst = &quot;&quot;;
+    string adres1_mg = &quot;&quot;;
+    string adres2mg = &quot;&quot;;
+    string organ_reg_uchet = &quot;&quot;;
+    string adres3lmg = &quot;&quot;;
+    string namereg = &quot;&quot;;
+    string land = &quot;&quot;;
+    string stat = &quot;&quot;;
+    string town = &quot;&quot;;
+    string rajon = &quot;&quot;;
+    string rem_op = &quot;&quot;;
+    string ulica = &quot;&quot;;
+    string ndom = &quot;&quot;;
+    string nkvar = &quot;&quot;;
+    string dok = &quot;&quot;;
+    string serij = &quot;&quot;;
+    string nomer = &quot;&quot;;
+    string vid_mes = &quot;&quot;;
+    string kod_podrazd = &quot;&quot;;
+    string date_dat_ofor = &quot;&quot;;
+    string month = &quot;&quot;;
+    string y = &quot;&quot;;
+    string date_dat_vid = &quot;&quot;;
+    string month_vid = &quot;&quot;;
+    string y_vid = &quot;&quot;; 
+    
+    string land_op = &quot;&quot;;
+    string stat_op = &quot;&quot;;
+    string town_op = &quot;&quot;;
+    string rajon_op = &quot;&quot;;
+    string nkor = &quot;&quot;;
+    string month_ofor = &quot;&quot;;
+    string y_ofor = &quot;&quot;;
+    string date_dat_oprp = &quot;&quot;;
+    string month_oprp = &quot;&quot;;
+    string y_oprp = &quot;&quot;;
+    
+    string fam = &quot;&quot;;
+    string ima = &quot;&quot;;
+    string otch = &quot;&quot;;
+    
+    string date_get_date = &quot;&quot;;
+    string month_get_date = &quot;&quot;;
+    string y_get_date = &quot;&quot;;
+    
+    string dat_rog = &quot;&quot;;
+     
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="15" OtherPagesSource="15" Guides="597.24,687.96,7.56,215.46,45.36,260.82,272.16,461.16,510.3,616.14,60.48,563.22,593.46,419.58,189,393.12,219.24,529.2,94.5,105.84,294.84,306.18,381.78,75.6,325.08,336.42,480.06,102.06,162.54,249.48,317.52,570.78,631.26,506.52,555.66,623.7">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="18.9" Guides="0,18.9">
+      <TextObject Name="Text24" Left="597.24" Width="90.72" Height="18.9" Text="Форма №6" Font="Arial, 8pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="22.13" Width="718.2" Height="28.35" Guides="7.56,26.46">
+      <TextObject Name="Text1" Left="7.56" Top="7.56" Width="680.4" Height="18.9" Text="ЗАЯВЛЕНИЕ О СНЯТИИ С РЕГИСТРАЦИОННОГО УЧЕТА ПО МЕСТУ ЖИТЕЛЬСТВА" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="53.7" Width="718.2" Height="519.75" Border.Lines="Bottom" Guides="18.9,37.8,56.7,68.04,86.94,98.28,117.18,378,396.9,128.52,457.38,476.28,151.2,170.1,181.44,200.34,211.68,219.24,238.14,245.7,264.6,272.16,287.28,306.18,313.74,325.08,343.98,351.54,370.44,419.58,438.48,147.42">
+      <TextObject Name="Text3" Left="7.56" Top="18.9" Width="207.9" Height="18.9" Text="В орган регистрационного учета" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text6" Left="7.56" Top="37.8" Width="37.8" Height="18.9" Text="от" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text7" Left="45.36" Top="37.8" Width="642.6" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[UpperCase([fio])] [dat_rog] г. рождения" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text8" Left="45.36" Top="56.7" Width="642.6" Height="11.34" Text="(фамилия, имя, отчество, год рождения)" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text33" Left="7.56" Top="68.04" Width="253.26" Height="18.9" Text="Документ, удостоверяющий личность: вид" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text34" Left="272.16" Top="68.04" Width="189" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[dok]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text35" Left="461.16" Top="68.04" Width="49.14" Height="18.9" Text="серия" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text36" Left="510.3" Top="68.04" Width="86.94" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[serij]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text37" Left="597.24" Top="68.04" Width="18.9" Height="18.9" Border.Lines="Bottom" Text="№" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text38" Left="616.14" Top="68.04" Width="71.82" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[nomer]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text39" Left="7.56" Top="98.28" Width="52.92" Height="18.9" Text="выдан" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text40" Left="60.48" Top="98.28" Width="502.74" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[vid_mes]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text41" Left="563.22" Top="98.28" Width="30.24" Height="18.9" Text="код" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text42" Left="593.46" Top="98.28" Width="94.5" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[kod_podrazd]" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text44" Left="7.56" Top="378" Width="412.02" Height="18.9" Text="Подпись заявителя, законного представителя (ненужное зачеркнуть)" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text47" Left="419.58" Top="378" Width="90.72" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text63" Left="60.48" Top="117.18" Width="502.74" Height="11.34" Text="(наименование органа, учреждения)" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text67" Left="7.56" Top="457.38" Width="37.8" Height="18.9" Text="М.П." VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text2" Left="7.56" Top="151.2" Width="181.44" Height="18.9" Text="Законный представитель" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text9" Left="189" Top="151.2" Width="498.96" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[UpperCase([fio_predst])]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text68" Left="189" Top="170.1" Width="498.96" Height="11.34" Text="(указать: отец, мать, опекун, попечитель, Ф.И.О.," HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text10" Left="7.56" Top="181.44" Width="680.4" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[UpperCase([pasp_predst])]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text69" Left="7.56" Top="200.34" Width="680.4" Height="11.34" Text="паспотные данные)" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text11" Left="7.56" Top="219.24" Width="385.56" Height="18.9" Text="В связи с регистрацией по новому месту жительства по адресу:" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text12" Left="393.12" Top="219.24" Width="294.84" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[adres1_mg]" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text13" Left="7.56" Top="245.7" Width="680.4" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[adres2mg]" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text70" Left="7.56" Top="264.6" Width="680.4" Height="7.56" Text="(указать точный адрес)" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text14" Left="7.56" Top="287.28" Width="207.9" Height="18.9" Text="Орган регистрационного учета" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text71" Left="219.24" Top="306.18" Width="468.72" Height="7.56" Text="(наименование органа)" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text16" Left="7.56" Top="325.08" Width="521.64" Height="18.9" Text="прошу снять меня с регистрационного учета по прежнему месту жительства по адресу:" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text17" Left="529.2" Top="325.08" Width="158.76" Height="18.9" Border.Lines="Bottom" VertAlign="Center"/>
+      <TextObject Name="Text18" Left="7.56" Top="351.54" Width="680.4" Height="18.9" Border.Lines="Bottom" CanGrow="true" Text="[adres3lmg]" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text19" Left="7.56" Top="419.58" Width="86.94" Height="18.9" Text="Подпись гр." VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text20" Left="105.84" Top="419.58" Width="189" Height="18.9" Border.Lines="Bottom" VertAlign="Center"/>
+      <TextObject Name="Text21" Left="306.18" Top="419.58" Width="75.6" Height="18.9" Text="заверяю." VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text22" Left="75.6" Top="457.38" Width="249.48" Height="18.9" Text="Подпись и Ф.И.О. должностного лица" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text23" Left="336.42" Top="457.38" Width="143.64" Height="18.9" Border.Lines="Bottom" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text92" Left="7.56" Top="128.52" Width="94.5" Height="18.9" Text="Дата выдачи" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text93" Left="102.06" Top="128.52" Width="60.48" Height="18.9" Border.Lines="Bottom" Text="&quot;[date_dat_vid]&quot;" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text88" Left="162.54" Top="128.52" Width="86.94" Height="18.9" Border.Lines="Bottom" Text="[month_vid]" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text89" Left="249.48" Top="128.52" Width="68.04" Height="18.9" Border.Lines="Bottom" Text="[y_vid]г." HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text94" Left="555.66" Top="378" Width="15.12" Height="18.9" Border.Lines="Bottom" Text="&quot;" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text95" Left="570.78" Top="378" Width="15.12" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text96" Left="585.9" Top="378" Width="102.06" Height="18.9" Border.Lines="Bottom" Text="&quot;" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text98" Left="544.32" Top="457.38" Width="11.34" Height="18.9" Border.Lines="Bottom" Text="&quot;" HorzAlign="Right" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text99" Left="555.66" Top="457.38" Width="15.12" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text100" Left="570.78" Top="457.38" Width="117.18" Height="18.9" Border.Lines="Bottom" Text="&quot;" VertAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text4" Left="223.02" Top="18.9" Width="464.94" Height="18.9" Border.Lines="Bottom" Text="[namereg]" HorzAlign="Center" Font="Arial, 9pt, style=Bold"/>
+      <TextObject Name="Text101" Left="223.02" Top="287.28" Width="464.94" Height="18.9" Border.Lines="Bottom" Text="[UpperCase([organ_reg_uchet])]" HorzAlign="Center" Font="Arial, 9pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+</Report>

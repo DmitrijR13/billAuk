@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="eda7ecd2-8629-47d5-8172-2a4a9d9ffacd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://aidar/wsdl/adres.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="adres.xsd" MetadataType="Schema" ID="7a28af17-ece6-4477-b89e-e6b2d188b6c6" SourceId="1" SourceUrl="http://aidar/wsdl/adres.svc?xsd=xsd0" />
+    <MetadataFile FileName="adres.wsdl" MetadataType="Wsdl" ID="79d9d1e4-24f5-48f3-834c-fa53ecf5cda5" SourceId="1" SourceUrl="http://aidar/wsdl/adres.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="adres1.xsd" MetadataType="Schema" ID="d820d8ea-5630-4436-b036-fbb69d185be9" SourceId="1" SourceUrl="http://aidar/wsdl/adres.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceAdres.wsdl" MetadataType="Wsdl" ID="68f7a018-e866-4105-8245-b2589ddd320f" SourceId="1" SourceUrl="http://aidar/wsdl/adres.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

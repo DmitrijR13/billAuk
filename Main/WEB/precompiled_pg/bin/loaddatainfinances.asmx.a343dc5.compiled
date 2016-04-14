@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/none/finances/LoadDataInFinances.asmx" hash="635865ff" filehash="2e93c010cc00" flags="130000" assembly="STCLINE.KP50.WebKomplat" type="STCLINE.KP50.WebKomplat.finances.LoadDataInFinances">
+    <filedeps>
+        <filedep name="/none/finances/LoadDataInFinances.asmx" />
+    </filedeps>
+</preserve>

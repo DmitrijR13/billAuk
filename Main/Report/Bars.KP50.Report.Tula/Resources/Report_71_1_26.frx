@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/15/2015 11:23:44" ReportInfo.Modified="01/15/2015 15:04:46" ReportInfo.CreatorVersion="2013.1.3.0">
+  <Dictionary/>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Width="718.2" Height="37.8" Text="Контрольный лицензионный отчет" HorzAlign="Center" VertAlign="Center" Font="Arial, 14pt, style=Bold"/>
+    </ReportTitleBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="41" Width="718.2" Height="18.9">
+      <TextObject Name="Text2" Width="349.65" Height="18.9" Border.Lines="All" Text="Отчетный месяц" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="Text3" Left="349.65" Width="368.55" Height="18.9" Border.Lines="All" Text="Количество лицевых счетов " HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      <ChildBand Name="Child1" Top="63.1" Width="718.2" Height="18.9">
+        <TextObject Name="Text4" Width="349.65" Height="18.9" Border.Lines="All" Text="[month]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+        <TextObject Name="Text5" Left="349.65" Width="368.55" Height="18.9" Border.Lines="All" Text="[count_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt"/>
+      </ChildBand>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

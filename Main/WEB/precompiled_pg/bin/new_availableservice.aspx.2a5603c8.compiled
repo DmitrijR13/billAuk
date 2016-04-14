@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/serv/new_availableservice.aspx" hash="cedb9400c" filehash="184dd6d33c906e73" flags="110000" assembly="App_Web_qis0su4s" type="ASP.kart_serv_new_availableservice_aspx">
+    <filedeps>
+        <filedep name="/none/kart/serv/new_availableservice.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+    </filedeps>
+</preserve>

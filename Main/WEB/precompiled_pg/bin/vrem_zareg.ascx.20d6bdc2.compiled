@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/reports/pasp/list/vrem_zareg.ascx" hash="cedb9400c" filehash="b0a8d0b0095b5ffd" flags="110000" assembly="App_Web_hz1nuxo0" type="ASP.reports_pasp_list_vrem_zareg_ascx">
+    <filedeps>
+        <filedep name="/none/master/templates/DateTime.ascx" />
+        <filedep name="/none/reports/pasp/list/vrem_zareg.ascx" />
+    </filedeps>
+</preserve>

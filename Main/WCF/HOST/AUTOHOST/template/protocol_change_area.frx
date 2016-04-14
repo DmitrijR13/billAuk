@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/24/2011 14:03:13" ReportInfo.Modified="12/26/2014 18:20:29" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  { 
+                                            
+    public int num_p;
+    public int num_u;
+    public int first=1;
+    public int second=1;
+    
+
+  
+
+    private void table_ported_ManualBuild(object sender, EventArgs e)
+    {
+      
+      if(first&lt;=1){
+        TableDataSource port = Report.GetDataSource(&quot;Ported&quot;) as TableDataSource;
+        table_ported.PrintRow(0);
+        table_ported.PrintColumns(); 
+        table_ported.PrintRow(1);
+        table_ported.PrintColumns(); 
+      
+        while (port.HasMoreRows)
+        {  
+          num_p++;
+          table_ported.PrintRow(2);
+          table_ported.PrintColumns();         
+          port.Next();
+        }
+      }
+      first++;
+    }
+
+    private void table_unported_ManualBuild(object sender, EventArgs e)
+    {   
+      if(second&lt;=1){
+        TableDataSource unport = Report.GetDataSource(&quot;Unported&quot;) as TableDataSource;  
+        if(unport.RowCount!=0)
+        {
+          table_unported.PrintRow(0);
+          table_unported.PrintColumns(); 
+          table_unported.PrintRow(1);
+          table_unported.PrintColumns(); 
+        }
+        while (unport.HasMoreRows)
+        {  
+          num_u++;
+          table_unported.PrintRow(2);
+          table_unported.PrintColumns();  
+        
+          unport.Next();
+        }
+      }
+      second++;
+      
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Ported" ReferenceName="Data.Ported" DataType="System.Int32" Enabled="true"/>
+    <TableDataSource Name="Unported" ReferenceName="Data.Unported" DataType="System.Int32" Enabled="true"/>
+    <Parameter Name="new_area" DataType="System.String"/>
+    <Parameter Name="new_geu" DataType="System.String"/>
+    <Parameter Name="old_area" DataType="System.String"/>
+    <Parameter Name="old_geu" DataType="System.String"/>
+    <Parameter Name="date_port" DataType="System.String"/>
+    <Parameter Name="result" DataType="System.String"/>
+    <Parameter Name="result_ls" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" Guides="179.55,179.55,746.55,746.55">
+    <ReportTitleBand Name="ReportTitle1" Width="1084.86" Height="141.75">
+      <TextObject Name="Text1" Width="746.55" Height="37.8" Text="Протокол о переносе лицевых счетов в новую управляющую компанию за [date_port]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 12pt"/>
+      <TextObject Name="Text2" Left="9.45" Top="37.8" Width="378" Height="66.15" Text="Новая УК: [new_area]&#13;&#10;Старые УК: [old_area]&#13;&#10;" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text3" Left="387.45" Top="37.8" Width="359.1" Height="66.15" Text="Новое ЖЭУ:[new_geu]&#13;&#10;Старые ЖЭУ:[old_geu]&#13;&#10;" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text4" Left="9.45" Top="103.95" Width="737.1" Height="37.8" Text="Результат переноса домов: [result]&#13;&#10;Результат переноса ЛС: [result_ls]" Font="Times New Roman, 9pt"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="143.75" Width="1084.86" Height="74.34" CanGrow="true" DataSource="Ported">
+      <TableObject Name="table_ported" Width="736.62" Height="66.15" Border.Lines="All" Border.Width="0.25" ManualBuildEvent="table_ported_ManualBuild">
+        <TableColumn Name="Column1" Width="147.93"/>
+        <TableColumn Name="Column2" Width="195.18"/>
+        <TableColumn Name="Column3" Width="81.78"/>
+        <TableColumn Name="Column7" Width="169.98"/>
+        <TableColumn Name="Column12" Width="141.75"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Border.Width="0.25" Text="Перенесенные дома" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold" ColSpan="5"/>
+          <TableCell Name="Cell2" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell21" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell36" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="28.35">
+          <TableCell Name="Cell6" Border.Lines="All" Border.Width="0.25" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell7" Border.Lines="All" Border.Width="0.25" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell8" Border.Lines="All" Border.Width="0.25" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell22" Border.Lines="All" Border.Width="0.25" Text="Действующая УК" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell37" Border.Lines="All" Border.Width="0.25" Text="Действующее ЖЭУ" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell9" Border.Lines="All" Border.Width="0.25" Text="[num_p]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell10" Border.Lines="All" Border.Width="0.25" Text="[Ported.adres]&#13;&#10;" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell11" Border.Lines="All" Border.Width="0.25" Text="[Ported.ndom]&#13;&#10;" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell23" Border.Lines="All" Border.Width="0.25" Text="[Ported.area]&#13;&#10;" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell38" Border.Lines="All" Border.Width="0.25" Text="[Ported.geu]&#13;&#10;" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <DataBand Name="Data2" Top="220.09" Width="1084.86" Height="75.6" DataSource="Unported">
+      <TableObject Name="table_unported" Width="1031.16" Height="66.15" Border.Lines="All" Border.Width="0.25" ManualBuildEvent="table_unported_ManualBuild">
+        <TableColumn Name="Column13" Width="147.93"/>
+        <TableColumn Name="Column14" Width="195.18"/>
+        <TableColumn Name="Column15" Width="81.78"/>
+        <TableColumn Name="Column16" Width="169.98"/>
+        <TableColumn Name="Column17" Width="141.75"/>
+        <TableColumn Name="Column19" Width="294.54"/>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell39" Border.Lines="All" Border.Width="0.25" Text="Неперенесенные дома" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt, style=Bold" ColSpan="5"/>
+          <TableCell Name="Cell40" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell41" Border.Lines="All" Border.Width="0.25" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell42" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell43" Border.Lines="All" Border.Width="0.25" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell57" Border.Lines="All" Border.Width="0.25"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="28.35">
+          <TableCell Name="Cell44" Border.Lines="All" Border.Width="0.25" Text="№&#13;&#10;п/п" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell45" Border.Lines="All" Border.Width="0.25" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell46" Border.Lines="All" Border.Width="0.25" Text="Дом" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell47" Border.Lines="All" Border.Width="0.25" Text="Действующая УК" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell48" Border.Lines="All" Border.Width="0.25" Text="Действующее ЖЭУ" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell58" Border.Lines="All" Border.Width="0.25" Text="Причина отмены переноса дома" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell49" Border.Lines="All" Border.Width="0.25" Text="[num_u]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell50" Border.Lines="All" Border.Width="0.25" Text="[Unported.adres]&#13;&#10;" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell51" Border.Lines="All" Border.Width="0.25" Text="[Unported.ndom]&#13;&#10;" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell52" Border.Lines="All" Border.Width="0.25" Text="[Unported.area]&#13;&#10;" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell53" Border.Lines="All" Border.Width="0.25" Text="[Unported.geu]" VertAlign="Center" Font="Times New Roman, 8pt"/>
+          <TableCell Name="Cell59" Border.Lines="All" Border.Width="0.25" Text="[Unported.reason]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+  </ReportPage>
+</Report>

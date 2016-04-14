@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/finances/pack/manualdistribution.ascx" hash="cedb9400c" filehash="15ba22caf2d2217d" flags="110000" assembly="App_Web_n51g2eex" type="ASP.finances_pack_manualdistribution_ascx">
+    <filedeps>
+        <filedep name="/none/finances/pack/manualdistribution.ascx" />
+        <filedep name="/none/master/templates/DateTime.ascx" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/24/2011 14:17:51" ReportInfo.Modified="08/05/2015 15:44:03" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    string namereg = &quot;&quot;;
+    
+    string fio = &quot;&quot;; 
+    string dat_rog = &quot;&quot;;
+    string mrog = &quot;&quot;;
+    
+    string land_op = &quot;&quot;;
+    string stat_op = &quot;&quot;;
+    string town_op = &quot;&quot;;
+    string rajon_op = &quot;&quot;;
+    string rem_op = &quot;&quot;;
+    
+    string fio_predst = &quot;&quot;;
+    string predst_fio = &quot;&quot;;
+    string predst_pasp = &quot;&quot;;
+    string predst_rod = &quot;&quot;;
+    
+    string date_dat_ofor = &quot;&quot;;
+    string month_ofor = &quot;&quot;;
+    string y_ofor = &quot;&quot;;
+    
+    string date_dat_oprp = &quot;&quot;;
+    string month_oprp = &quot;&quot;;
+    string y_oprp = &quot;&quot;;
+    
+    string osnovanie = &quot;&quot;;
+    
+    string stat = &quot;&quot;;
+    string town = &quot;&quot;;
+    string rajon = &quot;&quot;;
+    string ulica = &quot;&quot;;
+    string ndom = &quot;&quot;;
+    string nkvar = &quot;&quot;;
+    
+    string dok = &quot;&quot;;
+    string serij = &quot;&quot;;
+    string nomer = &quot;&quot;;
+    
+    string vid_mes = &quot;&quot;;
+    string kod_podrazd = &quot;&quot;;
+    
+    string date_dat_vid = &quot;&quot;;
+    string month_vid = &quot;&quot;;
+    string y_vid = &quot;&quot;; 
+    
+    string date_get_date = &quot;&quot;;
+    string month_get_date = &quot;&quot;;
+    string y_get_date = &quot;&quot;;                  
+    
+    string adres1_mg = &quot;&quot;;
+    string adres2_mg = &quot;&quot;;
+    string adres3_mg = &quot;&quot;;
+    string date_dat_vid_l = &quot;&quot;;
+    string month_vid_l = &quot;&quot;;
+    string y_vid_l = &quot;&quot;;
+    
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+
+      
+    }
+
+    private void Page1_StartPage(object sender, EventArgs e)
+    {
+      if(((String)Report.GetParameterValue(&quot;gender&quot;)) == &quot;Ж&quot;)
+      {
+        Text188.Text=&quot;x&quot; ;
+        Text263.Text=&quot;x&quot; ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;gender&quot;)) == &quot;М&quot;)
+      {
+        Text189.Text=&quot;x&quot; ;
+        Text264.Text=&quot;x&quot; ;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" RawPaperSize="9" FirstPageSource="0" OtherPagesSource="0" ExtraDesignWidth="true" StartPageEvent="Page1_StartPage">
+    <DataBand Name="Data1" Width="718.2" Height="1033.83" CanGrow="true" BeforePrintEvent="Data1_BeforePrint">
+      <TextObject Name="Text11" Top="119.07" Width="718.2" Height="13.23" Text="(указать точный адрес места жительства прибывшего(ей) гражданина(ки))" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text12" Top="134.19" Width="158.76" Height="18.9" Text="Законный представитель" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text13" Left="158.76" Top="134.19" Width="559.44" Height="18.9" Border.Lines="Bottom" Text="[predst_rod]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text14" Top="153.09" Width="718.2" Height="13.23" Text="(указать: отец, мать, опекун, попечитель, усыновитель" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text15" Top="166.32" Width="718.2" Height="18.9" Border.Lines="Bottom" Text="[UpperCase([predst_fio])] [UpperCase([predst_pasp])]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text16" Top="185.22" Width="718.2" Height="13.23" Text="фамилия, имя, отчество (при наличии)), реквизиты документа, удостоверяющего личность)" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text19" Top="198.45" Width="219.24" Height="17.01" Text="Жилое помещение предоставлено" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text20" Left="219.24" Top="198.45" Width="498.96" Height="17.01" Border.Lines="Bottom" Text="[UpperCase([fio_kem])]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text23" Top="257.04" Width="68.04" Height="17.01" Text="по адресу" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text24" Left="68.04" Top="257.04" Width="650.16" Height="17.01" Border.Lines="Bottom" Text="[stat], [town], [rajon]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text25" Top="275.94" Width="68.04" Height="17.01" Text="улица" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text26" Left="68.04" Top="275.94" Width="294.84" Height="17.01" Border.Lines="Bottom" Text="[ulica]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text27" Left="362.88" Top="275.94" Width="37.8" Height="17.01" Text=", дом" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text28" Left="400.68" Top="275.94" Width="75.6" Height="17.01" Border.Lines="Bottom" Text="[ndom]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text29" Left="476.28" Top="275.94" Width="60.48" Height="17.01" Text="корпус" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text30" Left="536.76" Top="275.94" Width="41.58" Height="17.01" Border.Lines="Bottom" Text="[nkor]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text31" Left="578.34" Top="275.94" Width="71.82" Height="17.01" Text="квартира" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text32" Left="650.16" Top="275.94" Width="68.04" Height="17.01" Border.Lines="Bottom" Text="[nkvar]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text33" Top="292.95" Width="260.82" Height="17.01" Text="Документ, удостоверяющий личность:" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text34" Left="260.82" Top="292.95" Width="215.46" Height="17.01" Border.Lines="Bottom" Text="[dok]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text35" Left="476.28" Top="292.95" Width="60.48" Height="17.01" Text="серия" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text36" Left="536.76" Top="292.95" Width="83.16" Height="17.01" Border.Lines="Bottom" Text="[serij]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text37" Left="619.92" Top="292.95" Width="22.68" Height="17.01" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text38" Left="642.6" Top="292.95" Width="75.6" Height="17.01" Border.Lines="Bottom" Text="[nomer]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text39" Top="323.19" Width="49.14" Height="17.01" Text="выдан" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text40" Left="49.14" Top="323.19" Width="510.3" Height="17.01" Border.Lines="Bottom" Text="[vid_mes]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text41" Left="559.44" Top="323.19" Width="60.48" Height="17.01" Text="код" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text42" Left="619.92" Top="323.19" Width="98.28" Height="17.01" Border.Lines="Bottom" Text="[kod_podrazd]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text43" Top="355.32" Width="86.94" Height="17.01" Text="Дата выдачи " VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text44" Top="374.22" Width="419.58" Height="17.01" Text="Подпись заявителя, законного представителя (ненужное зачеркнуть)" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text47" Left="419.58" Top="374.22" Width="298.62" Height="17.01" Border.Lines="Bottom" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text48" Left="419.58" Top="393.12" Width="51.03" Height="17.01" Text="Дата" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text50" Top="417.69" Width="718.2" Height="17.01" Text="Вселение произведено в соответствии с законодательством Российской Федерации." VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text51" Top="434.7" Width="313.74" Height="17.01" Text="Подпись лица, предоставившего жилое помещение" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text52" Left="313.74" Top="434.7" Width="404.46" Height="17.01" Border.Lines="Bottom" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text63" Left="49.14" Top="340.2" Width="510.3" Height="13.23" Text="(наименование органа, учреждения)" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text69" Top="553.77" Width="283.5" Height="17.01" Border.Lines="Bottom" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text45" Left="98.28" Top="355.32" Width="37.8" Height="17.01" Border.Lines="Bottom" Text="[date_dat_vid]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text88" Left="147.42" Top="355.32" Width="86.94" Height="17.01" Border.Lines="Bottom" Text="[month_vid]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text89" Left="234.36" Top="355.32" Width="68.04" Height="17.01" Border.Lines="Bottom" Text="[y_vid]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text92" Top="228.69" Width="94.5" Height="17.01" Text="на основании" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text71" Top="570.78" Width="283.5" Height="22.68" Text="(подпись и фамилия, имя, отчество (при наличии) должностного лица)" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text67" Left="226.8" Top="553.77" Width="166.32" Height="17.01" Text="М.П." HorzAlign="Right" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text73" Top="602.91" Width="132.3" Height="17.01" Text="Принятое решение:" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text74" Left="132.3" Top="602.91" Width="585.9" Height="17.01" Border.Lines="Bottom" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text75" Top="619.92" Width="718.2" Height="17.01" Border.Lines="Bottom" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text76" Left="262.71" Top="642.6" Width="455.49" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text77" Left="262.71" Top="661.5" Width="455.49" Height="15.12" Text="(фамилия, имя, отчество (при наличии), подпись должностного лица органа регистрационного учета)&#13;&#10;" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text78" Top="672.84" Width="638.82" Height="18.9" Text="Выдано свидетельство о регистрации по месту жительства (для граждан, не достигших 14-летнего возраста) №" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text79" Left="638.82" Top="672.84" Width="79.38" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" Font="Arial, 9pt"/>
+      <TextObject Name="Text94" Left="481.95" Top="393.12" Width="37.8" Height="17.01" Border.Lines="Bottom" Text="[date_get_date]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text95" Left="531.09" Top="393.12" Width="98.28" Height="17.01" Border.Lines="Bottom" Text="[month_get_date]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text96" Left="629.37" Top="393.12" Width="69.93" Height="17.01" Border.Lines="Bottom" Text="[y_get_date]" AutoShrink="FontSize" AutoShrinkMinSize="6" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text100" Left="219.24" Top="215.46" Width="498.96" Height="13.23" Text="(указать фамилию, имя, отчество (при наличии) лица, предоставившего жилое помещение, степень родства)" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text107" Left="455.49" Top="553.77" Width="41.58" Height="17.01" Border.Lines="Bottom" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text108" Left="508.41" Top="553.77" Width="154.98" Height="17.01" Border.Lines="Bottom" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text109" Left="663.39" Top="553.77" Width="54.81" Height="17.01" Text=" г." VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text114" Left="136.08" Top="355.32" Width="11.34" Height="17.01" Text="&quot;" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text115" Left="86.94" Top="355.32" Width="11.34" Height="17.01" Text="&quot;" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text116" Left="470.61" Top="393.12" Width="11.34" Height="17.01" Text="&quot;" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text117" Left="519.75" Top="393.12" Width="11.34" Height="17.01" Text="&quot;" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text120" Left="393.12" Top="553.77" Width="62.37" Height="17.01" Text="&quot;" HorzAlign="Right" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text121" Left="497.07" Top="553.77" Width="11.34" Height="17.01" Text="&quot;" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text122" Left="17.01" Top="642.6" Width="45.36" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text123" Left="73.71" Top="642.6" Width="154.98" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text124" Left="228.69" Top="642.6" Width="81.27" Height="18.9" Text="г." VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text125" Top="642.6" Width="17.01" Height="18.9" Text="&quot;" HorzAlign="Right" VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text126" Left="62.37" Top="642.6" Width="11.34" Height="18.9" Text="&quot;" VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text21" Left="94.5" Top="245.7" Width="623.7" Height="13.23" Text="(документ, являющийся в соответствии с жилищным законодательством Российской Федерации основанием  для вселения)" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+      <LineObject Name="Line1" Top="697.41" Width="718.2" Border.Style="Dash"/>
+      <TextObject Name="Text87" Top="536.76" Width="718.2" Height="17.01" Text="Подпись заявителя и лица, предоставившего жилое помещение, заверяю" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text8" Top="52.92" Width="718.2" Height="13.23" Text="(фамилия, имя, отчество (при наличии), дата рождения" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text9" Top="96.39" Width="94.5" Height="17.01" Text="Прибыл(а) из" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text10" Left="94.5" Top="96.39" Width="623.7" Height="17.01" Border.Lines="Bottom" Text="[adres3lmg]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text6" Top="35.91" Width="22.68" Height="17.01" Text="от" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text7" Left="22.68" Top="35.91" Width="695.52" Height="17.01" Border.Lines="Bottom" Text="[UpperCase([fio])] [dat_rog] г. р." AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text3" Top="18.9" Width="192.78" Height="17.01" Text="В орган регистрационного учета" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text4" Left="192.78" Top="18.9" Width="525.42" Height="17.01" Border.Lines="Bottom" Text="[UpperCase([namereg])]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text1" Width="621.81" Height="18.9" Text="ЗАЯВЛЕНИЕ О РЕГИСТРАЦИИ ПО МЕСТУ ЖИТЕЛЬСТВА" HorzAlign="Center" Font="Times New Roman, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="621.81" Width="96.39" Height="18.9" Text="Форма №6" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text46" Left="94.5" Top="228.69" Width="623.7" Height="17.01" Border.Lines="Bottom" Text="[UpperCase([osnovanie])]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text5" Left="315.63" Top="691.74" Width="79.38" Height="15.12" Fill.Color="White" Text="Линия отреза" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text182" Left="302.4" Top="355.32" Width="18.9" Height="17.01" Text="г." AutoShrink="FontSize" VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text183" Left="699.3" Top="393.12" Width="18.9" Height="17.01" Text="г." AutoShrink="FontSize" VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text185" Top="79.38" Width="718.2" Height="13.23" Text="место рождения)" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text187" Top="62.37" Width="538.65" Height="17.01" Border.Lines="Bottom" Text="[mrog]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text49" Left="538.65" Top="62.37" Width="75.6" Height="17.01" Text="Пол муж." VertAlign="Bottom" Font="Arial, 9pt"/>
+      <TextObject Name="Text54" Left="638.82" Top="62.37" Width="37.8" Height="17.01" Text="жен." VertAlign="Bottom" Font="Arial, 9pt"/>
+      <TextObject Name="Text188" Left="680.4" Top="56.7" Width="22.68" Height="22.68" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt"/>
+      <TextObject Name="Text189" Left="614.25" Top="56.7" Width="22.68" Height="22.68" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text190" Left="264.6" Top="309.96" Width="207.9" Height="13.23" Text="(вид документа)" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text205" Left="321.3" Top="355.32" Width="151.2" Height="17.01" Text="СНИЛС (при наличии)" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TableObject Name="Table2" Left="472.5" Top="355.32" Width="245.7" Height="17.01">
+        <TableColumn Name="Column14" Width="18.9"/>
+        <TableColumn Name="Column15" Width="18.9"/>
+        <TableColumn Name="Column16" Width="18.9"/>
+        <TableColumn Name="Column17" Width="18.9"/>
+        <TableColumn Name="Column18" Width="18.9"/>
+        <TableColumn Name="Column19" Width="18.9"/>
+        <TableColumn Name="Column20" Width="18.9"/>
+        <TableColumn Name="Column21" Width="18.9"/>
+        <TableColumn Name="Column22" Width="18.9"/>
+        <TableColumn Name="Column23" Width="18.9"/>
+        <TableColumn Name="Column24" Width="18.9"/>
+        <TableColumn Name="Column25" Width="18.9"/>
+        <TableColumn Name="Column26" Width="18.9"/>
+        <TableRow Name="Row2" Height="17.01">
+          <TableCell Name="Cell34" Border.Lines="All"/>
+          <TableCell Name="Cell35" Border.Lines="All"/>
+          <TableCell Name="Cell36" Border.Lines="All"/>
+          <TableCell Name="Cell37" Border.Lines="All"/>
+          <TableCell Name="Cell38" Border.Lines="All"/>
+          <TableCell Name="Cell39" Border.Lines="All"/>
+          <TableCell Name="Cell40" Border.Lines="All"/>
+          <TableCell Name="Cell41" Border.Lines="All"/>
+          <TableCell Name="Cell42" Border.Lines="All"/>
+          <TableCell Name="Cell43" Border.Lines="All"/>
+          <TableCell Name="Cell44" Border.Lines="All"/>
+          <TableCell Name="Cell45" Border.Lines="All"/>
+          <TableCell Name="Cell46" Border.Lines="All"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text53" Top="453.6" Width="275.94" Height="18.9" Text="Документ, удостоверяющий его личность: вид" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text273" Left="275.94" Top="453.6" Width="166.32" Height="18.9" Border.Lines="Bottom" Text="[vid_dok_l]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text55" Left="442.26" Top="453.6" Width="41.58" Height="18.9" Text="серия" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text56" Left="483.84" Top="453.6" Width="90.72" Height="18.9" Border.Lines="Bottom" Text="[serija_l]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text57" Left="574.56" Top="453.6" Width="18.9" Height="18.9" Text="№" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text58" Left="593.46" Top="453.6" Width="86.94" Height="18.9" Border.Lines="Bottom" Text="[num_dok_l]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text59" Top="483.84" Width="45.36" Height="18.9" Text="выдан" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text60" Left="45.36" Top="483.84" Width="517.86" Height="18.9" Border.Lines="Bottom" Text="[mes_vid_l]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text61" Left="563.22" Top="483.84" Width="30.24" Height="18.9" Text="код" HorzAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text62" Left="593.46" Top="483.84" Width="86.94" Height="18.9" Border.Lines="Bottom" Text="[kod_vid_l]" HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text64" Left="49.14" Top="502.74" Width="514.08" Height="11.34" Text="(наименование органа, учреждения)" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text65" Top="514.08" Width="86.94" Height="18.9" Text="Дата выдачи " Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text97" Left="102.06" Top="514.08" Width="37.8" Height="18.9" Border.Lines="Bottom" Text="[date_dat_vid_l]" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text98" Left="154.98" Top="514.08" Width="86.94" Height="18.9" Border.Lines="Bottom" Text="[month_vid_l]" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text99" Left="238.14" Top="514.08" Width="68.04" Height="18.9" Border.Lines="Bottom" Text="[y_vid_l]г." Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text118" Left="90.72" Top="514.08" Width="11.34" Height="18.9" Text="&quot;" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text119" Left="139.86" Top="514.08" Width="11.34" Height="18.9" Text="&quot;" Font="Times New Roman, 9pt, style=Bold"/>
+    </DataBand>
+  </ReportPage>
+  <ReportPage Name="Page2">
+    <DataBand Name="Data2" Width="718.2" Height="427.14">
+      <TextObject Name="Text206" Width="718.2" Height="18.9" Text="ЗАЯВЛЕНИЕ О СНЯТИИ С РЕГИСТРАЦИОННОГО УЧЕТА ПО МЕСТУ ЖИТЕЛЬСТВА" HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text207" Top="18.9" Width="185.22" Height="17.01" Text="В орган регистрационного учета" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text208" Left="185.22" Top="18.9" Width="532.98" Height="17.01" Border.Lines="Bottom" Text="[UpperCase([namereg])]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text209" Top="35.91" Width="30.24" Height="17.01" Text="от" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text210" Left="30.24" Top="35.91" Width="687.96" Height="17.01" Border.Lines="Bottom" Text="[UpperCase([fio])] [dat_rog] г. р." HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text211" Top="96.39" Width="238.14" Height="17.01" Text="Документ, удостоверяющий личность: вид" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text212" Left="238.14" Top="96.39" Width="189" Height="17.01" Border.Lines="Bottom" Text="[dok]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text213" Left="427.14" Top="96.39" Width="49.14" Height="17.01" Text="серия" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text214" Left="476.28" Top="96.39" Width="86.94" Height="17.01" Border.Lines="Bottom" Text="[serij]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text215" Left="563.22" Top="96.39" Width="18.9" Height="17.01" Text="№" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text216" Left="582.12" Top="96.39" Width="136.08" Height="17.01" Border.Lines="Bottom" Text="[nomer]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text217" Top="124.74" Width="52.92" Height="17.01" Text="выдан" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text218" Left="52.92" Top="124.74" Width="510.3" Height="17.01" Border.Lines="Bottom" Text="[vid_mes]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text219" Left="563.22" Top="124.74" Width="30.24" Height="17.01" Text="код" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text220" Left="593.46" Top="124.74" Width="124.74" Height="17.01" Border.Lines="Bottom" Text="[kod_podrazd]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text221" Left="52.92" Top="141.75" Width="510.3" Height="13.23" Text="(наименование органа, учреждения)" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text222" Top="156.87" Width="94.5" Height="17.01" Text="Дата выдачи" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text223" Left="105.84" Top="156.87" Width="37.8" Height="17.01" Border.Lines="Bottom" Text="[date_dat_vid]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text224" Left="154.98" Top="156.87" Width="86.94" Height="17.01" Border.Lines="Bottom" Text="[month_vid]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text225" Left="241.92" Top="156.87" Width="56.7" Height="17.01" Border.Lines="Bottom" Text="[y_vid]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text226" Top="234.36" Width="347.76" Height="17.01" Text="В связи с регистрацией по новому месту жительства по адресу:" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text227" Left="347.76" Top="234.36" Width="370.44" Height="17.01" Border.Lines="Bottom" Text="[adres1_mg]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text228" Top="251.37" Width="718.2" Height="17.01" Border.Lines="Bottom" Text="[adres2mg]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text229" Top="268.38" Width="718.2" Height="13.23" Text="(указать точный адрес)" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text230" Top="281.61" Width="181.44" Height="17.01" Text="Орган регистрационного учета" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text231" Left="181.44" Top="281.61" Width="536.76" Height="17.01" Border.Lines="Bottom" Text="[UpperCase([namereg])]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text232" Left="181.44" Top="298.62" Width="536.76" Height="13.23" Text="(наименование органа)" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text233" Top="309.96" Width="480.06" Height="17.01" Text="прошу снять меня с регистрационного учета по прежнему месту жительства по адресу:" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text234" Left="480.06" Top="309.96" Width="238.14" Height="17.01" Border.Lines="Bottom" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text235" Top="326.97" Width="718.2" Height="17.01" Border.Lines="Bottom" Text="[adres3lmg]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text236" Top="366.55" Width="381.78" Height="18.9" Text="Подпись заявителя, законного представителя (ненужное зачеркнуть)" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text237" Left="483.84" Top="366.55" Width="37.8" Height="18.9" Border.Lines="Bottom" Text="[date_get_date]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text238" Left="532.98" Top="366.55" Width="60.48" Height="18.9" Border.Lines="Bottom" Text="[month_get_date]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text239" Left="593.46" Top="366.55" Width="56.7" Height="18.9" Border.Lines="Bottom" Text="[y_get_date]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text240" Top="389.23" Width="75.6" Height="17.01" Text="Подпись гр." VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text241" Left="75.6" Top="389.23" Width="189" Height="17.01" Border.Lines="Bottom" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text242" Left="264.6" Top="389.23" Width="75.6" Height="17.01" Text="заверяю." VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text243" Top="408.24" Width="64.26" Height="18.9" Text="М.П." VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text244" Left="64.26" Top="408.24" Width="215.46" Height="18.9" Text="Подпись и Ф.И.О. должностного лица" VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text245" Left="279.72" Top="408.24" Width="192.78" Height="18.9" Border.Lines="Bottom" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text246" Left="483.84" Top="408.24" Width="37.8" Height="18.9" Border.Lines="Bottom" Text="[date_get_date]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text247" Left="532.98" Top="408.24" Width="60.48" Height="18.9" Border.Lines="Bottom" Text="[month_get_date]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text248" Left="593.46" Top="408.24" Width="56.7" Height="18.9" Border.Lines="Bottom" Text="[y_get_date]" AutoShrink="FontSize" AutoShrinkMinSize="6" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text249" Left="143.64" Top="156.87" Width="11.34" Height="17.01" Text="&quot;" HorzAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text250" Left="94.5" Top="156.87" Width="11.34" Height="17.01" Text="&quot;" HorzAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text251" Left="521.64" Top="366.55" Width="11.34" Height="18.9" Text="&quot;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text252" Left="472.5" Top="366.55" Width="11.34" Height="18.9" Text="&quot;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text253" Left="521.64" Top="408.24" Width="11.34" Height="18.9" Text="&quot;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text254" Left="472.5" Top="408.24" Width="11.34" Height="18.9" Text="&quot;" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text255" Left="650.16" Top="408.24" Width="18.9" Height="18.9" Text="г." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text256" Left="650.16" Top="366.55" Width="18.9" Height="18.9" Text="г." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text257" Left="298.62" Top="156.87" Width="18.9" Height="17.01" Text="г." AutoShrink="FontSize" VertAlign="Bottom" Font="Times New Roman, 10pt"/>
+      <TextObject Name="Text258" Top="52.92" Width="718.2" Height="13.23" Text="(фамилия, имя, отчество (при наличии), дата рождения" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text259" Top="83.16" Width="718.2" Height="13.23" Text="место рождения)" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text260" Top="66.15" Width="538.65" Height="17.01" Border.Lines="Bottom" Text="[mrog]" AutoShrink="FontSize" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text261" Left="538.65" Top="66.15" Width="75.6" Height="17.01" Text="Пол муж." VertAlign="Bottom" Font="Arial, 9pt"/>
+      <TextObject Name="Text262" Left="642.6" Top="66.15" Width="37.8" Height="17.01" Text="жен." VertAlign="Bottom" Font="Arial, 9pt"/>
+      <TextObject Name="Text263" Left="680.4" Top="58.59" Width="24.57" Height="24.57" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt"/>
+      <TextObject Name="Text264" Left="614.25" Top="58.59" Width="24.57" Height="24.57" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text265" Left="236.25" Top="111.51" Width="189" Height="13.23" Text="(вид документа)" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text266" Left="158.76" Top="173.88" Width="559.44" Height="17.01" Border.Lines="Bottom" Text="[predst_rod]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text267" Top="190.89" Width="718.2" Height="13.23" Text="(указать: отец, мать, опекун, попечитель, усыновитель" HorzAlign="Center" Font="Times New Roman, 8pt"/>
+      <TextObject Name="Text268" Top="204.12" Width="718.2" Height="17.01" Border.Lines="Bottom" Text="[UpperCase([predst_fio])] [UpperCase([predst_pasp])]" HorzAlign="Center" VertAlign="Bottom" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text269" Top="221.13" Width="718.2" Height="13.23" Text="фамилия, имя, отчество (при наличии)), реквизиты документа, удостоверяющего личность)" HorzAlign="Center" Font="Times New Roman, 7pt"/>
+      <TextObject Name="Text270" Top="173.88" Width="158.76" Height="17.01" Text="Законный представитель" VertAlign="Center" Font="Times New Roman, 9pt"/>
+      <TextObject Name="Text271" Top="347.76" Width="151.2" Height="17.01" Text="СНИЛС (при наличии)" VertAlign="Bottom" Font="Times New Roman, 9pt"/>
+      <TableObject Name="Table3" Left="151.2" Top="347.76" Width="245.7" Height="17.01">
+        <TableColumn Name="Column27" Width="18.9"/>
+        <TableColumn Name="Column28" Width="18.9"/>
+        <TableColumn Name="Column29" Width="18.9"/>
+        <TableColumn Name="Column30" Width="18.9"/>
+        <TableColumn Name="Column31" Width="18.9"/>
+        <TableColumn Name="Column32" Width="18.9"/>
+        <TableColumn Name="Column33" Width="18.9"/>
+        <TableColumn Name="Column34" Width="18.9"/>
+        <TableColumn Name="Column35" Width="18.9"/>
+        <TableColumn Name="Column36" Width="18.9"/>
+        <TableColumn Name="Column37" Width="18.9"/>
+        <TableColumn Name="Column38" Width="18.9"/>
+        <TableColumn Name="Column39" Width="18.9"/>
+        <TableRow Name="Row3" Height="17.01">
+          <TableCell Name="Cell47" Border.Lines="All"/>
+          <TableCell Name="Cell48" Border.Lines="All"/>
+          <TableCell Name="Cell49" Border.Lines="All"/>
+          <TableCell Name="Cell50" Border.Lines="All"/>
+          <TableCell Name="Cell51" Border.Lines="All"/>
+          <TableCell Name="Cell52" Border.Lines="All"/>
+          <TableCell Name="Cell53" Border.Lines="All"/>
+          <TableCell Name="Cell54" Border.Lines="All"/>
+          <TableCell Name="Cell55" Border.Lines="All"/>
+          <TableCell Name="Cell56" Border.Lines="All"/>
+          <TableCell Name="Cell57" Border.Lines="All"/>
+          <TableCell Name="Cell58" Border.Lines="All"/>
+          <TableCell Name="Cell59" Border.Lines="All"/>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text272" Left="381.78" Top="366.55" Width="90.72" Height="18.9" Border.Lines="Bottom" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 9pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

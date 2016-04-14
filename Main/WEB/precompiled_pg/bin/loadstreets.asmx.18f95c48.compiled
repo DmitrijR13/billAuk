@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/none/kart/adres/LoadStreets.asmx" hash="635865ff" filehash="ffffff55ece14a9f" flags="130000" assembly="STCLINE.KP50.WebKomplat" type="STCLINE.KP50.WebKomplat.kart.adres.LoadStreets">
+    <filedeps>
+        <filedep name="/none/kart/adres/LoadStreets.asmx" />
+    </filedeps>
+</preserve>

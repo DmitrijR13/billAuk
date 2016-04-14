@@ -1,0 +1,82 @@
+@echo off
+setlocal ENABLEDELAYEDEXPANSION
+
+chcp 1251>nul
+
+SET cnt=1
+
+call :parameters %*
+goto :body
+
+:parameters
+
+  if !cnt!==1 (
+  SET schema=%~1
+  ) else if !cnt!==2 (
+  SET pg_dir=%~1
+  ) else if !cnt!==3 (
+  SET work_dir=%~1
+  ) else if !cnt!==4 (
+  SET host=%~1
+  ) else if !cnt!==5 (
+  SET port=%~1
+  ) else if !cnt!==6 (
+  SET db=%~1
+  ) else if !cnt!==7 (
+  SET user_name=%~1
+  ) else if !cnt!==8 (
+  SET PGPASSWORD=%~1
+  ) else if !cnt!==9 (
+  SET nzp=%~1
+  ) else if !cnt!==10 (
+  SET dat_calc=%~1
+  )
+
+  shift
+  set /a cnt=!cnt!+1
+
+  if not "%~1"=="" goto :parameters
+
+goto :EOF
+
+:body
+
+  SET year=%dat_calc:~6,4%
+  SET month=%dat_calc:~3,2%
+             
+  SET table_name=must_calc
+    
+  SET file_type=%work_dir%\t_%nzp%_must_calc.unl
+
+  echo --------------------------------------------------------------------------------
+  echo Выбрана таблица: !table_name!
+  echo Выполнены следующие операции:
+
+  	"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table t_!table_name!_%nzp% add column additionaly character(1)";
+
+  		if ERRORLEVEL 1 (
+    			echo ВНИМАНИЕ.ПРОИЗОШЛА ОШИБКА ПРИ ВЫПОЛНЕНИИ СКРИПТА.
+    			exit
+    		)
+	
+  	type "!file_type!" | "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "copy t_!table_name!_%nzp% from STDIN  with delimiter as '|' null as '' encoding 'WIN-1251'";
+
+  		if ERRORLEVEL 1 (
+    			echo ВНИМАНИЕ.ПРОИЗОШЛА ОШИБКА ПРИ ВЫПОЛНЕНИИ СКРИПТА. 
+    			exit
+  		)
+
+  	"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "alter table t_!table_name!_%nzp% drop column additionaly";
+
+  	"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "delete from %schema%.!table_name! where month_=!month! and year_=!year!";
+
+		if ERRORLEVEL 1 (
+    			echo ВНИМАНИЕ.ПРОИЗОШЛА ОШИБКА ПРИ ВЫПОЛНЕНИИ СКРИПТА. 
+    			exit
+  		)
+
+  echo Скрипт успешно завершен для таблицы: !table_name!  
+  echo --------------------------------------------------------------------------------
+
+goto :EOF
+

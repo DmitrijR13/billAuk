@@ -1,0 +1,147 @@
+@echo off
+
+echo "Старт скрипта переноса данных. Время начала %DATE% %TIME%"
+
+
+setlocal ENABLEDELAYEDEXPANSION
+
+chcp 1251>nul
+
+REM код возврата
+SET errorCode=0
+
+SET cnt=1
+
+call :parameters %*
+goto :body
+
+:parameters
+
+REM ECHO "Вызвана процедура 'parameters' c параметром '%~1'"
+
+  if !cnt!==1 (
+  SET kod_uk=%~1
+  ) else if !cnt!==2 (
+  SET dat_calc=%~1
+  ) else if !cnt!==3 (
+  SET pg_dir=%~1
+  ) else if !cnt!==4 (
+  SET work_dir=%~1
+  ) else if !cnt!==5 (
+  SET host=%~1
+  ) else if !cnt!==6 (
+  SET port=%~1
+  ) else if !cnt!==7 (
+  SET db=%~1
+  ) else if !cnt!==8 (
+  SET PGPASSWORD=%~1
+  ) else if !cnt!==9 (
+  SET nzp_load=%~1
+  ) else if !cnt!==10 (
+  SET user_name=%~1
+  )
+
+  shift
+  set /a cnt=!cnt!+1
+
+  if not "%~1"=="" goto :parameters
+
+goto :EOF
+
+:body
+
+REM ECHO "Вызвана процедура body"
+
+SET year=%dat_calc:~6,4%
+SET month=%dat_calc:~3,2%
+
+for %%i in (%work_dir%\*.txt) do call :proc "%%i"
+goto :EOF
+
+:proc
+
+REM ECHO "Вызвана процедура proc"
+
+REM название файла без расширения
+  SET file_name=%~n1
+
+REM полный путь к файлу 
+  SET file_type="%work_dir%\%file_name%.txt"
+
+REM постфикс
+	SET postfix=%kod_uk%_%year%%month%
+
+
+  echo "--------------------------------------------------------------------------------"
+  echo "Выбран файл: %file_name%"
+
+  if "%file_name%" == "ChargExpenseServ" ( 
+	SET tab_name=charge
+	SET errorCode=-10
+  )
+
+  if "%file_name%" == "InfoDescript" ( 
+    exit /B
+  )
+
+  if "%file_name%" == "InfoSocProtection" ( 
+    SET tab_name=sz
+	SET errorCode=-20
+  )
+
+  if "%file_name%" == "Payment" ( 
+    SET tab_name=payments
+	SET errorCode=-30
+  )
+
+  if "%file_name%" == "PaymentDetails" ( 
+    SET tab_name=billinfo
+	SET errorCode=-40
+  )
+
+  if "%file_name%" == "Counters" ( 
+    SET tab_name=counters
+	SET errorCode=-50
+  )
+
+  if "%file_name%" == "CharacterGilFond" ( 
+    SET tab_name=parameters
+	SET errorCode=-60
+  )                         
+
+  if "%file_name%" == "AdditionalInfo" ( 
+    SET tab_name=additionalinfo
+	SET errorCode=-60
+  )
+  
+  echo "Выбрана таблица: '%tab_name%'"
+  type "%work_dir%"\"%file_name%".txt | "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "DROP TABLE IF EXISTS public.!tab_name!_%postfix% ";
+  type "%work_dir%"\"%file_name%".txt | "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "CREATE TABLE IF NOT EXISTS public.!tab_name!_%postfix% (LIKE !tab_name! INCLUDING ALL) INHERITS(!tab_name!) WITH (OIDS=TRUE)";
+  type "%work_dir%"\"%file_name%".txt | "%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "COPY public.!tab_name!_%postfix% FROM stdin WITH DELIMITER AS '|' NULL AS '' ENCODING 'WIN-1251'";
+  
+	IF ERRORLEVEL 1 goto ERROR
+  SET errorCode=0
+  echo Скрипт успешно выполнен для файла: %file_name%
+  echo --------------------------------------------------------------------------------
+
+ECHO "Время окончания: %DATE% %TIME%"
+GOTO :EOF
+
+:ERROR
+
+ECHO "При выполнении произошла ошибка!"
+ECHO "Таблицы, созданные в процессе выполнения, будут полностью удалены."
+			"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "DROP TABLE IF EXISTS additionalinfo_%postfix% ;"
+			"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "DROP TABLE IF EXISTS billinfo_%postfix% ;"
+			"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "DROP TABLE IF EXISTS charge_%postfix% ;"
+			"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "DROP TABLE IF EXISTS counters_%postfix% ;"
+			"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "DROP TABLE IF EXISTS parameters_%postfix% ;"
+			"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "DROP TABLE IF EXISTS payments_%postfix% ;"
+			"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "DROP TABLE IF EXISTS sz_%postfix% ;"
+
+			"%pg_dir%" -h %host% -p %port% -U %user_name% -w -d %db% -c "UPDATE saldo_date SET active=1 where erc_code=%kod_uk% and saldo_month=%month% and saldo_year=%year% ;"
+
+ECHO "Выход с кодом %errorCode%"
+ECHO "Время окончания: %DATE% %TIME%"
+EXIT %errorCode%
+GOTO :EOF

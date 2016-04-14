@@ -1,0 +1,58 @@
+function go(nmbd);
+
+database #nmbd_data;
+
+try
+DROP TABLE events;
+DROP TABLE s_events;
+except
+
+
+CREATE TABLE "are".s_events(
+   nzp_event SERIAL NOT NULL,
+   name_event CHAR(90) NOT NULL,
+   kod_razdel INTEGER,
+   ordering INTEGER
+);
+
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (1, 'Пользователь: изменение данных', 1, 1);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (2, 'Пользователь: изменение прав', 1, 2);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (3, 'Пользователь: блокирование', 1, 3);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (4, 'Терминал: изменение данных', 1, 4);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (5, 'Терминал: блокирование', 1, 5);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (6, 'Неверные данные для регистрации', 1, 6);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (11, 'Регистрация пользователя', 2, 1);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (12, 'Очистка журнала событий', 2, 2);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (21, 'Документ: Печать', 2, 21);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (22, 'Документ: Сохранение', 2, 22);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (23, 'Документ: Редактирование', 2, 23);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (24, 'Документ: Добавление/Удаление', 2, 24);
+insert into s_events(nzp_event, name_event, kod_razdel, ordering) values (25, 'Выгрузка данных', 2, 25);
+
+CREATE UNIQUE INDEX "are".ix_sev_1 ON "are".s_events(nzp_event);
+ALTER TABLE "are".s_events ADD CONSTRAINT PRIMARY KEY (nzp_event) CONSTRAINT "are".pk_event;
+
+CREATE TABLE "are".events(
+   nzp_ev SERIAL NOT NULL,
+   nzp_event INTEGER NOT NULL,
+   nzp_user INTEGER NOT NULL,
+   nzp_us INTEGER,
+   dat_when DATETIME YEAR to MINUTE,
+   txt_event CHAR(255)
+);
+-- Указать:
+--  num_zg    integer not null,         -- № загрузки
+--  dat_zg    date not null,            -- дата загрузки
+
+CREATE UNIQUE INDEX "are".ix_eve_1 ON "are".events(nzp_ev);
+CREATE INDEX "are".ix_eve_2 ON "are".events(nzp_event);
+CREATE INDEX "are".ix_eve_3 ON "are".events(dat_when);
+CREATE INDEX "are".ix_eve_4 ON "are".events(nzp_user);
+CREATE INDEX "are".ix_eve_5 ON "are".events(nzp_us);
+
+ALTER TABLE "are".events ADD CONSTRAINT (FOREIGN KEY (nzp_event) REFERENCES "are".s_events CONSTRAINT "are".fk_event_01);
+
+end function;
+
+go(#pref);
+

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="3" virtualPath="/none/kart/serv/newspisserv.aspx" hash="cedb9400c" filehash="5fb168c0af21349f" flags="110000" assembly="App_Web_qis0su4s" type="ASP.kart_serv_newspisserv_aspx">
+    <filedeps>
+        <filedep name="/none/kart/serv/newspisserv.aspx" />
+        <filedep name="/none/master/Bars2.Master" />
+        <filedep name="/none/master/templates/AddressTemplate.ascx" />
+        <filedep name="/none/master/templates/HelpTemplate.ascx" />
+        <filedep name="/none/master/templates/MessagesTemplate.ascx" />
+    </filedeps>
+</preserve>

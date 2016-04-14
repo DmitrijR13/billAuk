@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" UseFileCache="true" ReportInfo.Created="06/22/2011 09:26:31" ReportInfo.Modified="11/02/2015 12:47:28" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+    
+
+namespace FastReport
+{
+  public class ReportScript
+  {           
+    private float shortCount = 0; 
+    private float mediumCount = 0; 
+    private float longCount = 0;
+  
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {          
+ 
+    }
+    
+    private void Text45_AfterData(object sender, EventArgs e)
+    {
+      //if (Text45.Text.Length&lt;1) { Text45.Visible=false; ReportTitle1.Height-=Units.Millimeters*5; }      
+    }
+
+    private void Data2_AfterData(object sender, EventArgs e)
+    {           
+      if (longCount == 0 &amp;&amp; mediumCount == 0 &amp;&amp; shortCount == 0)
+      {                                                               
+        if (Text11.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text12.Text.Trim()!=&quot;&quot;){ longCount++; }  
+        if (Text13.Text.Trim()!=&quot;&quot;){ shortCount++; }
+        if (Text64.Text.Trim()!=&quot;&quot;){ longCount++; }
+        if (Text14.Text.Trim()!=&quot;&quot;){ longCount++; }
+        if (Text15.Text.Trim()!=&quot;&quot;){ shortCount++; }
+        if (Text16.Text.Trim()!=&quot;&quot;){ shortCount++; }
+        if (Text17.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text18.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text19.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text20.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text21.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text22.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text23.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text24.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text25.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text26.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text27.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text28.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text29.Text.Trim()!=&quot;&quot;){ mediumCount++; }
+        if (Text30.Text.Trim()!=&quot;&quot;){ mediumCount++; }  
+      }
+      float widthModificator;
+      if (longCount + mediumCount + shortCount &lt;= 10)
+      {                                              
+        widthModificator = 160F / ( 36F * longCount + 12F * mediumCount + 8F * shortCount );     
+      }
+      else
+      {
+        widthModificator = 320F / ( 36F * longCount + 12F * mediumCount + 8F * shortCount );
+      }
+      float leftStep = 0F;
+      if (Text11.Text.Trim()!=&quot;&quot;){ Text11.Width=Units.Millimeters * 12 * widthModificator; Text31.Width=Units.Millimeters * 12 * widthModificator; leftStep+=Text11.Width; } else { Text11.Visible=false; Text31.Visible=false; }
+      if (Text12.Text.Trim()!=&quot;&quot;){ Text12.Width=Units.Millimeters * 36 * widthModificator; Text32.Width=Units.Millimeters * 36 * widthModificator; Text12.Left = leftStep; Text32.Left = leftStep; leftStep+=Text12.Width; } else { Text12.Visible=false; Text32.Visible=false; }
+      if (Text13.Text.Trim()!=&quot;&quot;){ Text13.Width=Units.Millimeters * 8 * widthModificator; Text33.Width=Units.Millimeters * 8 * widthModificator; Text13.Left = leftStep; Text33.Left = leftStep; leftStep+=Text13.Width; } else { Text13.Visible=false; Text33.Visible=false; }
+      if (Text64.Text.Trim()!=&quot;&quot;){ Text64.Width=Units.Millimeters * 36 * widthModificator; Text65.Width=Units.Millimeters * 36 * widthModificator; Text64.Left = leftStep; Text65.Left = leftStep; leftStep+=Text64.Width; } else { Text64.Visible=false; Text65.Visible=false; }
+      if (Text14.Text.Trim()!=&quot;&quot;){ Text14.Width=Units.Millimeters * 36 * widthModificator; Text34.Width=Units.Millimeters * 36 * widthModificator; Text14.Left = leftStep; Text34.Left = leftStep; leftStep+=Text14.Width; } else { Text14.Visible=false; Text34.Visible=false; }
+      if (Text15.Text.Trim()!=&quot;&quot;){ Text15.Width=Units.Millimeters * 8 * widthModificator; Text35.Width=Units.Millimeters * 8 * widthModificator; Text15.Left = leftStep; Text35.Left = leftStep; leftStep+=Text15.Width; } else { Text15.Visible=false; Text35.Visible=false; }
+      if (Text16.Text.Trim()!=&quot;&quot;){ Text16.Width=Units.Millimeters * 8 * widthModificator; Text36.Width=Units.Millimeters * 8 * widthModificator; Text16.Left = leftStep; Text36.Left = leftStep; leftStep+=Text16.Width; } else { Text16.Visible=false; Text36.Visible=false; }
+      if (Text17.Text.Trim()!=&quot;&quot;){ Text17.Width=Units.Millimeters * 12 * widthModificator; Text37.Width=Units.Millimeters * 12 * widthModificator; Text17.Left = leftStep; Text37.Left = leftStep; leftStep+=Text17.Width; } else { Text17.Visible=false; Text37.Visible=false; }
+      if (Text18.Text.Trim()!=&quot;&quot;){ Text18.Width=Units.Millimeters * 12 * widthModificator; Text38.Width=Units.Millimeters * 12 * widthModificator; Text18.Left = leftStep; Text38.Left = leftStep; leftStep+=Text18.Width; } else { Text18.Visible=false; Text38.Visible=false; }
+      if (Text19.Text.Trim()!=&quot;&quot;){ Text19.Width=Units.Millimeters * 12 * widthModificator; Text39.Width=Units.Millimeters * 12 * widthModificator; Text19.Left = leftStep; Text39.Left = leftStep; leftStep+=Text19.Width; } else { Text19.Visible=false; Text39.Visible=false; }
+      if (Text20.Text.Trim()!=&quot;&quot;){ Text20.Width=Units.Millimeters * 12 * widthModificator; Text40.Width=Units.Millimeters * 12 * widthModificator; Text20.Left = leftStep; Text40.Left = leftStep; leftStep+=Text20.Width; } else { Text20.Visible=false; Text40.Visible=false; }
+      if (Text21.Text.Trim()!=&quot;&quot;){ Text21.Width=Units.Millimeters * 12 * widthModificator; Text41.Width=Units.Millimeters * 12 * widthModificator; Text21.Left = leftStep; Text41.Left = leftStep; leftStep+=Text21.Width; } else { Text21.Visible=false; Text41.Visible=false; }
+      if (Text22.Text.Trim()!=&quot;&quot;){ Text22.Width=Units.Millimeters * 12 * widthModificator; Text42.Width=Units.Millimeters * 12 * widthModificator; Text22.Left = leftStep; Text42.Left = leftStep; leftStep+=Text22.Width; } else { Text22.Visible=false; Text42.Visible=false; }
+      if (Text23.Text.Trim()!=&quot;&quot;){ Text23.Width=Units.Millimeters * 12 * widthModificator; Text43.Width=Units.Millimeters * 12 * widthModificator; Text23.Left = leftStep; Text43.Left = leftStep; leftStep+=Text23.Width; } else { Text23.Visible=false; Text43.Visible=false; }
+      if (Text24.Text.Trim()!=&quot;&quot;){ Text24.Width=Units.Millimeters * 12 * widthModificator; Text44.Width=Units.Millimeters * 12 * widthModificator; Text24.Left = leftStep; Text44.Left = leftStep; leftStep+=Text24.Width; } else { Text24.Visible=false; Text44.Visible=false; }
+      if (Text25.Text.Trim()!=&quot;&quot;){ Text25.Width=Units.Millimeters * 12 * widthModificator; Text45.Width=Units.Millimeters * 12 * widthModificator; Text25.Left = leftStep; Text45.Left = leftStep; leftStep+=Text25.Width; } else { Text25.Visible=false; Text45.Visible=false; }
+      if (Text26.Text.Trim()!=&quot;&quot;){ Text26.Width=Units.Millimeters * 12 * widthModificator; Text46.Width=Units.Millimeters * 12 * widthModificator; Text26.Left = leftStep; Text46.Left = leftStep; leftStep+=Text26.Width; } else { Text26.Visible=false; Text46.Visible=false; }
+      if (Text27.Text.Trim()!=&quot;&quot;){ Text27.Width=Units.Millimeters * 12 * widthModificator; Text47.Width=Units.Millimeters * 12 * widthModificator; Text27.Left = leftStep; Text47.Left = leftStep; leftStep+=Text27.Width; } else { Text27.Visible=false; Text47.Visible=false; }
+      if (Text28.Text.Trim()!=&quot;&quot;){ Text28.Width=Units.Millimeters * 12 * widthModificator; Text48.Width=Units.Millimeters * 12 * widthModificator; Text28.Left = leftStep; Text48.Left = leftStep; leftStep+=Text28.Width; } else { Text28.Visible=false; Text48.Visible=false; }
+      if (Text29.Text.Trim()!=&quot;&quot;){ Text29.Width=Units.Millimeters * 12 * widthModificator; Text49.Width=Units.Millimeters * 12 * widthModificator; Text29.Left = leftStep; Text49.Left = leftStep; leftStep+=Text29.Width; } else { Text29.Visible=false; Text49.Visible=false; }
+      if (Text30.Text.Trim()!=&quot;&quot;){ Text30.Width=Units.Millimeters * 12 * widthModificator; Text50.Width=Units.Millimeters * 12 * widthModificator; Text30.Left = leftStep; Text50.Left = leftStep;} else { Text30.Visible=false; Text50.Visible=false; }  
+      
+                                  
+      
+      
+      Text53.Width = Text41.Width; Text53.Left = Text41.Left; Text53.Visible = Text41.Visible;
+      Text54.Width = Text42.Width; Text54.Left = Text42.Left; Text54.Visible = Text42.Visible;
+      Text55.Width = Text48.Width; Text55.Left = Text48.Left; Text55.Visible = Text48.Visible;
+      Text56.Width = Text43.Width; Text56.Left = Text43.Left; Text56.Visible = Text43.Visible;
+      Text57.Width = Text44.Width; Text57.Left = Text44.Left; Text57.Visible = Text44.Visible;
+      Text58.Width = Text49.Width; Text58.Left = Text49.Left; Text58.Visible = Text49.Visible;
+      Text59.Width = Text47.Width; Text59.Left = Text47.Left; Text59.Visible = Text47.Visible;
+      Text60.Width = Text45.Width; Text60.Left = Text45.Left; Text60.Visible = Text45.Visible;
+      Text61.Width = Text46.Width; Text61.Left = Text46.Left; Text61.Visible = Text46.Visible;
+      Text62.Width = Text50.Width; Text62.Left = Text50.Left; Text62.Visible = Text50.Visible;
+    }
+
+    private void ReportTitle1_AfterData(object sender, EventArgs e)
+    {
+      if (longCount + mediumCount + shortCount &lt;= 10)
+      {                                         
+        Text1.Width = 200F * Units.Millimeters;  
+        Text2.Width = 200F * Units.Millimeters; 
+        Text6.Width = 200F * Units.Millimeters; 
+        Text45.Width = 200F * Units.Millimeters;
+      }
+      else
+      {
+        Text1.Width = 320F * Units.Millimeters;  
+        Text2.Width = 320F * Units.Millimeters; 
+        Text6.Width = 320F * Units.Millimeters; 
+        Text45.Width = 320F * Units.Millimeters;
+      }                                    
+    }
+  }
+}
+  </ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master1" ReferenceName="Data.Q_master1" DataType="System.Int32" Enabled="true">
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+      <Column Name="geu" DataType="System.String" PropName="Column"/>
+      <Column Name="uch" DataType="System.Int32" PropName="Column"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="num_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pkod" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="name_supp" DataType="System.String" PropName="Column"/>
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rsum_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_nedop" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="real_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rajon_dom" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="area" DataType="System.String" PropName="Column"/>
+      <Column Name="geu" DataType="System.String" PropName="Column"/>
+      <Column Name="uch" DataType="System.Int32" PropName="Column"/>
+      <Column Name="rajon" DataType="System.String" PropName="Column"/>
+      <Column Name="ulica" DataType="System.String" PropName="Column"/>
+      <Column Name="ndom" DataType="System.String" PropName="Column"/>
+      <Column Name="nkor" DataType="System.String" PropName="Column"/>
+      <Column Name="nkvar" DataType="System.String" PropName="Column"/>
+      <Column Name="num_ls" DataType="System.Int32" PropName="Column"/>
+      <Column Name="pkod" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="name_supp" DataType="System.String" PropName="Column"/>
+      <Column Name="service" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_insaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rsum_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_nedop" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="real_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_charge" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_outsaldo" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rajon_dom" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="Total_sum_insaldo" Expression="[Q_master.sum_insaldo]" Evaluator="Data1"/>
+    <Total Name="Total_tarif" Expression="[Q_master.tarif]" Evaluator="Data1"/>
+    <Total Name="Total_rsum_tarif" Expression="[Q_master.rsum_tarif]" Evaluator="Data1"/>
+    <Total Name="Total_sum_nedop" Expression="[Q_master.sum_nedop]" Evaluator="Data1"/>
+    <Total Name="Total_sum_tarif" Expression="[Q_master.sum_tarif]" Evaluator="Data1"/>
+    <Total Name="Total_reval" Expression="[Q_master.reval]" Evaluator="Data1"/>
+    <Total Name="Total_real_charge" Expression="[Q_master.real_charge]" Evaluator="Data1"/>
+    <Total Name="Total_sum_charge" Expression="[Q_master.sum_charge]" Evaluator="Data1"/>
+    <Total Name="Total_sum_money" Expression="[Q_master.sum_money]" Evaluator="Data1"/>
+    <Total Name="Total_sum_outsaldo" Expression="[Q_master.sum_outsaldo]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1512.38" Height="94.5" CanGrow="true" BeforePrintEvent="ReportTitle1_BeforePrint" AfterDataEvent="ReportTitle1_AfterData" CanBreak="true">
+      <TextObject Name="Text63" Left="0.69" Top="66.15" Width="1512.74" Height="28.35" CanGrow="true" AfterDataEvent="Text45_AfterData" Text="[headerParam]&#13;&#10; " HorzAlign="Justify" VertAlign="Center" Wysiwyg="true"/>
+      <TextObject Name="Text1" Top="42.31" Width="1525.82" Height="18.9" Text="Генератор по начислениям за [pPeriod]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Top="18.9" Width="1512" Height="18.9" Text="Дата печати:[dat]   Время печати:[time]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text6" Width="1512" Height="18.9" Text="[excel]" Font="Arial, 7pt, style=Italic" TextFill.Color="Red"/>
+    </ReportTitleBand>
+    <DataBand Name="Data2" Top="97.62" Width="1512.38" Height="37.8" CanGrow="true" CanShrink="true" AfterDataEvent="Data2_AfterData" DataSource="Q_master1">
+      <TextObject Name="Text11" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.area]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text12" Left="56.7" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.geu]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text13" Left="113.4" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.uch]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text14" Left="226.8" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.rajon]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text15" Left="283.5" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.ndom]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text16" Left="340.2" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.nkvar]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text17" Left="396.9" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.num_ls]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text18" Left="453.6" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.pkod]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text19" Left="510.3" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.name_supp]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text20" Left="567" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.service]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text21" Left="623.7" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.sum_insaldo]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text22" Left="680.4" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.tarif]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text23" Left="737.1" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.sum_nedop]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text24" Left="793.8" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.sum_tarif]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text25" Left="850.5" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.sum_charge]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text26" Left="907.2" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.sum_money]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text27" Left="963.9" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.real_charge]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text28" Left="1020.6" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.rsum_tarif]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text29" Left="1077.3" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.reval]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text30" Left="1134" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.sum_outsaldo]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text64" Left="170.1" Width="56.7" Height="37.8" Border.Lines="All" Text="[Q_master1.rajon_dom]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </DataBand>
+    <DataBand Name="Data1" Top="138.55" Width="1512.38" Height="18.9" CanGrow="true" CanShrink="true" DataSource="Q_master">
+      <TextObject Name="Text31" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.area]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text32" Left="56.7" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.geu]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text33" Left="113.4" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.uch]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text34" Left="226.8" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.rajon])] [Q_master.ulica]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text35" Left="283.5" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Trim([Q_master.ndom])] [Trim([Q_master.nkor])]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text36" Left="340.2" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.nkvar]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text37" Left="396.9" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.num_ls]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text38" Left="453.6" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.pkod]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text39" Left="510.3" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.name_supp]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text40" Left="567" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.service]" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text41" Left="623.7" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text42" Left="680.4" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text43" Left="737.1" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_nedop]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text44" Left="793.8" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text45" Left="850.5" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text46" Left="907.2" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text47" Left="963.9" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.real_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text48" Left="1020.6" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.rsum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text49" Left="1077.3" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.reval]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text50" Left="1134" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text65" Left="170.1" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Q_master.rajon_dom]" VertAlign="Center" Font="Arial, 7pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="160.57" Width="1512.38" Height="18.9">
+      <TextObject Name="Text53" Left="623.7" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_sum_insaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text54" Left="680.4" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text55" Left="1020.6" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_rsum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text56" Left="737.1" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_sum_nedop]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text57" Left="793.8" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_sum_tarif]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text58" Left="1077.3" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_reval]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text59" Left="963.9" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_real_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text60" Left="850.5" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_sum_charge]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text61" Left="907.2" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_sum_money]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text62" Left="1134" Width="56.7" Height="18.9" Border.Lines="All" CanGrow="true" GrowToBottom="true" Text="[Total_sum_outsaldo]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.CurrencySymbol=" " Format.PositivePattern="3" Format.NegativePattern="8" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

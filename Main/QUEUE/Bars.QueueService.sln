@@ -1,0 +1,130 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.QueueService", "Bars.QueueService\Bars.QueueService.csproj", "{0C1DAD48-E9AB-4466-8447-A2C35803E1D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.Worker", "Bars.Worker\Bars.Worker.csproj", "{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.RabbitMq", "Bars.RabbitMq\Bars.RabbitMq.csproj", "{E4DF45A1-B371-4012-B305-802192E227EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.QueueListener", "Bars.QueueListener\Bars.QueueListener.csproj", "{C7F21889-8687-4E72-A17F-3CC7B190BCEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5E7CDC42-419F-4658-ABE5-E64687CA6076}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.QueueCore", "Bars.QueueCore\Bars.QueueCore.csproj", "{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STCLINE.KP50.Globals", "..\DATA\CLASS\GLOBALS\STCLINE.KP50.Globals.csproj", "{A09E0051-6B16-42B5-9840-8CB60B0729C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bars.KP50.Utils", "..\Report\Bars.KP50.Utils\Bars.KP50.Utils.csproj", "{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccProjectUniqueName0 = Bars.QueueCore\\Bars.QueueCore.csproj
+		SccProjectName0 = Bars.QueueCore
+		SccAuxPath0 = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccLocalPath0 = Bars.QueueCore
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = Bars.Worker\\Bars.Worker.csproj
+		SccProjectName1 = Bars.Worker
+		SccAuxPath1 = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccLocalPath1 = Bars.Worker
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = Bars.RabbitMq\\Bars.RabbitMq.csproj
+		SccProjectName2 = Bars.RabbitMq
+		SccAuxPath2 = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccLocalPath2 = Bars.RabbitMq
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName3 = Bars.QueueListener\\Bars.QueueListener.csproj
+		SccProjectName3 = Bars.QueueListener
+		SccAuxPath3 = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccLocalPath3 = Bars.QueueListener
+		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName4 = ..\\DATA\\CLASS\\GLOBALS\\STCLINE.KP50.Globals.csproj
+		SccProjectName4 = ../DATA/CLASS/GLOBALS
+		SccAuxPath4 = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccLocalPath4 = ..\\DATA\\CLASS\\GLOBALS
+		SccProvider4 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName5 = ..\\Report\\Bars.KP50.Utils\\Bars.KP50.Utils.csproj
+		SccProjectName5 = ../Report/Bars.KP50.Utils
+		SccAuxPath5 = http://tfs-app.bars-open.ru:8080/tfs/defaultcollection
+		SccLocalPath5 = ..\\Report\\Bars.KP50.Utils
+		SccProvider5 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug PG|Any CPU = Debug PG|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release PG|Any CPU = Release PG|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C1DAD48-E9AB-4466-8447-A2C35803E1D1}.Debug PG|Any CPU.ActiveCfg = Debug PG|Any CPU
+		{0C1DAD48-E9AB-4466-8447-A2C35803E1D1}.Debug PG|Any CPU.Build.0 = Debug PG|Any CPU
+		{0C1DAD48-E9AB-4466-8447-A2C35803E1D1}.Debug|Any CPU.ActiveCfg = Debug PG|Any CPU
+		{0C1DAD48-E9AB-4466-8447-A2C35803E1D1}.Debug|Any CPU.Build.0 = Debug PG|Any CPU
+		{0C1DAD48-E9AB-4466-8447-A2C35803E1D1}.Release PG|Any CPU.ActiveCfg = Release|Any CPU
+		{0C1DAD48-E9AB-4466-8447-A2C35803E1D1}.Release PG|Any CPU.Build.0 = Release|Any CPU
+		{0C1DAD48-E9AB-4466-8447-A2C35803E1D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C1DAD48-E9AB-4466-8447-A2C35803E1D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Debug PG|Any CPU.ActiveCfg = Debug|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Debug PG|Any CPU.Build.0 = Debug|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Release PG|Any CPU.ActiveCfg = Release|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Release PG|Any CPU.Build.0 = Release|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41D1545C-9AF1-42A3-9ACC-397ABD2CF8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4DF45A1-B371-4012-B305-802192E227EF}.Debug PG|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DF45A1-B371-4012-B305-802192E227EF}.Debug PG|Any CPU.Build.0 = Debug|Any CPU
+		{E4DF45A1-B371-4012-B305-802192E227EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DF45A1-B371-4012-B305-802192E227EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DF45A1-B371-4012-B305-802192E227EF}.Release PG|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DF45A1-B371-4012-B305-802192E227EF}.Release PG|Any CPU.Build.0 = Release|Any CPU
+		{E4DF45A1-B371-4012-B305-802192E227EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DF45A1-B371-4012-B305-802192E227EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7F21889-8687-4E72-A17F-3CC7B190BCEC}.Debug PG|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F21889-8687-4E72-A17F-3CC7B190BCEC}.Debug PG|Any CPU.Build.0 = Debug|Any CPU
+		{C7F21889-8687-4E72-A17F-3CC7B190BCEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F21889-8687-4E72-A17F-3CC7B190BCEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F21889-8687-4E72-A17F-3CC7B190BCEC}.Release PG|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F21889-8687-4E72-A17F-3CC7B190BCEC}.Release PG|Any CPU.Build.0 = Release|Any CPU
+		{C7F21889-8687-4E72-A17F-3CC7B190BCEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F21889-8687-4E72-A17F-3CC7B190BCEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}.Debug PG|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}.Debug PG|Any CPU.Build.0 = Debug|Any CPU
+		{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}.Release PG|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}.Release PG|Any CPU.Build.0 = Release|Any CPU
+		{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A6C85C-81E3-4CC0-A814-2CB94BCE6E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A09E0051-6B16-42B5-9840-8CB60B0729C7}.Debug PG|Any CPU.ActiveCfg = Debug PG|Any CPU
+		{A09E0051-6B16-42B5-9840-8CB60B0729C7}.Debug PG|Any CPU.Build.0 = Debug PG|Any CPU
+		{A09E0051-6B16-42B5-9840-8CB60B0729C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A09E0051-6B16-42B5-9840-8CB60B0729C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A09E0051-6B16-42B5-9840-8CB60B0729C7}.Release PG|Any CPU.ActiveCfg = Release PG|Any CPU
+		{A09E0051-6B16-42B5-9840-8CB60B0729C7}.Release PG|Any CPU.Build.0 = Release PG|Any CPU
+		{A09E0051-6B16-42B5-9840-8CB60B0729C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A09E0051-6B16-42B5-9840-8CB60B0729C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Debug PG|Any CPU.ActiveCfg = Debug PG|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Debug PG|Any CPU.Build.0 = Debug PG|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Release PG|Any CPU.ActiveCfg = Release PG|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Release PG|Any CPU.Build.0 = Release PG|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE6F5A3B-8667-4FD3-8445-51B5EA6E4B57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

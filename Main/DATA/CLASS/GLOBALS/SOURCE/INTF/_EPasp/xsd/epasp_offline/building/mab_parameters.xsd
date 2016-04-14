@@ -1,0 +1,1635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cit.ru/gkhrt" version="1.0"
+           xmlns:gkh="http://cit.ru/gkhrt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="mab_core.xsd"/>
+
+  <xs:complexType name="mabParameters">
+    <xs:annotation>
+      <xs:documentation>Общие сведения и техническое состояние МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="nearHouseTerritoryAreaBySurfaceType" type="gkh:mabNearHouseTerritorySurfaceTypeArea">
+        <xs:annotation>
+          <xs:documentation>Площадь придомовой территории по типу покрытия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="landArea" type="gkh:mabLandArea">
+        <xs:annotation>
+          <xs:documentation>Информация по площади земельного участка</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="technicalSummary" type="gkh:mabTechnicalSummary">
+        <xs:annotation>
+          <xs:documentation>Техническая информация</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="indoorArea" type="gkh:mabIndoorArea">
+        <xs:annotation>
+          <xs:documentation>Данные по внутренней площади</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="communityPropertyObjects" type="gkh:mabCommunityPropertyObject">
+        <xs:annotation>
+          <xs:documentation>Объекты общего имущества</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="communityPropertyRooms" type="gkh:mabCommunityPropertyRoom">
+        <xs:annotation>
+          <xs:documentation>Помещения, относящееся к общему долевому имуществу собственников помещений, кроме мест общего пользования</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="heatingEquipment" type="gkh:mabHeatingEquipment">
+        <xs:annotation>
+          <xs:documentation>Оборудование по отоплению, размещенное на внутридомовых инженерных системах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="coldWaterEquipment" type="gkh:mabColdWaterEquipment">
+        <xs:annotation>
+          <xs:documentation>Оборудование по холодному водоснабжению, размещенное на внутридомовых инженерных системах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hotWaterEquipment" type="gkh:mabHotWaterEquipment">
+        <xs:annotation>
+          <xs:documentation>Оборудование по горячему водоснабжению, размещенное на внутридомовых инженерных системах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricEquipment" type="gkh:mabElectricEquipment">
+        <xs:annotation>
+          <xs:documentation>Оборудование по электроснабжению, размещенное на внутридомовых инженерных системах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="elevators" type="gkh:mabElevator">
+        <xs:annotation>
+          <xs:documentation>Лифты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="otherEquipment" type="gkh:mabOtherEquipment">
+        <xs:annotation>
+          <xs:documentation>Другое оборудование, размещенное на внутридомовых инженерных системах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="customEquipmentItems" type="gkh:mabCustomEquipment">
+        <xs:annotation>
+          <xs:documentation>Иное оборудование, размещенное на внутридомовых инженерных системах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="premiseSummary" type="gkh:mabPremiseSummary">
+        <xs:annotation>
+          <xs:documentation>Общие сведения о помещениях</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="6" name="flatCountByOwnershipType" type="gkh:mabFlatCount">
+        <xs:annotation>
+          <xs:documentation>Количество квартир по типу собственности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="energyEfficiency" type="gkh:mabEnergyEfficiency">
+        <xs:annotation>
+          <xs:documentation>Данные по энергоэффективности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="maxEnergyConsumption" type="gkh:mabMaxEnergyConsumption">
+        <xs:annotation>
+          <xs:documentation>Характеристики максимального энергопотребления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="energyConsumption" type="gkh:mabEnergyConsumption">
+        <xs:annotation>
+          <xs:documentation>Энергопотребление</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabAccrualParameters">
+    <xs:annotation>
+      <xs:documentation>Параметры МКД, влияющие на начисления</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="isTownTypeSettlement" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Тип населенного пункта (городской, сельский)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hasElectricRanges" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Наличие/отсутствие электроплит</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="coldWaterTypeWell" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Холодное водоснабжения типа скважина, колонка</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mabBathTubeType" type="gkh:mabBathTubeType">
+        <xs:annotation>
+          <xs:documentation>Наличие ванн</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mabWashbasinType" type="gkh:mabWashbasinType">
+        <xs:annotation>
+          <xs:documentation>Наличие умывальников</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="mabBathTubeType">
+    <xs:annotation>
+      <xs:documentation>Наличие ванн в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="NONE">
+        <xs:annotation>
+          <xs:documentation>Без ванн</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BATHTUB">
+        <xs:annotation>
+          <xs:documentation>Наличие ванн</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WATER_HEATER">
+        <xs:annotation>
+          <xs:documentation>Наличие ванн и водонагревателей</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WATER_HEATER_WITH_MULTI_POINT_PUMPING">
+        <xs:annotation>
+          <xs:documentation>Наличие ванн и водонагревателей с многоточечным водоразбором</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mabWashbasinType">
+    <xs:annotation>
+      <xs:documentation>Наличие умывальников в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="NONE">
+        <xs:annotation>
+          <xs:documentation>Без умывальников</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WASHBASIN">
+        <xs:annotation>
+          <xs:documentation>Наличие моек и умывальников</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SHOWER">
+        <xs:annotation>
+          <xs:documentation>Наличие моек и умывальников и душа</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SITTING_BATHTUB">
+        <xs:annotation>
+          <xs:documentation>Наличие душа и сидячих ванн</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FULL_SCALE_BATHTUB">
+        <xs:annotation>
+          <xs:documentation>Наличие душа и ванн с размерами 1500-1700</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mabHeatingType">
+    <xs:annotation>
+      <xs:documentation>Тип отопления в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="CENTRAL">
+        <xs:annotation>
+          <xs:documentation>Центральное</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AUTONOMOUS_BOILER_ROOM">
+        <xs:annotation>
+          <xs:documentation>Автономная котельная (крышная, встроено-пристроенная)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FLAT_BOILER">
+        <xs:annotation>
+          <xs:documentation>Квартирное отопление (квартирный котел)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="STOVE_HEATING">
+        <xs:annotation>
+          <xs:documentation>Печное</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ABSENT">
+        <xs:annotation>
+          <xs:documentation>Отсутствует</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mabColdWaterSupplyType">
+    <xs:annotation>
+      <xs:documentation>Тип холодного водоснабжения в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="CENTRAL">
+        <xs:annotation>
+          <xs:documentation>Центральное</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ABSENT">
+        <xs:annotation>
+          <xs:documentation>Отсутствует</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mabHotWaterSupplyType">
+    <xs:annotation>
+      <xs:documentation>Тип горячего водоснабжения в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="CENTRAL_OPEN">
+        <xs:annotation>
+          <xs:documentation>Центральное - открытая система</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CENTRAL_CLOSED">
+        <xs:annotation>
+          <xs:documentation>Центральное - закрытая система</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AUTONOMOUS_BOILER_ROOM">
+        <xs:annotation>
+          <xs:documentation>Автономная котельная (крышная, встроено-пристроенная)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FLAT_BOILER">
+        <xs:annotation>
+          <xs:documentation>Квартирное отопление (индивидуальный котел)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INDIVIDUAL_WATER_HEATER">
+        <xs:annotation>
+          <xs:documentation>Квартирное отопление (индивидуальный котел)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="STOVE_WATER_HEATER">
+        <xs:annotation>
+          <xs:documentation>От дровяных колонок</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ABSENT">
+        <xs:annotation>
+          <xs:documentation>Отсутствует</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mabElectricSupplyType">
+    <xs:annotation>
+      <xs:documentation>Тип электроснабжения в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="CENTRAL">
+        <xs:annotation>
+          <xs:documentation>Центральное</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ABSENT">
+        <xs:annotation>
+          <xs:documentation>Отсутствует</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mabGasSupplyType">
+    <xs:annotation>
+      <xs:documentation>Тип газоснабжения в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="CENTRAL">
+        <xs:annotation>
+          <xs:documentation>Центральное</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NONCENTRAL">
+        <xs:annotation>
+          <xs:documentation>Нецентральное</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ABSENT">
+        <xs:annotation>
+          <xs:documentation>Отсутствует</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mabCanalizationType">
+    <xs:annotation>
+      <xs:documentation>Тип канализации в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="CENTRAL">
+        <xs:annotation>
+          <xs:documentation>Центральная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ABSENT">
+        <xs:annotation>
+          <xs:documentation>Отсутствует</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="elevatorShaftType">
+    <xs:annotation>
+      <xs:documentation>Тип шахты лифта</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="ATTACHED">
+        <xs:annotation>
+          <xs:documentation>Приставная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUILTIN">
+        <xs:annotation>
+          <xs:documentation>Встроенная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rubbishChuteReceptionLoadingValvePlacement">
+    <xs:annotation>
+      <xs:documentation>Размещение приемо-загрузочных клапанов мусоропроводов</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="FLAT">
+        <xs:annotation>
+          <xs:documentation>В квартирах</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="STAIRCASE">
+        <xs:annotation>
+          <xs:documentation>На лестничных клетках</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="STAIRCASE_SEPARATE_ROOM">
+        <xs:annotation>
+          <xs:documentation>В обособленных помещениях на лестничной клетке</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="gutterType">
+    <xs:annotation>
+      <xs:documentation>Тип водостоков</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="OUTSIDE">
+        <xs:annotation>
+          <xs:documentation>Наружные</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INSIDE">
+        <xs:annotation>
+          <xs:documentation>Внутренние</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ABSENT">
+        <xs:annotation>
+          <xs:documentation>Отсутствуют</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ventilationType">
+    <xs:annotation>
+      <xs:documentation>Тип вентиляции</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="INLET">
+        <xs:annotation>
+          <xs:documentation>Приточная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EXHAUST">
+        <xs:annotation>
+          <xs:documentation>Вытяжная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INLET_EXHAUST">
+        <xs:annotation>
+          <xs:documentation>Приточно-вытяжная</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ABSENT">
+        <xs:annotation>
+          <xs:documentation>Отсутствует</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="energyEfficiencyClass">
+    <xs:annotation>
+      <xs:documentation>Класс энергоэффективности</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="gkh:string">
+      <xs:enumeration value="A">
+        <xs:annotation>
+          <xs:documentation>Наивысший (A)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BPP">
+        <xs:annotation>
+          <xs:documentation>Повышенный (B++)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BP">
+        <xs:annotation>
+          <xs:documentation>Повышенный (B+)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="B">
+        <xs:annotation>
+          <xs:documentation>Высокий (B)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="C">
+        <xs:annotation>
+          <xs:documentation>Нормальный (C)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="D">
+        <xs:annotation>
+          <xs:documentation>Пониженный (D)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="E">
+        <xs:annotation>
+          <xs:documentation>Низший (E)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="mabNearHouseTerritorySurfaceTypeArea">
+    <xs:annotation>
+      <xs:documentation>Площадь придомовой территории МКД по типу покрытия</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="improved" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Усовершенствованное/неусовершенствованное покрытие</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="type">
+        <xs:annotation>
+          <xs:documentation>Тип покрытия</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="area" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabLandArea">
+    <xs:annotation>
+      <xs:documentation>Информация по площади земельного участка многоквартирного дома</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="landActualUse" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Общая площадь земельного участка по фактическому пользованию, всего (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="landActualUseBuiltUp" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Общая площадь земельного участка по фактическому пользованию, застроенная, всего (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="landActualUseNotBuiltUp" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Общая площадь земельного участка по фактическому пользованию, незастроенная, всего (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hardSurface" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь твердых покрытий (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hardSurfacePassages" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь проездов (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hardSurfaceSidewalks" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь тротуаров (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hardSurfaceOther" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь объектов с твердым покрытием, кроме прездов и тротуаров (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="playgrounds" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь детских площадок (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sportsGrounds" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь спортивных площадок (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="otherGrounds" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь других площадок, кроме детских и спортивных (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="greenSpacesTotal" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь зеленых насаждений, всего (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="parks" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь скверов (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lawns" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь газонов с деревьями (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="greenSpacesOther" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь прочих зеленых насаждений, кроме скверов и газонов (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nearHouseTerritoryTotal" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Придомовая территория, всего, (м2)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nearHouseTerritoryImprovedSurface" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь придомовой территории с усовершенствованным покрытием, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nearHouseTerritoryUnimprovedSurface" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь придомовой территории с неусовершенствованным покрытием, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nearHouseTerritoryWithoutSurface" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь придомовой территории без покрытия, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nearHouseTerritoryLawnSurface" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь придомовой территории с газонным покрытием, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabTechnicalSummary">
+    <xs:annotation>
+      <xs:documentation>Техническая информация по МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="landAreaTechnicalInventarisation" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Общая площадь земельного участка по данным технической инвентаризации, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="landAreaSurvey" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Общая площадь земельного участка по данным межевания, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="entranceCount" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Количество подъездов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="staircaseCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество лестниц</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="floorCount" type="gkh:nonNegativeShort">
+        <xs:annotation>
+          <xs:documentation>Этажность</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="floorMinCount" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Количество этажей, наименьшее</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="floorMaxCount" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Количество этажей, наибольшее</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sectionCount" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Количество секций</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mansardArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь мансард, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="shelterMetalDoorCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество металлических дверей в убежища</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="architectureMonument" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Принадлежность к памятнику архитектуры</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="serviceEndYear" type="gkh:year">
+        <xs:annotation>
+          <xs:documentation>Срок службы здания</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="faultAcceptDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>Дата документа о признании дома аварийным</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="faultAcceptNumber">
+        <xs:annotation>
+          <xs:documentation>Номер документа о признании дома аварийным</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="15"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabIndoorArea">
+    <xs:annotation>
+      <xs:documentation>Данные по внутренней площади многоквартирного дома</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="staircase" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Лестничные марши и площадки, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="corridor" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Коридоры мест общего пользования, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="technicalBasement" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Техническое подполье (технический подвал), м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="technicalFloor" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Технический этаж (между этажами), м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="technicalAttic" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Технические чердаки, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="otherTechnicalRooms" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Иные технические помещения, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="shelter" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Убежища, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="basement" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Подвалы, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="attic" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Чердаки, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="otherRooms" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Площадь прочих помещений общего пользования, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabCommunityPropertyObject">
+    <xs:annotation>
+      <xs:documentation>Объект общего имущества, в том числе элементов  озеленения  и  благоустройства,
+        расположенных в границах земельного участка, на котором расположен многоквартирный дом</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name">
+        <xs:annotation>
+          <xs:documentation>Наименование</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabCommunityPropertyRoom">
+    <xs:annotation>
+      <xs:documentation>Помещение, относящееся к общему долевому имуществу собственников помещений, кроме мест общего пользования</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="floor" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Этаж</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="number">
+        <xs:annotation>
+          <xs:documentation>Номер помещения</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="purpose">
+        <xs:annotation>
+          <xs:documentation>Назначение помещения</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabHeatingEquipment">
+    <xs:annotation>
+      <xs:documentation>Оборудование по отоплению, размещенное на внутридомовых инженерных системах МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="gkh:mabHeatingType">
+        <xs:annotation>
+          <xs:documentation>Тип отопления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasAutomaticReadingsCollectionSystem" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Установлена система автоматического сбора показаний</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="fillingLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина розлива, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="riserCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество стояков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="riserBasementLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина стояков в подвалах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="riserFlatLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина стояков в квартирах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="flatDistributionLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина разводки в квартирах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="radiatorStaircaseCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество радиаторов на лестничных клетках</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="radiatorFlatCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество радиаторов в квартирах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="valve_count" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество запорно-регулирующей арматуры</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="thermalInsulationArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>площадь теплоизоляции, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="steelCalorifierCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество калориферов стальных</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="convectorCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество конвекторов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="latchCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество задвижек</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="faucetCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество вентилей</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="threeWayFaucetCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество трехходовых кранов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="elevatorCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество элеваторов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="boxCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество коробов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="heatingCenterCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество теплоцентров</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabColdWaterEquipment">
+    <xs:annotation>
+      <xs:documentation>Оборудование по холодному водоснабжению, размещенное на внутридомовых инженерных системах МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="gkh:mabColdWaterSupplyType">
+        <xs:annotation>
+          <xs:documentation>Тип холодного водоснабжения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasControlUnit" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Установлен узел управления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasAutomaticReadingsCollectionSystem" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Установлена система автоматического сбора показаний</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="fillingLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина розлива, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="riserCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество стояков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="riserBasementLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина стояков в подвалах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="riserFlatLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина стояков в квартирах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="flatDistributionLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина разводки в квартирах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="brassFaucetCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество вентилей латунных</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="waterMeterCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество водомерных узлов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="basementFaucetCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество вентилей в подвалах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabHotWaterEquipment">
+    <xs:annotation>
+      <xs:documentation>Оборудование по горячему водоснабжению, размещенное на внутридомовых инженерных системах МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="gkh:mabHotWaterSupplyType">
+        <xs:annotation>
+          <xs:documentation>Тип горячего водоснабжения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasControlUnit" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Установлен узел управления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasAutomaticReadingsCollectionSystem" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Установлена система автоматического сбора показаний</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="fillingLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина розлива, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="riserCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество стояков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="riserBasementLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина стояков в подвалах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="riserFlatLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина стояков в квартирах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="flatDistributionLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Длина разводки в квартирах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="latchCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество задвижек</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="basementFaucetCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество вентилей в подвалах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="plugValveCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество пробковых кранов в подвалах</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabElectricEquipment">
+    <xs:annotation>
+      <xs:documentation>Оборудование по электроснабжению, размещенное на внутридомовых инженерных системах МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="type" type="gkh:mabElectricSupplyType">
+        <xs:annotation>
+          <xs:documentation>Тип электроснабжения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasControlUnit" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Установлен узел управления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hasAutomaticReadingsCollectionSystem" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Установлена система автоматического сбора показаний</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="inletDistributionDeviceCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество вводно-распределительных устройств</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="groupPanelBasementAndStaircaseCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество групповых щитков в подвале и на лестничной клетке</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="powerBoardCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество силовых щитов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="communalLightingNetworkLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>длина сетей коммунального освещения, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="elevatorAndPumpPowerSupplyNetworkLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>длина сетей питания лифтов и электронасосов, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="controlMeasurementDeviceTotalCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>общее количество счетчиков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="doubleTariffControlMeasurementDeviceCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество двухставочных счетчиков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="numberSignCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество номерных знаков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="daylightLampCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество светильников дневного света</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="incandescentLampCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество светильников с лампами накаливания</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hidLampCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество светильников с лампами ДРЛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="switchCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество выключателей</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="streetLampCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество уличных осветительных приборов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabElevator">
+    <xs:annotation>
+      <xs:documentation>Лифт</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="manufacturerName">
+        <xs:annotation>
+          <xs:documentation>наименование завода - изготовителя</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="hasDoorsFrequencyRegulation" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Наличие частотного регулирования дверей/привода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="capacity" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>грузоподъемность, кг</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="liftSpeed" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>скорость подъема, м/с</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="stopCount" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>количество остановок</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="shaftType" type="gkh:elevatorShaftType">
+        <xs:annotation>
+          <xs:documentation>Тип шахты лифта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="commissioningYear" type="gkh:year">
+        <xs:annotation>
+          <xs:documentation>год ввода в эксплуатацию</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="modernizationYear" type="gkh:year">
+        <xs:annotation>
+          <xs:documentation>год модернизации</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="endServiceYear" type="gkh:year">
+        <xs:annotation>
+          <xs:documentation>предельный срок эксплуатации</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="normativeServiceLife">
+        <xs:annotation>
+          <xs:documentation>нормативный срок службы, лет</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="19"/>
+            <xs:fractionDigits value="2"/>
+            <xs:minExclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabOtherEquipment">
+    <xs:annotation>
+      <xs:documentation>Другое оборудование, размещенное на внутридомовых инженерных системах МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="canalizationType" type="gkh:mabCanalizationType">
+        <xs:annotation>
+          <xs:documentation>Тип канализации</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="canalizationBasementPipesLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>длина канализационных труб в подвалах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="canalizationRiserBasementLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>длина канализационных стояков в подвалах, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="canalizationRiserCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество канализационных стояков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="canalizationRiserLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>длина канализационных стояков, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="canalizationRevisionLidCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество крышек ревизий канализации</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gasType" type="gkh:mabGasSupplyType">
+        <xs:annotation>
+          <xs:documentation>тип газоснабжения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="gasSupplyNetworkLength" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>длина сетей газоснабжения, м</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="gasControlMeasurementDeviceCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>общее количество счетчиков газоснабжения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ventilationType" type="gkh:ventilationType">
+        <xs:annotation>
+          <xs:documentation>вид вентиляции</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="gutterType" type="gkh:gutterType">
+        <xs:annotation>
+          <xs:documentation>Тип водостоков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="hasRubbishChute" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Наличие мусоропроводов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="rubbishChuteReceptionLoadingValvePlacement" type="gkh:rubbishChuteReceptionLoadingValvePlacement">
+        <xs:annotation>
+          <xs:documentation>размещение приемо-загрузочных клапанов мусоропроводов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="rubbishChuteShaftCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество стволов мусоропроводов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="rubbishChuteReceptionLoadingValveCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество приемо-загрузочных клапанов мусоропроводов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="dustCollectingChamberArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>площадь мусороприемных камер, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="dustCollectingChamberVolume">
+        <xs:annotation>
+          <xs:documentation>объем мусороприемных камер, м3</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="19"/>
+            <xs:fractionDigits value="6"/>
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="intercomCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество ПЗУ (переговорно-замочных устройств) или кодовых замков</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="elevatorWithSlidingDoorsCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество лифтов с раздвижными дверями</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="elevatorWithSwingDoorsCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество лифтов с открывающими дверями</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabCustomEquipment">
+    <xs:annotation>
+      <xs:documentation>Иное оборудование, размещенное на внутридомовых инженерных системах МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name">
+        <xs:annotation>
+          <xs:documentation>наименование оборудования</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="placement">
+        <xs:annotation>
+          <xs:documentation>место расположения</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="150"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="characteristic">
+        <xs:annotation>
+          <xs:documentation>характеристика и функциональное назначение оборудования</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="gkh:string">
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabPremiseSummary">
+    <xs:annotation>
+      <xs:documentation>Общие сведения о помещениях в МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="livingPrivateOwnershipCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество жилых помещений, находящихся в частной собственности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="livingMunicipalOwnershipCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество жилых помещений, находящихся в муниципальной собственности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="livingStateOwnershipCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество жилых помещений, находящихся в государственной собственности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nonresidentialPrivateOwnershipCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество нежилых помещений, находящихся в частной собственности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nonresidentialMunicipalOwnershipCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество нежилых помещений, находящихся в муниципальной собственности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nonresidentialStateOwnershipCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество нежилых помещений, находящихся в государственной собственности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="integratedNonresidentialPremiseCount" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>Количество встроенных (пристроенных) нежилых помещений</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="integratedNonresidentialPremiseArea" type="gkh:area">
+        <xs:annotation>
+          <xs:documentation>Общая площадь встроенных (пристроенных) нежилых помещений, м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabFlatCount">
+    <xs:annotation>
+      <xs:documentation>Количество квартир в МКД по типу собственности</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="communal" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Коммунального заселения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ownershipType" type="gkh:ownershipType">
+        <xs:annotation>
+          <xs:documentation>Тип собственности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="oneRoom" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество 1-комнатных квартир</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="twoRoom" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество 2-комнатных квартир</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="threeRoom" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество 3-комнатных квартир</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fourRoom" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество 4-комнатных квартир</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="fiveRoom" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество 5-комнатных квартир</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sixRoom" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество 6-комнатных квартир</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sevenRoom" type="xs:nonNegativeInteger">
+        <xs:annotation>
+          <xs:documentation>количество 7-комнатных и более квартир</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabEnergyEfficiency">
+    <xs:annotation>
+      <xs:documentation>Энергоэффективность МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="class" type="gkh:energyEfficiencyClass">
+        <xs:annotation>
+          <xs:documentation>Класс энергоэффективности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="energyEfficiencySurveyDate" type="gkh:date">
+        <xs:annotation>
+          <xs:documentation>дата проведения последнего энергетического обследования</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="heatingDegreeDay">
+        <xs:annotation>
+          <xs:documentation>Градусо-сутки отопительного периода по средней многолетней продолжительности отопительного периода, °С∙сут</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="19"/>
+            <xs:fractionDigits value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabMaxEnergyConsumption">
+    <xs:annotation>
+      <xs:documentation>Характеристики максимального энергопотребления МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="heatPowerHeating" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Тепловая мощность - отопление, кВт (Гкал/час)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="heatPowerHotWater" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Тепловая мощность - горячее водоснабжение, кВт (Гкал/час)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="heatPowerMandatoryVentilation" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Тепловая мощность - принудительная вентиляция, кВт (Гкал/час)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="heatPowerAirCurtains" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Тепловая мощность - воздушно-тепловые завесы, кВт (Гкал/час)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricPowerLighting" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Электрическая мощность - общедомовое освещение, кВт</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricPowerElevator" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Электрическая мощность - лифтовое оборудование, кВт</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricPowerVentilation" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Электрическая мощность - вентиляция, кВт</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricPowerOther" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Электрическая мощность - прочее, кВт (насосы систем отопления, водоснабжения, др.)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="averageHourlyHotWaterSupplyHeatConsumption" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Среднечасовой за отопительный период расход тепла на ГВС, кВт (Гкал/час)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="averageDailyConsumptionGas" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Средний суточный расход природного газа, м3/сут</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="averageDailyConsumptionColdWater" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Средний суточный расход холодной воды, м3/сут</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="averageDailyConsumptionElectricPower" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Средний суточный расход электроэнергии, кВт∙ч/сут</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="specificMaxHourlyHeatPowerConsumptionHeating" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Удельный максимальный часовой расход тепловой энергии на отопление, Вт/м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="specificMaxHourlyHeatPowerConsumptionVentilation" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Удельный максимальный часовой расход тепловой энергии на вентиляцию, Вт/м2</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="specificHeatCharacteristic" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>Удельная тепловая характеристика здания, Вт/(м3∙°С)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="mabEnergyConsumption">
+    <xs:annotation>
+      <xs:documentation>Энергопотребление МКД</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="heatPower" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>общий объем тепловой энергии, потребляемой многоквартирным домом, МВт·ч/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="heatPowerHeating" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>объем тепловой энергии, потребляемой многоквартирным домом на отопление и вентиляцию за отопительный период, МВт·ч/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="heatPowerHotWater" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>объем тепловой энергии, потребляемой многоквартирным домом на горячее водоснабжение, МВт·ч/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricPower" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>общий объем электрической энергии, потребляемой многоквартирным домом, МВт·ч/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricPowerLighting" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>объем электрической энергии, потребляемой многоквартирным домом на общедомовое освещение, МВт·ч/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricPowerElevator" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>объем электрической энергии, потребляемой многоквартирным домом на лифтовое оборудование, МВт·ч/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricPowerHeating" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>объем электрической энергии, потребляемой многоквартирным домом на отопление и вентиляцию, МВт·ч/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="electricPowerWaterSupply" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>объем электрической энергии, потребляемой многоквартирным домом на водоснабжение и канализацию, МВт·ч/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gas" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>объем природного газа, потребляемого многоквартирным домом, тыс. куб. м/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pipelineWater" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>объем водопроводной воды, потребляемой многоквартирным домом, тыс. куб. м/год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="factualSpecificEnergyResources" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>фактический суммарный годовой удельный расход энергетических ресурсов,
+            рассчитываемый в соответствии с правилами определения класса энергетической эффективности многоквартирных домов
+            с учетом показаний коллективных (общедомовых) и индивидуальных приборов учета потребления энергетических ресурсов, кВт ч/кв. м в год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="normativeSpecificEnergyResources" type="gkh:measurement">
+        <xs:annotation>
+          <xs:documentation>нормативный суммарный годовой удельный расход энергетических ресурсов в соответствии
+            с утвержденными в установленном порядке требованиями энергетической эффективности зданий, строений, сооружений, кВт ч/кв. м в год</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

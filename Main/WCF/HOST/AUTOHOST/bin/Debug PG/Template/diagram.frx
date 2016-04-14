@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Description="Information about Microsoft Chart control." ReportInfo.Created="03/03/2009 19:11:58" ReportInfo.Modified="12/28/2012 16:25:12" ReportInfo.CreatorVersion="1.9.24.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" DataType="System.String"/>
+      <Column Name="type" DataType="System.String"/>
+      <Column Name="value" DataType="System.Int32"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="150" PaperHeight="140" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="1" OtherPagesSource="1">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="567" Height="500.85">
+      <MSChartObject Name="MSChart1" Width="567" Height="500.85" DataSource="Q_master" AlignXValues="true" AutoSeriesColumn="[Q_master.service]" AutoSeriesColor="" AutoSeriesSortOrder="-1" ChartData="PENoYXJ0IFNpemU9IjI4OCwgMjMyIiBCb3JkZXJsaW5lQ29sb3I9IkRhcmtHcmF5IiBCb3JkZXJsaW5lV2lkdGg9IjIiIEJvcmRlcmxpbmVEYXNoU3R5bGU9IlNvbGlkIj4NCiAgPFNlcmllcz4NCiAgICA8U2VyaWVzIE5hbWU9IlNlcmllczEiIExlZ2VuZD0iRGVmYXVsdCIgWFZhbHVlVHlwZT0iU3RyaW5nIiBZVmFsdWVUeXBlPSJJbnQzMiIgQ2hhcnRBcmVhPSJEZWZhdWx0Ij4NCiAgICAgIDxQb2ludHM+DQogICAgICAgIDxEYXRhUG9pbnQgWVZhbHVlcz0iMSIgQXhpc0xhYmVsPSLQktGL0LTQsNC90L4iIC8+DQogICAgICAgIDxEYXRhUG9pbnQgWVZhbHVlcz0iMiIgQXhpc0xhYmVsPSLQndC1INCy0YvQv9C+0LvQvdC10L3QviIgLz4NCiAgICAgICAgPERhdGFQb2ludCBZVmFsdWVzPSIzIiBBeGlzTGFiZWw9ItCe0YLQvNC10L3QtdC90L4iIC8+DQogICAgICAgIDxEYXRhUG9pbnQgWVZhbHVlcz0iNCIgQXhpc0xhYmVsPSLQndC1INCy0YvQv9C+0LvQvdC10L3QviIgLz4NCiAgICAgICAgPERhdGFQb2ludCBZVmFsdWVzPSI1IiBBeGlzTGFiZWw9ItCS0YvQtNCw0L3QviIgLz4NCiAgICAgIDwvUG9pbnRzPg0KICAgIDwvU2VyaWVzPg0KICA8L1Nlcmllcz4NCiAgPExlZ2VuZHM+DQogICAgPExlZ2VuZCBOYW1lPSJEZWZhdWx0Ij4NCiAgICA8L0xlZ2VuZD4NCiAgPC9MZWdlbmRzPg0KICA8VGl0bGVzPg0KICAgIDxUaXRsZSBWaXNpYmxlPSJGYWxzZSIgTmFtZT0iVGl0bGUxIj4NCiAgICA8L1RpdGxlPg0KICA8L1RpdGxlcz4NCiAgPENoYXJ0QXJlYXM+DQogICAgPENoYXJ0QXJlYSBOYW1lPSJEZWZhdWx0Ij4NCiAgICAgIDxBeGlzWT4NCiAgICAgICAgPE1ham9yR3JpZCBMaW5lQ29sb3I9IjY0LCA2NCwgNjQsIDY0IiAvPg0KICAgICAgPC9BeGlzWT4NCiAgICAgIDxBeGlzWD4NCiAgICAgICAgPE1ham9yR3JpZCBMaW5lQ29sb3I9IjY0LCA2NCwgNjQsIDY0IiAvPg0KICAgICAgPC9BeGlzWD4NCiAgICAgIDxBeGlzWDI+DQogICAgICAgIDxNYWpvckdyaWQgTGluZUNvbG9yPSI2NCwgNjQsIDY0LCA2NCIgLz4NCiAgICAgIDwvQXhpc1gyPg0KICAgICAgPEF4aXNZMj4NCiAgICAgICAgPE1ham9yR3JpZCBMaW5lQ29sb3I9IjY0LCA2NCwgNjQsIDY0IiAvPg0KICAgICAgPC9BeGlzWTI+DQogICAgPC9DaGFydEFyZWE+DQogIDwvQ2hhcnRBcmVhcz4NCiAgPEJvcmRlclNraW4gU2tpblN0eWxlPSJFbWJvc3MiIC8+DQo8L0NoYXJ0Pg==">
+        <MSChartSeries Name="Series1" XValue="[Q_master.type]" YValue1="[Q_master.value]"/>
+      </MSChartObject>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

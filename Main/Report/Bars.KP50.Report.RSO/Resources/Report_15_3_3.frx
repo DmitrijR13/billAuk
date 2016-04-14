@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="11/21/2013 13:47:00" ReportInfo.Modified="02/05/2014 17:48:30" ReportInfo.CreatorVersion="1.6.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+   
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="area" DataType="System.String"/>
+      <Column Name="name_supp" DataType="System.String"/>
+      <Column Name="service" DataType="System.String"/>
+      <Column Name="sum_rasp" DataType="System.Decimal"/>
+      <Column Name="sum_ud" DataType="System.Decimal"/>
+      <Column Name="sum_charge" DataType="System.Decimal"/>
+      <Column Name="pref" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+    <Total Name="TotalRasp" Expression="[Q_master.sum_rasp]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="TotalUd" Expression="[Q_master.sum_ud]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="TotalCharge" Expression="[Q_master.sum_charge]" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+    <Total Name="TotalRasp_all" Expression="[Q_master.sum_rasp]" Evaluator="Data1"/>
+    <Total Name="TotalUd_all" Expression="[Q_master.sum_ud]" Evaluator="Data1"/>
+    <Total Name="TotalCharge_all" Expression="[Q_master.sum_charge]" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9">
+    <GroupHeaderBand Name="GroupHeader2" Width="1047.06" Height="100.17" StartNewPage="true" Condition="[Q_master.pref]">
+      <TextObject Name="Text25" Left="776.79" Top="66.15" Width="147.42" Height="34.02" Border.Lines="All" Border.Width="0.25" Text="Подлежит перечислению" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text9" Left="45.36" Top="66.15" Width="215.46" Height="34.02" Border.Lines="All" Border.Width="0.25" Text="Поставщик услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text7" Left="26.46" Top="66.15" Width="18.9" Height="34.02" Border.Lines="All" Border.Width="0.25" Text="№" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text8" Left="260.82" Top="66.15" Width="215.46" Height="34.02" Border.Lines="All" Border.Width="0.25" Text="Наименование услуги" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text10" Left="476.28" Top="66.15" Width="153.09" Height="34.02" Border.Lines="All" Border.Width="0.25" Text="Принятые платежи от населения" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text22" Left="629.37" Top="66.15" Width="147.42" Height="34.02" Border.Lines="All" Border.Width="0.25" Text="Коммиссия (с НДС)" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text1" Left="26.46" Top="5.67" Width="897.75" Height="52.92" CanGrow="true" Text="Сводный отчет по принятым для перечисления денежным средствам&#13;&#10;за период с [dateBegin] г. по [dateEnd] г.&#13;&#10;по [headers]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <GroupHeaderBand Name="GroupHeader1" Top="103.68" Width="1047.06" Height="18.9" Condition="[Q_master.name_supp]">
+        <TextObject Name="Text2" Left="45.36" Width="869.4" Height="18.9" Text="[Q_master.pref]"/>
+        <DataBand Name="Data1" Top="126.09" Width="1047.06" Height="18.9" CanGrow="true" DataSource="Q_master">
+          <TextObject Name="Text11" Left="26.46" Width="18.9" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Row#]" Padding="2, 2, 2, 2" Duplicates="Merge" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text14" Left="476.28" Width="153.09" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_rasp]" Padding="2, 2, 2, 2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text13" Left="45.36" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Q_master.name_supp]" Padding="2, 2, 2, 2" Duplicates="Merge" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text12" Left="260.82" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Q_master.service]" Padding="2, 2, 2, 2" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text21" Left="629.37" Width="147.42" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_ud]" Padding="2, 2, 2, 2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+          <TextObject Name="Text24" Left="776.79" Width="147.42" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[Q_master.sum_charge]" Padding="2, 2, 2, 2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt"/>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter1" Top="148.5" Width="1047.06" Height="18.9" CanGrow="true">
+          <TextObject Name="Text32" Left="776.79" Width="147.42" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[TotalCharge]" Padding="2, 2, 2, 2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text27" Left="26.46" Width="18.9" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Padding="2, 2, 2, 2" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text28" Left="45.36" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Padding="2, 2, 2, 2" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text29" Left="476.28" Width="153.09" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[TotalRasp]" Padding="2, 2, 2, 2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text30" Left="260.82" Width="215.46" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="ИТОГО по [Q_master.name_supp]" Padding="2, 2, 2, 2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text31" Left="629.37" Width="147.42" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" GrowToBottom="true" Text="[TotalUd]" Padding="2, 2, 2, 2" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter2" Top="170.91" Width="1047.06"/>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="174.41" Width="1047.06" Height="85.05">
+      <TextObject Name="Text19" Left="26.46" Top="54.81" Width="234.36" Height="18.9" Text="Начальник абонентского отдела" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text20" Left="260.82" Top="54.81" Width="215.46" Height="18.9" Border.Lines="Bottom" Border.Width="0.25" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text16" Left="26.46" Top="13.23" Width="234.36" Height="18.9" Text="ИТОГО" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text26" Left="776.79" Width="147.42" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" Text="[TotalCharge_all]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text18" Left="476.28" Width="153.09" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" Text="[TotalRasp_all]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text23" Left="629.37" Width="147.42" Height="18.9" Border.Lines="All" Border.Width="0.25" CanGrow="true" Text="[TotalUd_all]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>
