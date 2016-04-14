@@ -1060,10 +1060,10 @@ namespace STCLINE.KP50.DataBase
 
                     ExecSQL(connDb, sql, true);
 
-                    sql = " UPDATE t1 set reval_k = reval_k + coalesce((SELECT reval  from(SELECT nzp_dom, nzp_serv, a.nzp_kvar, sum(sum_rcl) as reval from " + sChargeAlias + ".perekidka " +
+                    sql = " UPDATE t1 set reval_k = reval_k - coalesce((SELECT reval  from(SELECT nzp_dom, a.nzp_kvar, sum(sum_rcl) as reval from " + sChargeAlias + ".perekidka " +
                     " a INNER JOIN " + pref + "_data.kvar b on b.nzp_kvar = a.nzp_kvar INNER JOIN fbill_data.document_base d on d.nzp_doc_base = a.nzp_doc_base where month_ = " + 
-                    prm.month_.ToString() + "  AND d.comment != 'Выравнивание сальдо' group by 1,2,3) t " +
-                    " where t1.nzp_serv = t.nzp_serv and t1.nzp_dom = t.nzp_dom and t1.nzp_kvar = t.nzp_kvar), 0)";
+                    prm.month_.ToString() + "  AND d.comment = 'Выравнивание сальдо' and nzp_serv in (9,14,513,514,1010052,1010053) group by 1,2) t " +
+                    " where t1.nzp_dom = t.nzp_dom and t1.nzp_kvar = t.nzp_kvar), 0)";
 
                     if (!ExecSQL(connDb, sql.ToString(), true).result)
                         return null;

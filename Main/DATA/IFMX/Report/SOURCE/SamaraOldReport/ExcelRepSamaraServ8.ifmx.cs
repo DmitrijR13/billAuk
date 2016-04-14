@@ -236,6 +236,14 @@ namespace STCLINE.KP50.DataBase
                     ExecSQL(connDb, sql, true);
                     //  DataTable dt = DBManager.ExecSQLToTable(connDb, "select sum(reval_k) from t1");
 
+                    string sql7 = " UPDATE t1 set reval_k = reval_k - coalesce((SELECT reval  from(SELECT nzp_dom, a.nzp_kvar, sum(sum_rcl) as reval from " + sChargeAlias + ".perekidka " +
+                   " a INNER JOIN " + pref + "_data.kvar b on b.nzp_kvar = a.nzp_kvar INNER JOIN fbill_data.document_base d on d.nzp_doc_base = a.nzp_doc_base where month_ = " +
+                   prm.month_.ToString() + "  AND d.comment = 'Выравнивание сальдо' and nzp_serv in (8) group by 1,2) t " +
+                   " where t1.nzp_dom = t.nzp_dom and t1.nzp_kvar = t.nzp_kvar), 0)";
+
+                    if (!ExecSQL(connDb, sql7.ToString(), true).result)
+                        return null;
+
                     #region корректировка отопления
                     sql = "update t1 set sum_otopl = " + DBManager.sNvlWord + "((select  " +
                          " sum(sum_rcl) " +
