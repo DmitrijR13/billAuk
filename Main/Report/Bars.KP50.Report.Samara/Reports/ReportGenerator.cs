@@ -143,7 +143,7 @@ namespace Bars.KP50.Report.Samara.Reports
                          " 1.01 as sum_money, 1.01 as sum_outsaldo, coalesce(p.sum_rcl, 0) as sum_rcl, " +
                          " CASE WHEN p1.val_prm = '0' THEN 'неприватизированная' WHEN p1.val_prm = '1' THEN 'приватизированная' " +
                          " WHEN p1.val_prm = '6' THEN 'маневренный фонд' ELSE '' END as type, " +
-                         " CASE WHEN p2.val_prm = '1' THEN 'изолированная' WHEN p2.val_prm = '2' THEN 'коммунальная' ELSE 'не указано' END as comf, k.nzp_kvar" +
+                         " CASE WHEN p2.val_prm = '1' THEN 'изолированная' WHEN p2.val_prm = '2' THEN 'коммунальная' ELSE 'не указано' END as comf, k.nzp_kvar, d.idom, k.ikvar " +
                         " FROM " + pref + "_data.kvar k " +
                         " INNER JOIN " + pref + DBManager.sDataAliasRest + "dom d on d.nzp_dom = k.nzp_dom " +
                         " INNER JOIN " + pref + DBManager.sDataAliasRest + "s_ulica u on u.nzp_ul = d.nzp_ul " +
@@ -154,8 +154,8 @@ namespace Bars.KP50.Report.Samara.Reports
                         " LEFT JOIN (SELECT nzp, max(val_prm) as val_prm from bill01_data.prm_1 where is_actual = 1 AND Extract(year from dat_po) = 3000 AND nzp_prm = 3 group by 1) p2 on p2.nzp = k.nzp_kvar " +
                         " where nzp_serv != 1 and dat_charge is null " + Raions + Streets + Houses + 
                         //" and k.pkod = 3040102008552 " +
-                        " GROUP BY 1,2,3,4,5,11,12,13,14 " +
-                        " ORDER BY 1,2,3,4,5";
+                        " GROUP BY 1,2,3,4,5,11,12,13,14,15,16 " +
+                        " ORDER BY 1,15,16,4,5";
             var dt = ExecSQLToTable(sql.ToString());
             for (int i = 0; i < dt.Rows.Count; i++)
             {
