@@ -404,7 +404,7 @@ namespace STCLINE.KP50.DataBase
                    " from t_kvars k ," + sChargeAlias + sChargeTable + " a  " +
                    " left outer join " + pref + DBManager.sKernelAliasRest + "formuls f " +
                    " on a.nzp_frm =f.nzp_frm " +
-                   (prm.nzp_prm == 513 ?
+                   (prm.nzp_serv == 513 ?
                    " where k.nzp_kvar = a.nzp_kvar and a.nzp_serv in (9,14) " :
                    " where k.nzp_kvar = a.nzp_kvar and a.nzp_serv in (9,14,414,518,513,514,1010052,1010053) ") +
                    " and dat_charge is null";
@@ -434,7 +434,7 @@ namespace STCLINE.KP50.DataBase
                    " from t_kvars k ," + sChargeAlias + sChargeTable + " a  " +
                    " left outer join " + pref + DBManager.sKernelAliasRest + "formuls f " +
                    " on a.nzp_frm =f.nzp_frm " +
-                   (prm.nzp_prm == 513 ?
+                   (prm.nzp_serv == 513 ?
                    " where k.nzp_kvar = a.nzp_kvar and a.nzp_serv in (9,14) " :
                    " where k.nzp_kvar = a.nzp_kvar and a.nzp_serv in (9,14,414,518,513,514,1010052,1010053) ") +
                    " and dat_charge is null";
@@ -678,7 +678,7 @@ namespace STCLINE.KP50.DataBase
             sql.Append("  update t_local_water set vozv_odn_kub= " +
                        "  (select  coalesce(sum(a.sum_nedop/tarif_kub), 0) " +
                        "  from t_charges a where t_local_water.nzp_dom=a.nzp_dom " +
-                       (prm.nzp_prm == 513
+                       (prm.nzp_serv == 513
                            ? "  and tarif_kub>0 and nzp_serv in (0))"
                            : "  and tarif_kub>0 and nzp_serv in (514,518,1010053))"));
                        //"  and tarif_kub>0 and nzp_serv in (518))");вата
@@ -689,7 +689,7 @@ namespace STCLINE.KP50.DataBase
             sql.Append("  update t_local_water set vozv_odn_gkal= " +
                        "  (select  sum(a.sum_nedop/tarif_gkal) " +
                        "  from t_charges a where t_local_water.nzp_dom=a.nzp_dom " +
-                       (prm.nzp_prm == 513
+                       (prm.nzp_serv == 513
                            ? "  and tarif_gkal>0 and nzp_serv in (0))"
                            : "  and tarif_gkal>0 and nzp_serv in (513,1010052))"));
                        //"  and tarif_gkal>0 and nzp_serv in (0))"); вата
@@ -700,7 +700,7 @@ namespace STCLINE.KP50.DataBase
             sql.Append(" update t_local_water set reval_kub = " +
                        " (select  coalesce(sum(a.reval/tarif_kub), 0) " +
                        " from t_charges a where t_local_water.nzp_dom=a.nzp_dom " +
-                       (prm.nzp_prm == 513
+                       (prm.nzp_serv == 513
                            ? " and tarif_kub > 0 and nzp_serv not in (9) )"
                            : " and tarif_kub > 0 and nzp_serv not in (9,513,1010052) )"));
                        //" and tarif_kub > 0 and nzp_serv not in (9) )"); вата
@@ -711,7 +711,7 @@ namespace STCLINE.KP50.DataBase
             sql.Append(" update t_local_water set reval_kub = reval_kub + " +
                        " (select  coalesce(sum(a.reval/tarif_kub), 0) " +
                        " from t_charges_saldo0 a where t_local_water.nzp_dom=a.nzp_dom " +
-                       (prm.nzp_prm == 513
+                       (prm.nzp_serv == 513
                            ? " and tarif_kub > 0 and nzp_serv not in (9) )"
                            : " and tarif_kub > 0 and nzp_serv not in (9,513,1010052) )"));
             //" and tarif_kub > 0 and nzp_serv not in (9) )"); вата
@@ -723,7 +723,7 @@ namespace STCLINE.KP50.DataBase
             sql.Append(" update t_local_water set reval_gkal = " +
                        " (select  coalesce(sum(a.reval/tarif_gkal), 0) " +
                        " from t_charges a where t_local_water.nzp_dom=a.nzp_dom " +
-                       (prm.nzp_prm == 513
+                       (prm.nzp_serv == 513
                            ? " and tarif_gkal > 0 and nzp_serv in (9) )"
                            : " and tarif_gkal > 0 and nzp_serv in (9,513,1010052) )"));
                        //" and tarif_gkal > 0 and nzp_serv in (9) )");вата
@@ -734,7 +734,7 @@ namespace STCLINE.KP50.DataBase
             sql.Append(" update t_local_water set reval_gkal = reval_gkal + " +
                        " (select  coalesce(sum(a.reval/tarif_gkal), 0) " +
                        " from t_charges_saldo0 a where t_local_water.nzp_dom=a.nzp_dom " +
-                       (prm.nzp_prm == 513
+                       (prm.nzp_serv == 513
                            ? " and tarif_gkal > 0 and nzp_serv in (9) )"
                            : " and tarif_gkal > 0 and nzp_serv in (9,513,1010052) )"));
             //" and tarif_gkal > 0 and nzp_serv in (9) )");вата

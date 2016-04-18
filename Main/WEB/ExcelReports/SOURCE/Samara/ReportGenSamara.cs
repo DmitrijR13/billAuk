@@ -12387,7 +12387,8 @@ namespace STCLINE.KP50.REPORT
             //создание dataTable
             var exR = new ExcelRep();
             var dt = exR.GetSpravSoderg(prm, out ret, nzpUser);
-            //StreamWriter sw1 = new StreamWriter(@"C:\temp\exelLog.txt", false);
+            StreamWriter sw1 = new StreamWriter(@"C:\temp\exelLog.txt", false);
+            sw1.WriteLine(prm.nzp_serv);
             ExcelLoader excelL = null;
             try
             {
@@ -12396,7 +12397,7 @@ namespace STCLINE.KP50.REPORT
                 if (dt != null)
                 {
                     excelL = new ExcelLoader();
-                    //sw1.WriteLine("1");
+                    sw1.WriteLine("1");
 
 
                     #region Создаем шапку
@@ -13103,8 +13104,8 @@ namespace STCLINE.KP50.REPORT
                     }
 
                     #endregion
-                    //sw1.WriteLine("10");
-                    //sw1.Close();
+                    sw1.WriteLine("10");
+                    sw1.Close();
                 }
 
                 else
