@@ -12368,7 +12368,7 @@ namespace STCLINE.KP50.REPORT
             streets.Add(" МАЛЬЦЕВА", " МАЛЬЦЕВА ПРОЕЗД");
             string nameSupp = "";
             string serviceName = "";
-            if (prm.nzp_serv == 9)
+            if (prm.nzp_serv == 9 || prm.nzp_serv == 513)
             {
                 ret = GetSpravSoderg9(prm, nzpUser, ref fileName);
                 return ret;

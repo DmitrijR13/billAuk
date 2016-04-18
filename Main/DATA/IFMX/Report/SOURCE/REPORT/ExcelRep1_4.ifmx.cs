@@ -16,7 +16,7 @@ namespace STCLINE.KP50.DataBase
         {
             //MonitorLog.WriteLog("ExcelReport start ifmx", MonitorLog.typelog.Info, true);
 
-            if (prm.nzp_serv == 9)
+            if (prm.nzp_serv == 9 || prm.nzp_serv == 513)
             {
                 return GetSpravSoderg9(prm, out ret, Nzp_user);
             }

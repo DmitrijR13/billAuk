@@ -1034,20 +1034,36 @@ namespace STCLINE.KP50.DataBase
                           " sum(case when nzp_serv<500 then rsum_tarif else 0 end) as rsum_tarif, " +
                           " sum(case when nzp_serv>500 then rsum_tarif else 0 end) as rsum_tarif_odn, " +
                           " sum(case when nzp_serv=9 then sum_nedop else 0 end) as sum_nedop," +
-                          " sum(case when real_charge<0 and nzp_serv in (9,513,1010052) then real_charge else 0 end) +" +
-                          " sum(case when reval<0 and nzp_serv in (9,513,1010052) then reval else 0 end) as reval_k," +
-                          " sum(case when real_charge>0 and nzp_serv in (9,513,1010052) then real_charge else 0 end) +" +
-                          " sum(case when reval>0 and nzp_serv in (9,513,1010052) then reval else 0 end) as reval_d," +
-
+                          (prm.nzp_prm == 513
+                              ? " sum(case when real_charge<0 and nzp_serv in (9) then real_charge else 0 end) +"
+                              : " sum(case when real_charge<0 and nzp_serv in (9,513,1010052) then real_charge else 0 end) +") +
+                          (prm.nzp_prm == 513
+                              ? " sum(case when reval<0 and nzp_serv in (9) then reval else 0 end) as reval_k,"
+                              : " sum(case when reval<0 and nzp_serv in (9,513,1010052) then reval else 0 end) as reval_k,") +
+                          (prm.nzp_prm == 513
+                              ? " sum(case when real_charge>0 and nzp_serv in (9) then real_charge else 0 end) +"
+                              : " sum(case when real_charge>0 and nzp_serv in (9,513,1010052) then real_charge else 0 end) +") +
+                          (prm.nzp_prm == 513
+                              ? " sum(case when reval>0 and nzp_serv in (9) then reval else 0 end) as reval_d,"
+                              : " sum(case when reval>0 and nzp_serv in (9,513,1010052) then reval else 0 end) as reval_d,") +
                           " sum(case when nzp_serv=14 then sum_nedop else 0 end) as sum_nedop_kub," +
-                          " sum(case when real_charge<0 and nzp_serv in (14,514,1010053) then real_charge else 0 end) +" +
-                          " sum(case when reval<0 and nzp_serv in (14,514,1010053) then reval else 0 end) as reval_k_kub," +
-                          " sum(case when real_charge>0 and nzp_serv in (14,514,1010053) then real_charge else 0 end) +" +
-                          " sum(case when reval>0 and nzp_serv in (14,514,1010053)then reval else 0 end) as reval_d_kub" +
-
+                          (prm.nzp_prm == 513
+                              ? " sum(case when real_charge<0 and nzp_serv in (14) then real_charge else 0 end) +"
+                              : " sum(case when real_charge<0 and nzp_serv in (14,514,1010053) then real_charge else 0 end) +") +
+                          (prm.nzp_prm == 513
+                              ? " sum(case when reval<0 and nzp_serv in (14) then reval else 0 end) as reval_k_kub,"
+                              : " sum(case when reval<0 and nzp_serv in (14,514,1010053) then reval else 0 end) as reval_k_kub,") +
+                          (prm.nzp_prm == 513
+                              ? " sum(case when real_charge>0 and nzp_serv in (14) then real_charge else 0 end) +"
+                              : " sum(case when real_charge>0 and nzp_serv in (14,514,1010053) then real_charge else 0 end) +") +
+                          (prm.nzp_prm == 513
+                              ? " sum(case when reval>0 and nzp_serv in (14)then reval else 0 end) as reval_d_kub"
+                              : " sum(case when reval>0 and nzp_serv in (14,514,1010053)then reval else 0 end) as reval_d_kub") +
                           " from  " + sChargeAlias + DBManager.tableDelimiter + "charge_" +
                           prm.month_.ToString("00") + " a, sel_kvar10 b" +
-                          " where nzp_serv  in (9,14,513,514,1010052,1010053) " +
+                          (prm.nzp_prm == 513
+                              ? " where nzp_serv  in (9,14) "
+                              : " where nzp_serv  in (9,14,513,514,1010052,1010053) ") +
                           " and a.nzp_kvar=b.nzp_kvar " +
                           " and abs(rsum_tarif)+abs(sum_nedop)+abs(real_charge)+ abs(reval) +" +
                           " abs(tarif) + abs(sum_charge)>0.001" +
@@ -1060,10 +1076,15 @@ namespace STCLINE.KP50.DataBase
 
                     ExecSQL(connDb, sql, true);
 
-                    sql = " UPDATE t1 set reval_k = reval_k - coalesce((SELECT reval  from(SELECT nzp_dom, a.nzp_kvar, sum(sum_rcl) as reval from " + sChargeAlias + ".perekidka " +
-                    " a INNER JOIN " + pref + "_data.kvar b on b.nzp_kvar = a.nzp_kvar INNER JOIN fbill_data.document_base d on d.nzp_doc_base = a.nzp_doc_base where month_ = " + 
-                    prm.month_.ToString() + "  AND d.comment = 'Выравнивание сальдо' and nzp_serv in (9,14,513,514,1010052,1010053) group by 1,2) t " +
-                    " where t1.nzp_dom = t.nzp_dom and t1.nzp_kvar = t.nzp_kvar), 0)";
+                    sql =
+                        " UPDATE t1 set reval_k = reval_k - coalesce((SELECT reval  from(SELECT nzp_dom, a.nzp_kvar, sum(sum_rcl) as reval from " +
+                        sChargeAlias + ".perekidka " +
+                        " a INNER JOIN " + pref +
+                        "_data.kvar b on b.nzp_kvar = a.nzp_kvar INNER JOIN fbill_data.document_base d on d.nzp_doc_base = a.nzp_doc_base where month_ = " +
+                        (prm.nzp_prm == 513
+                            ? prm.month_.ToString() + "  AND d.comment = 'Выравнивание сальдо' and nzp_serv in (9,14) group by 1,2) t "
+                            : prm.month_.ToString() + "  AND d.comment = 'Выравнивание сальдо' and nzp_serv in (9,14,513,514,1010052,1010053) group by 1,2) t ") +
+                        " where t1.nzp_dom = t.nzp_dom and t1.nzp_kvar = t.nzp_kvar), 0)";
 
                     if (!ExecSQL(connDb, sql.ToString(), true).result)
                         return null;
@@ -1313,7 +1334,9 @@ namespace STCLINE.KP50.DataBase
                             " where  b.nzp_kvar=d.nzp_kvar and dat_charge = date('28." +
                             prm.month_.ToString("00") + "." + prm.year_ + "')" +
                             " and abs(sum_nedop)+abs(sum_nedop_p)>0.001" +
-                            " and nzp_serv in (9, 14, 513, 514, 1010052, 1010053)";
+                            (prm.nzp_prm == 513
+                                ? " and nzp_serv in (9, 14)"
+                                : " and nzp_serv in (9, 14, 513, 514, 1010052, 1010053)");
                         if (prm.nzp_key > -1) //Добавляем поставщика
                         {
                             sql = sql + " and nzp_supp = " + prm.nzp_key;

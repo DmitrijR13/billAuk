@@ -2918,6 +2918,7 @@ namespace STCLINE.KP50.DataBase
             //InsertServicesDirectory(connDB, -9,  -9,  14, 1406, 3106, "Тепловая энергия на подогрев холодной воды");
             InsertServicesDirectory(connDB, 515,     515, 15, 0,    0,    "Электроэнергия ОДН");
             InsertServicesDirectory(connDB, 1010042, 515, 15, 0,    0,    "Электроэнергия ОДН");
+            InsertServicesDirectory(connDB, 513, 513, 15, 0, 0, "Горячее водоснабжение без ОДН");
         }
 
         /// <summary>Добавление новой услуги в справочник услуг</summary>
