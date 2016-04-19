@@ -179,7 +179,7 @@ namespace STCLINE.KP50.DataBase
             if (!DBManager.ExecSQL(connDB, sql.ToString(), true).result)
                 throw new Exception();
 
-            if (prm.nzp_serv == 513)
+            if (prm.nzp_serv == 1000)
             {
                 sql.Remove(0, sql.Length);
                 sql.Append("  update t_local_water set " +
