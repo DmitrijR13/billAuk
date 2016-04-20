@@ -439,6 +439,38 @@ namespace Bars.KP50.Report.Samara.Reports
             dt1.TableName = "Q_master1";
             ds.Tables.Add(dt1);
 
+            if (YearS == 2016 && MonthS <= 3 && MonthPo >= 3)
+            {
+                sql = " SELECT CASE WHEN p.nzp_serv=9 THEN 'Горячее водоснабжение' ELSE TRIM(service) END AS service, sum(sum_rcl) as sum_rcl " +
+                      " FROM bill01_charge_16.perekidka p" +
+                      " INNER JOIN fbill_data.document_base d on d.nzp_doc_base = p.nzp_doc_base" +
+                      " INNER JOIN fbill_kernel.services s on s.nzp_serv = p.nzp_serv" +
+                      " where month_ = 3" +
+                      " AND d.comment = 'Выравнивание сальдо'" +
+                      " group by 1";
+
+                DataTable dt2 = ExecSQLToTable(sql);
+                for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dt2.Rows.Count; j++)
+                    {
+                        if (dt1.Rows[i]["service"].ToString() == dt2.Rows[j]["service"].ToString())
+                        {
+                            if (dt1.Rows[i]["service"].ToString() == "Пени")
+                            {
+                                dt1.Rows[i]["reval_d"] = Convert.ToDecimal(dt1.Rows[i]["reval_d"]) -
+                                                         Convert.ToDecimal(dt2.Rows[j]["sum_rcl"]);
+                            }
+                            else
+                            {
+                                dt1.Rows[i]["reval_k"] = Convert.ToDecimal(dt1.Rows[i]["reval_k"]) +
+                                                         Convert.ToDecimal(dt2.Rows[j]["sum_rcl"]);
+                            }
+                        }
+                    }
+                }
+            }
+
             return ds;
         }
 
