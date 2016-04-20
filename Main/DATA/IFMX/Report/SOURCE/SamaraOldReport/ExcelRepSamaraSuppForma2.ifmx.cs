@@ -328,6 +328,15 @@ namespace STCLINE.KP50.DataBase
                       " GROUP BY 1,2,3,4,5,6,7,8 ";
                 ExecSQL(connDB, sql, true);
 
+                sql = " UPDATE t_sv set sum_charge = sum_charge - coalesce((SELECT reval  from(SELECT nzp_supp, nzp_serv, sum(sum_rcl) as reval from bill01_charge_" + 
+                    (listprm[0].year_ - 2000).ToString("00") + ".perekidka a " +
+                   " INNER JOIN fbill_data.document_base d on d.nzp_doc_base = a.nzp_doc_base where month_ = " +
+                   listprm[0].month_.ToString() + "  AND d.comment = 'Выравнивание сальдо' group by 1,2) t " +
+                   " where t_sv.nzp_supp = t.nzp_supp and t_sv.nzp_serv = t.nzp_serv), 0)";
+
+                if (!ExecSQL(connDB, sql, true).result)
+                    return null;
+
 
                 sql = " select kod_rs" +
                       " from t_svod where kod_rs >0 " +

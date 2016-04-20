@@ -458,15 +458,34 @@ namespace Bars.KP50.Report.Samara.Reports
                         {
                             if (dt1.Rows[i]["service"].ToString() == "Пени")
                             {
-                                dt1.Rows[i]["reval_d"] = Convert.ToDecimal(dt1.Rows[i]["reval_d"]) -
+                                if (Convert.ToDecimal(dt1.Rows[i]["reval_d"]) != 0)
+                                    dt1.Rows[i]["reval_d"] = Convert.ToDecimal(dt1.Rows[i]["reval_d"]) -
                                                          Convert.ToDecimal(dt2.Rows[j]["sum_rcl"]);
                             }
                             else
                             {
-                                dt1.Rows[i]["reval_k"] = Convert.ToDecimal(dt1.Rows[i]["reval_k"]) +
-                                                         Convert.ToDecimal(dt2.Rows[j]["sum_rcl"]);
+                                if (Convert.ToDecimal(dt1.Rows[i]["reval_k"]) != 0)
+                                    dt1.Rows[i]["reval_k"] = Convert.ToDecimal(dt1.Rows[i]["reval_k"]) +
+                                                                Convert.ToDecimal(dt2.Rows[j]["sum_rcl"]);
                             }
                         }
+                    }
+                }
+                for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    if (dt1.Rows[i]["service"].ToString() == "Горячее водоснабжение")
+                    {
+                        for (int j = 0; j < dt2.Rows.Count; j++)
+                        {
+                            if (dt2.Rows[j]["service"].ToString().Trim() == "Холодная вода для нужд ГВС")
+                            {
+                                if (Convert.ToDecimal(dt1.Rows[i]["reval_k"]) != 0)
+                                    dt1.Rows[i]["reval_k"] = Convert.ToDecimal(dt1.Rows[i]["reval_k"]) +
+                                                                Convert.ToDecimal(dt2.Rows[j]["sum_rcl"]);
+                                break;
+                            }
+                        }
+                        break;
                     }
                 }
             }
