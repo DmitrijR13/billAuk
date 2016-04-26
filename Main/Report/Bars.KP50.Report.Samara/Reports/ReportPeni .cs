@@ -494,50 +494,176 @@ namespace Bars.KP50.Report.Samara.Reports
                         dataTable.Rows[i][1] = "" + Convert.ToDateTime(dataTable.Rows[i][1]).ToShortDateString();
                     }
                 }
+                StreamWriter swPeni = new StreamWriter(@"C:\temp\Peni.log", true);
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
                     if (dataTable.Rows[i][0].ToString().Substring(3, 2) !=
                         dataTable.Rows[i][1].ToString().Substring(3, 2))
                     {
-                        int days_count = Convert.ToInt32(dataTable.Rows[i][5]);
-                        decimal peni = Convert.ToDecimal(dataTable.Rows[i][6]);
+                        int monthPerFrom = Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(3, 2));
+                        int monthPerTo = Convert.ToInt32(dataTable.Rows[i][1].ToString().Substring(3, 2));
+                        if (monthPerTo - monthPerFrom == 1)
+                        {
+                            int days_count = Convert.ToInt32(dataTable.Rows[i][5]);
+                            decimal peni = Convert.ToDecimal(dataTable.Rows[i][6]);
 
-                        row2 = tableRez.NewRow();
-                        row2["date_from"] = dataTable.Rows[i][0].ToString();
-                        row2["date_to"] =
-                            new DateTime(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
-                                Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(3, 2)),
-                                DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
-                                    Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(3, 2)))).ToShortDateString
-                                ();
-                        row2["sum_prih"] = 0;
-                        row2["dat_prih"] = Convert.ToDecimal(dataTable.Rows[i][3]);
-                        row2["dolg"] = Convert.ToDecimal(dataTable.Rows[i][4]);
-                        row2["days"] = days_count - 10;
-                        row2["peni"] = Math.Round(peni/days_count*(days_count - 10), 2);
-                        row2["dolg_peni"] = Convert.ToDecimal(dataTable.Rows[i][7]);
-                        row2["sum_total"] = Convert.ToDecimal(dataTable.Rows[i][8]);
-                        row2["dolg_epd"] = 0;
-                        row2["difference"] = 0;
-                        row2["stavka"] = Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)) == 2015 ? 8.25m : 11m;
-                        tableRez.Rows.Add(row2);
+                            row2 = tableRez.NewRow();
+                            row2["date_from"] = dataTable.Rows[i][0].ToString();
+                            row2["date_to"] =
+                                new DateTime(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                    Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(3, 2)),
+                                    DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                        Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(3, 2)))).ToShortDateString
+                                    ();
+                            row2["sum_prih"] = 0;
+                            row2["dat_prih"] = Convert.ToDecimal(dataTable.Rows[i][3]);
+                            row2["dolg"] = Convert.ToDecimal(dataTable.Rows[i][4]);
+                            row2["days"] = days_count - 10;
+                            row2["peni"] = Math.Round(peni / days_count * (days_count - 10), 2);
+                            row2["dolg_peni"] = Convert.ToDecimal(dataTable.Rows[i][7]);
+                            row2["sum_total"] = Convert.ToDecimal(dataTable.Rows[i][8]);
+                            row2["dolg_epd"] = 0;
+                            row2["difference"] = 0;
+                            row2["stavka"] = Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)) == 2015 ? 8.25m : 11m;
+                            tableRez.Rows.Add(row2);
 
-                        row2 = tableRez.NewRow();
-                        row2["date_from"] =
-                            new DateTime(Convert.ToInt32(dataTable.Rows[i][1].ToString().Substring(6, 4)),
-                                Convert.ToInt32(dataTable.Rows[i][1].ToString().Substring(3, 2)), 1).ToShortDateString();
-                        row2["date_to"] = dataTable.Rows[i][1].ToString();
-                        row2["sum_prih"] = Convert.ToDecimal(dataTable.Rows[i][2]);
-                        row2["dat_prih"] = Convert.ToDecimal(dataTable.Rows[i][3]);
-                        row2["dolg"] = Convert.ToDecimal(dataTable.Rows[i][4]);
-                        row2["days"] = 10;
-                        row2["peni"] = peni - Math.Round(peni/days_count*(days_count - 10), 2);
-                        row2["dolg_peni"] = Convert.ToDecimal(dataTable.Rows[i][7]);
-                        row2["sum_total"] = Convert.ToDecimal(dataTable.Rows[i][8]);
-                        row2["dolg_epd"] = 0;
-                        row2["difference"] = 0;
-                        row2["stavka"] = Convert.ToInt32(dataTable.Rows[i][1].ToString().Substring(6, 4)) == 2015 ? 8.25m : 11m;
-                        tableRez.Rows.Add(row2);
+                            row2 = tableRez.NewRow();
+                            row2["date_from"] =
+                                new DateTime(Convert.ToInt32(dataTable.Rows[i][1].ToString().Substring(6, 4)),
+                                    Convert.ToInt32(dataTable.Rows[i][1].ToString().Substring(3, 2)), 1).ToShortDateString();
+                            row2["date_to"] = dataTable.Rows[i][1].ToString();
+                            row2["sum_prih"] = Convert.ToDecimal(dataTable.Rows[i][2]);
+                            row2["dat_prih"] = Convert.ToDecimal(dataTable.Rows[i][3]);
+                            row2["dolg"] = Convert.ToDecimal(dataTable.Rows[i][4]);
+                            row2["days"] = 10;
+                            row2["peni"] = peni - Math.Round(peni / days_count * (days_count - 10), 2);
+                            row2["dolg_peni"] = Convert.ToDecimal(dataTable.Rows[i][7]);
+                            row2["sum_total"] = Convert.ToDecimal(dataTable.Rows[i][8]);
+                            row2["dolg_epd"] = 0;
+                            row2["difference"] = 0;
+                            row2["stavka"] = Convert.ToInt32(dataTable.Rows[i][1].ToString().Substring(6, 4)) == 2015 ? 8.25m : 11m;
+                            tableRez.Rows.Add(row2);
+                        }
+                        else
+                        {
+                            try
+                            {
+                                swPeni.WriteLine();
+                                int curPerMonth = monthPerFrom;
+                                int days_count = Convert.ToInt32(dataTable.Rows[i][5]);
+                                int days_count_temp = Convert.ToInt32(dataTable.Rows[i][5]);
+                                decimal peni = Convert.ToDecimal(dataTable.Rows[i][6]);
+                                swPeni.WriteLine("curPerMonth=" + curPerMonth);
+                                swPeni.WriteLine("days_count=" + days_count);
+                                swPeni.WriteLine("peni=" + peni);
+                                while (curPerMonth < monthPerTo)
+                                {
+                                    row2 = tableRez.NewRow();
+                                    if (curPerMonth == monthPerFrom)
+                                        row2["date_from"] =
+                                            new DateTime(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                                curPerMonth,
+                                                Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(0, 2)))
+                                                .ToShortDateString();
+                                    else
+                                        row2["date_from"] =
+                                            new DateTime(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                                curPerMonth, 1)
+                                                .ToShortDateString();
+
+                                    if (curPerMonth == monthPerFrom)
+                                        swPeni.WriteLine("date_from=" + new DateTime(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                                curPerMonth,
+                                                Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(0, 2)))
+                                                .ToShortDateString());
+                                    else
+                                        swPeni.WriteLine("date_from=" + new DateTime(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                                curPerMonth, 1)
+                                                .ToShortDateString());
+
+                                    row2["date_to"] =
+                                        new DateTime(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth,
+                                            DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                                curPerMonth)).ToShortDateString
+                                            ();
+                                    row2["sum_prih"] = 0;
+                                    row2["dat_prih"] = Convert.ToDecimal(dataTable.Rows[i][3]);
+                                    row2["dolg"] = Convert.ToDecimal(dataTable.Rows[i][4]);
+                                    if (curPerMonth == monthPerFrom)
+                                        row2["days"] = DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth) - Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(0, 2)) + 1;
+                                    else
+                                        row2["days"] = DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth);
+
+
+                                    if (curPerMonth == monthPerFrom)
+                                        swPeni.WriteLine("days=" + (DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth) - Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(0, 2)) + 1));
+                                    else
+                                        swPeni.WriteLine("days=" + DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth));
+
+                                    if (curPerMonth == monthPerFrom)
+                                        row2["peni"] = Math.Round(peni / days_count * (DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth) - Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(0, 2)) + 1), 2);
+                                    else
+                                        row2["peni"] = Math.Round(peni / days_count * (DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth)), 2);
+
+
+                                    if (curPerMonth == monthPerFrom)
+                                        swPeni.WriteLine("peni=" + Math.Round(peni / days_count * (DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth) - Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(0, 2)) + 1), 2));
+                                    else
+                                        swPeni.WriteLine("peni=" + Math.Round(peni / days_count * (DateTime.DaysInMonth(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth)), 2));
+
+                                    row2["dolg_peni"] = Convert.ToDecimal(dataTable.Rows[i][7]);
+                                    row2["sum_total"] = Convert.ToDecimal(dataTable.Rows[i][8]);
+                                    row2["dolg_epd"] = 0;
+                                    row2["difference"] = 0;
+                                    row2["stavka"] = Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)) == 2015 ? 8.25m : 11m;
+                                    tableRez.Rows.Add(row2);
+                                    if (curPerMonth == monthPerFrom)
+                                        days_count_temp = days_count_temp -
+                                                      (DateTime.DaysInMonth(
+                                                          Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                                          curPerMonth) -
+                                                       Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(0, 2)) + 1);
+                                    else
+                                        days_count_temp = days_count_temp -
+                                                      DateTime.DaysInMonth(
+                                                          Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                                          curPerMonth);
+                                    swPeni.WriteLine("days_count_temp = " + days_count_temp);
+                                    curPerMonth++;
+                                }
+                                row2 = tableRez.NewRow();
+                                row2["date_from"] = new DateTime(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                            curPerMonth, 1).ToShortDateString();
+                                row2["date_to"] =
+                                    new DateTime(Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)),
+                                        curPerMonth, days_count_temp).ToShortDateString();
+                                row2["sum_prih"] = 0;
+                                row2["dat_prih"] = Convert.ToDecimal(dataTable.Rows[i][3]);
+                                row2["dolg"] = Convert.ToDecimal(dataTable.Rows[i][4]);
+                                row2["days"] = days_count_temp;
+                                row2["peni"] = Math.Round(peni / days_count * days_count_temp, 2);
+                                row2["dolg_peni"] = Convert.ToDecimal(dataTable.Rows[i][7]);
+                                row2["sum_total"] = Convert.ToDecimal(dataTable.Rows[i][8]);
+                                row2["dolg_epd"] = 0;
+                                row2["difference"] = 0;
+                                row2["stavka"] = Convert.ToInt32(dataTable.Rows[i][0].ToString().Substring(6, 4)) == 2015 ? 8.25m : 11m;
+                                tableRez.Rows.Add(row2);
+                            }
+                            catch (Exception e )
+                            {
+                                swPeni.WriteLine("error = " + e.ToString());
+                            }
+                            
+                        }
                     }
                     else
                     {
@@ -557,7 +683,7 @@ namespace Bars.KP50.Report.Samara.Reports
                         tableRez.Rows.Add(row2);
                     }
                 }
-
+                swPeni.Close();
                 //for (int i = 0; i < tableRez.Rows.Count; i++)
                 //{
 

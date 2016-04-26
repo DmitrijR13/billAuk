@@ -491,11 +491,20 @@ namespace STCLINE.KP50.DataBase
 
                     sql3 = "update t_nachdom set sum_nedop_cor = (select  " +
                           " -sum(sum_rcl) " +
-                          " from " + db_charge + DBManager.tableDelimiter + "perekidka a " +
-                          " where a.nzp_kvar=t_nachdom.nzp_kvar and type_rcl in (101, 102) and month_=" + prm_.month_.ToString("00") +
+                          " from " + db_charge + DBManager.tableDelimiter + "perekidka a INNER JOIN fbill_data.document_base d on d.nzp_doc_base = a.nzp_doc_base " +
+                          " where a.nzp_kvar=t_nachdom.nzp_kvar and type_rcl in (101, 102) and d.comment != 'Выравнивание сальдо' and month_=" + prm_.month_.ToString("00") +
                           " and abs(sum_rcl)>0.001 " + where_supp + " and t_nachdom.nzp_serv=a.nzp_serv)" +
                            " where real_charge_k<0 ";
                     ExecSQL(conn_db, sql3, true);
+
+                    sql3 = " UPDATE t_nachdom set reval_d = reval_d + coalesce((SELECT reval  from(SELECT a.nzp_kvar, a.nzp_supp, a.nzp_serv, sum(sum_rcl) as reval from " +
+                        db_charge + ".perekidka a " +
+                  " INNER JOIN " + pref + "_data.kvar b on b.nzp_kvar = a.nzp_kvar INNER JOIN fbill_data.document_base d on d.nzp_doc_base = a.nzp_doc_base where month_ = " +
+                  prm_.month_.ToString() + "  AND d.comment != 'Выравнивание сальдо' group by 1,2,3) t " +
+                  " where t_nachdom.nzp_supp = t.nzp_supp and t_nachdom.nzp_kvar = t.nzp_kvar and t_nachdom.nzp_serv = t.nzp_serv and reval > 0), 0) where rsum_tarif > 0";
+
+                    if (!ExecSQL(conn_db, sql3.ToString(), true).result)
+                        return null;
 
 
                     sql3 = "update t_nachdom set sum_nedop = sum_nedop + " + DBManager.sNvlWord + "(sum_nedop_cor,0)";
@@ -700,13 +709,13 @@ namespace STCLINE.KP50.DataBase
                     sql2.Remove(0, sql2.Length);
                     sql2.Append(" update t_nachdom set nzp_serv=9 ");
                     sql2.Append(" where nzp_serv = 14 and 0<(select count(*) ");
-                    sql2.Append(" from t12 where TRIM(t12.name_supp) = TRIM(t_nachdom.name_supp) and  t12.nzp_kvar=t_nachdom.nzp_kvar) ");    // t12.nzp_supp=t_nachdom.nzp_supp and
+                    sql2.Append(" from t12 where t12.nxp_supp = t_nachdom.nzp_supp and  t12.nzp_kvar=t_nachdom.nzp_kvar) ");    // t12.nzp_supp=t_nachdom.nzp_supp and
                     ExecSQL(conn_db, sql2.ToString(), true);
 
                     sql2.Remove(0, sql2.Length);
                     sql2.Append(" update t_nachdom set nzp_serv=513 ");
                     sql2.Append(" where nzp_serv = 514 and 0<(select count(*) ");
-                    sql2.Append(" from t12 where TRIM(t12.name_supp) = TRIM(t_nachdom.name_supp) and  t12.nzp_kvar=t_nachdom.nzp_kvar) ");  // t12.nzp_supp=t_nachdom.nzp_supp and
+                    sql2.Append(" from t12 where t12.nzp_supp = t_nachdom.nzp_supp and  t12.nzp_kvar=t_nachdom.nzp_kvar) ");  // t12.nzp_supp=t_nachdom.nzp_supp and
                     ExecSQL(conn_db, sql2.ToString(), true);
 
 
