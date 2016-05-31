@@ -5438,7 +5438,7 @@ a.dat_uchet,        a.val_cnt,        service_small,        name_y,        cs.da
                                 var servVolume = new ServVolume
                                 {
                                     DomArendatorsVolume = 0,
-                                    DomLiftVolume = 0,
+                                    DomLiftVolume = Decimal.Parse(reader["dpu_cut"].ToString()),
                                     NzpServ = Int32.Parse(reader["nzp_serv"].ToString()),
                                     ServiceName = reader["service"].ToString().Trim()
                                 };
@@ -5474,12 +5474,14 @@ a.dat_uchet,        a.val_cnt,        service_small,        name_y,        cs.da
                                         servVolume.AllLsVolume = Decimal.Parse(reader["dlt_calc"].ToString());
                                         servVolume.OdnDomVolume = Decimal.Parse(reader["dpu_odn"].ToString());
                                         servVolume.DomVolume = Decimal.Parse(reader["rashod"].ToString());
+                                        servVolume.DomLiftVolume = Decimal.Parse(reader["dpu_cut"].ToString());
                                     }
                                     else
                                     {
                                         servVolume.AllLsVolume = Decimal.Parse(reader["dlt_calc"].ToString());
                                         servVolume.DomVolume = Decimal.Parse(reader["dpu"].ToString());
                                         servVolume.OdnDomVolume = Decimal.Parse(reader["dpu_odn"].ToString());
+                                        servVolume.DomLiftVolume = Decimal.Parse(reader["dpu_cut"].ToString());
                                         if (_finder.idFaktura == 100 || _finder.idFaktura == 112 || _finder.idFaktura == 117 || _finder.idFaktura == 118
                                             || _finder.idFaktura == 107 || _finder.idFaktura == 108 || _finder.idFaktura == 122)
                                         {
@@ -6101,7 +6103,7 @@ a.dat_uchet,        a.val_cnt,        service_small,        name_y,        cs.da
                                 var servVolume = new ServVolume
                                 {
                                     DomArendatorsVolume = 0,
-                                    DomLiftVolume = 0,
+                                    DomLiftVolume = Decimal.Parse(reader["dpu_cut"].ToString()),
                                     NzpServ = Int32.Parse(reader["nzp_serv"].ToString()),
                                     ServiceName = reader["service"].ToString().Trim(),
                                     OdnDomVolume =

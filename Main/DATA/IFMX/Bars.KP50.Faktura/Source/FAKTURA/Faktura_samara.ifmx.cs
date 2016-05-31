@@ -221,6 +221,9 @@ namespace Bars.KP50.DB.Faktura
 
         protected override bool FillAdr(DataRow dr)
         {
+            Dictionary<string, string> lsSquare = new Dictionary<string, string>();
+            lsSquare.Add("10121129", "56.9");
+            lsSquare.Add("10120975", "56.9"); //
             if (dr == null) return false;
             dr["Platelchik"] = PayerFio;
             if (Ulica.ToUpper().Contains("ПРОЕЗД") || Ulica.ToUpper().Contains("ПРОСЕК"))
@@ -230,12 +233,18 @@ namespace Bars.KP50.DB.Faktura
             dr["kvnum"] = NumberFlat;
             if (IsolateFlat)
             {
-                dr["kv_pl"] = FullSquare.ToString("0.00");
+                if(lsSquare.ContainsKey(NumLs))
+                    dr["kv_pl"] = lsSquare[NumLs];
+                else
+                    dr["kv_pl"] = FullSquare.ToString("0.00");
                 dr["type_pl"] = "общая";
             }
             else
             {
-                dr["kv_pl"] = LiveSquare.ToString("0.00");
+                if (lsSquare.ContainsKey(NumLs))
+                    dr["kv_pl"] = lsSquare[NumLs];
+                else
+                    dr["kv_pl"] = LiveSquare.ToString("0.00");
                 dr["type_pl"] = "жилая";
             }
             return true;
@@ -614,6 +623,142 @@ namespace Bars.KP50.DB.Faktura
 
         protected bool FillServiceVolume(DataRow dr, int index, int nzpServ)
         {
+            //aServ.ServOdn.CCalc
+            int num1 = nzpServ;
+            int num2 = nzpServ;
+            if (nzpServ == 99)
+                return true;
+            if (nzpServ == 14)
+                num1 = 9;
+            int index1 = -1;
+            for (int index2 = 0; index2 < this.ListVolume.Count; ++index2)
+            {
+                if (this.ListVolume[index2].NzpServ == num1)
+                    index1 = index2;
+            }
+            if (index1 == -1)
+                return true;
+            if (num1 == 25 & this.KfodnEl != "")
+                dr["rash_norm_odn" + (object)index] = (object)this.KfodnEl;
+            if (nzpServ == 14 & this.Kfodngvs != "")
+                dr["rash_norm_odn" + index] = Kfodngvs;
+            if (num1 == 6 & this.Kfodnhvs != "" & this.HasHvsDpu)
+                dr["rash_norm_odn" + (object)index] = (object)this.Kfodnhvs;
+            if ( num1 == 210 & this.HasElDpu || (num1 == 10 & this.HasGazDpu || num1 == 6 & this.HasGazDpu) || num2 == 14 & this.HasGvsDpu || num1 == 8 & this.HasOtopDpu)
+            {
+                this.FillGoodServVolume(dr, ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
+                this.FillGoodServVolume(dr,
+                    ListVolume[index1].OdnDomVolume, "rash_dpu_odn" + (object) index);
+                //StreamWriter sw = new StreamWriter(@"C:\temp\FillServVolume.txt", true);
+                //sw.WriteLine(num1);
+                //sw.WriteLine(this.ListVolume[index1].OdnDomVolume);
+                //sw.WriteLine(this.ListVolume[index1].DomLiftVolume);
+                //sw.Close();
+            }
+            else if(num1 == 25 & this.HasElDpu)
+            {
+                this.FillGoodServVolume(dr, ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
+
+                if(ListVolume[index1].DomLiftVolume != 0)
+                {
+                    decimal val = ListVolume[index1].DomLiftVolume - ListVolume[index1].DomVolume;
+
+                    this.FillGoodServVolume(dr, val, "rash_dpu_odn" + (object)index);
+                }
+                else
+                {
+                    this.FillGoodServVolume(dr, 0, "rash_dpu_odn" + (object)index);
+                }
+            }
+            else if (num1 == 6 & this.HasHvsDpu)
+            {
+                this.FillGoodServVolume4(dr, this.ListVolume[index1].OdnDomVolume, "rash_dpu_odn" + (object)index);
+                this.FillGoodServVolume(dr, this.ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
+            }
+            else if (num1 == 9 & this.HasGvsDpu)
+            {
+                this.FillGoodServVolume2(dr, this.ListVolume[index1], "rash_dpu_odn" + (object)index);
+                this.FillGoodServVolume2(dr, this.ListVolume[index1], "rash_dpu_pu" + (object)index);
+            }
+            if (!(num1 == 25 & dr["c_calc" + (object)index].ToString().Trim() == ""))
+                this.FillGoodServVolume(dr, this.ListVolume[index1].NormaVolume, "rash_norm" + (object)index);
+            decimal sumCountersValue = 0;
+            string countersVal = "";
+            for (int k = 0; k < ListCounters.Count; k++)
+            {
+                if ((ListCounters[k].NzpServ == num1))
+                {
+                    if (countersVal.Length == 0)
+                        countersVal += ListCounters[k].Value.ToString();
+                    else
+                        countersVal += "/" + ListCounters[k].Value.ToString();
+
+                }
+            }
+            //FillGoodServVolume(dr, sumCountersValue, "rash_pu" + index);
+            if (nzpServ != 9)
+                dr["rash_pu" + index] = countersVal;
+            //if (nzpServ == 14)
+            //{
+            //    dr["rash_dpu_pu" + index] = "";
+            //}
+            //if (nzpServ == 9)
+            //{
+            //    try
+            //    {
+            //        if (NumberDom == "94" && Month == 9)
+            //            dr["rash_dpu_pu" + index] = Math.Round(Convert.ToDecimal(dr["rash_dpu_pu" + index])
+            //                * 16.864m, 2);
+            //        else
+            //            dr["rash_dpu_pu" + index] = Math.Round(Convert.ToDecimal(dr["rash_dpu_pu" + index])
+            //                * 0.0611m, 2);
+            //    }
+            //    catch
+            //    {
+
+            //    }
+            //}
+
+            //StreamWriter sw = new StreamWriter(@"C:\temp\FillServVolume.txt", true);
+            string domCountersValue = "";
+            decimal sumDomCountersValue = 0;
+
+            //sw.WriteLine("anzpServ = " + anzpServ);
+            for (int k = 0; k < ListDomCounters.Count; k++)
+            {
+                //sw.WriteLine("ListDomCounters[k].NzpServ = " + ListDomCounters[k].NzpServ);
+                if ((ListDomCounters[k].NzpServ == num1))
+                {
+                    sumCountersValue += ListDomCounters[k].Value;
+                    sumDomCountersValue += ListDomCounters[k].Value - ListDomCounters[k].ValuePred;
+                    if (domCountersValue.Length == 0)
+                        domCountersValue += ListDomCounters[k].Value.ToString();
+                    else
+                        domCountersValue += "/" + ListDomCounters[k].Value.ToString();
+                }
+            }
+            if (nzpServ != 8)
+            {
+                if (nzpServ == 99)
+                    this.FillGoodServVolume3(dr, this.ListVolume[index1], "rash_pu_odn" + (object)index, Convert.ToDecimal(sumDomCountersValue));
+                else if (domCountersValue.Length != 0)
+                    dr["rash_pu_odn" + index] = domCountersValue;
+                else
+                    dr["rash_pu_odn" + index] = "";
+            }
+            if (nzpServ == 6 & this.HasHvsDpu || nzpServ == 14 & this.HasGvsDpu)
+            {
+
+                this.FillGoodServVolume6(dr, this.ListVolume[index1], "rash_dpu_odn" + (object)index, sumDomCountersValue - ListVolume[index1].DomVolume);
+
+            }
+            else if (nzpServ == 9 & NumberDom != "94")
+                this.FillGoodServVolume(dr, this.ListVolume[index1].OdnDomVolume, "rash_dpu_odn" + (object)index);
+            return true;
+        }
+
+        protected bool FillServiceVolumeElectro(DataRow dr, int index, int nzpServ)
+        {
             int num1 = nzpServ;
             int num2 = nzpServ;
             if (nzpServ == 99)
@@ -636,11 +781,15 @@ namespace Bars.KP50.DB.Faktura
                 dr["rash_norm_odn" + (object)index] = (object)this.Kfodnhvs;
             if (num1 == 25 & this.HasElDpu || num1 == 210 & this.HasElDpu || (num1 == 10 & this.HasGazDpu || num1 == 6 & this.HasGazDpu) || num2 == 14 & this.HasGvsDpu || num1 == 8 & this.HasOtopDpu)
             {
-                this.FillGoodServVolume(dr, this.ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
-                this.FillGoodServVolume(dr, this.ListVolume[index1].OdnDomVolume, "rash_dpu_odn" + (object)index);
+                this.FillGoodServVolume(dr, ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
+                this.FillGoodServVolume(dr,
+                    ListVolume[index1].DomLiftVolume != 0
+                        ? ListVolume[index1].DomLiftVolume
+                        : ListVolume[index1].OdnDomVolume, "rash_dpu_odn" + (object)index);
                 StreamWriter sw = new StreamWriter(@"C:\temp\FillServVolume.txt", true);
                 sw.WriteLine(num1);
                 sw.WriteLine(this.ListVolume[index1].OdnDomVolume);
+                sw.WriteLine(this.ListVolume[index1].DomLiftVolume);
                 sw.Close();
             }
             else if (num1 == 6 & this.HasHvsDpu)
@@ -936,7 +1085,14 @@ namespace Bars.KP50.DB.Faktura
                             }
                             try
                             {
-                                this.FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
+                                //StreamWriter streamWriter = new StreamWriter("C:\\temp\\ServElectro.txt", true);
+                                //streamWriter.WriteLine("услуга = " + aServ.Serv.NzpServ);
+                                //streamWriter.WriteLine(aServ.ServOdn.CCalc);
+                                //streamWriter.Close();
+                                if (aServ.Serv.CCalc == 0 && aServ.Serv.NzpServ == 25)
+                                    this.FillServiceVolumeElectro(dr, index1, aServ.Serv.NzpServ);
+                                else
+                                    this.FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
                             }
                             catch (Exception ex)
                             {
@@ -1318,8 +1474,17 @@ namespace Bars.KP50.DB.Faktura
 
                             try
                             {
-                                if(aServ.Serv.NameServ.Trim() != "Подогрев")
-                                    this.FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
+                                if (aServ.Serv.NameServ.Trim() != "Подогрев")
+                                {
+                                    //StreamWriter streamWriter = new StreamWriter("C:\\temp\\ServElectro.txt", true);
+                                    //streamWriter.WriteLine("услуга = " + aServ.Serv.NzpServ);
+                                    //streamWriter.WriteLine(aServ.ServOdn.CCalc);
+                                    //streamWriter.Close();
+                                    if (aServ.Serv.CCalc == 0 && aServ.Serv.NzpServ == 25)
+                                        this.FillServiceVolumeElectro(dr, index1, aServ.Serv.NzpServ);
+                                    else
+                                        this.FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -1333,6 +1498,14 @@ namespace Bars.KP50.DB.Faktura
                                     {
                                         if (Math.Abs(aServ.Serv.CCalc) > new Decimal(1, 0, 0, false, (byte)5))
                                             dr["c_calc" + (object)index1] = (object)(aServ.Serv.CCalc.ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
+                                    }
+                                    else if (!IsolateFlat && aServ.Serv.NzpServ == 8)//qqq
+                                    {
+                                        DataRow dataRow = dr;
+                                        string index2 = "c_calc" + (object)index1;
+                                        num2 = OtopNorm * LiveSquare;
+                                        string str2 = num2.ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice);
+                                        dataRow[index2] = (object)str2;
                                     }
                                     else
                                         dr["c_calc" + (object)index1] = (object)(aServ.Serv.CCalc.ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
@@ -1496,7 +1669,10 @@ namespace Bars.KP50.DB.Faktura
                         }
                         else
                         {
-                            dr["osn_pere" + (i + 1)] = ListReval[i].Reason + " " + ListReval[i].ReasonPeriod;
+                            dr["osn_pere" + (i + 1)] = ListReval[i].Reason + " " +
+                                (Pkod == "6340102043261" 
+                                    ? ListReval[i].ReasonPeriod.Replace("2015", "2016") 
+                                        : ListReval[i].ReasonPeriod);
                         }
                     }
                     dr["sum_pere" + (i + 1)] = ListReval[i].SumReval;
