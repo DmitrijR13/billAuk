@@ -383,6 +383,8 @@
     <Compile Include="2015\2015055\Migration_2015061905501.cs" />
     <Compile Include="2015\2015055\Migration_2015062405501.cs" />
     <Compile Include="2015\2015055\Migration_2015062005501.cs" />
+    <Compile Include="2015\2015064\Migrarion_2016042606401.cs" />
+    <Compile Include="2015\2015064\Migrarion_2016041906401.cs" />
     <Compile Include="2015\2015064\Migration_2015122506401.cs" />
     <Compile Include="2015\2015064\Migration_2015100706402.cs" />
     <Compile Include="2015\2015064\Migration_2015100306402.cs" />
