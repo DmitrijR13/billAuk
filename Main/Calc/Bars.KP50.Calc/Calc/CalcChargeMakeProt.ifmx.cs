@@ -2651,14 +2651,14 @@ namespace STCLINE.KP50.DataBase
                             ? cnt_days_with_prm + " <font color='#FA021F'>(*" + CastValue<int>(reader["peni_off_id"]) +
                               ")</font>"
                             : cnt_days_with_prm + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;") + "</td>" +
-                        "<td align='right'>" + CastValue<decimal>(reader["sum_peni"]) + "</td>" +
+                        "<td align='right'>" + CastValue<decimal>(reader["sum_peni"]).ToString("N7") + "</td>" +
                         "</tr>";
                     sum_peni_all += CastValue<decimal>(reader["sum_peni"]);
                 }
                 if (messageString != "")
                 {
                     //итого по рассчитанным пени(есть еще первичные)
-                    messageString += "<tr><td></br><b>Итого:<font color='#0000FF'>" + sum_peni_all.ToString("0.00") + "</font></b> </td></tr>";
+                    messageString += "<tr><td></br><b>Итого:<font color='#0000FF'>" + sum_peni_all.ToString("N7") + "</font></b> </td></tr>";
                 }
                 if (messageString != "")
                 {
@@ -2784,7 +2784,7 @@ namespace STCLINE.KP50.DataBase
                         "<td>" + CastValue<string>(reader["service_small"]) + "</td>" +
                         "<td>" + (reader["date_from"] != DBNull.Value ? ((DateTime)reader["date_from"]).ToShortDateString() : "") +
                         " - " + (reader["date_to"] != DBNull.Value ? ((DateTime)reader["date_to"]).AddDays(-1).ToShortDateString() : "") + "</td>" +
-                        "<td align='right'>" + (reader["sum_peni"] != DBNull.Value ? ((Decimal)reader["sum_peni"]).ToString("0.00") : "") + "</td>" +
+                       "<td align='right'>" + (reader["sum_peni"] != DBNull.Value ? ((Decimal)reader["sum_peni"]).ToString("N7") : "") + "</td>" +
                         "<td align='right'>" + (reader["sum_debt"] != DBNull.Value ? ((Decimal)reader["sum_debt"]).ToString("0.00") : "") + "</td>" +
                         "<td align='right'>" + (reader["over_payments"] != DBNull.Value ? ((Decimal)reader["over_payments"]).ToString("0.00") : "") + "</td>" +
                         "<td align='right'>" + (reader["cnt_days"] != DBNull.Value ? ((int)reader["cnt_days"]).ToString("0") : "") + "</td>" +
@@ -2806,8 +2806,8 @@ namespace STCLINE.KP50.DataBase
                         "<td align='right'>Учтенных дней</td>" +
                         "</tr>" +
                         messageString +
-                        //итого по рассчитанным пени(есть еще первичные)
-                         "<tr><td></br><b>Итого:<font color='#0000FF'>" + sum_peni_all.ToString("0.00") + "</font></b> </td></tr>" +
+                         //итого по рассчитанным пени(есть еще первичные)
+                         "<tr><td></br><b>Итого:<font color='#0000FF'>" + sum_peni_all.ToString("0.0000000") + "</font></b> </td></tr>" +
                         "</table>";
                 }
 

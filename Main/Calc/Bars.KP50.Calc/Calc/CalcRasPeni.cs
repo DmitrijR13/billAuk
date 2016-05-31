@@ -910,6 +910,7 @@ namespace STCLINE.KP50.DataBase
         private readonly string TablePeriodsMustCalcForPeni = "t_periods_must_calc_" + DateTime.Now.Ticks; //таблица с периодами из must_calc - период перерасчета пени (переформировываем проводки)
         private readonly string TableWithPeniProcents = "t_peni_percent_" + DateTime.Now.Ticks; //таблица с действующими значениями параметров процентов для пени (0, 1/300, 1/130)
 
+        private readonly string TableWithPeniRoundSettings = "t_peni_round_set_" + DateTime.Now.Ticks; //таблица с настройками округления по пени по периодам
 
         private readonly string TablePeriodsNoCalcPeni = "t_periods_no_calc_peni_" + DateTime.Now.Ticks; //таблица с периодами из peni_no_calc - не учитывать пени по услуге,договору
         /// <summary> типы проводок соответствующие оплатам </summary>
@@ -1021,6 +1022,12 @@ namespace STCLINE.KP50.DataBase
                 MonitorLog.WriteLog("CalcRasPeni: распределили переплаты по периодам", MonitorLog.typelog.Info, 1, 2,
                     true);
 
+                //получение значений параметра "Количество знаков для округления расчета пени"
+                ret = GetActivePeniRoundSettings(conn_db, paramcalc);
+                if (!ret.result)
+                    return false;
+                MonitorLog.WriteLog("CalcRasPeni: получение значений параметра для округления пени", MonitorLog.typelog.Info, 1, 2, true);
+                
                 //рассчитываем пени
                 ret = CalcPeni(conn_db, paramcalc, reestrId);
                 if (!ret.result)
@@ -1122,8 +1129,79 @@ namespace STCLINE.KP50.DataBase
         }
 
 
-        public Returns DeleteOldRecords(IDbConnection conn_db, CalcTypes.ParamCalc paramcalc, int reestrId)
-        {
+        /// <summary>
+		/// Получение количества знаков округления по периодам из параметра nzp_prm = 1700
+		/// </summary>
+		/// <param name="conn_db"></param>
+		/// <param name="paramcalc"></param>
+		/// <returns></returns>
+		private Returns GetActivePeniRoundSettings(IDbConnection conn_db, CalcTypes.ParamCalc paramcalc)
+		{
+			string sql;
+			Returns ret = Utils.InitReturns();
+			string tPeriodBounds = "t_period_bounds" + DateTime.Now.Ticks;
+			try
+			{
+				//достаем даты, образующие границы периодов
+
+				sql = " CREATE TEMP TABLE " + tPeriodBounds + " AS" +
+					  " SELECT DISTINCT date_trunc('month',dat_s)" + sConvToDate + " as date_bound FROM " + paramcalc.pref + sDataAliasRest + "prm_10" +
+					  " WHERE nzp_prm = 1700 AND is_actual=1" +
+					  " UNION " +
+					  " SELECT DISTINCT (date_trunc('month',dat_po) + INTERVAL '1 month' - INTERVAL '1 day')" + sConvToDate + " as date_bound " +
+					  " FROM " + paramcalc.pref + sDataAliasRest + "prm_10" +
+					  " WHERE nzp_prm = 1700 AND is_actual=1" +
+				      " UNION " + 
+					  " SELECT '01.01.1900'" + sConvToDate + " as date_bound" +
+				      " UNION " +
+					  " SELECT '31.01.3000'" + sConvToDate + " as date_bound";
+				ret = ExecSQL(conn_db, sql, true);
+				if (!ret.result) return ret;
+
+				sql = " CREATE TEMP TABLE " + TableWithPeniRoundSettings + " AS" +
+					  " SELECT 2 as val, a.date_bound as date_from ," +
+					  " MIN(b.date_bound) as date_to" +
+				      " FROM " + tPeriodBounds + " a, " + tPeriodBounds + " b" +
+					  " WHERE a.date_bound<b.date_bound" +
+				      " GROUP BY 1,2;";
+				ret = ExecSQL(conn_db, sql, true);
+				if (!ret.result) return ret;
+
+				sql = 
+					" UPDATE " + TableWithPeniRoundSettings +
+					" SET val = p.val_prm::INT" +
+					" FROM " + paramcalc.pref + sDataAliasRest + "prm_10 p" +
+					" WHERE p.nzp_prm = 1700 AND p.is_actual = 1" +
+					" AND " + TableWithPeniRoundSettings + ".date_from <= p.dat_po" +
+					" AND " + TableWithPeniRoundSettings + ".date_to > p.dat_s";
+				ret = ExecSQL(conn_db, sql, true);
+				if (!ret.result) return ret;
+
+				ret = ExecSQL(conn_db,
+				" Create unique index ix1_" + TableWithPeniRoundSettings + "_1 on " + TableWithPeniRoundSettings +
+				" (date_from, date_to) ", true);
+				if (!ret.result) return ret;
+
+				ExecSQL(conn_db, sUpdStat + " " + TableWithPeniRoundSettings);
+			}
+			catch (Exception ex)
+			{
+				ret.text = "Ошибка получения значений параметра 'Количество знаков для округления расчета пени'";
+				ret.result = false;
+				MonitorLog.WriteLog(ret.text + " " + ex.Message + " " + ex.StackTrace, MonitorLog.typelog.Error, true);
+				return ret;
+			}
+			finally
+			{
+				ExecSQL(conn_db, "DROP TABLE " + tPeriodBounds, false);
+			}
+
+			return ret;
+		}
+
+
+	    public Returns DeleteOldRecords(IDbConnection conn_db, CalcTypes.ParamCalc paramcalc, int reestrId)
+{
             //расчетный месяц
             var CalcMonth = new DateTime(paramcalc.cur_yy, paramcalc.cur_mm, 1);
             var s_CalcMonth = Utils.EStrNull(CalcMonth.ToShortDateString());
@@ -2540,11 +2618,14 @@ namespace STCLINE.KP50.DataBase
 
             //для явно определенных услуг
             sql = " UPDATE " + TableTempPeniDebtUp + " up " +
-                  " SET sum_peni= up.sum_debt_result*up.cnt_days_with_prm* p.peni_percent/100" +
-                  " FROM " + TableWithPeniProcents + " p,  " + TablePeniSettings + " s " +
+                  " SET sum_peni= ROUND((up.sum_debt_result*up.cnt_days_with_prm* p.peni_percent/100)::NUMERIC, r.val)" +
+                    " FROM " + TableWithPeniProcents + " p,  " +
+                    TablePeniSettings + " s, " +
+                    TableWithPeniRoundSettings + " r " +
                   " WHERE up.sum_debt>0 AND up.sum_debt_result>0 AND up.peni_actions_id=" + reestrId +
                   " AND up.nzp_serv= s.nzp_serv " +
-                  " AND p.date_from<up.date_to AND up.date_from<=p.date_to " +
+                  " AND p.date_from<up.date_to AND up.date_from<=p.date_to" +
+                    " AND up.date_from < r.date_to AND up.date_to > r.date_from" +
                   " AND p.nzp_prm=(CASE WHEN type_period =2 THEN s.low_percent ELSE " +
                   "               (CASE WHEN type_period IN (1,-1) THEN s.middle_percent " +
                   "                     ELSE s.high_percent END) END) ";
@@ -2554,12 +2635,15 @@ namespace STCLINE.KP50.DataBase
 
             //для невыделенных услуг
             sql = " UPDATE " + TableTempPeniDebtUp + " up " +
-                  " SET sum_peni= up.sum_debt_result*up.cnt_days_with_prm* p.peni_percent/100" +
-                  " FROM " + TableWithPeniProcents + " p,  " + TablePeniSettings + " s " +
-                  " WHERE up.sum_debt>0 AND up.sum_debt_result>0 AND up.peni_actions_id=" + reestrId +
+                   " SET sum_peni= ROUND(up.sum_debt_result*up.cnt_days_with_prm* p.peni_percent/100, r.val)" +
+                    " FROM " + TableWithPeniProcents + " p,  " +
+                    TablePeniSettings + " s , " +
+                    TableWithPeniRoundSettings + " r " +
+                    " WHERE up.sum_debt>0 AND up.sum_debt_result>0 AND up.peni_actions_id=" + reestrId +
                   " AND s.nzp_serv=1 " +
                   " AND p.date_from<up.date_to AND up.date_from<=p.date_to " +
-                  " AND p.nzp_prm=(CASE WHEN type_period =2 THEN s.low_percent ELSE " +
+                  " AND up.date_from < r.date_to AND up.date_to > r.date_from" +
+                    " AND p.nzp_prm=(CASE WHEN type_period =2 THEN s.low_percent ELSE " +
                   "               (CASE WHEN type_period IN (1,-1) THEN s.middle_percent " +
                   "                     ELSE s.high_percent END) END) " +
                   " AND NOT EXISTS (SELECT 1 FROM " + TablePeniSettings + " ss WHERE ss.nzp_serv=up.nzp_serv)";
