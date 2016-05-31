@@ -655,21 +655,6 @@ namespace Bars.KP50.DB.Faktura
                 //sw.WriteLine(this.ListVolume[index1].DomLiftVolume);
                 //sw.Close();
             }
-            else if(num1 == 25 & this.HasElDpu)
-            {
-                this.FillGoodServVolume(dr, ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
-
-                if(ListVolume[index1].DomLiftVolume != 0)
-                {
-                    decimal val = ListVolume[index1].DomLiftVolume - ListVolume[index1].DomVolume;
-
-                    this.FillGoodServVolume(dr, val, "rash_dpu_odn" + (object)index);
-                }
-                else
-                {
-                    this.FillGoodServVolume(dr, 0, "rash_dpu_odn" + (object)index);
-                }
-            }
             else if (num1 == 6 & this.HasHvsDpu)
             {
                 this.FillGoodServVolume4(dr, this.ListVolume[index1].OdnDomVolume, "rash_dpu_odn" + (object)index);
@@ -746,6 +731,35 @@ namespace Bars.KP50.DB.Faktura
                 else
                     dr["rash_pu_odn" + index] = "";
             }
+
+            if (num1 == 25 & this.HasElDpu)
+            {
+                this.FillGoodServVolume(dr, ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
+
+                if (domCountersValue.Length != 0)
+                {
+                    if (ListVolume[index1].DomLiftVolume != 0)
+                    {
+                        decimal val = ListVolume[index1].DomLiftVolume - ListVolume[index1].DomVolume;
+
+                        this.FillGoodServVolume(dr, val, "rash_dpu_odn" + (object)index);
+                    }
+                    else
+                    {
+                        this.FillGoodServVolume(dr, 0, "rash_dpu_odn" + (object)index);
+                    }
+                }
+                else
+                {
+                    this.FillGoodServVolume(dr,
+                    ListVolume[index1].DomLiftVolume != 0
+                        ? ListVolume[index1].DomLiftVolume
+                        : ListVolume[index1].OdnDomVolume, "rash_dpu_odn" + (object)index);
+                }
+
+                    
+            }
+
             if (nzpServ == 6 & this.HasHvsDpu || nzpServ == 14 & this.HasGvsDpu)
             {
 
@@ -786,11 +800,11 @@ namespace Bars.KP50.DB.Faktura
                     ListVolume[index1].DomLiftVolume != 0
                         ? ListVolume[index1].DomLiftVolume
                         : ListVolume[index1].OdnDomVolume, "rash_dpu_odn" + (object)index);
-                StreamWriter sw = new StreamWriter(@"C:\temp\FillServVolume.txt", true);
-                sw.WriteLine(num1);
-                sw.WriteLine(this.ListVolume[index1].OdnDomVolume);
-                sw.WriteLine(this.ListVolume[index1].DomLiftVolume);
-                sw.Close();
+                //StreamWriter sw = new StreamWriter(@"C:\temp\FillServVolume.txt", true);
+               // sw.WriteLine(num1);
+                //sw.WriteLine(this.ListVolume[index1].OdnDomVolume);
+                //sw.WriteLine(this.ListVolume[index1].DomLiftVolume);
+                //sw.Close();
             }
             else if (num1 == 6 & this.HasHvsDpu)
             {
@@ -1089,10 +1103,7 @@ namespace Bars.KP50.DB.Faktura
                                 //streamWriter.WriteLine("услуга = " + aServ.Serv.NzpServ);
                                 //streamWriter.WriteLine(aServ.ServOdn.CCalc);
                                 //streamWriter.Close();
-                                if (aServ.Serv.CCalc == 0 && aServ.Serv.NzpServ == 25)
-                                    this.FillServiceVolumeElectro(dr, index1, aServ.Serv.NzpServ);
-                                else
-                                    this.FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
+                                this.FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
                             }
                             catch (Exception ex)
                             {
@@ -1480,10 +1491,7 @@ namespace Bars.KP50.DB.Faktura
                                     //streamWriter.WriteLine("услуга = " + aServ.Serv.NzpServ);
                                     //streamWriter.WriteLine(aServ.ServOdn.CCalc);
                                     //streamWriter.Close();
-                                    if (aServ.Serv.CCalc == 0 && aServ.Serv.NzpServ == 25)
-                                        this.FillServiceVolumeElectro(dr, index1, aServ.Serv.NzpServ);
-                                    else
-                                        this.FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
+                                    FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
                                 }
                             }
                             catch (Exception ex)
