@@ -536,12 +536,22 @@ namespace STCLINE.KP50.DataBase
                     return null;
                 //Перерасчеты
                 sql.Remove(0, sql.Length);
-                sql.Append(" UPDATE t_charges set reval = coalesce((SELECT reval from(SELECT nzp_dom, nzp_serv, sum(reval) as reval from " + sChargeAlias + ".reval_" + prm.month_.ToString("00"));
-                sql.Append(" a INNER JOIN " + pref + "_data.kvar b on b.nzp_kvar = a.nzp_kvar group by 1, 2) t ");
-                sql.Append(" where t_charges.nzp_serv = t.nzp_serv and t_charges.nzp_dom = t.nzp_dom), 0)");
+                sql.Append(" UPDATE t_charges set reval = coalesce((SELECT reval from(SELECT nzp_dom, nzp_serv, min(nzp_frm) as nzp_frm, sum(reval) as reval from "
+                    + sChargeAlias + ".reval_" + prm.month_.ToString("00"));
+                sql.Append(" a INNER JOIN " + pref + "_data.kvar b on b.nzp_kvar = a.nzp_kvar  group by 1, 2) t ");
+                sql.Append(" where t_charges.nzp_serv = t.nzp_serv and t_charges.nzp_dom = t.nzp_dom and (t_charges.nzp_frm = t.nzp_frm or t.nzp_frm = 0)), 0)");
 
                 if (!ExecSQL(conn_db, sql.ToString(), true).result)
                     return null;
+
+                if(prm.month_ == 5 && prm.year_ == 2016)
+                {
+                    sql.Remove(0, sql.Length);
+                    sql.Append(" UPDATE t_charges set reval = 0 where nzp_dom in (7155102, 7155103)");
+
+                    if (!ExecSQL(conn_db, sql.ToString(), true).result)
+                        return null;
+                }
 
                 sql.Remove(0, sql.Length);
                 sql.Append(" UPDATE t_charges set reval = reval + coalesce((SELECT reval / (SELECT count(*) FROM t_charges where t_charges.nzp_dom = t.nzp_dom) from(SELECT nzp_dom, nzp_serv, sum(sum_rcl) as reval from " + sChargeAlias + ".perekidka ");

@@ -217,6 +217,9 @@
   <data name="Report_30_2_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Report_30_2_7.frx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="RepSaldo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RepSaldo.frx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Sprav_nach_heat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sprav_nach_heat.frx;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

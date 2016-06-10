@@ -8406,13 +8406,13 @@ namespace STCLINE.KP50.REPORT
                             excells1.FormulaR1C1 = DT.Rows[i]["reval_kub"];
 
                             excells1 = ExcelL.ExlWs.get_Range("Y" + ExcelRow.ToString(), "Y" + ExcelRow.ToString());
-                            if (prm_.month_ != 5)
+                            if (prm_.month_ == 5 && prm_.year_ == 2015)
                             {
-                                excells1.FormulaR1C1 = DT.Rows[i]["reval_gkal"];
+                                excells1.FormulaR1C1 = (DT.Rows[i]["reval_kub"] != null) ? (Convert.ToDecimal(DT.Rows[i]["reval_kub"]) * 0.0611m).ToString() : "";                       
                             }
                             else
                             {
-                                excells1.FormulaR1C1 = (DT.Rows[i]["reval_kub"] != null) ? (Convert.ToDecimal(DT.Rows[i]["reval_kub"]) * 0.0611m).ToString() : "";
+                                excells1.FormulaR1C1 = DT.Rows[i]["reval_gkal"];
                             }
 
                             excells1 = ExcelL.ExlWs.get_Range("Z" + ExcelRow.ToString(), "Z" + ExcelRow.ToString());
@@ -8501,7 +8501,7 @@ namespace STCLINE.KP50.REPORT
                                 itogString[18] = itogString[18] + System.Convert.ToDecimal(DT.Rows[i]["sum_nedop_odn"]);
                             if (DT.Rows[i]["reval_kub"] != DBNull.Value)
                                 itogString[19] = itogString[19] + System.Convert.ToDecimal(DT.Rows[i]["reval_kub"]);
-                            if (prm_.month_ == 5)
+                            if (prm_.month_ == 5 && prm_.year_ == 2015)
                             {
                                 if (DT.Rows[i]["reval_kub"] != DBNull.Value)
                                     itogString[20] = itogString[20] + System.Convert.ToDecimal(DT.Rows[i]["reval_kub"]) * 0.0611m;
@@ -9252,10 +9252,10 @@ namespace STCLINE.KP50.REPORT
 
                         excells1 = ExcelL.ExlWs.get_Range("U" + ExcelRow.ToString(), "U" + ExcelRow.ToString());
                         if (DT.Rows[i]["sum_charge_gkal"].ToString() != "0.0000")
-                            excells1.FormulaR1C1 = DT.Rows[i]["sum_charge_gkal"];
+                            excells1.FormulaR1C1 = Convert.ToDecimal(DT.Rows[i]["sum_charge_gkal"]) - 2 * Convert.ToDecimal((DT.Rows[i]["vozv_rso_gkal"].ToString() != "0.0000" ? DT.Rows[i]["vozv_rso_gkal"] : 0));
 
                         excells1 = ExcelL.ExlWs.get_Range("V" + ExcelRow.ToString(), "V" + ExcelRow.ToString());
-                        excells1.FormulaR1C1 = DT.Rows[i]["sum_charge"];
+                        excells1.FormulaR1C1 = Convert.ToDecimal(DT.Rows[i]["sum_charge"]) - Convert.ToDecimal((DT.Rows[i]["sum_nedop"].ToString() != "0.00" ? DT.Rows[i]["sum_nedop"] : 0));
 
 
 
@@ -9289,9 +9289,9 @@ namespace STCLINE.KP50.REPORT
                         itogString[14] = 0;
                         itogString[15] = 0;
                         if (DT.Rows[i]["sum_charge_gkal"] != DBNull.Value)
-                            itogString[16] = itogString[16] + System.Convert.ToDecimal(DT.Rows[i]["sum_charge_gkal"]);
+                            itogString[16] = itogString[16] + System.Convert.ToDecimal(DT.Rows[i]["sum_charge_gkal"]) - 2 * Convert.ToDecimal((DT.Rows[i]["vozv_rso_gkal"].ToString() != "0.0000" ? DT.Rows[i]["vozv_rso_gkal"] : 0));
                         if (DT.Rows[i]["sum_charge"] != DBNull.Value)
-                            itogString[17] = itogString[17] + System.Convert.ToDecimal(DT.Rows[i]["sum_charge"]);
+                            itogString[17] = itogString[17] + System.Convert.ToDecimal(DT.Rows[i]["sum_charge"]) - Convert.ToDecimal((DT.Rows[i]["sum_nedop"].ToString() != "0.00" ? DT.Rows[i]["sum_nedop"] : 0));
 
 
                         i++;
