@@ -1080,7 +1080,7 @@ namespace Bars.KP50.DB.Faktura
                             {
                                 DataRow dataRow = dr;
                                 string index2 = "reval" + (object)index1;
-                                num2 = aServ.Serv.Reval + aServ.Serv.RealCharge;
+                                num2 = 0;
                                 string str2 = num2.ToString("0.00");
                                 dataRow[index2] = (object)str2;
                             }
@@ -1237,7 +1237,7 @@ namespace Bars.KP50.DB.Faktura
                             {
                                 DataRow dataRow = dr;
                                 string index2 = "reval" + (object)index1;
-                                num2 = 0;
+                                num2 = aServ.Serv.Reval + aServ.Serv.RealCharge;
                                 string str2 = num2.ToString("0.00");
                                 dataRow[index2] = (object)str2;
                             }
@@ -1677,10 +1677,25 @@ namespace Bars.KP50.DB.Faktura
                         }
                         else
                         {
-                            dr["osn_pere" + (i + 1)] = ListReval[i].Reason + " " +
-                                (Pkod == "6340102043261" 
-                                    ? ListReval[i].ReasonPeriod.Replace("2015", "2016") 
+                            if (Ulica.ToUpper().Contains("ГАСТЕЛЛО"))
+                            {
+                                dr["osn_pere" + (i + 1)] = 
+                                    ListReval[i].Reason
+                                    .Replace("Недоставка", "Корректировка по ОДПУ за отопительный период")
+                                    .Replace("Период действия услуги", "")
+                                    //+ " " +
+                                    //ListReval[i].ReasonPeriod
+                                    ;
+                            }
+                            else
+                            {
+                                dr["osn_pere" + (i + 1)] = ListReval[i].Reason + " " +
+                                (Pkod == "6340102043261"
+                                    ? ListReval[i].ReasonPeriod.Replace("2015", "2016")
                                         : ListReval[i].ReasonPeriod);
+                            }
+
+                                
                         }
                     }
                     dr["sum_pere" + (i + 1)] = ListReval[i].SumReval;

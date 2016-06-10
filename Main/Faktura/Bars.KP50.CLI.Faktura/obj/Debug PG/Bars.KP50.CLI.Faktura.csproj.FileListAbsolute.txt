@@ -203,6 +203,6 @@ D:\projects\Git\billAuk\Main\Faktura\Bars.KP50.CLI.Faktura\bin\Debug PG\Castle.C
 D:\projects\Git\billAuk\Main\Faktura\Bars.KP50.CLI.Faktura\bin\Debug PG\Bars.KP50.Utils.pdb
 D:\projects\Git\billAuk\Main\Faktura\Bars.KP50.CLI.Faktura\bin\Debug PG\KP50.IFMX.Client.pdb
 D:\projects\Git\billAuk\Main\Faktura\Bars.KP50.CLI.Faktura\bin\Debug PG\KP50.IFMX.Common.pdb
-D:\projects\Git\billAuk\Main\Faktura\Bars.KP50.CLI.Faktura\obj\Debug PG\Bars.KP50.CLI.Faktura.csprojResolveAssemblyReference.cache
 D:\projects\Git\billAuk\Main\Faktura\Bars.KP50.CLI.Faktura\obj\Debug PG\Bars.KP50.CLI.Faktura.dll
 D:\projects\Git\billAuk\Main\Faktura\Bars.KP50.CLI.Faktura\obj\Debug PG\Bars.KP50.CLI.Faktura.pdb
+D:\projects\Git\billAuk\Main\Faktura\Bars.KP50.CLI.Faktura\obj\Debug PG\Bars.KP50.CLI.Faktura.csprojResolveAssemblyReference.cache
