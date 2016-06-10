@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/22/2014 17:28:40" ReportInfo.Modified="06/09/2016 17:19:05" ReportInfo.CreatorVersion="2016.2.12.0">
+  <Dictionary>
+    <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
+      <Column Name="service" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="sum_nedop" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="area" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="supp" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="ud" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_house" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="фио" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="type_blag" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="build_year" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="floors" Enabled="false" DataType="System.Int32" PropName="Column"/>
+      <Column Name="sum_insaldo" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="rsum_tarif" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_charge" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_prih" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_15" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_8" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_8" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="tarif_17" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="sum_tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column3"/>
+      <Column Name="tarif_2" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="sum_tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column5"/>
+      <Column Name="tarif_22" Enabled="false" DataType="System.Decimal" PropName="Column6"/>
+      <Column Name="sum_tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column7"/>
+      <Column Name="sum_tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="tarif_25" Enabled="false" DataType="System.Decimal" PropName="Column1"/>
+      <Column Name="sum_money" Enabled="false" DataType="System.Decimal" PropName="Column2"/>
+      <Column Name="dat_prih" Enabled="false" DataType="System.String" PropName="Column3"/>
+      <Column Name="tarif_14" Enabled="false" DataType="System.Decimal" PropName="Column4"/>
+      <Column Name="tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_100018" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="reval" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_tarif_500" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="dolg_sum_peni" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="sum_money_peni" Enabled="false" DataType="System.Decimal" PropName="Column" Format="Number"/>
+      <Column Name="reval_peni" Enabled="false" DataType="System.Decimal" PropName="Column1" Format="Number"/>
+      <Column Name="sum_outsaldo" Enabled="false" DataType="System.Decimal" PropName="Column"/>
+      <Column Name="address" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="date" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="fio" Enabled="false" DataType="System.String" PropName="Column"/>
+      <Column Name="dat_vvod" Enabled="false" DataType="System.DateTime" PropName="Column"/>
+      <Column Name="bank" Enabled="false" DataType="System.String" PropName="Column"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="316" Guides="1115.1">
+    <DataBand Name="Data1" Width="1118.88" Height="28.35" DataSource="RepSaldo">
+      <TextObject Name="Text8" Left="56.7" Width="37.8" Height="28.35" Border.Lines="All" Text="[RepSaldo.KOD]" VertAlign="Center"/>
+      <TextObject Name="Text59" Left="642.6" Width="113.4" Height="28.35" Border.Lines="All" Text="[RepSaldo.IMYA]" Format="Number" Format.UseLocale="true" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text101" Left="37.8" Width="18.9" Height="28.35" Border.Lines="All" Text="[RepSaldo.GEU]" Format="Number" Format.UseLocale="true" VertAlign="Center"/>
+      <TextObject Name="Text6" Width="37.8" Height="28.35" Border.Lines="All" Text="[RepSaldo.PREDPR]" VertAlign="Center"/>
+      <TextObject Name="Text104" Left="444.15" Width="198.45" Height="28.35" Border.Lines="All" Text="[RepSaldo.FIO]" VertAlign="Center"/>
+      <TextObject Name="Text57" Left="141.75" Width="302.4" Height="28.35" Border.Lines="All" Text="[RepSaldo.ADR]" VertAlign="Center"/>
+      <TextObject Name="Text55" Left="94.5" Width="18.9" Height="28.35" Border.Lines="All" Text="[RepSaldo.KODLS]" VertAlign="Center"/>
+      <TextObject Name="Text124" Left="113.4" Width="28.35" Height="28.35" Border.Lines="All" Text="[RepSaldo.KC]" VertAlign="Center"/>
+      <TextObject Name="Text125" Left="756" Width="113.4" Height="28.35" Border.Lines="All" Text="[RepSaldo.OTCH]" Format="Number" Format.UseLocale="true" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text126" Left="869.4" Width="47.25" Height="28.35" Border.Lines="All" Text="[RepSaldo.MES_OPL]" Format="Number" Format.UseLocale="true" VertAlign="Center" WordWrap="false"/>
+      <TextObject Name="Text127" Left="916.65" Width="113.4" Height="28.35" Border.Lines="All" Text="[RepSaldo.SUMN]" Format="Number" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false"/>
+    </DataBand>
+  </ReportPage>
+</Report>

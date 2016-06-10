@@ -47,6 +47,7 @@ namespace Bars.KP50.Report.Samara
             //Register<ReportPackMoreTotal>();
             //Register<ReportChargePrih>();
             Register<Report300207>();
+            Register<ReportSaldo>();
         }
     }
 }
