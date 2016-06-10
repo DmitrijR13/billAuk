@@ -75,10 +75,28 @@ namespace Globals.SOURCE.Utility
         /// <param name="dataTable"></param>
         public void AddTable(DataTable dataTable)
         {
-            foreach (DataColumn dc in dataTable.Columns)
+            if(dataTable.TableName == "RepSaldo")
             {
-                AddColumn(dc.ColumnName, dc.DataType, 0, 0);
+                AddColumn("PREDPR", Type.GetType("System.String"), 3, 0);
+                AddColumn("GEU", Type.GetType("System.String"), 2, 0);
+                AddColumn("KOD", Type.GetType("System.String"), 5, 0);
+                AddColumn("KODLS", Type.GetType("System.String"), 1, 0);
+                AddColumn("KC", Type.GetType("System.String"), 2, 0);
+                AddColumn("ADR", Type.GetType("System.String"), 46, 0);
+                AddColumn("FIO", Type.GetType("System.String"), 25, 0);
+                AddColumn("IMYA", Type.GetType("System.String"), 15, 0);
+                AddColumn("OTCH", Type.GetType("System.String"), 20, 0);
+                AddColumn("MES_OPL", Type.GetType("System.String"), 4, 0);
+                AddColumn("SUMN", Type.GetType("System.Decimal"), 16, 2);
             }
+            else
+            {
+                foreach (DataColumn dc in dataTable.Columns)
+                {
+                    AddColumn(dc.ColumnName, dc.DataType, 0, 0);
+                }
+            }
+            
             foreach (DataRow dr in dataTable.Rows)
             {
                 DataTable.ImportRow(dr);

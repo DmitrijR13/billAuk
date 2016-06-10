@@ -117,7 +117,7 @@
 
                 exDBF eDBF = new exDBF(newFileName);
                 eDBF.AddTable(ds.Tables[i]);
-                eDBF.Save(newPath, 1251);
+                eDBF.Save(newPath, 866);
                 dbfList[i] = newPath + "\\" + newFileName + ".DBF";
 
             }
