@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="07/22/2014 17:28:40" ReportInfo.Modified="03/29/2016 11:59:26" ReportInfo.CreatorVersion="2015.4.2.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="07/22/2014 17:28:40" ReportInfo.Modified="06/29/2016 12:48:20" ReportInfo.CreatorVersion="2016.2.12.0">
   <Dictionary>
     <TableDataSource Name="Q_master" ReferenceName="Data.Q_master" DataType="System.Int32" Enabled="true">
       <Column Name="month" DataType="System.String" PropName="Column"/>
@@ -164,7 +164,7 @@
       <TextObject Name="Text99" Left="2390.85" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
       <TextObject Name="Text103" Left="2513.7" Top="18.9" Width="122.85" Height="18.9" Border.Lines="All"/>
       <TextObject Name="Text97" Left="2031.75" Top="18.9" Width="113.4" Height="18.9" Border.Lines="All"/>
-      <TextObject Name="Text83" Left="2031.75" Width="113.4" Height="18.9" Border.Lines="All" Text="[Q_master3.t_sum_tarif_500]"/>
+      <TextObject Name="Text83" Left="2031.75" Width="113.4" Height="18.9" Border.Lines="All" Text="[t_sum_tarif_500]"/>
       <TextObject Name="Text70" Left="2390.85" Width="122.85" Height="18.9" Border.Lines="All"/>
       <TextObject Name="Text68" Left="2268" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_sum_money]"/>
       <TextObject Name="Text80" Left="2145.15" Width="122.85" Height="18.9" Border.Lines="All" Text="[t_reval]"/>
