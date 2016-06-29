@@ -887,19 +887,19 @@ namespace Bars.KP50.DB.Faktura
         {
             if (aServ.Empty())
                 return;
-            foreach (BaseServ baseServ in this.ListKommServ)
+            foreach (BaseServ baseServ in ListKommServ)
             {
                 if (baseServ.Serv.NzpServ == aServ.Serv.NzpServ)
                     aServ.KommServ = true;
             }
-            this.SummaryServ.AddSum(aServ.Serv);
+            SummaryServ.AddSum(aServ.Serv);
             if (Math.Abs(aServ.Serv.Reval) > new Decimal(1, 0, 0, false, (byte)3) || Math.Abs(aServ.Serv.RealCharge) > new Decimal(1, 0, 0, false, (byte)3))
                 this.AddReval(aServ.Serv);
-            BaseServ mainServBySlave = this.CUnionServ.GetMainServBySlave(aServ.Serv.NzpServ);
+            BaseServ mainServBySlave = CUnionServ.GetMainServBySlave(aServ.Serv.NzpServ);
             if (mainServBySlave == null || aServ.Serv.NzpServ == 14)
             {
                 bool flag = false;
-                foreach (BaseServ baseServ in this.ListServ)
+                foreach (BaseServ baseServ in ListServ)
                 {
                     if (baseServ.Serv.NzpServ == aServ.Serv.NzpServ)
                     {
@@ -1199,9 +1199,10 @@ namespace Bars.KP50.DB.Faktura
             decimal gvsNorm = 0;
 
             int numhvsgvs = -1;
-
+            StreamWriter streamWriter = new StreamWriter("C:\\temp\\FillMainChargeGrid2.txt", true);
             foreach (ServVolume t in ListVolume)
             {
+                streamWriter.WriteLine(t.NzpServ);
                 for (int j = 0; j < ListServ.Count; j++)
                 {
                     if ((t.NzpServ == ListServ[j].Serv.NzpServ) & (t.NzpServ != 8) &
@@ -1258,7 +1259,7 @@ namespace Bars.KP50.DB.Faktura
                     t.Serv.CCalc = t.Serv.CCalc * kanNorma;
                 }
             }
-
+            streamWriter.Close();
             return true;
 
         }

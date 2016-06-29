@@ -5490,11 +5490,10 @@ a.dat_uchet,        a.val_cnt,        service_small,        name_y,        cs.da
                                                     Decimal.Parse(reader["rashod"].ToString());
 
                                             servVolume.DomVolume = Decimal.Parse(reader["rashod"].ToString());
-                                            //sw1.WriteLine(reader["rashod"].ToString());
-                                            
+
                                             if (reader["counter_mop"].ToString() == "1")
                                             {
-                                                servVolume.DomVolume = 0;
+                                                //servVolume.DomVolume = 0;
                                                 servVolume.OdnDomVolume = Decimal.Parse(reader["dpu"].ToString());
                                             }
 
@@ -5509,7 +5508,7 @@ a.dat_uchet,        a.val_cnt,        service_small,        name_y,        cs.da
                                 }
                                 if (reader["counter_mop"].ToString() == "1" && !(_finder.month_ == 1 && _finder.year_ == 2015))
                                 {
-                                    servVolume.DomVolume = 0;
+                                    //servVolume.DomVolume = 0;
                                     servVolume.OdnDomVolume = Decimal.Parse(reader["dpu"].ToString());
                                 }
 

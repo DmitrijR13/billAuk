@@ -665,8 +665,14 @@ namespace Bars.KP50.DB.Faktura
                 this.FillGoodServVolume2(dr, this.ListVolume[index1], "rash_dpu_odn" + (object)index);
                 this.FillGoodServVolume2(dr, this.ListVolume[index1], "rash_dpu_pu" + (object)index);
             }
+            StreamWriter sw = new StreamWriter(@"C:\temp\FillServVolume.txt", true);
             if (!(num1 == 25 & dr["c_calc" + (object)index].ToString().Trim() == ""))
-                this.FillGoodServVolume(dr, this.ListVolume[index1].NormaVolume, "rash_norm" + (object)index);
+            {
+                sw.WriteLine(num1 + "-------" + ListVolume[index1].NormaVolume + "------" + dr["c_calc" + (object)index].ToString().Trim());
+                FillGoodServVolume(dr, this.ListVolume[index1].NormaVolume, "rash_norm" + (object)index);
+            }
+                
+            sw.Close();
             decimal sumCountersValue = 0;
             string countersVal = "";
             for (int k = 0; k < ListCounters.Count; k++)
@@ -704,7 +710,7 @@ namespace Bars.KP50.DB.Faktura
             //    }
             //}
 
-            //StreamWriter sw = new StreamWriter(@"C:\temp\FillServVolume.txt", true);
+            //StreamWriter sw = new StreamWriter(@"C:\temp\FillServVolume741.txt", true);
             string domCountersValue = "";
             decimal sumDomCountersValue = 0;
 
@@ -735,14 +741,13 @@ namespace Bars.KP50.DB.Faktura
             if (num1 == 25 & this.HasElDpu)
             {
                 this.FillGoodServVolume(dr, ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
-
                 if (domCountersValue.Length != 0)
                 {
                     if (ListVolume[index1].DomLiftVolume != 0)
                     {
                         decimal val = ListVolume[index1].DomLiftVolume - ListVolume[index1].DomVolume;
-
                         this.FillGoodServVolume(dr, val, "rash_dpu_odn" + (object)index);
+
                     }
                     else
                     {
@@ -951,7 +956,7 @@ namespace Bars.KP50.DB.Faktura
         /// <returns></returns>
         protected override bool FillMainChargeGrid(DataRow dr)
         {
-            //StreamWriter streamWriter = new StreamWriter("C:\\temp\\FillMainChargeGrid.txt", true);
+            StreamWriter streamWriter = new StreamWriter("C:\\temp\\FillMainChargeGrid.txt", true);
            // streamWriter.WriteLine("1");
             //streamWriter.Close();
             if (dr == null)
@@ -973,6 +978,7 @@ namespace Bars.KP50.DB.Faktura
                         {
                             aServMain.ServOdn.RsumTarif += aServ.Serv.RsumTarif;
                             aServMain.Serv.RsumTarif += aServ.Serv.RsumTarif;
+                            SummaryServ.ServOdn.SumCharge+= aServ.Serv.RsumTarif;
                         }
                     }
                 }
@@ -986,6 +992,7 @@ namespace Bars.KP50.DB.Faktura
                         {
                             aServMain.ServOdn.RsumTarif += aServ.Serv.RsumTarif;
                             aServMain.Serv.RsumTarif += aServ.Serv.RsumTarif;
+                            SummaryServ.ServOdn.SumCharge += aServ.Serv.RsumTarif;
                         }
                     }
                 }
@@ -995,9 +1002,9 @@ namespace Bars.KP50.DB.Faktura
             this.ListServ = this.SortServ(this.ListServ);
             int index1 = 1;
             Decimal num1 = new Decimal(0);
-            foreach (BaseServ aServ in this.ListServ)
+            foreach (BaseServ aServ in ListServ)
             {
-                if (this.IsShowServInGrid(aServ))
+                if (IsShowServInGrid(aServ))
                 {
                     if(aServ.Serv.Tarif == 0m)
                         continue;
@@ -1350,6 +1357,7 @@ namespace Bars.KP50.DB.Faktura
                             }
                             if (Math.Abs(aServ.ServOdn.CCalc) > new Decimal(1, 0, 0, false, (byte)5) && aServ.Serv.Tarif > 0.001m)
                             {
+                                streamWriter.WriteLine(aServ.Serv.NameServ.Trim() + "----" + aServ.Serv.NzpServ + "-----" + HasGvsDpu);
                                 string str2 = "(1)";
                                 if (aServ.Serv.NzpServ == 6 & this.HasHvsDpu)
                                     str2 = "(4)";
@@ -1548,6 +1556,7 @@ namespace Bars.KP50.DB.Faktura
                     }
                 }
             }
+            streamWriter.Close();
             dr["revalEpd"] = (object)num1.ToString();
             for (int index2 = index1; index2 < 19; ++index2)
             {
