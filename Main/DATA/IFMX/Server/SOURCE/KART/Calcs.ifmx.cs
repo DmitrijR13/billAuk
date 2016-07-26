@@ -7,6 +7,7 @@ using STCLINE.KP50.Global;
 using STCLINE.KP50.DataBase;
 using System.Collections;
 using System.Data;
+using System.IO;
 
 namespace STCLINE.KP50.DataBase
 {
@@ -1081,9 +1082,9 @@ namespace STCLINE.KP50.DataBase
                  return null;
              }
 
-             #endregion
-             
-             try
+            #endregion
+            StreamWriter sw = new StreamWriter(@"C:\Temp\VerifCalc1.txt", true);
+            try
              {
                  if (reader1 != null)
                  {
@@ -1091,9 +1092,9 @@ namespace STCLINE.KP50.DataBase
                  }
 
 #if PG
-                 sql = " Select a.dat_mm, a.dat_yy, (a. sum_insaldo)||'', (a. sum_charge)||'', (a. subsid)||'', coalesce(b. dat_prih, NULL), coalesce(b. sum_prih,0)||'', (a. sum_charge - coalesce(b. sum_prih,0))||'' as dabt, (a. sum_outsaldo)||''" +
-                " From " + temp_table_1 + " a, " + temp_table_2 + " b " +
-                " Where a.dat_mm = b.dat_mm and a.dat_yy = b.dat_yy order by dat_yy, dat_mm ";
+                 sql = " Select a.dat_mm, a.dat_yy, (a. sum_insaldo)||'', (a. sum_charge)||'', coalesce(to_char(b.dat_prih, 'dd.mm.yyyy'), NULL), coalesce(b. sum_prih,0)||'', (a. sum_charge - coalesce(b. sum_prih,0))||'' as dabt, (a. sum_outsaldo)||''" +
+                " From " + temp_table_1 + " a LEFT JOIN " + temp_table_2 + " b " +
+                " on a.dat_mm = b.dat_mm and a.dat_yy = b.dat_yy order by dat_yy, dat_mm ";
 #else
                  sql = " Select a.dat_mm, a.dat_yy, a. sum_insaldo, a. sum_charge, a. subsid , nvl(b. dat_prih,''), nvl(b. sum_prih,0), (a. sum_charge - nvl(b. sum_prih,0)) as dabt, (a. sum_outsaldo) " +
                 " From " + temp_table_1 + " a, OUTER " + temp_table_2 + " b " +
@@ -1106,18 +1107,19 @@ namespace STCLINE.KP50.DataBase
                      conn_db.Close();
                      return null;
                  }
-
+                sw.WriteLine("1");
                  Utils.setCulture();
                  if (reader != null)
                  {
                      Data_Table.Load(reader, LoadOption.OverwriteChanges);//загрузка в DataTable
                  }
+                sw.WriteLine("2");
+                #region перерасчет вх. сальдо, если есть оплаты до этого периода
 
-                 #region перерасчет вх. сальдо, если есть оплаты до этого периода
-                 
-                 //начало периода
-                 DateTime start_date = new DateTime(start_year+2000, start_month, 1).AddMonths(1);
-                 for (int i = 0; i < calcs.Rows.Count; i++)
+                //начало периода
+                DateTime start_date = new DateTime(start_year+2000, start_month, 1).AddMonths(1);
+                sw.WriteLine("3");
+                for (int i = 0; i < calcs.Rows.Count; i++)
                  {
                      //дата оплаты
                      if (!String.IsNullOrEmpty(calcs.Rows[i][2].ToString()))
@@ -1130,42 +1132,62 @@ namespace STCLINE.KP50.DataBase
                          }
                      }
                  }
+                sw.WriteLine("4");
+                #endregion
 
-                 #endregion
-
-                 int old_dat = 0;
+                int old_dat = 0;
 
                  //расчет сальдо нарастающим итогом
-                 for (int i = 0; i < Data_Table.Rows.Count; i++)
+                for (int i = 0; i < Data_Table.Rows.Count; i++)
                  {
-                     if (old_dat == (Int32)Data_Table.Rows[i][0] + (Int32)Data_Table.Rows[i][0] * 12)
+                    sw.WriteLine("41");
+                   if (old_dat == (Int32)Data_Table.Rows[i][0] + (Int32)Data_Table.Rows[i][0] * 12)
                      {
-                         Data_Table.Rows[i][3] = "0";
-                         Data_Table.Rows[i][8] = "0";
-                         if (Data_Table.Rows[i][6] != DBNull.Value)
-                             Data_Table.Rows[i][7] = -(Decimal)Data_Table.Rows[i][6];
+                        sw.WriteLine((Int32)Data_Table.Rows[i][0] + (Int32)Data_Table.Rows[i][0] * 12);
+                        Data_Table.Rows[i][3] = "0";
+                         Data_Table.Rows[i][7] = "0";
+                        sw.WriteLine(Data_Table.Rows[i][5].ToString());
+                        if (Data_Table.Rows[i][5] != DBNull.Value)
+                        {
+                            try
+                            {
+                                Data_Table.Rows[i][6] = -1 * Convert.ToDecimal(Data_Table.Rows[i][5].ToString());
+                            }
+                            catch
+                            {
+                                Data_Table.Rows[i][6] = -1 * Convert.ToDecimal(Data_Table.Rows[i][5].ToString().Replace(',','.'));
+                            }
+                        }
+                             
                      }
-
-                     old_dat = (Int32)Data_Table.Rows[i][0] + (Int32)Data_Table.Rows[i][0] * 12;
-
-                     if (i == 0)
+                    sw.WriteLine("42");
+                    old_dat = (Int32)Data_Table.Rows[i][0] + (Int32)Data_Table.Rows[i][0] * 12;
+                    sw.WriteLine("43");
+                    if (i == 0)
                      {
-                         Data_Table.Rows[i][8] = sum_outsaldo + Convert.ToDecimal(Data_Table.Rows[i][7]);
+                         Data_Table.Rows[i][7] = sum_outsaldo + Convert.ToDecimal(Data_Table.Rows[i][6]);
                          ret.sql_error = sum_outsaldo.ToString();
                      }
                      else
                      {
-                         Data_Table.Rows[i][8] = Convert.ToDecimal(Data_Table.Rows[i - 1][8]) + Convert.ToDecimal(Data_Table.Rows[i][7]);
+                         Data_Table.Rows[i][7] = Convert.ToDecimal(Data_Table.Rows[i - 1][7]) + Convert.ToDecimal(Data_Table.Rows[i][6]);
                      }
-                 }
-             }
+                    sw.WriteLine("44");
+                }
+                sw.WriteLine("1");
+            }
              catch (Exception ex)
              {
-                 MonitorLog.WriteLog("!!!" + ex.Message, MonitorLog.typelog.Error, true);
+                sw.WriteLine(ex.StackTrace);
+                sw.WriteLine(ex.Source);
+                sw.WriteLine(ex.ToString());
+                sw.Close();
+                MonitorLog.WriteLog("!!!" + ex.Message, MonitorLog.typelog.Error, true);
                  conn_db.Close();
                  reader.Close();
                  return null;
              }
+            sw.Close();
              if (reader != null)
              {
                  reader.Close();

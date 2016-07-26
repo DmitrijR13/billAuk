@@ -33,316 +33,336 @@ namespace STCLINE.KP50.REPORT
             ExcelLoader ExcelL = new ExcelLoader();
             DBCalcs calc = new DBCalcs();
             System.Data.DataTable DT_Body = calc.VerificationCalcs(finder, yy_from, mm_from, yy_to, mm_to, out ret);
-
+            StreamWriter sw = new StreamWriter(@"C:\Temp\VerifCalc.txt", true);
+            sw.WriteLine("00001");
             MonitorLog.WriteLog("Запуск процедуры формирвования тела отчета VerificationCalcs", MonitorLog.typelog.Info, true);
-            if (DT_Body != null)
+            try
             {
-                #region Получение колонки даты
 
-                for (int g = 0; g < DT_Body.Rows.Count; g++)
+                if (DT_Body != null)
                 {
-                    string date_mm = DT_Body.Rows[g][0].ToString();
-                    string date_yy = DT_Body.Rows[g][1].ToString();
+                    sw.WriteLine("001");
+                    #region Получение колонки даты
 
-                    string date = date_mm + date_yy;
-                    DT_Body.Rows[g][0] = date;
-                }
-                DT_Body.Columns.RemoveAt(1);
-
-                #endregion
-
-                #region Определение заголовков и типов
-
-                //собрать заголовки футера
-                string[] footer_name_1 = new string[] { "Итого:", "", "", "", "", "" };
-                string[] footer_name_2 = new string[] { "", "", "", "Сальдо на", "", "" };
-
-                //собрать типы для колонок
-                string[] TypeFooter_1 = new string[] { "char", "float", "", "float", "float", "float" };
-                string[] TypeFooter_2 = new string[] { "", "", "", "", "", "float" };
-
-                #endregion
-
-                try
-                {
-                    //-----------------------------------создание Excel---------------------------------
-
-                    #region Заполняем и объединяем ячейки
-
-                    int temp_y = Convert.ToInt32("20" + yy_from.ToString());
-
-                    //Проверка периода выгрузки
-                    if (STCLINE.KP50.Interfaces.Points.BeginCalc.year_ > temp_y ||
-                        (STCLINE.KP50.Interfaces.Points.BeginCalc.year_ == temp_y && STCLINE.KP50.Interfaces.Points.BeginCalc.month_ > Convert.ToInt32(mm_from)))
+                    for (int g = 0; g < DT_Body.Rows.Count; g++)
                     {
-                        mm_from = STCLINE.KP50.Interfaces.Points.BeginCalc.month_.ToString("00");
-                        string year_f = STCLINE.KP50.Interfaces.Points.BeginCalc.year_.ToString().Substring(STCLINE.KP50.Interfaces.Points.BeginCalc.year_.ToString().Length - 2, 2);
-                        yy_from = year_f;
+                        sw.WriteLine("111 = " + DT_Body.Rows[g][1].ToString());
+                        string date_mm = DT_Body.Rows[g][0].ToString();
+                        string date_yy = DT_Body.Rows[g][1].ToString();
+                        sw.WriteLine(date_mm);
+                        sw.WriteLine(date_yy);
+                        string date = date_mm + date_yy;
+                        sw.WriteLine(date);
+                        DT_Body.Rows[g][0] = date;
                     }
-                    int date = DateTime.DaysInMonth(Convert.ToInt32("20" + yy_to), Convert.ToInt32(mm_to));
+                    DT_Body.Columns.RemoveAt(1);
+                    sw.WriteLine("002");
+                    #endregion
+
+                    #region Определение заголовков и типов
+                    sw.WriteLine("003");
+                    //собрать заголовки футера
+                    string[] footer_name_1 = new string[] { "Итого:", "", "", "", "", "" };
+                    string[] footer_name_2 = new string[] { "", "", "", "Сальдо на", "", "" };
+
+                    sw.WriteLine("004");
+                    //собрать типы для колонок
+                    string[] TypeFooter_1 = new string[] { "char", "float", "", "float", "float", "float" };
+                    string[] TypeFooter_2 = new string[] { "", "", "", "", "", "float" };
 
                     #endregion
 
-                    Dictionary<string, string> Dic = new Dictionary<string, string>();
-
-                    Dic.Add("date1", DateTime.Now.ToString("d"));
-                    Dic.Add("date2", "c " + "01." + mm_from + ".20" + yy_from + " по " + date.ToString() + "." + mm_to + ".20" + yy_to);
-                    Dic.Add("date3", "");
-                    Dic.Add("fio", finder.fio);
-                    Dic.Add("pkod", finder.pkod);
-                    Dic.Add("addr", finder.adr);
-                    ExcelL.LoadTemlate(PathHelper.GetReportTemplatePath("sverka_raschet.xls"), Dic);
 
 
-                    ExcelCreater ExcelCr = new ExcelCreater();
-                    Microsoft.Office.Interop.Excel.Range excells3;
-
-                    #region Создание тела
-
-                    MonitorLog.WriteLog("Запуск создание тела отчета VerificationCalcs", MonitorLog.typelog.Info, true);
-
-                    if (DT_Body.Rows.Count != 0)
+                    try
                     {
-                        string a = DT_Body.Rows[0][0].ToString();
-                        string _month = a.Substring(0, a.Length - 4);
-                        string _year = a.Substring(a.Length - 2, 2);
+                        //-----------------------------------создание Excel---------------------------------
+                        sw.WriteLine("005");
+                        #region Заполняем и объединяем ячейки
+
+                        int temp_y = Convert.ToInt32("20" + yy_from.ToString());
+                        sw.WriteLine("006");
+                        //Проверка периода выгрузки
+                        if (STCLINE.KP50.Interfaces.Points.BeginCalc.year_ > temp_y ||
+                            (STCLINE.KP50.Interfaces.Points.BeginCalc.year_ == temp_y && STCLINE.KP50.Interfaces.Points.BeginCalc.month_ > Convert.ToInt32(mm_from)))
+                        {
+                            mm_from = STCLINE.KP50.Interfaces.Points.BeginCalc.month_.ToString("00");
+                            string year_f = STCLINE.KP50.Interfaces.Points.BeginCalc.year_.ToString().Substring(STCLINE.KP50.Interfaces.Points.BeginCalc.year_.ToString().Length - 2, 2);
+                            yy_from = year_f;
+                        }
+                        sw.WriteLine("007");
+                        int date = DateTime.DaysInMonth(Convert.ToInt32("20" + yy_to), Convert.ToInt32(mm_to));
+                        sw.WriteLine("008");
+                        #endregion
+
+                        Dictionary<string, string> Dic = new Dictionary<string, string>();
+
+                        Dic.Add("date1", DateTime.Now.ToString("d"));
+                        Dic.Add("date2", "c " + "01." + mm_from + ".20" + yy_from + " по " + date.ToString() + "." + mm_to + ".20" + yy_to);
+                        Dic.Add("date3", "");
+                        Dic.Add("fio", finder.fio);
+                        Dic.Add("pkod", finder.num_ls.ToString());
+                        Dic.Add("addr", finder.adr);
+                        ExcelL.LoadTemlate(PathHelper.GetReportTemplatePath("sverka_raschet.xls"), Dic);
+                        sw.WriteLine("009");
+
+                        ExcelCreater ExcelCr = new ExcelCreater();
+                        Microsoft.Office.Interop.Excel.Range excells3;
+
+                        #region Создание тела
+
+                        MonitorLog.WriteLog("Запуск создание тела отчета VerificationCalcs", MonitorLog.typelog.Info, true);
+                        sw.WriteLine("1");
+                        if (DT_Body.Rows.Count != 0)
+                        {
+                            string a = DT_Body.Rows[0][0].ToString();
+                            string _month = a.Substring(0, a.Length - 4);
+                            string _year = a.Substring(a.Length - 2, 2);
+                            sw.WriteLine("2");
+
+                            excells3 = ExcelL.ExlWs.get_Range("C10", Type.Missing);
+                            excells3.Value2 = "01." + _month.PadLeft(2, '0') + ".20" + _year;
+                            excells3.NumberFormat = "дд.мм.гггг";
+                            excells3.EntireRow.AutoFit();
+                            sw.WriteLine("3");
+                            excells3 = ExcelL.ExlWs.get_Range("D10", Type.Missing);
+                            excells3.Value2 = Decimal.Parse(ret.sql_error);
+                            excells3.NumberFormat = "0.00";
+                            excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
+                            sw.WriteLine("4");
+                            if (ret.result)
+                            {
+                                DT_Body.Columns.RemoveAt(1);
+                                ret = ExcelCr.MakeBody(DT_Body, 12, 0, ref ExcelL.ExlWs);
+                            }
+                            sw.WriteLine("5");
+                            excells3 = ExcelL.ExlWs.get_Range("A" + Convert.ToString(DT_Body.Rows.Count + 13), Type.Missing);
+                            excells3.Font.Bold = true;
+                            excells3.Value2 = "Итого: ";
+                            excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
+                            sw.WriteLine("6");
+                            excells3 = ExcelL.ExlWs.get_Range("E" + Convert.ToString(DT_Body.Rows.Count + 15), "F" + Convert.ToString(DT_Body.Rows.Count + 15));
+                            excells3.Merge(Type.Missing);
+                            excells3.Value2 = "Сальдо на " + date.ToString() + "." + mm_to + ".20" + yy_to;
+                            excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
+                            excells3.Font.Bold = true;
+                            sw.WriteLine("7");
+                            excells3 = ExcelL.ExlWs.get_Range("A13", "G" + Convert.ToString(DT_Body.Rows.Count + 15));
+                            excells3.Font.Size = 8;
+
+                            //вывод Месяц/год
+                            for (int i = 0; i < DT_Body.Rows.Count; i++)
+                            {
+                                excells3 = ExcelL.ExlWs.get_Range("A" + Convert.ToString(13 + i), Type.Missing);
+                                excells3.NumberFormat = "@";
+                                if (excells3.Value2 != null)
+                                {
+                                    int temp_month = Convert.ToInt32(excells3.Value2.ToString().Substring(0, excells3.Value2.ToString().Length - 4));
+                                    string temp = String.Format("{0:00}", temp_month);
+                                    excells3.Value2 = temp + "/" + excells3.Value2.ToString().Substring(excells3.Value2.ToString().Length - 4, 4);
+                                    excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
+                                }
+                            }
+                            sw.WriteLine("8");
+                            ExcelFormater exform = new ExcelFormater();
+                            for (int r = 0; r < 6; r++)
+                            {
+                                double sum = 0.0;
+                                if (r != 0 && r != 2 && r != 5)
+                                {
+                                    for (int h = 0; h < DT_Body.Rows.Count; h++)
+                                    {
+                                        excells3 = ExcelL.ExlWs.get_Range(exform.BukvaList[r].ToString() + Convert.ToString(13 + h), Type.Missing);
+                                        sum += Convert.ToDouble(excells3.Value2);
+                                    }
+                                    excells3 = ExcelL.ExlWs.get_Range(exform.BukvaList[r].ToString() + Convert.ToString(DT_Body.Rows.Count + 13), Type.Missing);
+                                    excells3.NumberFormat = "0.00";
+                                    excells3.Font.Bold = true;
+                                    excells3.Value2 = sum;
+                                }
+                            }
+                            sw.WriteLine("9");
+                            excells3 = ExcelL.ExlWs.get_Range("C" + 13, "C" + Convert.ToString(DT_Body.Rows.Count + 13));
+                            excells3.NumberFormat = "дд.мм.гггг";
 
 
-                        excells3 = ExcelL.ExlWs.get_Range("C10", Type.Missing);
-                        excells3.Value2 = "01." + _month + ".20" + _year;
-                        excells3.NumberFormat = "дд.мм.гггг";
-                        excells3.EntireRow.AutoFit();
+                            excells3 = ExcelL.ExlWs.get_Range("F" + Convert.ToString(DT_Body.Rows.Count + 12), Type.Missing);
+                            Microsoft.Office.Interop.Excel.Range excells4;
+                            excells4 = ExcelL.ExlWs.get_Range("F" + Convert.ToString(DT_Body.Rows.Count + 13), Type.Missing);
+                            excells4.Value2 = excells3.Value2;
+                            excells4.Font.Bold = true;
+                            excells4.NumberFormat = "0.00";
+                            sw.WriteLine("10");
+                            //сальдо нарастающим итогом
+                            excells3 = ExcelL.ExlWs.get_Range("F" + 13, "F" + Convert.ToString(DT_Body.Rows.Count + 13));
+                            excells3.NumberFormat = "0.00";
 
-                        excells3 = ExcelL.ExlWs.get_Range("D10", Type.Missing);
-                        excells3.Value2 = Decimal.Parse(ret.sql_error);
-                        excells3.NumberFormat = "0,00";
-                        excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
+                            for (int r = 0; r < 7; r++)
+                            {
+                                if (r != 0 & r != 2)
+                                {
+                                    for (int h = 0; h < DT_Body.Rows.Count; h++)
+                                    {
+                                        excells3 = ExcelL.ExlWs.get_Range(exform.BukvaList[r].ToString() + Convert.ToString(13 + h), Type.Missing);
+                                        excells3.NumberFormat = "0.00";
+                                    }
+                                }
+                            }
 
+                            sw.WriteLine("11");
+                            Microsoft.Office.Interop.Excel.Range excells5;
+                            excells5 = ExcelL.ExlWs.get_Range("F" + Convert.ToString(DT_Body.Rows.Count + 13), Type.Missing);
+                            excells3 = ExcelL.ExlWs.get_Range("F" + Convert.ToString(DT_Body.Rows.Count + 15), Type.Missing);
+                            excells3.Value2 = excells5.Value2;
+                            excells3.NumberFormat = "0.00";
+                            excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
+                            excells3.Font.Bold = true;
+
+                            excells3 = ExcelL.ExlWs.get_Range("B3", "D3");
+                            excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
+
+                            sw.WriteLine("12");
+                            for (int k = 0; k < 4; k++)
+                            {
+                                excells3 = ExcelL.ExlWs.get_Range("C" + Convert.ToString(5 + k), Type.Missing);
+                                excells3.Font.Bold = true;
+                                excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlLeft;
+                            }
+
+                            excells3 = ExcelL.ExlWs.get_Range("B3", "E3");
+                            excells3.Font.Size = "11";
+                            excells3 = ExcelL.ExlWs.get_Range("E3", Type.Missing);
+                            excells3.Font.Size = "11";
+                            sw.WriteLine("13");
+
+                            #endregion
+
+                            #region заполнение параметров подписи отчета
+                            int indexer = DT_Body.Rows.Count + 17,
+                                fontSize = 10;
+                            string fontName = "Calibri";
+
+                            /* 579 - Наименование должности бухгалтера
+                               1047 - ФИО руководителя ПУС 
+                               1048 - Должность руководителя ПУС */
+                            var finderPrm = new Prm
+                            {
+                                nzp_user = finder.nzp_user,
+                                pref = finder.pref,
+                                prm_num = 10,
+                                spis_prm = "579, 1047, 1048",
+                                is_actual = 1,
+                                date_begin = DateTime.Now.ToShortDateString()
+                            };
+
+                            var parPod = new DbParameters();
+                            parPod.FindPrm(finderPrm, out ret);
+                            if (!ret.result)
+                            {
+                                MonitorLog.WriteLog("class ReportGen, метод GetVerifCalcs \n " +
+                                                    " Ошибка формирования списка параметров \"подписи\" :" + ret.text, MonitorLog.typelog.Error, true);
+                                return ret;
+                            }
+                            List<Prm> listPrms = parPod.GetPrm(finderPrm, out ret);
+                            if (!ret.result)
+                            {
+                                MonitorLog.WriteLog("class ReportGen, метод GetVerifCalcs \n " +
+                                                    " Ошибка формирования списка параметров \"подписи\" :" + ret.text, MonitorLog.typelog.Error, true);
+                                return ret;
+                            }
+                            string pasportDol = listPrms.Find(x => x.nzp_prm == 579) != null
+                                    ? listPrms.Find(x => x.nzp_prm == 579).val_prm
+                                    : string.Empty,
+                                nachalFio = listPrms.Find(x => x.nzp_prm == 1047) != null
+                                    ? listPrms.Find(x => x.nzp_prm == 1047).val_prm
+                                    : string.Empty,
+                                nachalDol = listPrms.Find(x => x.nzp_prm == 1048) != null
+                                    ? listPrms.Find(x => x.nzp_prm == 1048).val_prm
+                                    : string.Empty,
+                                pasportFio = finder.webUname;
+
+
+                            excells3 = ExcelL.ExlWs.Range["A" + (indexer + 2), "B" + (indexer + 2)];
+                            excells3.Merge(Type.Missing);
+                            excells3.Font.Name = fontName;
+                            excells3.Font.Size = fontSize;
+                            excells3.WrapText = true;
+                            excells3.Value2 = nachalDol;
+
+                            excells3 = ExcelL.ExlWs.Range["C" + (indexer + 2), Type.Missing];
+                            excells3.Borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
+
+
+                            excells3 = ExcelL.ExlWs.Range["D" + (indexer + 2), Type.Missing];
+                            excells3.Font.Name = fontName;
+                            excells3.Font.Size = fontSize;
+                            excells3.Value2 = Utils.GetCorrectFIO(nachalFio);
+
+                            excells3 = ExcelL.ExlWs.Range["A" + (indexer + 4), "B" + (indexer + 4)];
+                            excells3.Merge(Type.Missing);
+                            excells3.Font.Name = fontName;
+                            excells3.Font.Size = fontSize;
+                            excells3.WrapText = true;
+                            excells3.Value2 = pasportDol;
+
+                            excells3 = ExcelL.ExlWs.Range["C" + (indexer + 4), Type.Missing];
+                            excells3.Borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
+
+                            excells3 = ExcelL.ExlWs.Range["D" + (indexer + 4), Type.Missing];
+                            excells3.Font.Name = fontName;
+                            excells3.Font.Size = fontSize;
+                            excells3.Value2 = pasportFio;
+                            #endregion
+                        }
+                        else
+                        {
+                            ExcelCr.MakeName("Нет данных", "A13", 7, 4, ref ExcelL.ExlWs);
+                        }
+                        //----------------------------------------------------------------------------------
                         if (ret.result)
                         {
-                            DT_Body.Columns.RemoveAt(1);
-                            ret = ExcelCr.MakeBody(DT_Body, 12, 0, ref ExcelL.ExlWs);
-                        }
+                            //Сохранение 
 
-                        excells3 = ExcelL.ExlWs.get_Range("A" + Convert.ToString(DT_Body.Rows.Count + 13), Type.Missing);
-                        excells3.Font.Bold = true;
-                        excells3.Value2 = "Итого: ";
-                        excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
-
-                        excells3 = ExcelL.ExlWs.get_Range("E" + Convert.ToString(DT_Body.Rows.Count + 15), "F" + Convert.ToString(DT_Body.Rows.Count + 15));
-                        excells3.Merge(Type.Missing);
-                        excells3.Value2 = "Сальдо на " + date.ToString() + "." + mm_to + ".20" + yy_to;
-                        excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
-                        excells3.Font.Bold = true;
-
-                        excells3 = ExcelL.ExlWs.get_Range("A13", "G" + Convert.ToString(DT_Body.Rows.Count + 15));
-                        excells3.Font.Size = 8;
-
-                        //вывод Месяц/год
-                        for (int i = 0; i < DT_Body.Rows.Count; i++)
-                        {
-                            excells3 = ExcelL.ExlWs.get_Range("A" + Convert.ToString(13 + i), Type.Missing);
-                            excells3.NumberFormat = "@";
-                            if (excells3.Value2 != null)
+                            fileName = ReportGen.GetFileName(STCLINE.KP50.Global.Constants.ExcelDir, "Sverka_" + finder.nzp_user) + ".xls";//"SpLs_" + nzp_user + ".xlsx";
+                            ret = ExcelL.SaveFile(STCLINE.KP50.Global.Constants.ExcelDir + fileName, fileName, ref ExcelL.ExlWb, ref ExcelL.ExlApp);
+                            if (InputOutput.useFtp)
                             {
-                                int temp_month = Convert.ToInt32(excells3.Value2.ToString().Substring(0, excells3.Value2.ToString().Length - 4));
-                                string temp = String.Format("{0:00}", temp_month);
-                                excells3.Value2 = temp + "/" + excells3.Value2.ToString().Substring(excells3.Value2.ToString().Length - 4, 4);
-                                excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
+                                fileName = InputOutput.SaveOutputFile(Global.Constants.ExcelDir + fileName);
                             }
                         }
-
-                        ExcelFormater exform = new ExcelFormater();
-                        for (int r = 0; r < 7; r++)
+                        else
                         {
-                            double sum = 0.0;
-                            if (r != 0 && r != 3 && r != 6)
-                            {
-                                for (int h = 0; h < DT_Body.Rows.Count; h++)
-                                {
-                                    excells3 = ExcelL.ExlWs.get_Range(exform.BukvaList[r].ToString() + Convert.ToString(13 + h), Type.Missing);
-                                    sum += Convert.ToDouble(excells3.Value2);
-                                }
-                                excells3 = ExcelL.ExlWs.get_Range(exform.BukvaList[r].ToString() + Convert.ToString(DT_Body.Rows.Count + 13), Type.Missing);
-                                excells3.NumberFormat = "0,00";
-                                excells3.Font.Bold = true;
-                                excells3.Value2 = sum;
-                            }
+                            MonitorLog.WriteLog("Ошибка создания Excel файла : " + ret.text, MonitorLog.typelog.Error, true);
                         }
 
-                        excells3 = ExcelL.ExlWs.get_Range("D" + 13, "D" + Convert.ToString(DT_Body.Rows.Count + 13));
-                        excells3.NumberFormat = "дд.мм.гггг";
-
-
-                        excells3 = ExcelL.ExlWs.get_Range("G" + Convert.ToString(DT_Body.Rows.Count + 12), Type.Missing);
-                        Microsoft.Office.Interop.Excel.Range excells4;
-                        excells4 = ExcelL.ExlWs.get_Range("G" + Convert.ToString(DT_Body.Rows.Count + 13), Type.Missing);
-                        excells4.Value2 = excells3.Value2;
-                        excells4.Font.Bold = true;
-                        excells4.NumberFormat = "0,00";
-
-                        //сальдо нарастающим итогом
-                        excells3 = ExcelL.ExlWs.get_Range("G" + 13, "G" + Convert.ToString(DT_Body.Rows.Count + 13));
-                        excells3.NumberFormat = "0,00";
-
-                        for (int r = 0; r < 8; r++)
-                        {
-                            if (r != 0 & r != 3)
-                            {
-                                for (int h = 0; h < DT_Body.Rows.Count; h++)
-                                {
-                                    excells3 = ExcelL.ExlWs.get_Range(exform.BukvaList[r].ToString() + Convert.ToString(13 + h), Type.Missing);
-                                    excells3.NumberFormat = "0,00";
-                                }
-                            }
-                        }
-
-
-                        Microsoft.Office.Interop.Excel.Range excells5;
-                        excells5 = ExcelL.ExlWs.get_Range("G" + Convert.ToString(DT_Body.Rows.Count + 13), Type.Missing);
-                        excells3 = ExcelL.ExlWs.get_Range("G" + Convert.ToString(DT_Body.Rows.Count + 15), Type.Missing);
-                        excells3.Value2 = excells5.Value2;
-                        excells3.NumberFormat = "0,00";
-                        excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
-                        excells3.Font.Bold = true;
-
-                        excells3 = ExcelL.ExlWs.get_Range("B3", "D3");
-                        excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlRight;
-
-
-                        for (int k = 0; k < 4; k++)
-                        {
-                            excells3 = ExcelL.ExlWs.get_Range("C" + Convert.ToString(5 + k), Type.Missing);
-                            excells3.Font.Bold = true;
-                            excells3.HorizontalAlignment = Microsoft.Office.Interop.Excel.Constants.xlLeft;
-                        }
-
-                        excells3 = ExcelL.ExlWs.get_Range("B3", "E3");
-                        excells3.Font.Size = "11";
-                        excells3 = ExcelL.ExlWs.get_Range("F3", Type.Missing);
-                        excells3.Font.Size = "11";
-
-
-                    #endregion
-                    
-                    #region заполнение параметров подписи отчета
-                        int indexer = DT_Body.Rows.Count + 17,
-                            fontSize = 10;
-                        string fontName = "Calibri";
-                        
-                        /* 579 - Наименование должности бухгалтера
-                           1047 - ФИО руководителя ПУС 
-                           1048 - Должность руководителя ПУС */
-                        var finderPrm = new Prm
-                        {
-                            nzp_user = finder.nzp_user,
-                            pref = finder.pref,
-                            prm_num = 10,
-                            spis_prm = "579, 1047, 1048",
-                            is_actual = 1,
-                            date_begin = DateTime.Now.ToShortDateString()
-                        };
-
-                        var parPod = new DbParameters();
-                        parPod.FindPrm(finderPrm, out ret);
-                        if (!ret.result)
-                        {
-                            MonitorLog.WriteLog("class ReportGen, метод GetVerifCalcs \n " +
-                                                " Ошибка формирования списка параметров \"подписи\" :" + ret.text, MonitorLog.typelog.Error, true);
-                            return ret;
-                        }
-                        List<Prm> listPrms = parPod.GetPrm(finderPrm, out ret);
-                        if (!ret.result)
-                        {
-                            MonitorLog.WriteLog("class ReportGen, метод GetVerifCalcs \n " +
-                                                " Ошибка формирования списка параметров \"подписи\" :" + ret.text, MonitorLog.typelog.Error, true);
-                            return ret;
-                        }
-                        string pasportDol = listPrms.Find(x => x.nzp_prm == 579) != null
-                                ? listPrms.Find(x => x.nzp_prm == 579).val_prm
-                                : string.Empty,
-                            nachalFio = listPrms.Find(x => x.nzp_prm == 1047) != null
-                                ? listPrms.Find(x => x.nzp_prm == 1047).val_prm
-                                : string.Empty,
-                            nachalDol = listPrms.Find(x => x.nzp_prm == 1048) != null
-                                ? listPrms.Find(x => x.nzp_prm == 1048).val_prm
-                                : string.Empty,
-                            pasportFio = finder.webUname;
-
-
-                        excells3 = ExcelL.ExlWs.Range["A" + (indexer + 2), "B" + (indexer + 2)];
-                        excells3.Merge(Type.Missing);
-                        excells3.Font.Name = fontName;
-                        excells3.Font.Size = fontSize;
-                        excells3.WrapText = true;
-                        excells3.Value2 = nachalDol;
-
-                        excells3 = ExcelL.ExlWs.Range["C" + (indexer + 2), Type.Missing];
-                        excells3.Borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
-
-
-                        excells3 = ExcelL.ExlWs.Range["D" + (indexer + 2), Type.Missing];
-                        excells3.Font.Name = fontName;
-                        excells3.Font.Size = fontSize;
-                        excells3.Value2 = Utils.GetCorrectFIO(nachalFio);
-
-                        excells3 = ExcelL.ExlWs.Range["A" + (indexer + 4), "B" + (indexer + 4)];
-                        excells3.Merge(Type.Missing);
-                        excells3.Font.Name = fontName;
-                        excells3.Font.Size = fontSize;
-                        excells3.WrapText = true;
-                        excells3.Value2 = pasportDol;
-
-                        excells3 = ExcelL.ExlWs.Range["C" + (indexer + 4), Type.Missing];
-                        excells3.Borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
-
-                        excells3 = ExcelL.ExlWs.Range["D" + (indexer + 4), Type.Missing];
-                        excells3.Font.Name = fontName;
-                        excells3.Font.Size = fontSize;
-                        excells3.Value2 = pasportFio;
-                        #endregion
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        ExcelCr.MakeName("Нет данных", "A13", 7, 4, ref ExcelL.ExlWs);
-                    }
-                    //----------------------------------------------------------------------------------
-                    if (ret.result)
-                    {
-                        //Сохранение 
+                        MonitorLog.WriteLog("Формирование Excel ошибка :" + ex.Message, MonitorLog.typelog.Error, true);
+                        ret.text = ex.Message;
+                        ret.result = false;
 
-                        fileName = ReportGen.GetFileName(STCLINE.KP50.Global.Constants.ExcelDir, "Sverka_" + finder.nzp_user) + ".xls";//"SpLs_" + nzp_user + ".xlsx";
-                        ret = ExcelL.SaveFile(STCLINE.KP50.Global.Constants.ExcelDir + fileName, fileName, ref ExcelL.ExlWb, ref ExcelL.ExlApp);
-                        if (InputOutput.useFtp)
-                        {
-                            fileName = InputOutput.SaveOutputFile(Global.Constants.ExcelDir + fileName);
-                        }
                     }
-                    else
+                    finally
                     {
-                        MonitorLog.WriteLog("Ошибка создания Excel файла : " + ret.text, MonitorLog.typelog.Error, true);
+
+                        //удаление объекта
+                        ExcelL.DeleteObject();
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MonitorLog.WriteLog("Формирование Excel ошибка :" + ex.Message, MonitorLog.typelog.Error, true);
-                    ret.text = ex.Message;
+                    sw.WriteLine("1124235236436");
+                    MonitorLog.WriteLog("Ошибка при формировании Excel отчета", MonitorLog.typelog.Error, true);
+                    ret.text = "Ошибка при формировании Excel отчета";
                     ret.result = false;
-
-                }
-                finally
-                {
-                    //удаление объекта
-                    ExcelL.DeleteObject();
                 }
             }
-            else
+            catch(Exception e)
             {
-                MonitorLog.WriteLog("Ошибка при формировании Excel отчета", MonitorLog.typelog.Error, true);
-                ret.text = "Ошибка при формировании Excel отчета";
-                ret.result = false;
+                sw.WriteLine(e.ToString());
             }
-
+            sw.Close();
             //==========================================================================================================================
 
             //ret = ExcelL.CreateExcelReport(1, DT, col_names, null, Constants.ExcelDir, Nzp_user, TypeHeader);                
