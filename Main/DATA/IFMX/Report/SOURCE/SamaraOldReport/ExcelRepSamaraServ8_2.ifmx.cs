@@ -360,7 +360,7 @@ namespace STCLINE.KP50.DataBase
                 sql2.Remove(0, sql2.Length);
 #if PG
                 sql2.Append(" update t_kvars set otop_koef=(select max(val_prm::numeric) ");
-                sql2.Append(" from " + pref + "_data.prm_2 where val_prm~E'[0-9][0-9 ]{19}' and nzp_prm=723 and is_actual=1 ");
+                sql2.Append(" from " + pref + "_data.prm_2 where nzp_prm=723 and is_actual=1 ");
                 sql2.Append(" and dat_s<=current_date and dat_po>=current_date and t_kvars.nzp_dom=nzp)");
                 sql2.Append(" where izol=1 ");
 #else
@@ -375,7 +375,7 @@ namespace STCLINE.KP50.DataBase
                 sql2.Remove(0, sql2.Length);
 #if PG
                 sql2.Append(" update t_kvars set otop_koef=(select max(val_prm::numeric) ");
-                sql2.Append(" from " + pref + "_data.prm_2 where val_prm~E'[0-9][0-9 ]{19}' and nzp_prm=2074 and is_actual=1 ");
+                sql2.Append(" from " + pref + "_data.prm_2 where nzp_prm=2074 and is_actual=1 ");
                 sql2.Append(" and dat_s<=current_date and dat_po>=current_date and t_kvars.nzp_dom=nzp)");
                 sql2.Append(" where izol=0 ");
 #else
@@ -500,8 +500,7 @@ namespace STCLINE.KP50.DataBase
                 sql.Append(" select  k.nzp_dom , a.nzp_serv, 0 norma, f.nzp_measure, a.nzp_frm ,a.tarif, ");
                 sql.Append(" a.is_device, sum(a.rsum_tarif) as rsum_tarif, ");
                 sql.Append(" sum(a.sum_real) as sum_real, ");
-                sql.Append(" sum(case when f.nzp_measure = 4 and a.tarif>0 then a.c_calc ");
-                sql.Append("          when f.nzp_measure <> 4 and a.tarif>0 then Round(k.pl_kvar*k.otop_koef,4) else 0 end) as c_calc, ");
+                sql.Append(" sum(Round(k.pl_kvar*k.otop_koef,4)) as c_calc, ");
                 sql.Append(" sum(a.reval) as reval, ");
                 sql.Append(" sum(a.real_charge) as real_charge, sum(0) as sum_nedop   ,");
                 sql.Append(" sum(a.sum_charge) as sum_charge into temp t_charges ");
