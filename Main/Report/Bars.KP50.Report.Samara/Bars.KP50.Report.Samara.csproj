@@ -118,6 +118,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ReportsInstaller.cs" />
+    <Compile Include="Reports\ReportPeniNew.cs" />
     <Compile Include="Reports\RepSaldo.cs" />
     <Compile Include="Reports\Report_30_1_10.cs" />
     <Compile Include="Reports\Report_30_1_11.cs" />
@@ -173,6 +174,7 @@
     <None Include="Resources\ReportPackMore.frx" />
     <None Include="Resources\ReportPeni.frx" />
     <None Include="Resources\ReportPeniCheck.frx" />
+    <None Include="Resources\ReportPeniNew.frx" />
     <None Include="Resources\ReportProtCalc.frx" />
     <None Include="Resources\ReportSupplier.frx">
       <SubType>Designer</SubType>

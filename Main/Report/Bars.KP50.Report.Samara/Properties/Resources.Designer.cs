@@ -373,6 +373,16 @@ namespace Bars.KP50.Report.Samara.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ReportPeniNew {
+            get {
+                object obj = ResourceManager.GetObject("ReportPeniNew", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ReportProtCalc {
             get {
                 object obj = ResourceManager.GetObject("ReportProtCalc", resourceCulture);
