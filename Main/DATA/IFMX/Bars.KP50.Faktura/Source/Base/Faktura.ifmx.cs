@@ -1884,6 +1884,16 @@ namespace Bars.KP50.DB.Faktura
             return true;
         }
 
+        protected virtual bool FillQrCode(DataRow dr)
+        {
+            if (dr == null) return false;
+            dr["datamatrix"] = GetQRCode();
+            StreamWriter sw = new StreamWriter(@"C:\Temp\QrCode3.txt");
+            sw.WriteLine(GetQRCode());
+            sw.Close();
+            return true;
+        }
+
         /// <summary>
         /// Заполнение Примечания в счете
         /// </summary>
@@ -1932,6 +1942,11 @@ namespace Bars.KP50.DB.Faktura
         }
 
         public virtual string GetBarCode()
+        {
+            return "0";
+        }
+
+        public virtual string GetQRCode()
         {
             return "0";
         }
@@ -2201,6 +2216,8 @@ namespace Bars.KP50.DB.Faktura
                 sw.WriteLine("23");
                 if (Constants.Trace) STCLINE.KP50.Utility.ClassLog.WriteLog("FillBarcode");
                 FillBarcode(dr);
+                if (Constants.Trace) STCLINE.KP50.Utility.ClassLog.WriteLog("FillQRcode");
+                FillQrCode(dr);
                 sw.WriteLine("24");
                 if (FakturaBlocks.HasRTCountersDoubleBlock)
                     FillCounters(dr);

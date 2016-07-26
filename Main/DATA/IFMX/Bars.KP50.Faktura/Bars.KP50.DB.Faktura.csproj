@@ -109,6 +109,7 @@
     <Compile Include="Source\BillProvider\BillInfo.cs" />
     <Compile Include="Source\BillProvider\BillProvider.cs" />
     <Compile Include="Source\Faktura.srv.cs" />
+    <Compile Include="Source\FAKTURA\DataMatrix.cs" />
     <Compile Include="Source\FAKTURA\Faktura_astrahanNew.cs" />
     <Compile Include="Source\FAKTURA\Faktura_astrahan.cs" />
     <Compile Include="Source\Base\Faktura_charge.ifmx .cs" />

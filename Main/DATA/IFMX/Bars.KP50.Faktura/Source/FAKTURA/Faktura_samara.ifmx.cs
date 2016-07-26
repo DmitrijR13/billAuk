@@ -7,7 +7,8 @@ namespace Bars.KP50.DB.Faktura
     using System.Collections.Generic;
     using STCLINE.KP50.Interfaces;
     using System.IO;
-
+    using KP50.Faktura.Source.Base.Barcode;
+    using STCLINE.KP50.Global;
     public class SamaraFaktura : BaseFactura
     {
         private int MaxCountersCount = 6;
@@ -128,6 +129,72 @@ namespace Bars.KP50.DB.Faktura
             return Shtrih;
         }
 
+        public override string GetQRCode()
+        {
+            var dm = new DataMatrix();//создается новый объект класса DataMatrix, представляющий сущность qrкода
+            if (!string.IsNullOrEmpty(Rekvizit.poluch)
+                && (!string.IsNullOrEmpty(Rekvizit.rschet))
+                && (!string.IsNullOrEmpty(Rekvizit.bank))
+                && (!string.IsNullOrEmpty(Rekvizit.bik)))
+            {
+                dm.Name = Rekvizit.poluch;
+                dm.PersonalAcc = Rekvizit.rschet;
+                dm.BankName = Rekvizit.bank;
+                dm.BIC = Rekvizit.bik;
+                dm.CorrespAcc = Rekvizit.korr_schet; //заполнение корр.счета
+                dm.PayeeINN = Rekvizit.inn; //заполнение ИНН
+                dm.KPP = Rekvizit.kpp;  //заполнение КПП
+            }
+            else
+            {
+                dm.Name = Rekvizit.poluch2;
+                dm.PersonalAcc = Rekvizit.rschet2;
+                dm.BankName = Rekvizit.bank2;
+                dm.BIC = Rekvizit.bik2;
+                dm.CorrespAcc = Rekvizit.korr_schet2; //заполнение корр.счета
+                dm.PayeeINN = Rekvizit.inn2; //заполнение ИНН
+                dm.KPP = Rekvizit.kpp2; //заполнение КПП
+            }
+
+            var fio = PayerFio.Trim().Split((string[])null, StringSplitOptions.RemoveEmptyEntries);//заполнение ФИО
+            if (fio.Length == 3)//если ФИО из трех частей, то заполнить отдельно фамилию имя и отчество
+            {
+                dm.LastName = fio[0];
+                dm.FirstName = fio[1];
+                dm.MiddleName = fio[2];
+            }
+            else dm.LastName = string.Join(" ", fio);//иначе заполнить целиком в поле с фамилией
+            dm.PayerAddress = Indecs + ", " + (Town != "" ? Town : Rajon) + ", " + Ulica + ", д." + NumberDom +
+                                 (NumberFlat != "" ? ", кв. " + NumberFlat : string.Empty) +
+                                (NumberRoom != "" ? ", комн. " + NumberRoom : string.Empty);//заполнить адрес
+            dm.Purpose = "Оплата за ЖКУ";//назначение оплаты вшита жестко
+            dm.PersAcc = Pkod;//заполнение лицевого счета
+                              //dm.PaymPeriod = DateTime.Now.ToShortDateString().Substring(3);//дата без первых трех символов(это 2 цифры - день и точка после)
+            dm.PaymPeriod = Month.ToString("00") + "." + Year;//дата без первых трех символов(это 2 цифры - день и точка после)
+            dm.Sum = (int)SumTicket + " руб. " + (int)((SumTicket % 1) * 100) + " коп.";//сумма к оплате в рублях и копейках
+            StreamWriter sw = new StreamWriter(@"C:\Temp\QrCode.txt");
+            sw.WriteLine(dm.EncodedString);
+            if (dm.CodingPayment()) //метод кодирует все поля в одну строку для дальнейшей генарации qr кода
+            {
+                sw.WriteLine(dm.EncodedString);
+                sw.Close();
+                return dm.EncodedString;                
+            }
+            sw.WriteLine("222");
+            sw.Close();
+            string textError = dm.Log + "\nВыбранный получатель: " + dm.Name + "\n" +
+                         "Наименование получателя платежа (№1) : " + Rekvizit.poluch + "\n" +
+                        "Номер счета получателя платежа (№1) : " + Rekvizit.rschet + "\n" +
+                        "Наименование банка получателя платежа (№1) : " + Rekvizit.bank + "\n" +
+                        "БИК (№1) : " + Rekvizit.bik + "\n" +
+                         "Наименование получателя платежа (№2) : " + Rekvizit.poluch2 + "\n" +
+                        "Номер счета получателя платежа (№2) : " + Rekvizit.rschet2 + "\n" +
+                        "Наименование банка получателя платежа (№2) : " + Rekvizit.bank2 + "\n" +
+                        "БИК (№2) : " + Rekvizit.bik2;
+            MonitorLog.WriteLog(textError, MonitorLog.typelog.Error, true); //вывод ошибок при кодирование
+            return "0";
+        }
+
         public override bool IsShowServInGrid(BaseServ aServ)
         {
 
@@ -229,6 +296,8 @@ namespace Bars.KP50.DB.Faktura
             if (Ulica.ToUpper().Contains("ПРОЕЗД") || Ulica.ToUpper().Contains("ПРОСЕК"))
                 Ulica = "УЛ. " + Ulica;
             dr["ulica"] = Ulica;
+            if (NumberDom.Trim() == "47/1" || NumberDom.Trim() == "47/2" || NumberDom.Trim() == "47/3")
+                NumberDom = "47";
             dr["numdom"] = NumberDom;
             dr["kvnum"] = NumberFlat;
             if (IsolateFlat)
@@ -738,9 +807,9 @@ namespace Bars.KP50.DB.Faktura
                     dr["rash_pu_odn" + index] = "";
             }
 
-            if (num1 == 25 & this.HasElDpu)
+            if (num1 == 25 & HasElDpu)
             {
-                this.FillGoodServVolume(dr, ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
+                FillGoodServVolume(dr, ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
                 if (domCountersValue.Length != 0)
                 {
                     if (ListVolume[index1].DomLiftVolume != 0)
@@ -756,13 +825,37 @@ namespace Bars.KP50.DB.Faktura
                 }
                 else
                 {
-                    this.FillGoodServVolume(dr,
+                    FillGoodServVolume(dr,
                     ListVolume[index1].DomLiftVolume != 0
                         ? ListVolume[index1].DomLiftVolume
                         : ListVolume[index1].OdnDomVolume, "rash_dpu_odn" + (object)index);
                 }
 
                     
+            }
+            else if (num1 == 25)
+            {
+                FillGoodServVolume(dr, ListVolume[index1].DomVolume, "rash_dpu_pu" + (object)index);
+                if (domCountersValue.Length != 0)
+                {
+                    if (ListVolume[index1].DomLiftVolume != 0)
+                    {
+                        decimal val = ListVolume[index1].DomLiftVolume - ListVolume[index1].DomVolume;
+                        this.FillGoodServVolume(dr, val, "rash_dpu_odn" + (object)index);
+
+                    }
+                    else
+                    {
+                        this.FillGoodServVolume(dr, 0, "rash_dpu_odn" + (object)index);
+                    }
+                }
+                else
+                {
+                    FillGoodServVolume(dr,
+                    ListVolume[index1].DomLiftVolume != 0
+                        ? ListVolume[index1].DomLiftVolume - ListVolume[index1].DomVolume
+                        : ListVolume[index1].OdnDomVolume - ListVolume[index1].DomVolume, "rash_dpu_odn" + (object)index);
+                }
             }
 
             if (nzpServ == 6 & this.HasHvsDpu || nzpServ == 14 & this.HasGvsDpu)
@@ -1302,6 +1395,257 @@ namespace Bars.KP50.DB.Faktura
                             }
                             ++index1;
                         }
+                        else if (aServ.Serv.NameServ.Trim() == "Электроснабжение" && (aServ.Serv.Tarif == new Decimal(269, 0, 0, false, (byte)2)))
+                        {
+                            dr["name_serv" + (object)index1] = (object)"ОДН-Электроснабжение день";
+                            dr["measure" + (object)index1] = (object)aServ.Serv.Measure.Trim();
+                            if (Math.Abs(aServ.ServOdn.CCalc) > new Decimal(1, 0, 0, false, (byte)5))
+                            {
+                                string str2 = "(1)";
+                                if (aServ.Serv.NzpServ == 6 & this.HasHvsDpu)
+                                    str2 = "(4)";
+                                if (aServ.Serv.NzpServ == 9 & this.HasGvsDpu)
+                                    str2 = "(4)";
+                                if (aServ.Serv.NzpServ == 14 & this.HasGvsDpu)
+                                    str2 = "(4)";
+                                if (aServ.Serv.NzpServ == 25 & this.HasElDpu)
+                                    str2 = "(4)";
+                                dr["c_calc_odn" + (object)index1] = (object)(aServ.ServOdn.CCalc.ToString("0.0000") + str2);
+                            }
+                            if (aServ.Serv.NzpServ == 7 && aServ.Serv.NzpFrm == 26907209)
+                            {
+                                foreach (ServVolume servVolume in this.ListVolume)
+                                {
+                                    if (servVolume.NzpServ == 7)
+                                        servVolume.NormaVolume = this.KanNormCalc;
+                                }
+                            }
+                            dr["tarif" + (object)index1] = (object)new Decimal(257, 0, 0, false, (byte)2);
+                            if (Math.Abs(aServ.Serv.RsumTarif - aServ.ServOdn.RsumTarif) > new Decimal(1, 0, 0, false, (byte)3))
+                                dr["rsum_tarif" + (object)index1] = (object)"";
+                            if (Math.Abs(aServ.ServOdn.RsumTarif) > new Decimal(1, 0, 0, false, (byte)3))
+                                dr["rsum_tarif_odn" + (object)index1] = (object)aServ.ServOdn.RsumTarif.ToString("0.00");
+                            dr["rsum_tarif_all" + (object)index1] = (object)aServ.ServOdn.RsumTarif.ToString("0.00");
+                            Decimal num2;
+                            if (Math.Abs(aServ.Serv.Reval + aServ.Serv.RealCharge) > new Decimal(1, 0, 0, false, (byte)3))
+                            {
+                                DataRow dataRow = dr;
+                                string index2 = "reval" + (object)index1;
+                                num2 = 0;
+                                string str2 = num2.ToString("0.00");
+                                dataRow[index2] = (object)str2;
+                            }
+                            if (Math.Abs(aServ.Serv.Reval + aServ.Serv.RealCharge) > Math.Abs(aServ.Serv.RsumTarif))
+                                num1 += aServ.Serv.Reval + aServ.Serv.RealCharge + aServ.Serv.RsumTarif;
+                            dr["sum_lgota" + (object)index1] = (object)"";
+                            if (Math.Abs(aServ.Serv.SumCharge) > new Decimal(1, 0, 0, false, (byte)3))
+                                dr["sum_charge_all" + (object)index1] = (object)aServ.Serv.SumCharge.ToString("0.00");
+                            if (Math.Abs(aServ.Serv.SumCharge - aServ.ServOdn.SumCharge) > new Decimal(1, 0, 0, false, (byte)3))
+                            {
+                                DataRow dataRow = dr;
+                                string index2 = "sum_charge" + (object)index1;
+                                num2 = aServ.Serv.SumCharge - aServ.ServOdn.SumCharge;
+                                string str2 = num2.ToString("0.00");
+                                dataRow[index2] = (object)str2;
+                            }
+                            try
+                            {
+                                //StreamWriter streamWriter = new StreamWriter("C:\\temp\\ServElectro.txt", true);
+                                //streamWriter.WriteLine("услуга = " + aServ.Serv.NzpServ);
+                                //streamWriter.WriteLine(aServ.ServOdn.CCalc);
+                                //streamWriter.Close();
+                                this.FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
+                            }
+                            catch (Exception ex)
+                            {
+                                exception = ex;
+                            }
+                            if (Math.Abs(aServ.ServOdn.SumCharge) > new Decimal(1, 0, 0, false, (byte)3))
+                            {
+                                if (aServ.ServOdn.RsumTarif + aServ.Serv.Reval < aServ.ServOdn.SumCharge)
+                                {
+                                    DataRow dataRow = dr;
+                                    string index2 = "sum_charge_odn" + (object)index1;
+                                    //num2 = aServ.ServOdn.RsumTarif + aServ.Serv.Reval;
+                                    num2 = aServ.ServOdn.RsumTarif;
+                                    string str2 = num2.ToString("0.00");
+                                    dataRow[index2] = (object)str2;
+                                }
+                                else
+                                    dr["sum_charge_odn" + (object)index1] = (object)aServ.ServOdn.RsumTarif.ToString("0.00");
+                            }
+                            try
+                            {
+                            }
+                            catch (Exception ex)
+                            {
+                                exception = ex;
+                            }
+                            if (aServ.Serv.NzpMeasure == 4 & Math.Abs(aServ.Serv.RsumTarif) > new Decimal(1, 0, 0, false, (byte)3))
+                            {
+                                if (aServ.Serv.OldMeasure == 4)
+                                {
+                                    if (aServ.Serv.NzpServ == 9)
+                                    {
+                                        if (Math.Abs(aServ.Serv.CCalc) > new Decimal(1, 0, 0, false, (byte)5))
+                                            dr["c_calc" + (object)index1] = (object)(aServ.Serv.CCalc.ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
+                                    }
+                                    else
+                                        dr["c_calc" + (object)index1] = (object)(aServ.Serv.CCalc.ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
+                                }
+                                else if (aServ.Serv.NzpServ == 9)
+                                {
+                                    if (Math.Abs(aServ.Serv.CCalc) > new Decimal(1, 0, 0, false, (byte)5))
+                                    {
+                                        DataRow dataRow = dr;
+                                        string index2 = "c_calc" + (object)index1;
+                                        num2 = aServ.Serv.CCalc * this.GvsNormGkal;
+                                        string str2 = num2.ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice);
+                                        dataRow[index2] = (object)str2;
+                                    }
+                                }
+                                else
+                                {
+                                    DataRow dataRow = dr;
+                                    string index2 = "c_calc" + (object)index1;
+                                    num2 = aServ.Serv.CCalc * this.OtopNorm;
+                                    string str2 = num2.ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice);
+                                    dataRow[index2] = (object)str2;
+                                }
+                                if (Math.Abs(aServ.ServOdn.CCalc) > new Decimal(1, 0, 0, false, (byte)6))
+                                {
+                                    string str2 = "(1)";
+                                    if (this.HasGvsDpu)
+                                        str2 = "(4)";
+                                    if (aServ.Serv.NzpServ == 9)
+                                        dr["c_calc_odn" + (object)index1] = (object)(aServ.ServOdn.CCalc.ToString("0.0000") + str2);
+                                    else
+                                        dr["c_calc_odn" + (object)index1] = (object)(aServ.ServOdn.CCalc.ToString("0.0000") + str2);
+                                }
+                                this.FillGoodServVolume(dr, aServ.Serv.NzpServ == 9 ? this.GvsNormGkal : this.OtopNorm, "rash_norm" + (object)index1);
+                            }
+                            ++index1;
+                            dr["name_serv" + (object)index1] = (object)"Электроснабжение";
+                            dr["measure" + (object)index1] = (object)"кВт*час";
+                            if (Math.Abs(aServ.Serv.CCalc) > new Decimal(1, 0, 0, false, (byte)5) & !aServ.Serv.IsOdn && !(aServ.Serv.RsumTarif == aServ.ServOdn.RsumTarif & aServ.Serv.RsumTarif > new Decimal(1, 0, 0, false, (byte)3)))
+                            {
+                                if (Math.Abs(aServ.Serv.RsumTarif) > new Decimal(1, 0, 0, false, (byte)3))
+                                    dr["c_calc" + (object)index1] = (object)(aServ.Serv.CCalc.ToString("0.00##") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
+                                else if (Math.Abs(aServ.ServOdn.CCalc) > new Decimal(1, 0, 0, false, (byte)5))
+                                    dr["c_calc" + (object)index1] = (object)(aServ.Serv.CCalc.ToString("0.00##") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
+                            }
+                            if (Math.Abs(aServ.ServOdn.CCalc) > new Decimal(1, 0, 0, false, (byte)5))
+                            {
+                                string str2 = "(1)";
+                                if (aServ.Serv.NzpServ == 6 & this.HasHvsDpu)
+                                    str2 = "(4)";
+                                if (aServ.Serv.NzpServ == 9 & this.HasGvsDpu)
+                                    str2 = "(4)";
+                                if (aServ.Serv.NzpServ == 14 & this.HasGvsDpu)
+                                    str2 = "(4)";
+                                if (aServ.Serv.NzpServ == 25 & this.HasElDpu)
+                                    str2 = "(4)";
+                            }
+                            if (aServ.Serv.NzpServ == 7 && aServ.Serv.NzpFrm == 26907209)
+                            {
+                                foreach (ServVolume servVolume in this.ListVolume)
+                                {
+                                    if (servVolume.NzpServ == 7)
+                                        servVolume.NormaVolume = this.KanNormCalc;
+                                }
+                            }
+                            if (Math.Abs(aServ.Serv.Tarif) > new Decimal(1, 0, 0, false, (byte)3))
+                                dr["tarif" + (object)index1] = aServ.Serv.Tarif;
+                            if (((aServ.Serv.NzpServ == 6 ? 1 : (aServ.Serv.NzpServ == 7 ? 1 : 0)) & (aServ.Serv.NzpMeasure != 3 ? 1 : 0)) != 0)
+                            {
+                                if (aServ.Serv.Norma > new Decimal(1, 0, 0, false, (byte)3))
+                                {
+                                    DataRow dataRow = dr;
+                                    string index2 = "tarif" + (object)index1;
+                                    num2 = aServ.Serv.Tarif / aServ.Serv.Norma;
+                                    string str2 = num2.ToString("0.000");
+                                    dataRow[index2] = (object)str2;
+                                }
+                                dr["measure" + (object)index1] = (object)"Куб.м.";
+                            }
+                            if (Math.Abs(aServ.Serv.RsumTarif) > new Decimal(1, 0, 0, false, (byte)3))
+                            {
+                                DataRow dataRow = dr;
+                                string index2 = "rsum_tarif" + (object)index1;
+                                num2 = aServ.Serv.RsumTarif - aServ.ServOdn.RsumTarif;
+                                string str2 = num2.ToString("0.00");
+                                dataRow[index2] = (object)str2;
+                            }
+                            if (Math.Abs(aServ.Serv.RsumTarif) > new Decimal(1, 0, 0, false, (byte)3))
+                            {
+                                DataRow dataRow = dr;
+                                string index2 = "rsum_tarif_all" + (object)index1;
+                                num2 = aServ.Serv.RsumTarif - aServ.ServOdn.RsumTarif;
+                                string str2 = num2.ToString("0.00");
+                                dataRow[index2] = (object)str2;
+                            }
+                            if (Math.Abs(aServ.Serv.Reval + aServ.Serv.RealCharge) > new Decimal(1, 0, 0, false, (byte)3))
+                            {
+                                DataRow dataRow = dr;
+                                string index2 = "reval" + (object)index1;
+                                num2 = aServ.Serv.Reval + aServ.Serv.RealCharge;
+                                string str2 = num2.ToString("0.00");
+                                dataRow[index2] = (object)str2;
+                            }
+                            if (Math.Abs(aServ.Serv.Reval + aServ.Serv.RealCharge) > Math.Abs(aServ.Serv.RsumTarif))
+                                num1 += aServ.Serv.Reval + aServ.Serv.RealCharge + aServ.Serv.RsumTarif;
+                            dr["sum_lgota" + (object)index1] = (object)"";
+                            if (Math.Abs(aServ.Serv.SumCharge) > new Decimal(1, 0, 0, false, (byte)3))
+                                dr["sum_charge_all" + (object)index1] = (object)aServ.Serv.SumCharge.ToString("0.00");
+                            if (Math.Abs(aServ.Serv.SumCharge - aServ.ServOdn.SumCharge) > new Decimal(1, 0, 0, false, (byte)3))
+                            {
+                                DataRow dataRow = dr;
+                                string index2 = "sum_charge" + (object)index1;
+                                num2 = aServ.Serv.SumCharge - aServ.ServOdn.SumCharge;
+                                string str2 = num2.ToString("0.00");
+                                dataRow[index2] = (object)str2;
+                            }
+                            //try
+                            //{
+                            //    this.FillServiceVolume(dr, index1, aServ.Serv.NzpServ);
+                            //}
+                            //catch (Exception ex)
+                            //{
+                            //    exception = ex;
+                            //}
+                            if (aServ.Serv.NzpMeasure == 4 & Math.Abs(aServ.Serv.RsumTarif) > new Decimal(1, 0, 0, false, (byte)3))
+                            {
+                                if (aServ.Serv.OldMeasure == 4)
+                                {
+                                    if (aServ.Serv.NzpServ == 9)
+                                    {
+                                        if (Math.Abs(aServ.Serv.CCalc) > new Decimal(1, 0, 0, false, (byte)5))
+                                            dr["c_calc" + (object)index1] = (object)(aServ.Serv.CCalc.ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
+                                    }
+                                    else
+                                        dr["c_calc" + (object)index1] = (object)(aServ.Serv.CCalc.ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
+                                }
+                                else if (aServ.Serv.NzpServ == 9)
+                                {
+                                    if (Math.Abs(aServ.Serv.CCalc) > new Decimal(1, 0, 0, false, (byte)5))
+                                        dr["c_calc" + (object)index1] = (object)((aServ.Serv.CCalc * this.GvsNormGkal).ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
+                                }
+                                else
+                                    dr["c_calc" + (object)index1] = (object)((aServ.Serv.CCalc * this.OtopNorm).ToString("0.0000") + this.GetVolumeSource(aServ.Serv.NzpServ, aServ.Serv.IsDevice));
+                                if (Math.Abs(aServ.ServOdn.CCalc) > new Decimal(1, 0, 0, false, (byte)6))
+                                {
+                                    string str2 = "(1)";
+                                    if (this.HasGvsDpu)
+                                        str2 = "(4)";
+                                    if (aServ.Serv.NzpServ == 9)
+                                        dr["c_calc_odn" + (object)index1] = (object)(aServ.ServOdn.CCalc.ToString("0.0000") + str2);
+                                    else
+                                        dr["c_calc_odn" + (object)index1] = (object)(aServ.ServOdn.CCalc.ToString("0.0000") + str2);
+                                }
+                                this.FillGoodServVolume(dr, aServ.Serv.NzpServ == 9 ? this.GvsNormGkal : this.OtopNorm, "rash_norm" + (object)index1);
+                            }
+                            ++index1;
+                        }
                         else if (aServ.Serv.NameServ.Trim() == "Электроснабжение ночное")
                             dr["name_serv" + (object)index1] = (object)"ОДН-Электроснабжение ночь";
                         else if (str1.Length == 0)
@@ -1309,7 +1653,8 @@ namespace Bars.KP50.DB.Faktura
                         else
                             dr["name_serv" + (object)index1] = (object)aServ.Serv.NameServ.Trim() + "-" + str1;
                         dr["measure" + (object)index1] = (object)aServ.Serv.Measure.Trim();
-                        if (!(aServ.Serv.NameServ.Trim() == "Электроснабжение") || !(aServ.Serv.Tarif == new Decimal(245, 0, 0, false, (byte)2) || aServ.Serv.Tarif == 7.92m))
+                        if ((!(aServ.Serv.NameServ.Trim() == "Электроснабжение") || !(aServ.Serv.Tarif == new Decimal(245, 0, 0, false, (byte)2) || aServ.Serv.Tarif == 7.92m))
+                            &&(!(aServ.Serv.NameServ.Trim() == "Электроснабжение") || !(aServ.Serv.Tarif == new Decimal(269, 0, 0, false, (byte)2))))
                         {
                             Decimal num2 = new Decimal(0);
                             Decimal num3 = new Decimal(0);
@@ -1750,6 +2095,7 @@ namespace Bars.KP50.DB.Faktura
             table.Columns.Add("kvnum", typeof(string));
             table.Columns.Add("kv_pl", typeof(string));
             table.Columns.Add("type_pl", typeof(string));
+            table.Columns.Add("datamatrix", typeof(string));
             table.Columns.Add("priv", typeof(string));
             table.Columns.Add("kolgil2", typeof(string));
             table.Columns.Add("kolgil", typeof(string));

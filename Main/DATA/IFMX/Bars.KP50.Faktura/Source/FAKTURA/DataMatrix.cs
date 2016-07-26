@@ -1,4 +1,6 @@
 ﻿
+using System.IO;
+
 namespace Bars.KP50.Faktura.Source.Base.Barcode
 {
     /// <summary>Тип штрих кода</summary>
@@ -339,8 +341,10 @@ namespace Bars.KP50.Faktura.Source.Base.Barcode
         /// <returns>Строка с закодированным платежом</returns>
         public bool CodingPayment()
         {
+            StreamWriter sw = new StreamWriter(@"C:\Temp\QrCode2.txt");
             if (Name == string.Empty || PersonalAcc == string.Empty || BankName == string.Empty || BIC == string.Empty)
             {
+                sw.WriteLine("1");
                 Log += Name == string.Empty
                     ? "Не указано значение: Name(Наименование получателя платежа)\n"
                     : string.Empty;
@@ -353,6 +357,7 @@ namespace Bars.KP50.Faktura.Source.Base.Barcode
                 Log += BIC == string.Empty
                     ? "Не указано значение: BIC(БИК)\n"
                     : string.Empty;
+                sw.Close();
                 return false;
             }
 
@@ -368,7 +373,9 @@ namespace Bars.KP50.Faktura.Source.Base.Barcode
             EncodedString += Sum != string.Empty ? "|" + Sum : string.Empty;
             EncodedString += PersAcc != string.Empty ? "|" + PersAcc : string.Empty;
             EncodedString += PaymPeriod != string.Empty ? "|" + PaymPeriod : string.Empty;
-
+            sw.WriteLine("2");
+            sw.WriteLine(EncodedString);
+            sw.Close();
             return true;
         }
 
