@@ -163,7 +163,7 @@ namespace Bars.KP50.Report.Samara.Reports
                             t9.sum_tarif + coalesce(t24.sum_tarif, 0) + coalesce(t25.sum_tarif, 0) as sum_tarif_14, CASE WHEN (t9.tarif != 0) THEN t9.tarif ELSE t24.tarif END as tarif_14, 
                             t10.sum_tarif + coalesce(t13.sum_tarif, 0) as sum_tarif_25, 
                             CASE WHEN (t10.tarif != 0) THEN t10.tarif ELSE t13.tarif END as tarif_25, t14.sum_tarif as sum_tarif_100018, t14.tarif as tarif_100018,
-                            t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) - coalesce(t151.reval, 0) as reval, 0, 0, 
+                            t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) as reval, 0, 0, 
                             t17.sum_tarif as sum_tarif_100019, t17.tarif as tarif_100019,
                             coalesce(t18.sum_tarif, 0) + coalesce(t19.sum_tarif, 0) + coalesce(t20.sum_tarif, 0) as sum_tarif_6, CASE WHEN (t18.tarif != 0) THEN t18.tarif ELSE t19.tarif END as tarif_6,        
                             t26.sum_tarif as sum_tarif_26, t26.tarif as tarif_26, t27.sum_tarif + coalesce(t28.sum_tarif, 0) as sum_tarif_210, 
@@ -208,12 +208,9 @@ namespace Bars.KP50.Report.Samara.Reports
                             LEFT JOIN (SELECT 1 as id, reval
                             from " + chargeTable + @" c1
                             where nzp_serv = 1 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null) t15 on t1.id = t15.id
-                            LEFT JOIN (SELECT 1 as id, sum(reval) as reval
-                            from " + chargeTable + @" c1
-                            where nzp_serv = 500 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t151 on t1.id = t151.id
                             LEFT JOIN (SELECT 1 as id, sum(sum_rcl) as reval
                             from " + perekidkaTable + @" c1
-                            where month_ = " + MonthTo + @" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and nzp_serv != 500 group by 1) t16 on t1.id = t16.id
+                            where month_ = " + MonthTo + @" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) group by 1) t16 on t1.id = t16.id
                             LEFT JOIN (SELECT 1 as id, max(sum_tarif) as sum_tarif, max(tarif) as tarif
                             from " + chargeTable + @" c1
                             where nzp_serv = 100018 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t14 on t1.id = t14.id
@@ -281,7 +278,7 @@ namespace Bars.KP50.Report.Samara.Reports
                             t9.sum_tarif + coalesce(t24.sum_tarif, 0) + coalesce(t25.sum_tarif, 0) as sum_tarif_14, CASE WHEN (t9.tarif != 0) THEN t9.tarif ELSE t24.tarif END as tarif_14, 
                             t10.sum_tarif + coalesce(t13.sum_tarif, 0) as sum_tarif_25, 
                             CASE WHEN (t10.tarif != 0) THEN t10.tarif ELSE t13.tarif END as tarif_25, t14.sum_tarif as sum_tarif_100018, t14.tarif as tarif_100018,
-                            t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) - coalesce(t151.reval, 0) as reval, 0, 0, 
+                            t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) as reval, 0, 0, 
                             coalesce(t30.sum_money, 0) as sum_money_peni, coalesce(t31.reval, 0) + coalesce(t32.reval, 0) as reval_peni,
                             t17.sum_tarif as sum_tarif_100019, t17.tarif as tarif_100019,
                             coalesce(t18.sum_tarif, 0) + coalesce(t19.sum_tarif, 0) + coalesce(t20.sum_tarif, 0) as sum_tarif_6, CASE WHEN (t18.tarif != 0) THEN t18.tarif ELSE t19.tarif END as tarif_6,        
@@ -327,12 +324,9 @@ namespace Bars.KP50.Report.Samara.Reports
                             LEFT JOIN (SELECT 1 as id, reval
                             from " + chargeTable + @" c1
                             where nzp_serv = 1 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null) t15 on t1.id = t15.id
-                            LEFT JOIN (SELECT 1 as id, sum(reval) as reval
-                            from " + chargeTable + @" c1
-                            where nzp_serv = 500 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t151 on t1.id = t151.id
                             LEFT JOIN (SELECT 1 as id, sum(sum_rcl) as reval
                             from " + perekidkaTable + @" c1
-                            where month_ = "+i+@" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and nzp_serv != 500 group by 1) t16 on t1.id = t16.id
+                            where month_ = "+i+@" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) group by 1) t16 on t1.id = t16.id
                             LEFT JOIN (SELECT 1 as id, max(sum_tarif) as sum_tarif, max(tarif) as tarif
                             from " + chargeTable + @" c1
                             where nzp_serv = 515 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t13 on t1.id = t13.id
@@ -417,7 +411,7 @@ namespace Bars.KP50.Report.Samara.Reports
                                 t9.sum_tarif + coalesce(t24.sum_tarif, 0) + coalesce(t25.sum_tarif, 0) as sum_tarif_14, CASE WHEN (t9.tarif != 0) THEN t9.tarif ELSE t24.tarif END as tarif_14, 
                                 t10.sum_tarif + coalesce(t13.sum_tarif, 0) as sum_tarif_25, 
                                 CASE WHEN (t10.tarif != 0) THEN t10.tarif ELSE t13.tarif END as tarif_25, t14.sum_tarif as sum_tarif_100018, t14.tarif as tarif_100018,
-                                t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) - coalesce(t151.reval, 0) as reval, 0, 0, 
+                                t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) as reval, 0, 0, 
                                 coalesce(t30.sum_money, 0) as sum_money_peni, coalesce(t31.reval, 0) + coalesce(t32.reval, 0) as reval_peni,
                                 t17.sum_tarif as sum_tarif_100019, t17.tarif as tarif_100019,
                                 coalesce(t18.sum_tarif, 0) + coalesce(t19.sum_tarif, 0) + coalesce(t20.sum_tarif, 0) as sum_tarif_6, CASE WHEN (t18.tarif != 0) THEN t18.tarif ELSE t19.tarif END as tarif_6,        
@@ -463,12 +457,9 @@ namespace Bars.KP50.Report.Samara.Reports
                                 LEFT JOIN (SELECT 1 as id, reval
                                 from " + chargeTable + @" c1
                                 where nzp_serv = 1 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null) t15 on t1.id = t15.id
-                                LEFT JOIN (SELECT 1 as id, sum(reval) as reval
-                            from " + chargeTable + @" c1
-                            where nzp_serv = 500 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t151 on t1.id = t151.id
                                 LEFT JOIN (SELECT 1 as id, sum(sum_rcl) as reval
                                 from " + perekidkaTable + @" c1
-                                where month_ = " + i + @" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and nzp_serv != 500 group by 1) t16 on t1.id = t16.id
+                                where month_ = " + i + @" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) group by 1) t16 on t1.id = t16.id
                                 LEFT JOIN (SELECT 1 as id, max(sum_tarif) as sum_tarif, max(tarif) as tarif
                                 from " + chargeTable + @" c1
                                 where nzp_serv = 515 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t13 on t1.id = t13.id
@@ -548,7 +539,7 @@ namespace Bars.KP50.Report.Samara.Reports
                                 t9.sum_tarif + coalesce(t24.sum_tarif, 0) + coalesce(t25.sum_tarif, 0) as sum_tarif_14, CASE WHEN (t9.tarif != 0) THEN t9.tarif ELSE t24.tarif END as tarif_14, 
                                 t10.sum_tarif + coalesce(t13.sum_tarif, 0) as sum_tarif_25, 
                                 CASE WHEN (t10.tarif != 0) THEN t10.tarif ELSE t13.tarif END as tarif_25, t14.sum_tarif as sum_tarif_100018, t14.tarif as tarif_100018,
-                                t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) - coalesce(t151.reval, 0) as reval, 0, 0, 
+                                t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) as reval, 0, 0, 
                                 coalesce(t30.sum_money, 0) as sum_money_peni, coalesce(t31.reval, 0) + coalesce(t32.reval, 0) as reval_peni,
                                 t17.sum_tarif as sum_tarif_100019, t17.tarif as tarif_100019,
                                 coalesce(t18.sum_tarif, 0) + coalesce(t19.sum_tarif, 0) + coalesce(t20.sum_tarif, 0) as sum_tarif_6, CASE WHEN (t18.tarif != 0) THEN t18.tarif ELSE t19.tarif END as tarif_6,        
@@ -594,12 +585,9 @@ namespace Bars.KP50.Report.Samara.Reports
                                 LEFT JOIN (SELECT 1 as id, reval
                                 from " + chargeTable + @" c1
                                 where nzp_serv = 1 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null) t15 on t1.id = t15.id
-                                LEFT JOIN (SELECT 1 as id, sum(reval) as reval
-                            from " + chargeTable + @" c1
-                            where nzp_serv = 500 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t151 on t1.id = t151.id
                                 LEFT JOIN (SELECT 1 as id, sum(sum_rcl) as reval
                                 from " + perekidkaTable + @" c1
-                                where month_ = " + i + @" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and nzp_serv != 500 group by 1) t16 on t1.id = t16.id
+                                where month_ = " + i + @" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) group by 1) t16 on t1.id = t16.id
                                 LEFT JOIN (SELECT 1 as id, max(sum_tarif) as sum_tarif, max(tarif) as tarif
                                 from " + chargeTable + @" c1
                                 where nzp_serv = 515 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t13 on t1.id = t13.id
@@ -679,7 +667,7 @@ namespace Bars.KP50.Report.Samara.Reports
                                 t9.sum_tarif + coalesce(t24.sum_tarif, 0) + coalesce(t25.sum_tarif, 0) as sum_tarif_14, CASE WHEN (t9.tarif != 0) THEN t9.tarif ELSE t24.tarif END as tarif_14, 
                                 t10.sum_tarif + coalesce(t13.sum_tarif, 0) as sum_tarif_25, 
                                 CASE WHEN (t10.tarif != 0) THEN t10.tarif ELSE t13.tarif END as tarif_25, t14.sum_tarif as sum_tarif_100018, t14.tarif as tarif_100018,
-                                t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) - coalesce(t151.reval, 0) as reval, 0, 0, 
+                                t11.sum_money as sum_money, to_char(t12.dat_prih, 'yyyy-mm-dd') as dat_prih, coalesce(t15.reval, 0) + coalesce(t16.reval, 0) as reval, 0, 0, 
                                 coalesce(t30.sum_money, 0) as sum_money_peni, coalesce(t31.reval, 0) + coalesce(t32.reval, 0) as reval_peni,
                                 t17.sum_tarif as sum_tarif_100019, t17.tarif as tarif_100019,
                                 coalesce(t18.sum_tarif, 0) + coalesce(t19.sum_tarif, 0) + coalesce(t20.sum_tarif, 0) as sum_tarif_6, CASE WHEN (t18.tarif != 0) THEN t18.tarif ELSE t19.tarif END as tarif_6,        
@@ -725,12 +713,9 @@ namespace Bars.KP50.Report.Samara.Reports
                                 LEFT JOIN (SELECT 1 as id, reval
                                 from " + chargeTable + @" c1
                                 where nzp_serv = 1 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null) t15 on t1.id = t15.id
-                                LEFT JOIN (SELECT 1 as id, sum(reval) as reval
-                            from " + chargeTable + @" c1
-                            where nzp_serv = 500 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t151 on t1.id = t151.id
                                 LEFT JOIN (SELECT 1 as id, sum(sum_rcl) as reval
                                 from " + perekidkaTable + @" c1
-                                where month_ = " + i + @" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and nzp_serv != 500 group by 1) t16 on t1.id = t16.id
+                                where month_ = " + i + @" AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) group by 1) t16 on t1.id = t16.id
                                 LEFT JOIN (SELECT 1 as id, max(sum_tarif) as sum_tarif, max(tarif) as tarif
                                 from " + chargeTable + @" c1
                                 where nzp_serv = 515 AND nzp_kvar = (SELECT nzp_kvar from t_temp_kvar) and dat_charge is null group by 1) t13 on t1.id = t13.id
@@ -838,7 +823,7 @@ where month = " + MonthTo + " AND year = " + YearTo;
                                     dolg_sum_peni = coalesce(sum_tarif_7, 0) + coalesce(sum_tarif_9, 0) + coalesce(sum_tarif_6, 0) + coalesce(sum_tarif_15, 0) + coalesce(sum_tarif_8, 0) + coalesce(sum_tarif_17, 0) +
                                     coalesce(sum_tarif_2, 0) + coalesce(sum_tarif_22, 0) + coalesce(sum_tarif_14, 0) + coalesce(sum_tarif_25, 0) + coalesce(sum_tarif_100018, 0) + coalesce(sum_tarif_100019, 0) +
                                     coalesce(sum_tarif_26, 0) + coalesce(sum_tarif_210, 0) + coalesce(sum_tarif_100020, 0) + coalesce(sum_tarif_100021, 0) +
-                                    coalesce(reval, 0) - coalesce(sum_money, 0) + 
+                                    coalesce(reval, 0) - coalesce(sum_money, 0) + coalesce(sum_tarif_500, 0) + 
                                     coalesce((SELECT coalesce(dolg_sum_peni, 0) FROM t_svod where month = " + (i - 1) + @"), 0)   
                                     where month = " + i;
                         ExecSQL(sql.ToString());
@@ -852,7 +837,7 @@ where month = " + MonthTo + " AND year = " + YearTo;
                                     dolg_sum_peni = coalesce(sum_tarif_7, 0) + coalesce(sum_tarif_9, 0) + coalesce(sum_tarif_6, 0) + coalesce(sum_tarif_15, 0) + coalesce(sum_tarif_8, 0) + coalesce(sum_tarif_17, 0) +
                                     coalesce(sum_tarif_2, 0) + coalesce(sum_tarif_22, 0) + coalesce(sum_tarif_14, 0) + coalesce(sum_tarif_25, 0) + coalesce(sum_tarif_100018, 0) + coalesce(sum_tarif_100019, 0) +
                                     coalesce(sum_tarif_26, 0) + coalesce(sum_tarif_210, 0) + coalesce(sum_tarif_100020, 0) + coalesce(sum_tarif_100021, 0) +
-                                    coalesce(reval, 0) - coalesce(sum_money, 0)  
+                                    coalesce(reval, 0) - coalesce(sum_money, 0) + coalesce(sum_tarif_500, 0)   
                                     where month = " + i;
                         ExecSQL(sql.ToString());
                     }
@@ -876,7 +861,7 @@ where month = " + MonthTo + " AND year = " + YearTo;
                                     dolg_sum_peni = coalesce(sum_tarif_7, 0) + coalesce(sum_tarif_9, 0) + coalesce(sum_tarif_6, 0) + coalesce(sum_tarif_15, 0) + coalesce(sum_tarif_8, 0) + coalesce(sum_tarif_17, 0) +
                                     coalesce(sum_tarif_2, 0) + coalesce(sum_tarif_22, 0) + coalesce(sum_tarif_14, 0) + coalesce(sum_tarif_25, 0) + coalesce(sum_tarif_100018, 0) + coalesce(sum_tarif_100019, 0) +
                                     coalesce(sum_tarif_26, 0) + coalesce(sum_tarif_210, 0) + coalesce(sum_tarif_100020, 0) + coalesce(sum_tarif_100021, 0) +
-                                    coalesce(reval, 0) - coalesce(sum_money, 0) + 
+                                    coalesce(reval, 0) - coalesce(sum_money, 0) + coalesce(sum_tarif_500, 0) + 
                                     coalesce((SELECT coalesce(dolg_sum_peni, 0) FROM t_svod where year = " + y + " and month = " + (i - 1) + @"), 0)   
                                     where month = " + i + " AND year = " + y;
                                 ExecSQL(sql.ToString());
@@ -890,7 +875,7 @@ where month = " + MonthTo + " AND year = " + YearTo;
                                     dolg_sum_peni = coalesce(sum_tarif_7, 0) + coalesce(sum_tarif_9, 0) + coalesce(sum_tarif_6, 0) + coalesce(sum_tarif_15, 0) + coalesce(sum_tarif_8, 0) + coalesce(sum_tarif_17, 0) +
                                     coalesce(sum_tarif_2, 0) + coalesce(sum_tarif_22, 0) + coalesce(sum_tarif_14, 0) + coalesce(sum_tarif_25, 0) + coalesce(sum_tarif_100018, 0) + coalesce(sum_tarif_100019, 0) +
                                     coalesce(sum_tarif_26, 0) + coalesce(sum_tarif_210, 0) + coalesce(sum_tarif_100020, 0) + coalesce(sum_tarif_100021, 0) +
-                                    coalesce(reval, 0) - coalesce(sum_money, 0)   
+                                    coalesce(reval, 0) - coalesce(sum_money, 0) + coalesce(sum_tarif_500, 0)   
                                     where month = " + i + " AND year = " + y;
                                 ExecSQL(sql.ToString());
                             }
@@ -915,7 +900,7 @@ where month = " + MonthTo + " AND year = " + YearTo;
                                 dolg_sum_peni = coalesce(sum_tarif_7, 0) + coalesce(sum_tarif_9, 0) + coalesce(sum_tarif_6, 0) + coalesce(sum_tarif_15, 0) + coalesce(sum_tarif_8, 0) + coalesce(sum_tarif_17, 0) +
                                 coalesce(sum_tarif_2, 0) + coalesce(sum_tarif_22, 0) + coalesce(sum_tarif_14, 0) + coalesce(sum_tarif_25, 0) + coalesce(sum_tarif_100018, 0) + coalesce(sum_tarif_100019, 0) + 
                                 coalesce(sum_tarif_26, 0) + coalesce(sum_tarif_210, 0) + coalesce(sum_tarif_100020, 0) + coalesce(sum_tarif_100021, 0) +
-                                coalesce(reval, 0) - coalesce(sum_money, 0) + 
+                                coalesce(reval, 0) - coalesce(sum_money, 0) + coalesce(sum_tarif_500, 0) + 
                                 coalesce((SELECT coalesce(dolg_sum_peni, 0) FROM t_svod where year = " + s + " and month = " + t + @"), 0)   
                                 where month = " + i + " AND year = " + y;
                             ExecSQL(sql.ToString());
@@ -941,7 +926,7 @@ where month = " + MonthTo + " AND year = " + YearTo;
                                 dolg_sum_peni = coalesce(sum_tarif_7, 0) + coalesce(sum_tarif_9, 0) + coalesce(sum_tarif_6, 0) + coalesce(sum_tarif_15, 0) + coalesce(sum_tarif_8, 0) + coalesce(sum_tarif_17, 0) +
                                 coalesce(sum_tarif_2, 0) + coalesce(sum_tarif_22, 0) + coalesce(sum_tarif_14, 0) + coalesce(sum_tarif_25, 0) + coalesce(sum_tarif_100018, 0) + coalesce(sum_tarif_100019, 0) +
                                 coalesce(sum_tarif_26, 0) + coalesce(sum_tarif_210, 0) + coalesce(sum_tarif_100020, 0) + coalesce(sum_tarif_100021, 0) +
-                                coalesce(reval, 0) - coalesce(sum_money, 0) + 
+                                coalesce(reval, 0) - coalesce(sum_money, 0) + coalesce(sum_tarif_500, 0) + 
                                 coalesce((SELECT coalesce(dolg_sum_peni, 0) FROM t_svod where year = " + s + " and month = " + t + @"), 0)   
                                 where month = " + i + " AND year = " + y;
                             ExecSQL(sql.ToString());
